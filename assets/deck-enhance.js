@@ -199,6 +199,7 @@
   function buildOverlay() {
     var style = document.createElement("style");
     style.textContent =
+      "html,body{overscroll-behavior-x:none!important}" +
       ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:1200}" +
       ".pseb-tools button{width:40px;height:40px;border:none;border-radius:8px;background:rgba(0,71,187,.85);color:#fff;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:background .2s,transform .15s}" +
       ".pseb-tools button:hover{background:#FF5C00;transform:translateY(-2px)}" +
@@ -255,7 +256,8 @@
       ".side-nav:active:not(:disabled){transform:scale(.94)!important;background:#FF5C00!important;color:#fff!important;box-shadow:0 3px 10px rgba(0,0,0,.3)!important}" +
       ".side-nav:hover:not(:disabled){background:var(--goku-primary,#0047BB)!important;color:#fff!important;transform:none!important;box-shadow:0 4px 14px rgba(0,0,0,.28)!important}" +
       ".side-nav:disabled{opacity:.32!important;pointer-events:none}" +
-      ".left-nav{left:14px!important;right:auto!important}.right-nav{right:14px!important;left:auto!important}}";
+      ".left-nav{left:14px!important;right:auto!important}.right-nav{right:14px!important;left:auto!important}" +
+      ".slide-counter{top:12px!important;bottom:auto!important;left:12px!important;right:auto!important;z-index:150!important}}";
     document.head.appendChild(style);
 
     var tools = document.createElement("div");
