@@ -1,0 +1,1232 @@
+========================================================================
+CHAPTER 9 — Light: Reflection and Refraction
+PSEB Class 10 Science | Teaching Script — Version 1
+TOTAL SLIDES: 33
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 9 — Light: Reflection & Refraction (Title Slide)
+========================================================================
+
+ON SCREEN:
+  - Chapter heading: "Chapter 10" (displayed title)
+  - Sub-heading: "Light: Reflection & Refraction"
+  - Punjabi title: ਪ੍ਰਕਾਸ਼ - ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ
+
+SCRIPT (say this aloud):
+  Welcome, students! Today we begin Chapter 9 — Light: Reflection and Refraction. In Punjabi, our chapter is called ਪ੍ਰਕਾਸ਼ - ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ — Parkash, Paravartan ate Apvartan.
+
+  Light is something we interact with every single moment of our lives, and yet there is a beautiful science behind how it behaves. Why does a spoon look bent in a glass of water? Why does a torch create a sharp beam? How does a doctor examine your teeth with a tiny mirror? All of these are answered by this one chapter.
+
+  This is also one of the highest-scoring chapters in the PSEB board exam. It carries numericals, ray diagrams, definitions, and application-based questions — often accounting for 10 to 15 marks in the final paper. So every slide we go through today is directly exam-relevant. Let's get started with full energy!
+
+KEY POINTS TO STRESS:
+  - Chapter 9 is a very high-weightage chapter in PSEB Class 10 boards.
+  - Two main phenomena: Reflection (bouncing) and Refraction (bending).
+  - Both mirrors (reflection) and lenses (refraction) are covered.
+  - Numericals, ray diagrams, and theory are all exam-tested.
+
+BOARD TIP: This chapter typically contributes 10–15 marks in PSEB boards. Expect at least one numerical and one ray-diagram question.
+
+
+========================================================================
+SLIDE 2: Core Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Six key terms with Punjabi translations and pronunciation guides:
+    Reflection → ਪਰਾਵਰਤਨ (Bouncing back)
+    Refraction → ਅਪਵਰਤਨ (Bending of light)
+    Concave → ਅਵਤਲ (Curved inwards)
+    Convex → ਉੱਤਲ (Curved outwards)
+    Virtual Image → ਅਭਾਸੀ ਪ੍ਰਤੀਬਿੰਬ (Not on screen)
+    Refractive Index → ਅਪਵਰਤਨ ਅੰਕ (Measure of bending)
+
+SCRIPT (say this aloud):
+  Before we go into the physics, let us build our vocabulary. These six terms are the building blocks of this entire chapter. If you know these words confidently, the concepts will fall into place automatically.
+
+  First: Reflection — ਪਰਾਵਰਤਨ. This means bouncing back. When light hits a mirror and bounces back towards you — that is reflection. Think of how you see your face in a mirror every morning — that is ਪਰਾਵਰਤਨ.
+
+  Second: Refraction — ਅਪਵਰਤਨ. This means bending of light. When light travels from one medium into another — say, from air into water — it changes its speed and bends. That bending is called ਅਪਵਰਤਨ.
+
+  Third: Concave — ਅਵਤਲ. This means curved inward, like the inside of a bowl or a spoon. A concave mirror or concave lens curves inward. Remember it this way: a Cave goes inward — conCAVE, ਅਵਤਲ.
+
+  Fourth: Convex — ਉੱਤਲ. This means curved outward, like the outside of a ball or the back of a spoon. Convex bulges out towards you.
+
+  Fifth: Virtual Image — ਅਭਾਸੀ ਪ੍ਰਤੀਬਿੰਬ. This is an image that cannot be caught on a screen. When you look into a plane mirror, your image is inside the mirror — you cannot put a screen there and capture it. That is a virtual image, or ਅਭਾਸੀ ਪ੍ਰਤੀਬਿੰਬ.
+
+  Sixth: Refractive Index — ਅਪਵਰਤਨ ਅੰਕ. This is a number that tells us how much a medium bends light. The higher this number, the more it bends light. We will study this in detail later.
+
+  Make sure you can write each of these Punjabi terms correctly — they sometimes appear in 1-mark questions.
+
+KEY POINTS TO STRESS:
+  - Reflection = light bouncing back (ਪਰਾਵਰਤਨ).
+  - Refraction = light bending when changing medium (ਅਪਵਰਤਨ).
+  - Concave = curves inward (ਅਵਤਲ); Convex = curves outward (ਉੱਤਲ).
+  - Virtual image cannot be projected onto a screen.
+  - Refractive index is a number measuring how much a medium bends light.
+
+BOARD TIP: 1-mark questions often ask for the Punjabi term or the one-line meaning — learn all six here.
+
+
+========================================================================
+SLIDE 3: More Key Terms (ਹੋਰ ਸ਼ਬਦ)
+========================================================================
+
+ON SCREEN:
+  - Six more terms with Punjabi translations:
+    Normal → ਅਭਿਲੰਬ (Line ⊥ to surface)
+    Centre of Curvature (C) → ਵਕ੍ਰਤਾ ਕੇਂਦਰ (Center of the sphere)
+    Principal Axis → ਮੁੱਖ ਧੁਰਾ (Line through P and C)
+    Focal Length (f) → ਫੋਕਸ ਦੂਰੀ (Distance P to F)
+    Power of a Lens (P) → ਲੈਨਜ਼ ਦੀ ਸ਼ਕਤੀ (P = 1/f)
+    Dioptre (D) → ਡਾਇਓਪਟਰ (Unit of lens power)
+
+SCRIPT (say this aloud):
+  Excellent — now six more essential terms. These are the terms you will use constantly when drawing ray diagrams and applying formulas.
+
+  The Normal — ਅਭਿਲੰਬ — is an imaginary line drawn perpendicular (at 90°) to the surface at the exact point where light hits. All angles in reflection and refraction are measured from this normal, never from the surface itself. This is a very common mistake students make — always measure from the normal, not the surface.
+
+  Centre of Curvature — ਵਕ੍ਰਤਾ ਕੇਂਦਰ, written as C. A spherical mirror is a part of a hollow sphere. The centre of that complete sphere is called the Centre of Curvature. It is marked C on all ray diagrams.
+
+  Principal Axis — ਮੁੱਖ ਧੁਰਾ. This is the straight line that passes through the Pole P and the Centre of Curvature C. Think of it as the central line of symmetry of your mirror or lens diagram.
+
+  Focal Length — ਫੋਕਸ ਦੂਰੀ, denoted by f. This is the distance from the Pole P to the Principal Focus F. It is one of the most important quantities you will put into formulas.
+
+  Power of a Lens — ਲੈਨਜ਼ ਦੀ ਸ਼ਕਤੀ, denoted by P. The formula is simply P = 1/f. A lens with a shorter focal length bends light more, so it has more power.
+
+  Dioptre — ਡਾਇਓਪਟਰ, abbreviated D. This is the SI unit of lens power. When focal length is measured in metres, P comes out in dioptres. So a lens of focal length 0.5 m has a power of 1/0.5 = 2 D.
+
+KEY POINTS TO STRESS:
+  - Normal is perpendicular to surface — angles are always measured from the normal.
+  - C is the centre of the imaginary sphere; the mirror is a part of that sphere.
+  - Principal Axis passes through P and C.
+  - Focal length f = distance from Pole to Focus.
+  - P = 1/f (in metres); unit is dioptre (D).
+
+BOARD TIP: Drawing the normal correctly in ray diagrams earns marks — students who measure angles from the surface instead of the normal lose marks.
+
+
+========================================================================
+SLIDE 4: Reading — The Bending of Light
+========================================================================
+
+ON SCREEN:
+  - Read-aloud passage about reflection and refraction
+  - Examples: straw in water, magnifying glass, spectacle lens, mirrors, microscopes, telescopes
+  - Play/Stop button for audio narration
+
+SCRIPT (say this aloud):
+  Let us now read a short passage together that connects this chapter to the real world. I will read it aloud, and you follow along.
+
+  "Have you ever noticed that a straw in a glass of water looks broken at the surface?" — Yes! This is something you have all seen at home. The straw is perfectly straight, but it appears bent. Why? Because light coming from the part of the straw under water bends when it comes out into air. Your eye traces the bent ray backward in a straight line and gets the wrong position — so the straw looks broken. This is refraction, ਅਪਵਰਤਨ.
+
+  "When light travels from air into water or glass, it slows down and changes direction." — This is the key mechanism of refraction. The slowing-down causes the bending. Just like a car wheel that hits soft ground on one side slows down on that side and causes the car to turn — light bends because one side of the wavefront slows down before the other.
+
+  "A tiny lens in a magnifying glass can gather sunlight into a burning point." — You may have used a magnifying glass to focus sunlight on paper and burn it as a child. That focused point is the principal focus of the convex lens. The lens bends all parallel rays of sunlight to meet at one single point, generating enormous heat.
+
+  "Mirrors work by reflection, bouncing light back so precisely that we see our own face." — The precision of reflection — ∠i = ∠r — is what creates a perfect mirror image.
+
+  "Humans built microscopes to see germs and telescopes to see distant galaxies." — All of modern science — from biology to astronomy — depends on our ability to control the bending and bouncing of light. This chapter is the foundation of all optics.
+
+  Take a moment to think about two examples from your own daily life where you see reflection, and two where you see refraction. You will be surprised how many there are.
+
+KEY POINTS TO STRESS:
+  - The straw-in-water illusion is caused by refraction at the water-air boundary.
+  - Refraction occurs because light slows down when entering a denser medium.
+  - Concave mirrors and convex lenses both converge light to a focus.
+  - The laws of optics underpin microscopes, telescopes, cameras, and spectacles.
+
+BOARD TIP: The straw-in-water example is a classic "give a real-life example of refraction" answer — remember it for 1- or 2-mark questions.
+
+
+========================================================================
+SLIDE 5: Laws of Reflection
+========================================================================
+
+ON SCREEN:
+  - Statement of the two laws of reflection
+  - Key terms: angle of incidence (∠i), angle of reflection (∠r), normal, plane of incidence
+
+SCRIPT (say this aloud):
+  Let us now state the Laws of Reflection formally. These two laws govern every reflection — whether from a plane mirror, a concave mirror, or a convex mirror. They are also the starting point for any ray diagram.
+
+  Law 1: The angle of incidence equals the angle of reflection. In symbols: ∠i = ∠r. The angle of incidence is the angle between the incoming ray and the normal at the point of incidence. The angle of reflection is the angle between the reflected ray and the same normal. These two angles are always equal. If I shine a torch at a mirror at 30° to the normal, it bounces back at exactly 30° to the normal — no more, no less.
+
+  Law 2: The incident ray, the reflected ray, and the normal at the point of incidence all lie in the same plane. This means the reflection happens in a flat, two-dimensional plane — the ray does not "jump out" of the plane. Practically, this allows us to draw accurate 2D ray diagrams on paper.
+
+  Let me make sure the diagram is clear in your mind: draw a mirror as a horizontal line. Draw the normal as a vertical dotted line at the point where the ray hits. The incoming ray makes angle i with the normal. The outgoing ray makes angle r with the normal. Both rays are on the same side of the normal, in the same plane. And i always equals r.
+
+  These two laws apply equally to all types of mirrors — plane, concave, and convex.
+
+KEY POINTS TO STRESS:
+  - ∠i = ∠r (angle of incidence = angle of reflection) — this is the core law.
+  - All three — incident ray, reflected ray, normal — lie in the same plane.
+  - Angles are always measured from the normal, NOT from the mirror surface.
+  - These laws apply to all types of mirrors without exception.
+
+BOARD TIP: A very frequent 2-mark question asks you to "state the laws of reflection" — write both laws clearly and completely, not just ∠i = ∠r.
+
+
+========================================================================
+SLIDE 6: Real vs. Virtual Images
+========================================================================
+
+ON SCREEN:
+  - Comparison table with four rows:
+    Feature | Real Image | Virtual Image
+    Formed by | Rays actually meeting | Rays only appearing to meet
+    Can be on a screen? | Yes (Real can) | No (Virtual cannot)
+    Orientation | Always inverted | Always erect
+    Example | Cinema screen image | Plane-mirror image
+
+SCRIPT (say this aloud):
+  Before we go further into mirrors and lenses, we must clearly understand the difference between a real image and a virtual image. This distinction comes up in almost every question in this chapter.
+
+  A Real Image is formed when the actual reflected or refracted light rays physically converge — they actually meet at a point. Because the rays genuinely cross at that point, you can place a screen there and you will see the image on the screen. Think of a projector in a cinema hall — it forms a real image on the screen at the back of the hall. A real image is always inverted, meaning it is upside down compared to the object.
+
+  A Virtual Image is formed when the light rays do not actually meet — they only appear to meet when extended backward. Your eye traces the diverging rays backward and your brain perceives an image where the rays seem to come from, even though no actual light rays are there. Because no real rays meet there, you cannot capture it on a screen. The image you see in a plane mirror — it appears to be behind the mirror, but if you put a screen behind the mirror, nothing appears on it. That is a virtual image. Virtual images are always erect — right-side up.
+
+  So the quick test: Can you catch it on a screen? Yes → Real. No → Virtual.
+
+  Remember: Real images are always inverted; Virtual images are always erect. This rule alone will help you answer many questions.
+
+KEY POINTS TO STRESS:
+  - Real image: actual rays meet; can be projected on a screen; always inverted.
+  - Virtual image: rays only appear to meet (extended backward); cannot be on screen; always erect.
+  - "Screen test": if you can project it → real; if you cannot → virtual.
+  - Cinema projection = real image; plane mirror reflection = virtual image.
+
+BOARD TIP: Frequent 1-mark question — "What type of image is formed by a plane mirror?" Answer: Virtual and erect. Write both words.
+
+
+========================================================================
+SLIDE 7: Plane Mirror — Image Characteristics
+========================================================================
+
+ON SCREEN:
+  - Four listed properties of the image in a plane mirror:
+    1. Virtual and Erect
+    2. Same Size (equal to object height)
+    3. Same Distance (image distance = object distance)
+    4. Laterally Inverted (AMBULANCE example)
+
+SCRIPT (say this aloud):
+  A plane mirror is the simplest mirror — perfectly flat. Before studying curved mirrors, you must know these four absolute properties of the image formed by a plane mirror. These four points come up in exams again and again.
+
+  Property 1: The image is Virtual and Erect. The image forms behind the mirror — you cannot touch it or project it. And it is right-side up, not flipped upside down.
+
+  Property 2: The image is the Same Size as the object. If you are 5 feet tall, your image in the mirror is exactly 5 feet tall. The magnification is exactly 1 — neither enlarged nor diminished.
+
+  Property 3: The image is formed at the Same Distance behind the mirror as the object is in front of it. If you stand 2 metres in front of a plane mirror, your image appears to be 2 metres behind the mirror. If you move closer to the mirror, your image also moves closer at the same rate.
+
+  Property 4: The image is Laterally Inverted. Left and right are swapped. Your right hand appears as the left hand in the mirror. This is why the word AMBULANCE is written in reverse on ambulance vehicles — when a driver sees it in their rear-view mirror, the laterally inverted reflection reads correctly as AMBULANCE, prompting them to give way.
+
+  These four properties are specific to plane mirrors. Curved mirrors will give different results depending on where the object is placed.
+
+KEY POINTS TO STRESS:
+  - Virtual and erect — cannot be projected on screen; right-side up.
+  - Same size as object — magnification = 1.
+  - Image distance = object distance from the mirror.
+  - Laterally inverted — left-right swap (AMBULANCE example).
+
+BOARD TIP: The "AMBULANCE" example for lateral inversion is a classic application question — worth 1 to 2 marks and very commonly asked.
+
+
+========================================================================
+SLIDE 8: Spherical Mirrors — Key Terms
+========================================================================
+
+ON SCREEN:
+  - Introductory statement: concave reflects from inside; convex reflects from outside
+  - Table of five terms:
+    Pole (P) | Centre of mirror surface
+    Centre of Curvature (C) | Centre of the sphere
+    Radius of Curvature (R) | Distance P to C
+    Principal Focus (F) | Where parallel rays converge (or appear to)
+    Focal Length (f) | Distance P to F
+  - Key relation: R = 2f
+
+SCRIPT (say this aloud):
+  Now we move to spherical mirrors. A spherical mirror is essentially a piece cut from the surface of a hollow sphere. If light reflects from the inner (concave) side, it is a Concave Mirror — ਅਵਤਲ ਦਰਪਣ. If light reflects from the outer (convex) side, it is a Convex Mirror — ਉੱਤਲ ਦਰਪਣ.
+
+  Let us go through the key points on the mirror one by one.
+
+  The Pole, P, is the geometric centre of the mirror's reflecting surface — the midpoint of the circular boundary of the mirror.
+
+  The Centre of Curvature, C, is the centre of the complete sphere of which the mirror is a part. It lies in front of a concave mirror and behind a convex mirror. On ray diagrams, you always mark C.
+
+  The Radius of Curvature, R, is the distance from the Pole P to the Centre of Curvature C. It is the radius of the original sphere.
+
+  The Principal Focus, F, is the point where rays parallel to the principal axis converge after reflection (for a concave mirror) or appear to diverge from after reflection (for a convex mirror). For a concave mirror, F is in front of the mirror; for a convex mirror, F is behind the mirror.
+
+  The Focal Length, f, is the distance from the Pole P to the Principal Focus F.
+
+  Now, the most important relationship in this section: R = 2f. The focus is exactly halfway between the Pole and the Centre of Curvature. So if R = 20 cm, then f = 10 cm. If f = 15 cm, then R = 30 cm. This relationship is used very frequently in numericals — always verify both values when given one.
+
+KEY POINTS TO STRESS:
+  - Concave mirror: reflecting surface is on the inside (cave side); convex is outside.
+  - Pole P = centre of mirror; Centre of Curvature C = centre of parent sphere.
+  - Principal Focus F = where parallel rays converge (concave) or appear to diverge from (convex).
+  - f = distance from P to F; R = distance from P to C.
+  - R = 2f — the focal length is always half the radius of curvature.
+
+BOARD TIP: R = 2f is used in almost every mirror numerical — if the question gives R, halve it to get f before using the mirror formula.
+
+
+========================================================================
+SLIDE 9: Rules for Mirror Ray Diagrams
+========================================================================
+
+ON SCREEN:
+  - Four rules for constructing ray diagrams with spherical mirrors:
+    Rule 1: Parallel ray → passes through F after reflection
+    Rule 2: Ray through F → becomes parallel after reflection
+    Rule 3: Ray through C → reflects back along the same path
+    Rule 4: Ray at pole P → reflects making equal angles with the axis
+
+SCRIPT (say this aloud):
+  To draw a ray diagram for a spherical mirror, you pick any TWO of these four standard rays and draw them from the top of the object. Where they meet after reflection gives the position of the image. Let me explain each rule carefully.
+
+  Rule 1: A ray parallel to the principal axis — after reflecting from a concave mirror — passes through the Principal Focus F. After reflecting from a convex mirror, it appears to diverge from F (which is behind the mirror). This ray starts horizontal and bends toward F.
+
+  Rule 2: A ray that is heading toward the Principal Focus F — before hitting a concave mirror — reflects back parallel to the principal axis. This is the reverse of Rule 1. For a convex mirror, a ray directed toward F (behind the mirror) reflects back parallel.
+
+  Rule 3: A ray directed toward the Centre of Curvature C travels along the radius of the sphere — so it hits the mirror surface perpendicularly — and reflects back along exactly the same path. Remember, the normal at any point of a sphere passes through the centre, so ∠i = 0° and ∠r = 0°. The ray retraces its path.
+
+  Rule 4: A ray hitting the Pole P of the mirror reflects just like it would off a plane mirror at that point — making equal angles with the principal axis on both sides. The principal axis itself acts as the normal at the pole.
+
+  In your exam, always use Rules 1 and 2 together, or Rules 1 and 3. They are the cleanest pair. Draw both rays, and the point where their reflected rays intersect is the image location. The image is the intersection point.
+
+KEY POINTS TO STRESS:
+  - Use any TWO rules to locate an image — they must intersect.
+  - Rule 1: parallel ray → through F. Rule 2: through F → parallel. (Reverse of each other.)
+  - Rule 3: through C → reflects back on itself (angle of incidence = 0°).
+  - Rule 4: ray at pole → reflects at equal angle to the axis.
+  - In board diagrams, clearly show arrowheads on all rays.
+
+BOARD TIP: Board examiners look for: (1) two rays drawn, (2) correct labels C, F, P, (3) image clearly marked at intersection. Missing any of these loses marks.
+
+
+========================================================================
+SLIDE 10: Concave Mirror — Image for Each Position
+========================================================================
+
+ON SCREEN:
+  - Table showing image formation for six object positions:
+    At infinity → At F, point-sized, real, inverted
+    Beyond C → Between F and C, diminished, real, inverted
+    At C → At C, same size, real, inverted
+    Between C and F → Beyond C, enlarged, real, inverted
+    At F → At infinity, very large, real, inverted
+    Between P and F → Behind mirror, enlarged, virtual, erect
+
+SCRIPT (say this aloud):
+  This table is one of the most important tables in the entire chapter. For the concave mirror, the nature, size, and position of the image change depending on where the object is placed. You must know all six rows for the board exam.
+
+  Let me go through each case carefully.
+
+  Case 1: Object at infinity. When parallel rays come in from a very distant object — like the sun or a star — they all converge at the Principal Focus F. The image is at F, it is point-sized, real, and inverted. This is the principle behind a solar cooker and a concave reflector in a torch.
+
+  Case 2: Object beyond C. The image forms between F and C. It is diminished, real, and inverted. Think of a camera taking a photo of a distant building — the image on the film is smaller than the building.
+
+  Case 3: Object at C. The image also forms at C. It is the same size, real, and inverted. Object and image are at the same point.
+
+  Case 4: Object between C and F. Now the image jumps beyond C. It is enlarged, real, and inverted. This is used in reflecting telescopes — the object (e.g., moon) is between C and F, giving a magnified image.
+
+  Case 5: Object at F. The reflected rays become parallel — they never meet in front of the mirror. We say the image is at infinity. In practice, this is used in searchlights and vehicle headlights — placing the bulb at F produces a parallel beam.
+
+  Case 6: Object between P and F. THIS IS THE SPECIAL CASE. The image is behind the mirror — virtual, erect, and enlarged. This is how a shaving mirror and a make-up mirror work. You hold your face close (between P and F) and you get a magnified, upright reflection. This is the ONLY position where a concave mirror gives a virtual image.
+
+  A quick memory trick for the size: as the object moves from infinity toward the mirror, the image starts at F (tiny), moves back toward C (smaller), reaches C (same size), then grows larger as the object goes between C and F, then goes to infinity when the object is at F, and finally the image becomes virtual when the object passes F toward P.
+
+KEY POINTS TO STRESS:
+  - There are SIX positions to know — learn them in order.
+  - Image is ALWAYS real and inverted EXCEPT when object is between P and F.
+  - Between P and F → virtual, erect, enlarged (shaving/make-up mirror use).
+  - Object at F → image at infinity (searchlight/headlight principle).
+  - Object at C → image at C, same size (standard reference case).
+
+BOARD TIP: This entire table is a high-probability 3-mark or 5-mark question. Learn all 6 rows — object position, image position, size, and nature.
+
+
+========================================================================
+SLIDE 11: Convex Mirror — Uses
+========================================================================
+
+ON SCREEN:
+  - Key property: Convex mirror always forms virtual, erect, and diminished image
+  - Two main uses: rear-view mirrors; blind turns and shop security
+  - Explanation of wider field of view
+
+SCRIPT (say this aloud):
+  The convex mirror — ਉੱਤਲ ਦਰਪਣ — has one unique and permanent property: no matter where you place the object, the image is always virtual, erect, and diminished. This never changes. You do not need to worry about six different cases here — it is always the same.
+
+  Why? Because a convex mirror is a diverging mirror. The reflecting surface curves away from you, so reflected rays always diverge — they spread apart. Diverging reflected rays, when traced backward, appear to meet behind the mirror, giving a virtual, erect, diminished image behind the mirror.
+
+  Now, why is this useful?
+
+  Use 1: Rear-view mirrors in vehicles. You have seen the flat mirror on the left side of the road and the convex mirror on the right or inside the vehicle. Because the image is diminished, the mirror can capture a much wider area in a small mirror. You can see cars far behind you AND cars slightly to the side — all in one glance. The trade-off is that objects appear smaller and therefore farther than they actually are. This is why vehicles in India often write "Objects in mirror are closer than they appear."
+
+  Use 2: Security mirrors at shop corners and blind turns. Convex mirrors placed at road bends and in shopping malls give a wide-angle view of oncoming traffic or activity in a wide area of the store.
+
+  The key advantage is the wider field of view because reflected rays from a large area are diverged and packed into a small mirror surface.
+
+KEY POINTS TO STRESS:
+  - Convex mirror: ALWAYS virtual, erect, diminished — no exceptions.
+  - Diverging mirror → reflected rays spread out → image is always behind the mirror.
+  - Wider field of view → main advantage → used in rear-view mirrors and security mirrors.
+  - Convex mirrors make objects appear smaller and farther away.
+
+BOARD TIP: "Why is a convex mirror used as a rear-view mirror?" is a very common 2-mark question. Answer must include: (1) always virtual, erect, diminished; (2) gives wider field of view.
+
+
+========================================================================
+SLIDE 12: Sort It — Mirror Uses (Interactive Activity)
+========================================================================
+
+ON SCREEN:
+  - Interactive drag-and-drop/click activity
+  - Six uses to classify: torch/headlight reflector; vehicle rear-view mirror; shaving/make-up mirror; security mirror in shops; dentist's mirror; wide view at blind turns
+  - Two target columns: Concave Mirror (ਅਵਤਲ ਦਰਪਣ — converging); Convex Mirror (ਉੱਤਲ ਦਰਪਣ — diverging)
+  - Reset button
+
+SCRIPT (say this aloud):
+  We now have a sorting activity — and this is excellent practice because a common exam question asks you to identify which type of mirror is used for which purpose.
+
+  Let me walk you through the correct answers before or after you attempt it yourself.
+
+  Concave Mirror — ਅਵਤਲ ਦਰਪਣ — uses: These are all situations where you want to either converge light or get a magnified image.
+  — Torch and headlight reflectors use a concave mirror. The bulb is placed at the focus, and the reflected rays become a parallel beam — a powerful directed light.
+  — Shaving mirror and make-up mirror use a concave mirror. The face is placed between P and F, giving a magnified, erect virtual image.
+  — Dentist's mirror uses a concave mirror. The dentist holds it behind your tooth, placing the tooth between P and F, to get a magnified view.
+
+  Convex Mirror — ਉੱਤਲ ਦਰਪਣ — uses: These are all situations where you want a wider field of view.
+  — Vehicle rear-view mirror uses a convex mirror for the wider field of view.
+  — Security mirrors in shops use a convex mirror so that staff can monitor a large area from one mirror.
+  — Wide view at blind turns uses a convex mirror mounted on road bends so drivers can see oncoming vehicles.
+
+  So the rule is: Concave mirrors → for focusing or magnifying. Convex mirrors → for wide-angle viewing.
+
+  Now do the activity on screen, classify all six uses, and check your score!
+
+KEY POINTS TO STRESS:
+  - Concave: torch reflector, shaving mirror, dentist's mirror — all need focusing or magnification.
+  - Convex: rear-view mirror, security mirror, blind-turn mirror — all need wide field of view.
+  - The distinguishing principle: concave converges (focuses); convex diverges (spreads).
+
+BOARD TIP: "Name two uses of a concave mirror" and "Name two uses of a convex mirror" are frequent 2-mark questions — you need to remember 3 of each.
+
+
+========================================================================
+SLIDE 13: New Cartesian Sign Convention
+========================================================================
+
+ON SCREEN:
+  - Four rules of the New Cartesian Sign Convention:
+    1. All distances measured from the Pole P
+    2. Direction of incident light = positive; against it = negative
+    3. Heights above axis = positive; below = negative
+  - Result: concave f is negative (−); convex f is positive (+)
+
+SCRIPT (say this aloud):
+  The New Cartesian Sign Convention is an agreement — a system — that tells us how to assign positive and negative signs to distances in mirror and lens problems. Without following this consistently, your numerical answers will be wrong. Let me explain it clearly.
+
+  Rule 1: All distances are measured from the Pole P. P is your origin — the zero point. Every distance — object distance u, image distance v, focal length f — is measured from P.
+
+  Rule 2: The incident light normally travels from left to right in our diagrams. Distances measured in the same direction as the incident light (to the right of P) are positive. Distances measured against the direction of incident light (to the left of P) are negative. Since objects are normally placed in front of the mirror (to the left of P in the standard diagram), the object distance u is always negative.
+
+  Rule 3: Heights measured upward from the principal axis are positive. Heights measured downward are negative. An upright (erect) object has a positive height. An inverted image has a negative height.
+
+  Now, applying these rules to focal length: For a concave mirror, the focus F is in front of the mirror — in the direction from which light comes — which means it is on the negative side. So the focal length of a concave mirror is negative (−f). For a convex mirror, the focus F is behind the mirror — on the positive side — so focal length is positive (+f).
+
+  This might seem counterintuitive at first, but once you practice even two or three numericals, the signs become second nature. Always write down your given values with their correct signs before substituting into the formula.
+
+KEY POINTS TO STRESS:
+  - All distances measured from Pole P.
+  - Against incident light direction → negative; with incident light → positive.
+  - Object is always in front of mirror → u is always negative.
+  - Concave mirror: f is negative. Convex mirror: f is positive.
+  - Heights above axis = positive; inverted image height = negative.
+
+BOARD TIP: Incorrect signs are the #1 cause of wrong answers in mirror numericals. Always list u, v, f with signs BEFORE substituting into the formula.
+
+
+========================================================================
+SLIDE 14: The Mirror Formula — Build It (Interactive)
+========================================================================
+
+ON SCREEN:
+  - Interactive formula builder: drag/click tiles to construct the mirror formula
+  - Available tiles: 1/v, 1/u, 1/f, +, =
+  - Target: 1/v + 1/u = 1/f
+  - Undo and Clear All buttons
+
+SCRIPT (say this aloud):
+  We now reach the Mirror Formula — one of the two most important formulas in this chapter. This interactive activity asks you to construct it yourself by placing the correct pieces in the correct order. Let us do this together.
+
+  The Mirror Formula is: one over v, plus one over u, equals one over f.
+
+  Written mathematically:
+  1/v + 1/u = 1/f
+
+  Here, v is the image distance, u is the object distance, and f is the focal length — all measured from the Pole P with the correct sign convention.
+
+  A critical point: Notice the PLUS sign between 1/v and 1/u. This is very important because the Lens Formula, which we will see shortly, has a MINUS sign in the same position. Students often mix them up and lose marks. The mirror formula has a PLUS sign.
+
+  Go ahead and drag the tiles: first place 1/v, then the + sign, then 1/u, then the = sign, and finally 1/f. Once you have placed them correctly, the formula is confirmed.
+
+  This formula connects all three key distances. If you know any two, you can always find the third. And together with the magnification formula, you can describe everything about the image.
+
+KEY POINTS TO STRESS:
+  - Mirror formula: 1/v + 1/u = 1/f (with a PLUS sign).
+  - v = image distance, u = object distance, f = focal length — all from Pole P.
+  - This formula is valid for both concave and convex mirrors.
+  - Use Cartesian sign convention when substituting values.
+
+BOARD TIP: The mirror formula has a PLUS sign; the lens formula has a MINUS sign. Write both in your formula sheet and highlight the difference — this is a trap every year.
+
+
+========================================================================
+SLIDE 15: Numerical — Mirror Formula Step-by-Step
+========================================================================
+
+ON SCREEN:
+  - Problem: Object 15 cm in front of a concave mirror of focal length 10 cm. Find v.
+  - Step-by-step reveal (5 steps):
+    Step 1: u = −15 cm, f = −10 cm, v = ?
+    Step 2: Formula: 1/v + 1/u = 1/f
+    Step 3: Rearrange: 1/v = 1/f − 1/u
+    Step 4: Substitute: 1/v = 1/(−10) − 1/(−15) = −1/10 + 1/15 = (−3 + 2)/30 = −1/30
+    Step 5: Answer: v = −30 cm (real, in front of mirror)
+
+SCRIPT (say this aloud):
+  Let us solve a complete mirror numerical step by step. This is the exact format you should follow in your board exam — every step shown, every sign correct, units written.
+
+  The Problem: An object is placed 15 cm in front of a concave mirror of focal length 10 cm. Find the image distance v.
+
+  Step 1 — Write down the data with signs. The object is in front of the mirror, so u = −15 cm. The mirror is concave, so f = −10 cm. We need to find v.
+
+  Step 2 — Write the formula: 1/v + 1/u = 1/f.
+
+  Step 3 — Rearrange to find 1/v: subtract 1/u from both sides, giving 1/v = 1/f − 1/u.
+
+  Step 4 — Substitute the values. 1/v = 1/(−10) − 1/(−15). This equals −1/10 + 1/15. To subtract these fractions, find a common denominator of 30: −3/30 + 2/30 = −1/30. So 1/v = −1/30.
+
+  Step 5 — Find v: v = −30 cm. The negative sign tells us the image is in front of the mirror — on the same side as the object — which means it is a REAL image.
+
+  Let me now also find the magnification for practice: m = −v/u = −(−30)/(−15) = −2. The magnitude is 2, so the image is twice as large as the object (enlarged). The negative sign confirms the image is real and inverted.
+
+  Always finish a mirror numerical by stating the nature of the image: here, the image is real, inverted, enlarged, and 30 cm in front of the mirror.
+
+KEY POINTS TO STRESS:
+  - Always assign signs first: u = −15 cm (in front), f = −10 cm (concave).
+  - Rearrange: 1/v = 1/f − 1/u.
+  - v = −30 cm → negative means real image (in front of mirror).
+  - m = −v/u = −2 → negative means inverted; |m| = 2 means enlarged.
+  - State the full nature of the image in your conclusion sentence.
+
+BOARD TIP: In board exams, showing each arithmetic step earns step marks. Even if your final answer is slightly off, you still get marks for correct method and signs.
+
+
+========================================================================
+SLIDE 16: Rules for Lens Ray Diagrams
+========================================================================
+
+ON SCREEN:
+  - Three rules for constructing ray diagrams for lenses:
+    Rule 1 (Parallel): Ray parallel to axis → passes through F₂ on the other side
+    Rule 2 (Focus): Ray through F₁ → emerges parallel to axis
+    Rule 3 (Optical Center): Ray through optical center O → goes completely straight, no deviation
+  - Emphasis on "Board Exception" for Rule 3
+
+SCRIPT (say this aloud):
+  Lenses work by refraction — light bends as it passes through the glass. For drawing lens ray diagrams, we have three standard rules. These are very similar to mirror rules, but with one crucial difference.
+
+  Rule 1 — Parallel ray: A ray of light travelling parallel to the principal axis, after passing through a convex lens, converges at the second Principal Focus F₂ on the other side of the lens. For a concave lens, it appears to diverge from F₂ — trace it backward and it meets at F₂ on the same side as the object.
+
+  Rule 2 — Focus ray: A ray that passes through the first Principal Focus F₁ (in front of the lens for a convex lens) emerges from the lens parallel to the principal axis. This is the reverse of Rule 1 — parallel and focus rays are mutual reverses of each other.
+
+  Rule 3 — Optical Centre ray: THIS IS THE CRUCIAL BOARD EXCEPTION. A ray of light that passes through the exact Optical Centre O of the lens continues completely straight — it goes through the lens without any bending or deviation whatsoever. No refraction occurs at the optical centre. This is unique to lenses; there is no equivalent in mirror rules.
+
+  This third rule is extremely important and also a very common source of mistakes. Students sometimes draw the optical centre ray as if it bends. No — it goes straight through. The optical centre ray gives you the direction of the image, while the parallel ray or focus ray gives you the height.
+
+  For a ray diagram, draw: (1) the parallel ray → bends to F₂, and (2) the optical centre ray → goes straight. The intersection of these two gives the image position.
+
+KEY POINTS TO STRESS:
+  - Rule 1: Parallel → through F₂ (convex) or appears from F₂ (concave).
+  - Rule 2: Through F₁ → emerges parallel to axis.
+  - Rule 3 (CRITICAL): Through optical centre O → NO BENDING — goes completely straight.
+  - Use Rules 1 and 3 together for the clearest diagrams.
+  - Lenses have two focal points: F₁ (object side) and F₂ (image side).
+
+BOARD TIP: Drawing a ray through the optical centre and showing it bending is a common diagram error. It must go completely straight — examiners specifically check this.
+
+
+========================================================================
+SLIDE 17: The Image Formation Cheat Sheet
+========================================================================
+
+ON SCREEN:
+  - Summary table of all four optical devices:
+    Concave Mirror | Concave Mirror | Real & Inverted | Virtual & Erect only if object between P and F
+    Convex Mirror | Always Virtual, Erect, Diminished | Used as rear-view mirror (wider field)
+    Convex Lens | Real & Inverted | Virtual & Erect only if object between O and F₁
+    Concave Lens | Always Virtual, Erect, Diminished | Similar to convex mirror
+
+SCRIPT (say this aloud):
+  This cheat sheet gives you the big picture for all four optical devices at once. Look at this table carefully — it is a brilliant study tool because it highlights both the general rule and the special exception for each device.
+
+  Row 1 — Concave Mirror: Typically forms a real, inverted image — that is the general behaviour when the object is outside the focus. The special exception is when the object is very close, between P and F — then and only then does a concave mirror form a virtual, erect, and enlarged image.
+
+  Row 2 — Convex Mirror: ALWAYS forms a virtual, erect, diminished image. There is no exception. The reason it is used as a rear-view mirror is this wide-angle, always-upright, always-safe image it provides.
+
+  Row 3 — Convex Lens: Typically forms a real, inverted image — when the object is beyond the focus. The special exception is when the object is between the optical centre O and F₁ — then the convex lens acts like a magnifying glass and forms a virtual, erect, enlarged image. This is exactly the same situation as the concave mirror's special case.
+
+  Row 4 — Concave Lens: ALWAYS forms a virtual, erect, diminished image. There is no exception. A concave lens is a diverging lens, just as a convex mirror is a diverging mirror — so their behaviour is analogous. Both always give the same type of image regardless of object position.
+
+  Notice the beautiful symmetry here: Concave mirrors and convex lenses are both converging devices — they generally form real, inverted images (with one close-object exception). Convex mirrors and concave lenses are both diverging devices — they always form virtual, erect, diminished images, no exceptions.
+
+KEY POINTS TO STRESS:
+  - Converging devices (concave mirror, convex lens): generally real+inverted; exception when object is very close.
+  - Diverging devices (convex mirror, concave lens): ALWAYS virtual, erect, diminished — no exceptions.
+  - The close-object exception for concave mirror = between P and F.
+  - The close-object exception for convex lens = between O and F₁.
+  - Convex mirror ↔ concave lens: same behavior (both always diverging).
+
+BOARD TIP: This table is frequently tested as a "compare and contrast" or "fill in the table" question for 3–5 marks. Learn all four rows.
+
+
+========================================================================
+SLIDE 18: The Formula Builder — Lens Formula (Interactive)
+========================================================================
+
+ON SCREEN:
+  - Interactive formula builder for the Lens Formula
+  - Target: 1/v − 1/u = 1/f (with a MINUS sign)
+  - Available tiles: 1/v, 1/u, 1/f, +, −, =
+  - Board Trap warning: Mirror formula has +; Lens formula has −
+
+SCRIPT (say this aloud):
+  Now we build the Lens Formula. This interactive is very similar to the mirror formula builder — but the result is different in one critical way.
+
+  The Lens Formula is: one over v, MINUS one over u, equals one over f.
+
+  Written mathematically:
+  1/v − 1/u = 1/f
+
+  Go ahead and place the tiles: 1/v, then the MINUS sign (not plus!), then 1/u, then =, then 1/f.
+
+  The minus sign is the key difference between the mirror formula and the lens formula:
+  — Mirror Formula: 1/v + 1/u = 1/f (PLUS)
+  — Lens Formula: 1/v − 1/u = 1/f (MINUS)
+
+  The slide has a Board Trap warning prominently displayed, and for very good reason. This sign error is the single most common mistake in this chapter. Every year, students who have studied hard still get numericals wrong because they use the wrong sign in the formula.
+
+  My advice: write both formulas side by side in your notes with the plus and minus signs circled or highlighted. When you start any optics numerical, write the full formula before substituting — this forces you to think about which formula you are using.
+
+  Also note: the sign convention for lenses is the same as for mirrors. u (object distance) is always negative (object on left, incident light from left). v and f follow the same rules — positive to the right, negative to the left.
+
+KEY POINTS TO STRESS:
+  - Lens Formula: 1/v − 1/u = 1/f (MINUS sign between 1/v and 1/u).
+  - Mirror Formula has PLUS; Lens Formula has MINUS — this is non-negotiable.
+  - The same Cartesian sign convention applies to lenses as to mirrors.
+  - u is always negative (object in front of lens, same side as incident light).
+  - For convex lens: f is positive. For concave lens: f is negative.
+
+BOARD TIP: EVERY YEAR this sign difference causes wrong answers. Write both formulas in your exam answer sheet before solving — do not rely on memory mid-calculation.
+
+
+========================================================================
+SLIDE 19: Decoding Magnification (ਵੱਡਦਰਸ਼ਣ)
+========================================================================
+
+ON SCREEN:
+  - Magnification formula: m = h'/h = −v/u
+  - Rule 1 (Sign): m negative → real and inverted; m positive → virtual and erect
+  - Rule 2 (Number): |m| > 1 → enlarged; |m| < 1 → diminished; |m| = 1 → same size
+
+SCRIPT (say this aloud):
+  Magnification — ਵੱਡਦਰਸ਼ਣ — is a formula that immediately tells you everything about the image. Once you calculate m, you know whether the image is real or virtual, and whether it is bigger, smaller, or the same size as the object.
+
+  The formula is: m = h' divided by h = negative v divided by u.
+
+  Here, h' is the height of the image and h is the height of the object. The ratio −v/u gives you the same result using the distances.
+
+  Now let us decode what the value of m tells you — and this is the most useful part.
+
+  Rule 1: The SIGN of m tells you whether the image is real or virtual.
+  — If m is NEGATIVE: the image is REAL and INVERTED. Why? Because a real image forms below the principal axis when the object is above it — so the image height h' is negative while the object height h is positive. Negative divided by positive = negative m.
+  — If m is POSITIVE: the image is VIRTUAL and ERECT. The image is on the same side as the object, upright. Positive h' over positive h = positive m.
+
+  Rule 2: The MAGNITUDE (absolute value) of m tells you whether the image is larger or smaller.
+  — If |m| > 1 (for example, m = 2 or m = −3): the image is ENLARGED — it is bigger than the object.
+  — If |m| < 1 (for example, m = 0.5 or m = −0.7): the image is DIMINISHED — it is smaller than the object.
+  — If |m| = 1 (for example, m = −1): the image is the SAME SIZE as the object.
+
+  So a magnification of m = −2 tells you instantly: real, inverted (negative sign), and twice as large as the object (magnitude = 2).
+
+  And m = +0.5 tells you: virtual, erect (positive sign), and half the size of the object (magnitude = 0.5).
+
+  For mirrors: m = −v/u. For lenses: m = v/u (positive, no negative sign). Be careful with this difference.
+
+KEY POINTS TO STRESS:
+  - m = h'/h = −v/u (for mirrors); m = v/u (for lenses).
+  - Negative m → real and inverted image.
+  - Positive m → virtual and erect image.
+  - |m| > 1 → enlarged; |m| < 1 → diminished; |m| = 1 → same size.
+  - A single value of m tells you the nature, orientation, AND relative size of the image.
+
+BOARD TIP: Numericals often ask "find m and state the nature of the image." Always interpret the sign AND magnitude — both are expected in your answer.
+
+
+========================================================================
+SLIDE 20: Laws of Refraction (Snell's Law)
+========================================================================
+
+ON SCREEN:
+  - Two laws of refraction:
+    Law 1: Incident ray, refracted ray, and normal all lie in the same plane
+    Law 2: Snell's Law — sin i / sin r = n₂₁ (constant for two given media)
+  - Bending direction: denser medium → bends toward normal; rarer medium → bends away
+
+SCRIPT (say this aloud):
+  Just as reflection has two laws, refraction also has two laws. These govern how light bends when it moves from one medium to another.
+
+  Law 1: The incident ray, the refracted ray, and the normal at the point of incidence all lie in the same plane. This is exactly analogous to the first law of reflection — the geometry is always flat and two-dimensional. We can represent it fully in a 2D ray diagram.
+
+  Law 2: This is Snell's Law — the mathematical heart of refraction. The ratio of the sine of the angle of incidence (∠i) to the sine of the angle of refraction (∠r) is a constant for any two given media. This constant is written as n₂₁ and is called the relative refractive index of medium 2 with respect to medium 1.
+
+  sin i / sin r = n₂₁ = a constant
+
+  This constant depends only on the two media involved — not on the angle of incidence. Whether you shine light at 20° or 60°, the ratio sin i / sin r stays the same for those two media. This is a law of nature.
+
+  Now, the direction of bending: this is something you must get right in diagrams.
+  — When light goes from a rarer medium (like air) to a denser medium (like glass or water), it slows down and bends TOWARD the normal. The angle of refraction is smaller than the angle of incidence.
+  — When light goes from a denser medium to a rarer medium (glass to air), it speeds up and bends AWAY from the normal. The angle of refraction is larger than the angle of incidence.
+
+  A useful analogy: imagine a vehicle moving from a smooth road (fast) onto soft sand (slow). The side that hits the sand first slows down, causing the vehicle to turn toward the sand — toward the denser medium. Light behaves the same way.
+
+KEY POINTS TO STRESS:
+  - Law 1: Incident ray, refracted ray, and normal are coplanar.
+  - Law 2 (Snell's Law): sin i / sin r = n₂₁ = constant for two given media.
+  - Denser medium → light bends toward normal (∠r < ∠i).
+  - Rarer medium → light bends away from normal (∠r > ∠i).
+  - The constant n₂₁ is the refractive index of medium 2 with respect to medium 1.
+
+BOARD TIP: When drawing a refraction diagram, clearly show the normal and mark ∠i and ∠r from the normal — not from the surface. State which way the ray bends and why.
+
+
+========================================================================
+SLIDE 21: Refractive Index in Detail
+========================================================================
+
+ON SCREEN:
+  - Formula: n = c / v (speed of light in vacuum / speed in medium)
+  - Three properties:
+    Higher n → denser medium → light travels slower
+    Diamond n = 2.42 is the densest common material
+    No unit (ratio of two speeds)
+
+SCRIPT (say this aloud):
+  The refractive index — ਅਪਵਰਤਨ ਅੰਕ — is a number that quantifies how optically dense a medium is, or equivalently, how much slower light travels in that medium compared to its speed in a vacuum.
+
+  The formula is: n = c / v, where c is the speed of light in vacuum (approximately 3 × 10⁸ m/s) and v is the speed of light in the medium.
+
+  Since light always travels slower in a medium than in a vacuum (it cannot go faster than c), n is always equal to or greater than 1 for any real medium. For vacuum itself, n = 1 exactly. For air, n ≈ 1.0003 — essentially 1. For water, n ≈ 1.33. For glass, n ≈ 1.5. For diamond, n = 2.42.
+
+  What does n = 2.42 mean for diamond? It means light travels in diamond at c/2.42 — about 41% of its speed in vacuum. This is very slow. And because light slows down so dramatically in diamond, it bends sharply — giving diamond its remarkable sparkle and brilliance. Every time a ray of light hits a facet of a cut diamond, it bends dramatically, creating rainbow-like dispersion and internal reflections.
+
+  Important: The refractive index has NO unit. It is a ratio of two speeds (metres per second / metres per second), so the units cancel. Always state "no unit" or "dimensionless" if asked.
+
+  Higher refractive index = more optically dense = light travels slower = more bending. Lower refractive index = less dense = light faster = less bending.
+
+KEY POINTS TO STRESS:
+  - n = c/v (speed of light in vacuum ÷ speed in medium).
+  - n ≥ 1 always; for vacuum n = 1; for water ≈ 1.33; for glass ≈ 1.5; for diamond = 2.42.
+  - Higher n → light travels slower → bends more toward the normal.
+  - Diamond (n = 2.42) is the most optically dense common material.
+  - Refractive index is dimensionless — no unit.
+
+BOARD TIP: "Why does diamond sparkle?" — because of its very high refractive index (2.42), causing extreme bending and total internal reflection. A classic application answer.
+
+
+========================================================================
+SLIDE 22: Power of a Lens
+========================================================================
+
+ON SCREEN:
+  - Formula: P = 1/f (f in metres)
+  - SI unit: dioptre (D); 1 D = 1 m⁻¹
+  - Sign rules: Convex (converging) → P is positive; Concave (diverging) → P is negative
+  - Shorter focal length → greater power
+
+SCRIPT (say this aloud):
+  Power of a lens — ਲੈਨਜ਼ ਦੀ ਸ਼ਕਤੀ — measures how strongly the lens bends light. The more a lens bends light, the greater its power.
+
+  The formula is beautifully simple: P = 1/f, where f is the focal length measured in metres. The result P comes out in dioptres.
+
+  Let us understand this physically. A lens with a very short focal length — say 10 cm, which is 0.1 m — bends parallel rays so much that they converge within just 10 cm. That requires a lot of bending. Power = 1/0.1 = 10 D. Now compare a lens with focal length 50 cm = 0.5 m. It bends light much more gently. Power = 1/0.5 = 2 D. The shorter the focal length, the greater the bending, the higher the power.
+
+  Signs of power: A convex (converging) lens has a positive focal length, so its power is positive. A concave (diverging) lens has a negative focal length, so its power is negative.
+
+  The unit, dioptre — ਡਾਇਓਪਟਰ — is equivalent to m⁻¹ (per metre). So 1 D = 1 m⁻¹. This is the same unit used on your prescription glasses! When the optician writes "+2.5 D" on your spectacle prescription, they mean a convex lens of focal length 1/2.5 = 0.4 m = 40 cm.
+
+  When two lenses are placed in contact (combined), their total power is simply the sum: P_total = P₁ + P₂. This is much easier than combining focal lengths! This property of simple addition of powers was the reason the dioptre unit was invented.
+
+KEY POINTS TO STRESS:
+  - P = 1/f (f must be in metres); unit is dioptre (D).
+  - Convex lens: positive power (+). Concave lens: negative power (−).
+  - Shorter focal length = higher power (more bending).
+  - Combined lenses in contact: P_total = P₁ + P₂.
+  - Real-world link: spectacle lens prescriptions are in dioptres.
+
+BOARD TIP: A numerical asking for the power of a combined lens system (e.g., +3 D and −1 D together) = +2 D total — this is a PSEB favourite, seen in 2021 and other years.
+
+
+========================================================================
+SLIDE 23: Refractive Index Math Guide (Interactive Recall)
+========================================================================
+
+ON SCREEN:
+  - Interactive tap-to-reveal activity
+  - Fill-in-the-blank statements about refractive index:
+    "The extent to which light slows down when entering a new medium is measured by its ___"
+    "Optical Density Rule: higher index (e.g., diamond 2.42) → light travels ___ → bends ___ the normal"
+
+SCRIPT (say this aloud):
+  This slide is an interactive recall activity. The goal is to force you to remember the key facts about refractive index before we move on. Tap each blank to reveal the answer, then check if your mental answer was correct.
+
+  Let us go through the answers together now.
+
+  The extent to which light slows down when entering a new medium is measured by its refractive index — ਅਪਵਰਤਨ ਅੰਕ. The higher the refractive index, the more the light slows down in that medium.
+
+  Optical Density Rule: A higher refractive index (like diamond's 2.42) means the medium is more optically dense. This means light travels SLOWER through it. And when light travels from a rarer medium (like air) into this denser medium, the ray of light bends TOWARD the normal line.
+
+  So when you see a material with a high refractive index, you know: light goes slowly through it, it bends more toward the normal, and it is more optically dense.
+
+  And the reverse: a material with n close to 1 (like air) is optically thin, light travels almost at full speed through it, and it barely bends.
+
+  Use this activity to self-test. If you can fill in both blanks confidently without looking, you have mastered the concept of refractive index.
+
+KEY POINTS TO STRESS:
+  - Refractive index measures how much light slows down in a medium.
+  - Higher n → more optically dense → light travels slower.
+  - Higher n → ray bends more toward the normal (entering from rarer medium).
+  - Diamond (n = 2.42): extreme slowing + extreme bending.
+  - n = c/v; always ≥ 1; dimensionless.
+
+BOARD TIP: "What is optical density?" — it is measured by the refractive index. Higher n = more optically dense. Do not confuse optical density with physical/mass density.
+
+
+========================================================================
+SLIDE 24: Match It — Optics Terms (Interactive Activity)
+========================================================================
+
+ON SCREEN:
+  - Matching activity: connect each device/term to its property
+  - Left column: Convex mirror; Concave lens; Mirror formula; Power of lens; Rear-view mirror
+  - Right column: Measured in dioptre; 1/v + 1/u = 1/f; Always diverges light
+  - (Some matches implied: convex mirror ↔ rear-view mirror)
+
+SCRIPT (say this aloud):
+  This matching activity tests whether you can connect terms to their defining properties. Let me walk you through the correct matches.
+
+  Convex mirror ↔ Rear-view mirror. A convex mirror is used as a vehicle rear-view mirror because it always forms a virtual, erect, diminished image with a wide field of view.
+
+  Concave lens ↔ Always diverges light. A concave lens is a diverging lens — it always spreads light out (diverges it), regardless of object position. Its focal length is negative and its power is negative.
+
+  Mirror formula ↔ 1/v + 1/u = 1/f. This is the mirror formula with the PLUS sign between 1/v and 1/u.
+
+  Power of lens ↔ Measured in dioptre. The unit of lens power is the dioptre (D), equal to m⁻¹.
+
+  Notice: convex mirror and concave lens both diverge light — they are analogous devices. This is why they share similar image characteristics (always virtual, erect, diminished).
+
+  Go ahead and complete the matching on screen. After matching, review any errors carefully — each incorrect match usually points to a specific concept gap.
+
+KEY POINTS TO STRESS:
+  - Convex mirror → used as rear-view mirror (diverges, wide field of view).
+  - Concave lens → always diverges light (negative f, negative P).
+  - Mirror formula → 1/v + 1/u = 1/f (PLUS sign).
+  - Power of lens → unit is dioptre (D = m⁻¹).
+  - Convex mirror and concave lens are analogous diverging devices.
+
+BOARD TIP: Matching-type questions and one-liners about these connections appear regularly in PSEB 1-mark and 2-mark questions — make sure all four matches are error-free.
+
+
+========================================================================
+SLIDE 25: Spot the Error — Fix It (Interactive Activity)
+========================================================================
+
+ON SCREEN:
+  - A student's incorrect lens formula: 1/v + 1/u = 1/f (wrong — has PLUS sign)
+  - Task: tap the highlighted incorrect part and correct it
+  - Correction: 1/v − 1/u = 1/f (lens formula requires MINUS sign)
+  - Note: Only the mirror formula uses a plus sign
+
+SCRIPT (say this aloud):
+  Here is an error-spotting activity — and this specific error is the most common mistake in the entire chapter. A student has written the lens formula as: 1/v + 1/u = 1/f — with a PLUS sign. This is WRONG.
+
+  Tap the plus sign to fix it. The correct lens formula is: 1/v − 1/u = 1/f — with a MINUS sign.
+
+  This one-character difference — plus versus minus — has caused thousands of students to lose marks over the years. The entire numerical solution looks correct, the steps are right, but the final answer is wrong because of this sign error.
+
+  Let me state this one final time, very clearly:
+  — Mirror Formula: 1/v + 1/u = 1/f (remember: Mirror has a PLUS — M for Mirror, M for +More)
+  — Lens Formula: 1/v − 1/u = 1/f (remember: Lens has a MINUS — L for Lens, L for Less)
+
+  That mnemonic — M for more (plus), L for less (minus) — might help you remember.
+
+  In your exam, even if you are nervous and everything blurs together, pause for one second and ask yourself: "Am I solving a mirror problem or a lens problem?" — and write the correct formula with the correct sign before you begin. This single habit will save you marks.
+
+KEY POINTS TO STRESS:
+  - Lens formula: 1/v − 1/u = 1/f (MINUS sign — this is the correct version).
+  - Mirror formula: 1/v + 1/u = 1/f (PLUS sign).
+  - NEVER use a plus sign in the lens formula — it gives a completely wrong answer.
+  - Always write the full formula before substituting values.
+
+BOARD TIP: Error-spotting activities like this translate directly into exam questions like "A student wrote... What is the error?" — answer by identifying the wrong sign and writing the correct formula.
+
+
+========================================================================
+SLIDE 26: Practice — Reflection & Refraction (Fill in the Blanks)
+========================================================================
+
+ON SCREEN:
+  - Fill-in-the-blank sentences covering chapter key facts:
+    "In reflection, the angle of incidence equals the angle of ___"
+    "For a spherical mirror, R = ___"
+    "When light enters a denser medium it bends ___ the normal"
+    "The power of a lens is measured in the ___, and a concave lens has a ___ power"
+
+SCRIPT (say this aloud):
+  This is a fill-in-the-blanks practice activity. Before I reveal the answers, try to complete each sentence in your head or on paper. This is active recall — much more effective than just re-reading.
+
+  Blank 1: "In reflection, the angle of incidence equals the angle of ___." The answer is REFLECTION. ∠i = ∠r. This is the first law of reflection.
+
+  Blank 2: "For a spherical mirror, R = ___." The answer is 2f. The radius of curvature is twice the focal length. Or equivalently, f = R/2.
+
+  Blank 3: "When light enters a denser medium it bends ___ the normal." The answer is TOWARD. When moving from a rarer to a denser medium, light bends toward the normal. This is because the side of the wavefront that hits the denser medium first slows down, causing the ray to turn inward.
+
+  Blank 4: "The power of a lens is measured in the ___, and a concave lens has a ___ power." The answers are DIOPTRE and NEGATIVE. Power P = 1/f; unit is dioptre (D). A concave lens has a negative focal length, so its power is negative.
+
+  Did you get all four? If you missed any, go back to the relevant slide and re-read that concept. These four facts are essentially guaranteed to appear somewhere in your board exam.
+
+KEY POINTS TO STRESS:
+  - ∠i = ∠r (angle of incidence = angle of reflection).
+  - R = 2f (radius of curvature = twice the focal length).
+  - Denser medium → bends toward the normal.
+  - Power of lens measured in dioptre (D); concave lens has negative power.
+
+BOARD TIP: These four facts are core 1-mark answers. Write them clearly and completely — "toward the normal" not just "toward."
+
+
+========================================================================
+SLIDE 27: Memorize This — Chapter Recap
+========================================================================
+
+ON SCREEN:
+  - Six bullet-point summary of the entire chapter:
+    Reflection: ∠i = ∠r; mirror formula: 1/v + 1/u = 1/f
+    R = 2f; concave f is −; convex f is +
+    Convex mirror & concave lens: always virtual, erect, diminished
+    Lens formula: 1/v − 1/u = 1/f (note the minus!)
+    m = h'/h = −v/u (mirror) = v/u (lens)
+    P = 1/f; unit dioptre (D); convex +, concave −
+
+SCRIPT (say this aloud):
+  This is your chapter summary — the six non-negotiable facts you must carry into the exam hall. Let me read each one aloud and add the key point.
+
+  One: Reflection: ∠i = ∠r. Mirror formula: 1/v + 1/u = 1/f. PLUS sign. Applicable to concave and convex mirrors.
+
+  Two: R = 2f. This relation connects radius of curvature to focal length. A concave mirror has f negative (−). A convex mirror has f positive (+). This affects the signs in every numerical.
+
+  Three: Convex mirror and concave lens always form virtual, erect, diminished images — no exceptions. Both are diverging devices. Use them as rear-view mirrors and in spectacles for short-sightedness respectively.
+
+  Four: Lens formula: 1/v − 1/u = 1/f. MINUS sign. The single most important sign in the chapter. Never mix it up with the mirror formula.
+
+  Five: Magnification m = h'/h = −v/u for mirrors, and m = v/u for lenses. Negative m = real and inverted. Positive m = virtual and erect. |m| > 1 = enlarged. |m| < 1 = diminished.
+
+  Six: Power P = 1/f (f in metres); unit is dioptre (D). Convex lens: positive power. Concave lens: negative power. Combined lens power = P₁ + P₂.
+
+  Write these six points in your revision notebook and read them aloud every day until you can reproduce them without looking. That is what it means to "memorize this."
+
+KEY POINTS TO STRESS:
+  - These six points collectively cover 80% of all exam questions in this chapter.
+  - The three sign traps: concave f is negative; mirror has + and lens has −; m negative = real.
+  - R = 2f is used in nearly every mirror numerical.
+  - m formula is different for mirrors and lenses — note both.
+  - Power is always in dioptres when f is in metres.
+
+BOARD TIP: Keep this slide as your last-minute revision. Read these six points the morning of the exam — they are all you need for theory questions.
+
+
+========================================================================
+SLIDE 28: Concave Mirror — Image Positions (Flip Cards Activity)
+========================================================================
+
+ON SCREEN:
+  - Six flip cards, one for each object position:
+    Card 1: Object at Infinity → Image at F, real, inverted, highly diminished (point-sized)
+    Card 2: Object beyond C → Image between F and C, real, inverted, diminished
+    Card 3: Object at C → Image at C, real, inverted, same size
+    Card 4: Object between C & F → Image beyond C, real, inverted, enlarged
+    Card 5: Object at F → Image at infinity, real, inverted, highly enlarged
+    Card 6: Object between F & P → Image behind mirror, virtual, erect, enlarged
+  - Reminder: Only between F and Pole gives virtual, erect image
+
+SCRIPT (say this aloud):
+  These flip cards are a brilliant self-testing tool for the concave mirror position table — which we covered in Slide 10 in detail. Now it is time to test whether you have remembered all six cases.
+
+  Flip each card one at a time. Before you flip it, say the image properties out loud — position, size, nature (real/virtual), and orientation (erect/inverted). Then flip and check. This is the most effective way to memorize this table.
+
+  Let me give you the full set of answers one more time as you follow along.
+
+  Card 1 — Object at Infinity (ਅਨੰਤ 'ਤੇ): Image at Focus F. It is real, inverted, and highly diminished — essentially a point. This is the principle of the solar cooker and the reflecting telescope.
+
+  Card 2 — Object beyond C (C ਤੋਂ ਪਰੇ): Image between F and C. Real, inverted, and diminished. The image is smaller than the object.
+
+  Card 3 — Object at C (C 'ਤੇ): Image at C. Real, inverted, same size. Object and image are at the same location.
+
+  Card 4 — Object between C and F (C ਅਤੇ F ਵਿਚਕਾਰ): Image beyond C. Real, inverted, enlarged. The image is larger than the object.
+
+  Card 5 — Object at F (F 'ਤੇ): Image at infinity. Real, inverted, highly enlarged. The reflected rays are parallel — they never converge. Used in searchlights.
+
+  Card 6 — Object between F and P (F ਅਤੇ P ਵਿਚਕਾਰ): Image behind the mirror. VIRTUAL, ERECT, ENLARGED. This is the only case where a concave mirror gives a virtual image. This is the shaving-mirror and make-up-mirror case.
+
+  The note at the bottom of the slide is crucial: "Only when the object is between F and the Pole is the image virtual and erect." Learn this as an absolute rule.
+
+KEY POINTS TO STRESS:
+  - Six positions for concave mirror — know ALL six, in order.
+  - Five of the six give real, inverted images (objects outside or at focus).
+  - Only object between P and F gives virtual, erect, enlarged image.
+  - Object at F → image at infinity (parallel beam — torch/searchlight principle).
+  - Object at C → image at C, same size (standard reference case).
+
+BOARD TIP: A 3-mark table question or a 2-mark "where should the object be placed to get a virtual image in a concave mirror?" are extremely common. Answer: between F and the pole.
+
+
+========================================================================
+SLIDE 29: Numerical Practice — Mirrors & Lenses
+========================================================================
+
+ON SCREEN:
+  - Four numericals with check-answer functionality:
+    Q1: Object 15 cm from concave mirror (f = 10 cm) — find v
+    Q2: Same mirror (u = −15 cm, v = −30 cm) — find m and state nature
+    Q3: Object 30 cm from convex lens (f = 20 cm) — find v
+    Q4: Focal length 25 cm — find power P
+
+SCRIPT (say this aloud):
+  Now we practise four numerical problems — two on mirrors and two on lenses. Solve each one on paper first, then check your answer. These four problems together cover all the key formula applications in the chapter.
+
+  Numerical 1: Object 15 cm in front of a concave mirror of focal length 10 cm. Find v.
+  Data: u = −15 cm, f = −10 cm (concave, so negative).
+  Formula: 1/v + 1/u = 1/f → 1/v = 1/f − 1/u = 1/(−10) − 1/(−15) = −1/10 + 1/15.
+  LCM of 10 and 15 is 30: −3/30 + 2/30 = −1/30.
+  So v = −30 cm. The image is 30 cm in front of the mirror — real and inverted.
+
+  Numerical 2: Same mirror, u = −15 cm, v = −30 cm. Find m.
+  m = −v/u = −(−30)/(−15) = −30/15 × (−1/−1) — wait, let me be careful.
+  m = −v/u = −(−30) / (−15) = 30 / (−15) = −2.
+  m = −2. Magnitude 2 means the image is twice as large (enlarged). The negative sign confirms real and inverted.
+
+  Numerical 3: Object 30 cm from a convex lens of focal length 20 cm. Find v.
+  Data: u = −30 cm (object in front, so negative), f = +20 cm (convex lens).
+  Lens formula: 1/v − 1/u = 1/f → 1/v = 1/f + 1/u = 1/20 + 1/(−30) = 1/20 − 1/30.
+  LCM of 20 and 30 is 60: 3/60 − 2/60 = 1/60.
+  So v = +60 cm. Positive v means the image is on the other side of the lens — real and inverted. It is 60 cm from the lens on the far side.
+
+  Numerical 4: Focal length = 25 cm = 0.25 m. Find power.
+  P = 1/f = 1/0.25 = +4 D.
+  Power is positive because the focal length is positive (convex lens assumed). Power = +4 dioptres.
+
+KEY POINTS TO STRESS:
+  - Always assign signs before substituting: u = negative; concave f = negative; convex f = positive.
+  - Mirror formula has + sign; lens formula has − sign (but rearranges to + in Q3).
+  - v negative = in front of mirror (real); v positive (for lens) = on far side (real).
+  - Convert focal length to metres before calculating power.
+  - Always state the complete nature of the image as your conclusion.
+
+BOARD TIP: These four problem types cover every formula in the chapter. Master all four, and you will handle any numerical in the board exam with confidence.
+
+
+========================================================================
+SLIDE 30: True or False? (Interactive Quiz)
+========================================================================
+
+ON SCREEN:
+  - Eight True/False questions with Punjabi translations:
+    Q1: Ray through C reflects back along the same path → TRUE
+    Q2: Focal length of a concave lens is negative → TRUE
+    Q3: Ray through optical centre undergoes lateral displacement → FALSE
+    Q4: Plane mirror forms a laterally inverted image → TRUE
+    Q5: Negative magnification means real and inverted → TRUE
+    Q6: Focal length of spherical mirror = half its radius → TRUE
+    Q7: Convex lens is called a diverging lens → FALSE
+    Q8: Power of a lens is measured in dioptres → TRUE
+
+SCRIPT (say this aloud):
+  Eight True or False questions — attempt each one before looking at the answer. These statements are designed to target common misconceptions.
+
+  Q1: A ray through C reflects back along the same path. TRUE. A ray along the radius hits the mirror perpendicularly (∠i = 0°) and retraces its path. This is mirror Rule 3.
+
+  Q2: Focal length of a concave lens is negative. TRUE. A concave lens is a diverging lens. Its focus is on the same side as the object, which is negative by the sign convention.
+
+  Q3: A ray through the optical centre undergoes lateral displacement. FALSE — and this is very important. A ray through the optical centre goes completely straight, with absolutely NO bending or displacement. This is the key exception of lens Rule 3.
+
+  Q4: A plane mirror forms a laterally inverted image. TRUE. Left and right are swapped — the AMBULANCE example.
+
+  Q5: Negative magnification means the image is real and inverted. TRUE. m < 0 → real and inverted. This is the sign rule for magnification.
+
+  Q6: The focal length of a spherical mirror is half its radius of curvature. TRUE. f = R/2, or R = 2f.
+
+  Q7: A convex lens is called a diverging lens. FALSE. A convex lens is a CONVERGING lens — it brings parallel rays to a focus. A concave lens is the diverging lens.
+
+  Q8: The power of a lens is measured in dioptres. TRUE. P = 1/f (f in metres); unit = dioptre (D).
+
+  How many did you get right? If you missed Q3 or Q7, go back and revise those points — they are the trickiest.
+
+KEY POINTS TO STRESS:
+  - Ray through C → reflects back on itself (TRUE — ∠i = 0°).
+  - Ray through optical centre → NO displacement, goes straight (Q3 is FALSE).
+  - Convex lens = converging (NOT diverging) — Q7 is FALSE.
+  - f of concave lens is negative; f of convex lens is positive.
+  - Negative m = real and inverted — reliable rule, no exceptions.
+
+BOARD TIP: Q3 and Q7 are classic trap questions. Examiners use "Does a ray through the optical centre bend?" and "Is a convex lens diverging?" specifically to catch unprepared students.
+
+
+========================================================================
+SLIDE 31: Say It Back — Chapter Short Answer Questions
+========================================================================
+
+ON SCREEN:
+  - Eight short answer questions (interactive check-answer format):
+    SA1: A ray parallel to the principal axis passes through what point?
+    SA2: What is the unit of power of a lens?
+    SA3: What is the formula for absolute refractive index?
+    SA4: If magnification is +2, is the image erect or inverted?
+    SA5: Is the power of a concave lens positive or negative?
+    SA6: What is the relation between focal length (f) and radius of curvature (R)?
+    SA7: A convex mirror always forms what type of image?
+    SA8: Name the mirror used as a vehicle rear-view mirror.
+
+SCRIPT (say this aloud):
+  This is a verbal recall round — "Say It Back." Try to answer each question out loud before tapping to check. If you can say the correct answer without looking, you are ready for that question in the exam.
+
+  SA1: A ray parallel to the principal axis passes through the Principal Focus, F. (For a concave mirror, it converges at F. For a convex mirror, the reflected ray appears to diverge from F behind the mirror.)
+
+  SA2: The unit of power of a lens is the Dioptre, symbol D. It is equal to m⁻¹ (per metre).
+
+  SA3: The formula for absolute refractive index is n = c/v, where c is the speed of light in vacuum and v is the speed of light in the medium.
+
+  SA4: If magnification m = +2, the image is ERECT (and virtual). A positive m means virtual and erect. The magnitude 2 means it is twice as large — enlarged.
+
+  SA5: The power of a concave lens is NEGATIVE. A concave lens is a diverging lens with a negative focal length, so P = 1/f is also negative.
+
+  SA6: The relation is R = 2f, or equivalently f = R/2. The focal length is always half the radius of curvature.
+
+  SA7: A convex mirror always forms a VIRTUAL, ERECT, and DIMINISHED image, regardless of object position.
+
+  SA8: A CONVEX MIRROR is used as a vehicle rear-view mirror, because it gives a wide field of view and always produces a virtual, erect image.
+
+  Go through all eight — your target is to answer all of them correctly without checking. These cover the most testable facts of the chapter.
+
+KEY POINTS TO STRESS:
+  - Parallel ray → through F (key ray diagram fact).
+  - Unit of lens power = dioptre (D).
+  - n = c/v (absolute refractive index formula).
+  - m = +2 → erect (positive m = virtual and erect).
+  - Concave lens power = negative. Convex mirror image = virtual, erect, diminished.
+  - R = 2f. Rear-view mirror = convex.
+
+BOARD TIP: All eight of these are 1-mark answers in the board exam. Write them in clear, one-sentence answers — do not write too much for 1-mark questions.
+
+
+========================================================================
+SLIDE 32: Quick Check — Chapter 10 MCQ Quiz
+========================================================================
+
+ON SCREEN:
+  - Eight multiple-choice questions (interactive, with [PSEB 2021] tag on Q4):
+    Q1: Which mirror gives wider field of view? → Convex mirror
+    Q2: m negative → image is? → Real and inverted
+    Q3: Diamond n = 2.42 → light travels? → Very slowly through it
+    Q4 [PSEB 2021]: Convex (+3D) + Concave (−1D) = ? → +2 D
+    Q5: Ray through optical centre → goes completely straight without deviating
+    Q6: Plane mirror image → Virtual and erect
+    Q7: Principal focus of concave mirror lies → In front of the mirror
+    Q8: SI unit of power of a lens → Dioptre
+
+SCRIPT (say this aloud):
+  Eight MCQs — and one of them is from the actual PSEB 2021 board exam! Let us go through all of them.
+
+  Q1: Which mirror gives a wider field of view? Answer: B — Convex mirror. It diverges reflected rays from a wide area, giving a wider field of view than plane or concave mirrors.
+
+  Q2: If magnification m is negative, the image is: Answer: B — Real and inverted. Negative m always means real and inverted.
+
+  Q3: Diamond has a high refractive index (2.42). Light travels: Answer: C — Very slowly through it. n = c/v; high n means low v — light is very slow.
+
+  Q4 [PSEB 2021]: A convex lens of +3 D and a concave lens of −1 D are combined. Total power: Answer: B — +2 D. P_total = P₁ + P₂ = +3 + (−1) = +2 D. This is a direct calculation — and it was on the actual 2021 paper. Know it.
+
+  Q5: A ray through the optical centre: Answer: A — goes completely straight without deviating. No bending at the optical centre — this is the fundamental rule.
+
+  Q6: The image formed by a plane mirror is: Answer: B — Virtual and erect. A plane mirror image is always virtual, erect, same size, and laterally inverted.
+
+  Q7: The principal focus of a concave mirror lies: Answer: B — In front of the mirror. The focus of a concave mirror is a real focus, in front of the mirror, on the same side as the object.
+
+  Q8: The SI unit of power of a lens is: Answer: B — Dioptre. Not watt (that is power in physics), not metre — it is dioptre.
+
+  That is 8/8 if you followed along. Now go back and attempt them independently to check your readiness.
+
+KEY POINTS TO STRESS:
+  - Q4 (PSEB 2021): P_total = P₁ + P₂ = +3 + (−1) = +2 D — learn this calculation method.
+  - Q5: Optical centre → no deviation — ray goes straight.
+  - Q7: Concave mirror focus is IN FRONT of the mirror (real focus); convex mirror focus is BEHIND (virtual focus).
+  - Q8: Unit of lens power = Dioptre, NOT Watt.
+  - Q3: High n = slow light = optically dense.
+
+BOARD TIP: Q4 is from PSEB 2021 — combined lens power = sum of individual powers. This formula P = P₁ + P₂ is often asked as a 2–3 mark numerical.
+
+
+========================================================================
+SLIDE 33: Download Your Bilingual Flashcards
+========================================================================
+
+ON SCREEN:
+  - Information about bilingual (English + Punjabi) Anki flashcard download
+  - Instructions: click to export .csv → open Anki → Import File
+  - Button: Export to Anki (Bilingual CSV)
+
+SCRIPT (say this aloud):
+  Congratulations — you have completed the full teaching session for Chapter 9: Light — Reflection and Refraction! That was 33 slides of solid optics.
+
+  This final slide gives you a powerful revision tool: bilingual flashcards for Anki. Every "Say It Back" question from Slide 31 — all eight questions — has been prepared with both the English and Punjabi answers formatted for the Anki flashcard app.
+
+  Here is how to use them:
+  Step 1: Click the "Export to Anki" button to download the .csv file.
+  Step 2: Open the Anki app on your computer or phone.
+  Step 3: Click "Import File" and select the downloaded .csv file.
+  Step 4: The flashcards will appear in your Anki deck. Review them daily using Anki's spaced repetition system.
+
+  Anki is free and uses spaced repetition — it shows you the cards you find difficult more frequently, and the ones you know well less often. This is scientifically proven to be one of the most effective study methods for retention.
+
+  For this chapter, I strongly recommend reviewing these flashcards every day for the two weeks before your board exam. The combination of understanding the concepts from this slide deck AND testing yourself with flashcards is the most complete preparation you can do.
+
+  Best of luck with your PSEB boards. You have done the hard work — now revise, practise numericals, and draw ray diagrams on paper at least once each. You are ready!
+
+KEY POINTS TO STRESS:
+  - Download the flashcard CSV and import it into Anki for daily revision.
+  - The flashcards cover all eight "Say It Back" questions in both English and Punjabi.
+  - Spaced repetition is scientifically the best way to retain chapter vocabulary and facts.
+  - Combine flashcard review with hands-on numerical practice for complete preparation.
+
+BOARD TIP: Spend 10 minutes daily on Anki flashcards for 2 weeks before the exam — this is more effective than re-reading notes the night before.
+
+
+========================================================================
+END OF SCRIPT — Chapter 9: Light: Reflection and Refraction
+Total Slides Scripted: 33
+========================================================================

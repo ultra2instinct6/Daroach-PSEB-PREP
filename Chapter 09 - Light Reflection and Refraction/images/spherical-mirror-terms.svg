@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="arr9b" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#ffffff"/>
+  <!-- Principal axis -->
+  <line x1="60" y1="210" x2="680" y2="210" stroke="#94a3b8" stroke-width="2"/>
+  <text x="70" y="200" font-size="15" fill="#64748b">Principal axis</text>
+  <!-- Concave mirror arc: centre C=(320,210), radius 240, pole P=(560,210) -->
+  <path d="M 548 90 A 240 240 0 0 0 548 330" fill="none" stroke="#0f172a" stroke-width="5"/>
+  <text x="560" y="80" font-size="16" fill="#0f172a" font-weight="700">Concave mirror</text>
+  <!-- Pole P -->
+  <circle cx="560" cy="210" r="5" fill="#0f172a"/>
+  <text x="556" y="242" font-size="16" fill="#0f172a" font-weight="700">P</text>
+  <text x="516" y="262" font-size="13" fill="#64748b">(Pole)</text>
+  <!-- Focus F=(440,210) -->
+  <circle cx="440" cy="210" r="5" fill="#16a34a"/>
+  <text x="435" y="242" font-size="16" fill="#16a34a" font-weight="700">F</text>
+  <text x="404" y="262" font-size="13" fill="#16a34a">(Focus)</text>
+  <!-- Centre of curvature C=(320,210) -->
+  <circle cx="320" cy="210" r="5" fill="#e11d48"/>
+  <text x="315" y="242" font-size="16" fill="#e11d48" font-weight="700">C</text>
+  <text x="276" y="262" font-size="13" fill="#e11d48">(Centre of curvature)</text>
+  <!-- Radius of curvature R (C to a point on mirror) -->
+  <line x1="320" y1="210" x2="548" y2="118" stroke="#e11d48" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arr9b)"/>
+  <text x="410" y="150" font-size="16" fill="#e11d48" font-weight="700">R</text>
+  <!-- Focal length f (P to F) -->
+  <line x1="560" y1="180" x2="440" y2="180" stroke="#16a34a" stroke-width="2"/>
+  <line x1="560" y1="174" x2="560" y2="186" stroke="#16a34a" stroke-width="2"/>
+  <line x1="440" y1="174" x2="440" y2="186" stroke="#16a34a" stroke-width="2"/>
+  <text x="486" y="170" font-size="15" fill="#16a34a">f</text>
+  <!-- Relation -->
+  <text x="360" y="400" font-size="19" fill="#0f172a" text-anchor="middle" font-weight="700">R = 2f  (Focus is midway between P and C)</text>
+</svg>

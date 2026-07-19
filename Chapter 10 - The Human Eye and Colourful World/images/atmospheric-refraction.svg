@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="arr10c" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#ffffff"/>
+  <!-- Atmosphere band -->
+  <path d="M 40 300 Q 360 150 680 300" fill="none" stroke="#93c5fd" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="360" y="196" font-size="14" fill="#3b82f6" text-anchor="middle">Denser lower atmosphere</text>
+  <!-- Earth -->
+  <path d="M 40 380 Q 360 300 680 380 L 680 420 L 40 420 Z" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <!-- Horizon line -->
+  <line x1="60" y1="330" x2="480" y2="330" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="66" y="322" font-size="13" fill="#64748b">Horizon</text>
+  <!-- Observer eye -->
+  <circle cx="470" cy="340" r="9" fill="#0f172a"/>
+  <text x="452" y="372" font-size="14" fill="#0f172a" font-weight="700">Observer</text>
+  <!-- Actual Sun (below horizon) -->
+  <circle cx="150" cy="360" r="26" fill="#f59e0b" opacity="0.55"/>
+  <text x="110" y="405" font-size="14" fill="#b45309" font-weight="700">Actual Sun (below horizon)</text>
+  <!-- Apparent Sun (above horizon) -->
+  <circle cx="150" cy="285" r="26" fill="#f59e0b"/>
+  <text x="90" y="262" font-size="14" fill="#b45309" font-weight="700">Apparent Sun</text>
+  <!-- Curved (refracted) ray from actual sun bending up to observer -->
+  <path d="M 176 356 Q 330 300 470 340" fill="none" stroke="#e11d48" stroke-width="3" marker-end="url(#arr10c)"/>
+  <!-- Straight apparent line of sight -->
+  <line x1="176" y1="285" x2="470" y2="335" stroke="#94a3b8" stroke-width="2" stroke-dasharray="7 6"/>
+  <text x="230" y="300" font-size="12" fill="#e11d48">Refracted light bends</text>
+  <text x="360" y="405" font-size="16" fill="#0f172a" text-anchor="middle" font-weight="700">Atmospheric Refraction: the Sun is seen ~2 min before actual sunrise</text>
+</svg>

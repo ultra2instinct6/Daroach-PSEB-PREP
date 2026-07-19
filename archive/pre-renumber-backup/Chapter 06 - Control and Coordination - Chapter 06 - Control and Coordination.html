@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6: Control and Coordination | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch06-07.css">
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="ch6">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 6</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">Control and Coordination</h2>
+                <span class="punjabi">ਕਾਬੂ ਅਤੇ ਤਾਲਮੇਲ</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Bilingual Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Neuron <button class="tts-btn" onclick="speakWord('Neuron', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਨਾੜੀ ਸੈੱਲ (Nerve cell)</span><br><span class="phonetic">ਨਿਊਰੋਨ / New-ron</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Synapse <button class="tts-btn" onclick="speakWord('Synapse', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਸਿਨੈਪਸ (Gap between two neurons)</span><br><span class="phonetic">ਸਿਨੈਪਸ / Sin-aps</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Receptor <button class="tts-btn" onclick="speakWord('Receptor', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਗ੍ਰਾਹੀ (Detects stimuli)</span><br><span class="phonetic">ਰੀਸੈਪਟਰ / Re-sep-tor</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Effector <button class="tts-btn" onclick="speakWord('Effector', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਭਾਵਕ (Muscle/gland that responds)</span><br><span class="phonetic">ਇਫੈਕਟਰ / Ee-fec-tor</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Tropism <button class="tts-btn" onclick="speakWord('Tropism', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਨੁਵਰਤਨ (Directional plant growth)</span><br><span class="phonetic">ਟਰੋਪਿਜ਼ਮ / Tro-piz-um</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Hormone <button class="tts-btn" onclick="speakWord('Hormone', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਹਾਰਮੋਨ (Chemical messenger)</span><br><span class="phonetic">ਹਾਰਮੋਨ / Hor-moan</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>More Key Terms <span class="punjabi">(ਹੋਰ ਮੁੱਖ ਸ਼ਬਦ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Stimulus <button class="tts-btn" onclick="speakWord('Stimulus', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਉਦੀਪਨ (A change in environment)</span><br><span class="phonetic">ਸਟਿਮੁਲਸ / Stim-yoo-lus</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Response <button class="tts-btn" onclick="speakWord('Response', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਤੀਕਿਰਿਆ (Reaction to a stimulus)</span><br><span class="phonetic">ਰਿਸਪਾਂਸ / Re-spons</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Reflex Action <button class="tts-btn" onclick="speakWord('Reflex Action', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆ (Sudden involuntary response)</span><br><span class="phonetic">ਰੀਫਲੈਕਸ / Ree-flex</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Reflex Arc <button class="tts-btn" onclick="speakWord('Reflex Arc', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ (Path of a reflex signal)</span><br><span class="phonetic">ਰੀਫਲੈਕਸ ਆਰਕ / Ree-flex ark</span></div>
+                    <div class="vocab-item"><span class="vocab-en">CNS <button class="tts-btn" onclick="speakWord('Central Nervous System', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ (Brain + Spinal cord)</span><br><span class="phonetic">ਸੀ.ਐੱਨ.ਐੱਸ / See-en-es</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Gland <button class="tts-btn" onclick="speakWord('Gland', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਗ੍ਰੰਥੀ (Organ that secretes hormones)</span><br><span class="phonetic">ਗਲੈਂਡ / Gland</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Phototropism <button class="tts-btn" onclick="speakWord('Phototropism', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਕਾਸ਼ ਅਨੁਵਰਤਨ (Growth towards light)</span><br><span class="phonetic">ਫੋਟੋਟ੍ਰੋਪਿਜ਼ਮ / Fo-to-tro-piz-um</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Geotropism <button class="tts-btn" onclick="speakWord('Geotropism', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਗੁਰੂਤਾ ਅਨੁਵਰਤਨ (Growth towards gravity)</span><br><span class="phonetic">ਜਿਓਟ੍ਰੋਪਿਜ਼ਮ / Jee-o-tro-piz-um</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 1 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Introduction to Coordination</h2>
+                <div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch6-1', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch6-1">
+                    <strong>Why Respond?</strong><br>
+                    All living organisms—whether it is a sunflower turning toward the morning sun or a human pulling their hand away from a hot surface—must be able to detect changes in their environment. These environmental changes are called <em>stimuli</em>. To survive, a multicellular organism must ensure that its millions of cells work together harmoniously to produce the correct response. This synchronized working of various organs is what we call <strong>Control and Coordination</strong>.
+                </div></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Structure of a Neuron <span class="punjabi">(ਨਾੜੀ ਸੈੱਲ)</span></h2>
+                <img src="images/Blausen_0657_MultipolarNeuron.png" onerror="this.onerror=null;this.style.cssText='display:block;padding:12px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Image: '+this.alt+' — file not found]'" alt="Neuron Structure" class="slide-img">
+                <ol style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="exam-keyword">Dendrite</span>: Branch-like structures that acquire information.</li>
+                    <li><span class="exam-keyword">Cell Body (Soma)</span>: Processes the signal.</li>
+                    <li><span class="exam-keyword">Axon</span>: Transmits the electrical impulse away from the cell body.</li>
+                    <li><span class="exam-keyword">Nerve Ending</span>: The tip where the signal is passed on.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Synapse Conversion <span class="punjabi">(ਸਿਨੈਪਸ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Tap the blue blocks to reveal the clinical mechanism.</p>
+                <div class="cloze-paragraph">
+                    The gap between two neurons is called the synapse. Because <span class="cloze-blank" data-ans="Electrical" onclick="revealCloze(this)"></span> signals cannot physically jump across this gap, the nerve ending converts the signal by releasing chemicals called <span class="cloze-blank" data-ans="Neurotransmitters" onclick="revealCloze(this)"></span>. These chemicals rapidly diffuse across the gap and bind to the <span class="cloze-blank" data-ans="Dendrite" onclick="revealCloze(this)"></span> of the next neuron. This chemical conversion ensures that the impulse only flows in a strict <span class="cloze-blank" data-ans="One-way" onclick="revealCloze(this)"></span> direction.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Organisation of the Nervous System <span class="punjabi">(ਨਾੜੀ ਪ੍ਰਣਾਲੀ ਦੀ ਬਣਤਰ)</span></h2>
+                <p>The nervous system is split into two connected divisions that work together.</p>
+                <table>
+                    <tr><th>Division</th><th>Parts Included</th><th>Main Job</th></tr>
+                    <tr><td><span class="exam-keyword">Central Nervous System (CNS)</span><br><span class="punjabi">ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ</span></td><td>Brain + Spinal Cord</td><td>Processes information and takes decisions</td></tr>
+                    <tr><td><span class="exam-keyword">Peripheral Nervous System (PNS)</span><br><span class="punjabi">ਪੈਰੀਫਿਰਲ ਨਾੜੀ ਪ੍ਰਣਾਲੀ</span></td><td>Cranial nerves + Spinal nerves</td><td>Carries messages to and from the CNS</td></tr>
+                </table>
+                <div class="ratta-box">The brain and spinal cord together form the CNS &mdash; the body's command centre. <span class="punjabi-block">ਦਿਮਾਗ ਅਤੇ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਮਿਲ ਕੇ ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ ਬਣਾਉਂਦੇ ਹਨ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Three Types of Neurons <span class="punjabi">(ਨਾੜੀ ਸੈੱਲਾਂ ਦੀਆਂ ਕਿਸਮਾਂ)</span></h2>
+                <table>
+                    <tr><th>Neuron</th><th>Direction of Impulse</th><th>Role</th></tr>
+                    <tr><td><span class="exam-keyword">Sensory Neuron</span><br><span class="punjabi">ਸੰਵੇਦੀ</span></td><td>Receptor &rarr; CNS</td><td>Carries messages from sense organs to the CNS</td></tr>
+                    <tr><td><span class="exam-keyword">Relay (Inter) Neuron</span><br><span class="punjabi">ਰੀਲੇਅ</span></td><td>Inside CNS</td><td>Connects sensory and motor neurons</td></tr>
+                    <tr><td><span class="exam-keyword">Motor Neuron</span><br><span class="punjabi">ਪ੍ਰੇਰਕ</span></td><td>CNS &rarr; Effector</td><td>Carries commands to muscles or glands</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>How a Nerve Impulse Travels <span class="punjabi">(ਨਾੜੀ ਸੰਦੇਸ਼ ਦੀ ਯਾਤਰਾ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Tap the blue blocks to reveal each stage.</p>
+                <div class="cloze-paragraph">
+                    Information is picked up by the <span class="cloze-blank" data-ans="Dendrite" onclick="revealCloze(this)"></span> of a neuron. It sets off a chemical reaction that creates an <span class="cloze-blank" data-ans="Electrical" onclick="revealCloze(this)"></span> impulse. This impulse travels along the <span class="cloze-blank" data-ans="Axon" onclick="revealCloze(this)"></span> to its end. Here, chemicals called neurotransmitters cross the <span class="cloze-blank" data-ans="Synapse" onclick="revealCloze(this)"></span> to start a similar impulse in the next neuron. Finally the impulse reaches the <span class="cloze-blank" data-ans="Effector" onclick="revealCloze(this)"></span> (muscle or gland) to produce a response.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Reflex Arc Sequence <span class="board-badge">🏆 5-Mark Favorite</span></h2>
+                <img src="images/pain-withdrawal-arc_med.jpeg" onerror="this.onerror=null;this.style.cssText='display:block;padding:12px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Image: '+this.alt+' — file not found]'" alt="Reflex Arc" class="slide-img">
+                <p><strong>Interactive Sequencer:</strong> Build the chronological sequence of a reflex action.</p>
+                <div class="sequencer-container" id="seq-ch6-1">
+                    <div class="seq-step">
+                        <strong>1. Receptor:</strong> Thermoreceptors in your skin detect extreme heat.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Sensory Neuron:</strong> Rushes the pain signal up your arm towards the central nervous system.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Relay Neuron:</strong> Located strictly in the <span class="exam-keyword">Spinal Cord</span>. It instantly processes and redirects the signal without waiting for brain input.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Motor Neuron:</strong> Rushes the command back down your arm.
+                    </div>
+                    <div class="seq-step">
+                        <strong>5. Effector:</strong> Your arm muscle contracts, pulling your hand away instantly!
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch6-1')">Reveal Next Step &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Brain Localization <span class="punjabi">(ਦਿਮਾਗ ਦੇ ਹਿੱਸੇ)</span></h2>
+                <p>Hover over the brain regions to reveal their exact board-tested functions.</p>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Cerebrum (Forebrain)<br><span class="punjabi">ਸੈਰੀਬ੍ਰਮ</span></div>
+                            <div class="flip-back"><strong>Main thinking part.</strong><br><br>Controls <span class="exam-keyword">voluntary actions</span>, learning, memory, and sensory interpretation.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Cerebellum (Hindbrain)<br><span class="punjabi">ਸੈਰੀਬੈਲਮ</span></div>
+                            <div class="flip-back"><strong>Precision and balance.</strong><br><br>Maintains <span class="exam-keyword">posture and balance</span> (e.g., riding a bike, walking in a straight line).</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Medulla (Hindbrain)<br><span class="punjabi">ਮੈਡੂਲਾ</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>Autopilot.</strong><br><br>Controls <span class="exam-keyword">vital involuntary actions</span> like blood pressure, heartbeat, and vomiting.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Human Brain: Three Divisions <span class="board-badge">🏆 5-Mark Favorite</span></h2>
+                <table>
+                    <tr><th>Region</th><th>Main Part</th><th>Board-Tested Function</th></tr>
+                    <tr><td><span class="exam-keyword">Fore-brain</span><br><span class="punjabi">ਅਗਲਾ ਦਿਮਾਗ</span></td><td>Cerebrum</td><td>Thinking, memory, voluntary actions, sensing</td></tr>
+                    <tr><td><span class="exam-keyword">Mid-brain</span><br><span class="punjabi">ਵਿਚਕਾਰਲਾ ਦਿਮਾਗ</span></td><td>&mdash;</td><td>Controls reflexes of the eye (pupil, head movements)</td></tr>
+                    <tr><td><span class="exam-keyword">Hind-brain</span><br><span class="punjabi">ਪਿਛਲਾ ਦਿਮਾਗ</span></td><td>Cerebellum, Medulla, Pons</td><td>Balance, posture &amp; involuntary actions (heartbeat, breathing)</td></tr>
+                </table>
+                <div class="ratta-box">Cerebellum = Balance &amp; posture. Medulla = Involuntary vital actions (heartbeat, BP, vomiting). <span class="punjabi-block">ਸੈਰੀਬੈਲਮ = ਸੰਤੁਲਨ; ਮੈਡੂਲਾ = ਅਣਇੱਛਤ ਕਿਰਿਆਵਾਂ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Why Reflexes Skip the Brain <span class="punjabi">(ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ)</span></h2>
+                <p>When you touch something hot, waiting for the brain to think would waste precious time and you could get burnt. So the <span class="exam-keyword">spinal cord</span> takes a shortcut.</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0;">
+                    <li>The relay neuron in the spinal cord processes the signal <strong>instantly</strong>.</li>
+                    <li>The command to move is sent <strong>before</strong> the brain even feels the pain.</li>
+                    <li>This ready-made pathway is called the <span class="exam-keyword">reflex arc</span>.</li>
+                </ul>
+                <div class="ratta-box">Reflex actions are fast, automatic and are managed by the spinal cord, not the brain. <span class="punjabi-block">ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆਵਾਂ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਦੁਆਰਾ ਕੰਟਰੋਲ ਹੁੰਦੀਆਂ ਹਨ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>How Do Muscles Move? <span class="punjabi">(ਮਾਸਪੇਸ਼ੀਆਂ ਦੀ ਹਰਕਤ)</span></h2>
+                <p>A nerve impulse alone is only a message &mdash; something must physically act on it. That job belongs to <span class="exam-keyword">muscle cells</span>.</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0;">
+                    <li>Muscle cells contain special proteins that can <strong>change their shape and arrangement</strong>.</li>
+                    <li>When a nerve impulse arrives, these proteins rearrange so the cell becomes <strong>shorter</strong>.</li>
+                    <li>Shorter cells mean the muscle <span class="exam-keyword">contracts</span>, pulling the bone and causing movement.</li>
+                </ul>
+                <div class="ratta-box">Muscles can only PULL (contract), they cannot push. That is why they work in pairs. <span class="punjabi-block">ਮਾਸਪੇਸ਼ੀਆਂ ਸਿਰਫ਼ ਖਿੱਚ ਸਕਦੀਆਂ ਹਨ, ਧੱਕ ਨਹੀਂ ਸਕਦੀਆਂ।</span></div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 2 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Endocrine System</h2>
+                <div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch6-2', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch6-2">
+                    <strong>The Speed Limit of Nerves</strong><br>
+                    Nervous tissue allows for incredibly rapid responses, but it has limitations. Firstly, electrical impulses only reach cells that are directly connected by nerve fibers. Secondly, once an impulse is sent, a neuron takes time to reset its mechanism before it can fire again. To provide a steady, slow, and wide-reaching coordination across the entire body (like regulating growth or puberty), we rely on the <strong>Endocrine System</strong>. This system uses chemical messengers called hormones, which are secreted directly into the bloodstream to reach every single cell.
+                </div></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Insulin Feedback Loop <span class="punjabi">(ਫੀਡਬੈਕ ਵਿਧੀ)</span></h2>
+                <img src="images/c0279374-800px-wm.jpg" onerror="this.onerror=null;this.style.cssText='display:block;padding:12px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Image: '+this.alt+' — file not found]'" alt="Insulin Mechanism" class="slide-img">
+                <p>Hormones operate on a precise feedback mechanism to maintain homeostasis.</p>
+                <div class="sequencer-container" id="seq-ch6-2">
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 1:</span> You eat a meal &rarr; Blood sugar levels rise.
+                    </div>
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 2:</span> The <span class="exam-keyword">Pancreas</span> detects the high sugar and secretes <span class="exam-keyword">Insulin</span>.
+                    </div>
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 3:</span> Insulin commands cells to absorb sugar &rarr; Blood sugar levels fall.
+                    </div>
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 4:</span> Pancreas detects the low sugar and <em>stops/reduces</em> insulin secretion to prevent fainting.
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch6-2')">Reveal Feedback Loop &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Human Endocrine Glands <span class="board-badge">🏆 Board Favorite</span></h2>
+                <table>
+                    <tr><th>Gland</th><th>Hormone</th><th>Function</th></tr>
+                    <tr><td>Pituitary<br><span class="punjabi">ਪਿਟਿਉਟਰੀ</span></td><td>Growth Hormone</td><td>Controls body growth &amp; other glands</td></tr>
+                    <tr><td>Thyroid<br><span class="punjabi">ਥਾਇਰਾਇਡ</span></td><td>Thyroxine</td><td>Controls metabolism (needs iodine)</td></tr>
+                    <tr><td>Pancreas<br><span class="punjabi">ਪੈਨਕ੍ਰੀਆਸ</span></td><td>Insulin</td><td>Controls blood sugar level</td></tr>
+                    <tr><td>Adrenal<br><span class="punjabi">ਐਡਰੀਨਲ</span></td><td>Adrenaline</td><td>Prepares body for emergency (fight/flight)</td></tr>
+                    <tr><td>Testis<br><span class="punjabi">ਟੈਸਟਿਸ</span></td><td>Testosterone</td><td>Male sexual development</td></tr>
+                    <tr><td>Ovary<br><span class="punjabi">ਓਵਰੀ</span></td><td>Oestrogen</td><td>Female sexual development</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Thyroid, Iodine &amp; Goitre <span class="punjabi">(ਗਿਲੜ ਰੋਗ)</span></h2>
+                <p>The thyroid gland makes the hormone <span class="exam-keyword">thyroxine</span>, which controls how fast the body uses carbohydrates, proteins and fats (its metabolism).</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0;">
+                    <li>Thyroxine can only be made if the diet contains enough <span class="exam-keyword">iodine</span>.</li>
+                    <li>A lack of iodine causes a swollen neck disease called <span class="exam-keyword">goitre</span>.</li>
+                    <li>This is why we use <strong>iodised salt</strong> in cooking.</li>
+                </ul>
+                <div class="ratta-box">No iodine &rarr; No thyroxine &rarr; Goitre. <span class="punjabi-block">ਆਇਓਡੀਨ ਦੀ ਕਮੀ ਨਾਲ ਗਿਲੜ ਰੋਗ ਹੁੰਦਾ ਹੈ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Adrenaline: Fight or Flight <span class="punjabi">(ਐਡਰੀਨਲੀਨ)</span></h2>
+                <p>When you are scared or angry, the <span class="exam-keyword">adrenal glands</span> release <span class="exam-keyword">adrenaline</span> straight into the blood to prepare you for quick action.</p>
+                <table>
+                    <tr><th>Body Change</th><th>Why It Helps</th></tr>
+                    <tr><td>Faster heartbeat &amp; breathing</td><td>More oxygen reaches the muscles</td></tr>
+                    <tr><td>Blood diverted to muscles</td><td>Muscles get more energy to react</td></tr>
+                    <tr><td>Higher blood sugar</td><td>Provides instant fuel for the body</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 3 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Plant Coordination</h2>
+                <div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch6-3', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch6-3">
+                    <strong>Slower, But Smart</strong><br>
+                    Unlike animals, plants do not have a nervous system or muscles. They cannot run away from danger or physically grab nutrients. Instead, they coordinate their behavior entirely through <strong>Phytohormones</strong> (plant hormones). When a plant detects sunlight, gravity, or water, it uses these slow-moving chemicals to alter the growth rate of specific cells, allowing the stem to slowly bend towards light or the roots to seek out deep water.
+                </div></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Plant Hormones Matrix <span class="punjabi">(ਪੌਦਿਆਂ ਦੇ ਹਾਰਮੋਨ)</span></h2>
+                <p><strong>Interactive Match:</strong> Tap a plant hormone, then tap its correct clinical function.</p>
+                <div class="match-grid" id="match-ch6-1">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Auxin</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Growth Inhibitor (causes wilting of leaves)</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Promotes rapid cell division</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Cytokinins</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Abscisic Acid (ABA)</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Promotes cell elongation (Phototropism)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Movements in Plants <span class="punjabi">(ਪੌਦਿਆਂ ਵਿੱਚ ਹਰਕਤ)</span></h2>
+                <p>Hover over each card to compare the two kinds of plant movement.</p>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Tropic Movement<br><span class="punjabi">ਅਨੁਵਰਤੀ ਗਤੀ</span></div>
+                            <div class="flip-back"><strong>Direction depends on stimulus.</strong><br><br>Growth-dependent &amp; <span class="exam-keyword">directional</span>, e.g. shoot bending towards light.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Nastic Movement<br><span class="punjabi">ਅਨਿਸ਼ਚਿਤ ਗਤੀ</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>Direction independent of stimulus.</strong><br><br>Non-directional &amp; usually fast, e.g. <span class="exam-keyword">Touch-me-not</span> leaves folding.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Types of Tropic Movements <span class="punjabi">(ਅਨੁਵਰਤਨ ਦੀਆਂ ਕਿਸਮਾਂ)</span></h2>
+                <p><strong>Interactive Match:</strong> Tap a tropism, then tap the stimulus it responds to.</p>
+                <div class="match-grid" id="match-ch6-2">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Phototropism</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Response to water</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Response to gravity</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Chemotropism</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Response to light</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Geotropism</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Response to chemicals (pollen tube)</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Hydrotropism</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Match: Gland &harr; Hormone <span class="punjabi">(ਗ੍ਰੰਥੀ ਅਤੇ ਹਾਰਮੋਨ)</span></h2>
+                <p><strong>Interactive Match:</strong> Tap a gland, then tap the hormone it secretes.</p>
+                <div class="match-grid" id="match-ch6-3">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Thyroid</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Insulin</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Growth Hormone</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Adrenal</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Thyroxine</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Pituitary</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Adrenaline</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Pancreas</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sort It: Nervous vs Endocrine <span class="punjabi">(ਦਿਮਾਗੀ ਬਨਾਮ ਹਾਰਮੋਨ ਪ੍ਰਣਾਲੀ)</span></h2>
+                <div class="pd-game">
+                    <p class="pd-instruction">Click a feature, then click the system it belongs to. <span class="punjabi">(ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ, ਫਿਰ ਸਹੀ ਪ੍ਰਣਾਲੀ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।)</span></p>
+                    <div class="pd-pool">
+                        <span class="pd-item" data-target="nervous" onclick="psebPick(this)">Electrical impulse</span>
+                        <span class="pd-item" data-target="endocrine" onclick="psebPick(this)">Chemical hormone</span>
+                        <span class="pd-item" data-target="nervous" onclick="psebPick(this)">Very fast response</span>
+                        <span class="pd-item" data-target="endocrine" onclick="psebPick(this)">Slow, long-lasting</span>
+                        <span class="pd-item" data-target="nervous" onclick="psebPick(this)">Carried by neurons</span>
+                        <span class="pd-item" data-target="endocrine" onclick="psebPick(this)">Carried by blood</span>
+                    </div>
+                    <div class="pd-targets">
+                        <div class="pd-target" data-target="nervous" onclick="psebDrop(this)"><span class="pd-label">&#9889; Nervous System <small>ਨਾੜੀ ਪ੍ਰਣਾਲੀ</small></span><div class="pd-drop"></div></div>
+                        <div class="pd-target" data-target="endocrine" onclick="psebDrop(this)"><span class="pd-label">&#128138; Endocrine System <small>ਅੰਤਹ-ਸ੍ਰਾਵੀ ਪ੍ਰਣਾਲੀ</small></span><div class="pd-drop"></div></div>
+                    </div>
+                    <div class="pd-done">Perfect! You matched every feature correctly. <span class="punjabi">(ਸ਼ਾਬਾਸ਼!)</span></div>
+                    <button class="pd-reset-btn" onclick="psebReset(this)">&#8635; Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Rapid Recall <span class="punjabi">(ਤੇਜ਼ ਦੁਹਰਾਈ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Tap the blue blocks to complete the revision.</p>
+                <div class="cloze-paragraph">
+                    The functional unit of the nervous system is the <span class="cloze-blank" data-ans="Neuron" onclick="revealCloze(this)"></span>. Reflex actions are controlled by the <span class="cloze-blank" data-ans="Spinal cord" onclick="revealCloze(this)"></span>. In plants, growth towards light is called <span class="cloze-blank" data-ans="Phototropism" onclick="revealCloze(this)"></span>. The hormone that controls blood sugar is <span class="cloze-blank" data-ans="Insulin" onclick="revealCloze(this)"></span>, and a lack of <span class="cloze-blank" data-ans="Iodine" onclick="revealCloze(this)"></span> causes goitre.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Must-Memorize for Boards <span class="punjabi">(ਪਰੀਖਿਆ ਲਈ ਯਾਦ ਰੱਖੋ)</span></h2>
+                <div class="ratta-box">Synapse = one-way gap between neurons.<br>Cerebellum = balance &amp; posture.<br>Medulla = heartbeat, BP, vomiting.<br>Auxin = phototropism (cell elongation).<br>Insulin = pancreas, controls blood sugar.<br>Iodine deficiency = goitre.</div>
+                <div class="ratta-box">Reflex arc order: Receptor &rarr; Sensory neuron &rarr; Spinal cord (relay) &rarr; Motor neuron &rarr; Effector. <span class="punjabi-block">ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ ਦਾ ਕ੍ਰਮ ਯਾਦ ਰੱਖੋ।</span></div>
+            </div>
+        </div>
+
+        <!-- CH 6 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch6"><div class="sub-slide active" id="tf-ch6-s1"><div class="sub-progress">Question 1 of 8 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">The gap between two neurons is called a synapse.<br><span class="punjabi-block">ਦੋ ਨਾੜੀ ਸੈੱਲਾਂ ਵਿਚਕਾਰਲੀ ਖਾਲੀ ਥਾਂ ਨੂੰ ਸਿਨੈਪਸ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s2"><div class="sub-progress">Question 2 of 8 <span class="pyq-tag">[PSEB 2021]</span></div><div class="question-text">Reflex actions are controlled primarily by the forebrain.<br><span class="punjabi-block">ਰਿਫਲੈਕਸ ਕਿਰਿਆਵਾਂ ਮੁੱਖ ਤੌਰ 'ਤੇ ਅਗਲੇ ਦਿਮਾਗ ਦੁਆਰਾ ਕੰਟਰੋਲ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Cytokinins promote rapid cell division in plants.<br><span class="punjabi-block">ਸਾਈਟੋਕਾਇਨਿਨ ਪੌਦਿਆਂ ਵਿੱਚ ਤੇਜ਼ੀ ਨਾਲ ਸੈੱਲ ਵੰਡ ਨੂੰ ਉਤਸ਼ਾਹਿਤ ਕਰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Nastic movements depend on the direction of the stimulus.<br><span class="punjabi-block">ਨੈਸਟਿਕ ਗਤੀਆਂ ਉਤੇਜਕ ਦੀ ਦਿਸ਼ਾ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s5"><div class="sub-progress">Question 5 of 8 <span class="pyq-tag">[PSEB 2020]</span></div><div class="question-text">Iodine is essential for the synthesis of thyroxine.<br><span class="punjabi-block">ਥਾਇਰੌਕਸਿਨ ਦੇ ਸੰਸਲੇਸ਼ਣ ਲਈ ਆਇਓਡੀਨ ਜ਼ਰੂਰੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">The spinal cord controls reflex actions.<br><span class="punjabi-block">ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆਵਾਂ ਨੂੰ ਕੰਟਰੋਲ ਕਰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">Adrenaline is secreted by the pancreas.<br><span class="punjabi-block">ਐਡਰੀਨਲੀਨ ਪੈਨਕ੍ਰੀਆਸ ਦੁਆਰਾ ਛੱਡਿਆ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">The cerebellum controls thinking and memory.<br><span class="punjabi-block">ਸੈਰੀਬੈਲਮ ਸੋਚਣ ਅਤੇ ਯਾਦਦਾਸ਼ਤ ਨੂੰ ਕੰਟਰੋਲ ਕਰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 6</h2><div class="sub-slider-container" id="sib-ch6"><div class="sub-slide active short-answer" id="sib-ch6-s1" data-q="What chemicals carry signals across the synapse?" data-a="Neurotransmitters" data-pa="ਨਿਊਰੋਟ੍ਰਾਂਸਮੀਟਰ"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">What chemicals carry signals across the synapse?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Neurotransmitters', 'ਨਿਊਰੋਟ੍ਰਾਂਸਮੀਟਰ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s2" data-q="Which part of the brain controls voluntary actions like thinking?" data-a="Cerebrum" data-pa="ਸੈਰੀਬ੍ਰਮ / ਅਗਲਾ ਦਿਮਾਗ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">Which part of the brain controls voluntary actions like thinking?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Cerebrum', 'ਸੈਰੀਬ੍ਰਮ / ਅਗਲਾ ਦਿਮਾਗ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s3" data-q="Which plant hormone causes bending towards light?" data-a="Auxin" data-pa="ਔਕਸਿਨ"><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">Which plant hormone causes bending towards light?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Auxin', 'ਔਕਸਿਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s4" data-q="Which plant hormone inhibits growth and causes leaves to fall?" data-a="Abscisic Acid" data-pa="ਐਬਸਿਸਿਕ ਐਸਿਡ"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">Which plant hormone inhibits growth and causes leaves to fall?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Abscisic Acid', 'ਐਬਸਿਸਿਕ ਐਸਿਡ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s5" data-q="Which part of the brain controls balance and posture?" data-a="Cerebellum" data-pa="ਸੈਰੀਬੈਲਮ"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">Which part of the brain controls balance and posture?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Cerebellum', 'ਸੈਰੀਬੈਲਮ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s6" data-q="Which gland secretes insulin?" data-a="Pancreas" data-pa="ਪੈਨਕ੍ਰੀਆਸ"><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">Which gland secretes insulin?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Pancreas', 'ਪੈਨਕ੍ਰੀਆਸ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s7" data-q="Which hormone prepares the body for fight or flight?" data-a="Adrenaline" data-pa="ਐਡਰੀਨਲੀਨ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">Which hormone prepares the body for fight or flight?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Adrenaline', 'ਐਡਰੀਨਲੀਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s8" data-q="Growth of a plant root towards gravity is called what?" data-a="Geotropism" data-pa="ਗੁਰੂਤਾ ਅਨੁਵਰਤਨ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">Growth of a plant root towards gravity is called what?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Geotropism', 'ਗੁਰੂਤਾ ਅਨੁਵਰਤਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 6 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch6"><div class="sub-slide active" id="mcq-ch6-s1"><div class="sub-progress">Question 1 of 8 <span class="pyq-tag">[PSEB 2018]</span></div><div class="question-text">Which part of the brain controls involuntary actions like blood pressure and vomiting?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Cerebrum</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Cerebellum</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Medulla</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">To which side of the shoot does auxin diffuse when light comes from one direction?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. The sunny side</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. The shady side</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. It remains equally distributed</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">The rapid folding of Mimosa (Touch-me-not) leaves is due to:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Cell division</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Changes in turgor pressure (water content)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Action of Auxin</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Which mechanism controls the exact amount of hormones released in the body?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Reflex action</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Feedback mechanism</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Synaptic transmission</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">In a reflex arc, the signal is carried from the receptor to the spinal cord by:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Motor neuron</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Relay neuron</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Sensory neuron</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">The Central Nervous System (CNS) is made up of:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Brain and heart</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Brain and spinal cord</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Spinal cord and nerves</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">A deficiency of iodine in the diet causes:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Diabetes</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Goitre</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Night blindness</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">Which of these is a fast, non-directional (nastic) plant movement?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Shoot bending towards light</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Root growing downwards</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Folding of Touch-me-not leaves</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Get Your Flashcards &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every "Say It Back" question in this deck has been formatted for Anki, with both English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+</div>
+<script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    // Add checkmarks
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    msg.style.cssText = 'grid-column: 1 / -1; text-align: center; font-size: 1.5rem; color: #10B981; font-weight: bold; margin-top: 15px; animation: fadeIn 0.5s;';
+                    grid.appendChild(msg);
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.pd-game')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if (window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        // Remove checkmark
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) seqBtn.style.display = 'block';
+                    });
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase1_Premium_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* --- TEXT-TO-SPEECH (added) --- */
+        window.activeReadBtn = null;
+
+        window.speakWord = function(text, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.85;
+            if (btn) {
+                btn.style.backgroundColor = '#D1FAE5';
+                utterance.onend = () => { btn.style.backgroundColor = ''; };
+                utterance.onerror = () => { btn.style.backgroundColor = ''; };
+            }
+            window.speechSynthesis.speak(utterance);
+        };
+
+        window.speakPassage = function(textId, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+            }
+            const textElement = document.getElementById(textId);
+            if (!textElement) return;
+            const text = textElement.innerText || textElement.textContent;
+            const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text]).map(s => s.trim()).filter(s => s.length > 0);
+            if (sentences.length === 0) return;
+            window.activeReadBtn = btn;
+            btn.innerHTML = '\uD83D\uDD0A Reading...';
+            btn.style.background = 'var(--goku-accent)';
+            let i = 0;
+            function speakNext() {
+                if (i < sentences.length) {
+                    const u = new SpeechSynthesisUtterance(sentences[i]);
+                    u.lang = 'en-US';
+                    u.rate = 0.85;
+                    u.onend = function() { i++; speakNext(); };
+                    u.onerror = function(e) { console.error("TTS Error:", e); window.stopSpeaking(); };
+                    window.speechSynthesis.speak(u);
+                } else {
+                    window.stopSpeaking();
+                }
+            }
+            speakNext();
+        };
+
+        window.stopSpeaking = function() {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+                window.activeReadBtn = null;
+            }
+        };
+
+        updateUI();
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

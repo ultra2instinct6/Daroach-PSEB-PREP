@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="arr12b" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#e11d48"/>
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#ffffff"/>
+  <!-- Straight vertical wire carrying current upward -->
+  <line x1="360" y1="60" x2="360" y2="360" stroke="#0f172a" stroke-width="5"/>
+  <path d="M360,60 l -7,14 l 14,0 z" fill="#0f172a"/>
+  <text x="372" y="80" font-size="15" fill="#0f172a" font-weight="700">I (current)</text>
+  <!-- Concentric field ellipses around wire (perspective) -->
+  <g fill="none" stroke="#e11d48" stroke-width="2">
+    <ellipse cx="360" cy="210" rx="55" ry="18"/>
+    <ellipse cx="360" cy="210" rx="105" ry="34"/>
+    <ellipse cx="360" cy="210" rx="160" ry="52"/>
+  </g>
+  <!-- Direction arrows on the near side of ellipses -->
+  <path d="M 415 214 q 0 8 -8 12" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#arr12b)"/>
+  <path d="M 465 216 q 0 12 -12 18" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#arr12b)"/>
+  <path d="M 520 218 q 0 16 -16 24" fill="none" stroke="#e11d48" stroke-width="2" marker-end="url(#arr12b)"/>
+  <text x="530" y="200" font-size="14" fill="#e11d48">Concentric field lines</text>
+  <text x="360" y="398" font-size="16" fill="#0f172a" text-anchor="middle" font-weight="700">Magnetic Field around a Straight Current-carrying Wire (Right-Hand Thumb Rule)</text>
+</svg>

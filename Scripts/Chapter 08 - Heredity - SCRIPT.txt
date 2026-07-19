@@ -1,0 +1,1277 @@
+========================================================================
+CHAPTER 8 — HEREDITY AND EVOLUTION
+PSEB Class 10 Science
+TOTAL SLIDES: 27
+Version 1
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 9 — Heredity and Evolution (Title Slide)
+========================================================================
+
+ON SCREEN:
+  - Chapter title: "Chapter 9 — Heredity and Evolution"
+  - Punjabi heading: ਵੰਸ਼-ਵਿਗਿਆਨ
+
+SCRIPT (say this aloud):
+  Welcome to Chapter 9 — Heredity and Evolution. In Punjabi, heredity is called
+  ਵੰਸ਼-ਵਿਗਿਆਨ (vansh-vigyan). This is one of the most important chapters for your
+  PSEB board exam. You've probably already noticed that children often look like
+  their parents — same eye shape, same hair, sometimes even the same smile. Have
+  you ever wondered why? The answer lies in a process called heredity.
+
+  In this chapter, we will explore how traits are passed from parents to children,
+  what happens when two plants or organisms with different traits are crossed, and
+  why boys and girls are born in nearly equal numbers. We'll follow the brilliant
+  work of Gregor Mendel — a monk who figured out the rules of inheritance just by
+  carefully growing and counting pea plants. By the end of this chapter, you will
+  understand Punnett squares, dominant and recessive traits, and the famous ratios
+  that appear in Mendel's crosses. Let's begin!
+
+KEY POINTS TO STRESS:
+  - This chapter is about HOW traits (characteristics) are passed from parents to offspring.
+  - Gregor Mendel is the father of genetics — his experiments are the core of this chapter.
+  - Board exam questions from this chapter are very frequent and predictable.
+
+BOARD TIP:  This chapter consistently has 3-mark, 5-mark, and MCQ questions in PSEB exams. Ratios (3:1 and 9:3:3:1) are must-memorize numbers.
+
+
+========================================================================
+SLIDE 2: Core Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Eight key terms with Punjabi translations and pronunciation guides:
+    Trait (ਲੱਛਣ), Gene (ਜੀਨ), Dominant (ਪ੍ਰਭਾਵੀ), Recessive (ਅਪ੍ਰਭਾਵੀ),
+    Genotype (ਜੀਨੋਟਾਈਪ), Phenotype (ਫੀਨੋਟਾਈਪ),
+    Homozygous (ਹੋਮੋਜ਼ਾਈਗਸ), Heterozygous (ਹੈਟਰੋਜ਼ਾਈਗਸ)
+
+SCRIPT (say this aloud):
+  Before we dive into Mendel's experiments, let's lock in our vocabulary. These
+  eight words are the building blocks of genetics. If you don't know these terms,
+  the rest of the chapter won't make sense — so pay close attention.
+
+  A "Trait" — in Punjabi ਲੱਛਣ (lacchan) — is simply any characteristic of a living
+  thing. Height, eye color, ear shape — all of these are traits.
+
+  A "Gene" — ਜੀਨ — is a specific section of DNA that carries the instruction for
+  one particular trait. Think of it as one chapter in the instruction manual for
+  building a body.
+
+  "Dominant" — ਪ੍ਰਭਾਵੀ (prabhavi) — describes the stronger trait that shows up
+  whenever it is present, even if only one copy exists.
+
+  "Recessive" — ਅਪ੍ਰਭਾਵੀ (aprabhavi) — is the weaker trait. It only shows up when
+  two copies of it are present. If a dominant gene is alongside it, the recessive
+  trait is completely hidden.
+
+  "Genotype" — ਜੀਨੋਟਾਈਪ — is the actual genetic code — the letters you write, like
+  TT, Tt, or tt.
+
+  "Phenotype" — ਫੀਨੋਟਾਈਪ — is what you can actually see — tall or short, round or
+  wrinkled. It is the visible result of the genotype.
+
+  "Homozygous" — ਹੋਮੋਜ਼ਾਈਗਸ — means both alleles for a trait are the same, either
+  TT or tt.
+
+  "Heterozygous" — ਹੈਟਰੋਜ਼ਾਈਗਸ — means the two alleles are different, like Tt.
+
+KEY POINTS TO STRESS:
+  - Dominant (ਪ੍ਰਭਾਵੀ) = shown even with one copy; Recessive (ਅਪ੍ਰਭਾਵੀ) = only shown with two copies.
+  - Genotype = letters (TT, Tt, tt); Phenotype = what you see (Tall or Short).
+  - Homozygous = same alleles (TT or tt); Heterozygous = different alleles (Tt).
+
+BOARD TIP:  Students frequently mix up Genotype and Phenotype — use the memory hook: "Geno = Genes (letters); Pheno = Physical (what you see)."
+
+
+========================================================================
+SLIDE 3: More Genetics Terms (ਹੋਰ ਸ਼ਬਦ)
+========================================================================
+
+ON SCREEN:
+  - Seven more terms: Heredity (ਵੰਸ਼ਾਗਤੀ), Variation (ਭਿੰਨਤਾ), Allele (ਏਲੀਲ),
+    Chromosome (ਕ੍ਰੋਮੋਸੋਮ), F1 Generation (ਪਹਿਲੀ ਪੀੜ੍ਹੀ),
+    F2 Generation (ਦੂਜੀ ਪੀੜ੍ਹੀ), Punnett Square (ਪਨੇਟ ਵਰਗ)
+  - Each term has a brief Punjabi definition and pronunciation guide.
+
+SCRIPT (say this aloud):
+  We have seven more important terms on this slide. Let's go through them one by one.
+
+  "Heredity" — ਵੰਸ਼ਾਗਤੀ (vanshagti) — is the process by which traits are transmitted
+  from parents to their offspring. Simply put: how characteristics move from one
+  generation to the next.
+
+  "Variation" — ਭਿੰਨਤਾ (bhinnta) — refers to the differences that appear among
+  individuals of the same species, even within the same family. Siblings may share
+  traits but they are not identical — those differences are variation.
+
+  "Allele" — ਏਲੀਲ (a-leel) — is a specific version of a gene. For the height gene,
+  the tall version (T) and the short version (t) are two alleles of the same gene.
+
+  "Chromosome" — ਕ੍ਰੋਮੋਸੋਮ — is a thread-like structure made of DNA that is found
+  inside the nucleus of every cell. Genes are located on chromosomes.
+
+  "F1 Generation" — ਪਹਿਲੀ ਪੀੜ੍ਹੀ (pahili piri) — stands for "First Filial
+  Generation." It is the first set of offspring produced when two parent plants are
+  crossed.
+
+  "F2 Generation" — ਦੂਜੀ ਪੀੜ੍ਹੀ — is the second generation, produced when F1 plants
+  are allowed to self-pollinate or are crossed with each other.
+
+  Finally, the "Punnett Square" — ਪਨੇਟ ਵਰਗ — is a grid-shaped tool used to predict
+  the possible genotypes and phenotypes of offspring from a cross. We will use it
+  a lot in this chapter!
+
+KEY POINTS TO STRESS:
+  - F1 = first generation offspring from the original (P) cross.
+  - F2 = second generation from the self-cross of F1 plants.
+  - Punnett Square is the prediction tool — know how to fill it in.
+  - Allele = a form of a gene (T and t are two alleles of the height gene).
+
+BOARD TIP:  "F1" and "F2" stand for "Filial" (from the Latin word for child/offspring) — mentioning this in a board answer shows understanding.
+
+
+========================================================================
+SLIDE 4: Reading — The Monk and the Peas
+========================================================================
+
+ON SCREEN:
+  - Story passage about Gregor Mendel's experiments in a monastery garden (1860s).
+  - Read-aloud passage describing how Mendel crossed tall and short pea plants and
+    discovered dominant and recessive "hidden factors" (genes).
+  - Play/stop button for audio narration.
+
+SCRIPT (say this aloud):
+  Let's take a moment to read about the man who started it all — Gregor Mendel. In
+  the 1860s, in the quiet garden of a monastery in Austria, a monk named Gregor
+  Mendel spent seven long years growing and counting thousands of pea plants. At
+  the time, people thought it was strange work for a monk to do. But Mendel was
+  quietly uncovering one of the deepest secrets of life.
+
+  Here is what he observed: when he crossed a tall pea plant with a short pea plant,
+  every single offspring in the first generation came out tall. The shortness seemed
+  to have completely vanished! But Mendel was not satisfied. He took those tall F1
+  plants and bred them with each other. In the very next generation — the F2 — the
+  short trait reappeared! And not randomly — it appeared in exactly about one out
+  of every four plants.
+
+  Mendel reasoned that traits must be carried by invisible "factors" — what we today
+  call genes. He concluded that some factors are dominant (they show up whenever
+  present) and some are recessive (they hide when a dominant factor is present, but
+  they are never destroyed — they just wait). When two recessive factors come
+  together, the hidden trait reappears.
+
+  This careful observation and counting became the foundation of the entire science
+  of genetics and heredity.
+
+KEY POINTS TO STRESS:
+  - Mendel worked in a monastery garden in the 1860s with pea plants.
+  - When he crossed Tall × Short, ALL F1 offspring were Tall (short was hidden).
+  - In F2, the short trait reappeared in a 3:1 ratio.
+  - He concluded traits are carried by "hidden factors" = genes; some dominant, some recessive.
+
+BOARD TIP:  Mendel is called the "Father of Genetics." His work was ignored for decades and only recognized after his death.
+
+
+========================================================================
+SLIDE 5: Heredity & Variation — Definitions
+========================================================================
+
+ON SCREEN:
+  - Definitions of Heredity and Variation.
+  - A two-column comparison table:
+    Heredity (ਵੰਸ਼ਾਗਤੀ) vs. Variation (ਭਿੰਨਤਾ)
+    — traits passed to next generation vs. differences between individuals
+    — makes offspring resemble parents vs. helps species survive changing conditions
+
+SCRIPT (say this aloud):
+  Now let us define our two most fundamental concepts for this chapter and understand
+  how they differ.
+
+  Heredity — ਵੰਸ਼ਾਗਤੀ — is the transmission of characters, or traits, from parents
+  to their offspring. Because of heredity, children look like their parents. A child
+  inherits the same blood group, similar facial features, or the same hair type as
+  their parents. Heredity is what makes offspring resemble their parents.
+
+  Variation — ਭਿੰਨਤਾ — refers to the differences that appear among offspring and
+  between offspring and their parents. Even though siblings come from the same
+  parents, they are not identical. One child may be taller, another may have a
+  different eye color. These differences are variations.
+
+  Now, why does variation matter? Variation is the basis of evolution. When conditions
+  in the environment change, organisms with certain variations are better suited to
+  survive. Over many generations, these useful variations become more common in the
+  population. So variation is not just interesting — it is the engine that drives
+  evolution and the survival of species.
+
+  Remember: Heredity creates similarity; Variation creates difference. Both happen
+  simultaneously in every generation.
+
+KEY POINTS TO STRESS:
+  - Heredity = transmission of traits from parent to offspring (similarity).
+  - Variation = differences among individuals (diversity).
+  - Variation is the basis of evolution — it helps species adapt and survive.
+  - These two processes work together in every generation.
+
+BOARD TIP:  Frequent 2-mark question: "Distinguish between heredity and variation" — always include the evolution connection for variation.
+
+
+========================================================================
+SLIDE 6: Inherited vs. Acquired Traits
+========================================================================
+
+ON SCREEN:
+  - Introductory sentence: "Not all characteristics can be passed to the next generation."
+  - Two-column comparison table:
+    Inherited Traits (ਜੱਦੀ ਲੱਛਣ) vs. Acquired Traits (ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ)
+    — passed through DNA vs. developed during lifetime due to environment
+    — causes changes in germ cells vs. only affects somatic cells, DNA not changed
+    — examples: eye color, blood group vs. learning to swim, a scar, cutting a mouse's tail
+
+SCRIPT (say this aloud):
+  This is a very important distinction that often comes up in board exams. Not every
+  characteristic you have can be passed on to your children. Let's understand why.
+
+  Inherited traits — ਜੱਦੀ ਲੱਛਣ — are characteristics that are encoded in your DNA
+  and passed from parents to offspring through the germ cells — that is, the sperm
+  and egg cells. Examples include eye color and blood group. These traits are present
+  from birth because the instructions for them were already written in your DNA when
+  you were conceived.
+
+  Acquired traits — ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ — are characteristics that develop during a
+  person's lifetime because of their experiences or environment. If you learn to
+  swim, your muscles develop — but that muscular development is not written into
+  your DNA. If you get a scar, your children will not be born with that scar.
+
+  Here is the key biological reason: Acquired traits only affect somatic cells —
+  the body cells. They do NOT change the DNA in the germ cells (sperm and eggs).
+  Since heredity only passes what is in the germ cells' DNA, acquired traits cannot
+  be inherited.
+
+  A classic exam example: Weismann, a scientist, cut off the tails of mice for many
+  generations. But the offspring were always born with full tails. Why? Because
+  cutting the tail is an acquired change — it changes somatic cells, not germ cells.
+  The DNA in the germ cells remained unchanged.
+
+KEY POINTS TO STRESS:
+  - Inherited traits → encoded in DNA of germ cells → passed to offspring.
+  - Acquired traits → changes only in somatic (body) cells → NOT passed to offspring.
+  - Key rule: Only changes in germ cell DNA can be inherited.
+  - Examples: Eye color = inherited; A scar = acquired.
+
+BOARD TIP:  Frequent 3-mark question: "Why are acquired traits not inherited?" Always mention germ cells vs. somatic cells and DNA in your answer.
+
+
+========================================================================
+SLIDE 7: Genotype vs. Phenotype
+========================================================================
+
+ON SCREEN:
+  - Two flip-card style boxes:
+    Genotype (ਜੀਨੋਟਾਈਪ) — "The Genetic Code" — actual genetic makeup, e.g., Tt or TT
+    Phenotype (ਫੀਨੋਟਾਈਪ) — "The Physical Look" — visible expression, e.g., Tall or Short
+
+SCRIPT (say this aloud):
+  Of all the terms in this chapter, Genotype and Phenotype are the two that students
+  most commonly confuse. Let's fix that right now with a very clear explanation.
+
+  Genotype — ਜੀਨੋਟਾਈਪ — is the actual genetic code of an organism. It is what is
+  written in the DNA. We represent genotype using letters. For example, TT, Tt, and
+  tt are all genotypes for the height trait. You cannot see the genotype just by
+  looking at a plant — you need to do genetic testing to know it.
+
+  Phenotype — ਫੀਨੋਟਾਈਪ — is the physical, visible expression of those genes. It is
+  what you can observe with your eyes. For example, "tall" or "short" are phenotypes.
+  A plant that is TT (genotype) LOOKS tall (phenotype). A plant that is Tt (genotype)
+  ALSO looks tall (phenotype) — because T is dominant.
+
+  Here is the important connection: Two plants can have DIFFERENT genotypes but the
+  SAME phenotype. TT and Tt both look tall — they have the same phenotype (tall) but
+  different genotypes (TT vs. Tt). This is why a test cross is needed to figure out
+  the hidden genotype.
+
+  Memory trick: "Geno" sounds like "Genes" — it's the genetic code (letters).
+  "Pheno" sounds like "Physical" — it's the physical appearance.
+
+KEY POINTS TO STRESS:
+  - Genotype = letters (TT, Tt, tt) = the genetic code inside the organism.
+  - Phenotype = what you see (Tall, Short) = the visible expression.
+  - TT and Tt have the SAME phenotype (tall) but DIFFERENT genotypes.
+  - You can observe phenotype; you cannot observe genotype directly.
+
+BOARD TIP:  Most common mistake: writing "phenotype = Tt" — no! Tt is a genotype. Phenotype = "Tall." Never write letters as a phenotype answer.
+
+
+========================================================================
+SLIDE 8: Why Mendel Chose Pea Plants
+========================================================================
+
+ON SCREEN:
+  - Heading: Gregor Mendel — "Father of Genetics"
+  - Pea plant: Pisum sativum
+  - Three reasons: clear contrasting traits, short life cycle and many seeds,
+    can self-pollinate and be cross-pollinated by hand.
+
+SCRIPT (say this aloud):
+  Gregor Mendel is known as the "Father of Genetics." He could have chosen any
+  plant for his experiments, but he chose the garden pea — Pisum sativum. This was
+  a brilliant choice, and here's why.
+
+  First, pea plants have very clear, contrasting traits. Height is either tall OR
+  short — not medium. Seeds are either round OR wrinkled. Flowers are either purple
+  OR white. These sharp, either/or differences made it easy to count and categorize
+  the offspring without any ambiguity.
+
+  Second, pea plants have a short life cycle and produce a large number of seeds.
+  Mendel was able to grow many generations quickly and analyze thousands of
+  offspring, which gave his data statistical reliability. You can't trust a ratio
+  based on just five plants — Mendel counted tens of thousands.
+
+  Third, and most importantly, pea plants naturally self-pollinate — pollen from
+  the same plant fertilizes its own eggs. This allowed Mendel to create "pure
+  breeding" lines — plants that always produce the same trait generation after
+  generation. But he could also manually cross two different plants by transferring
+  pollen with a brush, giving him full control over which plants mated.
+
+  These three features made pea plants the perfect experimental subject for
+  discovering the laws of heredity.
+
+KEY POINTS TO STRESS:
+  - Mendel chose Pisum sativum (garden pea) for his experiments.
+  - Reasons: clear contrasting traits, short life cycle + many seeds, can self- and cross-pollinate.
+  - Self-pollination allowed creation of pure-breeding lines.
+  - Manual cross-pollination gave Mendel precise experimental control.
+
+BOARD TIP:  Frequent short-answer: "Why did Mendel use pea plants?" — list all three reasons for full marks.
+
+
+========================================================================
+SLIDE 9: Mendel's Three Laws
+========================================================================
+
+ON SCREEN:
+  - Heading: "Mendel's Three Laws — Very Important"
+  - Law 1: Law of Dominance
+  - Law 2: Law of Segregation
+  - Law 3: Law of Independent Assortment (with 9:3:3:1 reference)
+
+SCRIPT (say this aloud):
+  Mendel's experiments led him to formulate three fundamental laws of inheritance.
+  These laws are the heart of this chapter — know them, understand them, and be
+  ready to explain each one in an exam.
+
+  Law 1 — The Law of Dominance: When two organisms with contrasting traits are
+  crossed, only the dominant trait appears in the F1 offspring. The recessive trait
+  is completely hidden. For example, when a tall plant (TT) is crossed with a short
+  plant (tt), all F1 plants are tall (Tt). The 't' allele for shortness is present,
+  but it is dominated by 'T'. This law explains why some traits seem to disappear in
+  the first generation — they don't disappear, they just go into hiding.
+
+  Law 2 — The Law of Segregation: During gamete formation (when sperm or egg cells
+  are made), the two alleles of a gene separate from each other. Each gamete receives
+  only ONE allele. So a plant with genotype Tt produces some gametes carrying T and
+  some carrying t — never both together. When fertilization happens, the pairs come
+  together again in the offspring. This law explains why recessive traits can
+  reappear in the F2 generation.
+
+  Law 3 — The Law of Independent Assortment: When two or more traits are inherited
+  together, each pair of alleles separates independently of every other pair during
+  gamete formation. This is demonstrated by the dihybrid cross, which gives the
+  famous 9:3:3:1 ratio in the F2 generation. This law means that the inheritance
+  of one trait does not affect the inheritance of another trait.
+
+KEY POINTS TO STRESS:
+  - Law of Dominance: Only dominant trait visible in F1 hybrid (Tt → Tall).
+  - Law of Segregation: Alleles separate during gamete formation; each gamete gets only one allele.
+  - Law of Independent Assortment: Different traits are inherited independently → 9:3:3:1 ratio.
+  - All three laws together explain the results of Mendel's crosses.
+
+BOARD TIP:  Very important for 5-mark questions — state each law by name, then explain it. The Law of Segregation is sometimes called "Law of Purity of Gametes."
+
+
+========================================================================
+SLIDE 10: Alleles & Genetic Symbols
+========================================================================
+
+ON SCREEN:
+  - Definition: An allele is one form of a gene. Height has two alleles: T (tall) and t (short).
+  - Table of symbols and meanings:
+    T = Dominant allele (Tall)
+    t = Recessive allele (short)
+    TT = Homozygous dominant — pure tall
+    Tt = Heterozygous — hybrid tall
+    tt = Homozygous recessive — pure short
+
+SCRIPT (say this aloud):
+  Now let's understand the symbolic language of genetics — because in this chapter,
+  we write everything using letters, and you must know exactly what each letter
+  combination means.
+
+  An allele is one specific form of a gene. For the height gene in pea plants, there
+  are two alleles: T (the tall allele) and t (the short allele). Capital T represents
+  the dominant allele and lowercase t represents the recessive allele. This is a
+  standard convention: capital letter for dominant, lowercase for recessive.
+
+  Now, every organism has two copies of each gene — one from each parent. So for
+  height, each pea plant has two alleles. Let's look at what the combinations mean:
+
+  TT: This plant has two dominant alleles. It is homozygous dominant — a "pure tall"
+  plant. All its gametes will carry T. No matter what it is crossed with, it can
+  only pass a T to offspring.
+
+  Tt: This plant has one dominant and one recessive allele. It is heterozygous. It
+  looks tall because T is dominant, but it secretly carries a t. It is sometimes
+  called a "hybrid tall" plant.
+
+  tt: This plant has two recessive alleles. It is homozygous recessive — it will
+  always appear short. There is no dominant T to mask the recessive t.
+
+  So the phenotype "tall" can come from TWO different genotypes: TT or Tt. But the
+  phenotype "short" can only come from one genotype: tt.
+
+KEY POINTS TO STRESS:
+  - Capital letter = dominant allele; lowercase = recessive allele.
+  - TT = pure tall (homozygous dominant); tt = pure short (homozygous recessive); Tt = hybrid tall (heterozygous).
+  - "Tall" phenotype corresponds to two possible genotypes: TT or Tt.
+  - "Short" phenotype corresponds to only one genotype: tt.
+
+BOARD TIP:  Always use capital for dominant and lowercase for recessive when writing genetic symbols. Mixing them up costs marks.
+
+
+========================================================================
+SLIDE 11: Mendel's Monohybrid Cross (One Trait)
+========================================================================
+
+ON SCREEN:
+  - Heading: Monohybrid Cross — crossing one trait at a time.
+  - P generation: Pure Tall (TT) × Pure Short (tt).
+  - F1 generation: All Tt → 100% Tall.
+  - F2 generation: Tt × Tt → 3 Tall : 1 Short (phenotypic ratio).
+  - Key ratio: Monohybrid Cross F2 Ratio = 3:1
+
+SCRIPT (say this aloud):
+  A monohybrid cross is a cross between two organisms that differ in just ONE trait.
+  Mendel's most famous experiment was crossing tall and short pea plants. Let's trace
+  it step by step.
+
+  Parent Generation — P: Mendel took a pure tall plant (TT) and crossed it with a
+  pure short plant (tt). Remember: a pure tall plant always produces tall offspring
+  no matter what, so its genotype must be TT. Similarly, a pure short plant is tt.
+
+  F1 Generation: Every offspring receives one allele from each parent. From TT, every
+  gamete carries T. From tt, every gamete carries t. So every F1 offspring is Tt.
+  Now, T is dominant over t, so what do all F1 plants look like? They are ALL TALL.
+  100% of F1 offspring are tall. The shortness has apparently vanished — but it is
+  still hiding inside those t alleles.
+
+  F2 Generation: Mendel then self-pollinated the F1 plants. He crossed Tt × Tt.
+  Now something remarkable happens. The hidden t alleles can finally come together.
+  Some offspring will be TT (pure tall), some Tt (hybrid tall), and some tt (short).
+
+  When you count them out, you get: 3 tall plants for every 1 short plant.
+  This is the famous 3:1 phenotypic ratio.
+
+  The short trait did not disappear — it was just recessive and hidden in the F1
+  generation. Mendel's genius was in seeing this and understanding what it meant.
+
+KEY POINTS TO STRESS:
+  - Monohybrid cross = cross involving ONE trait at a time.
+  - P cross: TT × tt → F1: All Tt → All Tall (100%).
+  - F1 self-cross: Tt × Tt → F2 phenotype ratio = 3 Tall : 1 Short = 3:1.
+  - F2 genotype ratio = 1 TT : 2 Tt : 1 tt = 1:2:1.
+  - The recessive trait disappears in F1 but reappears in F2.
+
+BOARD TIP:  The 3:1 phenotypic ratio and 1:2:1 genotypic ratio are must-memorize for board exams — write both ratios clearly when answering questions about monohybrid crosses.
+
+
+========================================================================
+SLIDE 12: Punnett Square — P Cross (TT × tt)
+========================================================================
+
+ON SCREEN:
+  - Punnett square for the parental cross TT × tt:
+    Columns: t, t (from tt parent)
+    Rows: T, T (from TT parent)
+    All four cells: Tt
+  - Result: All offspring are Tt → 100% Tall (the short trait is hidden).
+
+SCRIPT (say this aloud):
+  Let's now use the Punnett square — ਪਨੇਟ ਵਰਗ — to visualize the parental cross.
+  The Punnett square is a simple grid that shows all the possible combinations of
+  alleles that can appear in the offspring of a genetic cross.
+
+  Here we are crossing a pure tall plant (TT) with a pure short plant (tt).
+
+  To draw the Punnett square: Place the gametes of one parent along the top, and the
+  gametes of the other parent down the side. The TT parent produces gametes that all
+  carry T, so we write T and T across the top. The tt parent produces gametes that
+  all carry t, so we write t and t down the side.
+
+  Now we fill in the four boxes by combining the letters from the top and side:
+  - Top T + Side t = Tt
+  - Top T + Side t = Tt
+  - Top T + Side t = Tt
+  - Top T + Side t = Tt
+
+  All four offspring are Tt. Since T is dominant, all four plants will be TALL. The
+  short trait is hidden — not gone, just hidden inside the t allele of each plant.
+
+  This confirms what Mendel observed: crossing a pure tall and pure short plant gives
+  100% tall offspring in the F1 generation.
+
+KEY POINTS TO STRESS:
+  - Punnett square for TT × tt → all four cells give Tt.
+  - F1 genotype: 100% Tt (heterozygous).
+  - F1 phenotype: 100% Tall (because T is dominant).
+  - The recessive 't' allele is present but hidden.
+
+BOARD TIP:  Always draw the Punnett square neatly in board answers — label the parents, place gametes on top and side, fill all four cells. This earns full marks.
+
+
+========================================================================
+SLIDE 13: Punnett Square — F1 Self-Cross (Tt × Tt)
+========================================================================
+
+ON SCREEN:
+  - Punnett square for Tt × Tt:
+    Columns: T, t (top)
+    Rows: T, t (side)
+    Cells: TT, Tt, Tt, tt
+  - Genotypic ratio: 1 TT : 2 Tt : 1 tt = 1:2:1
+  - Phenotypic ratio: 3 Tall : 1 Short = 3:1
+  - Interactive element: tap/fill in blanks.
+
+SCRIPT (say this aloud):
+  Now let's look at the most important Punnett square in this chapter — the F1
+  self-cross. We take the F1 plants (all Tt) and cross them with each other: Tt × Tt.
+
+  To draw this Punnett square: The Tt plant produces two types of gametes — T and t.
+  Write T and t across the top, and T and t down the side.
+
+  Now fill in the four boxes:
+  - Top T + Side T = TT
+  - Top t + Side T = Tt
+  - Top T + Side t = Tt
+  - Top t + Side t = tt
+
+  So we get: 1 TT, 2 Tt, and 1 tt.
+
+  The genotypic ratio is 1 TT : 2 Tt : 1 tt, written as 1:2:1. You have one pure
+  tall, two hybrid tall, and one pure short.
+
+  Now for the phenotypic ratio: TT is tall, Tt is tall (T is dominant), and tt is
+  short. So out of 4 offspring: 3 are tall, 1 is short.
+  The phenotypic ratio is 3 Tall : 1 Short = 3:1.
+
+  This is exactly what Mendel observed in his experiment! The short trait that was
+  hidden in F1 has reappeared in the F2 generation, exactly as Mendel predicted.
+
+  Practise filling in this Punnett square on your own until you can do it in 30
+  seconds — it's that important.
+
+KEY POINTS TO STRESS:
+  - Tt × Tt → Punnett square gives: 1 TT : 2 Tt : 1 tt.
+  - Genotypic ratio = 1:2:1.
+  - Phenotypic ratio = 3 Tall : 1 Short = 3:1.
+  - Both ratios must be memorized and written correctly in the exam.
+
+BOARD TIP:  Always write BOTH the genotypic ratio (1:2:1) AND the phenotypic ratio (3:1) when answering monohybrid cross questions. Forgetting one costs marks.
+
+
+========================================================================
+SLIDE 14: Interactive Punnett Square (Tt × Tt)
+========================================================================
+
+ON SCREEN:
+  - Interactive Punnett square grid (Tt × Tt) with clickable cells (shown as ?).
+  - After clicking: cells reveal TT, Tt, Tt, tt.
+  - Color-coded: Tall (has T) = ਲੰਬਾ, Short (tt) = ਛੋਟਾ.
+  - Summary: Genotypic ratio 1 TT : 2 Tt : 1 tt (1:2:1); Phenotypic ratio 3 Tall : 1 Short (3:1).
+  - Reset button.
+
+SCRIPT (say this aloud):
+  This is an interactive activity for the class. On screen, you see a Punnett square
+  grid with question marks in all four cells. The parents are both Tt.
+
+  Ask your students: "Before we click anything — what gametes does a Tt plant
+  produce?" The answer is T and t — both. So we write T and t across the top and
+  T and t down the side.
+
+  Now, walk through each cell with the class:
+  "Which gametes combine to make the top-left box? T from the top and T from the
+  side — that gives us TT." Click to reveal. "What is TT? Tall!"
+
+  "Next box — T from the top and t from the side — that gives Tt." Click. "Tall again,
+  because T is dominant."
+
+  "Third box — t from the top and T from the side — Tt." Click. "Still tall."
+
+  "Last box — t from the top and t from the side — tt." Click. "Short — because
+  there is no dominant T."
+
+  Now ask the class to state the ratios. The genotypic ratio is 1 TT : 2 Tt : 1 tt,
+  which we write as 1:2:1. The phenotypic ratio is 3 Tall (TT + Tt + Tt) to 1 Short
+  (tt), which is 3:1.
+
+  Hit Reset and challenge a student to come fill in the grid from memory. In Punjabi,
+  Tall = ਲੰਬਾ, Short = ਛੋਟਾ.
+
+KEY POINTS TO STRESS:
+  - Tt produces gametes T and t; the Punnett square maps all combinations.
+  - Cells: TT, Tt, Tt, tt → 1:2:1 genotypic ratio.
+  - Phenotypic ratio: 3 Tall : 1 Short = 3:1.
+  - Students should be able to fill this grid independently.
+
+BOARD TIP:  Practice activity — every student should fill the F2 Punnett square from memory before the exam. It is the single most tested diagram in this chapter.
+
+
+========================================================================
+SLIDE 15: Mendel's Dihybrid Cross (Two Traits)
+========================================================================
+
+ON SCREEN:
+  - Heading: Dihybrid Cross — two traits simultaneously.
+  - Parents (P): Round/Yellow seeds (RRYY) × Wrinkled/Green seeds (rryy).
+  - F1: All seeds Round and Yellow (RrYy).
+  - F2: New combinations appear — 9:3:3:1 ratio.
+  - Board trap warning: 9:3:3:1 proves Law of Independent Assortment.
+
+SCRIPT (say this aloud):
+  After mastering the monohybrid cross, Mendel went further and asked: what happens
+  when two traits are studied at the same time? This is called a dihybrid cross.
+
+  Mendel chose two traits: seed shape (Round R vs. Wrinkled r) and seed color (Yellow
+  Y vs. Green y). Round is dominant over wrinkled, and Yellow is dominant over green.
+
+  P Generation: He crossed a pure Round-Yellow plant (RRYY) with a pure
+  Wrinkled-Green plant (rryy).
+
+  F1 Generation: Every F1 offspring receives R from one parent and r from the other,
+  and Y from one parent and y from the other. So all F1 offspring are RrYy. Since R
+  and Y are both dominant, all F1 seeds are Round and Yellow. No wrinkled or green
+  seeds appear in F1.
+
+  F2 Generation: When F1 plants (RrYy) are allowed to self-pollinate, something
+  remarkable happens. Traits from the original parents mix and match to create NEW
+  combinations that never existed before — like Round-Green or Wrinkled-Yellow!
+
+  After careful counting of thousands of seeds, Mendel found the F2 ratio was always:
+  9 Round-Yellow : 3 Round-Green : 3 Wrinkled-Yellow : 1 Wrinkled-Green = 9:3:3:1.
+
+  This ratio is the proof of the Law of Independent Assortment. It shows that the
+  inheritance of seed shape has NO influence on the inheritance of seed color — they
+  behave independently. A seed's shape does not dictate its color.
+
+KEY POINTS TO STRESS:
+  - Dihybrid cross = two traits studied simultaneously.
+  - Parents: RRYY × rryy → F1: All RrYy → All Round and Yellow.
+  - F2 phenotypic ratio: 9 Round-Yellow : 3 Round-Green : 3 Wrinkled-Yellow : 1 Wrinkled-Green = 9:3:3:1.
+  - 9:3:3:1 proves the Law of Independent Assortment.
+
+BOARD TIP:  The 9:3:3:1 ratio is the definitive answer for dihybrid cross F2. Always mention it proves the Law of Independent Assortment. Very common 5-mark question.
+
+
+========================================================================
+SLIDE 16: Sex Determination in Humans
+========================================================================
+
+ON SCREEN:
+  - Heading: Sex Determination in Humans — 3-Mark Sequence.
+  - 5-step interactive sequence:
+    1. Humans have 23 pairs of chromosomes; 23rd pair = sex chromosomes; XX = Female, XY = Male.
+    2. Mother produces eggs — ALL carry X chromosome.
+    3. Father produces sperm — 50% carry X, 50% carry Y.
+    4. X-sperm + egg → XX → Girl; Y-sperm + egg → XY → Boy.
+    5. Conclusion: Sex of child determined entirely by father's contribution.
+
+SCRIPT (say this aloud):
+  How is it that almost exactly half of all humans born are male and half are female?
+  Is it the mother's doing, or the father's? Let's trace the biology step by step.
+
+  Step 1: Humans have 23 pairs of chromosomes in every cell — that is 46 chromosomes
+  in total. The first 22 pairs are called autosomes, and they are the same in both
+  males and females. But the 23rd pair — the sex chromosomes — is different. In
+  females, the 23rd pair is XX. In males, the 23rd pair is XY.
+
+  Step 2: When the mother forms egg cells, the 23rd pair (XX) separates. So every
+  egg carries exactly ONE X chromosome. The mother can ONLY give an X chromosome
+  to the child — 100% of the time.
+
+  Step 3: When the father forms sperm cells, the 23rd pair (XY) separates. Some
+  sperm carry the X chromosome and some carry the Y chromosome — in approximately
+  equal numbers. So 50% of sperm carry X and 50% carry Y.
+
+  Step 4: At fertilization, it is random chance which sperm meets the egg.
+  - If an X-carrying sperm fertilizes the egg: the baby is XX → a Girl.
+  - If a Y-carrying sperm fertilizes the egg: the baby is XY → a Boy.
+
+  Step 5: Conclusion — The mother always contributes an X. The sex of the child is
+  determined entirely by what the FATHER contributes! If the father contributes X,
+  the child is a girl. If the father contributes Y, the child is a boy. This means
+  it is biologically incorrect to blame the mother for the sex of a child.
+
+  This is also why the probability of a boy or girl is always exactly 50% — because
+  exactly half of the father's sperm carry X and half carry Y.
+
+KEY POINTS TO STRESS:
+  - Human females are XX; human males are XY (23rd chromosome pair).
+  - Mother always gives X → 100% of eggs carry X.
+  - Father gives X or Y (50/50) → determines the sex of the child.
+  - Boy = XY (from Y-sperm); Girl = XX (from X-sperm).
+  - Sex of child is determined by the FATHER, not the mother.
+
+BOARD TIP:  Classic 3-mark board question: "How is the sex of a human child determined?" — draw the diagram showing mother (XX) → only X eggs, father (XY) → X or Y sperm, and both outcomes. Always state that the father determines the sex.
+
+
+========================================================================
+SLIDE 17: How Are Traits Expressed?
+========================================================================
+
+ON SCREEN:
+  - Mechanism: Gene (DNA) → Protein/Enzyme → Trait
+  - Explanation: A gene is a piece of DNA that carries instructions to make a specific
+    protein (enzyme). These proteins build the body and control its functions, producing
+    the visible trait.
+  - Example: Working gene → enough growth hormone → tall plant; faulty gene → less
+    growth hormone → short plant.
+
+SCRIPT (say this aloud):
+  We've been talking about genes controlling traits — but HOW exactly does a gene
+  produce a physical trait like height? Let's understand the mechanism.
+
+  A gene is a specific segment of DNA. It carries instructions — like a recipe — for
+  making a specific protein or enzyme. These proteins are the actual workers inside
+  the cell. They catalyze chemical reactions, build structures, and regulate the
+  body's processes.
+
+  The chain is: Gene (DNA) → Protein/Enzyme → Trait.
+
+  Let's apply this to height in pea plants. The T allele carries instructions for
+  producing an enzyme that is involved in making growth hormones in the plant. If
+  the T allele is present and working correctly, enough growth hormone is produced,
+  and the plant grows tall — tall phenotype.
+
+  The t allele, however, is a "faulty" version of the same gene. It produces an
+  enzyme that doesn't work as well, so less growth hormone is made, and the plant
+  stays short — short phenotype.
+
+  When a plant is Tt (heterozygous), the one working T allele produces enough enzyme
+  and growth hormone for the plant to grow tall. That's why T is dominant — even
+  one copy is sufficient to produce the full trait.
+
+  When a plant is tt, there is no working T allele. No functional enzyme, insufficient
+  growth hormone, and the plant remains short.
+
+  This gene → protein → trait pathway is fundamental to all of biology. Every
+  inherited trait ultimately comes down to whether a gene produces a functional
+  protein or not.
+
+KEY POINTS TO STRESS:
+  - Mechanism: Gene (DNA) → Protein/Enzyme → Trait.
+  - Dominant allele (T) = makes functional enzyme → trait expressed.
+  - Recessive allele (t) = makes non-functional or insufficient enzyme → trait not fully expressed.
+  - Even one copy of a dominant allele (Tt) is enough to produce the trait.
+
+BOARD TIP:  This is the biological explanation for dominance — even one working copy of T produces enough enzyme. This often appears as a "Why is T dominant over t?" question.
+
+
+========================================================================
+SLIDE 18: Human Inherited Traits — Flip Cards
+========================================================================
+
+ON SCREEN:
+  - Three flip-card examples of human inherited traits:
+    1. Free Earlobe (ਵੱਖਰਾ ਕੰਨ-ਪਾਲੀ) — Dominant trait: earlobe hangs freely.
+    2. Attached Earlobe (ਜੁੜਿਆ ਕੰਨ-ਪਾਲੀ) — Recessive trait: earlobe attached directly.
+    3. Tongue Rolling (ਜੀਭ ਮੋੜਨਾ) — Dominant trait: ability to roll tongue into "U" shape.
+
+SCRIPT (say this aloud):
+  Let's bring genetics to life by looking at traits in humans. Genetics isn't just
+  about pea plants — we can observe dominant and recessive traits in ourselves!
+
+  First, feel your own earlobes right now. If the earlobe hangs freely below the
+  point where it attaches to the head, you have free earlobes — ਵੱਖਰਾ ਕੰਨ-ਪਾਲੀ.
+  This is a dominant trait. If your earlobe is attached directly to the side of
+  your head with no hanging portion, you have attached earlobes — ਜੁੜਿਆ ਕੰਨ-ਪਾਲੀ —
+  which is a recessive trait.
+
+  Look around the classroom! Students with free earlobes could be either homozygous
+  dominant (FF) or heterozygous (Ff). Students with attached earlobes must be
+  homozygous recessive (ff).
+
+  Second, can you roll your tongue into a U-shape? Try it now. If you can, that
+  tongue-rolling ability — ਜੀਭ ਮੋੜਨਾ — is a dominant inherited trait. If you cannot
+  roll your tongue, you are homozygous recessive for that gene.
+
+  These real-world examples show that the same rules Mendel discovered in pea plants
+  apply to human beings. Dominant and recessive alleles, genotype and phenotype —
+  these are universal principles of inheritance.
+
+  Note: Not all human traits follow simple dominant/recessive patterns — many are
+  controlled by multiple genes or are influenced by the environment. But these
+  examples are clear enough for Class 10.
+
+KEY POINTS TO STRESS:
+  - Free earlobe = dominant; Attached earlobe = recessive.
+  - Tongue rolling ability = dominant trait.
+  - Human traits also follow Mendel's principles of dominance.
+  - These are examples of inherited traits (encoded in DNA of germ cells).
+
+BOARD TIP:  Earlobe attachment is a common example in MCQ questions — remember: Free = Dominant, Attached = Recessive.
+
+
+========================================================================
+SLIDE 19: Test Cross
+========================================================================
+
+ON SCREEN:
+  - Concept: A tall plant could be TT or Tt — they look identical.
+  - Test Cross: Cross the unknown plant with a homozygous recessive (tt).
+  - Result table:
+    All offspring Tall → Unknown plant was TT
+    Half Tall, half Short (1:1) → Unknown plant was Tt
+
+SCRIPT (say this aloud):
+  Here is a practical genetics problem: You are looking at a tall pea plant. It is
+  definitely tall — but is its genotype TT or Tt? Both genotypes produce a tall
+  phenotype, so you cannot tell just by looking. How do you find out?
+
+  The answer is a test cross — also called a back cross. You cross the unknown plant
+  with a plant that is definitely homozygous recessive: tt. A tt plant can only
+  give a t allele to every offspring. So whatever alleles appear in the offspring
+  must have come from the unknown parent.
+
+  Case 1: If the unknown plant is TT, it can only give T. Every offspring will be
+  Tt (TT parent contributes T, tt parent contributes t). All offspring are Tt — all
+  tall. Result: 100% Tall → Unknown plant was TT.
+
+  Case 2: If the unknown plant is Tt, it can give either T or t. Half the offspring
+  will be Tt (tall) and half will be tt (short). Result: 50% Tall, 50% Short, that
+  is a 1:1 ratio → Unknown plant was Tt.
+
+  So: If all offspring are tall → TT. If half are tall and half are short (1:1 ratio)
+  → Tt. The tt plant acts like a "revealer" — it exposes whatever hidden alleles the
+  unknown plant was carrying.
+
+KEY POINTS TO STRESS:
+  - Test cross = crossing unknown genotype with homozygous recessive (tt).
+  - All offspring tall → unknown was TT (homozygous dominant).
+  - Half tall, half short (1:1 ratio) → unknown was Tt (heterozygous).
+  - Purpose: To determine the hidden genotype of a plant with dominant phenotype.
+
+BOARD TIP:  Common 3-mark application question: "How would you determine if a tall plant is TT or Tt?" — describe the test cross and give both possible outcomes.
+
+
+========================================================================
+SLIDE 20: Match the Terms — Activity
+========================================================================
+
+ON SCREEN:
+  - Matching activity (interactive): connect each description to the correct term.
+  - Items to match:
+    TT or tt → Homozygous
+    Tt → Heterozygous
+    Genetic makeup (letters) → Genotype
+    Visible trait (Tall) → Phenotype
+
+SCRIPT (say this aloud):
+  Let's do a quick matching activity to lock in four key terms. These four come up
+  constantly in board exams and students sometimes muddle them up.
+
+  Read each description on the left and match it to the correct term on the right.
+
+  "TT or tt" — these genotypes have two identical alleles. What is the term for
+  having two identical alleles? Homozygous — ਹੋਮੋਜ਼ਾਈਗਸ. Correct!
+
+  "Tt" — this genotype has two different alleles. What is the term? Heterozygous
+  — ਹੈਟਰੋਜ਼ਾਈਗਸ. Well done.
+
+  "Genetic makeup written as letters" — we are talking about the actual allele
+  combinations: TT, Tt, or tt. The term is Genotype — ਜੀਨੋਟਾਈਪ.
+
+  "Visible trait, e.g., Tall" — what you can actually see and observe. The term is
+  Phenotype — ਫੀਨੋਟਾਈਪ.
+
+  Challenge your students: "Without looking at the board, can you give one example
+  genotype for a tall plant? And one for a short plant?" Tall = TT or Tt.
+  Short = tt only.
+
+  This matching activity covers the four most commonly tested terms in this chapter.
+  If you have these perfectly clear, you will never lose marks on definition questions.
+
+KEY POINTS TO STRESS:
+  - TT or tt = Homozygous (both alleles identical).
+  - Tt = Heterozygous (alleles are different).
+  - Letters (TT, Tt, tt) = Genotype.
+  - What you see (Tall, Short) = Phenotype.
+
+BOARD TIP:  These four terms are tested repeatedly in MCQs. Memorize the pairing: same alleles = Homo; different alleles = Hetero; letters = Geno; visible = Pheno.
+
+
+========================================================================
+SLIDE 21: Spot the Error — Fix It
+========================================================================
+
+ON SCREEN:
+  - Error to find: "Genotype of a pure short pea plant = Tt"
+  - Correction revealed: A pure (homozygous) short plant is tt.
+    "Tt" is a heterozygous TALL plant because T is dominant.
+
+SCRIPT (say this aloud):
+  Error-spotting questions test whether you truly understand genetics or are just
+  memorizing without understanding. Let's tackle this one.
+
+  The statement on the screen says: "Genotype of a pure short pea plant = Tt."
+
+  Can you spot the mistake? Think for a moment before I reveal the answer...
+
+  The error is in writing "Tt" as the genotype for a pure short plant.
+
+  Here's why it's wrong: A "pure" plant means it is homozygous — both alleles are
+  the same. A pure short plant would be tt, not Tt. If you write Tt, you are
+  describing a plant that is HETEROZYGOUS — one dominant T and one recessive t.
+  And since T is dominant, a Tt plant would be TALL, not short!
+
+  The correct statement should be: "Genotype of a pure short pea plant = tt."
+
+  Let's also clarify what Tt actually means: Tt is a heterozygous plant that has
+  one dominant allele (T) and one recessive allele (t). Its phenotype is TALL,
+  because T is dominant and hides the effect of t.
+
+  So: Pure tall plant = TT. Hybrid tall plant = Tt. Pure short plant = tt.
+  Never confuse these.
+
+KEY POINTS TO STRESS:
+  - Pure short plant = tt (homozygous recessive), NOT Tt.
+  - Tt = heterozygous = TALL (because T is dominant).
+  - "Pure" always means homozygous (both alleles the same).
+  - The common error is writing Tt when the question says "pure short" — avoid it.
+
+BOARD TIP:  This is the single most common mistake in this chapter. If you see the word "pure" in any genetics question, immediately write a homozygous genotype (TT or tt).
+
+
+========================================================================
+SLIDE 22: Memorize This — Chapter Recap
+========================================================================
+
+ON SCREEN:
+  - Five key recall points:
+    1. Monohybrid F2 phenotype ratio = 3:1; genotype = 1:2:1.
+    2. Dihybrid F2 ratio = 9:3:3:1 → Independent Assortment.
+    3. Genotype = letters (Tt); Phenotype = look (Tall).
+    4. Sex of a child is decided by the father (X or Y).
+    5. Inherited traits change germ cells; acquired traits do not.
+
+SCRIPT (say this aloud):
+  Before we move into the more advanced activities, let's do a rapid-fire recap of
+  the five most important facts from this chapter. These are the things you absolutely
+  must know for your board exam. Repeat after me, or write them down right now.
+
+  One: Monohybrid cross F2 phenotype ratio = 3:1 (three tall to one short). Genotype
+  ratio = 1:2:1 (one TT, two Tt, one tt). Know BOTH ratios.
+
+  Two: Dihybrid cross F2 phenotype ratio = 9:3:3:1. This ratio proves the Law of
+  Independent Assortment — that two different traits are inherited independently of
+  each other.
+
+  Three: Genotype is the letters — Tt, TT, tt. Phenotype is the look — Tall or Short.
+  Never write letters when asked for phenotype. Never write "tall" when asked for
+  genotype.
+
+  Four: The sex of a child is decided by the father. Mother always gives X. Father
+  gives X (girl) or Y (boy). So the father's sperm determines whether the child is
+  male or female.
+
+  Five: Inherited traits cause changes in germ cells (and can be passed to offspring).
+  Acquired traits only change somatic cells (body cells) and cannot be inherited.
+
+  Read these five points daily until the exam. They are the foundation of every
+  question in this chapter.
+
+KEY POINTS TO STRESS:
+  - Monohybrid F2: phenotype = 3:1; genotype = 1:2:1.
+  - Dihybrid F2: phenotype = 9:3:3:1 (proves Independent Assortment).
+  - Genotype = letters; Phenotype = visible trait.
+  - Sex determined by father (X or Y sperm).
+  - Inherited = germ cells affected; Acquired = only somatic cells affected.
+
+BOARD TIP:  This slide is a golden cheat-sheet. Memorize all five points word-for-word — each one is the direct answer to at least one exam question.
+
+
+========================================================================
+SLIDE 23: Dihybrid Cross — Building 9:3:3:1 (5-Mark Derivation)
+========================================================================
+
+ON SCREEN:
+  - Heading: Dihybrid Cross — Building 9:3:3:1 — 5-Mark Derivation.
+  - 6-step interactive sequence:
+    Step 1: Parents (P): RRYY × rryy.
+    Step 2: F1: All RrYy → 100% Round and Yellow.
+    Step 3: Gametes from F1 (RrYy): 4 types — RY, Ry, rY, ry.
+    Step 4: F2 Punnett grid: 4 × 4 = 16 cells.
+    Step 5: Phenotype count: 9 Round-Yellow : 3 Round-Green : 3 Wrinkled-Yellow : 1 Wrinkled-Green.
+    Step 6: Conclusion: 9:3:3:1 proves independent assortment.
+  - Key facts: 4 gamete types = RY, Ry, rY, ry.
+
+SCRIPT (say this aloud):
+  This is the most detailed derivation in the chapter — and it is frequently asked
+  as a 5-mark question. Let's trace the dihybrid cross step by step. In Punjabi,
+  let's remember: 9:3:3:1 ਅਨੁਪਾਤ ਕਿਵੇਂ ਬਣਦਾ ਹੈ — how does the 9:3:3:1 ratio arise?
+
+  Step 1 — Parents: We cross a plant that is pure Round-Yellow (RRYY) with one that
+  is pure Wrinkled-Green (rryy). R = round (dominant), r = wrinkled (recessive),
+  Y = yellow (dominant), y = green (recessive).
+
+  Step 2 — F1 Generation: Every F1 offspring gets one R from the RRYY parent and one
+  r from the rryy parent, giving Rr. Similarly, one Y and one y giving Yy. So all
+  F1 are RrYy. Since R and Y are both dominant, all F1 seeds look Round and Yellow.
+
+  Step 3 — Gametes from F1: An RrYy plant produces gametes, and during gamete
+  formation, the R/r pair and the Y/y pair separate independently (Law of Independent
+  Assortment). This creates 4 types of gametes: RY, Ry, rY, and ry. This step is
+  critical — memorize these four gamete types.
+
+  Step 4 — F2 Punnett Grid: Since F1 makes 4 gamete types, the F2 Punnett square is
+  a 4×4 grid with 16 cells. Place RY, Ry, rY, ry across the top and down the side.
+  Fill in all 16 combinations.
+
+  Step 5 — Count the Phenotypes: After filling the 16-cell grid, count each type:
+  - Round Yellow (R_Y_): 9 out of 16
+  - Round Green (R_yy): 3 out of 16
+  - Wrinkled Yellow (rrY_): 3 out of 16
+  - Wrinkled Green (rryy): 1 out of 16
+
+  Ratio: 9 : 3 : 3 : 1.
+
+  Step 6 — Conclusion: This ratio appears ONLY because the two traits (shape and
+  color) were inherited independently. If shape and color were linked, we would NOT
+  see Round-Green or Wrinkled-Yellow (the new combinations). The appearance of these
+  new combinations in a 9:3:3:1 ratio is direct proof of the Law of Independent
+  Assortment.
+
+KEY POINTS TO STRESS:
+  - Parents RRYY × rryy → F1: All RrYy (Round-Yellow).
+  - F1 produces 4 gamete types: RY, Ry, rY, ry.
+  - F2 is a 4×4 Punnett grid (16 cells).
+  - F2 phenotype ratio: 9 Round-Yellow : 3 Round-Green : 3 Wrinkled-Yellow : 1 Wrinkled-Green = 9:3:3:1.
+  - 9:3:3:1 proves the Law of Independent Assortment.
+
+BOARD TIP:  5-mark board question: Write the full derivation in 6 steps, draw the 4×4 Punnett grid, label all 16 cells, and state the ratio with the law it proves. This derivation alone can fetch full 5 marks.
+
+
+========================================================================
+SLIDE 24: True or False? (ਸਹੀ ਜਾਂ ਗਲਤ?) — Practice Quiz
+========================================================================
+
+ON SCREEN:
+  - 8 True/False questions (some tagged [PSEB 2019]):
+    Q1: Acquired traits alter the DNA of germ cells. (FALSE)
+    Q2: Phenotypic ratio of Mendel's F2 monohybrid cross is 3:1. (TRUE)
+    Q3: Dihybrid cross ratio 9:3:3:1 proves traits are inherited independently. (TRUE)
+    Q4: The mother determines the sex of the human child. (FALSE)
+    Q5: Human males have an XY sex chromosome pair. (TRUE)
+    Q6: Alleles are different versions of the same gene. (TRUE)
+    Q7: A monohybrid cross shows a 3:1 ratio in the F1 generation. (FALSE)
+    Q8: The sex of a child is determined by the chromosome contributed by the father. (TRUE)
+
+SCRIPT (say this aloud):
+  Excellent — let's test your understanding with eight True or False questions. Some
+  of these have come directly from PSEB exams, so pay close attention. Read each
+  statement, decide, and check your answer.
+
+  Question 1: "Acquired traits alter the DNA of germ cells." This is FALSE. Acquired
+  traits only affect somatic (body) cells. They do NOT change germ cell DNA, which
+  is why they cannot be inherited.
+
+  Question 2: "The phenotypic ratio of Mendel's F2 monohybrid cross is 3:1." This is
+  TRUE. This appeared in PSEB 2019 — the F2 ratio is 3 tall : 1 short = 3:1.
+
+  Question 3: "The dihybrid cross ratio 9:3:3:1 proves traits are inherited
+  independently." TRUE. This is the direct conclusion of the dihybrid cross.
+
+  Question 4: "The mother determines the sex of the human child." FALSE — and this
+  is a very important one. The FATHER determines the sex by contributing either an
+  X or a Y sperm. The mother always gives X.
+
+  Question 5: "Human males have an XY sex chromosome pair." TRUE. Female = XX,
+  Male = XY. Always remember this.
+
+  Question 6: "Alleles are different versions of the same gene." TRUE. T and t are
+  both alleles of the height gene — just different versions.
+
+  Question 7: "A monohybrid cross shows a 3:1 ratio in the F1 generation." This is
+  FALSE — a common trap! The 3:1 ratio appears in the F2 generation, NOT F1. In F1,
+  all plants are the same (100% tall if crossed TT × tt).
+
+  Question 8: "The sex of a child is determined by the chromosome contributed by the
+  father." TRUE. Father's X → girl; Father's Y → boy.
+
+KEY POINTS TO STRESS:
+  - Acquired traits do NOT alter germ cell DNA (Q1 = False).
+  - 3:1 ratio is in F2, NOT F1 (Q7 = False — classic trap!).
+  - Mother determines NOTHING about sex — it's the father (Q4 = False).
+  - XY = male; XX = female (Q5 = True).
+
+BOARD TIP:  Question 7 is a notorious board trap — "3:1 ratio is in F1" is WRONG. The 3:1 ratio is always in F2. F1 is 100% one phenotype.
+
+
+========================================================================
+SLIDE 25: Say It Back — Short Answer Review
+========================================================================
+
+ON SCREEN:
+  - 8 short-answer questions (oral/written practice):
+    Q1: What plant did Mendel use for his experiments?
+    Q2: Traits that only affect somatic cells and aren't passed down are called?
+    Q3: The genetic makeup (e.g., Tt) is called what?
+    Q4: What is the F2 phenotype ratio in a dihybrid cross?
+    Q5: What letters represent a human male's sex chromosomes?
+    Q6: The physical, visible expression of a gene (e.g., Tall) is called?
+    Q7: Different forms of the same gene are called?
+    Q8: The grid used to predict offspring genotypes is the ___ square?
+
+SCRIPT (say this aloud):
+  It's time to "Say It Back" — the best way to confirm that you really know the
+  material is to close your eyes and say the answer out loud. Let's go through all
+  eight questions. Teachers, pause after each question and let students answer before
+  revealing.
+
+  Question 1: What plant did Mendel use for his experiments?
+  Answer: The garden pea — Pisum sativum.
+
+  Question 2: Traits that only affect somatic cells and aren't passed down are called?
+  Answer: Acquired traits — ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ.
+
+  Question 3: The genetic makeup written as letters (e.g., Tt) is called?
+  Answer: Genotype — ਜੀਨੋਟਾਈਪ.
+
+  Question 4: What is the F2 phenotype ratio in a dihybrid cross?
+  Answer: 9:3:3:1.
+
+  Question 5: What letters represent a human male's sex chromosomes?
+  Answer: XY.
+
+  Question 6: The physical, visible expression of a gene (e.g., Tall) is called?
+  Answer: Phenotype — ਫੀਨੋਟਾਈਪ.
+
+  Question 7: Different forms of the same gene are called?
+  Answer: Alleles — ਏਲੀਲ.
+
+  Question 8: The grid used to predict offspring genotypes is the ___ square?
+  Answer: Punnett square — ਪਨੇਟ ਵਰਗ.
+
+  If any student hesitated on any of these, go back to that slide and review. These
+  eight answers represent the minimum knowledge needed to pass the genetics section
+  of any PSEB board exam. Practice these until every answer is instant.
+
+KEY POINTS TO STRESS:
+  - Mendel used Pisum sativum (garden pea).
+  - Acquired traits → somatic cells; Inherited traits → germ cells.
+  - Genotype = letters; Phenotype = visible trait.
+  - Dihybrid F2 = 9:3:3:1; Male sex chromosomes = XY.
+  - Alleles = different forms of a gene; Punnett square = prediction grid.
+
+BOARD TIP:  These eight questions are effectively a minimum-knowledge checklist. All eight have appeared in PSEB short-answer sections at some point.
+
+
+========================================================================
+SLIDE 26: Quick Check — Multiple Choice Quiz (ਤੁਰੰਤ ਜਾਂਚ)
+========================================================================
+
+ON SCREEN:
+  - 8 multiple-choice questions:
+    Q1: Homozygous genotype → A. TT or tt
+    Q2: TT × tt → F1 height → A. All Tall
+    Q3: Passing of traits from parents to offspring = B. Heredity
+    Q4: Recessive 't' gene → less growth hormone produced by its enzyme → A.
+    Q5: Sex of child determined by → C. Father's sperm (X or Y)
+    Q6: F2 phenotypic ratio of dihybrid cross → A. 9:3:3:1
+    Q7: Different forms of same gene → A. Alleles
+    Q8: Acquired trait example → B. A scar from an injury
+
+SCRIPT (say this aloud):
+  Let's wrap up with a final Quick Check — eight multiple-choice questions. These
+  are exam-style MCQs. Go through them carefully and check your understanding.
+
+  Question 1: "Which describes a homozygous genotype?" Options: TT or tt / Tt /
+  Tall or Short. Answer: A — TT or tt. Homozygous means identical alleles.
+
+  Question 2: "If TT × tt, what is the height of F1?" Options: All Tall / All
+  Short / Medium. Answer: A — All Tall. All F1 are Tt, and T is dominant.
+
+  Question 3: "The passing of traits from parents to offspring is called?"
+  Options: Evolution / Heredity / Reproduction. Answer: B — Heredity.
+
+  Question 4: "A plant has recessive 't' gene — it is short because?" Options:
+  Less growth hormone produced / DNA completely destroyed / Cannot photosynthesize.
+  Answer: A — less growth hormone is produced. The 't' allele makes a faulty enzyme.
+
+  Question 5: "The sex of a human child is determined by?" Options: Temperature /
+  Mother's X / Father's sperm (X or Y). Answer: C — the father's sperm.
+
+  Question 6: "F2 phenotypic ratio of a dihybrid cross?" Options: 9:3:3:1 / 3:1
+  / 1:2:1. Answer: A — 9:3:3:1.
+
+  Question 7: "Different forms of the same gene are called?" Options: Alleles /
+  Genotypes / Chromosomes. Answer: A — Alleles.
+
+  Question 8: "Which is an acquired trait?" Options: Blood group / A scar from an
+  injury / Eye colour. Answer: B — a scar. It is caused by environment (injury),
+  affects only somatic cells, and cannot be inherited.
+
+  How did you do? If you got all 8 correct, you are fully prepared for MCQs from
+  this chapter. If you missed any, revisit that specific concept before the exam.
+
+KEY POINTS TO STRESS:
+  - Homozygous = TT or tt (not Tt).
+  - TT × tt → F1 = All Tall (Tt genotype).
+  - Sex determined by father's sperm, not mother.
+  - Dihybrid F2 = 9:3:3:1; Monohybrid F2 = 3:1 (don't confuse them!).
+  - Scar = acquired trait; Blood group and eye colour = inherited traits.
+
+BOARD TIP:  MCQ traps in this chapter: (1) confusing monohybrid 3:1 with dihybrid 9:3:3:1; (2) saying mother determines sex. Both are very commonly wrong answers.
+
+
+========================================================================
+SLIDE 27: Download Your Bilingual Flashcards (ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)
+========================================================================
+
+ON SCREEN:
+  - Information about bilingual (English + Punjabi) Anki flashcards for this chapter.
+  - All 8 "Say It Back" questions formatted for Anki import (.csv file).
+  - Steps: Click button → Generate .csv file → Open Anki → Click "Import File" → Select file.
+  - "Export to Anki (Bilingual CSV)" button.
+
+SCRIPT (say this aloud):
+  Fantastic work completing Chapter 8 — Heredity! Before you leave, here is a
+  powerful revision tool.
+
+  All eight "Say It Back" questions from this chapter have been formatted as bilingual
+  flashcards — with both English and Punjabi answers — ready to import into Anki.
+  Anki is a free flashcard app that uses spaced repetition, which means it shows you
+  cards at the perfect time — just when you are about to forget them. This is one of
+  the most effective methods to retain information for board exams.
+
+  To use the flashcards:
+  Step 1: Click the "Export to Anki" button on the screen. A .csv file will be
+  downloaded to your computer.
+  Step 2: Open the Anki app. If you don't have it, download it for free from
+  apps.ankiweb.net.
+  Step 3: Click "Import File" in Anki and select the downloaded .csv file.
+  Your Chapter 8 flashcards are now ready!
+
+  Review 10 to 15 flashcards each day and you will find that all the key terms,
+  ratios, and definitions become effortless to recall — in both English and Punjabi.
+  This is especially useful in the final week before the board exam.
+
+  Great job today. You've covered heredity, Mendel's laws, Punnett squares, sex
+  determination, and the difference between inherited and acquired traits. All of
+  these are exam essentials. Keep revising!
+
+KEY POINTS TO STRESS:
+  - Anki flashcards are available for all 8 "Say It Back" questions in this chapter.
+  - Bilingual format: English + Punjabi answers.
+  - Use spaced repetition daily for the most effective memorization.
+  - Import via .csv file into the free Anki app.
+

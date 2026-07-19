@@ -1,0 +1,1244 @@
+========================================================================
+CHAPTER 2 — ACIDS, BASES AND SALTS
+PSEB Class 10 Science | Version 1
+TOTAL SLIDES: 29
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 2 — Acids, Bases and Salts
+========================================================================
+
+ON SCREEN:
+  - Chapter title: "Chapter 2"
+  - Subtitle: "Acids, Bases and Salts"
+  - Punjabi title: ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ
+
+SCRIPT (say this aloud):
+  Welcome, students! Today we begin Chapter 2 — Acids, Bases and Salts. In Punjabi, we call these
+  ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ. This is one of the most important chapters in Class 10 Science, and I want you
+  to notice that these are not just laboratory chemicals — they are everywhere around you. The lemon
+  you squeeze on your food is an acid. The baking soda your mother uses while cooking is a base. The
+  common salt on your dining table is literally a salt. Throughout this chapter, we are going to
+  understand what makes a substance an acid or a base, how we detect them, how they react with each
+  other, and how important salts like washing soda, baking soda, and bleaching powder are made and used.
+  This chapter also carries heavy weight in the PSEB board exam — expect multiple questions from here
+  every year. So let us begin with full attention!
+
+KEY POINTS TO STRESS:
+  - Chapter 2 covers acids, bases, and salts — all common in daily life.
+  - This is a high-weightage chapter in the PSEB board exam.
+  - Punjabi terms: ਤੇਜ਼ਾਬ (acid), ਖਾਰ (base), ਲੂਣ (salt).
+
+BOARD TIP: This chapter consistently contributes 8–10 marks across 1-mark, 3-mark, and 5-mark questions in PSEB exams.
+
+
+========================================================================
+SLIDE 2: Key Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Vocabulary table with 6 terms: Acid, Base, Salt, Indicator, Neutralization, Dilution
+  - English term | Punjabi name | Brief meaning/definition for each
+
+SCRIPT (say this aloud):
+  Before we dive into the chemistry, let us make sure everyone knows the key words of this chapter.
+  Think of this as your chapter dictionary.
+
+  First — Acid (ਤੇਜ਼ਾਬ). Acids taste sour, like lemon or vinegar, and they give H⁺ ions when
+  dissolved in water. This H⁺ ion is the reason they are acidic.
+
+  Second — Base (ਖਾਰ). Bases taste bitter and feel soapy to touch. They give OH⁻ ions in water.
+  Baking soda and lime water are common examples.
+
+  Third — Salt (ਲੂਣ). A salt is the product formed when an acid and a base react with each other.
+  Common table salt, sodium chloride, is the most familiar example.
+
+  Fourth — Indicator (ਸੂਚਕ). An indicator is a substance that tells us whether a solution is acidic
+  or basic by changing its color or smell. Litmus paper is the most well-known indicator.
+
+  Fifth — Neutralization (ਉਦਾਸੀਨੀਕਰਨ). This is the reaction where an acid and a base cancel each
+  other out to form salt and water. The word ਉਦਾਸੀਨੀਕਰਨ literally means "making neutral."
+
+  Sixth — Dilution (ਪਤਲਾ ਕਰਨਾ). Dilution means adding water to an acid or base to reduce its
+  concentration. We will see later that this must be done carefully — especially with acids!
+
+KEY POINTS TO STRESS:
+  - Acids give H⁺ ions; bases give OH⁻ ions in water.
+  - Salts are products of the neutralization reaction.
+  - An indicator (ਸੂਚਕ) detects whether a solution is acid or base.
+  - Neutralization = Acid + Base → Salt + Water.
+
+BOARD TIP: The equation "Acid + Base → Salt + Water" is a frequent 1-mark fill-in-the-blank. Memorize this definition of neutralization.
+
+
+========================================================================
+SLIDE 3: Vocabulary Continued (ਸ਼ਬਦਾਵਲੀ ਜਾਰੀ)
+========================================================================
+
+ON SCREEN:
+  - Continuation vocabulary table: Alkali, Hydronium, Brine, Acid Rain, Chlor-Alkali
+  - Special callout box: "The Alkali Rule — All alkalis are bases, but not all bases are alkalis!"
+
+SCRIPT (say this aloud):
+  Let us continue building our vocabulary with five more important terms.
+
+  Alkali (ਐਲਕਲੀ) — An alkali is a special type of base. The key rule is: all alkalis are bases, but
+  NOT all bases are alkalis. An alkali is a base that completely dissolves in water. For example,
+  sodium hydroxide (NaOH) dissolves fully in water, so it is an alkali. But some bases, like copper
+  oxide (CuO), do not dissolve in water — so they are bases but NOT alkalis. This distinction is very
+  important for exams.
+
+  Hydronium (H₃O⁺) — When an H⁺ ion is released by an acid in water, it does not float freely. It
+  immediately attaches to a water molecule to form H₃O⁺, called the hydronium ion. This is the actual
+  ion responsible for acidic behavior.
+
+  Brine (ਬ੍ਰਾਈਨ) — This is simply a concentrated aqueous solution of sodium chloride — salt water.
+  We will see brine again when we study the chlor-alkali process.
+
+  Acid Rain (ਤੇਜ਼ਾਬੀ ਵਰਖਾ) — Normal rain has a pH of about 5.6 because CO₂ in the air dissolves in
+  rainwater. When industrial gases like SO₂ and NO₂ dissolve in rain, the pH drops well below 5.6,
+  making it acid rain — highly damaging to plants, buildings, and aquatic life.
+
+  Chlor-Alkali (ਕਲੋਰ-ਐਲਕਲੀ ਪ੍ਰਕਿਰਿਆ) — This is an industrial process where electricity is passed
+  through brine to produce three useful products: sodium hydroxide (NaOH), chlorine gas (Cl₂), and
+  hydrogen gas (H₂). We will study this in detail in a later slide.
+
+KEY POINTS TO STRESS:
+  - All alkalis are bases, but not all bases are alkalis — only water-soluble bases are alkalis.
+  - H⁺ ion in water forms H₃O⁺ (hydronium ion).
+  - Acid rain has pH below 5.6 due to SO₂/NO₂ from burning fossil fuels.
+  - Brine = aqueous solution of NaCl.
+
+BOARD TIP: "All alkalis are bases but not all bases are alkalis" — this exact statement appears as a 1-mark or 2-mark question in PSEB exams. Memorize it.
+
+
+========================================================================
+SLIDE 4: Acids vs. Bases (ਤੇਜ਼ਾਬ ਅਤੇ ਖਾਰ)
+========================================================================
+
+ON SCREEN:
+  - Comparison table: Acids vs. Bases (taste, litmus test, ion produced)
+  - Special callout: "Dry HCl Exception" — Dry HCl gas does NOT change dry blue litmus paper
+
+SCRIPT (say this aloud):
+  Now let us compare acids and bases side by side. This is the most foundational comparison in the
+  whole chapter.
+
+  Taste — Acids taste sour (ਖੱਟੇ). Think of lemon juice, tamarind, or vinegar — all sour, all acidic.
+  Bases taste bitter (ਕੌੜੇ). Baking soda tastes bitter. Bases also feel soapy to the touch, because
+  soap itself is a base.
+
+  Litmus test — Acids turn BLUE litmus paper RED. Bases turn RED litmus paper BLUE. A simple way to
+  remember: Acids are aggressive — they attack blue and turn it red. Bases are cool — they calm red
+  down to blue.
+
+  Ions — Acids give H⁺ ions in water. Bases give OH⁻ ions in water. These ions are the chemical
+  explanation for all the physical properties we just discussed.
+
+  Now, here is a very important exception that appears regularly in PSEB exams: the Dry HCl Exception.
+  Hydrochloric acid is an acid, right? So you might expect dry HCl gas to turn dry blue litmus paper
+  red. But it does NOT! Why? Because acids only release H⁺ ions when they are dissolved in water.
+  Dry HCl gas has no water, so it cannot produce H⁺ ions, and therefore it cannot show acidic behavior.
+  The moment you add water, HCl dissolves and produces H⁺ ions — and THEN it turns litmus red. This is
+  a classic trick question in board exams!
+
+KEY POINTS TO STRESS:
+  - Acids: sour taste, turn blue litmus red, give H⁺ in water.
+  - Bases: bitter taste, soapy feel, turn red litmus blue, give OH⁻ in water.
+  - Acidic/basic properties are only shown in the PRESENCE of water.
+  - Dry HCl does NOT turn dry blue litmus red — no water = no H⁺ ions.
+
+BOARD TIP: "Dry HCl gas does not turn dry blue litmus red" — this is a very frequent 2-mark "Give Reason" question in PSEB. Never miss it.
+
+
+========================================================================
+SLIDE 5: Strong vs. Weak (ਸ਼ਕਤੀਸ਼ਾਲੀ ਅਤੇ ਕਮਜ਼ੋਰ)
+========================================================================
+
+ON SCREEN:
+  - Introductory statement: strength depends on degree of ionization in water
+  - Comparison table: Strong Acid vs. Weak Acid with definition and examples
+  - Examples: Strong — HCl, H₂SO₄; Weak — Acetic Acid (CH₃COOH)
+
+SCRIPT (say this aloud):
+  Not all acids are equally powerful. The strength of an acid or base depends on how completely it
+  ionizes — that is, how fully it breaks apart into ions — when dissolved in water.
+
+  A Strong Acid (ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ) completely ionizes in water. This means every single molecule
+  breaks apart and releases H⁺ ions. Because there are many H⁺ ions, the solution is highly acidic.
+  Examples include hydrochloric acid (HCl) and sulfuric acid (H₂SO₄). These are the acids we use
+  in school labs and they require extreme caution.
+
+  A Weak Acid (ਕਮਜ਼ੋਰ ਤੇਜ਼ਾਬ) only partially ionizes in water. Most molecules stay intact without
+  breaking apart. So there are fewer H⁺ ions, and the solution is mildly acidic. Acetic acid
+  (CH₃COOH), the acid in vinegar, is the perfect example. It is acidic — you can taste it — but it
+  is weak enough to use in food safely.
+
+  An important clarification: strength is NOT the same as concentration. A concentrated weak acid
+  and a dilute strong acid can have very different properties. Strength refers only to the degree of
+  ionization.
+
+  The same logic applies to bases. A strong base like NaOH fully ionizes to give many OH⁻ ions.
+  A weak base like ammonia solution (NH₄OH) only partially ionizes.
+
+KEY POINTS TO STRESS:
+  - Strong acid = completely ionizes in water → many H⁺ ions. Examples: HCl, H₂SO₄.
+  - Weak acid = partially ionizes in water → fewer H⁺ ions. Example: CH₃COOH (acetic acid).
+  - Strength ≠ Concentration. These are two different concepts.
+  - Same logic applies to strong and weak bases.
+
+BOARD TIP: Students often confuse "strong acid" with "concentrated acid." Strength refers to degree of ionization, not how much is dissolved.
+
+
+========================================================================
+SLIDE 6: Reading Comprehension Story — The Magic of Litmus
+========================================================================
+
+ON SCREEN:
+  - Story-mode reading passage titled "The Magic of Litmus"
+  - Audio play/stop controls (interactive element)
+  - Narrative about the history of litmus extracted from lichens
+
+SCRIPT (say this aloud):
+  This slide is a reading comprehension passage. Have your students read — or play the audio — and
+  follow along carefully.
+
+  Let me walk you through the story. Long before modern laboratory equipment existed, scientists
+  needed a way to identify whether a liquid was acidic or basic just by looking at it. They found the
+  answer in nature. Certain natural dyes change color depending on the chemical environment around them.
+
+  The most famous of these natural dyes is litmus — a purple pigment extracted from lichens, which
+  are slow-growing, plant-like organisms found growing on rocks and trees. When litmus is placed in
+  an acidic solution, it turns bright red. When placed in a basic solution, it turns a deep blue. This
+  simple biological extract gave early chemists the power to "see" the invisible chemical nature of a
+  liquid just by watching the color shift.
+
+  This passage teaches us something important: science is built on careful observation of the natural
+  world. Litmus is not something invented in a lab — it was discovered by watching nature. Use this
+  story to remember that litmus is a NATURAL indicator, extracted from a living organism, and that its
+  color change is a reliable, time-tested method for identifying acids and bases. After reading, ask
+  students: "Why was litmus so useful before modern instruments existed?" and "What color does litmus
+  show in a neutral solution?" — the answer is purple, its original color.
+
+KEY POINTS TO STRESS:
+  - Litmus is a natural dye extracted from lichens.
+  - Red in acid, Blue in base, Purple when neutral.
+  - Natural indicators precede modern pH meters.
+  - The color change is caused by the H⁺ or OH⁻ ions in solution.
+
+
+========================================================================
+SLIDE 7: Indicators & pH (ਸੂਚਕ ਅਤੇ pH)
+========================================================================
+
+ON SCREEN:
+  - Bullet list of three indicator types: Litmus, Phenolphthalein, Olfactory Indicators
+  - pH Scale summary: Acidic < 7, Neutral = 7, Basic > 7
+
+SCRIPT (say this aloud):
+  Now let us look at the tools we use to identify acids and bases — these are called indicators (ਸੂਚਕ).
+
+  The first and most common is Litmus. It is available as litmus paper or litmus solution. In an
+  acidic solution, litmus turns red. In a basic solution, it turns blue. Simple, reliable, and
+  universally used in school labs.
+
+  The second is Phenolphthalein. This is a colorless liquid indicator. In an acidic or neutral
+  solution, it remains colorless — you cannot see any change. But in a basic solution, it turns a
+  striking pink color. It is especially useful in titration experiments.
+
+  The third type is Olfactory Indicators (ਸੁੰਘਣ ਵਾਲੇ ਸੂਚਕ). These are indicators that work through
+  smell, not color. For example, onion and clove oil have strong, characteristic smells. In a base,
+  these smells disappear or change significantly. So if you add an olfactory indicator to a solution
+  and the smell vanishes, the solution is basic. These are useful when color-based indicators cannot
+  be used.
+
+  Now, the pH Scale. pH stands for "potential of Hydrogen." It is a numerical scale from 0 to 14
+  that tells us exactly how acidic or basic a solution is.
+  — pH less than 7: the solution is acidic. The lower the pH, the stronger the acid.
+  — pH equal to 7: the solution is neutral. Pure water is the classic example.
+  — pH greater than 7: the solution is basic. The higher the pH, the stronger the base.
+
+  This scale is universal — scientists across the world use it to communicate the exact strength of
+  an acid or base without any ambiguity.
+
+KEY POINTS TO STRESS:
+  - Litmus: Red in acid, Blue in base.
+  - Phenolphthalein: Colorless in acid/neutral, Pink in base.
+  - Olfactory indicators (ਸੁੰਘਣ ਵਾਲੇ ਸੂਚਕ): lose smell/change odor in bases.
+  - pH < 7 = acidic; pH = 7 = neutral; pH > 7 = basic.
+
+BOARD TIP: Olfactory indicators — "onion and clove" — are a frequent 1-mark question. Remember: their odor disappears in bases.
+
+
+========================================================================
+SLIDE 8: pH in Digestion & Soil (ਪਾਚਨ ਅਤੇ ਮਿੱਟੀ ਵਿੱਚ pH)
+========================================================================
+
+ON SCREEN:
+  - Two real-life applications of pH
+  - Digestive System (ਪਾਚਨ ਪ੍ਰਣਾਲੀ): stomach produces HCl at pH ~1.2; antacids neutralize excess
+  - Soil pH (ਮਿੱਟੀ ਦਾ pH): plants need neutral soil; acidic soil treated with quicklime (CaO)
+
+SCRIPT (say this aloud):
+  The pH scale is not just a textbook concept — it has direct, life-or-death consequences in your own
+  body and in agriculture. Let us look at two very important real-life applications.
+
+  First — the Digestive System (ਪਾਚਨ ਪ੍ਰਣਾਲੀ). Your stomach produces hydrochloric acid (HCl) to help
+  digest food. The stomach naturally maintains a pH of about 1.2 — that is extremely acidic! The inner
+  lining of the stomach is specially designed to withstand this acid. But sometimes the stomach produces
+  too much acid — perhaps due to spicy food, stress, or other reasons. This excess acid causes the
+  burning sensation we call acidity or heartburn. The treatment? Antacids. Antacids contain mild bases
+  like magnesium hydroxide (milk of magnesia) or sodium bicarbonate. When you take an antacid, it
+  neutralizes the excess acid, reducing the pain. This is neutralization chemistry happening inside
+  your body!
+
+  Second — Soil pH (ਮਿੱਟੀ ਦਾ pH). Plants grow best in soil with a pH close to 7 — neutral or
+  slightly acidic. When farmers overuse chemical fertilizers, the soil gradually becomes too acidic.
+  Acidic soil reduces plant growth and crop yield. The solution? Farmers add Quicklime (CaO), also
+  called calcium oxide, to the soil. Quicklime is a base, and it neutralizes the excess acid, restoring
+  the soil pH to a healthy level. This is an everyday agricultural application of acid-base chemistry.
+
+KEY POINTS TO STRESS:
+  - Stomach produces HCl at pH ~1.2 for digestion.
+  - Excess acid → acidity/heartburn → treated with antacids (mild bases).
+  - Plants grow best in neutral soil (pH ~7).
+  - Acidic soil → add Quicklime (CaO) to neutralize it.
+
+BOARD TIP: "Why do farmers add quicklime to soil?" is a classic 2-mark application question. Answer: to neutralize excess acidity in the soil.
+
+
+========================================================================
+SLIDE 9: Interactive Tool — The pH Scale Map (pH ਸਕੇਲ ਟੂਲ)
+========================================================================
+
+ON SCREEN:
+  - Interactive pH scale from 0 (Strong Acid) to 14 (Strong Base)
+  - Clickable substances: Gastric Juice (1.2), Lemon Juice (2.2), Acid Rain (<5.6),
+    Pure Water (7.0), Human Blood (7.4), Milk of Magnesia (10), NaOH (14.0)
+
+SCRIPT (say this aloud):
+  This is an interactive activity slide. The goal is for students to map real-world substances on the
+  pH scale — a skill that is directly tested in the board exam.
+
+  Before students click, walk them through the mental exercise first. Ask: "Which of these substances
+  do you think is the most acidic?" — Gastric juice wins, at pH 1.2 — nearly as strong as a laboratory
+  acid. "Which is the most basic?" — Sodium hydroxide (NaOH) at pH 14, a strong base used in
+  industrial cleaning.
+
+  Now let students interact with the tool. Each click places the substance on the pH scale. Discuss
+  what students observe:
+  — Gastric juice and lemon juice both fall in the highly acidic zone (pH 1–3). Both are natural acids
+    your body encounters daily.
+  — Acid rain is below 5.6 — lower than normal rain, which sits at about 5.6.
+  — Pure water is exactly 7 — the perfect neutral reference.
+  — Human blood sits at 7.4 — slightly basic. Even a small shift in blood pH can cause serious medical
+    problems.
+  — Milk of magnesia (Mg(OH)₂) is around pH 10 — a mild base used as an antacid.
+  — NaOH at pH 14 is a strong alkali, used in soap-making and industrial processes.
+
+  The key lesson: the pH scale is logarithmic — a pH of 1 is TEN times more acidic than pH 2.
+  Small changes in number mean large changes in actual acidity.
+
+KEY POINTS TO STRESS:
+  - Gastric juice ~1.2, Lemon juice ~2.2, Acid rain <5.6.
+  - Pure water = 7 (neutral reference point).
+  - Human blood = 7.4 (slightly basic — tightly regulated by the body).
+  - Milk of magnesia ~10, NaOH = 14.
+
+BOARD TIP: pH values of common substances are frequently asked as 1-mark questions. Memorize: gastric juice ~1.2, blood ~7.4, pure water = 7.
+
+
+========================================================================
+SLIDE 10: Interactive Lab — Indicator Colour Test (ਸੂਚਕ ਰੰਗ ਟੈਸਟ)
+========================================================================
+
+ON SCREEN:
+  - Interactive lab simulation
+  - Step 1: Choose a solution — HCl (Acid), NaCl (Neutral), NaOH (Base)
+  - Step 2: Choose an indicator — Blue Litmus, Red Litmus, Phenolphthalein, Methyl Orange
+  - Test tube changes colour to simulate lab result
+
+SCRIPT (say this aloud):
+  This is a virtual lab simulation — a great tool to reinforce what we just learned about indicators.
+  The goal is to connect the theory (what we read on the slides) with the visual outcome (what you
+  would actually see in a real school lab experiment).
+
+  Guide students through the activity step by step:
+
+  Step 1: Choose a solution. You have three options. HCl is a strong acid. NaCl is common salt —
+  neutral. NaOH is a strong base.
+
+  Step 2: Choose an indicator and observe the color change in the virtual test tube.
+
+  Here is what students should observe and note down:
+  — HCl + Blue Litmus → turns RED (acid turns blue litmus red)
+  — HCl + Red Litmus → stays RED (already red, no change)
+  — HCl + Phenolphthalein → stays COLORLESS
+  — HCl + Methyl Orange → turns RED/PINK
+  — NaOH + Blue Litmus → stays BLUE
+  — NaOH + Red Litmus → turns BLUE (base turns red litmus blue)
+  — NaOH + Phenolphthalein → turns PINK
+  — NaOH + Methyl Orange → turns YELLOW
+  — NaCl + any indicator → no significant color change (neutral)
+
+  After the activity, ask: "If you had an unknown solution and it turned phenolphthalein pink, what
+  would you conclude?" Answer: It is a base! This is exactly the logic used in real lab practicals.
+
+KEY POINTS TO STRESS:
+  - Litmus shows red in acid, blue in base — for BOTH blue and red litmus variants.
+  - Phenolphthalein: colorless in acid, PINK in base.
+  - Methyl Orange: red/pink in acid, yellow in base.
+  - NaCl (neutral) does not change indicator color.
+
+BOARD TIP: Indicator color table is a very frequent 3-mark lab-based question in PSEB. Know all four indicators and their colors in acid and base.
+
+
+========================================================================
+SLIDE 11: Reading Comprehension Story — The Acid Rain Crisis
+========================================================================
+
+ON SCREEN:
+  - Story-mode reading passage titled "The Acid Rain Crisis"
+  - Audio play/stop controls (interactive element)
+  - Narrative covering formation of acid rain and its environmental impact
+
+SCRIPT (say this aloud):
+  This is another reading comprehension story — have students read it independently or play the audio.
+  Let me walk you through the key science in this passage so you can guide the discussion.
+
+  When coal and petroleum are burned in factories and vehicles, they release sulfur dioxide (SO₂) and
+  nitrogen oxides (NOₓ) into the atmosphere. These gases rise into the sky and dissolve in atmospheric
+  water vapour, forming dilute sulfuric acid (H₂SO₄) and nitric acid (HNO₃). When this acidic moisture
+  falls as rain, it is called acid rain (ਤੇਜ਼ਾਬੀ ਵਰਖਾ).
+
+  Normal rain has a pH of about 5.6 because even clean air has CO₂, which forms a mild carbonic acid
+  (H₂CO₃) in rainwater. Acid rain drops significantly below 5.6 — sometimes as low as pH 3 or 4.
+  This is highly damaging.
+
+  The consequences are severe: marble and limestone buildings and monuments are dissolved by acid rain
+  — this is called acid attack on marble (CaCO₃). Lakes and rivers become too acidic for fish and
+  frogs to survive. Forests are damaged. This is an environmental chemistry problem directly linked
+  to human industrial activity.
+
+  After the reading, ask students: "What gases cause acid rain?" (SO₂ and NOₓ). "What is the pH of
+  normal rain versus acid rain?" (5.6 vs. below 5.6). "What equation connects acid rain with marble
+  damage?" — CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂.
+
+KEY POINTS TO STRESS:
+  - Burning fossil fuels releases SO₂ and NOₓ → form H₂SO₄ and HNO₃ in atmosphere.
+  - Acid rain has pH < 5.6; normal rain ~5.6.
+  - Acid rain damages aquatic life, buildings (marble/limestone), and forests.
+  - This is a real-world application of acids and pH.
+
+BOARD TIP: "What causes acid rain?" and "What is the pH of normal vs. acid rain?" are frequent short-answer questions.
+
+
+========================================================================
+SLIDE 12: Acid Reactions (ਤੇਜ਼ਾਬ ਦੀਆਂ ਕਿਰਿਆਵਾਂ)
+========================================================================
+
+ON SCREEN:
+  - Three key acid reaction types with Punjabi labels:
+    1. Acid + Metal → Salt + Hydrogen Gas
+    2. Acid + Base → Salt + Water (Neutralization / ਉਦਾਸੀਨੀਕਰਨ)
+    3. Acid + Carbonate → Salt + Water + CO₂
+
+SCRIPT (say this aloud):
+  Acids are chemically reactive — they react with metals, bases, and carbonates. Let us study each
+  of these three reaction types carefully, because they are all exam-relevant.
+
+  Reaction Type 1 — Acid + Metal → Salt + Hydrogen Gas.
+  When a metal like zinc or iron is placed in an acid like hydrochloric acid, a salt is produced along
+  with hydrogen gas. For example:
+  Zn + 2HCl → ZnCl₂ + H₂↑
+  The hydrogen gas produced makes a characteristic "pop" sound when a burning matchstick is brought
+  near — this is the test for hydrogen gas. Not all metals react with all acids, and some metals like
+  gold and platinum do not react at all.
+
+  Reaction Type 2 — Acid + Base → Salt + Water. This is the neutralization reaction
+  (ਉਦਾਸੀਨੀਕਰਨ ਕਿਰਿਆ). The acid and base "neutralize" each other. Neither acidic nor basic properties
+  remain — the result is a salt dissolved in water. For example:
+  HCl + NaOH → NaCl + H₂O
+  The word "neutralization" means both the acid and base lose their individual character. This is
+  the chemistry behind antacids curing acidity!
+
+  Reaction Type 3 — Acid + Carbonate → Salt + Water + CO₂.
+  When an acid reacts with a metal carbonate or hydrogencarbonate, it produces salt, water, AND
+  carbon dioxide gas. The CO₂ gas makes the solution bubble and fizz. This is why vinegar (acid)
+  and baking soda (carbonate) fizz together. We will see the equations for this on the next slide.
+
+KEY POINTS TO STRESS:
+  - Acid + Metal → Salt + H₂ gas (hydrogen tested by pop sound).
+  - Acid + Base → Salt + Water (Neutralization / ਉਦਾਸੀਨੀਕਰਨ).
+  - Acid + Carbonate → Salt + Water + CO₂ (tested by limewater turning milky).
+  - All three reaction types are exam-tested individually.
+
+BOARD TIP: These three reaction types with one example each is a very common 3-mark question. Practice writing balanced equations for each.
+
+
+========================================================================
+SLIDE 13: Reading Comprehension Story — The Baking Soda Volcano
+========================================================================
+
+ON SCREEN:
+  - Story-mode reading passage titled "The Baking Soda Volcano"
+  - Audio play/stop controls
+  - Narrative connecting science-fair volcano to acid-carbonate reactions and baking chemistry
+
+SCRIPT (say this aloud):
+  This reading comprehension passage connects the acid-carbonate reaction we just studied to two very
+  familiar real-life situations: the classic science-fair volcano and baking a cake.
+
+  Let me walk you through the science. The "volcano" experiment works because vinegar (which contains
+  ethanoic acid / acetic acid) reacts with baking soda (sodium hydrogencarbonate, NaHCO₃). This is a
+  perfect acid-carbonate reaction:
+  CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂↑
+  The CO₂ gas is released rapidly, causing the dramatic bubbling — the "eruption."
+
+  Now, bakers use this exact same chemistry! When baking soda is mixed with a mild edible acid
+  (like yogurt or lemon juice) in cake batter, CO₂ gas is produced. This gas gets trapped in the wet
+  dough as tiny bubbles. When the cake is put in a hot oven, the gas expands due to heat, and the
+  bubbles push the dough upward, making the cake rise and become light and fluffy. Without CO₂
+  production, you would get a flat, dense cake.
+
+  After reading, ask students: "What type of reaction is happening in both the volcano and the cake?"
+  Answer: Acid + Carbonate → Salt + Water + CO₂. Ask them to identify the acid and the carbonate in
+  each case. This reinforces Slide 12's reaction type 3 with real examples.
+
+KEY POINTS TO STRESS:
+  - Vinegar (acetic acid) + baking soda (NaHCO₃) → CO₂ gas is produced.
+  - This is an acid-carbonate reaction: acid + carbonate → salt + water + CO₂.
+  - Same reaction makes cakes rise — CO₂ trapped in dough expands when heated.
+  - Connecting chemistry to daily life strengthens conceptual understanding.
+
+
+========================================================================
+SLIDE 14: Acids with Carbonates (ਕਾਰਬੋਨੇਟਾਂ ਨਾਲ ਕਿਰਿਆ)
+========================================================================
+
+ON SCREEN:
+  - Explanation: acid + metal carbonate or hydrogencarbonate → salt + water + CO₂
+  - Two balanced equations:
+    Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)
+    NaHCO₃(s) + HCl(aq) → NaCl(aq) + H₂O(l) + CO₂(g)
+
+SCRIPT (say this aloud):
+  We saw the general rule on Slide 12. Now let us look at two specific, balanced equations for acid
+  reacting with carbonates — these are the equations you must be able to write in the exam.
+
+  Equation 1 — Sodium carbonate with hydrochloric acid:
+  Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)
+  Sodium carbonate is a solid. It reacts with two molecules of hydrochloric acid. The products are
+  sodium chloride dissolved in water, water, and carbon dioxide gas. Notice the state symbols —
+  (s) for solid, (aq) for aqueous (dissolved in water), (l) for liquid, (g) for gas. The CO₂ gas
+  bubbles out of the solution — this is what you see as fizzing.
+
+  Equation 2 — Sodium hydrogencarbonate with hydrochloric acid:
+  NaHCO₃(s) + HCl(aq) → NaCl(aq) + H₂O(l) + CO₂(g)
+  This is a simpler, 1:1 ratio reaction. Sodium hydrogencarbonate (baking soda) reacts with one
+  molecule of HCl to produce the same three products: sodium chloride, water, and CO₂.
+
+  How do we prove CO₂ is produced? Pass the gas through limewater (calcium hydroxide solution,
+  Ca(OH)₂). The CO₂ reacts with limewater to form calcium carbonate (CaCO₃), which is white and
+  insoluble — this turns the limewater milky/cloudy. This is called the limewater test for CO₂.
+  Interesting fact: if you keep passing excess CO₂, the milky limewater turns clear again! This is
+  because the excess CO₂ reacts with CaCO₃ to form calcium hydrogencarbonate (Ca(HCO₃)₂), which
+  is soluble.
+
+KEY POINTS TO STRESS:
+  - Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂ (learn state symbols).
+  - NaHCO₃ + HCl → NaCl + H₂O + CO₂.
+  - CO₂ is confirmed by turning limewater milky; excess CO₂ clears limewater again.
+  - Memorize both balanced equations for the exam.
+
+BOARD TIP: Writing these balanced equations with correct state symbols is a 3-mark question. Pay attention to the "2" coefficient in the first equation.
+
+
+========================================================================
+SLIDE 15: Metallic vs. Non-Metallic Oxides
+========================================================================
+
+ON SCREEN:
+  - Comparison table: Metallic Oxides vs. Non-Metallic Oxides
+  - Metallic: react with acids → basic in nature; examples CuO, MgO
+  - Non-Metallic: react with bases → acidic in nature; examples CO₂, SO₂
+
+SCRIPT (say this aloud):
+  This slide is a very important concept that connects acids and bases to the world of metal and
+  non-metal chemistry.
+
+  Let us start with Metallic Oxides. These are compounds formed when a metal combines with oxygen.
+  Examples include copper oxide (CuO) and magnesium oxide (MgO). The key property: metallic oxides
+  react with acids to produce salt and water. Because they react with acids — that is, they can
+  neutralize acids — they are basic in nature. They are also called basic oxides.
+
+  For example:
+  CuO + H₂SO₄ → CuSO₄ + H₂O
+  MgO + 2HCl → MgCl₂ + H₂O
+
+  Now, Non-Metallic Oxides. These are compounds formed when a non-metal combines with oxygen.
+  Examples include carbon dioxide (CO₂) and sulfur dioxide (SO₂). These react with bases to produce
+  salt and water. Because they react with bases — neutralizing them — they are acidic in nature.
+  They are called acidic oxides.
+
+  For example:
+  CO₂ + 2NaOH → Na₂CO₃ + H₂O
+  SO₂ + 2NaOH → Na₂SO₃ + H₂O
+
+  The pattern to remember: METALS form BASIC oxides. NON-METALS form ACIDIC oxides. This connects
+  beautifully to why SO₂ from industry causes acid rain — it is an acidic non-metallic oxide that
+  reacts with water in the atmosphere.
+
+KEY POINTS TO STRESS:
+  - Metallic oxides (CuO, MgO) react with acids → they are BASIC in nature.
+  - Non-metallic oxides (CO₂, SO₂) react with bases → they are ACIDIC in nature.
+  - Metals → basic oxides; Non-metals → acidic oxides. (Easy pattern to remember.)
+  - CO₂ dissolving in rainwater is why even normal rain is slightly acidic.
+
+BOARD TIP: "Why are metallic oxides basic in nature?" — Answer: because they react with acids to form salt and water. Frequent 2-mark question.
+
+
+========================================================================
+SLIDE 16: Lab Guide — Identifying Gases (ਗੈਸਾਂ ਦੀ ਪਛਾਣ)
+========================================================================
+
+ON SCREEN:
+  - Context: acids release gases during reactions; how do we identify which gas?
+  - Test 1 (Pop Test): burning matchstick near test tube — "pop" sound confirms Hydrogen (H₂)
+  - Test 2 (Milky Test): pass gas through limewater — milky/cloudy confirms CO₂; excess CO₂ clears it again
+
+SCRIPT (say this aloud):
+  When acids react with metals or carbonates, gases are released. In the school lab, we need to
+  identify which gas has been produced. There are two key gas tests you must know for the exam.
+
+  Test 1 — The Pop Test for Hydrogen Gas (H₂).
+  After the acid reacts with a metal and the gas collects in the test tube, bring a burning matchstick
+  close to the mouth of the test tube. If the gas is hydrogen, it will ignite and burn with a sharp
+  "pop" or crackling sound. This "pop" sound is the standard confirmatory test for hydrogen gas.
+  Why does it pop? Because hydrogen is highly flammable and burns rapidly when it contacts a flame.
+
+  Test 2 — The Limewater Test for Carbon Dioxide (CO₂).
+  After the acid reacts with a carbonate and CO₂ gas is produced, pass the gas through limewater —
+  that is, a solution of calcium hydroxide (Ca(OH)₂). The CO₂ reacts with Ca(OH)₂ to form calcium
+  carbonate (CaCO₃), which is a white precipitate. This turns the limewater milky or cloudy.
+  The reaction: CO₂ + Ca(OH)₂ → CaCO₃↓ + H₂O
+
+  Very important extra point: if you continue passing EXCESS CO₂ into the milky limewater, it turns
+  clear again! This is because the excess CO₂ reacts with CaCO₃ to form calcium hydrogencarbonate
+  (Ca(HCO₃)₂), which IS soluble in water.
+  Ca(CO)₃ + CO₂ + H₂O → Ca(HCO₃)₂
+
+  Both of these gas tests appear in practical-based exam questions every year.
+
+KEY POINTS TO STRESS:
+  - Hydrogen: burning matchstick → POP sound.
+  - CO₂: passed into limewater → limewater turns MILKY/CLOUDY.
+  - Excess CO₂ into milky limewater → turns CLEAR again (forms Ca(HCO₃)₂).
+  - Learn both tests — they appear in lab practical questions.
+
+BOARD TIP: "How do you test for hydrogen gas in the lab?" — Pop test with burning matchstick. Very commonly asked in practical-based 2-mark questions.
+
+
+========================================================================
+SLIDE 17: Safety — The Dilution Process (ਪਤਲਾ ਕਰਨਾ)
+========================================================================
+
+ON SCREEN:
+  - Safety warning heading: "Add Acid to Water! NEVER add water to acid."
+  - Reason: highly exothermic — can splash and cause severe burns
+  - Scientific explanation: dilution decreases ion concentration (H₃O⁺ / OH⁻) per unit volume
+
+SCRIPT (say this aloud):
+  This slide covers one of the most important safety rules in chemistry — and it is also an exam topic.
+  It is about how to safely dilute a concentrated acid.
+
+  The Golden Rule: ALWAYS add acid to water — NEVER add water to acid.
+  In Punjabi: ਤੇਜ਼ਾਬ ਨੂੰ ਪਾਣੀ ਵਿੱਚ ਪਾਉ, ਪਾਣੀ ਨੂੰ ਤੇਜ਼ਾਬ ਵਿੱਚ ਨਹੀਂ।
+
+  Why? Because mixing a concentrated acid with water is a highly exothermic reaction — it releases
+  a very large amount of heat. If you add water to concentrated acid (instead of the other way around),
+  this heat is generated so rapidly and in such a small volume of liquid that it can cause the mixture
+  to boil and splatter violently. That splatter is concentrated acid — it can cause severe chemical
+  burns to your skin, face, and eyes. It can also crack or shatter the glass container.
+
+  When you add acid to a large volume of water instead, the heat released is distributed and absorbed
+  by the water safely. The large mass of water absorbs the heat without a dangerous temperature spike.
+
+  What happens scientifically during dilution? When we dilute an acid or base by adding water, the
+  number of H₃O⁺ ions (in the case of an acid) or OH⁻ ions (in the case of a base) per unit volume
+  decreases. There are the same number of ions overall, but they are now spread across a larger volume
+  of water. So the concentration of ions goes down, and the acid or base becomes weaker.
+
+KEY POINTS TO STRESS:
+  - ALWAYS add acid to water; NEVER add water to acid.
+  - Mixing is highly exothermic — adding water to acid causes violent splattering.
+  - Dilution reduces H₃O⁺ / OH⁻ ion concentration per unit volume.
+  - This is both a safety rule AND a chemistry concept.
+
+BOARD TIP: "Why should acid always be added to water and not water to acid?" is a classic 2-mark "Give Reason" question. The answer: the reaction is highly exothermic and adding water to acid can cause the mixture to splash.
+
+
+========================================================================
+SLIDE 18: Top "Give Reason" Questions — PSEB 2017, 2019, 2023
+========================================================================
+
+ON SCREEN:
+  - Three frequently asked "Give Reason" exam questions with answers:
+    1. Why should curd not be kept in brass/copper vessels?
+    2. Why do acids not show acidic behavior without water?
+    3. Why does an aqueous solution of acid conduct electricity?
+  - PSEB year tags: 2017, 2019, 2023
+
+SCRIPT (say this aloud):
+  This slide is pure exam preparation — three "Give Reason" type questions that have appeared in
+  actual PSEB board exams in 2017, 2019, and 2023. These are worth 2 marks each. Let us go through
+  all three carefully.
+
+  Question 1: Why should curd not be kept in brass or copper vessels?
+  Answer: Curd contains lactic acid. When curd is stored in a brass or copper vessel, the lactic acid
+  reacts with the metal (brass is an alloy of copper and zinc) to form metallic salts that are
+  poisonous in nature. Consuming these salts can cause food poisoning. Therefore, curd should be stored
+  in glass, ceramic, or food-grade plastic containers, not metallic ones.
+
+  Question 2: Why do acids not show acidic behavior without water?
+  Answer: Acids only release H⁺ ions when they are dissolved in water. In the absence of water,
+  there is no ionization — the acid molecules remain intact and do not produce H⁺ ions. Since the
+  acidic properties (like turning litmus red or conducting electricity) depend on the presence of H⁺
+  ions, acids cannot show acidic behavior in the absence of water. The classic example: dry HCl gas
+  does not turn dry blue litmus paper red.
+
+  Question 3: Why does an aqueous solution of an acid conduct electricity?
+  Answer: Electricity is conducted through a solution by the movement of charged particles called
+  ions. When an acid dissolves in water, it ionizes to produce H⁺ ions (and corresponding negative
+  ions). These free-moving ions carry electric charge through the solution, allowing it to conduct
+  electricity. A solution that conducts electricity this way is called an electrolyte.
+
+KEY POINTS TO STRESS:
+  - Curd in brass/copper → lactic acid reacts with metal → poisonous salts formed.
+  - Acids need water to ionize → no water = no H⁺ = no acidic behavior.
+  - Aqueous acids conduct electricity because they produce free-moving H⁺ ions (electrolytes).
+  - All three answers are "Give Reason" format — practice writing them in 2-3 sentences.
+
+BOARD TIP: These three questions have appeared in PSEB 2017, 2019, and 2023. Write complete reason-based answers — not one-liners — to get full 2-mark credit.
+
+
+========================================================================
+SLIDE 19: The Chlor-Alkali Process — PSEB 2020, 2022
+========================================================================
+
+ON SCREEN:
+  - Definition: electrolysis of brine (NaCl aqueous solution)
+  - Balanced equation: 2NaCl(aq) + 2H₂O(l) → 2NaOH(aq) + Cl₂(g) + H₂(g)
+  - Three products and uses:
+    - Chlorine (Anode): water treatment, swimming pools
+    - Hydrogen (Cathode): fuel, making margarine
+    - Sodium Hydroxide (near Cathode): degreasing metals, making soaps
+
+SCRIPT (say this aloud):
+  The Chlor-Alkali Process is one of the most important industrial applications in this chapter,
+  and it has appeared in PSEB board exams in 2020 and 2022. Pay close attention.
+
+  The process begins with brine — a concentrated aqueous solution of sodium chloride (NaCl). When
+  electricity is passed through brine, the process of electrolysis occurs — electricity breaks the
+  chemical bonds in brine. The balanced equation is:
+
+  2NaCl(aq) + 2H₂O(l) → 2NaOH(aq) + Cl₂(g) + H₂(g)
+
+  Three useful products are formed:
+
+  Product 1 — Chlorine gas (Cl₂) is produced at the anode (the positive electrode). Chlorine is a
+  disinfectant — it kills harmful bacteria. It is used for treating drinking water and in swimming
+  pools to keep the water safe and clean. Chlorine is also used to make bleaching powder and PVC plastic.
+
+  Product 2 — Hydrogen gas (H₂) is produced at the cathode (the negative electrode). Hydrogen is
+  used as a fuel (it burns cleanly) and in the food industry for making margarine — by hydrogenation
+  of vegetable oils.
+
+  Product 3 — Sodium Hydroxide (NaOH) remains in solution near the cathode. NaOH is a strong base
+  with many industrial uses: it is used for degreasing metals (removing oil and grease from steel),
+  making soaps, making paper, and in the textile industry.
+
+  The name "Chlor-Alkali" (ਕਲੋਰ-ਐਲਕਲੀ ਪ੍ਰਕਿਰਿਆ) comes from the two main products: Chlorine and
+  the Alkali (NaOH).
+
+KEY POINTS TO STRESS:
+  - Chlor-Alkali process = electrolysis of brine (NaCl aqueous solution).
+  - Equation: 2NaCl + 2H₂O → 2NaOH + Cl₂ + H₂.
+  - Chlorine → water treatment / swimming pools (at anode).
+  - Hydrogen → fuel / margarine (at cathode).
+  - NaOH → soap making / degreasing metals (near cathode).
+
+BOARD TIP: Know the full equation, electrode positions (Cl₂ at anode, H₂ at cathode), and at least two uses of each product. This 5-mark question appears almost every exam.
+
+
+========================================================================
+SLIDE 20: Manufacturing Salts — Bleaching Powder & Baking Soda
+========================================================================
+
+ON SCREEN:
+  - Bleaching Powder (CaOCl₂): reaction of chlorine with dry slaked lime
+    Equation: Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O
+    Uses: disinfecting drinking water, bleaching cotton
+  - Baking Soda (NaHCO₃): produced using NaCl, H₂O, CO₂, and ammonia
+    Equation: NaCl + H₂O + CO₂ + NH₃ → NH₄Cl + NaHCO₃
+    Uses: making baking powder (makes cakes fluffy), antacid
+
+SCRIPT (say this aloud):
+  Now we study two very important manufactured salts: bleaching powder and baking soda. Both are
+  produced through specific chemical reactions and have important uses in daily life and industry.
+
+  Salt 1 — Bleaching Powder (CaOCl₂).
+  Bleaching powder is produced by the action of chlorine gas on dry slaked lime. Slaked lime is
+  calcium hydroxide — Ca(OH)₂. The equation is:
+  Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O
+  Note: dry slaked lime must be used — not wet. If water is present, the reaction produces different
+  products.
+
+  Uses of Bleaching Powder: it is used as a disinfectant to purify drinking water — it kills harmful
+  bacteria and viruses. It is also used in the textile industry to bleach cotton cloth and linen white.
+  You may have seen the white powder added to water tanks — that is bleaching powder.
+
+  Salt 2 — Baking Soda (NaHCO₃), also called Sodium Hydrogencarbonate.
+  Baking soda is produced using a reaction involving sodium chloride (brine), water, carbon dioxide,
+  and ammonia. This is part of the Solvay Process. The equation is:
+  NaCl + H₂O + CO₂ + NH₃ → NH₄Cl + NaHCO₃
+
+  Uses of Baking Soda: it is used in making baking powder (a mixture of baking soda and a mild acid
+  like tartaric acid). When baking powder is heated in an oven, CO₂ is released, which makes the
+  cake rise and become fluffy. Baking soda is also used as an antacid — it is mildly basic and
+  neutralizes excess stomach acid.
+
+KEY POINTS TO STRESS:
+  - Bleaching Powder: Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O. Used for water disinfection and bleaching cotton.
+  - Baking Soda: NaHCO₃. Produced by Solvay Process. Used in baking and as antacid.
+  - NaHCO₃ releases CO₂ when heated — this makes cakes rise.
+  - Chemical formula of bleaching powder: CaOCl₂.
+
+BOARD TIP: "Baking soda is prepared by the Solvay process" — TRUE. The formula CaOCl₂ for bleaching powder and NaHCO₃ for baking soda are 1-mark questions.
+
+
+========================================================================
+SLIDE 21: Manufacturing Salts — Washing Soda & Plaster of Paris
+========================================================================
+
+ON SCREEN:
+  - Washing Soda (Na₂CO₃·10H₂O): recrystallization of sodium carbonate
+    Equation: Na₂CO₃ + 10H₂O → Na₂CO₃·10H₂O
+    Uses: glass/soap/paper industries, removing permanent hardness of water
+  - Plaster of Paris (CaSO₄·½H₂O): heating Gypsum at exactly 373 K
+    Equation: CaSO₄·2H₂O + Heat(373K) → CaSO₄·½H₂O + 1½H₂O
+    Uses: supporting fractured bones
+
+SCRIPT (say this aloud):
+  Now we study two more important manufactured salts: washing soda and plaster of Paris. These also
+  involve a key concept called "water of crystallization" — meaning water molecules that are
+  chemically incorporated into the crystal structure of these salts.
+
+  Salt 3 — Washing Soda (Na₂CO₃·10H₂O).
+  Washing soda is sodium carbonate decahydrate — meaning each formula unit contains 10 molecules of
+  water. It is produced by a process called recrystallization: when anhydrous sodium carbonate (Na₂CO₃)
+  is dissolved in water and then allowed to crystallize slowly, it picks up 10 molecules of water to
+  form washing soda crystals.
+  Na₂CO₃ + 10H₂O → Na₂CO₃·10H₂O
+
+  Uses of Washing Soda: it is used in the glass, soap, and paper industries. It is also used to
+  remove the permanent hardness of water — hard water contains dissolved calcium and magnesium salts
+  that prevent soap from lathering properly. Washing soda reacts with these salts and removes them.
+
+  Salt 4 — Plaster of Paris (CaSO₄·½H₂O).
+  Plaster of Paris is calcium sulfate hemihydrate — each formula unit contains only HALF a molecule
+  of water. It is made by heating gypsum (CaSO₄·2H₂O) at exactly 373 K (100°C).
+  CaSO₄·2H₂O + Heat(373K) → CaSO₄·½H₂O + 1½H₂O
+
+  Why exactly 373 K? If you heat gypsum above this temperature, you get "dead burnt plaster," which
+  cannot set — it has lost too much water and cannot re-absorb it to harden. The exact temperature
+  is critical.
+
+  Use of Plaster of Paris: doctors use it to make casts for fractured bones. When Plaster of Paris
+  is mixed with water, it re-absorbs water and sets into a hard solid — this immobilizes the broken
+  bone while it heals. The setting process is: CaSO₄·½H₂O + 1½H₂O → CaSO₄·2H₂O (back to gypsum!).
+
+KEY POINTS TO STRESS:
+  - Washing Soda: Na₂CO₃·10H₂O — contains 10 molecules of water of crystallization.
+  - Plaster of Paris: CaSO₄·½H₂O — contains ½ molecule of water of crystallization.
+  - Plaster of Paris made by heating gypsum at EXACTLY 373 K.
+  - When POP + water → hardens (sets) = becomes gypsum again.
+
+BOARD TIP: "At what temperature is gypsum heated to form Plaster of Paris?" — 373 K. "How many water molecules does washing soda contain?" — 10. Both are frequent 1-mark questions.
+
+
+========================================================================
+SLIDE 22: Everyday Applications of pH (ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ pH) — Interactive
+========================================================================
+
+ON SCREEN:
+  - Interactive Q&A with two application questions (flip-card style)
+  - Application 1: "Tooth decay starts when pH of mouth is lower than what number?"
+  - Application 2: "What acid is injected during a bee sting?" (with Punjabi)
+  - Check Answer + Next button
+
+SCRIPT (say this aloud):
+  This is a short interactive activity to apply what you know about pH to everyday situations.
+  Use it as a class discussion or a quick check-of-understanding before revealing the answers.
+
+  Pose Application 1 to the class: "Tooth decay starts when the pH in your mouth falls below what
+  number?" Give students a moment to think. The answer is 5.5. Here is why: the bacteria in our
+  mouth break down sugar from food and produce acids. When the pH of the mouth drops below 5.5, the
+  enamel on our teeth — which is the hardest substance in our body — begins to dissolve. This is
+  tooth decay! To prevent it, we should rinse our mouths after eating and brush teeth regularly. Toothpaste
+  is mildly basic — it neutralizes the acid in the mouth and protects enamel.
+
+  Pose Application 2 to the class: "What acid is injected when a bee stings you?" The answer is
+  Formic acid (also called methanoic acid, HCOOH). Bees inject this acid into the skin when they
+  sting, causing pain and inflammation. The traditional remedy — applying a paste of baking soda
+  (NaHCO₃) to the sting — works because baking soda is a base. It neutralizes the formic acid and
+  reduces the pain!
+
+  Interesting contrast: ant stings also inject formic acid. But wasp stings inject an alkali. So for
+  a wasp sting, the treatment is different — you apply a mild acid like vinegar to neutralize it.
+
+KEY POINTS TO STRESS:
+  - Tooth decay begins when mouth pH drops below 5.5.
+  - Bacteria produce acid from sugar → enamel dissolves.
+  - Bee sting → Formic acid (HCOOH) injected → use baking soda (base) to neutralize.
+  - Ant sting: formic acid. Wasp sting: alkali. Different treatments needed.
+
+BOARD TIP: "What acid is present in bee sting?" — Formic acid. "At what pH does tooth decay start?" — below 5.5. Both are common 1-mark application questions.
+
+
+========================================================================
+SLIDE 23: Case Study — The Chlor-Alkali Process
+========================================================================
+
+ON SCREEN:
+  - Reading passage for case-study questions:
+    "When electricity is passed through brine, it decomposes to form sodium hydroxide.
+    Chlorine gas at anode, hydrogen gas at cathode."
+  - Note: questions based on this passage follow on the next slides.
+
+SCRIPT (say this aloud):
+  This slide introduces a case-study format — a type of question that PSEB has been including in
+  recent exams. A paragraph is given, and students answer comprehension-based questions from it.
+
+  Read the passage with your class:
+  "When electricity is passed through an aqueous solution of sodium chloride (brine), it decomposes
+  to form sodium hydroxide. Chlorine gas is given off at the anode, and hydrogen gas at the cathode."
+
+  Before moving to the questions, ensure students understand every part of this passage:
+  — "Aqueous solution of sodium chloride" = brine (ਬ੍ਰਾਈਨ). The formula for brine is NaCl(aq).
+  — "Decomposes" means the electrical energy breaks the chemical bonds — this is electrolysis.
+  — "Anode" is the positive electrode. Chlorine is released here.
+  — "Cathode" is the negative electrode. Hydrogen is released here.
+  — Sodium hydroxide forms in the solution near the cathode.
+
+  Remind students that this case-study passage is based on the same Chlor-Alkali process we studied
+  on Slide 19. So any information they have already memorized will help them answer the questions on
+  the next two slides. Move to Slide 24 when ready.
+
+KEY POINTS TO STRESS:
+  - Brine = NaCl(aq) — aqueous solution of sodium chloride.
+  - Electrolysis = decomposition using electricity.
+  - Cl₂ formed at anode; H₂ formed at cathode; NaOH in solution.
+  - Read every word of a case-study passage carefully before answering.
+
+
+========================================================================
+SLIDE 24: Case Study Question — Brine Formula
+========================================================================
+
+ON SCREEN:
+  - Case Study Question 1:
+    "What is the chemical formula for Brine?"
+  - Options: A. NaCl (solid)   B. NaCl (aqueous)   C. NaOH (aqueous)   D. HCl (aqueous)
+
+SCRIPT (say this aloud):
+  This is the first case study question based on the passage we read on Slide 23. Let us think
+  through it carefully.
+
+  The question asks for the chemical formula of Brine. Brine is an aqueous solution of sodium
+  chloride — meaning NaCl dissolved in water. The correct answer is B — NaCl (aqueous).
+
+  Let us see why the other options are wrong:
+  — Option A, NaCl (solid): this is just common table salt in solid form — not a solution, not brine.
+  — Option C, NaOH (aqueous): this is sodium hydroxide dissolved in water — a base, not brine. NaOH
+    is actually a PRODUCT of the chlor-alkali process, not the starting material.
+  — Option D, HCl (aqueous): this is hydrochloric acid — an acid, completely different from brine.
+
+  The key distinction here is the state symbol — (aqueous) means dissolved in water. Brine is
+  specifically a solution, so the solid form of NaCl is also incorrect even though the chemical
+  formula NaCl is right.
+
+  Lesson: In chemistry, the state symbol matters. NaCl(s) and NaCl(aq) have the same formula but
+  are physically very different — one is a crystal, the other is a solution.
+
+KEY POINTS TO STRESS:
+  - Brine = NaCl(aq) — sodium chloride in aqueous (water) solution.
+  - State symbols are important: (s) = solid, (aq) = aqueous solution.
+  - NaOH is the product of chlor-alkali, not the raw material.
+  - Answer: B — NaCl (aqueous).
+
+
+========================================================================
+SLIDE 25: Case Study Question — Water Treatment Product
+========================================================================
+
+ON SCREEN:
+  - Case Study Question 2:
+    "Which product of this process is used for water treatment?"
+  - Options: A. Hydrogen   B. Sodium Hydroxide   C. Chlorine   D. Sodium Chloride
+
+SCRIPT (say this aloud):
+  The second case-study question asks which product of the chlor-alkali process is used for water
+  treatment. Let us evaluate each option.
+
+  The correct answer is C — Chlorine.
+
+  Chlorine gas (Cl₂) is a powerful disinfectant. When it is dissolved in water — even in very small
+  concentrations (a few parts per million) — it kills harmful bacteria, viruses, and other pathogens.
+  This is why chlorine is added to municipal water supplies and swimming pools to make the water safe.
+
+  Let us review the other options:
+  — Option A, Hydrogen: hydrogen gas is used as a fuel and in making margarine — not for water treatment.
+  — Option B, Sodium Hydroxide (NaOH): NaOH is a strong base used in soap-making, degreasing metals,
+    and the paper industry — not primarily water treatment.
+  — Option D, Sodium Chloride: this is the starting material (brine), not a product of the process.
+
+  This question tests whether you have memorized which product goes to which use — a detail-oriented
+  knowledge check. Review all three products of the chlor-alkali process and their uses as given on
+  Slide 19 to be fully prepared for this type of question.
+
+KEY POINTS TO STRESS:
+  - Chlorine (Cl₂) from chlor-alkali process → used for water treatment and disinfection.
+  - Hydrogen → fuel and making margarine.
+  - NaOH → soap-making and degreasing.
+  - Answer: C — Chlorine.
+
+
+========================================================================
+SLIDE 26: Chapter 2 Quick Recap
+========================================================================
+
+ON SCREEN:
+  - Five bullet recap points:
+    1. Acids taste sour and yield H⁺; Bases taste bitter and yield OH⁻.
+    2. Indicators like Litmus and Phenolphthalein show color changes.
+    3. pH scale measures H⁺ concentration (0 to 14).
+    4. Salts like Baking Soda and Washing Soda have major industrial uses.
+    5. Water of crystallization gives crystals their shape and color.
+
+SCRIPT (say this aloud):
+  We have now covered all the key content of Chapter 2. This slide is your summary — let us revise
+  each point one final time before moving to the practice questions.
+
+  Point 1: Acids taste sour (ਖੱਟੇ) and yield H⁺ ions in water. Bases taste bitter (ਕੌੜੇ) and yield
+  OH⁻ ions. When they react — neutralization — they produce salt and water.
+
+  Point 2: Indicators tell us whether a solution is acidic or basic by changing color (litmus,
+  phenolphthalein, methyl orange) or odor (olfactory indicators like onion and clove).
+
+  Point 3: The pH scale runs from 0 (strongest acid) to 14 (strongest base), with 7 being perfectly
+  neutral. Pure water is the universal neutral reference at pH 7.
+
+  Point 4: Important manufactured salts include Baking Soda (NaHCO₃) — used in baking and as an
+  antacid; Washing Soda (Na₂CO₃·10H₂O) — used in cleaning and industry; Bleaching Powder (CaOCl₂)
+  — used for disinfection; and Plaster of Paris (CaSO₄·½H₂O) — used in medicine.
+
+  Point 5: Water of crystallization (ਕ੍ਰਿਸਟਲੀਕਰਨ ਦਾ ਪਾਣੀ) is the fixed number of water molecules
+  chemically bonded within a salt crystal. Washing soda has 10 water molecules; Plaster of Paris has
+  ½; Gypsum has 2. This water gives the crystals their specific shape, color, and properties.
+
+  Take a moment to make a mental list — how many key equations can you write from memory right now?
+  The practice questions coming up will test all of this.
+
+KEY POINTS TO STRESS:
+  - Acids: H⁺, sour; Bases: OH⁻, bitter; Neutralization: acid + base → salt + water.
+  - pH 0–14: below 7 acidic, 7 neutral, above 7 basic.
+  - Water of crystallization is part of the crystal structure, not free water.
+  - Know all four manufactured salts, their formulas, and their uses.
+
+BOARD TIP: "What is water of crystallization?" is a common 2-mark definition question. Answer: the fixed number of water molecules chemically incorporated in one formula unit of a crystalline salt.
+
+
+========================================================================
+SLIDE 27: True or False? — 13 Questions (ਸਹੀ ਜਾਂ ਗਲਤ?)
+========================================================================
+
+ON SCREEN:
+  - Interactive True/False activity with 13 questions (bilingual — English + Punjabi)
+  - Topics cover litmus, baking soda, pH, acids/bases, olfactory indicators, dry HCl,
+    washing soda, Solvay process, ionization, acid-carbonate reactions
+
+SCRIPT (say this aloud):
+  This is a 13-question True or False revision activity. Run this as a class engagement exercise.
+  Before revealing each answer, ask students to vote — thumbs up for True, thumbs down for False.
+  Let us go through each question and its correct answer with explanation.
+
+  Q1: Acids turn red litmus paper blue. → FALSE. Acids turn BLUE litmus RED. It is bases that turn
+  red litmus blue.
+
+  Q2: Baking soda is basic in nature. → TRUE. NaHCO₃ is mildly basic — it is used as an antacid.
+
+  Q3: The pH of pure water is 0. → FALSE. Pure water has a pH of 7 (neutral). pH 0 is an extremely
+  strong acid.
+
+  Q4: Acids taste bitter and feel soapy to touch. → FALSE. These are properties of BASES, not acids.
+  Acids taste sour and can feel corrosive.
+
+  Q5: Water neutralizes a base to form salt and hydrogen gas. → FALSE. It is an ACID that neutralizes
+  a base, producing salt and WATER — not hydrogen gas.
+
+  Q6: Olfactory indicators change their odor in acidic or basic solutions. → TRUE. Onion and clove
+  are olfactory indicators that change or lose their smell in basic solutions.
+
+  Q7: A solution with pH 12 is a strong acid. → FALSE. pH 12 is strongly BASIC (alkaline). Strong
+  acids have very low pH (close to 0).
+
+  Q8: Baking soda is prepared using the Solvay process. → TRUE. The Solvay process uses NaCl, H₂O,
+  CO₂, and NH₃ to produce NaHCO₃.
+
+  Q9: A strong acid completely ionizes in water. → TRUE. By definition, a strong acid fully
+  dissociates into ions in water.
+
+  Q10: Dry HCl gas turns dry blue litmus paper red. → FALSE. Dry HCl has no water, so it cannot
+  produce H⁺ ions, and therefore CANNOT change dry blue litmus paper.
+
+  Q11: Washing soda contains 10 molecules of water of crystallization. → TRUE. The formula is
+  Na₂CO₃·10H₂O — ten water molecules per formula unit.
+
+  Q12: Tamarind contains Tartaric acid. → TRUE. Tamarind is sour because it contains tartaric acid.
+
+  Q13: When an acid reacts with a metal carbonate, oxygen gas is released. → FALSE. The gas released
+  is CARBON DIOXIDE (CO₂), not oxygen.
+
+KEY POINTS TO STRESS:
+  - False: Acids turn blue litmus red (not red litmus blue).
+  - False: pH 12 is strongly basic, NOT acidic.
+  - False: Dry HCl does NOT change dry litmus.
+  - True: Washing soda has 10 water molecules; baking soda prepared by Solvay process.
+
+BOARD TIP: Questions 7 (pH 12 = base, not acid) and 10 (dry HCl exception) are the trickiest — these are the ones students most commonly get wrong.
+
+
+========================================================================
+SLIDE 28: Say It Back: Chapter 2 — 12 Short Answer Questions
+========================================================================
+
+ON SCREEN:
+  - Interactive short answer activity: 12 questions (bilingual), reveal answer on click
+  - Topics: ions, reactions, formulas, gas products, dilution, acid type, indicators
+
+SCRIPT (say this aloud):
+  This is a 12-question short answer revision round — designed to test whether students can recall
+  key facts from this chapter. Use this as a verbal drill: ask the question, give students 10 seconds,
+  then reveal the answer. Let us run through all 12.
+
+  Q1: Acids give which ion in water? → H⁺ (hydrogen ion / hydronium H₃O⁺).
+
+  Q2: Bases give which ion in water? → OH⁻ (hydroxide ion).
+
+  Q3: Acid + Metal gives...? → Salt + Hydrogen gas.
+
+  Q4: What is the formula for Bleaching Powder? → CaOCl₂.
+
+  Q5: Heating Gypsum to 373 K produces what? → Plaster of Paris (CaSO₄·½H₂O).
+
+  Q6: What mild base is used as an antacid? → Baking soda (NaHCO₃) or Magnesium hydroxide
+  (Milk of Magnesia, Mg(OH)₂).
+
+  Q7: Should you add acid to water or water to acid? → Always add ACID to WATER.
+  Never add water to acid — it is highly exothermic and dangerous.
+
+  Q8: An acid that completely ionizes in water is called? → A Strong Acid (ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ).
+
+  Q9: What color does phenolphthalein turn in an acidic solution? → Colorless (no change).
+  It turns PINK only in a basic solution.
+
+  Q10: What gas is usually produced when an acid reacts with a carbonate? → Carbon Dioxide (CO₂).
+
+  Q11: What is the common name of Sodium bicarbonate? → Baking Soda (ਮਿੱਠਾ ਸੋਡਾ).
+
+  Q12: Which acid is present in curd? → Lactic acid.
+
+  After this activity, any answer that students hesitated on should be reviewed again from the relevant
+  content slide. These 12 questions cover the most commonly tested single-answer facts from Chapter 2.
+
+KEY POINTS TO STRESS:
+  - Phenolphthalein in acid = COLORLESS (not pink — that's only in base).
+  - Bleaching powder formula = CaOCl₂.
+  - Baking soda = NaHCO₃ = sodium bicarbonate = ਮਿੱਠਾ ਸੋਡਾ.
+  - Lactic acid in curd; formic acid in bee sting; acetic acid in vinegar.
+
+BOARD TIP: Q9 (phenolphthalein colorless in acid) is a common trick question — students often say "pink" without thinking. Drill this.
+
+
+========================================================================
+SLIDE 29: Quick Check — Chapter 2 (ਤੁਰੰਤ ਜਾਂਚ) — 12 MCQs
+========================================================================
+
+ON SCREEN:
+  - 12 multiple-choice questions (bilingual), topics across the full chapter
+  - Final slide — ends with "Continue to Chapter 3 →"
+
+SCRIPT (say this aloud):
+  This is the final activity of Chapter 2 — a 12-question multiple choice Quick Check. This format
+  mirrors the type of questions students see in the actual PSEB exam. Let us go through every
+  question with the correct answer and a brief explanation.
+
+  Q1: What is the pH of a neutral solution?
+  Correct: B — 7. Pure water is the neutral standard. pH below 7 = acidic; above 7 = basic.
+
+  Q2: Which gas is released when an acid reacts with a metal?
+  Correct: C — Hydrogen. Acid + Metal → Salt + H₂ gas. Tested by pop sound with burning matchstick.
+
+  Q3: Plaster of Paris is made by heating:
+  Correct: B — Gypsum. CaSO₄·2H₂O heated at 373 K gives CaSO₄·½H₂O (Plaster of Paris).
+
+  Q4: Which of the following is a strong acid?
+  Correct: B — Hydrochloric acid (HCl). It completely ionizes in water. Acetic acid and citric acid
+  are weak acids.
+
+  Q5: Baking soda is basic in nature. Which is its formula?
+  Correct: B — NaHCO₃. Na₂CO₃ is washing soda; NaOH is caustic soda.
+
+  Q6: Which acid is present in vinegar?
+  Correct: C — Acetic acid (CH₃COOH), also called ethanoic acid.
+
+  Q7: Tooth decay starts when the pH of the mouth is lower than:
+  Correct: B — 5.5. Below pH 5.5, tooth enamel starts dissolving due to bacterial acids.
+
+  Q8: An aqueous solution turns red litmus blue. Excess addition of which solution would reverse
+  the change?
+  Correct: C — Hydrochloric acid (HCl). The solution is basic (turned red litmus blue). To reverse
+  it, we need to add an acid — HCl will neutralize the base and turn the solution acidic, making
+  litmus turn back to red. Baking powder and ammonium hydroxide are both basic — they would not
+  reverse the change.
+
+  Q9: Brine is an aqueous solution of:
+  Correct: B — Sodium chloride (NaCl). This is the starting material for the chlor-alkali process.
+
+  Q10: Which base is present in milk of magnesia?
+  Correct: B — Magnesium hydroxide (Mg(OH)₂). It is used as an antacid.
+
+  Q11: At what temperature is gypsum heated to form Plaster of Paris?
+  Correct: B — 373 K. This is the critical and exact temperature. Overheating gives "dead burnt
+  plaster" which cannot set.
+
+  Q12: Which of the following salts does NOT contain water of crystallization?
+  Correct: B — Baking soda (NaHCO₃). Blue vitriol (CuSO₄·5H₂O) has 5 water molecules; washing
+  soda (Na₂CO₃·10H₂O) has 10. Baking soda (NaHCO₃) has NO water of crystallization.
+
+  Excellent work completing Chapter 2! You now know the chemistry of acids, bases, and salts from
+  the fundamentals all the way to industrial applications. Continue to Chapter 3 when ready.
+
+KEY POINTS TO STRESS:
+  - pH 7 = neutral; HCl = strong acid; NaHCO₃ = baking soda formula.
+  - Tooth enamel dissolves below pH 5.5.
+  - Baking soda has NO water of crystallization; Washing soda has 10.
+  - Plaster of Paris made at exactly 373 K from gypsum.
+
+BOARD TIP: Q8 (reversing basic litmus by adding acid) and Q12 (no water of crystallization in baking soda) are the two most commonly missed questions in practice tests. Review both carefully.
+
+========================================================================
+END OF CHAPTER 2 SCRIPT — 29 SLIDES TOTAL
+========================================================================

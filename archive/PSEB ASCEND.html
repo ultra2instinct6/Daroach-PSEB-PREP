@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Science: Final Edition</title>
+    <style>
+        :root {
+            --goku-orange: #FF5C00;
+            --goku-blue: #0047BB;
+            --bg-white: #FFFFFF;
+            --text-main: #333333;
+            --card-bg: #F8F9FA;
+            --punjabi-text: #4B5563; 
+        }
+
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg-white); color: var(--text-main); overflow: hidden; touch-action: pan-y; }
+
+        .slider { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .slide { min-width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 10%; box-sizing: border-box; }
+        
+        .content-box { max-width: 1000px; width: 100%; background: var(--bg-white); padding: 50px; border-radius: 12px; border-left: 8px solid var(--goku-orange); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); opacity: 0; transform: scale(0.95) translateY(20px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); max-height: 85vh; overflow-y: auto; position: relative; }
+        .slide.active .content-box { opacity: 1; transform: scale(1) translateY(0); }
+        .slide:nth-child(even) .content-box { border-left: 8px solid var(--goku-blue); }
+        
+        .title-slide { border-left: none !important; border-top: 8px solid var(--goku-orange) !important; border-bottom: 8px solid var(--goku-blue) !important; text-align: center; }
+        .chapter-divider { background-color: var(--goku-blue); color: white; border-left: none !important; border-right: 8px solid var(--goku-orange); text-align: center; }
+        .chapter-divider h2, .chapter-divider h1 { color: white; border-bottom: 2px solid var(--goku-orange); display: inline-block; padding-bottom: 10px; }
+        .chapter-divider .punjabi { color: #E5E7EB; display: block; margin-top: 10px; font-size: 1.8rem; }
+
+        h1 { color: var(--goku-blue); font-size: 3.5rem; margin: 0 0 10px 0; line-height: 1.2; }
+        h2 { color: var(--goku-blue); font-size: 2.5rem; margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid var(--goku-orange); }
+        h3 { color: var(--goku-orange); font-size: 1.8rem; margin: 20px 0 10px 0; }
+        p, li { font-size: 1.3rem; line-height: 1.6; }
+        ul { margin-top: 10px; padding-left: 30px; }
+        li { margin-bottom: 12px; }
+
+        .accent { color: var(--goku-orange); font-weight: bold; }
+        .accent-blue { color: var(--goku-blue); font-weight: bold; }
+        .punjabi { color: var(--punjabi-text); font-weight: normal; font-size: 0.95em; margin-left: 6px; }
+        .punjabi-block { color: var(--punjabi-text); font-weight: normal; font-size: 0.95em; display: block; margin-top: 4px; }
+        
+        .equation { display: inline-block; background: #E8F0FE; padding: 5px 15px; border-radius: 6px; font-family: 'Courier New', Courier, monospace; color: var(--goku-blue); font-weight: bold; margin: 10px 0; font-size: 1.2rem; }
+
+        /* UI BOXES from V23 */
+        .pitfall-box { background: #FEF2F2; border-left: 8px solid #EF4444; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .pitfall-box h3 { color: #DC2626; margin-top: 0; }
+        
+        .etymology-box { background: #F0FDF4; border-left: 8px solid #10B981; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .etymology-box h3 { color: #059669; margin-top: 0; }
+        
+        .lab-box { background: #FFFBEB; border-left: 8px solid #F59E0B; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .lab-box h3 { color: #D97706; margin-top: 0; }
+        
+        .template-box { background: #EEF2FF; border-left: 8px solid #6366F1; padding: 20px; border-radius: 8px; margin: 15px 0; }
+        .template-box h3 { color: #4F46E5; margin-top: 0; }
+        
+        /* TTS and PYQ from V25 */
+        .tts-btn { background: none; border: none; font-size: 1.2rem; cursor: pointer; border-radius: 50%; width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; transition: background 0.2s; vertical-align: middle; margin-left: 5px;}
+        .tts-btn:hover { background: #E8F0FE; }
+        .pyq-tag { display: inline-block; background: #DC2626; color: white; font-size: 1rem; padding: 4px 8px; border-radius: 4px; font-weight: bold; vertical-align: middle; margin-left: 15px; box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3); letter-spacing: 0.5px;}
+
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 1.2rem; background: var(--bg-white); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; vertical-align: top; }
+        th { background-color: var(--goku-blue); color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: var(--card-bg); }
+
+        .toc-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; background: var(--bg-white); border: 2px solid var(--goku-blue); color: var(--goku-blue); font-size: 1.5rem; font-weight: bold; border-radius: 8px; cursor: pointer; transition: all 0.2s; text-align: center; }
+        .toc-btn:hover { background: var(--goku-blue); color: white; transform: translateX(5px); }
+
+        
+        /* READING COMPREHENSION SUITE */
+        .reading-box { background: #FCFBF9; padding: 40px; border-radius: 12px; border: 2px solid #E5E7EB; margin: 20px 0; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .read-controls { display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid #E5E7EB; padding-bottom: 15px; }
+        .read-btn { background: var(--goku-blue); color: white; border: none; padding: 10px 20px; font-size: 1.2rem; border-radius: 6px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px; transition: background 0.2s; }
+        .read-btn:hover { background: var(--goku-orange); }
+        .read-btn.stop-btn { background: #DC2626; }
+        .read-btn.stop-btn:hover { background: #991B1B; }
+        .reading-text { font-size: 1.6rem; line-height: 1.9; color: #374151; font-family: Georgia, serif; text-align: justify; }
+
+        
+        /* NEW INTERACTIVE MODULE CSS */
+        .metal-select { padding: 12px; font-size: 1.5rem; border-radius: 8px; border: 3px solid var(--goku-blue); margin: 10px; outline: none; font-weight: bold; background: white; color: var(--goku-blue); cursor: pointer; }
+        .alkane-slider { -webkit-appearance: none; width: 80%; height: 15px; border-radius: 10px; background: #ddd; outline: none; margin: 20px 0; }
+        .alkane-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 35px; height: 35px; border-radius: 50%; background: var(--goku-orange); cursor: pointer; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
+
+        button { user-select: none; -webkit-user-select: none; touch-action: manipulation; }
+        /* Interactive Elements */
+        .sub-slider-container { background: #F0F4F8; padding: 30px; border-radius: 12px; margin: 20px 0; border: 2px solid var(--goku-blue); min-height: 250px; display: flex; flex-direction: column; justify-content: center; position: relative;}
+        .sub-slide { display: none; animation: fadeIn 0.4s ease; width: 100%; }
+        .sub-slide.active { display: block; }
+        .question-text { font-size: 1.6rem; font-weight: bold; margin-bottom: 20px; color: var(--goku-blue); text-align: center;}
+        
+        .option-btn { display: block; width: 100%; padding: 15px 20px; margin: 10px 0; text-align: left; background: var(--bg-white); border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.2s; font-size: 1.4rem; color: var(--text-main); font-weight: bold;}
+        .option-btn:hover:not(:disabled) { background: #E8F0FE; border-color: var(--goku-blue); transform: translateX(5px); }
+        .option-btn.correct { background: #D1FAE5 !important; border-color: #10B981 !important; color: #065F46 !important; }
+        .option-btn.incorrect { background: #FEE2E2 !important; border-color: #EF4444 !important; color: #991B1B !important; }
+        
+        .tf-grid { display: flex; gap: 15px; justify-content: space-between; }
+        .tf-grid .option-btn { text-align: center; }
+
+        .sa-input { width: 100%; padding: 15px; font-size: 1.4rem; border: 2px solid #ccc; border-radius: 8px; margin-bottom: 15px; box-sizing: border-box; font-family: inherit; color: var(--text-main); transition: border-color 0.2s;}
+        .sa-input:focus { border-color: var(--goku-orange); outline: none; }
+        .sa-input:disabled { background-color: #f5f5f5; color: #666; }
+        .sa-submit-btn { background: var(--goku-blue); color: white; border: none; padding: 12px 24px; font-size: 1.3rem; border-radius: 8px; cursor: pointer; width: 100%; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+        .sa-submit-btn:hover:not(:disabled) { background: var(--goku-orange); transform: translateY(-2px); }
+        .sa-submit-btn:disabled { background: #cccccc; cursor: not-allowed; transform: none; box-shadow: none; }
+        .feedback { margin-top: 15px; font-size: 1.4rem; min-height: 30px; text-align: center; }
+        
+        .next-sub-btn { background: var(--goku-orange); margin-top: 20px; display: none; width: 100%; padding: 15px; font-size: 1.4rem; border-radius: 8px; color: white; border: none; cursor: pointer; font-weight: bold; text-align: center; box-shadow: 0 4px 10px rgba(255, 92, 0, 0.3); transition: all 0.2s;}
+        .next-sub-btn:hover { background: #E65300; transform: translateY(-2px); }
+        .sub-progress { text-align: center; font-size: 1.1rem; color: #888; margin-bottom: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .side-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(0, 71, 187, 0.08); border: none; font-size: 3rem; color: var(--goku-blue); cursor: pointer; padding: 20px 15px; z-index: 150; transition: all 0.3s ease; border-radius: 12px; outline: none; }
+        .side-nav:hover:not(:disabled) { background: var(--goku-blue); color: white; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transform: translateY(-50%) scale(1.05); }
+        .side-nav:disabled { opacity: 0.1; cursor: not-allowed; }
+        .left-nav { left: 15px; }
+        .right-nav { right: 15px; }
+
+        .export-btn { background-color: #10B981; margin-top: 20px; font-size: 1.4rem; padding: 15px 30px; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3); color: white; cursor: pointer; border-radius: 8px; border: none; font-weight: bold; width: 100%;}
+        .export-btn:hover { background-color: #059669; transform: translateY(-2px); }
+
+        .progress { position: fixed; top: 0; left: 0; height: 6px; background: var(--goku-orange); transition: width 0.3s ease; z-index: 100; }
+        .slide-counter { position: fixed; bottom: 30px; left: 30px; font-size: 1.4rem; color: white; background: var(--goku-blue); padding: 10px 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer; font-weight: bold; transition: all 0.2s ease; z-index: 1000; border: 2px solid white; }
+        .slide-counter:hover { background: var(--goku-orange); transform: translateY(-3px); }
+        
+        .content-box::-webkit-scrollbar { width: 8px; }
+        .content-box::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 8px; }
+        .content-box::-webkit-scrollbar-thumb { background: #ccc; border-radius: 8px; }
+        
+        /* Simulators CSS */
+        .balancer-panel { background: #F0F4F8; border: 2px solid var(--goku-blue); border-radius: 12px; padding: 25px; margin: 20px 0; text-align: center; }
+        .balancer-eq { font-size: 2.5rem; font-weight: bold; color: var(--goku-blue); display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;}
+        .coef-input { width: 60px; height: 50px; font-size: 2rem; text-align: center; border: 3px solid var(--goku-orange); border-radius: 8px; font-weight: bold; background: white; color: var(--text-main); outline: none; }
+        .coef-input:focus { border-color: var(--goku-blue); box-shadow: 0 0 8px rgba(0,71,187,0.3); }
+        .atom-tracker { display: flex; justify-content: space-around; background: white; padding: 15px; border-radius: 8px; border: 1px solid #ccc; font-size: 1.4rem; margin-bottom: 20px; }
+        .tracker-col { display: flex; flex-direction: column; align-items: center; width: 45%; }
+        .tracker-header { font-weight: bold; border-bottom: 2px solid #ddd; width: 100%; text-align: center; padding-bottom: 5px; margin-bottom: 10px; }
+        .atom-row { display: flex; justify-content: space-between; width: 80%; margin: 5px 0; font-family: monospace; font-size: 1.6rem; }
+        .balance-status { font-size: 1.8rem; font-weight: bold; padding: 10px; border-radius: 8px; transition: all 0.3s; }
+        .status-unbalanced { background: #FEE2E2; color: #DC2626; border: 2px solid #EF4444; }
+        .status-balanced { background: #D1FAE5; color: #059669; border: 2px solid #10B981; animation: pulseGreen 1.5s infinite; }
+        @keyframes pulseGreen { 0% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);} 70% {box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);} 100% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);} }
+
+        .ph-tool { background: #F8F9FA; padding: 30px; border-radius: 12px; border: 2px solid #ccc; margin: 20px 0; }
+        .ph-scale-wrapper { position: relative; width: 100%; height: 50px; margin: 40px 0; }
+        .ph-gradient-bar { width: 100%; height: 100%; border-radius: 25px; background: linear-gradient(to right, #ef4444, #f97316, #eab308, #22c55e, #06b6d4, #4f46e5, #7e22ce); box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); }
+        .ph-labels { display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; color: #555; margin-top: 10px; padding: 0 10px; }
+        .ph-pointer { position: absolute; top: -35px; width: 2px; height: 120px; background: black; transition: left 0.5s cubic-bezier(0.25, 1, 0.5, 1); left: 50%; pointer-events: none; z-index: 10; }
+        .ph-pointer::after { content: attr(data-val); position: absolute; top: -25px; left: -50px; width: 100px; text-align: center; background: #333; color: white; padding: 5px; border-radius: 4px; font-weight: bold; font-size: 1.1rem; }
+        .ph-btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+        .ph-item-btn { padding: 10px; border: 2px solid var(--goku-blue); background: white; color: var(--goku-blue); border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.2s; font-size: 1.1rem; }
+        .ph-item-btn:hover { background: var(--goku-blue); color: white; transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        .mindmap-container { display: flex; flex-direction: column; align-items: center; width: 100%; padding: 20px 0; }
+        .mm-root { background: var(--goku-blue); color: white; padding: 15px 30px; font-size: 1.6rem; font-weight: bold; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: relative; z-index: 2; border: 3px solid white;}
+        .mm-line-vertical { width: 4px; height: 40px; background: var(--goku-orange); }
+        .mm-line-horizontal { width: 80%; height: 4px; background: var(--goku-orange); display: flex; justify-content: space-between; }
+        .mm-branch-droppers { width: 80%; display: flex; justify-content: space-between; }
+        .mm-drop { width: 4px; height: 30px; background: var(--goku-orange); }
+        .mm-nodes-row { display: flex; justify-content: space-between; width: 100%; gap: 15px; }
+        .mm-node { flex: 1; background: white; border: 3px solid var(--goku-orange); border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .mm-node:hover { transform: scale(1.05); background: #FFFBEB; }
+        .mm-title { font-weight: bold; font-size: 1.3rem; color: var(--goku-blue); margin-bottom: 5px; }
+        .mm-eq { font-family: monospace; font-size: 1.1rem; color: #555; background: #f4f4f4; padding: 4px; border-radius: 4px; display: inline-block;}
+
+        .bohr-app { display: flex; gap: 20px; background: #F8F9FA; padding: 20px; border-radius: 12px; border: 2px solid #ccc; flex-wrap: wrap;}
+        .bohr-grid { flex: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; min-width: 250px;}
+        .element-btn { background: white; border: 2px solid var(--goku-blue); border-radius: 6px; padding: 10px 5px; cursor: pointer; text-align: center; transition: all 0.2s; }
+        .element-btn strong { display: block; font-size: 1.3rem; color: var(--goku-blue); }
+        .element-btn span { font-size: 0.9rem; color: #666; }
+        .element-btn:hover, .element-btn.active { background: var(--goku-blue); color: white; transform: translateY(-2px); }
+        .element-btn:hover strong, .element-btn.active strong, .element-btn:hover span, .element-btn.active span { color: white; }
+        .bohr-display { flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: white; border-radius: 12px; border: 2px dashed #ccc; padding: 20px; }
+        .bohr-info { text-align: center; margin-bottom: 15px; }
+        .bohr-info h3 { margin: 0; color: var(--goku-orange); font-size: 1.8rem; }
+        .bohr-info p { margin: 5px 0 0 0; font-family: monospace; font-size: 1.2rem; background: #E8F0FE; padding: 5px 10px; border-radius: 6px;}
+        .orbit { stroke: #ccc; stroke-width: 2; fill: none; }
+        .electron { fill: var(--goku-blue); animation: orbitSpin 10s linear infinite; transform-origin: center; }
+        .nucleus { fill: var(--goku-orange); }
+
+        @media (max-width: 768px) {
+            .slide { padding: 20px 5%; }
+            .content-box { padding: 30px 20px; max-height: 80vh; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            p, li, table { font-size: 1.1rem; }
+            .side-nav { padding: 15px 10px; font-size: 2rem; border-radius: 8px; }
+            .left-nav { left: 5px; }
+            .right-nav { right: 5px; }
+            .slide-counter { bottom: 15px; left: 15px; font-size: 1.1rem; padding: 8px 15px; } 
+            .tf-grid { flex-direction: column; }
+            .balancer-eq { font-size: 1.8rem; }
+            .coef-input { width: 45px; height: 40px; font-size: 1.5rem; }
+            .mm-nodes-row { flex-wrap: wrap; }
+            .mm-node { min-width: 40%; margin-bottom: 10px; }
+            .mm-line-horizontal, .mm-branch-droppers { display: none; } 
+        }
+    </style>
+
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+<body>
+    <div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" onclick="promptSlide()" title="Click to jump to a slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)" aria-label="Next Slide">&#10095;</button>
+
+    <div class="slider" id="slider">
+<div class="slide"><div class="content-box">
+                <h1 style="text-align:center;">Class 10 Science</h1>
+                <h2 style="border:none; margin-bottom: 0; text-align:center;">NCERT 150-Slide Masterpiece</h2>
+                <p class="punjabi" style="font-size: 1.5rem; margin-top: 5px; text-align:center;">(ਅਧਿਆਇ 1-5)</p>
+                <p style="font-size: 1.6rem; color: #555; margin-top: 30px; text-align:center;">
+                    <span class="accent-blue">Understand first.</span> <span class="punjabi">(ਪਹਿਲਾਂ ਸਮਝੋ)</span><br>
+                    <span class="accent">Memorize second.</span> <span class="punjabi">(ਫਿਰ ਯਾਦ ਕਰੋ)</span><br>
+                    Practice daily. <span class="punjabi">(ਰੋਜ਼ ਅਭਿਆਸ ਕਰੋ)</span>
+                </p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>PSEB Board Exam Tips <span class="punjabi">(ਬੋਰਡ ਪ੍ਰੀਖਿਆ ਲਈ ਸੁਝਾਅ)</span></h2>
+                <ul>
+                    <li><strong>Write in Points:</strong> Break long paragraphs into short bullet points. Examiners prefer this!</li>
+                    <li><strong>Draw Diagrams:</strong> Use pencil for diagrams (e.g., Micelle formation, Electrolytic refining). Label them clearly.</li>
+                    <li><strong>Chemical Equations:</strong> Always write <em>balanced</em> equations and mention physical states (s, l, g, aq).</li>
+                    <li><strong>Read "Give Reasons" carefully:</strong> Be specific. Example: "Why does curd turn sour in copper?" &rarr; Mention "Reaction with metal to form toxic salts."</li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>How to Learn Science <span class="punjabi">(ਵਿਗਿਆਨ ਕਿਵੇਂ ਸਿੱਖੀਏ)</span></h2>
+                <ul>
+                    <li>Read slowly. <span class="punjabi">(ਹੌਲੀ ਪੜ੍ਹੋ)</span></li>
+                    <li>Learn the key word. <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦ ਸਿੱਖੋ)</span></li>
+                    <li>Look at one example. <span class="punjabi">(ਉਦਾਹਰਣ ਦੇਖੋ)</span></li>
+                    <li>Say the idea out loud. <span class="punjabi">(ਉੱਚੀ ਆਵਾਜ਼ ਵਿੱਚ ਬੋਲੋ)</span></li>
+                    <li>Practice with Short Answers. <span class="punjabi">(ਛੋਟੇ ਉੱਤਰਾਂ ਦਾ ਅਭਿਆਸ ਕਰੋ)</span></li>
+                    <li>Write equations by hand. <span class="punjabi">(ਸਮੀਕਰਣਾਂ ਨੂੰ ਲਿਖੋ)</span></li>
+                </ul>
+                <p style="margin-top: 20px; text-align: center; background: #F0F4F8; padding: 15px; border-radius: 8px;">
+                    <span class="accent">Memory Line:</span> Understand &rarr; Recall &rarr; Write &rarr; Repeat<br>
+                    <span class="punjabi">(ਸਮਝੋ &rarr; ਯਾਦ ਕਰੋ &rarr; ਲਿਖੋ &rarr; ਦੁਹਰਾਓ)</span>
+                </p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>The Big Map <span class="punjabi">(ਮੁੱਖ ਝਲਕ)</span></h2>
+                <ul>
+                    <li><span class="accent-blue">1. Chemical Reactions</span> <span class="punjabi">(ਰਸਾਇਣਕ ਕਿਰਿਆਵਾਂ)</span></li>
+                    <li><span class="accent-blue">2. Acids, Bases & Salts</span> <span class="punjabi">(ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ)</span></li>
+                    <li><span class="accent-blue">3. Metals & Non-metals</span> <span class="punjabi">(ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ)</span></li>
+                    <li><span class="accent-blue">4. Carbon Compounds</span> <span class="punjabi">(ਕਾਰਬਨ ਅਤੇ ਉਸਦੇ ਯੋਗਿਕ)</span></li>
+                    <li><span class="accent-blue">5. Periodic Table</span> <span class="punjabi">(ਆਵਰਤੀ ਸਾਰਣੀ)</span></li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Resume Session <span class="punjabi">(ਸੈਸ਼ਨ ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ)</span></h2>
+                <p>Teaching across multiple days? Click a chapter below to jump directly to it.</p>
+                <button class="toc-btn" onclick="jumpToChapter('slide-ch1')">Chapter 1: Chemical Reactions</button>
+                <button class="toc-btn" onclick="jumpToChapter('slide-ch2')">Chapter 2: Acids, Bases & Salts</button>
+                <button class="toc-btn" onclick="jumpToChapter('slide-ch3')">Chapter 3: Metals & Non-metals</button>
+                <button class="toc-btn" onclick="jumpToChapter('slide-ch4')">Chapter 4: Carbon Compounds</button>
+                <button class="toc-btn" onclick="jumpToChapter('slide-ch5')">Chapter 5: Periodic Table</button>
+</div></div>
+
+        <div class="slide" id="slide-ch1"><div class="content-box chapter-divider"><h1>Chapter 1</h1><h2 style="border-bottom: 2px solid white;">Chemical Reactions</h2><span class="punjabi">ਰਸਾਇਣਕ ਕਿਰਿਆਵਾਂ ਅਤੇ ਸਮੀਕਰਣ</span></div></div>
+<div class="slide"><div class="content-box">
+                <h2>Key Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <table>
+                    <tr><th>English</th><th>Punjabi</th><th>Meaning</th></tr>
+                    <tr><td>Reactant <button class="tts-btn" onclick="speakWord('Reactant', this)" title="Listen to pronunciation">🔊</button></td><td>ਅਭਿਕਾਰਕ</td><td>Starting substance</td></tr>
+                    <tr><td>Product <button class="tts-btn" onclick="speakWord('Product', this)" title="Listen to pronunciation">🔊</button></td><td>ਉਤਪਾਦ</td><td>New substance formed</td></tr>
+                    <tr><td>Equation <button class="tts-btn" onclick="speakWord('Equation', this)" title="Listen to pronunciation">🔊</button></td><td>ਸਮੀਕਰਣ</td><td>Math representation</td></tr>
+                    <tr><td>Exothermic <button class="tts-btn" onclick="speakWord('Exothermic', this)" title="Listen to pronunciation">🔊</button></td><td>ਤਾਪ ਨਿਕਾਸੀ</td><td>Releases heat</td></tr>
+                    <tr><td>Endothermic <button class="tts-btn" onclick="speakWord('Endothermic', this)" title="Listen to pronunciation">🔊</button></td><td>ਤਾਪ ਸੋਖੀ</td><td>Absorbs heat</td></tr>
+                    <tr><td>Precipitate <button class="tts-btn" onclick="speakWord('Precipitate', this)" title="Listen to pronunciation">🔊</button></td><td>ਅਵਖੇਪ</td><td>Solid formed in liquid</td></tr>
+                </table>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Vocabulary Continued <span class="punjabi">(ਸ਼ਬਦਾਵਲੀ ਜਾਰੀ)</span></h2>
+                <table>
+                    <tr><th>English</th><th>Punjabi</th><th>Meaning</th></tr>
+                    <tr><td>Catalyst <button class="tts-btn" onclick="speakWord('Catalyst', this)" title="Listen to pronunciation">🔊</button></td><td>ਉਤਪ੍ਰੇਰਕ</td><td>Speeds up reaction without being used up</td></tr>
+                    <tr><td>Aqueous <button class="tts-btn" onclick="speakWord('Aqueous', this)" title="Listen to pronunciation">🔊</button></td><td>ਜਲਮਈ</td><td>Dissolved in water</td></tr>
+                    <tr><td>Redox <button class="tts-btn" onclick="speakWord('Redox', this)" title="Listen to pronunciation">🔊</button></td><td>ਰੈਡੌਕਸ</td><td>Reduction & Oxidation happening together</td></tr>
+                    <tr><td>Oxidation <button class="tts-btn" onclick="speakWord('Oxidation', this)" title="Listen to pronunciation">🔊</button></td><td>ਆਕਸੀਕਰਨ</td><td>Gaining oxygen / losing hydrogen</td></tr>
+                    <tr><td>Reduction <button class="tts-btn" onclick="speakWord('Reduction', this)" title="Listen to pronunciation">🔊</button></td><td>ਲਘੂਕਰਨ</td><td>Losing oxygen / gaining hydrogen</td></tr>
+                </table>
+                <div class="etymology-box">
+                    <h3>💡 Word Origins (Etymology)</h3>
+                    <p><strong>Exothermic:</strong> <em>Exo</em> (Exit/ਬਾਹਰ) + <em>Thermic</em> (Heat/ਤਾਪ). Heat exits the reaction!</p>
+                    <p><strong>Endothermic:</strong> <em>Endo</em> (Enter/ਅੰਦਰ) + <em>Thermic</em> (Heat/ਤਾਪ). Heat enters the reaction!</p>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Chemical Reactions <span class="punjabi">(ਰਸਾਇਣਕ ਕਿਰਿਆਵਾਂ)</span></h2>
+                <p>A chemical reaction means <span class="accent">new substances are formed</span> <span class="punjabi">(ਨਵੇਂ ਪਦਾਰਥ ਬਣਦੇ ਹਨ)</span>.</p>
+                <table>
+                    <tr>
+                        <th>Reactants <span class="punjabi">(ਅਭਿਕਾਰਕ)</span></th>
+                        <th>Products <span class="punjabi">(ਉਤਪਾਦ)</span></th>
+                    </tr>
+                    <tr>
+                        <td>Starting substances. The things that react together.</td>
+                        <td>New substances formed after the reaction.</td>
+                    </tr>
+                </table>
+                <p><strong>Example:</strong> Magnesium + Oxygen &rarr; Magnesium oxide</p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>NCERT Activity 1.1: Magnesium Ribbon</h2>
+                <div class="lab-box">
+                    <h3>🧪 Practical Lab Guide</h3>
+                    <p><strong>Action:</strong> Burning a Magnesium Ribbon in air.</p>
+                    <ul>
+                        <li><strong>Observation:</strong> It burns with a <strong>dazzling white flame</strong>.</li>
+                        <li><strong>Result:</strong> The ash left behind is a <strong>white powder</strong> called Magnesium Oxide ($MgO$).</li>
+                        <li><strong>Caution:</strong> Clean the ribbon with sandpaper first to remove the protective layer of basic magnesium carbonate.</li>
+                    </ul>
+                    <div class="equation">2Mg(s) + O₂(g) &rarr; 2MgO(s)</div>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>NCERT Activity 1.2: Precipitation</h2>
+                <div class="lab-box">
+                    <h3>🧪 Practical Lab Guide</h3>
+                    <p><strong>Action:</strong> Mix aqueous solutions of Lead Nitrate and Potassium Iodide.</p>
+                    <ul>
+                        <li><strong>Observation:</strong> A sudden color change to yellow.</li>
+                        <li><strong>Result:</strong> A <strong>yellow precipitate</strong> (solid) of Lead Iodide ($PbI_2$) is formed.</li>
+                        <li><strong>Reaction Type:</strong> Double Displacement & Precipitation.</li>
+                    </ul>
+                    <div class="equation">Pb(NO₃)₂(aq) + 2KI(aq) &rarr; PbI₂(s)↓ + 2KNO₃(aq)</div>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>NCERT Activity 1.3: Evolution of Gas</h2>
+                <div class="lab-box">
+                    <h3>🧪 Practical Lab Guide</h3>
+                    <p><strong>Action:</strong> Add dilute Sulphuric Acid ($H_2SO_4$) to Zinc granules in a conical flask.</p>
+                    <ul>
+                        <li><strong>Observation:</strong> Bubbles form rapidly around the zinc. The flask becomes <strong>hot to the touch</strong> (Exothermic).</li>
+                        <li><strong>Result:</strong> Hydrogen gas ($H_2$) is evolved.</li>
+                    </ul>
+                    <div class="equation">Zn(s) + H₂SO₄(aq) &rarr; ZnSO₄(aq) + H₂(g)&uarr;</div>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Word Equation vs. Skeletal Equation <span class="punjabi">(ਸ਼ਬਦ ਸਮੀਕਰਣ ਅਤੇ ਢਾਂਚਾ ਸਮੀਕਰਣ)</span></h2>
+                <p>A chemical reaction can be written in two ways:</p>
+                <ul>
+                    <li><strong>Word Equation <span class="punjabi">(ਸ਼ਬਦ ਸਮੀਕਰਣ)</span>:</strong> Uses names of chemicals.<br>
+                        <em>Example: Magnesium + Oxygen &rarr; Magnesium oxide</em>
+                    </li>
+                    <li><strong>Skeletal Equation <span class="punjabi">(ਢਾਂਚਾ ਸਮੀਕਰਣ)</span>:</strong> Uses chemical formulas, but is NOT balanced yet.<br>
+                        <em>Example: Mg + O₂ &rarr; MgO</em>
+                    </li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Physical States in Equations <span class="punjabi">(ਭੌਤਿਕ ਅਵਸਥਾਵਾਂ)</span></h2>
+                <p>To make equations more informative, we write the physical states of reactants and products.</p>
+                <ul>
+                    <li><strong>(s)</strong> = Solid <span class="punjabi">(ਠੋਸ)</span></li>
+                    <li><strong>(l)</strong> = Liquid <span class="punjabi">(ਤਰਲ)</span></li>
+                    <li><strong>(g)</strong> = Gas <span class="punjabi">(ਗੈਸ)</span></li>
+                    <li><strong>(aq)</strong> = Aqueous (dissolved in water) <span class="punjabi">(ਜਲਮਈ ਘੋਲ)</span></li>
+                </ul>
+                <div class="equation">Ca(OH)₂(aq) + CO₂(g) &rarr; CaCO₃(s)↓ + H₂O(l)</div>
+                <p><em>Note: The ↓ arrow also indicates a precipitate (solid) was formed! The &uarr; arrow indicates a gas.</em></p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Reaction Prediction Flowchart <span class="punjabi">(ਕਿਰਿਆ ਦੀ ਭਵਿੱਖਬਾਣੀ)</span></h2>
+                <p>Don't just memorize! Ask yourself these questions to find the reaction type:</p>
+                <ul>
+                    <li>Are two elements combining into one? &rarr; <strong>Combination</strong></li>
+                    <li>Is there only ONE reactant being heated? &rarr; <strong>Decomposition</strong></li>
+                    <li>Is it a single element reacting with a compound? &rarr; <strong>Displacement</strong></li>
+                    <li>Are two compounds exchanging ions? &rarr; <strong>Double Displacement</strong></li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Decomposition Specifics (3 Marks) <span class="pyq-tag">PSEB 2018, 2021, 2023</span></h2>
+                <p>Because decomposition reactions require energy to break bonds, they are always <strong>Endothermic</strong>. The energy comes in three forms:</p>
+                <ul>
+                    <li><strong>Thermal (Heat):</strong> Heating limestone.<br><span class="equation">CaCO₃(s) + Heat &rarr; CaO(s) + CO₂(g)</span></li>
+                    <li><strong>Electrolytic (Electricity):</strong> Splitting water.<br><span class="equation">2H₂O(l) + Electricity &rarr; 2H₂(g) + O₂(g)</span></li>
+                    <li><strong>Photolytic (Light):</strong> Used in black & white photography.<br><span class="equation">2AgCl(s) + Sunlight &rarr; 2Ag(s) + Cl₂(g)</span></li>
+                </ul>
+                <div class="pitfall-box">
+                    <h3>🚨 Board Exam Pitfall</h3>
+                    <p>If the exam asks you to identify the reaction "2AgCl &rarr; 2Ag + Cl₂", do NOT just write "Decomposition". You must write <strong>"Photolytic Decomposition"</strong> to get full marks!</p>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Oxidation & Reduction <span class="punjabi">(ਆਕਸੀਕਰਨ ਅਤੇ ਲਘੂਕਰਨ)</span></h2>
+                <p>These reactions happen together (Redox reactions).</p>
+                <table>
+                    <tr>
+                        <th>Oxidation <span class="punjabi">(ਆਕਸੀਕਰਨ)</span></th>
+                        <th>Reduction <span class="punjabi">(ਲਘੂਕਰਨ)</span></th>
+                    </tr>
+                    <tr>
+                        <td>Gains Oxygen <span class="accent-blue">(+O)</span> OR Loses Hydrogen <span class="accent">(-H)</span></td>
+                        <td>Loses Oxygen <span class="accent">(-O)</span> OR Gains Hydrogen <span class="accent-blue">(+H)</span></td>
+                    </tr>
+                </table>
+                <div class="template-box">
+                    <h3>📋 Finding the Agent Trick</h3>
+                    <p>The substance that is <strong>oxidized</strong> is the <em>Reducing Agent</em>. The substance that is <strong>reduced</strong> is the <em>Oxidizing Agent</em>. (They are opposites!)</p>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Oxidation Tracking (Example)</h2>
+                <p>Identify the oxidized/reduced substances and agents in:</p>
+                <div class="equation">CuO + H₂ &rarr; Cu + H₂O</div>
+                <ul>
+                    <li><strong>CuO</strong> loses oxygen to become Cu. It is <strong>Reduced</strong>. Therefore, CuO is the <em>Oxidizing Agent</em>.</li>
+                    <li><strong>H₂</strong> gains oxygen to become H₂O. It is <strong>Oxidized</strong>. Therefore, H₂ is the <em>Reducing Agent</em>.</li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box"><h2>Reading Comprehension <span class="pyq-tag" style="background:#4F46E5;">Story Mode</span></h2>
+    <div class="reading-box">
+        <div class="read-controls">
+            <button class="read-btn" onclick="speakPassage('read-ch1b', this)">▶️ Read to Me</button>
+            <button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button>
+        </div>
+        <h3 style="margin-top:0; color: var(--goku-blue); font-size: 2rem;">The Heat of Life</h3>
+        <div class="reading-text" id="read-ch1b">It is easy to think of chemical reactions as things that only happen in laboratories with bubbling flasks. But the most important exothermic reaction on Earth is happening inside your cells right now. When you eat food, your body breaks it down into a simple sugar called glucose. When you breathe in, oxygen travels to your cells and reacts with this glucose. This reaction, called respiration, slowly and safely releases the trapped energy, powering your muscles, your brain, and keeping your body warm. Without this continuous, microscopic chemical fire, human life would instantly cease to exist.</div>
+    </div>
+    </div></div>
+<div class="slide"><div class="content-box">
+                <h2>Respiration vs. Photosynthesis</h2>
+                <p>These two essential biological processes demonstrate chemical energy changes perfectly.</p>
+                <table>
+                    <tr>
+                        <th>Respiration <span class="punjabi">(ਸਾਹ ਕਿਰਿਆ)</span></th>
+                        <th>Photosynthesis <span class="punjabi">(ਪ੍ਰਕਾਸ਼ ਸੰਸਲੇਸ਼ਣ)</span></th>
+                    </tr>
+                    <tr>
+                        <td><strong>Exothermic</strong> <span class="punjabi">(ਤਾਪ ਨਿਕਾਸੀ)</span></td>
+                        <td><strong>Endothermic</strong> <span class="punjabi">(ਤਾਪ ਸੋਖੀ)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Breaks down glucose to release energy for the body.</td>
+                        <td>Absorbs sunlight energy to create glucose.</td>
+                    </tr>
+                </table>
+</div></div>
+<div class="slide"><div class="content-box"><h2>Reading Comprehension <span class="pyq-tag" style="background:#4F46E5;">Story Mode</span></h2>
+    <div class="reading-box">
+        <div class="read-controls">
+            <button class="read-btn" onclick="speakPassage('read-ch1c', this)">▶️ Read to Me</button>
+            <button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button>
+        </div>
+        <h3 style="margin-top:0; color: var(--goku-blue); font-size: 2rem;">The Silent Destroyers</h3>
+        <div class="reading-text" id="read-ch1c">Oxidation is not always a violent fire; sometimes it is a slow, silent thief. When iron is exposed to the moisture in the air, a reddish-brown flaky crust forms on its surface. This is rust, and it eats away at bridges, ships, and car bodies, causing billions of dollars in damage globally every year. Similarly, when fats and oils in our food are left in the open, they oxidize and turn rancid, completely changing their smell and taste. To fight this silent destruction, we coat our metals in zinc and flush our potato chip bags with nitrogen gas, desperately trying to keep the oxygen away.</div>
+    </div>
+    </div></div>
+<div class="slide"><div class="content-box">
+                <h2>Oxidation in Everyday Life <span class="punjabi">(ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ ਆਕਸੀਕਰਨ)</span></h2>
+                <h3>1. Corrosion <span class="punjabi">(ਖੋਰਨ)</span></h3>
+                <p>Slow eating away of metals by air/moisture.</p>
+                <ul>
+                    <li><strong>Rusting of Iron:</strong> Forms a reddish-brown flaky substance (<span class="accent">Fe₂O₃·xH₂O</span>).</li>
+                    <li><strong>Tarnishing:</strong> Copper turns green; Silver turns black.</li>
+                </ul>
+                <h3>2. Rancidity <span class="punjabi">(ਦੁਰਗੰਧਤਾ)</span></h3>
+                <p>Fats and oils going bad, changing smell and taste.</p>
+                <ul>
+                    <li><strong>Prevention:</strong> Flushing bags with <span class="accent-blue">Nitrogen gas</span>, using refrigeration, or storing in vacuum/airtight containers.</li>
+                </ul>
+</div></div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Chemical Formula Drill <span class="punjabi">(ਰਸਾਇਣਕ ਸੂਤਰ ਲਿਖਣਾ)</span></h2>
+                <div class="sub-slider-container" id="formula-ch1">
+                    <div class="sub-slide active short-answer" id="formula-ch1-s1" data-q="What is the valency of Aluminum (Al)?" data-a="3">
+                        <div class="sub-progress">Step 1 of 3</div>
+                        <div class="question-text">
+                            To write the formula for Aluminum Oxide, first identify the valency of Aluminum (Al).<br>
+                            <span class="punjabi-block">ਐਲੂਮੀਨੀਅਮ ਦੀ ਸੰਜੋਜਕਤਾ ਕੀ ਹੈ?</span>
+                        </div>
+                        <input type="text" class="sa-input" placeholder="Type the number here...">
+                        <button class="sa-submit-btn" onclick="checkSA(this, '3', '')">Check Answer</button>
+                        <div class="feedback"></div>
+                        <button class="next-sub-btn" onclick="nextSubSlide('formula-ch1', 2)">Next Step &rarr;</button>
+                    </div>
+                    
+                    <div class="sub-slide short-answer" id="formula-ch1-s2" data-q="What is the valency of Oxygen (O)?" data-a="2">
+                        <div class="sub-progress">Step 2 of 3</div>
+                        <div class="question-text">
+                            Now identify the valency of Oxygen (O).<br>
+                            <span class="punjabi-block">ਆਕਸੀਜਨ ਦੀ ਸੰਜੋਜਕਤਾ ਕੀ ਹੈ?</span>
+                        </div>
+                        <input type="text" class="sa-input" placeholder="Type the number here...">
+                        <button class="sa-submit-btn" onclick="checkSA(this, '2', '')">Check Answer</button>
+                        <div class="feedback"></div>
+                        <button class="next-sub-btn" onclick="nextSubSlide('formula-ch1', 3)">Next Step &rarr;</button>
+                    </div>
+
+                    <div class="sub-slide short-answer" id="formula-ch1-s3" data-q="Cross the valencies (Al=3, O=2). What is the formula for Aluminum Oxide?" data-a="Al2O3">
+                        <div class="sub-progress">Step 3 of 3</div>
+                        <div class="question-text">
+                            Cross the valencies (Al=3, O=2). What is the final formula for Aluminum Oxide?<br>
+                            <span class="punjabi-block">ਐਲੂਮੀਨੀਅਮ ਆਕਸਾਈਡ ਦਾ ਅੰਤਿਮ ਸੂਤਰ ਕੀ ਹੈ?</span>
+                        </div>
+                        <input type="text" class="sa-input" placeholder="Type the formula (e.g. Al2O3)...">
+                        <button class="sa-submit-btn" onclick="checkSA(this, 'Al2O3', 'Al₂O₃')">Check Answer</button>
+                        <div class="feedback"></div>
+                        <button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Finish Drill &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="slide"><div class="content-box"><h2>Assertion & Reasoning: Ch 1 (Q1)</h2><div class="template-box" style="border-left-color: var(--goku-blue);"><p><strong>Assertion (A):</strong> Rusting of iron is an endothermic reaction.</p><p><strong>Reason (R):</strong> Rusting involves the absorption of heat.</p></div><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Both A and R are true, and R is correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Both A and R are true, but R is NOT correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. A is true, but R is false.</button><button class="option-btn" onclick="checkAnswer(this, true, true)">D. A is false, but R is true.</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Assertion & Reasoning: Ch 1 (Q2)</h2><div class="template-box" style="border-left-color: var(--goku-blue);"><p><strong>Assertion (A):</strong> AgCl is stored in dark coloured bottles.</p><p><strong>Reason (R):</strong> It undergoes photolytic decomposition in sunlight.</p></div><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, true, true)">A. Both A and R are true, and R is correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Both A and R are true, but R is NOT correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. A is true, but R is false.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. A is false, but R is true.</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Assertion & Reasoning: Ch 1 (Q3)</h2><div class="template-box" style="border-left-color: var(--goku-blue);"><p><strong>Assertion (A):</strong> Respiration is exothermic.</p><p><strong>Reason (R):</strong> Energy is released during the breakdown of glucose.</p></div><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, true, true)">A. Both A and R are true, and R is correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Both A and R are true, but R is NOT correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. A is true, but R is false.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. A is false, but R is true.</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Assertion & Reasoning: Ch 1 (Q4)</h2><div class="template-box" style="border-left-color: var(--goku-blue);"><p><strong>Assertion (A):</strong> Chips are flushed with nitrogen gas.</p><p><strong>Reason (R):</strong> Nitrogen is an oxidizing agent.</p></div><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Both A and R are true, and R is correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Both A and R are true, but R is NOT correct explanation of A.</button><button class="option-btn" onclick="checkAnswer(this, true, true)">C. A is true, but R is false.</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. A is false, but R is true.</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Case Study: Endothermic Reactions</h2><div class="lab-box" style="border-left-color: #8B5CF6; background: #F5F3FF;"><h3>Read the passage:</h3><p style="font-size:1.4rem; line-height:1.6;">A student took 2g of Barium Hydroxide in a test tube and added Ammonium Chloride to it. He mixed them with a glass rod and touched the bottom of the test tube. He noticed a drastic drop in temperature.</p></div><p><em>Questions based on this passage will follow on the next slides!</em></p></div></div>
+<div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">What type of reaction is observed in the test tube?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Exothermic</button><button class="option-btn" onclick="checkAnswer(this, true, true)">B. Endothermic</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Displacement</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. Combination</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">Which of the following is another example of this type of reaction?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Burning of natural gas</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Respiration</button><button class="option-btn" onclick="checkAnswer(this, true, true)">C. Photosynthesis</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. Digestion</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>NCERT Exemplar: Balancing Logic</h2><div class="pitfall-box" style="border-left-color: #F59E0B; background: #FFFBEB;"><h3 style="color:#D97706;">Question:</h3><p style="font-size:1.4rem;">Write the balanced chemical equation for: Barium chloride + Potassium sulphate &rarr; Barium sulphate + Potassium chloride.</p></div><div class="template-box"><h3 style="color:#4F46E5;">Model Answer:</h3><p style="font-size:1.4rem;">$BaCl_2(aq) + K_2SO_4(aq) \rightarrow BaSO_4(s)\downarrow + 2KCl(aq)$</p></div></div></div>
+<div class="slide"><div class="content-box"><h2>NCERT Exemplar: Identifying Agents</h2><div class="pitfall-box" style="border-left-color: #F59E0B; background: #FFFBEB;"><h3 style="color:#D97706;">Question:</h3><p style="font-size:1.4rem;">Identify the oxidizing agent in: $MnO_2 + 4HCl \rightarrow MnCl_2 + 2H_2O + Cl_2$.</p></div><div class="template-box"><h3 style="color:#4F46E5;">Model Answer:</h3><p style="font-size:1.4rem;">$MnO_2$ is the oxidizing agent because it gives oxygen to HCl, reducing itself to $MnCl_2$.</p></div></div></div>
+<div class="slide"><div class="content-box"><h2>Chapter 1 Quick Recap</h2><ul style="font-size:1.5rem;"><li>Reactions involve state, color, or temp changes.</li><li>Equations must be balanced to obey Mass Conservation.</li><li>Combination: A + B &rarr; AB.</li><li>Decomposition: AB &rarr; A + B.</li><li>Displacement: A + BC &rarr; AC + B.</li><li>Redox involves simultaneous oxidation and reduction.</li></ul></div></div>
+<div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch1"><div class="sub-slide active" id="tf-ch1-s1"><div class="sub-progress">Question 1 of 13</div><div class="question-text">Rusting of iron is an endothermic reaction.<br><span class="punjabi-block">ਲੋਹੇ ਨੂੰ ਜੰਗ ਲੱਗਣਾ ਇੱਕ ਤਾਪ ਸੋਖੀ ਕਿਰਿਆ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s2"><div class="sub-progress">Question 2 of 13</div><div class="question-text">In a balanced equation, the number of atoms of each element remains the same.<br><span class="punjabi-block">ਸੰਤੁਲਿਤ ਸਮੀਕਰਣ ਵਿੱਚ ਹਰ ਤੱਤ ਦੇ ਪਰਮਾਣੂਆਂ ਦੀ ਗਿਣਤੀ ਸਮਾਨ ਰਹਿੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s3"><div class="sub-progress">Question 3 of 13</div><div class="question-text">Digestion of food in our body is an exothermic reaction.<br><span class="punjabi-block">ਸਰੀਰ ਵਿੱਚ ਭੋਜਨ ਦਾ ਪਚਣਾ ਇੱਕ ਤਾਪ ਨਿਕਾਸੀ ਕਿਰਿਆ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s4"><div class="sub-progress">Question 4 of 13</div><div class="question-text">Burning of natural gas is an endothermic reaction.<br><span class="punjabi-block">ਕੁਦਰਤੀ ਗੈਸ ਦਾ ਬਲਣਾ ਇੱਕ ਤਾਪ ਸੋਖੀ ਕਿਰਿਆ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s5"><div class="sub-progress">Question 5 of 13</div><div class="question-text">The insoluble substance formed during a reaction is called a precipitate.<br><span class="punjabi-block">ਕਿਰਿਆ ਦੌਰਾਨ ਬਣੇ ਅਘੁਲਣਸ਼ੀਲ ਪਦਾਰਥ ਨੂੰ ਅਵਖੇਪ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s6"><div class="sub-progress">Question 6 of 13</div><div class="question-text">A change in state or color can indicate a chemical reaction.<br><span class="punjabi-block">ਅਵਸਥਾ ਜਾਂ ਰੰਗ ਵਿੱਚ ਬਦਲਾਅ ਰਸਾਇਣਕ ਕਿਰਿਆ ਨੂੰ ਦਰਸਾ ਸਕਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s7"><div class="sub-progress">Question 7 of 13</div><div class="question-text">In a combination reaction, two or more products are formed from a single reactant.<br><span class="punjabi-block">ਸੰਜੋਜਨ ਕਿਰਿਆ ਵਿੱਚ, ਇੱਕ ਅਭਿਕਾਰਕ ਤੋਂ ਦੋ ਜਾਂ ਵੱਧ ਉਤਪਾਦ ਬਣਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s8"><div class="sub-progress">Question 8 of 13</div><div class="question-text">Antioxidants are added to foods containing fats and oils to prevent oxidation.<br><span class="punjabi-block">ਚਰਬੀ ਅਤੇ ਤੇਲ ਵਾਲੇ ਭੋਜਨਾਂ ਵਿੱਚ ਆਕਸੀਕਰਨ ਨੂੰ ਰੋਕਣ ਲਈ ਐਂਟੀਆਕਸੀਡੈਂਟ ਪਾਏ ਜਾਂਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 9)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s9"><div class="sub-progress">Question 9 of 13</div><div class="question-text">When magnesium ribbon is burnt, it forms a bright white light.<br><span class="punjabi-block">ਜਦੋਂ ਮੈਗਨੀਸ਼ੀਅਮ ਰਿਬਨ ਨੂੰ ਸਾੜਿਆ ਜਾਂਦਾ ਹੈ, ਤਾਂ ਇਹ ਚਮਕਦਾਰ ਚਿੱਟੀ ਰੌਸ਼ਨੀ ਬਣਾਉਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 10)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s10"><div class="sub-progress">Question 10 of 13</div><div class="question-text">Displacement reactions only occur between non-metals.<br><span class="punjabi-block">ਵਿਸਥਾਪਨ ਕਿਰਿਆਵਾਂ ਸਿਰਫ਼ ਅਧਾਤਾਂ ਵਿਚਕਾਰ ਹੁੰਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 11)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s11"><div class="sub-progress">Question 11 of 13</div><div class="question-text">Zinc is more reactive than copper.<br><span class="punjabi-block">ਜ਼ਿੰਕ ਕਾਪਰ ਨਾਲੋਂ ਵਧੇਰੇ ਕਿਰਿਆਸ਼ੀਲ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 12)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s12"><div class="sub-progress">Question 12 of 13</div><div class="question-text">Water can be decomposed into hydrogen and oxygen by using electricity.<br><span class="punjabi-block">ਪਾਣੀ ਨੂੰ ਬਿਜਲੀ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਹਾਈਡ੍ਰੋਜਨ ਅਤੇ ਆਕਸੀਜਨ ਵਿੱਚ ਤੋੜਿਆ ਜਾ ਸਕਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch1', 13)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch1-s13"><div class="sub-progress">Question 13 of 13</div><div class="question-text">Heating lead nitrate produces brown fumes of nitrogen dioxide.<br><span class="punjabi-block">ਲੈੱਡ ਨਾਈਟ੍ਰੇਟ ਨੂੰ ਗਰਮ ਕਰਨ 'ਤੇ ਨਾਈਟ੍ਰੋਜਨ ਡਾਈਆਕਸਾਈਡ ਦਾ ਭੂਰਾ ਧੂੰਆਂ ਨਿਕਲਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 1</h2><div class="sub-slider-container" id="sib-ch1"><div class="sub-slide active short-answer" id="sib-ch1-s1" data-q="What does a chemical reaction make?" data-a="New substances"><div class="sub-progress">Short Answer 1 of 13</div><div class="question-text">What does a chemical reaction make?<br><span class="punjabi-block">ਰਸਾਇਣਕ ਕਿਰਿਆ ਕੀ ਬਣਾਉਂਦੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'New substances', 'ਨਵੇਂ ਪਦਾਰਥ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s2" data-q="What does 'balanced' mean?" data-a="Same atoms on both sides"><div class="sub-progress">Short Answer 2 of 13</div><div class="question-text">What does 'balanced' mean?<br><span class="punjabi-block">ਸੰਤੁਲਿਤ ਦਾ ਕੀ ਅਰਥ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Same atoms on both sides', 'ਦੋਵੇਂ ਪਾਸੇ ਬਰਾਬਰ ਪਰਮਾਣੂ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s3" data-q="Combination means join or break?" data-a="Join"><div class="sub-progress">Short Answer 3 of 13</div><div class="question-text">Combination means join or break?<br><span class="punjabi-block">ਸੰਜੋਜਨ ਦਾ ਅਰਥ ਜੁੜਨਾ ਹੈ ਜਾਂ ਟੁੱਟਣਾ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Join', 'ਜੁੜਨਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s4" data-q="What gas prevents rancidity in chips?" data-a="Nitrogen"><div class="sub-progress">Short Answer 4 of 13</div><div class="question-text">What gas prevents rancidity in chips?<br><span class="punjabi-block">ਦੁਰਗੰਧਤਾ ਰੋਕਣ ਲਈ ਕਿਹੜੀ ਗੈਸ ਵਰਤੀ ਜਾਂਦੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Nitrogen', 'ਨਾਈਟ੍ਰੋਜਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s5" data-q="What does Oxidation mean?" data-a="Gain of oxygen"><div class="sub-progress">Short Answer 5 of 13</div><div class="question-text">What does Oxidation mean?<br><span class="punjabi-block">ਆਕਸੀਕਰਨ ਦਾ ਕੀ ਅਰਥ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Gain of oxygen', 'ਆਕਸੀਜਨ ਦਾ ਜੁੜਨਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s6" data-q="A substance that gives oxygen in a reaction is called an?" data-a="Oxidizing agent"><div class="sub-progress">Short Answer 6 of 13</div><div class="question-text">A substance that gives oxygen in a reaction is called an?<br><span class="punjabi-block">ਕਿਰਿਆ ਵਿੱਚ ਆਕਸੀਜਨ ਦੇਣ ਵਾਲੇ ਪਦਾਰਥ ਨੂੰ ਕੀ ਕਹਿੰਦੇ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Oxidizing agent', 'ਆਕਸੀਕਾਰਕ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s7" data-q="AgCl turning grey in sunlight is used in what type of photography?" data-a="Black and white photography"><div class="sub-progress">Short Answer 7 of 13</div><div class="question-text">AgCl turning grey in sunlight is used in what type of photography?<br><span class="punjabi-block">ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਵਿੱਚ AgCl ਦਾ ਸਲੇਟੀ ਹੋਣਾ ਕਿਸ ਤਰ੍ਹਾਂ ਦੀ ਫੋਟੋਗ੍ਰਾਫੀ ਵਿੱਚ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Black and white photography', 'ਬਲੈਕ ਐਂਡ ਵ੍ਹਾਈਟ ਫੋਟੋਗ੍ਰਾਫੀ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s8" data-q="What color is the Barium Sulphate (BaSO4) precipitate?" data-a="White"><div class="sub-progress">Short Answer 8 of 13</div><div class="question-text">What color is the Barium Sulphate (BaSO4) precipitate?<br><span class="punjabi-block">ਬੇਰੀਅਮ ਸਲਫੇਟ (BaSO₄) ਅਵਖੇਪ ਦਾ ਰੰਗ ਕੀ ਹੁੰਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'White', 'ਚਿੱਟਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 9)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s9" data-q="What type of reaction involves the exchange of ions between reactants?" data-a="Double displacement"><div class="sub-progress">Short Answer 9 of 13</div><div class="question-text">What type of reaction involves the exchange of ions between reactants?<br><span class="punjabi-block">ਕਿਹੜੀ ਕਿਰਿਆ ਵਿੱਚ ਅਭਿਕਾਰਕਾਂ ਵਿਚਕਾਰ ਆਇਨਾਂ ਦਾ ਅਦਲਾ-ਬਦਲੀ ਹੁੰਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Double displacement', 'ਦੋਹਰਾ ਵਿਸਥਾਪਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 10)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s10" data-q="What is the slow eating away of metals by air or moisture called?" data-a="Corrosion"><div class="sub-progress">Short Answer 10 of 13</div><div class="question-text">What is the slow eating away of metals by air or moisture called?<br><span class="punjabi-block">ਹਵਾ ਜਾਂ ਨਮੀ ਦੁਆਰਾ ਧਾਤਾਂ ਦੇ ਹੌਲੀ-ਹੌਲੀ ਖਰਾਬ ਹੋਣ ਨੂੰ ਕੀ ਕਹਿੰਦੇ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Corrosion', 'ਖੋਰਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 11)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s11" data-q="The chemical formula of marble is..." data-a="CaCO3"><div class="sub-progress">Short Answer 11 of 13</div><div class="question-text">The chemical formula of marble is...<br><span class="punjabi-block">ਸੰਗਮਰਮਰ ਦਾ ਰਸਾਇਣਕ ਸੂਤਰ ਕੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'CaCO3', 'ਕੈਲਸ਼ੀਅਮ ਕਾਰਬੋਨੇਟ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 12)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s12" data-q="Photosynthesis is an example of what type of energy reaction?" data-a="Endothermic"><div class="sub-progress">Short Answer 12 of 13</div><div class="question-text">Photosynthesis is an example of what type of energy reaction?<br><span class="punjabi-block">ਪ੍ਰਕਾਸ਼ ਸੰਸਲੇਸ਼ਣ ਕਿਸ ਕਿਸਮ ਦੀ ਊਰਜਾ ਕਿਰਿਆ ਦੀ ਉਦਾਹਰਣ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Endothermic', 'ਤਾਪ ਸੋਖੀ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch1', 13)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch1-s13" data-q="What does the symbol (aq) mean in a chemical equation?" data-a="Aqueous"><div class="sub-progress">Short Answer 13 of 13</div><div class="question-text">What does the symbol (aq) mean in a chemical equation?<br><span class="punjabi-block">ਰਸਾਇਣਕ ਸਮੀਕਰਣ ਵਿੱਚ (aq) ਪ੍ਰਤੀਕ ਦਾ ਕੀ ਅਰਥ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Aqueous', 'ਜਲਮਈ (Aqueous)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 1 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch1"><div class="sub-slide active" id="mcq-ch1-s1"><div class="sub-progress">Question 1 of 12</div><div class="question-text">Which gas prevents rancidity?<br><span class="punjabi-block">ਦੁਰਗੰਧਤਾ ਨੂੰ ਕਿਹੜੀ ਗੈਸ ਰੋਕਦੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Oxygen</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Nitrogen</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Carbon Dioxide</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s2"><div class="sub-progress">Question 2 of 12</div><div class="question-text">A chemical equation must satisfy the law of:<br><span class="punjabi-block">ਰਸਾਇਣਕ ਸਮੀਕਰਣ ਨੂੰ ਕਿਹੜਾ ਨਿਯਮ ਪੂਰਾ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ?</span></div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Conservation of Mass</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Conservation of Energy</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Constant Proportions</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s3"><div class="sub-progress">Question 3 of 12</div><div class="question-text">Fe + CuSO₄ → FeSO₄ + Cu is an example of:<br><span class="punjabi-block">ਇਹ ਕਿਸ ਦੀ ਉਦਾਹਰਣ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Combination</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Decomposition</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Displacement</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s4"><div class="sub-progress">Question 4 of 12</div><div class="question-text">The decomposition of limestone produces quicklime and which gas?<br><span class="punjabi-block">ਚੂਨੇ ਦੇ ਪੱਥਰ ਦੇ ਅਪਘਟਨ ਨਾਲ ਕਿਹੜੀ ਗੈਸ ਬਣਦੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Oxygen</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Hydrogen</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Carbon Dioxide</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s5"><div class="sub-progress">Question 5 of 12</div><div class="question-text">Which of the following is a decomposition reaction?<br><span class="punjabi-block">ਹੇਠ ਲਿਖਿਆਂ ਵਿੱਚੋਂ ਕਿਹੜੀ ਅਪਘਟਨ ਕਿਰਿਆ ਹੈ?</span></div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. CaCO₃ → CaO + CO₂</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. 2H₂ + O₂ → 2H₂O</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. C + O₂ → CO₂</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s6"><div class="sub-progress">Question 6 of 12</div><div class="question-text">Respiration is an example of which type of reaction?<br><span class="punjabi-block">ਸਾਹ ਕਿਰਿਆ ਕਿਸ ਕਿਸਮ ਦੀ ਕਿਰਿਆ ਦੀ ਉਦਾਹਰਣ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Endothermic</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Exothermic</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Displacement</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s7"><div class="sub-progress">Question 7 of 12</div><div class="question-text">When AgCl is exposed to sunlight, it turns grey due to the formation of:<br><span class="punjabi-block">ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਵਿੱਚ AgCl ਦੇ ਸਲੇਟੀ ਹੋਣ ਦਾ ਕਾਰਨ ਕੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Chlorine gas</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Silver metal</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Silver Oxide</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s8"><div class="sub-progress">Question 8 of 12</div><div class="question-text">Which gas is evolved when dilute HCl is added to zinc granules?<br><span class="punjabi-block">ਜ਼ਿੰਕ ਦੇ ਦਾਣਿਆਂ ਵਿੱਚ ਪਤਲਾ HCl ਪਾਉਣ 'ਤੇ ਕਿਹੜੀ ਗੈਸ ਨਿਕਲਦੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Oxygen</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Hydrogen</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Chlorine</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 9)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s9"><div class="sub-progress">Question 9 of 12</div><div class="question-text">The chemical formula of rust is:<br><span class="punjabi-block">ਜੰਗ (Rust) ਦਾ ਰਸਾਇਣਕ ਸੂਤਰ ਕੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Fe₂O₃</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. FeCO₃</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Fe₂O₃·xH₂O</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 10)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s10"><div class="sub-progress">Question 10 of 12</div><div class="question-text">In the reaction PbO + C → Pb + CO, which substance is oxidized?<br><span class="punjabi-block">ਇਸ ਕਿਰਿਆ ਵਿੱਚ ਕਿਸ ਪਦਾਰਥ ਦਾ ਆਕਸੀਕਰਨ ਹੁੰਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. PbO</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. C</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Pb</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 11)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s11"><div class="sub-progress">Question 11 of 12</div><div class="question-text">What is the color of the precipitate formed when Barium Chloride reacts with Sodium Sulphate?<br><span class="punjabi-block">ਬੇਰੀਅਮ ਕਲੋਰਾਈਡ ਅਤੇ ਸੋਡੀਅਮ ਸਲਫੇਟ ਦੀ ਕਿਰਿਆ ਦੌਰਾਨ ਬਣੇ ਅਵਖੇਪ ਦਾ ਰੰਗ ਕੀ ਹੁੰਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Yellow</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. White</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Green</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch1', 12)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch1-s12"><div class="sub-progress">Question 12 of 12</div><div class="question-text">A substance that gains oxygen during a reaction is said to be:<br><span class="punjabi-block">ਉਹ ਪਦਾਰਥ ਜੋ ਕਿਰਿਆ ਦੌਰਾਨ ਆਕਸੀਜਨ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ, ਨੂੰ ਕੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Reduced</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Oxidized</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Precipitated</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Continue to Chapter 2 &rarr;</button></div></div></div></div>
+
+        <!-- =================== CHAPTER 2 =================== -->
+         

@@ -1,0 +1,123 @@
+/* PSEB print / PDF handout styles — shared by every chapter deck.
+   Injected as <link rel="stylesheet" media="print" href="../assets/print.css">
+   by assets/deck-enhance.js, so it only affects printing, never the screen.
+   Targets class names common to all three deck CSS variants. */
+@media print {
+  html, body {
+    overflow: visible !important;
+    height: auto !important;
+    background: #fff !important;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Turn the horizontal slider into a top-to-bottom document */
+  .slider {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .slide {
+    min-width: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .slide:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  /* Reveal every content box (they start hidden/animated on screen) */
+  .content-box {
+    opacity: 1 !important;
+    transform: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    width: auto !important;
+    filter: none !important;
+    break-inside: avoid;
+  }
+
+  /* Show all assessment sub-slides so nothing is clipped in the handout */
+  .sub-slide {
+    display: block !important;
+  }
+  .sub-slider-container {
+    min-height: 0 !important;
+  }
+
+  /* --- Reveal hidden answers so the handout doubles as a revision sheet --- */
+  /* Flip cards: stack front and answer-back on top of each other */
+  .flip-container, .flip-card {
+    transform: none !important;
+    height: auto !important;
+    width: 100% !important;
+    perspective: none !important;
+  }
+  .flip-front, .flip-back {
+    position: static !important;
+    display: block !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    -webkit-backface-visibility: visible !important;
+    height: auto !important;
+  }
+  /* Sequencer / step reveals: show every step */
+  .seq-step { opacity: 1 !important; display: block !important; }
+  .seq-btn, .seq-counter { display: none !important; }
+  /* Error-diagram explanations and pick-drop completion notes */
+  .error-explanation, .pd-done { display: block !important; }
+  .pd-reset-btn, .next-sub-btn, .sa-submit-btn, .option-btn, .piece-btn { display: none !important; }
+  /* Reveal short-answer expected answers already sit in .feedback if checked;
+     also show the data answer for un-checked short-answer cards */
+  .sub-slide.short-answer[data-a] .sa-input { display: none !important; }
+  .sub-slide.short-answer[data-a]::after {
+    content: "Answer: " attr(data-a);
+    display: block;
+    font-weight: 700;
+    color: #0047BB;
+    margin-top: 6px;
+  }
+
+  /* --- Cheat-sheet emphasis: make the exam "ratta" boxes stand out --- */
+  .ratta-box, .board-trap {
+    border: 2px solid #B45309 !important;
+    background: #FEF9C3 !important;
+    break-inside: avoid;
+  }
+  .board-badge, .exam-keyword, .pyq-tag {
+    font-weight: 700 !important;
+    color: #991B1B !important;
+  }
+
+  /* Hide interactive chrome that has no place on paper */
+  .side-nav,
+  .progress,
+  .slide-counter,
+  .export-btn,
+  .pseb-tools,
+  .pseb-help-backdrop,
+  .pseb-outline-backdrop,
+  .pseb-timer,
+  .pseb-toast,
+  .pseb-recall-hint,
+  .tts-btn,
+  .read-controls,
+  .pd-pool,
+  a[href="../index.html"] {
+    display: none !important;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}

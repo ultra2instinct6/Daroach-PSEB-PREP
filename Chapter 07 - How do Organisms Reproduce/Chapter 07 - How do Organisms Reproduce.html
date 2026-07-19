@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 8: How do Organisms Reproduce | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch06-07.css">
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="ch7">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 8</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">How do Organisms Reproduce?</h2>
+                <span class="punjabi">ਜੀਵ ਪ੍ਰਜਣਨ ਕਿਵੇਂ ਕਰਦੇ ਹਨ?</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Bilingual Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Asexual <button class="tts-btn" onclick="speakWord('Asexual', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਲਿੰਗੀ (Single parent)</span><br><span class="phonetic">ਏ-ਸੈਕਸ਼ੂਅਲ / A-sex-you-al</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Sexual <button class="tts-btn" onclick="speakWord('Sexual', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਲਿੰਗੀ (Two parents)</span><br><span class="phonetic">ਸੈਕਸ਼ੂਅਲ / Sex-you-al</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Fission <button class="tts-btn" onclick="speakWord('Fission', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਵਿਖੰਡਨ (Splitting)</span><br><span class="phonetic">ਫਿਸ਼ਨ / Fish-un</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Placenta <button class="tts-btn" onclick="speakWord('Placenta', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪਲੈਸੈਂਟਾ (Nourishes embryo)</span><br><span class="phonetic">ਪਲੈ-ਸੈਂ-ਟਾ / Pla-sen-ta</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Puberty <button class="tts-btn" onclick="speakWord('Puberty', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਜਵਾਨੀ (Sexual maturity)</span><br><span class="phonetic">ਪਿਊਬਰਟੀ / Pew-ber-tee</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Menstruation <button class="tts-btn" onclick="speakWord('Menstruation', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਮਾਹਵਾਰੀ (Shedding lining)</span><br><span class="phonetic">ਮੇਨਸਟ੍ਰੂਏਸ਼ਨ / Men-stroo-ay-shun</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content-box">
+                <h2>Self vs Cross Pollination <span class="punjabi">(ਸਵੈ ਬਨਾਮ ਪਰ ਪਰਾਗਣ)</span></h2>
+                <p>Hover over each card to compare the two types of pollination.</p>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Self-Pollination<br><span class="punjabi">ਸਵੈ ਪਰਾਗਣ</span></div>
+                            <div class="flip-back"><strong>Same flower / same plant.</strong><br><br>Pollen lands on the stigma of the <span class="exam-keyword">same</span> flower. Less variation.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Cross-Pollination<br><span class="punjabi">ਪਰ ਪਰਾਗਣ</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>Different plant of same kind.</strong><br><br>Pollen carried by wind, water or insects. More <span class="exam-keyword">variation</span>.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Post-Fertilization Changes <span class="board-badge">🏆 Diagram Check</span></h2>
+                <p>After fertilization, different parts of the flower change into new structures:</p>
+                <table>
+                    <tr><th>Before Fertilization</th><th>After Fertilization Becomes</th></tr>
+                    <tr><td>Ovule <span class="punjabi">(ਬੀਜ ਅੰਡ)</span></td><td><span class="exam-keyword">Seed</span></td></tr>
+                    <tr><td>Ovary <span class="punjabi">(ਅੰਡਕੋਸ਼)</span></td><td><span class="exam-keyword">Fruit</span></td></tr>
+                    <tr><td>Zygote <span class="punjabi">(ਯੁਗਮਜ)</span></td><td>Embryo</td></tr>
+                    <tr><td>Petals, Stamen, Stigma</td><td>Dry up and fall off</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Match: Structure &harr; What It Becomes <span class="punjabi">(ਮਿਲਾਓ)</span></h2>
+                <p><strong>Interactive Match:</strong> Tap a flower part, then tap what it develops into.</p>
+                <div class="match-grid" id="match-ch7-2">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Ovule</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Embryo</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Fruit</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Anther</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Seed</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Ovary</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Produces pollen grains</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Zygote</button>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content-box">
+                <h2>More Key Terms <span class="punjabi">(ਹੋਰ ਮੁੱਖ ਸ਼ਬਦ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Binary Fission <button class="tts-btn" onclick="speakWord('Binary Fission', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਦੋਖੰਡਨ (One splits into two)</span><br><span class="phonetic">ਬਾਈਨਰੀ ਫਿਸ਼ਨ / By-na-ree fish-un</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Budding <button class="tts-btn" onclick="speakWord('Budding', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਕਲੀਕਰਣ (Outgrowth forms new organism)</span><br><span class="phonetic">ਬਡਿੰਗ / Bud-ding</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Fragmentation <button class="tts-btn" onclick="speakWord('Fragmentation', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਖੰਡੀਕਰਣ (Breaks into pieces)</span><br><span class="phonetic">ਫ੍ਰੈਗਮੈਂਟੇਸ਼ਨ / Frag-men-tay-shun</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Regeneration <button class="tts-btn" onclick="speakWord('Regeneration', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪੁਨਰਜਣਨ (Regrow lost body part)</span><br><span class="phonetic">ਰੀਜਨਰੇਸ਼ਨ / Re-jen-er-ay-shun</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Vegetative Propagation <button class="tts-btn" onclick="speakWord('Vegetative Propagation', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਵਾਨਸਪਤਿਕ ਪ੍ਰਜਣਨ (New plant from stem/root/leaf)</span><br><span class="phonetic">ਵੈਜੀਟੇਟਿਵ / Vej-i-tay-tiv</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Pollination <button class="tts-btn" onclick="speakWord('Pollination', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪਰਾਗਣ (Transfer of pollen)</span><br><span class="phonetic">ਪੌਲੀਨੇਸ਼ਨ / Pol-i-nay-shun</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Fertilization <button class="tts-btn" onclick="speakWord('Fertilization', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਨਿਸ਼ੇਚਨ (Fusion of gametes)</span><br><span class="phonetic">ਫਰਟੀਲਾਈਜ਼ੇਸ਼ਨ / Fer-ti-ly-zay-shun</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Zygote <button class="tts-btn" onclick="speakWord('Zygote', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਯੁਗਮਜ (Fertilized egg cell)</span><br><span class="phonetic">ਜ਼ਾਈਗੋਟ / Zy-goat</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 4 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Introduction to Reproduction</h2>
+                <div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch7-1', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch7-1">
+                    <strong>The Energy Cost of Reproduction</strong><br>
+                    Unlike essential life processes such as respiration or digestion, reproduction is not strictly necessary to keep an individual organism alive. In fact, creating a new individual takes a massive amount of energy. So, why do organisms waste this energy? The answer lies in the survival of the species, not the individual. Reproduction is the only biological mechanism that ensures a species does not go extinct, allowing their unique DNA blueprint to be passed forward through time.
+                </div></div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 5 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>DNA Copying & Variation</h2>
+                <div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch7-2', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch7-2">
+                    <strong>The Spice of Survival</strong><br>
+                    The fundamental event in reproduction is the creation of a DNA copy inside the cell nucleus. However, no biochemical reaction is absolutely reliable. Therefore, the DNA copies generated will be similar, but rarely identical to the original. These minor copying errors create <strong>Variation</strong>. While severe errors can cause a cell to die, slight variations are the "spice of life." They allow a species to slowly adapt to environmental changes (like rising temperatures or new diseases), ensuring their long-term survival.
+                </div></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Asexual vs. Sexual Reproduction <span class="board-badge">🏆 3-Mark Favorite</span></h2>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Asexual Reproduction<br><span class="punjabi" style="color:white; margin-top:10px;">(ਅਲਿੰਗੀ)</span></div>
+                            <div class="flip-back"><strong>One parent</strong> involved.<br><br>No gametes formed.<br><br>Offspring are identical <span class="exam-keyword">clones</span>.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Sexual Reproduction<br><span class="punjabi" style="color:white; margin-top:10px;">(ਲਿੰਗੀ)</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>Two parents</strong> involved.<br><br>Fusion of male & female gametes.<br><br>Creates significant genetic <span class="exam-keyword">variation</span>.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Asexual Organisms Matrix <span class="punjabi">(ਅਲਿੰਗੀ ਪ੍ਰਜਣਨ)</span></h2>
+                <p><strong>Interactive Match:</strong> Connect the organism to its method of asexual reproduction.</p>
+                <div class="match-grid" id="match-ch7-1">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Plasmodium</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Regeneration</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Rhizopus (Bread Mould)</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Multiple Fission (Cyst)</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Planaria</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Spore Formation</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Modes of Asexual Reproduction <span class="board-badge">🏆 Board Favorite</span></h2>
+                <table>
+                    <tr><th>Method</th><th>Example</th><th>Key Idea</th></tr>
+                    <tr><td><span class="exam-keyword">Binary Fission</span><br><span class="punjabi">ਦੋਖੰਡਨ</span></td><td>Amoeba, Leishmania</td><td>Parent splits into two</td></tr>
+                    <tr><td><span class="exam-keyword">Multiple Fission</span><br><span class="punjabi">ਬਹੁਖੰਡਨ</span></td><td>Plasmodium</td><td>Parent splits into many at once</td></tr>
+                    <tr><td><span class="exam-keyword">Budding</span><br><span class="punjabi">ਕਲੀਕਰਣ</span></td><td>Hydra, Yeast</td><td>New organism grows as a bud</td></tr>
+                    <tr><td><span class="exam-keyword">Fragmentation</span><br><span class="punjabi">ਖੰਡੀਕਰਣ</span></td><td>Spirogyra</td><td>Body breaks into fragments</td></tr>
+                    <tr><td><span class="exam-keyword">Spore Formation</span><br><span class="punjabi">ਬੀਜਾਣੂ ਨਿਰਮਾਣ</span></td><td>Rhizopus</td><td>Spores grow into new organisms</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Binary vs Multiple Fission <span class="punjabi">(ਦੋਖੰਡਨ ਬਨਾਮ ਬਹੁਖੰਡਨ)</span></h2>
+                <p>Hover over each card to compare the two types of fission.</p>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Binary Fission<br><span class="punjabi">ਦੋਖੰਡਨ</span></div>
+                            <div class="flip-back"><strong>One &rarr; Two.</strong><br><br>Parent divides into <span class="exam-keyword">two</span> equal daughter cells, e.g. Amoeba.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Multiple Fission<br><span class="punjabi">ਬਹੁਖੰਡਨ</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>One &rarr; Many.</strong><br><br>Parent divides into <span class="exam-keyword">many</span> cells at once inside a cyst, e.g. Plasmodium.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Budding in Yeast &amp; Hydra <span class="punjabi">(ਕਲੀਕਰਣ)</span></h2>
+                <p>In <span class="exam-keyword">budding</span>, a small bulge called a <strong>bud</strong> grows on the body of the parent.</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0;">
+                    <li>In <strong>Yeast</strong>, the bud may stay attached and form a chain.</li>
+                    <li>In <strong>Hydra</strong>, the bud grows, develops a mouth &amp; tentacles, then detaches to live on its own.</li>
+                    <li>The new organism is a genetically identical <span class="exam-keyword">clone</span> of the parent.</li>
+                </ul>
+                <div class="ratta-box">Budding = Hydra &amp; Yeast. Binary fission = Amoeba. Multiple fission = Plasmodium. <span class="punjabi-block">ਕਲੀਕਰਣ = ਹਾਈਡ੍ਰਾ ਤੇ ਯੀਸਟ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Why Regeneration isn't true Reproduction</h2>
+                <p><strong>Regeneration</strong> (e.g., <em>Planaria</em> and <em>Hydra</em>) is the ability to regrow a complete organism from a cut body part.</p>
+                <div class="board-trap">
+                    <strong>⚠️ Board Trap</strong>
+                    Do not write that complex animals reproduce via regeneration. It is a specialized repair mechanism. Most organisms would not normally depend on being accidentally chopped into pieces to multiply! 
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Tissue Culture Sequence <span class="punjabi">(ਟਿਸ਼ੂ ਕਲਚਰ)</span></h2>
+                <p><strong>Interactive Sequencer:</strong> Build the process of micropropagation.</p>
+                <div class="sequencer-container" id="seq-ch7-1">
+                    <div class="seq-step">
+                        <strong>1. Extraction:</strong> A small piece of tissue is removed from the growing tip of a plant.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Culture Medium:</strong> It is placed in an artificial jelly medium containing nutrients.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Callus Formation:</strong> The cells divide rapidly to form an unorganized mass called a <span class="exam-keyword">Callus</span>.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Hormonal Transfer:</strong> The callus is transferred to another medium with hormones to trigger root and shoot growth.
+                    </div>
+                    <div class="seq-step">
+                        <strong>5. Planting:</strong> The new disease-free plantlets are placed in soil to mature.
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch7-1')">Reveal Next Step &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Vegetative Propagation <span class="board-badge">🏆 Board Favorite</span></h2>
+                <p>New plants can grow from the <span class="exam-keyword">roots, stems, or leaves</span> of an old plant &mdash; without seeds.</p>
+                <table>
+                    <tr><th>Plant Part</th><th>Example</th></tr>
+                    <tr><td>Leaves (buds on margins)</td><td>Bryophyllum</td></tr>
+                    <tr><td>Stem cuttings</td><td>Rose, Sugarcane, Grapes</td></tr>
+                    <tr><td>Roots</td><td>Sweet Potato, Dahlia</td></tr>
+                    <tr><td>Eyes / buds of tuber</td><td>Potato</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Advantages of Vegetative Propagation <span class="punjabi">(ਲਾਭ)</span></h2>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0;">
+                    <li>Plants can bear <strong>flowers and fruits earlier</strong> than those grown from seeds.</li>
+                    <li>All new plants are <span class="exam-keyword">genetically identical</span> to the parent.</li>
+                    <li>It lets us grow plants (like banana, seedless grapes) that have <strong>lost the ability to make seeds</strong>.</li>
+                </ul>
+                <div class="ratta-box">Vegetative propagation &rarr; identical clones, faster fruiting, and seedless crops. <span class="punjabi-block">ਵਾਨਸਪਤਿਕ ਪ੍ਰਜਣਨ ਨਾਲ ਇੱਕੋ ਜਿਹੇ ਪੌਦੇ ਬਣਦੇ ਹਨ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Anatomy of a Flower & Fertilization</h2>
+                <img src="images/dreamstimelarge_311719841.jpg" onerror="this.onerror=null;this.style.cssText='display:block;padding:12px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Image: '+this.alt+' — file not found]'" alt="Flower Anatomy" class="slide-img">
+                <ul>
+                    <li><span class="accent-blue">Male Part (Stamen):</span> Made of <span class="exam-keyword">Anther</span> (produces pollen) and Filament.</li>
+                    <li><span class="accent-blue">Female Part (Pistil):</span> Made of <span class="exam-keyword">Stigma</span> (sticky top), Style (tube), and <span class="exam-keyword">Ovary</span>.</li>
+                </ul>
+                <div class="board-trap">
+                    <strong>⚠️ Board Trap</strong>
+                    Pollination is NOT Fertilization. <br><strong>Pollination</strong> is just the physical transfer of pollen to the stigma. <br><strong>Fertilization</strong> is the actual fusion of the male germ cell with the female egg inside the ovary.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Seed Germination Anatomy <span class="board-badge">🏆 Diagram Check</span></h2>
+                <p>After fertilization, the embryo within the seed contains three highly tested parts:</p>
+                <ul style="background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="exam-keyword">Plumule</span>: The future <strong>Shoot</strong> (grows upward into stem and leaves).</li>
+                    <li><span class="exam-keyword">Radicle</span>: The future <strong>Root</strong> (grows downward into the soil).</li>
+                    <li><span class="exam-keyword">Cotyledon</span>: The fleshy part that acts as the <strong>Food Store</strong> to provide energy for the baby plant until it can photosynthesize.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 6 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Human Reproduction</h2>
+                <div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch7-3', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch7-3">
+                    <strong>The Shift to Maturity</strong><br>
+                    During childhood, the body's resources are primarily directed toward somatic (general body) growth. However, as humans enter their early teenage years, a biological shift occurs. General growth begins to slow down, and reproductive tissues begin to mature. This period during adolescence is called <strong>Puberty</strong>. The body starts producing specialized sex hormones (testosterone in males, estrogen in females) that trigger dramatic physical changes to prepare the individual for sexual reproduction.
+                </div></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Changes at Puberty <span class="board-badge">🏆 Board Favorite</span></h2>
+                <table>
+                    <tr><th>In Boys <span class="punjabi">(ਮੁੰਡਿਆਂ ਵਿੱਚ)</span></th><th>In Girls <span class="punjabi">(ਕੁੜੀਆਂ ਵਿੱਚ)</span></th></tr>
+                    <tr><td>Voice cracks / deepens</td><td>Breasts develop</td></tr>
+                    <tr><td>Facial &amp; body hair grows</td><td>Menstruation begins</td></tr>
+                    <tr><td>Hormone: <span class="exam-keyword">Testosterone</span></td><td>Hormone: <span class="exam-keyword">Oestrogen</span></td></tr>
+                </table>
+                <div class="ratta-box">Puberty prepares the body for reproduction. Testosterone (boys) &amp; Oestrogen (girls) trigger these changes. <span class="punjabi-block">ਜਵਾਨੀ ਸਰੀਰ ਨੂੰ ਪ੍ਰਜਣਨ ਲਈ ਤਿਆਰ ਕਰਦੀ ਹੈ।</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Male Reproductive System Anatomy</h2>
+                <table>
+                    <tr><th>Organ</th><th>Clinical Function</th></tr>
+                    <tr><td><strong>Testes</strong></td><td>Produces sperm and testosterone. Located outside the abdominal cavity in the scrotum because sperm requires a <span class="exam-keyword">lower temperature</span> to form.</td></tr>
+                    <tr><td><strong>Vas Deferens</strong></td><td>The tube that carries sperm from the testes.</td></tr>
+                    <tr><td><strong>Prostate & Seminal Vesicles</strong></td><td><span class="accent">Crucial:</span> These glands add fluid secretions to make the transport of sperm easier (fluid medium) and provide <span class="exam-keyword">nutrition</span> to the sperm.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Female Reproductive System & Placenta</h2>
+                <ul>
+                    <li><span class="exam-keyword">Ovaries</span>: Release one mature egg every month and produce estrogen.</li>
+                    <li><span class="exam-keyword">Fallopian Tube (Oviduct)</span>: Carries the egg to the uterus. <span class="accent">This is where fertilization happens!</span></li>
+                    <li><span class="exam-keyword">Uterus (Womb)</span>: Where the embryo implants and grows.</li>
+                </ul>
+                <div style="background: #F0F4F8; padding: 20px; border-radius: 12px; margin-top: 15px; border-left: 5px solid var(--goku-primary);">
+                    <h3>The Placenta's Villi</h3>
+                    <p>The placenta transfers nutrients and oxygen from mother to child. It contains finger-like projections called <strong>villi</strong>. Why? To vastly increase the <span class="exam-keyword">surface area</span> for rapid exchange of glucose and oxygen.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sort It: Male vs Female Organs <span class="punjabi">(ਨਰ ਬਨਾਮ ਮਾਦਾ ਅੰਗ)</span></h2>
+                <div class="pd-game">
+                    <p class="pd-instruction">Click an organ, then click the reproductive system it belongs to. <span class="punjabi">(ਅੰਗ ਚੁਣੋ, ਫਿਰ ਸਹੀ ਪ੍ਰਣਾਲੀ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।)</span></p>
+                    <div class="pd-pool">
+                        <span class="pd-item" data-target="male" onclick="psebPick(this)">Testes</span>
+                        <span class="pd-item" data-target="female" onclick="psebPick(this)">Ovary</span>
+                        <span class="pd-item" data-target="male" onclick="psebPick(this)">Vas deferens</span>
+                        <span class="pd-item" data-target="female" onclick="psebPick(this)">Fallopian tube</span>
+                        <span class="pd-item" data-target="male" onclick="psebPick(this)">Prostate gland</span>
+                        <span class="pd-item" data-target="female" onclick="psebPick(this)">Uterus</span>
+                    </div>
+                    <div class="pd-targets">
+                        <div class="pd-target" data-target="male" onclick="psebDrop(this)"><span class="pd-label">&#9794; Male System <small>ਨਰ ਪ੍ਰਜਨਨ ਪ੍ਰਣਾਲੀ</small></span><div class="pd-drop"></div></div>
+                        <div class="pd-target" data-target="female" onclick="psebDrop(this)"><span class="pd-label">&#9792; Female System <small>ਮਾਦਾ ਪ੍ਰਜਨਨ ਪ੍ਰਣਾਲੀ</small></span><div class="pd-drop"></div></div>
+                    </div>
+                    <div class="pd-done">Excellent! Every organ is in the right system. <span class="punjabi">(ਸ਼ਾਬਾਸ਼!)</span></div>
+                    <button class="pd-reset-btn" onclick="psebReset(this)">&#8635; Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Menstrual Cycle Timeline <span class="punjabi">(ਮਾਹਵਾਰੀ)</span></h2>
+                <p><strong>Interactive Sequencer:</strong> What happens if the egg is NOT fertilized?</p>
+                <div class="sequencer-container" id="seq-ch7-2">
+                    <div class="seq-step">
+                        <strong>1. Preparation:</strong> The Uterus prepares to receive a fertilized egg by growing a thick, spongy lining rich in blood vessels.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Ovulation:</strong> The ovary releases an egg. If not fertilized within 1 day, the egg dies.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Breakdown:</strong> Because pregnancy did not occur, the thick uterine lining is no longer needed.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Menstruation:</strong> The lining slowly breaks down and exits the vagina as blood and mucus (lasts 2-8 days).
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch7-2')">Reveal Next Step &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Contraception & The STD Catch <span class="punjabi">(ਗਰਭ-ਨਿਰੋਧਕ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Reveal the missing keywords.</p>
+                <div class="cloze-paragraph">
+                    Sexually Transmitted Diseases (STDs) like HIV (viral) and Syphilis (bacterial) are passed through sexual contact. While chemical methods (like oral pills) and surgical methods (like a <span class="cloze-blank" data-ans="Vasectomy" onclick="revealCloze(this)"></span> in males or Tubectomy in females) prevent pregnancy, they DO NOT protect against STDs. The only contraceptive method that provides protection against both pregnancy and STDs is the use of <span class="cloze-blank" data-ans="Barrier Methods" onclick="revealCloze(this)"></span>, such as condoms.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Methods of Contraception <span class="board-badge">🏆 Board Favorite</span></h2>
+                <table>
+                    <tr><th>Type</th><th>Example</th><th>How It Works</th></tr>
+                    <tr><td><span class="exam-keyword">Barrier</span><br><span class="punjabi">ਰੁਕਾਵਟ</span></td><td>Condoms, Diaphragm</td><td>Stops sperm from meeting the egg (also blocks STDs)</td></tr>
+                    <tr><td><span class="exam-keyword">Chemical</span><br><span class="punjabi">ਰਸਾਇਣਕ</span></td><td>Oral pills</td><td>Change hormone balance to stop egg release</td></tr>
+                    <tr><td><span class="exam-keyword">Mechanical (IUCD)</span><br><span class="punjabi">ਯਾਂਤ੍ਰਿਕ</span></td><td>Copper-T / Loop</td><td>Placed in uterus to prevent pregnancy</td></tr>
+                    <tr><td><span class="exam-keyword">Surgical</span><br><span class="punjabi">ਸਰਜਰੀ</span></td><td>Vasectomy, Tubectomy</td><td>Blocks the tubes that carry sperm or egg</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Rapid Recall <span class="punjabi">(ਤੇਜ਼ ਦੁਹਰਾਈ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Tap the blue blocks to complete the revision.</p>
+                <div class="cloze-paragraph">
+                    Amoeba reproduces by <span class="cloze-blank" data-ans="Binary fission" onclick="revealCloze(this)"></span>, while Plasmodium uses <span class="cloze-blank" data-ans="Multiple fission" onclick="revealCloze(this)"></span>. After fertilization the ovary becomes the <span class="cloze-blank" data-ans="Fruit" onclick="revealCloze(this)"></span> and the ovule becomes the <span class="cloze-blank" data-ans="Seed" onclick="revealCloze(this)"></span>. In humans, fertilization takes place in the <span class="cloze-blank" data-ans="Fallopian tube" onclick="revealCloze(this)"></span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Must-Memorize for Boards <span class="punjabi">(ਪਰੀਖਿਆ ਲਈ ਯਾਦ ਰੱਖੋ)</span></h2>
+                <div class="ratta-box">Ovary &rarr; Fruit.  Ovule &rarr; Seed.  Zygote &rarr; Embryo.<br>Pollination = transfer of pollen (NOT fertilization).<br>Fertilization site in humans = Fallopian tube.<br>Only condoms protect against pregnancy AND STDs.</div>
+                <div class="ratta-box">Asexual methods: Fission, Budding, Fragmentation, Spore formation, Regeneration, Vegetative propagation. <span class="punjabi-block">ਅਲਿੰਗੀ ਪ੍ਰਜਣਨ ਦੀਆਂ ਕਿਸਮਾਂ ਯਾਦ ਰੱਖੋ।</span></div>
+            </div>
+        </div>
+
+        <!-- CH 7 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch7"><div class="sub-slide active" id="tf-ch7-s1"><div class="sub-progress">Question 1 of 8 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">Spores of Rhizopus possess thick protective walls.<br><span class="punjabi-block">ਰਾਈਜ਼ੋਪਸ ਦੇ ਬੀਜਾਣੂਆਂ ਵਿੱਚ ਮੋਟੀਆਂ ਸੁਰੱਖਿਆਤਮਕ ਕੰਧਾਂ ਹੁੰਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">In tissue culture, the unorganized mass of cells is called a callus.<br><span class="punjabi-block">ਟਿਸ਼ੂ ਕਲਚਰ ਵਿੱਚ, ਸੈੱਲਾਂ ਦੇ ਸੰਗਠਿਤ ਪੁੰਜ ਨੂੰ ਕੈਲਸ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">The ovary of a flower develops into a seed after fertilization.<br><span class="punjabi-block">ਨਿਸ਼ੇਚਨ ਤੋਂ ਬਾਅਦ ਫੁੱਲ ਦਾ ਅੰਡਕੋਸ਼ ਬੀਜ ਵਿੱਚ ਬਦਲ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s4"><div class="sub-progress">Question 4 of 8 <span class="pyq-tag">[PSEB 2022]</span></div><div class="question-text">Oral pills protect against sexually transmitted diseases like HIV.<br><span class="punjabi-block">ਗੋਲੀਆਂ HIV ਵਰਗੀਆਂ ਜਿਨਸੀ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਾਉਂਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">The placenta has villi to increase the surface area for nutrient exchange.<br><span class="punjabi-block">ਪਲੈਸੈਂਟਾ ਵਿੱਚ ਪੋਸ਼ਕ ਤੱਤਾਂ ਦੇ ਆਦਾਨ-ਪ੍ਰਦਾਨ ਲਈ ਸਤਹ ਖੇਤਰ ਵਧਾਉਣ ਲਈ ਵਿਲੀ ਹੁੰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">In budding, a small outgrowth (bud) develops on the body of the parent Hydra.<br><span class="punjabi-block">ਕਲੀਕਰਣ ਵਿੱਚ, ਮਾਪੇ ਹਾਈਡ੍ਰਾ ਦੇ ਸਰੀਰ ਉੱਤੇ ਇੱਕ ਛੋਟਾ ਉਭਾਰ ਬਣਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">The ovule of a flower develops into the fruit after fertilization.<br><span class="punjabi-block">ਨਿਸ਼ੇਚਨ ਤੋਂ ਬਾਅਦ ਫੁੱਲ ਦਾ ਬੀਜ ਅੰਡ ਫਲ ਵਿੱਚ ਬਦਲ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">Binary fission produces two identical daughter cells.<br><span class="punjabi-block">ਦੋਖੰਡਨ ਦੋ ਇੱਕੋ ਜਿਹੇ ਧੀ ਸੈੱਲ ਪੈਦਾ ਕਰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 8</h2><div class="sub-slider-container" id="sib-ch7"><div class="sub-slide active short-answer" id="sib-ch7-s1" data-q="What asexual method does Bread Mould (Rhizopus) use?" data-a="Spore formation" data-pa="ਬੀਜਾਣੂ ਨਿਰਮਾਣ"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">What asexual method does Bread Mould (Rhizopus) use?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Spore formation', 'ਬੀਜਾਣੂ ਨਿਰਮਾਣ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s2" data-q="What is the unorganized mass of cells in tissue culture called?" data-a="Callus" data-pa="ਕੈਲਸ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">What is the unorganized mass of cells in tissue culture called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Callus', 'ਕੈਲਸ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s3" data-q="What part of the seed becomes the future root?" data-a="Radicle" data-pa="ਰੈਡੀਕਲ"><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">What part of the seed becomes the future root?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Radicle', 'ਰੈਡੀਕਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s4" data-q="Where does fertilization happen in human females?" data-a="Fallopian tube" data-pa="ਫੈਲੋਪੀਅਨ ਟਿਊਬ"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">Where does fertilization happen in human females?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Fallopian tube', 'ਫੈਲੋਪੀਅਨ ਟਿਊਬ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s5" data-q="What surgical method blocks the fallopian tubes in females?" data-a="Tubectomy" data-pa="ਟਿਊਬੈਕਟੋਮੀ"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">What surgical method blocks the fallopian tubes in females?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Tubectomy', 'ਟਿਊਬੈਕਟੋਮੀ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s6" data-q="Which asexual method does Amoeba use to reproduce?" data-a="Binary fission" data-pa="ਦੋਖੰਡਨ"><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">Which asexual method does Amoeba use to reproduce?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Binary fission', 'ਦੋਖੰਡਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s7" data-q="After fertilization, the ovary of a flower develops into what?" data-a="Fruit" data-pa="ਫਲ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">After fertilization, the ovary of a flower develops into what?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Fruit', 'ਫਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s8" data-q="The fusion of male and female gametes forms which single cell?" data-a="Zygote" data-pa="ਯੁਗਮਜ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">The fusion of male and female gametes forms which single cell?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Zygote', 'ਯੁਗਮਜ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 8 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch7"><div class="sub-slide active" id="mcq-ch7-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">Why is regeneration NOT considered reproduction in complex animals?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It requires two parents</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Animals don't normally depend on being cut to multiply</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. It only happens in plants</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s2"><div class="sub-progress">Question 2 of 8 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">Which of the following adds fluid to sperm to provide nutrition?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Testes</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Seminal Vesicles & Prostate</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Vas deferens</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Testes are located outside the abdominal cavity because:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It protects them</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Sperm formation requires a lower temperature</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. They need more oxygen</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">What happens if an egg is not fertilized?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It stays in the ovary</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. A placenta forms</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Menstruation occurs</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">Which contraceptive method also protects against STDs?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Copper-T</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Oral Pills</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Condoms</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">Which of these organisms reproduces by budding?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Amoeba</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Yeast</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Spirogyra</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">Plants produced by vegetative propagation are:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Genetically different from the parent</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Genetically identical to the parent</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Always seedless</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">The transfer of pollen from the anther to the stigma is called:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Pollination</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Fertilization</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Germination</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Get Your Flashcards &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every single "Say It Back" question in this deck has been automatically formatted for Anki. The back of each card will now display both the English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+</div>
+<script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    // Add checkmarks
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    msg.style.cssText = 'grid-column: 1 / -1; text-align: center; font-size: 1.5rem; color: #10B981; font-weight: bold; margin-top: 15px; animation: fadeIn 0.5s;';
+                    grid.appendChild(msg);
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.pd-game')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if (window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        // Remove checkmark
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) seqBtn.style.display = 'block';
+                    });
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase1_Premium_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* --- TEXT-TO-SPEECH (added) --- */
+        window.activeReadBtn = null;
+
+        window.speakWord = function(text, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.85;
+            if (btn) {
+                btn.style.backgroundColor = '#D1FAE5';
+                utterance.onend = () => { btn.style.backgroundColor = ''; };
+                utterance.onerror = () => { btn.style.backgroundColor = ''; };
+            }
+            window.speechSynthesis.speak(utterance);
+        };
+
+        window.speakPassage = function(textId, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+            }
+            const textElement = document.getElementById(textId);
+            if (!textElement) return;
+            const text = textElement.innerText || textElement.textContent;
+            const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text]).map(s => s.trim()).filter(s => s.length > 0);
+            if (sentences.length === 0) return;
+            window.activeReadBtn = btn;
+            btn.innerHTML = '\uD83D\uDD0A Reading...';
+            btn.style.background = 'var(--goku-accent)';
+            let i = 0;
+            function speakNext() {
+                if (i < sentences.length) {
+                    const u = new SpeechSynthesisUtterance(sentences[i]);
+                    u.lang = 'en-US';
+                    u.rate = 0.85;
+                    u.onend = function() { i++; speakNext(); };
+                    u.onerror = function(e) { console.error("TTS Error:", e); window.stopSpeaking(); };
+                    window.speechSynthesis.speak(u);
+                } else {
+                    window.stopSpeaking();
+                }
+            }
+            speakNext();
+        };
+
+        window.stopSpeaking = function() {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+                window.activeReadBtn = null;
+            }
+        };
+
+        updateUI();
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

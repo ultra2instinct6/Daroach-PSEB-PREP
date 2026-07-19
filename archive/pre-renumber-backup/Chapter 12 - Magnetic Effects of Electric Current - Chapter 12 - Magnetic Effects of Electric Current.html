@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 12: Magnetic Effects of Electric Current | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch08-13.css">
+
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="ch12">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 12</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">Magnetic Effects of Electric Current</h2>
+                <span class="punjabi">ਬਿਜਲਈ ਕਰੰਟ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Core Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Solenoid <button class="tts-btn" onclick="speakWord('Solenoid', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਸੋਲੇਨੋਇਡ (Coil of wire)</span><br><span class="phonetic">ਉਚਾਰਨ: ਸੋਲੇ-ਨੋਇਡ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Electromagnet <button class="tts-btn" onclick="speakWord('Electromagnet', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਿਜਲਈ ਚੁੰਬਕ (Magnet made by current)</span><br><span class="phonetic">ਉਚਾਰਨ: ਇਲੈਕਟ੍ਰੋ-ਮੈਗਨੇਟ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Earthing <button class="tts-btn" onclick="speakWord('Earthing', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਰਥਿੰਗ (Safety grounding wire)</span><br><span class="phonetic">ਉਚਾਰਨ: ਅਰਥਿੰਗ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Fuse <button class="tts-btn" onclick="speakWord('Fuse', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਫਿਊਜ਼ (Safety device)</span><br><span class="phonetic">ਉਚਾਰਨ: ਫਿਊਜ਼</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content-box">
+                <h2>More Key Terms <span class="punjabi">(ਹੋਰ ਸ਼ਬਦ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Magnetic Field <button class="tts-btn" onclick="speakWord('Magnetic Field', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਚੁੰਬਕੀ ਖੇਤਰ (Region of magnetic force)</span><br><span class="phonetic">ਉਚਾਰਨ: ਮੈਗਨੈਟਿਕ ਫੀਲਡ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Field Lines <button class="tts-btn" onclick="speakWord('Magnetic Field Lines', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਲ ਰੇਖਾਵਾਂ (Show field direction)</span><br><span class="phonetic">ਉਚਾਰਨ: ਫੀਲਡ ਲਾਈਨਜ਼</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Electric Motor <button class="tts-btn" onclick="speakWord('Electric Motor', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਿਜਲਈ ਮੋਟਰ (Electrical → mechanical)</span><br><span class="phonetic">ਉਚਾਰਨ: ਇਲੈਕਟ੍ਰਿਕ ਮੋਟਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Induction <button class="tts-btn" onclick="speakWord('Electromagnetic Induction', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰੇਰਣਾ (Current from changing field)</span><br><span class="phonetic">ਉਚਾਰਨ: ਇੰਡਕਸ਼ਨ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Electric Generator <button class="tts-btn" onclick="speakWord('Electric Generator', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਿਜਲਈ ਜਨਰੇਟਰ (Mechanical → electrical)</span><br><span class="phonetic">ਉਚਾਰਨ: ਜਨਰੇਟਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Live Wire <button class="tts-btn" onclick="speakWord('Live Wire', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਲਾਈਵ ਤਾਰ (Red/brown, carries current)</span><br><span class="phonetic">ਉਚਾਰਨ: ਲਾਈਵ ਵਾਇਰ</span></div>
+                </div>
+            </div>
+        </div>
+<div class="slide"><div class="content-box"><h2>Reading: The Accidental Discovery</h2><div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch12-1', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch12-1"><strong>Electricity Meets Magnetism</strong><br>In 1820, a Danish teacher named Hans Christian Oersted was giving a lecture when he noticed something astonishing. Every time he switched on an electric current, a nearby compass needle twitched and turned away from north. This tiny movement proved for the first time that electricity and magnetism are deeply connected. Scientists soon learned that a coil of wire carrying current behaves like a magnet, and that such an electromagnet can be switched on and off at will. This single idea powers the electric motors in our fans, the giant cranes that lift cars in scrapyards, and the generators that produce most of the world's electricity. What began as an accident in a classroom became the engine of the modern world.</div></div></div></div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Magnetic Field & Field Lines</h2>
+                <p>A <span class="exam-keyword">magnetic field</span> is the region around a magnet where its force can be felt. Its direction and strength are shown by magnetic field lines.</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.1rem; line-height:1.8;">
+                    <li>Field lines are closed, continuous curves.</li>
+                    <li>They <strong>never intersect</strong> each other.</li>
+                    <li>Crowded lines mean a stronger field.</li>
+                    <li>Direction = the way the north pole of a compass points.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Field Lines of a Bar Magnet</h2>
+                <img src="images/bar-magnet-field.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: magnetic field lines of a bar magnet from N to S — add images/bar-magnet-field.png]'" alt="Field lines of a bar magnet" class="slide-img">
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Outside the magnet: lines run from <strong>North to South</strong>.</li>
+                    <li>Inside the magnet: lines run from South to North (closed loops).</li>
+                    <li>The field is strongest at the poles, where lines are most crowded.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Oersted's Experiment</h2>
+                <p>Hans Christian Oersted discovered that a compass needle deflects near a current-carrying wire, proving that <strong>electricity creates magnetism</strong>.</p>
+                
+                <h3 style="margin-top:20px;">Properties of Field Lines (3-Mark Rule)</h3>
+                <ol style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li>Field lines emerge from <strong>North</strong> and merge at <strong>South</strong> (outside).</li>
+                    <li>Inside the magnet, direction is South to North (forming closed loops).</li>
+                    <li>The relative strength is shown by the closeness of the lines.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SPOT THE ERROR -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Spot-the-Error Inspector <span class="punjabi">(ਗਲਤੀ ਲੱਭੋ)</span></h2>
+                <p><strong>Task:</strong> Find the critical physics error in this diagram representation and tap it to fix it.</p>
+                
+                <div class="error-diagram">
+                    <div style="font-weight: bold; color: var(--goku-primary);">[ NORTH POLE ] . . . . . . . . . . [ SOUTH POLE ]</div>
+                    <br>
+                    Field Line A: <span style="display:inline-block; border-bottom: 3px solid var(--goku-primary); width: 100px;"></span> &rarr;
+                    <br><br>
+                    Field Line B: <span style="display:inline-block; border-bottom: 3px solid var(--goku-primary); width: 40px; transform: rotate(20deg);"></span> 
+                    <span class="hotspot" onclick="fixError(this, 'error-exp-1')">INTERSECTS</span> 
+                    <span style="display:inline-block; border-bottom: 3px solid var(--goku-primary); width: 40px; transform: rotate(-20deg);"></span> Line A
+                </div>
+                
+                <div class="error-explanation" id="error-exp-1">
+                    <strong>CORRECTED!</strong> Magnetic field lines CANNOT intersect. If they did, it would mean the magnetic force is pulling in two different directions at the exact same point, which is physically impossible.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Field Patterns & Hand Rules</h2>
+                <h3>Straight Wire</h3>
+                <p>Forms <strong>concentric circles</strong>. Use the <span class="exam-keyword">Right-Hand Thumb Rule</span>: Point thumb in direction of current, fingers curl in direction of magnetic field.</p>
+                
+                <h3>Circular Loop</h3>
+                <p>As you move to the center of the loop, the field lines become straight and parallel.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Field due to a Straight Conductor</h2>
+                <p>A straight current-carrying wire produces <strong>concentric circular</strong> magnetic field lines around it.</p>
+                <img src="images/straight-wire-field.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: concentric circular field lines around a straight current-carrying wire — add images/straight-wire-field.png]'" alt="Field around a straight conductor" class="slide-img">
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Field strength <strong>increases</strong> with more current.</li>
+                    <li>Field strength <strong>decreases</strong> as distance from the wire increases.</li>
+                    <li>Direction is found using the <span class="exam-keyword">Right-Hand Thumb Rule</span>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Field due to a Circular Loop</h2>
+                <p>Every part of the loop adds field in the same direction at the centre, so the field lines at the centre are nearly straight and perpendicular to the loop.</p>
+                <div class="board-trap"><strong>Clock-face rule:</strong> if the current looks <em>anticlockwise</em>, that face acts as a <strong>North</strong> pole; if <em>clockwise</em>, it acts as a <strong>South</strong> pole.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Solenoids & Electromagnets</h2>
+                <p>A <strong>Solenoid</strong> is a coil of many circular turns of insulated copper wire.</p>
+                <ul style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="accent-blue">Inside the Solenoid:</span> The field lines are parallel straight lines. This means the magnetic field is <strong>uniform (same everywhere)</strong> inside.</li>
+                    <li><span class="accent">Electromagnet:</span> If you place a magnetic material (like <em>soft iron</em>) inside the coil, the strong field magnetizes it. This creates a powerful, temporary magnet!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Force on a Conductor & Fleming's LHR</h2>
+                <p>Putting a current-carrying wire inside an external magnetic field creates a physical <strong>FORCE</strong> pushing the wire. (This is how motors work!).</p>
+                
+                <div class="board-trap">
+                    <strong>⚠️ Board Trap</strong>
+                    The force is maximum when the wire is placed strictly <strong>perpendicular ($90^\circ$)</strong> to the magnetic field. Force is ZERO if placed parallel!
+                </div>
+                
+                <h3 style="margin-top:20px;">Fleming's Left-Hand Rule</h3>
+                <p>Stretch thumb, forefinger, and middle finger at right angles: <strong>F</strong>orefinger = Magnetic <strong>F</strong>ield, <strong>C</strong>enter finger = <strong>C</strong>urrent, <strong>Thumb</strong> = <strong>Thrust/Motion</strong>.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electromagnet vs Permanent Magnet</h2>
+                <table>
+                    <tr><th>Feature</th><th>Electromagnet</th><th>Permanent Magnet</th></tr>
+                    <tr><td>Magnetism</td><td>Temporary (only when current flows)</td><td>Permanent</td></tr>
+                    <tr><td>Strength</td><td>Strong & adjustable</td><td>Fixed</td></tr>
+                    <tr><td>Core used</td><td>Soft iron</td><td>Steel</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electric Motor</h2>
+                <p>An electric motor converts <span class="exam-keyword">electrical energy into mechanical (rotational) energy</span>, using the force on a current-carrying conductor in a magnetic field.</p>
+                <img src="images/electric-motor.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: electric motor — armature coil, split-ring commutator, brushes, magnets — add images/electric-motor.png]'" alt="Electric motor" class="slide-img">
+                <table>
+                    <tr><th>Part</th><th>Function</th></tr>
+                    <tr><td>Armature coil</td><td>Rotates inside the magnetic field</td></tr>
+                    <tr><td>Split-ring commutator</td><td>Reverses the current every half turn to keep rotation continuous</td></tr>
+                    <tr><td>Brushes</td><td>Carry current between the coil and the battery</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electromagnetic Induction</h2>
+                <p>Discovered by <strong>Michael Faraday</strong>: a changing magnetic field through a coil <span class="exam-keyword">induces</span> (produces) a current in it.</p>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Moving a magnet into or out of a coil makes a galvanometer deflect.</li>
+                    <li>Faster movement → larger induced current.</li>
+                </ul>
+                <div class="board-trap"><strong>Fleming's Right-Hand Rule</strong> gives the direction of induced current: Thumb = motion, Forefinger = field, Middle finger = induced current.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Fleming's Left-Hand vs Right-Hand Rule</h2>
+                <table>
+                    <tr><th>Feature</th><th>Left-Hand Rule</th><th>Right-Hand Rule</th></tr>
+                    <tr><td>Used in</td><td>Electric motor</td><td>Electric generator</td></tr>
+                    <tr><td>Finds</td><td>Direction of force / motion</td><td>Direction of induced current</td></tr>
+                    <tr><td>You are given</td><td>Current & field</td><td>Motion & field</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electric Generator (Dynamo)</h2>
+                <p>Converts <span class="exam-keyword">mechanical energy into electrical energy</span> using electromagnetic induction.</p>
+                <img src="images/electric-generator.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: AC generator — coil, slip rings, brushes, magnets — add images/electric-generator.png]'" alt="Electric generator" class="slide-img">
+                <table>
+                    <tr><th>Feature</th><th>AC Generator</th><th>DC Generator</th></tr>
+                    <tr><td>Rings used</td><td>Two slip rings</td><td>Split-ring commutator</td></tr>
+                    <tr><td>Output</td><td>Alternating current</td><td>Direct current</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sort It: Motor vs Generator <span class="punjabi">(ਮੋਟਰ ਬਨਾਮ ਜਨਰੇਟਰ)</span></h2>
+                <div class="pd-game">
+                    <p class="pd-instruction">Click a property, then click the device it describes. <span class="punjabi">(ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ, ਫਿਰ ਸਹੀ ਯੰਤਰ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।)</span></p>
+                    <div class="pd-pool">
+                        <span class="pd-item" data-target="motor" onclick="psebPick(this)">Electrical &rarr; mechanical energy</span>
+                        <span class="pd-item" data-target="generator" onclick="psebPick(this)">Mechanical &rarr; electrical energy</span>
+                        <span class="pd-item" data-target="motor" onclick="psebPick(this)">Works on magnetic force on current</span>
+                        <span class="pd-item" data-target="generator" onclick="psebPick(this)">Works on electromagnetic induction</span>
+                        <span class="pd-item" data-target="motor" onclick="psebPick(this)">Uses Fleming's Left-hand rule</span>
+                        <span class="pd-item" data-target="generator" onclick="psebPick(this)">Uses Fleming's Right-hand rule</span>
+                    </div>
+                    <div class="pd-targets">
+                        <div class="pd-target" data-target="motor" onclick="psebDrop(this)"><span class="pd-label">&#9881; Electric Motor <small>ਬਿਜਲਈ ਮੋਟਰ</small></span><div class="pd-drop"></div></div>
+                        <div class="pd-target" data-target="generator" onclick="psebDrop(this)"><span class="pd-label">&#128268; Electric Generator <small>ਬਿਜਲਈ ਜਨਰੇਟਰ</small></span><div class="pd-drop"></div></div>
+                    </div>
+                    <div class="pd-done">Spot on! You told the motor and generator apart. <span class="punjabi">(ਸ਼ਾਬਾਸ਼!)</span></div>
+                    <button class="pd-reset-btn" onclick="psebReset(this)">&#8635; Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>AC vs DC: The Difference</h2>
+                <table>
+                    <tr><th>Feature</th><th>AC</th><th>DC</th></tr>
+                    <tr><td>Direction</td><td>Reverses periodically</td><td>One direction only</td></tr>
+                    <tr><td>In India</td><td>Changes 50 times/second (50 Hz)</td><td>Constant</td></tr>
+                    <tr><td>Source</td><td>Generators, mains supply</td><td>Cells, batteries</td></tr>
+                </table>
+                <div class="board-trap"><strong>Why AC for transmission?</strong> It can be sent over long distances with less energy loss, and its voltage is easily changed using transformers.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>5. Domestic Safety Hazards <span class="punjabi">(ਘਰੇਲੂ ਸੁਰੱਖਿਆ ਖ਼ਤਰੇ)</span></h2>
+                <p>Homes receive AC power at 220V. You must clearly differentiate the two main electrical hazards:</p>
+                <table>
+                    <tr><th>Short Circuiting <span class="punjabi">(ਸ਼ਾਰਟ ਸਰਕਟ)</span></th><th>Overloading <span class="punjabi">(ਓਵਰਲੋਡਿੰਗ)</span></th></tr>
+                    <tr><td>Happens if plastic insulation melts and the <strong>Live wire touches the Neutral wire</strong> directly.</td><td>Happens when <strong>too many high-power appliances</strong> are plugged into a single socket.</td></tr>
+                    <tr><td>Resistance drops to almost zero, causing a massive, immediate current spike and potential fire.</td><td>The total current drawn exceeds the capacity of the wires, slowly overheating them.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Domestic Electric Circuit</h2>
+                <p>Power reaches homes through three wires:</p>
+                <table>
+                    <tr><th>Wire</th><th>Insulation colour</th><th>Role</th></tr>
+                    <tr><td>Live</td><td>Red / Brown</td><td>Carries current (high potential)</td></tr>
+                    <tr><td>Neutral</td><td>Black / Blue</td><td>Return path for current</td></tr>
+                    <tr><td>Earth</td><td>Green</td><td>Safety — connects to the ground</td></tr>
+                </table>
+                <img src="images/domestic-circuit.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: domestic wiring with live, neutral and earth wires, fuse and appliances — add images/domestic-circuit.png]'" alt="Domestic electric circuit" class="slide-img">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Earthing & the Fuse</h2>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.15rem; line-height:1.9;">
+                    <li><strong>Earthing:</strong> the metal body of an appliance is joined to the earth wire, so any leaked current flows safely to the ground and prevents electric shocks.</li>
+                    <li><strong>Fuse:</strong> a thin wire of low melting point placed in the <strong>live wire</strong>; it melts and breaks the circuit when the current exceeds a safe value.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Match: Rules & Devices <span class="board-badge">🧩 Match It</span></h2>
+                <p>Match each device or field to the correct rule/fact. <span class="punjabi-block">(ਹਰ ਜੋੜੀ ਨੂੰ ਮਿਲਾਓ।)</span></p>
+                <div class="match-grid">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Electric motor</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Electric generator</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Straight-wire field</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Electromagnet core</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Fleming's Left-Hand Rule</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Soft iron</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Fleming's Right-Hand Rule</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Right-Hand Thumb Rule</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>How an Electric Motor Rotates <span class="board-badge">🏆 Step-by-Step</span></h2>
+                <div class="sequencer-container" id="seq-ch12-1">
+                    <div class="seq-step"><strong>1.</strong> Current flows through the armature coil placed in a magnetic field.</div>
+                    <div class="seq-step"><strong>2.</strong> The two sides of the coil feel forces in opposite directions (Fleming's LHR), so the coil rotates.</div>
+                    <div class="seq-step"><strong>3.</strong> After half a turn, the split-ring commutator reverses the current direction.</div>
+                    <div class="seq-step"><strong>4.</strong> The force direction reverses too, so the coil keeps spinning the same way continuously.</div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch12-1')">Reveal Next Step <span class="seq-counter">[0/4]</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Practice: Magnetic Effects <span class="board-badge">🧩 Fill the Blanks</span></h2>
+                <div class="cloze-paragraph">
+                    Oersted showed that a current-carrying wire produces a <span class="cloze-blank" data-ans="magnetic" onclick="revealCloze(this)"></span> field. Field lines can never <span class="cloze-blank" data-ans="intersect" onclick="revealCloze(this)"></span>. An electric motor converts electrical energy into <span class="cloze-blank" data-ans="mechanical" onclick="revealCloze(this)"></span> energy. A generator works on electromagnetic <span class="cloze-blank" data-ans="induction" onclick="revealCloze(this)"></span>. The fuse is always connected in the <span class="cloze-blank" data-ans="live" onclick="revealCloze(this)"></span> wire.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Memorize This: Chapter Recap</h2>
+                <div class="ratta-box">
+                    <ul style="text-align:left; font-size:1.1rem; line-height:1.9; margin:0; padding-left:20px;">
+                        <li>Oersted: current → magnetism. Field lines never cross.</li>
+                        <li>Straight wire → Right-Hand Thumb Rule; motor → Fleming's Left-Hand; generator → Fleming's Right-Hand.</li>
+                        <li>Motor: electrical → mechanical. Generator: mechanical → electrical.</li>
+                        <li>Solenoid field is uniform; a soft-iron core makes an electromagnet.</li>
+                        <li>Home wires: Live (red/brown), Neutral (black/blue), Earth (green). Fuse in live wire.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Magnetic Hand Rules <span class="board-badge">🧩 Flip Cards</span></h2>
+                <p>Tap each rule to reveal what it finds and how to point your fingers. <span class="punjabi-block">(ਹਰ ਨਿਯਮ ਟੈਪ ਕਰੋ।)</span></p>
+                <div class="flip-grid">
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Right-Hand Thumb Rule<br><span class="punjabi" style="color:white; margin-top:10px;">(ਸੱਜੇ ਹੱਥ ਅੰਗੂਠਾ)</span></div>
+                        <div class="flip-back">Thumb = <strong>current direction</strong>; curled fingers = <strong>magnetic field</strong> around a straight wire.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Fleming's Left-Hand Rule<br><span class="punjabi" style="color:white; margin-top:10px;">(ਖੱਬੇ ਹੱਥ ਦਾ ਨਿਯਮ)</span></div>
+                        <div class="flip-back">Finds the <strong>force / motion</strong> on a conductor. Thumb = Force, Fore = Field, Middle = Current. Used in <strong>motors</strong>.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Fleming's Right-Hand Rule<br><span class="punjabi" style="color:white; margin-top:10px;">(ਸੱਜੇ ਹੱਥ ਦਾ ਨਿਯਮ)</span></div>
+                        <div class="flip-back">Finds the direction of <strong>induced current</strong>. Thumb = Motion, Fore = Field, Middle = Current. Used in <strong>generators</strong>.</div>
+                    </div></div>
+                </div>
+                <div class="ratta-box">Left-Hand &rarr; <strong>Motor</strong> (find the Force) &middot; Right-Hand &rarr; <strong>Generator</strong> (find the induced Current).</div>
+            </div>
+        </div>
+
+        <!-- CH12 NUMERICAL PRACTICE -->
+        <div class="slide"><div class="content-box"><h2>Numerical Practice: Force on a Conductor <span class="punjabi">(ਸੰਖਿਆਤਮਕ ਅਭਿਆਸ)</span></h2>
+            <p style="text-align:center;color:var(--punjabi-text);margin-top:-6px;">Solve on paper, then check. Field is perpendicular to the current. <span class="punjabi">(ਪਹਿਲਾਂ ਹੱਲ ਕਰੋ, ਫੇਰ ਜਾਂਚੋ।)</span></p>
+            <div class="sub-slider-container" id="num-ch12">
+                <div class="sub-slide active short-answer" id="num-ch12-s1"><div class="sub-progress">Numerical 1 of 4</div><div class="question-text">A wire of length 0.5 m carries 4 A in a magnetic field of 0.2 T (perpendicular). Find the force on it.<br><span class="punjabi-block">$F=BIL$</span></div><input type="text" class="sa-input" placeholder="e.g. 0.4 N"><button class="sa-submit-btn" onclick="checkSA(this, '0.4 N', 'F = 0.4 ਨਿਊਟਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch12', 2)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch12-s2"><div class="sub-progress">Numerical 2 of 4</div><div class="question-text">In the wire above, the current is doubled to 8 A (same $B$ and $L$). What is the new force?<br><span class="punjabi-block">$F\propto I$</span></div><input type="text" class="sa-input" placeholder="e.g. 0.8 N"><button class="sa-submit-btn" onclick="checkSA(this, '0.8 N', 'F = 0.8 ਨਿਊਟਨ (ਦੁੱਗਣਾ)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch12', 3)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch12-s3"><div class="sub-progress">Numerical 3 of 4</div><div class="question-text">A 2 m conductor in a 0.1 T field feels a force of 0.6 N. Find the current $I$ flowing in it.<br><span class="punjabi-block">$I=\frac{F}{BL}$</span></div><input type="text" class="sa-input" placeholder="e.g. 3 A"><button class="sa-submit-btn" onclick="checkSA(this, '3 A', 'I = 3 ਐਂਪੀਅਰ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch12', 4)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch12-s4"><div class="sub-progress">Numerical 4 of 4</div><div class="question-text">An appliance fuse carries a maximum of 5 A on a 220 V line. Find the maximum power it can handle.<br><span class="punjabi-block">$P=V\times I$</span></div><input type="text" class="sa-input" placeholder="e.g. 1100 W"><button class="sa-submit-btn" onclick="checkSA(this, '1100 W', 'P = 1100 ਵਾਟ')">Check Answer</button><div class="feedback"></div></div>
+            </div>
+        </div></div>
+
+        <!-- CH 12 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch12"><div class="sub-slide active" id="tf-ch12-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">Magnetic force is maximized when the conductor is perpendicular to the magnetic field.<br><span class="punjabi-block">ਚੁੰਬਕੀ ਬਲ ਉਦੋਂ ਵੱਧ ਤੋਂ ਵੱਧ ਹੁੰਦਾ ਹੈ ਜਦੋਂ ਕੰਡਕਟਰ ਚੁੰਬਕੀ ਖੇਤਰ ਦੇ ਲੰਬਕਾਰੀ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">According to the Clock Face rule, clockwise current acts as a South pole.<br><span class="punjabi-block">ਕਲਾਕ ਫੇਸ ਨਿਯਮ ਦੇ ਅਨੁਸਾਰ, ਘੜੀ ਦੀ ਦਿਸ਼ਾ ਵਾਲਾ ਕਰੰਟ ਦੱਖਣੀ ਧਰੁਵ ਵਜੋਂ ਕੰਮ ਕਰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Inside a solenoid, the magnetic field is uniform (parallel lines).<br><span class="punjabi-block">ਸੋਲੇਨੋਇਡ ਦੇ ਅੰਦਰ, ਚੁੰਬਕੀ ਖੇਤਰ ਇੱਕਸਾਰ ਹੁੰਦਾ ਹੈ (ਸਮਾਨਾਂਤਰ ਰੇਖਾਵਾਂ)।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Overloading occurs when live and neutral wires touch directly.<br><span class="punjabi-block">ਓਵਰਲੋਡਿੰਗ ਉਦੋਂ ਹੁੰਦੀ ਹੈ ਜਦੋਂ ਲਾਈਵ ਅਤੇ ਨਿਊਟ੍ਰਲ ਤਾਰਾਂ ਸਿੱਧੀਆਂ ਛੂਹਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">Magnetic field lines emerge from the South pole.<br><span class="punjabi-block">ਚੁੰਬਕੀ ਖੇਤਰ ਰੇਖਾਵਾਂ ਦੱਖਣੀ ਧਰੁਵ ਤੋਂ ਨਿਕਲਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">An electric motor converts electrical energy into mechanical energy.<br><span class="punjabi-block">ਬਿਜਲਈ ਮੋਟਰ ਬਿਜਲਈ ਊਰਜਾ ਨੂੰ ਯਾਂਤ੍ਰਿਕ ਊਰਜਾ ਵਿੱਚ ਬਦਲਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">A DC generator uses two slip rings.<br><span class="punjabi-block">ਡੀਸੀ ਜਨਰੇਟਰ ਦੋ ਸਲਿੱਪ ਰਿੰਗਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch12', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch12-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">Earthing protects a user from electric shocks.<br><span class="punjabi-block">ਅਰਥਿੰਗ ਉਪਭੋਗਤਾ ਨੂੰ ਬਿਜਲਈ ਝਟਕਿਆਂ ਤੋਂ ਬਚਾਉਂਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 12</h2><div class="sub-slider-container" id="sib-ch12"><div class="sub-slide active short-answer" id="sib-ch12-s1" data-q="From which pole do magnetic field lines emerge outside a magnet?" data-a="North pole" data-pa="ਉੱਤਰੀ ਧਰੁਵ"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">From which pole do magnetic field lines emerge outside a magnet?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'North pole', 'ਉੱਤਰੀ ਧਰੁਵ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s2" data-q="Which rule finds the direction of the magnetic field around a straight wire?" data-a="Right-Hand Thumb Rule" data-pa="ਸੱਜੇ ਹੱਥ ਦੇ ਅੰਗੂਠੇ ਦਾ ਨਿਯਮ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">Which rule finds the direction of the magnetic field around a straight wire?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Right-Hand Thumb Rule', 'ਸੱਜੇ ਹੱਥ ਦੇ ਅੰਗੂਠੇ ਦਾ ਨਿਯਮ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s3" data-q="What core is used to make an electromagnet?" data-a="Soft iron" data-pa="ਨਰਮ ਲੋਹਾ"><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">What core is used to make an electromagnet?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Soft iron', 'ਨਰਮ ਲੋਹਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s4" data-q="Which rule finds the direction of force on a current-carrying wire?" data-a="Fleming's Left-Hand Rule" data-pa="ਫਲੈਮਿੰਗ ਦਾ ਖੱਬੇ ਹੱਥ ਦਾ ਨਿਯਮ"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">Which rule finds the direction of force on a current-carrying wire?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Fleming\\'s Left-Hand Rule', 'ਫਲੈਮਿੰਗ ਦਾ ਖੱਬੇ ਹੱਥ ਦਾ ਨਿਯਮ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s5" data-q="What happens when live and neutral wires touch directly?" data-a="Short circuit" data-pa="ਸ਼ਾਰਟ ਸਰਕਟ"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">What happens when live and neutral wires touch directly?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Short circuit', 'ਸ਼ਾਰਟ ਸਰਕਟ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s6" data-q="An electric motor converts electrical energy into which form of energy?" data-a="Mechanical" data-pa="ਯਾਂਤ੍ਰਿਕ"><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">An electric motor converts electrical energy into which form of energy?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Mechanical', 'ਯਾਂਤ੍ਰਿਕ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s7" data-q="Which device converts mechanical energy into electrical energy?" data-a="Electric generator" data-pa="ਬਿਜਲਈ ਜਨਰੇਟਰ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">Which device converts mechanical energy into electrical energy?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Electric generator', 'ਬਿਜਲਈ ਜਨਰੇਟਰ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch12', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch12-s8" data-q="What is the colour of the earth wire in domestic wiring?" data-a="Green" data-pa="ਹਰਾ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">What is the colour of the earth wire in domestic wiring?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Green', 'ਹਰਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 12 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch12"><div class="sub-slide active" id="mcq-ch12-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">What do parallel magnetic field lines inside a solenoid indicate?</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Uniform magnetic field</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Zero magnetic field</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Non-uniform magnetic field</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">In Fleming's Left-Hand rule, the forefinger points in the direction of:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Current</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Magnetic field</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Force/Motion</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Which of the following describes magnetic field lines?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. They cross each other at the poles</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. They form closed continuous loops</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. They start from South and end at North outside</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">A massive current spike caused by live and neutral wires touching is a:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Short Circuit</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Overload</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Earthing</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">The earth wire is primarily used to:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Save electricity</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Prevent electric shock</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Increase voltage</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">An electric generator works on the principle of:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Heating effect of current</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Electromagnetic induction</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Chemical effect of current</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">In domestic wiring, the fuse is connected in the:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Neutral wire</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Earth wire</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Live wire</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch12', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch12-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">A soft iron core inside a current-carrying solenoid makes an:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Electromagnet</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Permanent magnet</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Insulator</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Get Your Flashcards &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every "Say It Back" question in this deck has been formatted for Anki, with both English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+</div>
+<script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+        
+        function jumpToChapter(chapterId) {
+            const targetSlide = document.getElementById(chapterId);
+            if(targetSlide) {
+                const allSlidesArray = Array.from(slides);
+                const targetIndex = allSlidesArray.indexOf(targetSlide);
+                if(targetIndex !== -1) {
+                    currentSlide = targetIndex;
+                    updateUI();
+                }
+            }
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    grid.appendChild(msg);
+                    msg.style.display = 'block';
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+                
+                // Update Counter
+                const btn = container.querySelector('.seq-btn');
+                const counterSpan = btn.querySelector('.seq-counter');
+                if(counterSpan) {
+                    counterSpan.innerText = `[${currentIndex + 1}/${allSteps.length}]`;
+                }
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- MODULE 4: SPOT ERROR MODULE --- */
+        function fixError(el, expId) {
+            el.classList.add('fixed');
+            el.innerText = 'NEVER INTERSECT';
+            document.getElementById(expId).style.display = 'block';
+        }
+
+        /* --- MODULE 5: FORMULA BUILDER MODULE --- */
+        function buildFormula(val, boardId, targetString) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            
+            let currentFormula = board.getAttribute('data-formula') || "";
+            currentFormula += val;
+            board.setAttribute('data-formula', currentFormula);
+            board.innerText = currentFormula;
+            
+            if(currentFormula === targetString) {
+                board.classList.add('success');
+            }
+        }
+        
+        function undoFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            let currentFormula = board.getAttribute('data-formula') || "";
+            if(currentFormula.length > 0) {
+                // Remove the last chunk added (which might be multiple chars like '1/v' or 'I²')
+                // A simpler way for a rigid builder is just tracking an array. 
+                // But since we appended as a string, let's just clear for V3 to keep it bulletproof, or re-implement array logic.
+                // Re-implementing array logic:
+                clearFormula(boardId);
+            }
+        }
+        
+        function clearFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(board){
+                board.setAttribute('data-formula', "");
+                board.innerText = "";
+                board.classList.remove('success');
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.error-diagram') || e.target.closest('.builder-workspace') || e.target.closest('.pd-game')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if (window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) {
+                            seqBtn.style.display = 'block';
+                            const counter = seqBtn.querySelector('.seq-counter');
+                            if(counter) counter.innerText = '[0/5]'; // General reset
+                        }
+                    });
+
+                    // Reset Error Spotter
+                    slide.querySelectorAll('.hotspot').forEach(h => {
+                        h.classList.remove('fixed');
+                        h.innerText = 'INTERSECTS';
+                    });
+                    slide.querySelectorAll('.error-explanation').forEach(e => e.style.display = 'none');
+
+                    // Reset Formulas
+                    clearFormula('formula-board-ch9');
+                    clearFormula('formula-board-ch11');
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase2_Premium_v3_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* --- TEXT-TO-SPEECH (added) --- */
+        window.activeReadBtn = null;
+
+        window.speakWord = function(text, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.85;
+            if (btn) {
+                btn.style.backgroundColor = '#D1FAE5';
+                utterance.onend = () => { btn.style.backgroundColor = ''; };
+                utterance.onerror = () => { btn.style.backgroundColor = ''; };
+            }
+            window.speechSynthesis.speak(utterance);
+        };
+
+        window.speakPassage = function(textId, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+            }
+            const textElement = document.getElementById(textId);
+            if (!textElement) return;
+            const text = textElement.innerText || textElement.textContent;
+            const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text]).map(s => s.trim()).filter(s => s.length > 0);
+            if (sentences.length === 0) return;
+            window.activeReadBtn = btn;
+            btn.innerHTML = '\uD83D\uDD0A Reading...';
+            btn.style.background = 'var(--goku-accent)';
+            let i = 0;
+            function speakNext() {
+                if (i < sentences.length) {
+                    const u = new SpeechSynthesisUtterance(sentences[i]);
+                    u.lang = 'en-US';
+                    u.rate = 0.85;
+                    u.onend = function() { i++; speakNext(); };
+                    u.onerror = function(e) { console.error("TTS Error:", e); window.stopSpeaking(); };
+                    window.speechSynthesis.speak(u);
+                } else {
+                    window.stopSpeaking();
+                }
+            }
+            speakNext();
+        };
+
+        window.stopSpeaking = function() {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+                window.activeReadBtn = null;
+            }
+        };
+
+        updateUI();
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

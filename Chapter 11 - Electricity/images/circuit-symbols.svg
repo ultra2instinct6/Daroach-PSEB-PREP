@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" font-family="'Segoe UI',Arial,sans-serif">
+  <rect width="720" height="480" fill="#ffffff"/>
+  <text x="360" y="34" font-size="18" fill="#0f172a" text-anchor="middle" font-weight="700">Standard Circuit Symbols</text>
+
+  <!-- Cell -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="70" y1="90" x2="110" y2="90"/>
+    <line x1="110" y1="70" x2="110" y2="110"/>
+    <rect x="118" y="80" width="8" height="20" fill="#0f172a" stroke="none"/>
+    <line x1="126" y1="90" x2="170" y2="90"/>
+  </g>
+  <text x="120" y="140" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Cell</text>
+
+  <!-- Battery -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="300" y1="90" x2="320" y2="90"/>
+    <line x1="320" y1="70" x2="320" y2="110"/>
+    <rect x="328" y="80" width="7" height="20" fill="#0f172a" stroke="none"/>
+    <line x1="335" y1="90" x2="355" y2="90"/>
+    <line x1="355" y1="70" x2="355" y2="110"/>
+    <rect x="363" y="80" width="7" height="20" fill="#0f172a" stroke="none"/>
+    <line x1="370" y1="90" x2="390" y2="90"/>
+  </g>
+  <text x="345" y="140" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Battery</text>
+
+  <!-- Switch (open) -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="530" y1="90" x2="570" y2="90"/>
+    <circle cx="570" cy="90" r="4" fill="#0f172a"/>
+    <line x1="570" y1="90" x2="612" y2="66"/>
+    <circle cx="620" cy="90" r="4" fill="#0f172a"/>
+    <line x1="620" y1="90" x2="660" y2="90"/>
+  </g>
+  <text x="595" y="140" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Switch (open)</text>
+
+  <!-- Resistor -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="70" y1="240" x2="95" y2="240"/>
+    <rect x="95" y="222" width="70" height="36" fill="none"/>
+    <line x1="165" y1="240" x2="190" y2="240"/>
+  </g>
+  <text x="130" y="292" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Resistor</text>
+
+  <!-- Rheostat (variable) -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="300" y1="240" x2="322" y2="240"/>
+    <rect x="322" y="222" width="70" height="36" fill="none"/>
+    <line x1="392" y1="240" x2="414" y2="240"/>
+    <line x1="330" y1="278" x2="384" y2="205" stroke-width="3"/>
+    <path d="M384,205 l -12,2 l 6,10 z" fill="#0f172a" stroke="none"/>
+  </g>
+  <text x="357" y="300" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Rheostat</text>
+
+  <!-- Ammeter -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="530" y1="240" x2="560" y2="240"/>
+    <circle cx="595" cy="240" r="30" fill="none"/>
+    <line x1="630" y1="240" x2="660" y2="240"/>
+  </g>
+  <text x="595" y="247" font-size="20" fill="#0f172a" text-anchor="middle" font-weight="700">A</text>
+  <text x="595" y="300" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Ammeter</text>
+
+  <!-- Voltmeter -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="300" y1="400" x2="330" y2="400"/>
+    <circle cx="365" cy="400" r="30" fill="none"/>
+    <line x1="400" y1="400" x2="430" y2="400"/>
+  </g>
+  <text x="365" y="407" font-size="20" fill="#0f172a" text-anchor="middle" font-weight="700">V</text>
+  <text x="365" y="460" font-size="15" fill="#334155" text-anchor="middle" font-weight="600">Voltmeter</text>
+</svg>

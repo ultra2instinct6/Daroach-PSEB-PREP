@@ -1,0 +1,6 @@
+# Extracted working files (internal tool artifacts)
+Scripts/_extracted/
+
+# macOS
+.DS_Store
+**/.DS_Store

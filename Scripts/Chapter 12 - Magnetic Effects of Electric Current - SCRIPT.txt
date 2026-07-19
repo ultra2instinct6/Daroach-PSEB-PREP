@@ -1,0 +1,1112 @@
+CHAPTER 12 — MAGNETIC EFFECTS OF ELECTRIC CURRENT
+PSEB Class 10 Science
+TOTAL SLIDES: 33
+Version 1
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter Title — Magnetic Effects of Electric Current
+========================================================================
+
+ON SCREEN:
+  - Chapter heading: "Chapter 13"
+  - Main title: Magnetic Effects of Electric Current
+  - Punjabi subtitle: ਬਿਜਲਈ ਕਰੰਟ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ
+
+SCRIPT (say this aloud):
+  Welcome, students! Today we begin a very important chapter — Chapter 12, Magnetic Effects of Electric Current. In Punjabi we call it ਬਿਜਲਈ ਕਰੰਟ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ.
+
+  This chapter answers a fascinating question: can electricity create magnetism? The answer is yes — and that single idea is responsible for electric motors, electric generators, the fans in your home, the cranes at a scrapyard, and the power stations that light up entire cities.
+
+  By the end of this chapter you will know how a current creates a magnetic field, three important hand rules, how motors and generators work, and how your home's electrical wiring is kept safe. This chapter carries very good marks in the PSEB board exam, so let us begin with full attention.
+
+KEY POINTS TO STRESS:
+  - Chapter title in both languages: Magnetic Effects of Electric Current / ਬਿਜਲਈ ਕਰੰਟ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ
+  - Core theme: electricity and magnetism are linked
+  - High exam weightage — hand rules and energy conversions are frequently tested
+
+========================================================================
+SLIDE 2: Core Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Four key terms with Punjabi translations and pronunciation guides:
+    Solenoid / ਸੋਲੇਨੋਇਡ (Coil of wire)
+    Electromagnet / ਬਿਜਲਈ ਚੁੰਬਕ (Magnet made by current)
+    Earthing / ਅਰਥਿੰਗ (Safety grounding wire)
+    Fuse / ਫਿਊਜ਼ (Safety device)
+
+SCRIPT (say this aloud):
+  Before we dive into concepts, let us get comfortable with the key words of this chapter, because if the vocabulary is clear, the concepts will feel easy.
+
+  First word: Solenoid — in Punjabi ਸੋਲੇਨੋਇਡ. Pronounce it: ਸੋਲੇ-ਨੋਇਡ. A solenoid is simply a long coil made by winding insulated copper wire into many circular turns. Think of it as a tightly wound spring made of wire.
+
+  Second word: Electromagnet — in Punjabi ਬਿਜਲਈ ਚੁੰਬਕ. Pronounce it: ਇਲੈਕਟ੍ਰੋ-ਮੈਗਨੇਟ. This is a magnet that is created by electricity. When current flows through a coil, magnetism is produced. When you switch off the current, the magnetism disappears. That on-off control is what makes electromagnets so useful.
+
+  Third word: Earthing — in Punjabi ਅਰਥਿੰਗ. It means connecting the metal body of an electrical appliance to the earth — literally the ground under your feet — through a wire. If something goes wrong and the metal casing becomes live with electricity, the current safely drains into the earth instead of shocking you.
+
+  Fourth word: Fuse — in Punjabi ਫਿਊਜ਼. A fuse is a tiny safety device — a thin wire that melts and breaks the circuit when the current becomes dangerously high. It is your first line of electrical protection.
+
+  Say all four words out loud once. Good. Let us move on.
+
+KEY POINTS TO STRESS:
+  - Solenoid = coil of wire; electromagnet = magnet produced by current
+  - Electromagnet is temporary — it works only while current flows
+  - Earthing and fuse are both safety devices — know the difference between them
+  - Pronunciations in Punjabi help bilingual learners anchor the terms
+
+========================================================================
+SLIDE 3: More Key Terms (ਹੋਰ ਸ਼ਬਦ)
+========================================================================
+
+ON SCREEN:
+  - Six more terms with Punjabi translations and pronunciations:
+    Magnetic Field / ਚੁੰਬਕੀ ਖੇਤਰ
+    Field Lines / ਬਲ ਰੇਖਾਵਾਂ
+    Electric Motor / ਬਿਜਲਈ ਮੋਟਰ (Electrical → mechanical)
+    Induction / ਪ੍ਰੇਰਣਾ (Current from changing field)
+    Electric Generator / ਬਿਜਲਈ ਜਨਰੇਟਰ (Mechanical → electrical)
+    Live Wire / ਲਾਈਵ ਤਾਰ (Red/brown, carries current)
+
+SCRIPT (say this aloud):
+  Excellent. We have six more important terms on this slide.
+
+  Magnetic Field — in Punjabi ਚੁੰਬਕੀ ਖੇਤਰ. It is the invisible region around a magnet or a current-carrying wire where the magnetic force can be felt. You cannot see it, but a compass needle will turn if you bring it into this region.
+
+  Field Lines — in Punjabi ਬਲ ਰੇਖਾਵਾਂ. These are imaginary lines drawn to show the direction and strength of a magnetic field. Where lines are close together, the field is strong. Where they spread apart, the field is weak.
+
+  Electric Motor — in Punjabi ਬਿਜਲਈ ਮੋਟਰ. Remember this energy conversion: Electrical energy goes IN, mechanical energy comes OUT. Every time a fan spins, a motor is doing this conversion.
+
+  Induction — in Punjabi ਪ੍ਰੇਰਣਾ. This means producing a current not by connecting a battery, but by changing a magnetic field near a coil. It is the principle on which generators work.
+
+  Electric Generator — in Punjabi ਬਿਜਲਈ ਜਨਰੇਟਰ. This is the opposite of a motor. Mechanical energy goes IN, electrical energy comes OUT. Power stations are essentially giant generators.
+
+  Live Wire — in Punjabi ਲਾਈਵ ਤਾਰ. This is the dangerous wire — red or brown in colour — that actually carries current to your appliances. Never touch this wire without switching off the main supply.
+
+  Notice the beautiful symmetry: motor converts electrical to mechanical; generator converts mechanical to electrical. Keep this pair in mind — it will appear in your board exam.
+
+KEY POINTS TO STRESS:
+  - Motor: Electrical → Mechanical; Generator: Mechanical → Electrical
+  - Induction (ਪ੍ਰੇਰਣਾ) = current produced by a changing magnetic field
+  - Live wire is red/brown and carries current — dangerous
+  - Field lines (ਬਲ ਰੇਖਾਵਾਂ) show direction and strength of the magnetic field
+
+BOARD TIP: The motor vs generator energy conversion is a guaranteed 1-mark question. Memorise both directions.
+
+========================================================================
+SLIDE 4: Reading — The Accidental Discovery
+========================================================================
+
+ON SCREEN:
+  - Title: "Electricity Meets Magnetism"
+  - A short narrative passage about Hans Christian Oersted's 1820 discovery
+  - Audio "Read to Me" button
+
+SCRIPT (say this aloud):
+  Now we read a short story — and this is not just a story, it is the actual history of how this entire chapter was born.
+
+  The year is 1820. Hans Christian Oersted — a Danish science teacher, just like your teacher today — was giving a lecture to his students. He had a battery connected to a wire on his demonstration table, and by chance, a compass happened to be lying nearby.
+
+  When Oersted switched on the current, something unexpected happened. The compass needle — which should always point north — twitched. It turned away from north. The moment he switched the current off, the needle swung back to north. He switched on again — it deflected again.
+
+  This accidental moment proved something that nobody had been able to show before: electricity and magnetism are not separate forces. They are connected. A current-carrying wire creates a magnetic field around it.
+
+  Think about what grew from that one twitching compass needle. Today we have electric motors running in every fan, refrigerator, and washing machine. We have generators producing electricity at power plants. We have electromagnetic cranes lifting entire cars at scrapyards. Giant MRI machines in hospitals use enormous electromagnets. All of it traces back to Oersted's classroom in 1820.
+
+  So whenever you feel that science is just formulas to memorise, remember this: the modern world's electrical technology began because a teacher noticed a compass needle move during a lecture.
+
+KEY POINTS TO STRESS:
+  - Oersted (1820) discovered that a current-carrying wire deflects a compass needle
+  - This proved that electricity produces magnetism — the foundation of this chapter
+  - Real-world applications: motors, generators, electromagnets all stem from this discovery
+  - The effect is reversible — no current, no deflection
+
+========================================================================
+SLIDE 5: Magnetic Field & Field Lines
+========================================================================
+
+ON SCREEN:
+  - Definition of magnetic field
+  - Four properties of magnetic field lines:
+    1. Closed, continuous curves
+    2. Never intersect each other
+    3. Crowded lines = stronger field
+    4. Direction = way the north pole of a compass points
+
+SCRIPT (say this aloud):
+  Now let us understand magnetic fields and field lines properly, because these properties appear in the board exam almost every year.
+
+  A magnetic field — ਚੁੰਬਕੀ ਖੇਤਰ — is the region around a magnet where its force can be experienced. If you place a small compass anywhere inside this region, the needle will align itself along the field direction.
+
+  To help us visualise this invisible field, scientists use imaginary lines called magnetic field lines or ਬਲ ਰੇਖਾਵਾਂ. There are four key properties you must know.
+
+  Property one: Field lines are closed, continuous curves. They form complete loops — they never simply start and stop in mid-air.
+
+  Property two: Field lines never intersect each other. This is extremely important. If two lines crossed, it would mean the magnetic force at that point has two different directions simultaneously — which is physically impossible.
+
+  Property three: The closer the lines are to each other, the stronger the magnetic field at that point. At the poles of a magnet, the lines are very crowded — the field is strongest there. Far away from the magnet, the lines spread out — the field is weaker.
+
+  Property four: The direction of a field line is defined as the direction in which the north pole of a small compass needle would point if placed at that location.
+
+  Think of field lines like the contour lines on a map — they tell you not just where the field exists, but how strong it is and which way it points.
+
+KEY POINTS TO STRESS:
+  - Field lines are closed and continuous — always form complete loops
+  - Field lines NEVER cross each other
+  - Closer lines = stronger field; widely spaced lines = weaker field
+  - Direction is from North pole to South pole outside the magnet
+
+BOARD TIP: "Field lines never intersect" is a very frequent 1-mark or reason-based question — always explain WHY (two directions at one point is impossible).
+
+========================================================================
+SLIDE 6: Field Lines of a Bar Magnet
+========================================================================
+
+ON SCREEN:
+  - Diagram/description of field lines around a bar magnet
+  - Outside: lines run from North pole to South pole
+  - Inside: lines run from South to North (completing closed loops)
+  - Lines most crowded at the poles → strongest field there
+
+SCRIPT (say this aloud):
+  Let us look at the actual pattern of magnetic field lines around a bar magnet — this is what appears in textbook diagrams and in exam questions.
+
+  Outside the magnet, the field lines emerge from the North pole, arc through the surrounding space, and enter the South pole. So outside, the direction is always from North to South.
+
+  Inside the magnet, the lines continue from the South pole back to the North pole — this is what makes the loops closed and continuous. So inside the magnet, the direction is from South to North.
+
+  If you trace a single field line, it makes a complete oval loop: coming out of the North pole, curving around the outside, entering the South pole, travelling through the magnet from South to North, and emerging from the North pole again. It is a perfectly closed circuit — just like current flowing in a loop.
+
+  Now look at the poles in your mind. At the North and South poles, many field lines crowd close together in a small area. That crowding tells you the field is very strong there. Move to the middle of the magnet — the lines are more spread out — the field is weaker there.
+
+  This diagram is something you should be able to draw from memory. Practice drawing it: a rectangular bar, the word NORTH on the left end, SOUTH on the right end, and curved lines arcing from N to S outside, and a straight arrow inside going from S to N.
+
+KEY POINTS TO STRESS:
+  - Outside bar magnet: field lines go North → South
+  - Inside bar magnet: field lines go South → North (completing closed loops)
+  - Poles have the strongest field (lines most crowded)
+  - Be able to draw and label a bar magnet field line diagram
+
+BOARD TIP: Drawing the field lines diagram is a common 3-mark question — label N, S poles and show at least 3–4 closed loops with correct arrows.
+
+========================================================================
+SLIDE 7: Oersted's Experiment
+========================================================================
+
+ON SCREEN:
+  - Statement of Oersted's discovery: compass needle deflects near a current-carrying wire
+  - Sub-heading "Properties of Field Lines (3-Mark Rule)" with three bullets:
+    1. Field lines emerge from North, merge at South (outside)
+    2. Inside magnet, direction is South to North (closed loops)
+    3. Relative strength shown by closeness of lines
+
+SCRIPT (say this aloud):
+  This slide consolidates Oersted's experiment and the three field-line properties that are almost always asked together for a 3-mark question. Let me teach both clearly.
+
+  Hans Christian Oersted's experiment was simple but revolutionary. He placed a compass needle near a straight conducting wire. When no current flowed, the needle pointed north as usual. The moment he switched on the current, the needle deflected — it turned sideways. When he reversed the direction of the current, the needle deflected the other way. When he switched the current off, the needle returned to north.
+
+  The conclusion: a current-carrying conductor produces a magnetic field around it. The direction of this field depends on the direction of the current. This was the first experimental proof that electricity and magnetism are related.
+
+  Now, the three field-line properties labelled "3-Mark Rule" — memorise all three together as a set:
+
+  One — Field lines emerge from the North pole and merge at the South pole when you are looking outside the magnet. They leave North, they enter South.
+
+  Two — Inside the magnet, the direction is reversed: from South to North. This keeps the lines as closed continuous loops.
+
+  Three — The relative strength of the magnetic field is shown by how close the field lines are to each other. Close lines mean a strong field; widely spaced lines mean a weak field.
+
+  If an exam question says "State three properties of magnetic field lines" — give exactly these three, clearly and in order.
+
+KEY POINTS TO STRESS:
+  - Oersted: current in wire → deflection of compass → magnetic field around the wire
+  - Reversing current reverses the deflection direction
+  - 3-mark field line properties: North→South outside; South→North inside; closeness = strength
+  - Oersted's experiment is the foundation of the entire chapter
+
+BOARD TIP: "Describe Oersted's experiment" is a very frequent 3-mark question. Include: setup (compass near wire), observation (needle deflects), conclusion (current produces magnetic field), and effect of reversing current.
+
+========================================================================
+SLIDE 8: Spot-the-Error Inspector (ਗਲਤੀ ਲੱਭੋ) — Interactive Activity
+========================================================================
+
+ON SCREEN:
+  - Interactive activity: a diagram showing two magnetic field lines that intersect
+  - Students must identify and tap the error
+  - Corrected explanation shown after: "Magnetic field lines CANNOT intersect."
+
+SCRIPT (say this aloud):
+  This is a quick activity to test whether you have truly understood the rule about field lines. I want you to look at the diagram on screen.
+
+  You will see two field lines — let us call them Line A and Line B. Line B has been drawn so that it crosses Line A. This is the error you need to find.
+
+  Why is this wrong? Here is the physics reasoning you must be able to state in an exam:
+
+  A magnetic field line represents the direction of the magnetic force at every point along it. If two lines were to cross at a single point, it would mean that the magnetic force at that point has two different directions at the same time. That is physically impossible — a force can only point in one direction at any given point.
+
+  Therefore, magnetic field lines can NEVER intersect, cross, or touch each other.
+
+  For the teacher running this activity: ask students to identify the crossing point before tapping. Then ask them to explain in their own words WHY the intersection is impossible. This reason-based explanation is exactly what PSEB examiners want in a "give reasons" type question.
+
+KEY POINTS TO STRESS:
+  - Field lines NEVER intersect — this is an absolute rule
+  - Reason: at a crossing point, force would have two directions simultaneously — impossible
+  - This is often tested as a "give reason" question in board exams
+
+BOARD TIP: When asked "Why can't field lines intersect?", always include the phrase "…because at the point of intersection, the compass needle would have to point in two directions simultaneously, which is impossible."
+
+========================================================================
+SLIDE 9: Field Patterns & Hand Rules
+========================================================================
+
+ON SCREEN:
+  - Two sub-sections:
+    Straight Wire: field forms concentric circles; Right-Hand Thumb Rule
+    Circular Loop: field lines become straight and parallel at the centre
+
+SCRIPT (say this aloud):
+  Now we move to one of the most important practical sections: how current in different shapes of wire produces different magnetic field patterns, and how we determine the direction of those fields using hand rules.
+
+  Let us start with a straight wire. When current flows through a straight conducting wire, the magnetic field lines form concentric circles — perfectly round rings that are centred on the wire. Imagine looking at the wire end-on, and seeing rings spreading outward like ripples in water from a stone dropped in a pond. The rings closest to the wire are small and crowded — strong field. The rings farther out are larger and spread apart — weaker field.
+
+  To find which direction those circles go, we use the Right-Hand Thumb Rule. Here is how to do it: Take your right hand. Point your thumb in the direction of the conventional current — that is, the direction positive charge flows. Now curl your four fingers around the wire. The direction in which your fingers curl is the direction of the magnetic field around the wire. If the current flows upward, your fingers curl anticlockwise when viewed from above.
+
+  Now for a circular loop of wire. When current flows in a circular loop, the field inside the loop is different from a straight wire. At the very centre of the loop, all the small circular field contributions from every part of the wire add up in the same direction. So the field lines at the centre become nearly straight and parallel — similar to the inside of a solenoid. The centre of the loop behaves like a tiny bar magnet.
+
+  One face of the loop acts as a North pole and the other as a South pole — we will learn the Clock-Face Rule for this on the next slide.
+
+KEY POINTS TO STRESS:
+  - Straight wire → concentric circular field lines
+  - Right-Hand Thumb Rule: thumb = current direction, curled fingers = field direction
+  - Circular loop → field lines straight and parallel at the centre
+  - The centre of a current loop has a uniform, perpendicular field
+
+BOARD TIP: Right-Hand Thumb Rule is a guaranteed 2-mark question — be able to state it AND draw the setup with arrows.
+
+========================================================================
+SLIDE 10: Field due to a Straight Conductor
+========================================================================
+
+ON SCREEN:
+  - A straight current-carrying conductor produces concentric circular field lines
+  - Three factors:
+    1. Field strength increases with more current
+    2. Field strength decreases with distance from wire
+    3. Direction found using Right-Hand Thumb Rule
+
+SCRIPT (say this aloud):
+  Let us go deeper into the magnetic field around a straight conductor. We already know the shape — concentric circles. Now let us understand what controls the strength and direction of this field.
+
+  Factor one: the current. If you increase the current flowing through the wire — for example, by using a stronger battery — the magnetic field gets stronger. More current means more magnetic effect. This is a direct relationship.
+
+  Factor two: the distance. As you move farther away from the wire, the field becomes weaker. The field circles spread out as you go farther from the wire, just like the ripples from a stone in water weaken as they travel outward. So the field strength is inversely related to the distance from the wire.
+
+  Factor three: the direction. We use the Right-Hand Thumb Rule to find the direction. Let me describe it again very clearly for this context. Hold your right hand with the thumb pointing upward — this represents current flowing upward in the wire. Your four fingers, curled around the imaginary wire, will curl in the anticlockwise direction when viewed from the top. That anticlockwise curl is the direction of the field lines around the wire. If you reverse the current — thumb pointing downward — the fingers curl clockwise. The current direction controls the field direction.
+
+  This is also why Oersted saw the compass needle deflect in opposite directions when he reversed the current — the magnetic field itself reversed direction.
+
+KEY POINTS TO STRESS:
+  - Field strength ∝ current (more current = stronger field)
+  - Field strength decreases as distance from wire increases
+  - Right-Hand Thumb Rule gives the direction of the circular field
+  - Reversing current reverses field direction
+
+BOARD TIP: A common question: "What happens to the magnetic field if the current is doubled?" Answer: the field strength doubles. Strength is directly proportional to current.
+
+========================================================================
+SLIDE 11: Field due to a Circular Loop
+========================================================================
+
+ON SCREEN:
+  - Every part of the loop contributes to the field at the centre in the same direction
+  - Field lines at the centre: nearly straight and perpendicular to the plane of the loop
+  - Clock-Face Rule: anticlockwise current = North pole; clockwise current = South pole
+
+SCRIPT (say this aloud):
+  When a wire is bent into a circular loop and current flows through it, the magnetic field at the centre of that loop is very special.
+
+  Think of it this way. Every small segment of the circular wire is itself a tiny straight wire, and each tiny straight wire produces a small curved magnetic field. Now, because the wire curves all the way around in a circle, every one of those tiny field contributions at the centre happens to point in the same direction — they all add up, rather than cancelling out. The result is that the field at the very centre of the loop is strong, and the field lines there are nearly straight lines, running perpendicular to the plane of the loop.
+
+  This is important: the number of turns matters. If you have a coil with ten loops instead of one, ten times more field is produced at the centre. This is the key idea behind the solenoid.
+
+  Now, the Clock-Face Rule. This tells you which face of the circular loop acts as the North pole and which as the South pole.
+
+  Look at the face of the loop from the front. If the current flows anticlockwise — like the hands of a clock going backwards — that face acts as a North pole. Think of it as "N for anticlockwise" — or a mnemonic: Anticlockwise = North.
+
+  If the current flows clockwise — like normal clock hands — that face acts as a South pole. Clockwise = South.
+
+  This makes sense: the loop behaves exactly like a small bar magnet, with one face as North and the other as South.
+
+KEY POINTS TO STRESS:
+  - At the centre of a loop, field lines are straight and perpendicular to the loop's plane
+  - More turns of wire = stronger field at the centre
+  - Clock-Face Rule: Anticlockwise current = North pole; Clockwise current = South pole
+  - A current loop behaves like a flat bar magnet
+
+BOARD TIP: The Clock-Face Rule is tested frequently. Draw a circle, mark anticlockwise arrows, and label it "North face." Draw another with clockwise arrows labelled "South face."
+
+========================================================================
+SLIDE 12: Solenoids & Electromagnets
+========================================================================
+
+ON SCREEN:
+  - Definition of solenoid: many circular turns of insulated copper wire
+  - Inside solenoid: field lines are parallel straight lines → uniform field
+  - Electromagnet: place a soft iron core inside the coil → powerful temporary magnet
+
+SCRIPT (say this aloud):
+  A solenoid — ਸੋਲੇਨੋਇਡ — is one of the most important devices in this chapter. Let me describe it carefully.
+
+  A solenoid is made by winding insulated copper wire into many, many circular turns, one after another, along the same axis. The turns are tightly wound and close together. From the outside it looks like a coil, or a wire spring.
+
+  Now here is what makes it special. When current flows through the solenoid, every individual turn of wire acts like a circular loop and produces its own small magnetic field. Because all the turns are wound in the same direction and carry current in the same direction, all their fields add up together. The result inside the solenoid is remarkable: the field lines are perfectly straight and parallel to the axis of the coil. This means the magnetic field inside a solenoid is uniform — same strength and same direction everywhere inside. This is the same property that a perfectly uniform bar magnet would have inside it.
+
+  In fact, the solenoid behaves exactly like a bar magnet from the outside too. One end is the North pole, the other end is the South pole, and the field lines emerge from North, arc around the outside, and re-enter at South — forming closed loops.
+
+  Now, if you want to make this field even stronger, you place a piece of soft iron inside the coil. The solenoid's field magnetises the soft iron, and the iron's own magnetic field adds to the solenoid's field. The result is a very powerful magnet — called an electromagnet (ਬਿਜਲਈ ਚੁੰਬਕ). The beauty is that the moment you switch off the current, the soft iron loses its magnetism. The electromagnet can be turned on and off at will. This makes it perfect for devices like electromagnetic cranes, electric bells, and MRI machines.
+
+KEY POINTS TO STRESS:
+  - Solenoid = tightly wound coil of many turns of insulated copper wire
+  - Inside solenoid: field is uniform (parallel straight lines)
+  - Solenoid ends behave like N and S poles of a bar magnet
+  - Soft iron core + solenoid = electromagnet (temporary, controllable, powerful)
+
+BOARD TIP: "Why is the field inside a solenoid said to be uniform?" is a 2-mark question. Answer: the field lines are parallel and equidistant, meaning the field has the same strength and direction at every point inside.
+
+========================================================================
+SLIDE 13: Force on a Conductor & Fleming's Left-Hand Rule
+========================================================================
+
+ON SCREEN:
+  - A current-carrying wire in an external magnetic field experiences a physical force
+  - This force is the basis of electric motors
+  - Warning: force is maximum when wire ⊥ field (90°); force is zero when wire ∥ field
+  - Fleming's Left-Hand Rule: Forefinger = Field, Centre finger = Current, Thumb = Thrust/Force
+
+SCRIPT (say this aloud):
+  This slide introduces one of the most important board exam topics: the force on a current-carrying conductor in a magnetic field, and Fleming's Left-Hand Rule.
+
+  When a wire carrying current is placed inside an external magnetic field, the wire experiences a physical mechanical force — it actually gets pushed. This pushing force is what makes electric motors spin. So the principle here is: magnetic field plus current equals force.
+
+  Before we learn the rule, note this critical warning. The force is maximum when the wire is placed perpendicular to the magnetic field — at 90 degrees. If you tilt the wire and make it parallel to the field — at 0 degrees — the force becomes zero. There is no force at all on a wire running parallel to the field. This is a very common board exam trap. Remember: perpendicular = maximum force; parallel = zero force.
+
+  Now, Fleming's Left-Hand Rule tells us the direction of this force.
+
+  Here is how to use it: Take your LEFT hand. Stretch out your thumb, your forefinger, and your middle finger so that all three are at right angles to each other — each one pointing in a different direction, like the three edges of a corner of a box.
+
+  Now assign: the Forefinger points in the direction of the magnetic Field. The middle Finger points in the direction of the Current. The Thumb points in the direction of the Thrust — the force or motion of the wire.
+
+  A simple memory trick: FBI — Forefinger = Field, B = well, we use the middle finger for current (I), and Thumb = motion. Or remember: "Father, Child, Move" — Forefinger=Field, Centre=Current, Thumb=Motion.
+
+  This rule is used whenever you need to find the direction of force on a conductor — in other words, whenever you are dealing with an electric motor.
+
+KEY POINTS TO STRESS:
+  - Current in external magnetic field → force on the wire (basis of electric motors)
+  - Force maximum at 90° (perpendicular); Force = zero at 0° (parallel)
+  - Fleming's Left-Hand Rule: Forefinger = Field, Middle finger = Current, Thumb = Thrust
+  - Left-Hand Rule is always for motors (finding force/motion)
+
+BOARD TIP: This is a guaranteed 3-mark question: "State Fleming's Left-Hand Rule and draw a diagram." Practice pointing your LEFT hand with all three fingers extended mutually at right angles.
+
+========================================================================
+SLIDE 14: Electromagnet vs Permanent Magnet
+========================================================================
+
+ON SCREEN:
+  - Comparison table:
+    | Feature       | Electromagnet              | Permanent Magnet |
+    | Magnetism     | Temporary (needs current)  | Permanent        |
+    | Strength      | Strong & adjustable        | Fixed            |
+    | Core used     | Soft iron                  | Steel            |
+
+SCRIPT (say this aloud):
+  Students, this comparison table is a classic board exam question — typically asked for 3 marks. Let me walk through each row carefully so you understand not just what to write, but why.
+
+  Row one: Magnetism. An electromagnet's magnetism is temporary. It exists only as long as current flows through the coil. Switch off the current and the magnetism vanishes. A permanent magnet, on the other hand, retains its magnetism without any power supply — it is always on.
+
+  Row two: Strength. An electromagnet can be made very strong — much stronger than most permanent magnets — by increasing the current or adding more turns to the coil. Crucially, its strength can be adjusted. A permanent magnet has a fixed strength that you cannot change.
+
+  Row three: The core. An electromagnet uses a soft iron core. Why soft iron? Because soft iron is easily magnetised and easily demagnetised. When you switch on the current, it quickly becomes a strong magnet. When you switch off the current, it quickly loses its magnetism. Steel, by contrast, is hard to magnetise but once magnetised, it stays magnetised — that is why steel is used for permanent magnets.
+
+  So in summary: electromagnets are temporary, adjustable, and use soft iron. Permanent magnets are always on, fixed in strength, and made with steel.
+
+  Real-life usage: Electromagnets are used in electric bells, cranes, speakers, and MRI machines where you need controllable magnetism. Permanent magnets are used in compasses, fridge magnets, and loudspeaker drivers where constant magnetism is needed without power.
+
+KEY POINTS TO STRESS:
+  - Electromagnet: temporary, adjustable strength, soft iron core
+  - Permanent magnet: always magnetised, fixed strength, steel core
+  - Soft iron is easy to magnetise AND demagnetise (ideal for electromagnets)
+  - Steel is hard to demagnetise (ideal for permanent magnets)
+
+BOARD TIP: This comparison table is asked almost every year for 3 marks. Write all three rows with both columns clearly filled in — partial answers lose marks.
+
+========================================================================
+SLIDE 15: Electric Motor
+========================================================================
+
+ON SCREEN:
+  - Definition: converts electrical energy → mechanical (rotational) energy
+  - Table of parts and functions:
+    | Part                     | Function                                                      |
+    | Armature coil            | Rotates inside the magnetic field                             |
+    | Split-ring commutator    | Reverses current every half turn to keep rotation continuous  |
+    | Brushes                  | Carry current between the coil and the battery               |
+
+SCRIPT (say this aloud):
+  The electric motor is one of the most important applications in this chapter. Let us understand exactly how it works and what each part does.
+
+  An electric motor converts electrical energy into mechanical energy — specifically rotational mechanical energy. The motor takes current from a power supply and uses it to make a coil rotate. That rotation can then drive a fan blade, pump water, or spin a machine.
+
+  The key principle: a current-carrying coil placed in an external magnetic field experiences forces. As we learned from Fleming's Left-Hand Rule, the two sides of the coil feel forces in opposite directions, which creates a turning effect — a torque — that rotates the coil.
+
+  Now the three main parts:
+
+  The Armature Coil: This is the rectangular coil of wire that sits between the poles of a magnet. The current flows through this coil, and the magnetic force acts on it, causing it to rotate. This is the "rotor" — the part that actually moves.
+
+  The Split-Ring Commutator: This is the clever part that solves a big problem. Without it, the coil would rotate half a turn and then stop — because the force direction would reverse and push it back. The split-ring commutator is a ring divided into two halves, connected to the two ends of the coil. Every half turn, the connection swaps — so the current direction in the coil reverses every half turn. This keeps the force always pushing in the same rotational direction, so the coil keeps spinning continuously in one direction.
+
+  The Brushes: These are fixed pieces of conducting material — often carbon — that press against the split ring and maintain electrical contact between the rotating coil and the stationary external circuit (the battery). They allow current to flow into and out of the rotating coil without any wires getting tangled.
+
+KEY POINTS TO STRESS:
+  - Electric motor: Electrical energy → Mechanical (rotational) energy
+  - Armature coil rotates in the magnetic field
+  - Split-ring commutator reverses current every half turn → keeps rotation continuous
+  - Brushes maintain electrical contact between rotating coil and external circuit
+
+BOARD TIP: "What is the function of the split-ring commutator?" is a very common 2-mark question. Answer: it reverses the direction of current in the armature coil every half rotation, ensuring the coil keeps rotating in the same direction continuously.
+
+========================================================================
+SLIDE 16: Electromagnetic Induction
+========================================================================
+
+ON SCREEN:
+  - Faraday's discovery: changing magnetic field through a coil induces a current
+  - Moving magnet into or out of a coil deflects a galvanometer
+  - Faster movement → larger induced current
+  - Fleming's Right-Hand Rule: Thumb = motion, Forefinger = field, Middle finger = induced current
+
+SCRIPT (say this aloud):
+  Electromagnetic induction is one of the greatest discoveries in the history of science. It was discovered by Michael Faraday in 1831, and it is the principle that makes electric generators — and therefore all the electricity in our homes — possible.
+
+  The key idea is this: a changing magnetic field through a coil of wire induces — ਪ੍ਰੇਰਿਤ ਕਰਦਾ ਹੈ — that is, produces a current in the coil, even without any battery. You do not need to connect any external power source. The changing magnetism alone creates the current.
+
+  Faraday demonstrated this with a simple experiment. He took a coil connected to a galvanometer — a sensitive current detector. When he pushed a magnet into the coil, the galvanometer needle deflected — current was flowing. When the magnet was still inside the coil and not moving, the needle returned to zero — no current. When he pulled the magnet out, the needle deflected again, but in the opposite direction. The current only flows when the magnetic field is changing.
+
+  Two important results: If you move the magnet faster, the induced current is larger — the galvanometer deflects more. If you use a stronger magnet, the induced current is also larger. Both speed and field strength affect the magnitude of the induced current.
+
+  Now, to find the direction of the induced current, we use Fleming's Right-Hand Rule. Take your RIGHT hand — note, this time it is the right hand, unlike the left hand for motors. Stretch the thumb, forefinger, and middle finger mutually at right angles. The Thumb points in the direction of motion of the conductor. The Forefinger points in the direction of the magnetic Field. The Middle finger points in the direction of the induced Current. This rule is used in generators.
+
+KEY POINTS TO STRESS:
+  - Electromagnetic induction: changing magnetic field through a coil → induced current
+  - Current flows only when the field is changing (moving magnet); stationary magnet = no current
+  - Faster motion or stronger magnet → larger induced current
+  - Fleming's Right-Hand Rule (for generators): Thumb = Motion, Forefinger = Field, Middle = induced Current
+
+BOARD TIP: Be clear on who discovered what: Oersted discovered current produces magnetism; Faraday discovered changing magnetism produces current. Mixing these up is a common exam mistake.
+
+========================================================================
+SLIDE 17: Fleming's Left-Hand vs Right-Hand Rule
+========================================================================
+
+ON SCREEN:
+  - Comparison table:
+    | Feature     | Left-Hand Rule             | Right-Hand Rule                  |
+    | Used in     | Electric motor             | Electric generator               |
+    | Finds       | Direction of force/motion  | Direction of induced current     |
+    | You are given | Current & field          | Motion & field                   |
+
+SCRIPT (say this aloud):
+  Students, this comparison is one of the most commonly tested distinctions in this chapter. Many students mix up which hand to use when. Let me make this crystal clear.
+
+  Both rules use the same physical setup: thumb, forefinger, and middle finger stretched mutually at right angles. The difference is which hand, what each finger represents, and when you apply it.
+
+  Left-Hand Rule: This is for the electric motor. You use it when current is already flowing in a wire and you want to find the direction of the force or motion produced. So you are given: the direction of the current and the direction of the magnetic field. What you find: the direction of the mechanical force.
+
+  Right-Hand Rule: This is for the electric generator. You use it when a conductor is moving in a magnetic field and you want to find the direction of the induced current. So you are given: the direction of motion and the direction of the magnetic field. What you find: the direction of the induced current.
+
+  Here is a brilliant way to remember: L for Left, L for (motor that produces) Load movement. R for Right, R for (generator that produces) Result — the induced current.
+
+  Another memory hook: Left = motor = Left hand = you use your muscles to work (motor does mechanical work). Right = generator = Right hand = you are generating something new (a current).
+
+  Read the table on screen one more time and commit the three rows to memory. In the exam, if you state the wrong hand, you lose all the marks for that question.
+
+KEY POINTS TO STRESS:
+  - Left-Hand Rule → Electric Motor → finds force/motion direction
+  - Right-Hand Rule → Electric Generator → finds induced current direction
+  - Left-Hand: given Current & Field; Right-Hand: given Motion & Field
+  - Never mix up the hands — it is a very common and costly mistake
+
+BOARD TIP: Memory trick: "Motor = Left hand = work is done ON the conductor; Generator = Right hand = work is done BY the conductor to generate current."
+
+========================================================================
+SLIDE 18: Electric Generator (Dynamo)
+========================================================================
+
+ON SCREEN:
+  - Definition: converts mechanical energy → electrical energy via electromagnetic induction
+  - Comparison table:
+    | Feature     | AC Generator        | DC Generator              |
+    | Rings used  | Two slip rings      | Split-ring commutator     |
+    | Output      | Alternating current | Direct current            |
+
+SCRIPT (say this aloud):
+  The electric generator is the opposite of the motor: where the motor converts electrical energy to mechanical energy, the generator converts mechanical energy to electrical energy. It is the device that produces the electricity used in our homes.
+
+  The working principle is electromagnetic induction. A coil of wire is rotated inside a magnetic field. As the coil rotates, the magnetic flux through it keeps changing — this changing flux induces a current in the coil. The mechanical work of rotating the coil is being converted into electrical energy.
+
+  Now, there are two types of generators, and the difference lies in how the electrical output is taken from the rotating coil.
+
+  An AC Generator uses two slip rings — one connected to each end of the coil. As the coil rotates, each brush always contacts the same slip ring, so the output current direction follows the rotation of the coil — it alternates, flowing in one direction during the first half turn and the opposite direction during the second half turn. This gives Alternating Current — AC.
+
+  A DC Generator uses a split-ring commutator — the same device used in the DC motor. As the coil rotates, the commutator swaps the connections every half turn, ensuring the current always flows in the same direction in the external circuit. This gives Direct Current — DC.
+
+  Most power stations use AC generators. The electricity that comes to your home through the mains supply is AC at 220 volts and 50 Hz frequency.
+
+KEY POINTS TO STRESS:
+  - Generator: Mechanical energy → Electrical energy (opposite of motor)
+  - Principle: electromagnetic induction (rotating coil in magnetic field)
+  - AC generator: two slip rings → alternating current output
+  - DC generator: split-ring commutator → direct current output
+
+BOARD TIP: The difference between slip rings and split-ring commutator is a guaranteed question. Slip rings → AC; Split-ring commutator → DC. This appears in both motors and generators.
+
+========================================================================
+SLIDE 19: Sort It — Motor vs Generator (Interactive Activity)
+========================================================================
+
+ON SCREEN:
+  - Interactive sorting activity: students click each property and assign it to Motor or Generator
+  - Properties listed:
+    Electrical → mechanical energy
+    Mechanical → electrical energy
+    Works on magnetic force on current
+    Works on electromagnetic induction
+    Uses Fleming's Left-hand rule
+    Uses Fleming's Right-hand rule
+  - Two bins: ⚙ Electric Motor and 🔌 Electric Generator
+
+SCRIPT (say this aloud):
+  Now we have a sorting activity to consolidate everything we have learned about motors and generators. This is excellent exam preparation, because the board frequently asks questions comparing these two devices.
+
+  Let me walk you through how to approach this activity.
+
+  Read each property on the left side one at a time. Before clicking, ask yourself: does this property describe a motor or a generator? Then drag or click it to the correct bin.
+
+  Let us go through all six properties as a class:
+
+  "Electrical → mechanical energy" — this is the motor. A motor takes electrical energy and converts it to mechanical rotation.
+
+  "Mechanical → electrical energy" — this is the generator. It takes mechanical energy (rotating a coil) and produces electricity.
+
+  "Works on magnetic force on current" — this is the motor. The motor works because a current-carrying conductor in a magnetic field experiences a force (Fleming's Left-Hand Rule).
+
+  "Works on electromagnetic induction" — this is the generator. The generator works because electromagnetic induction produces current in a rotating coil.
+
+  "Uses Fleming's Left-hand rule" — this is the motor. The left-hand rule finds the direction of force on the current.
+
+  "Uses Fleming's Right-hand rule" — this is the generator. The right-hand rule finds the direction of the induced current.
+
+  Can everyone complete this correctly? If you got all six right — ਸ਼ਾਬਾਸ਼, well done! If you missed one or two, review the previous two slides and try again. These six pairs are your complete motor-vs-generator summary.
+
+KEY POINTS TO STRESS:
+  - Motor: electrical→mechanical, force on current, Left-Hand Rule
+  - Generator: mechanical→electrical, electromagnetic induction, Right-Hand Rule
+  - Knowing the correct pairing for all three aspects (energy, principle, rule) is essential
+
+BOARD TIP: In the board exam, a single question may ask you to compare a motor and a generator on multiple points — having all six of these sorted clearly will let you answer completely.
+
+========================================================================
+SLIDE 20: AC vs DC — The Difference
+========================================================================
+
+ON SCREEN:
+  - Comparison table:
+    | Feature    | AC                                    | DC                       |
+    | Direction  | Reverses periodically                 | One direction only       |
+    | In India   | Changes 50 times/second (50 Hz)       | Constant                 |
+    | Source     | Generators, mains supply              | Cells, batteries         |
+  - Explanation: AC is used for long-distance transmission because voltage can be changed using transformers
+
+SCRIPT (say this aloud):
+  This slide explains the fundamental difference between two types of electric current: Alternating Current (AC) and Direct Current (DC).
+
+  Direct Current — DC — flows in one direction only and stays constant. The current from a battery or a cell is DC. The electrons flow continuously from the negative terminal to the positive terminal around the circuit. The graph of DC against time is a flat horizontal line.
+
+  Alternating Current — AC — reverses its direction periodically. The current flows in one direction, then reverses and flows in the other direction, then reverses again, and so on. In India, the mains supply AC reverses direction 50 times per second — that is what we mean by 50 Hz (50 hertz). The graph of AC against time is a wave — a sine wave that goes up, comes down, crosses zero, goes negative, and comes back up, repeatedly.
+
+  Sources: AC is produced by generators and is what comes out of the wall sockets in your home. DC is produced by cells and batteries.
+
+  Now, a very important question: why do we use AC for the domestic supply rather than DC? The answer is transmission efficiency. AC voltage can be very easily increased (stepped up) or decreased (stepped down) using a device called a transformer. By stepping up the voltage to very high levels, the current becomes very small, which means very little energy is lost as heat in the transmission wires over long distances. This makes AC much more economical than DC for sending power from a power station to your home.
+
+KEY POINTS TO STRESS:
+  - DC: constant, one direction — from batteries/cells
+  - AC: periodically reverses direction — from generators/mains
+  - Indian mains supply: AC at 220 V, 50 Hz
+  - AC is preferred for long-distance power transmission because transformers can change its voltage
+
+BOARD TIP: "Why is AC preferred over DC for long-distance transmission?" is a frequent 2-mark question. Answer must mention: transformers can change AC voltage; higher voltage means lower current; lower current means less energy loss (heating) in wires.
+
+========================================================================
+SLIDE 21: Domestic Safety Hazards (ਘਰੇਲੂ ਸੁਰੱਖਿਆ ਖ਼ਤਰੇ)
+========================================================================
+
+ON SCREEN:
+  - Home receives AC at 220 V
+  - Comparison table of two hazards:
+    | Short Circuiting (ਸ਼ਾਰਟ ਸਰਕਟ)                               | Overloading (ਓਵਰਲੋਡਿੰਗ)                                         |
+    | Live wire touches Neutral wire directly (insulation melted)  | Too many high-power appliances on one socket                     |
+    | Resistance ≈ 0; massive immediate current spike              | Total current exceeds wire capacity; wires overheat slowly       |
+
+SCRIPT (say this aloud):
+  Now we come to domestic electrical safety — a very practical and important topic that is also well-tested in board exams.
+
+  Your home's mains supply is Alternating Current at 220 volts. This is powerful enough to cause serious injury or death if something goes wrong. There are two main electrical hazards you must understand: Short Circuiting and Overloading.
+
+  Short Circuiting — ਸ਼ਾਰਟ ਸਰਕਟ. This happens when the Live wire and the Neutral wire come into direct contact with each other, without any resistance in between. How does this happen? The plastic insulation around a wire can melt due to heat — perhaps from a previous overload — or it can be damaged mechanically. When the insulation is gone, the bare live wire can touch the bare neutral wire. The result is catastrophic: the resistance of the circuit drops almost to zero. From Ohm's Law, if resistance approaches zero, the current becomes enormous — a massive spike in a fraction of a second. This extreme current can instantly start a fire, melt wires, and damage appliances.
+
+  Overloading — ਓਵਰਲੋਡਿੰਗ. This is a more gradual problem. It happens when you connect too many high-power appliances — like a heater, air conditioner, microwave, and iron — all to the same circuit or socket. Each appliance draws current. When too many appliances are on simultaneously, the total current drawn exceeds the safe capacity of the household wiring. The wires cannot carry so much current and begin to heat up — not as explosively as a short circuit, but slowly and dangerously. Over time, this overheating can melt insulation and eventually cause a fire.
+
+  Understanding these two hazards helps you understand why we need fuses and earthing, which we cover on the next slide.
+
+KEY POINTS TO STRESS:
+  - Home supply: AC at 220 V
+  - Short circuit: live and neutral wires touch → resistance ≈ 0 → massive current spike → fire hazard
+  - Overloading: too many appliances → total current exceeds wire capacity → wires overheat gradually
+  - Short circuit is sudden; overloading is gradual — both are dangerous
+
+BOARD TIP: Students often confuse short circuit and overloading. Remember: Short circuit = low resistance problem; Overloading = high total current problem. A 3-mark question may ask you to compare both — include cause, effect, and how it differs from the other.
+
+========================================================================
+SLIDE 22: Domestic Electric Circuit
+========================================================================
+
+ON SCREEN:
+  - Power reaches homes through three wires:
+    | Wire    | Insulation colour  | Role                          |
+    | Live    | Red / Brown        | Carries current (high potential)|
+    | Neutral | Black / Blue       | Return path for current       |
+    | Earth   | Green              | Safety — connects to ground   |
+
+SCRIPT (say this aloud):
+  Every house is connected to the electricity supply through three distinct wires, each with a specific colour and a specific purpose. You must be able to state all three from memory — this is a standard board exam question.
+
+  The Live Wire — ਲਾਈਵ ਤਾਰ — is coloured Red or Brown. This is the dangerous wire. It is at a high electrical potential and it carries the current from the power supply to your appliances. Under no circumstances should you touch this wire without switching off the main circuit breaker. In the circuit, the fuse is always connected in series in the live wire — this is critical and we will revisit it on the next slide.
+
+  The Neutral Wire — is coloured Black or Blue. This wire is at zero potential, or close to it. It provides the return path for the current — the current flows out of the supply through the live wire, through the appliance, and returns to the supply through the neutral wire. By itself, the neutral wire is relatively safe, but it should still not be handled carelessly.
+
+  The Earth Wire — is coloured Green. This is the safety wire. It connects the metal bodies or casings of electrical appliances to the actual earth — the ground outside. Under normal operation, no current flows through the earth wire. It only carries current if something goes wrong — if there is a fault and the metal casing becomes live. The earth wire provides a low-resistance path for fault current to flow safely into the ground, preventing you from getting an electric shock when you touch the appliance.
+
+  Memorise: Red/Brown = Live (dangerous). Black/Blue = Neutral (return path). Green = Earth (safety).
+
+KEY POINTS TO STRESS:
+  - Live wire: Red/Brown — carries current at high potential — dangerous
+  - Neutral wire: Black/Blue — return path at zero potential
+  - Earth wire: Green — safety wire, directs fault current to ground
+  - These three wire colours must be memorised for the board exam
+
+BOARD TIP: "State the colour and function of each wire in domestic wiring" is a guaranteed 3-mark question — one mark per wire; include both colour AND function for each.
+
+========================================================================
+SLIDE 23: Earthing & the Fuse
+========================================================================
+
+ON SCREEN:
+  - Earthing: metal body of appliance connected to earth wire → leaked current flows to ground → prevents electric shocks
+  - Fuse: thin wire of low melting point in the live wire → melts when current exceeds safe value → breaks circuit
+
+SCRIPT (say this aloud):
+  This slide focuses on the two most important safety devices in your home's electrical system: earthing and the fuse.
+
+  Let us begin with Earthing — ਅਰਥਿੰਗ. Imagine you have a washing machine. Its outer casing is metal. Now suppose there is a fault inside the machine — perhaps the live wire has come loose and is touching the metal casing. The casing is now live at 220 volts. If you reach out and touch the machine, current will flow from the casing, through your body, to the ground. This is an electric shock — potentially fatal.
+
+  Earthing prevents this. The metal casing is connected by the green earth wire directly to the ground (to a buried metal plate or rod in the earth outside your house). If the casing becomes live due to a fault, the fault current now has two paths: through you, or through the earth wire. The earth wire has very low resistance — much lower than your body — so virtually all the fault current takes the earth wire path instead of going through you. The current safely drains into the ground and you are protected.
+
+  Now the Fuse — ਫਿਊਜ਼. A fuse is a short piece of thin wire made from a material with a low melting point — typically an alloy of tin and lead. It is placed in series in the live wire. Under normal operation, the current through the fuse is within the safe limit, and the fuse wire stays intact.
+
+  But if a short circuit occurs, the current suddenly shoots up to a dangerously high value. This massive current heats the fuse wire very rapidly. Because the fuse wire has a low melting point, it melts and physically breaks the circuit. The circuit is now open — no current can flow — and the appliance, the wiring, and anyone nearby is protected from the dangerous excess current.
+
+  Remember: the fuse must always be placed in the live wire, not in the neutral wire. If placed in the neutral wire, the circuit would still be connected to the live potential even after the fuse blows — dangerous.
+
+KEY POINTS TO STRESS:
+  - Earthing: connects appliance casing to ground → fault current flows to earth, not through you
+  - Fuse: low-melting-point wire in the LIVE wire → melts on excess current → breaks circuit
+  - Fuse is always in the live wire (never in neutral or earth)
+  - Both earthing and fuse work together — earthing protects you from shock; fuse protects wiring from fire
+
+BOARD TIP: "Why is the fuse always connected in the live wire?" is a 2-mark reason question — answer: to completely isolate the appliance from the high-potential supply when the fuse blows; placing it in the neutral wire would leave the appliance still connected to the live (dangerous) wire.
+
+========================================================================
+SLIDE 24: Match: Rules & Devices (Interactive Activity)
+========================================================================
+
+ON SCREEN:
+  - Matching activity: connect each device/concept to the correct rule/fact
+  - Left column: Electric motor, Electric generator, Straight-wire field, Electromagnet core
+  - Right column: Fleming's Left-Hand Rule, Soft iron, Fleming's Right-Hand Rule, Right-Hand Thumb Rule
+
+SCRIPT (say this aloud):
+  Excellent — this matching activity is a perfect revision exercise. Let me guide you through the correct answers first, and then explain the reasoning for each pair so that you truly understand, not just memorise.
+
+  Electric Motor matches with Fleming's Left-Hand Rule. The motor works because a current-carrying conductor in a magnetic field experiences a force, and we use the Left-Hand Rule to find the direction of that force.
+
+  Electric Generator matches with Fleming's Right-Hand Rule. The generator works on electromagnetic induction, producing an induced current, and we use the Right-Hand Rule to find the direction of that induced current.
+
+  Straight-wire field matches with the Right-Hand Thumb Rule. When current flows through a straight conductor, circular magnetic field lines are produced around it. The Right-Hand Thumb Rule — thumb = current direction, curled fingers = field direction — tells us the orientation of those circles.
+
+  Electromagnet core matches with Soft iron. The core of an electromagnet is always made from soft iron because soft iron is easily magnetised and easily demagnetised when the current is switched off.
+
+  For the activity: on your slide, click each item in the left column and drag it to its matching item in the right column. Check all four before submitting. Getting all four correct means you have a solid grasp of the rules and devices section of this chapter.
+
+KEY POINTS TO STRESS:
+  - Motor → Left-Hand Rule; Generator → Right-Hand Rule
+  - Straight wire field direction → Right-Hand Thumb Rule
+  - Electromagnet core → Soft iron (easily magnetised and demagnetised)
+
+========================================================================
+SLIDE 25: How an Electric Motor Rotates — Step-by-Step (Activity)
+========================================================================
+
+ON SCREEN:
+  - Four-step animated/reveal sequence:
+    Step 1: Current flows through the armature coil in a magnetic field
+    Step 2: Two sides of coil feel opposite forces (Fleming's LHR) → coil rotates
+    Step 3: After half a turn, the split-ring commutator reverses the current
+    Step 4: Force direction reverses → coil keeps spinning continuously in same direction
+
+SCRIPT (say this aloud):
+  Now let us trace through the operation of an electric motor step by step. This step-by-step breakdown is exactly what examiners want when they ask "Explain the working of an electric motor."
+
+  Step one: Current from the battery flows into the armature coil through the brushes and the split-ring commutator. The coil is placed between the North and South poles of a permanent magnet, so it is in an external magnetic field.
+
+  Step two: Now apply Fleming's Left-Hand Rule to each side of the coil. The two sides of the coil carry current in opposite directions — current flows one way along the left side, and the opposite way along the right side. Applying the Left-Hand Rule to each side separately shows that the force on the left side is upward, and the force on the right side is downward — or vice versa, depending on the current direction. These two forces act in opposite directions on opposite sides of the coil, creating a turning effect — a torque. The coil begins to rotate.
+
+  Step three: After the coil has rotated exactly half a turn, the two halves of the split-ring commutator swap their contact with the two brushes. This swapping automatically reverses the direction of the current flowing through the coil.
+
+  Step four: Because the current in the coil reversed, the force on each side of the coil also reverses — but at the same moment the coil has flipped to the opposite position. The net result is that the torque always acts in the same rotational direction. The coil continues to spin in the same direction, round and round, for as long as current flows.
+
+  This is how the beautiful continuous rotation of an electric motor is achieved. The split-ring commutator is the key clever component that makes continuous one-direction rotation possible.
+
+KEY POINTS TO STRESS:
+  - Four steps: current flows → opposite forces on coil sides → coil rotates → commutator reverses current → keeps rotating
+  - The split-ring commutator reverses current every half rotation to maintain continuous rotation
+  - Without the commutator, the motor would only turn half a revolution and stop
+  - All four steps together explain the "working of a DC motor"
+
+BOARD TIP: "Explain the working of a DC motor" is a 5-mark question. Cover all four steps in order; draw a labelled diagram showing coil, magnets, commutator, and brushes for full marks.
+
+========================================================================
+SLIDE 26: Practice — Fill the Blanks (Activity)
+========================================================================
+
+ON SCREEN:
+  - Fill-in-the-blank practice activity with five sentences:
+    1. Oersted showed that a current-carrying wire produces a _____ field.
+    2. Field lines can never _____.
+    3. An electric motor converts electrical energy into _____ energy.
+    4. A generator works on electromagnetic _____.
+    5. The fuse is always connected in the _____ wire.
+
+SCRIPT (say this aloud):
+  Now for a quick recall practice. I am going to read each sentence aloud and give you a moment to write the answer before I reveal it. Get your notebooks ready.
+
+  Sentence one: "Oersted showed that a current-carrying wire produces a _____ field." — The answer is: magnetic. Oersted proved that current creates a magnetic field.
+
+  Sentence two: "Field lines can never _____." — The answer is: intersect (or cross). This is the fundamental property — two field lines can never cross.
+
+  Sentence three: "An electric motor converts electrical energy into _____ energy." — The answer is: mechanical. Motor = electrical to mechanical.
+
+  Sentence four: "A generator works on electromagnetic _____." — The answer is: induction. The generator uses Faraday's principle of electromagnetic induction — a changing field induces a current.
+
+  Sentence five: "The fuse is always connected in the _____ wire." — The answer is: live. Never the neutral wire, never the earth wire — always the live wire.
+
+  Five simple sentences, five crucial facts. If you got all five correct without hesitation, you are well prepared for the objective and short-answer sections of your board exam. If any were uncertain, go back to the relevant slide and review.
+
+KEY POINTS TO STRESS:
+  - Oersted: current → magnetic field
+  - Field lines: never intersect
+  - Motor: electrical → mechanical
+  - Generator: electromagnetic induction
+  - Fuse: always in the live wire
+
+========================================================================
+SLIDE 27: Memorise This — Chapter Recap
+========================================================================
+
+ON SCREEN:
+  - Five key revision bullets:
+    1. Oersted: current → magnetism. Field lines never cross.
+    2. Straight wire → Right-Hand Thumb Rule; motor → Fleming's Left-Hand; generator → Fleming's Right-Hand
+    3. Motor: electrical → mechanical. Generator: mechanical → electrical.
+    4. Solenoid field is uniform; soft-iron core makes an electromagnet.
+    5. Home wires: Live (red/brown), Neutral (black/blue), Earth (green). Fuse in live wire.
+
+SCRIPT (say this aloud):
+  Students, this is your chapter summary — five bullets that cover every important concept in Chapter 12. Read each one carefully.
+
+  Bullet one: Oersted discovered in 1820 that a current-carrying wire creates a magnetic field. And remember: field lines never cross — they are closed, continuous curves.
+
+  Bullet two: The three hand rules. Which rule for which situation? Straight wire — Right-Hand Thumb Rule to find the circular field direction. Motor — Fleming's Left-Hand Rule to find the force on the wire. Generator — Fleming's Right-Hand Rule to find the induced current direction. Left for force, right for induced current. Left for motor, right for generator.
+
+  Bullet three: Energy conversions. Motor = electrical energy in, mechanical energy out. Generator = mechanical energy in, electrical energy out. These are exact opposites of each other.
+
+  Bullet four: Inside a solenoid, the magnetic field is uniform — the field lines are parallel and straight. Place a soft iron core inside the solenoid and you create an electromagnet — powerful, adjustable, and temporary.
+
+  Bullet five: Home wiring colours. Live = Red or Brown (dangerous, high potential). Neutral = Black or Blue (return path). Earth = Green (safety). The fuse goes in the live wire.
+
+  Read these five bullets three times to yourself right now. Then close your eyes and say them from memory. This five-point summary covers approximately 80% of the chapter's exam questions.
+
+KEY POINTS TO STRESS:
+  - Three rules: Thumb (straight wire field), Left-Hand (motor force), Right-Hand (generator current)
+  - Two energy conversions: motor (E→M) and generator (M→E)
+  - Solenoid: uniform field; electromagnet: solenoid + soft iron core
+  - Three wire colours and fuse placement
+
+BOARD TIP: Write these five bullets on a sticky note and keep it at your study desk. Review it daily in the two weeks before the exam.
+
+========================================================================
+SLIDE 28: The Magnetic Hand Rules — Flip Cards (Activity)
+========================================================================
+
+ON SCREEN:
+  - Three interactive flip cards, one per rule:
+    Card 1: Right-Hand Thumb Rule (ਸੱਜੇ ਹੱਥ ਅੰਗੂਠਾ)
+      Thumb = current direction; curled fingers = magnetic field around straight wire
+    Card 2: Fleming's Left-Hand Rule (ਖੱਬੇ ਹੱਥ ਦਾ ਨਿਯਮ)
+      Thumb = Force, Forefinger = Field, Middle finger = Current. Used in motors.
+    Card 3: Fleming's Right-Hand Rule (ਸੱਜੇ ਹੱਥ ਦਾ ਨਿਯਮ)
+      Thumb = Motion, Forefinger = Field, Middle finger = induced Current. Used in generators.
+  - Footer: "Left-Hand → Motor (find the Force) · Right-Hand → Generator (find the induced Current)"
+
+SCRIPT (say this aloud):
+  Here are three flip cards — one for each hand rule. I want you to do something physical right now as we go through each one.
+
+  Card one: Right-Hand Thumb Rule. In Punjabi: ਸੱਜੇ ਹੱਥ ਅੰਗੂਠਾ. Take your right hand. Extend your thumb straight upward — this represents the direction of current in a straight wire. Now curl your four fingers. The direction your fingers curl in is the direction of the magnetic field lines that circle around the wire. This rule is used only for a straight current-carrying conductor — to find the direction of the circular field around it.
+
+  Card two: Fleming's Left-Hand Rule. In Punjabi: ਖੱਬੇ ਹੱਥ ਦਾ ਨਿਯਮ. Take your LEFT hand. Extend the thumb, forefinger, and middle finger so each points in a different direction — three mutually perpendicular directions. Forefinger = magnetic Field. Middle finger = Current. Thumb = the Thrust or Force on the conductor. This is the motor rule.
+
+  Card three: Fleming's Right-Hand Rule. In Punjabi: ਸੱਜੇ ਹੱਥ ਦਾ ਨਿਯਮ. Take your RIGHT hand. Same finger configuration. Thumb = Motion of the conductor. Forefinger = magnetic Field. Middle finger = induced Current. This is the generator rule.
+
+  Now do all three rules with your actual hands right now. Hold up your right hand for the Thumb Rule. Switch to your left hand for the motor. Switch to your right hand for the generator. Do this physical action — muscle memory will help you recall it in the exam room.
+
+  Footer summary: Left Hand → Motor (find the Force). Right Hand → Generator (find the induced Current).
+
+KEY POINTS TO STRESS:
+  - Right-Hand Thumb Rule: for circular field around straight wire
+  - Fleming's Left-Hand: for motor force (thumb=force, fore=field, middle=current)
+  - Fleming's Right-Hand: for generator's induced current (thumb=motion, fore=field, middle=current)
+  - Physical practice with your hands is the best way to remember these rules
+
+BOARD TIP: In the exam, if asked to demonstrate a rule, explicitly state which hand, then describe each finger and what it represents. Diagrams with labelled arrows earn full marks.
+
+========================================================================
+SLIDE 29: Numerical Practice — Force on a Conductor (ਸੰਖਿਆਤਮਕ ਅਭਿਆਸ)
+========================================================================
+
+ON SCREEN:
+  - Four numerical problems with formulas:
+    Q1: Wire 0.5 m, current 4 A, field 0.2 T (perpendicular). Find force. F = BIL
+    Q2: Same wire, current doubled to 8 A. Find new force. F ∝ I
+    Q3: 2 m conductor, B = 0.1 T, F = 0.6 N. Find current I. I = F/(BL)
+    Q4: Fuse, max 5 A on 220 V line. Find max power. P = V × I
+
+SCRIPT (say this aloud):
+  Now let us practise numerical problems. These formula-based questions appear in the board exam for 2–3 marks. The good news is that there are only a few formulas to know, and the calculations are straightforward.
+
+  The key formula for force on a conductor: F = B × I × L. That is: Force equals magnetic field strength times current times the length of the conductor in the field. This applies when the conductor is perpendicular to the field. Keep your notebook ready and solve each question before looking at the answer.
+
+  Question 1: A wire of length 0.5 m carries a current of 4 A in a uniform magnetic field of 0.2 T, placed perpendicular to the field. Find the force on it.
+  Solution: F = B × I × L = 0.2 × 4 × 0.5 = 0.4 N. Answer: 0.4 newtons.
+
+  Question 2: In the same wire, the current is doubled to 8 A (B and L unchanged). Find the new force.
+  Since F = BIL and B and L are constant, doubling I doubles F. New F = 0.2 × 8 × 0.5 = 0.8 N. Or simply: 0.4 N × 2 = 0.8 N. The force doubles. Answer: 0.8 N.
+
+  Question 3: A 2 m conductor in a 0.1 T field experiences a force of 0.6 N. Find the current I.
+  Rearranging F = BIL → I = F ÷ (B × L) = 0.6 ÷ (0.1 × 2) = 0.6 ÷ 0.2 = 3 A. Answer: 3 amperes.
+
+  Question 4: An appliance fuse can carry a maximum of 5 A on a 220 V line. Find the maximum power it can handle.
+  Formula: P = V × I = 220 × 5 = 1100 W = 1.1 kW. Answer: 1100 watts or 1.1 kilowatts.
+
+  Formulas to memorise: F = BIL for force on a conductor; P = VI for electrical power.
+
+KEY POINTS TO STRESS:
+  - F = B × I × L (force on conductor perpendicular to field)
+  - Doubling current doubles force (F ∝ I); doubling field doubles force (F ∝ B)
+  - Rearrange F = BIL to find I = F/(BL) or B = F/(IL)
+  - P = V × I for maximum power through a fuse
+
+BOARD TIP: Always write the formula first, then substitute values with units, then calculate. Showing the formula earns 1 mark even if the arithmetic has an error.
+
+========================================================================
+SLIDE 30: True or False? (ਸਹੀ ਜਾਂ ਗਲਤ?) — Practice Activity
+========================================================================
+
+ON SCREEN:
+  - Eight True/False questions (with Punjabi translations):
+    Q1: Magnetic force is maximized when conductor ⊥ field → TRUE
+    Q2: Clock Face rule: clockwise current = South pole → TRUE
+    Q3: Inside a solenoid, magnetic field is uniform (parallel lines) → TRUE
+    Q4: Overloading occurs when live and neutral wires touch directly → FALSE
+    Q5: Magnetic field lines emerge from the South pole → FALSE
+    Q6: Electric motor converts electrical energy into mechanical energy → TRUE
+    Q7: A DC generator uses two slip rings → FALSE
+    Q8: Earthing protects a user from electric shocks → TRUE
+
+SCRIPT (say this aloud):
+  Eight True or False questions — a classic quick-review format. Let me go through each one and explain why, not just whether.
+
+  Q1: "Magnetic force is maximized when conductor is perpendicular to the field." TRUE. At 90 degrees, F = BIL (maximum). At 0 degrees (parallel), F = 0.
+
+  Q2: "Clock Face rule: clockwise current acts as a South pole." TRUE. Remember: Clockwise = South; Anticlockwise = North.
+
+  Q3: "Inside a solenoid, the magnetic field is uniform." TRUE. The parallel straight field lines inside the solenoid indicate a uniform field — same strength and direction everywhere inside.
+
+  Q4: "Overloading occurs when live and neutral wires touch directly." FALSE. This is the definition of a short circuit, not overloading. Overloading is when too many high-power appliances draw more total current than the circuit can safely handle.
+
+  Q5: "Magnetic field lines emerge from the South pole." FALSE. Field lines emerge from the North pole and enter the South pole outside the magnet. Inside, they travel from South to North.
+
+  Q6: "An electric motor converts electrical energy into mechanical energy." TRUE. This is the fundamental definition of an electric motor.
+
+  Q7: "A DC generator uses two slip rings." FALSE. A DC generator uses a split-ring commutator. It is the AC generator that uses two slip rings.
+
+  Q8: "Earthing protects a user from electric shocks." TRUE. The earth wire diverts fault current safely to the ground, preventing it from passing through a person.
+
+  Tally your score. Any question you got wrong — go back to the corresponding slide immediately and re-read it.
+
+KEY POINTS TO STRESS:
+  - Perpendicular = max force; parallel = zero force
+  - Clockwise current face = South pole; Anticlockwise = North pole
+  - Overloading ≠ short circuit (a very common confusion)
+  - DC generator = split-ring commutator (NOT slip rings)
+  - Field lines emerge from North pole (outside magnet)
+
+BOARD TIP: Q4 and Q7 are the two classic "trap" questions in this chapter. Short circuit vs overloading, and slip rings vs split-ring commutator — know these distinctions cold.
+
+========================================================================
+SLIDE 31: Say It Back — Chapter 13 (Short Answer Review Activity)
+========================================================================
+
+ON SCREEN:
+  - Eight short-answer questions (verbal recall activity):
+    Q1: From which pole do magnetic field lines emerge outside a magnet?
+    Q2: Which rule finds the direction of the magnetic field around a straight wire?
+    Q3: What core is used to make an electromagnet?
+    Q4: Which rule finds the direction of force on a current-carrying wire?
+    Q5: What happens when live and neutral wires touch directly?
+    Q6: An electric motor converts electrical energy into which form?
+    Q7: Which device converts mechanical energy into electrical energy?
+    Q8: What is the colour of the earth wire in domestic wiring?
+
+SCRIPT (say this aloud):
+  This activity is called "Say It Back" — and the name tells you exactly what to do. Cover the screen with your hand or close your eyes, and answer each question aloud or in writing. If you can say it back without looking, you truly know it.
+
+  Let me give you the model answers for each question. These are the short, precise answers that earn full marks.
+
+  Q1: "From which pole do magnetic field lines emerge outside a magnet?" — The North pole.
+
+  Q2: "Which rule finds the direction of the magnetic field around a straight wire?" — The Right-Hand Thumb Rule.
+
+  Q3: "What core is used to make an electromagnet?" — Soft iron.
+
+  Q4: "Which rule finds the direction of force on a current-carrying wire?" — Fleming's Left-Hand Rule.
+
+  Q5: "What happens when live and neutral wires touch directly?" — A short circuit occurs. The resistance drops to nearly zero, causing a massive current surge that can cause a fire.
+
+  Q6: "An electric motor converts electrical energy into which form?" — Mechanical energy.
+
+  Q7: "Which device converts mechanical energy into electrical energy?" — An electric generator (or dynamo).
+
+  Q8: "What is the colour of the earth wire in domestic wiring?" — Green.
+
+  Practice these until you can answer every one within five seconds. These eight questions represent the most commonly asked recall-based questions in this chapter.
+
+KEY POINTS TO STRESS:
+  - North pole → field lines emerge
+  - Right-Hand Thumb Rule → straight wire field
+  - Soft iron → electromagnet core
+  - Left-Hand Rule → force on conductor (motor)
+  - Short circuit → live and neutral touching
+  - Motor → electrical to mechanical; Generator → mechanical to electrical
+  - Earth wire → Green
+
+========================================================================
+SLIDE 32: Quick Check — Chapter 13 (ਤੁਰੰਤ ਜਾਂਚ — MCQ Activity)
+========================================================================
+
+ON SCREEN:
+  - Eight MCQ questions with three options each:
+    Q1: Parallel lines inside solenoid → A. Uniform magnetic field ✓
+    Q2: Fleming's Left-Hand Rule forefinger → B. Magnetic field ✓
+    Q3: Magnetic field lines are → B. Closed continuous loops ✓
+    Q4: Live + Neutral touching directly → A. Short Circuit ✓
+    Q5: Earth wire is used to → B. Prevent electric shock ✓
+    Q6: Generator works on → B. Electromagnetic induction ✓
+    Q7: Fuse is connected in → C. Live wire ✓
+    Q8: Soft iron core in solenoid makes → A. Electromagnet ✓
+
+SCRIPT (say this aloud):
+  We have reached the final practice activity — eight multiple-choice questions. These are exactly the type of questions that appear in PSEB board exams. Work through each one carefully.
+
+  Q1: "What do parallel magnetic field lines inside a solenoid indicate?" — Answer: A. Uniform magnetic field. Parallel, evenly spaced lines mean the field has the same strength and direction everywhere inside the solenoid.
+
+  Q2: "In Fleming's Left-Hand Rule, the forefinger points in the direction of:" — Answer: B. Magnetic field. Forefinger = Field. Middle finger = Current. Thumb = Force.
+
+  Q3: "Which of the following describes magnetic field lines?" — Answer: B. They form closed continuous loops. They do not cross each other (A is wrong), and outside the magnet they go from North to South, not South to North (C is wrong).
+
+  Q4: "A massive current spike caused by live and neutral wires touching is a:" — Answer: A. Short Circuit.
+
+  Q5: "The earth wire is primarily used to:" — Answer: B. Prevent electric shock. Not to save electricity, not to increase voltage.
+
+  Q6: "An electric generator works on the principle of:" — Answer: B. Electromagnetic induction. Not heating effect, not chemical effect — electromagnetic induction.
+
+  Q7: "In domestic wiring, the fuse is connected in the:" — Answer: C. Live wire. Always the live wire.
+
+  Q8: "A soft iron core inside a current-carrying solenoid makes an:" — Answer: A. Electromagnet. A temporary, powerful, controllable magnet.
+
+  Eight out of eight? ਸ਼ਾਬਾਸ਼! If you missed any, note the question number, go back to the relevant slide, and review before the exam.
+
+KEY POINTS TO STRESS:
+  - Uniform field = parallel lines inside solenoid
+  - Forefinger = Field (Left-Hand Rule)
+  - Field lines = closed continuous loops, never crossing
+  - Live + Neutral direct contact = Short Circuit
+  - Earth wire = prevent electric shock
+  - Generator = electromagnetic induction principle
+  - Fuse = always in live wire
+  - Soft iron in solenoid = electromagnet
+
+BOARD TIP: These eight MCQs collectively cover all the major topics. Any question you answered incorrectly in this quiz is a topic that needs revision before the board exam.
+
+========================================================================
+SLIDE 33: Download Your Bilingual Flashcards (ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)
+========================================================================
+
+ON SCREEN:
+  - Description: All "Say It Back" questions formatted for Anki with English and Punjabi answers
+  - Instructions: Click to generate .csv file → Open Anki → Import File
+  - Button: "Export to Anki (Bilingual CSV)"
+
+SCRIPT (say this aloud):
+  We have reached the end of Chapter 12 — Magnetic Effects of Electric Current. Congratulations on completing all the slides!
+
+  This final slide gives you a powerful revision tool: bilingual flashcards. Every short-answer question from the "Say It Back" activity on Slide 31 has been formatted as an Anki flashcard — with the question on the front, and both the English answer and the Punjabi answer on the back.
+
+  Anki is a free flashcard application that uses spaced repetition — it shows you cards you find difficult more often, and cards you know well less often. Studies show that spaced repetition is one of the most effective ways to retain information for exams.
+
+  To use your flashcards: click the "Export to Anki" button to download the .csv file. Open the Anki app on your computer. Click "Import File" and select the downloaded file. Your eight bilingual flashcards will be imported into a new deck.
+
+  Review them for five to ten minutes every day in the weeks before your board exam. This takes almost no effort each day but compounds into strong, lasting memory.
+
+  Well done today, students. You have covered Oersted's discovery, magnetic field lines, three hand rules, solenoids, electromagnets, electric motors, electromagnetic induction, generators, AC vs DC, domestic wiring, and electrical safety. That is one of the most comprehensive and important chapters in Class 10 Science.
+
+  Revise regularly, practise the hand rules physically, and you will score well. ਸ਼ਾਬਾਸ਼! Keep going!
+
+KEY POINTS TO STRESS:
+  - Anki flashcards are available for all eight "Say It Back" questions
+  - Bilingual format (English + Punjabi) reinforces both language registers
+  - Spaced repetition is highly effective for board exam preparation
+  - Review flashcards daily for 5–10 minutes in the weeks before the exam
+
+========================================================================
+END OF CHAPTER 12 SCRIPT
+Total slides scripted: 33
+========================================================================

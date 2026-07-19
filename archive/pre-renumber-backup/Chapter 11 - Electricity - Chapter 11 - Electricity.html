@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 11: Electricity | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch08-13.css">
+
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="ch11">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 11</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">Electricity</h2>
+                <span class="punjabi">ਬਿਜਲੀ</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Core Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Current (I) <button class="tts-btn" onclick="speakWord('Current (I)', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਿਜਲਈ ਕਰੰਟ (Flow of charge)</span><br><span class="phonetic">ਉਚਾਰਨ: ਕਰੰਟ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Voltage (V) <button class="tts-btn" onclick="speakWord('Voltage (V)', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ (Pushing force)</span><br><span class="phonetic">ਉਚਾਰਨ: ਵੋਲਟੇਜ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Resistance (R) <button class="tts-btn" onclick="speakWord('Resistance (R)', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਤੀਰੋਧ (Opposition to flow)</span><br><span class="phonetic">ਉਚਾਰਨ: ਰਜ਼ਿਸਟੈਂਸ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Resistivity (&rho;) <button class="tts-btn" onclick="speakWord('Resistivity (ρ)', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪ੍ਰਤੀਰੋਧਕਤਾ (Material property)</span><br><span class="phonetic">ਉਚਾਰਨ: ਰਜ਼ਿਸਟਿਵਿਟੀ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Ammeter <button class="tts-btn" onclick="speakWord('Ammeter', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਐਮੀਟਰ (Measures Current)</span><br><span class="phonetic">ਉਚਾਰਨ: ਐਮੀਟਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Voltmeter <button class="tts-btn" onclick="speakWord('Voltmeter', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਵੋਲਟਮੀਟਰ (Measures Voltage)</span><br><span class="phonetic">ਉਚਾਰਨ: ਵੋਲਟਮੀਟਰ</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content-box">
+                <h2>More Key Terms <span class="punjabi">(ਹੋਰ ਸ਼ਬਦ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Electric Charge (Q) <button class="tts-btn" onclick="speakWord('Electric Charge', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਿਜਲਈ ਚਾਰਜ (Measured in coulomb)</span><br><span class="phonetic">ਉਚਾਰਨ: ਚਾਰਜ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Coulomb (C) <button class="tts-btn" onclick="speakWord('Coulomb', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਕੂਲਾਂਬ (Unit of charge)</span><br><span class="phonetic">ਉਚਾਰਨ: ਕੂਲਾਂਬ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Circuit <button class="tts-btn" onclick="speakWord('Circuit', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਸਰਕਟ (Closed path for current)</span><br><span class="phonetic">ਉਚਾਰਨ: ਸਰਕਟ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Rheostat <button class="tts-btn" onclick="speakWord('Rheostat', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਰਿਓਸਟੈਟ (Variable resistor)</span><br><span class="phonetic">ਉਚਾਰਨ: ਰਿਓਸਟੈਟ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Electric Power (P) <button class="tts-btn" onclick="speakWord('Electric Power', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਬਿਜਲਈ ਸ਼ਕਤੀ (Rate of energy use)</span><br><span class="phonetic">ਉਚਾਰਨ: ਪਾਵਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Kilowatt-hour (kWh) <button class="tts-btn" onclick="speakWord('Kilowatt hour', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਕਿਲੋਵਾਟ-ਘੰਟਾ (Commercial unit)</span><br><span class="phonetic">ਉਚਾਰਨ: ਕਿਲੋਵਾਟ-ਆਵਰ</span></div>
+                </div>
+            </div>
+        </div>
+<div class="slide"><div class="content-box"><h2>Reading: The River of Charge</h2><div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch11-1', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch11-1"><strong>Voltage, Current and Resistance</strong><br>Electricity flowing through a wire is a lot like water flowing through a river. The push that drives the charges forward is the voltage, the amount of charge flowing past each second is the current, and anything that slows the flow down is called resistance. A German teacher named Georg Ohm discovered that in many materials the current is simply proportional to the voltage, a neat relationship we still call Ohm's law today. When charges are forced through a high resistance, they collide and release energy as heat, which is exactly how the filament in a bulb or the coil in a heater glows. Understanding these simple rules lets engineers design everything from a tiny phone charger to the power grid that lights up a whole city.</div></div></div></div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electric Current & Charge</h2>
+                <p>Electric <span class="exam-keyword">current (I)</span> is the rate of flow of electric charge through a conductor.</p>
+                <div class="equation">I = Q / t</div>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Q = charge (coulomb, C); t = time (seconds)</li>
+                    <li>SI unit of current is the <strong>ampere (A)</strong>; 1 A = 1 C/s.</li>
+                    <li>Conventional current flows from + to − (opposite to electron flow).</li>
+                    <li>Measured with an <strong>ammeter</strong>, connected in <strong>series</strong>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Potential Difference (Voltage)</h2>
+                <p>The <span class="exam-keyword">potential difference (V)</span> between two points is the work done to move a unit charge from one point to the other.</p>
+                <div class="equation">V = W / Q</div>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>SI unit is the <strong>volt (V)</strong>; 1 V = 1 J/C.</li>
+                    <li>Measured with a <strong>voltmeter</strong>, connected in <strong>parallel</strong>.</li>
+                    <li>Voltage is the "push" that drives the current.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electric Circuit & Symbols</h2>
+                <p>A circuit is a closed conducting path for current. Learn the standard component symbols.</p>
+                <img src="images/circuit-symbols.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: standard circuit symbols — cell, battery, switch, resistor, rheostat, ammeter, voltmeter — add images/circuit-symbols.png]'" alt="Standard circuit symbols" class="slide-img">
+                <table>
+                    <tr><th>Component</th><th>Use / Rule</th></tr>
+                    <tr><td>Cell / Battery</td><td>Provides the potential difference (voltage)</td></tr>
+                    <tr><td>Ammeter (A)</td><td>Measures current — connected in <strong>series</strong></td></tr>
+                    <tr><td>Voltmeter (V)</td><td>Measures voltage — connected in <strong>parallel</strong></td></tr>
+                    <tr><td>Rheostat</td><td>Variable resistor — changes the current</td></tr>
+                    <tr><td>Switch / Key</td><td>Opens or closes the circuit</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Ohm's Law & the V-I Graph</h2>
+                <div class="equation">V = I &times; R</div>
+                <p>Ohm's law produces a linear graph when Voltage (V) is plotted against Current (I).</p>
+                <ul style="background: #F8FAFC; padding: 25px 25px 25px 50px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="accent-blue">The Slope Formula:</span> In math, slope = $Y / X$. Therefore, the slope of a V-I graph is $V / I$.</li>
+                    <li><span class="accent">Conclusion:</span> The slope of a V-I graph directly gives you the <strong>Resistance (R)</strong> of the conductor.</li>
+                    <li><em>Exam Trick:</em> A steeper line (higher slope) means the wire has a higher resistance.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Ohm's Law: Statement <span class="board-badge">🏆 Definition</span></h2>
+                <p><span class="exam-keyword">Ohm's Law:</span> At constant temperature, the current (I) through a conductor is directly proportional to the potential difference (V) across its ends.</p>
+                <div class="equation">V &prop; I &nbsp;&rArr;&nbsp; V = IR</div>
+                <div class="board-trap"><strong>Condition:</strong> Temperature and physical state must stay constant. Conductors that obey Ohm's law (e.g. metals) are <span class="exam-keyword">ohmic</span>; those that don't (e.g. a diode or filament bulb) are <span class="exam-keyword">non-ohmic</span>.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Numerical: Using Ohm's Law <span class="board-badge">🏆 Step-by-Step</span></h2>
+                <p>A 12 V battery drives a current of 3 A through a resistor. Find its resistance R.</p>
+                <div class="sequencer-container" id="seq-ch11-1">
+                    <div class="seq-step"><strong>1. List the data:</strong> V = 12 V, I = 3 A, R = ?</div>
+                    <div class="seq-step"><strong>2. Choose the formula:</strong> Ohm's law → V = I &times; R</div>
+                    <div class="seq-step"><strong>3. Rearrange:</strong> R = V &divide; I</div>
+                    <div class="seq-step"><strong>4. Substitute:</strong> R = 12 &divide; 3</div>
+                    <div class="seq-step"><strong>5. Answer:</strong> R = <span class="exam-keyword">4 &Omega;</span> (ohm)</div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch11-1')">Reveal Next Step <span class="seq-counter">[0/5]</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Factors Affecting Resistance</h2>
+                <div class="equation">R = &rho;L / A</div>
+                <ul style="background: #F0F4F8; padding: 20px 20px 20px 40px; border-radius: 8px;">
+                    <li><strong>Length (L):</strong> Resistance is <em>directly</em> proportional. A longer wire = more resistance.</li>
+                    <li><strong>Area (A):</strong> Resistance is <em>inversely</em> proportional. A thicker wire = less resistance.</li>
+                    <li><strong>Material (&rho;):</strong> Resistivity depends only on the material and temperature, NOT length.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Resistivity of Materials</h2>
+                <p><span class="exam-keyword">Resistivity (&rho;)</span> is a property of the material only (unit: &Omega;&middot;m). Lower &rho; = better conductor.</p>
+                <table>
+                    <tr><th>Type</th><th>Examples</th><th>Resistivity</th></tr>
+                    <tr><td>Conductors</td><td>Silver, Copper, Aluminium</td><td>Very low</td></tr>
+                    <tr><td>Alloys</td><td>Nichrome, Constantan, Manganin</td><td>High (used in heaters)</td></tr>
+                    <tr><td>Insulators</td><td>Rubber, Glass, Wood</td><td>Very high</td></tr>
+                </table>
+                <div class="board-trap"><strong>Why alloys for heaters?</strong> High resistivity + high melting point + they do not oxidise (burn) easily at high temperature.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Series vs. Parallel Circuits</h2>
+                <table>
+                    <tr><th>Series <span class="punjabi">(ਲੜੀਬੱਧ)</span></th><th>Parallel <span class="punjabi">(ਸਮਾਨਾਂਤਰ)</span></th></tr>
+                    <tr><td>Total $R = R_1 + R_2 + \dots$</td><td>$1/R = 1/R_1 + 1/R_2 + \dots$</td></tr>
+                    <tr><td>Current (I) is the same everywhere.</td><td>Voltage (V) is the same everywhere.</td></tr>
+                </table>
+                <h3 style="margin-top:15px;">Why are Homes wired in Parallel?</h3>
+                <p><span class="accent">1. The "All or Nothing" Flaw:</span> In series, if one appliance breaks, the whole house shuts off. <br><span class="accent">2. Shared Voltage:</span> In series, voltage divides. In parallel, every appliance gets the full 220V it needs.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Resistors in Series</h2>
+                <p>The same current I flows through every resistor; the total voltage is shared.</p>
+                <div class="equation">R<sub>s</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub></div>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Total resistance is <strong>larger</strong> than the largest single resistor.</li>
+                    <li>Current is the same everywhere; voltage divides across each resistor.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Resistors in Parallel</h2>
+                <p>The same voltage V is across every resistor; the total current is shared.</p>
+                <div class="equation">1/R<sub>p</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub></div>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Total resistance is <strong>smaller</strong> than the smallest single resistor.</li>
+                    <li>Voltage is the same everywhere; current divides between branches.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Match: Series vs Parallel <span class="board-badge">🧩 Match It</span></h2>
+                <p>Match each property to the correct circuit type. <span class="punjabi-block">(ਹਰ ਗੁਣ ਨੂੰ ਸਹੀ ਸਰਕਟ ਨਾਲ ਮਿਲਾਓ।)</span></p>
+                <div class="match-grid">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Current is same everywhere</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Voltage is same everywhere</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">R = R₁ + R₂</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">1/R = 1/R₁ + 1/R₂</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Parallel circuit</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Parallel formula</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Series circuit</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Series formula</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIXED SLIDE 46: Improved Formula Builder for Joule's Law -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>4. Joule's Law of Heating</h2>
+                <p><strong>Interactive:</strong> Construct the correct formula for heat produced.</p>
+                <div class="builder-workspace">
+                    <div class="formula-target">Target: <span style="color:var(--goku-accent);">H = I²Rt</span></div>
+                    <div class="formula-display" id="formula-board-ch11" data-formula=""></div>
+                    <div class="builder-pieces">
+                        <button class="piece-btn" onclick="buildFormula('H', 'formula-board-ch11', 'H=I²Rt')">H</button>
+                        <button class="piece-btn" onclick="buildFormula('I²', 'formula-board-ch11', 'H=I²Rt')">I²</button>
+                        <button class="piece-btn" onclick="buildFormula('R', 'formula-board-ch11', 'H=I²Rt')">R</button>
+                        <button class="piece-btn" onclick="buildFormula('t', 'formula-board-ch11', 'H=I²Rt')">t</button>
+                        <button class="piece-btn" onclick="buildFormula('=', 'formula-board-ch11', 'H=I²Rt')">=</button>
+                    </div>
+                    <div class="controls-group">
+                        <button class="ctrl-btn undo-btn" onclick="undoFormula('formula-board-ch11')">Undo</button>
+                        <button class="ctrl-btn clear-btn" onclick="clearFormula('formula-board-ch11')">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Joule's Law: Material Selection</h2>
+                <p>When current passes through a high-resistance wire, electrical energy converts to heat ($H = I^2Rt$).</p>
+                
+                <ol style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Why Tungsten for bulbs?</strong> It is a very strong metal with an incredibly high melting point (approx. $3380^\circ C$). It can get white-hot and emit light without melting.</li>
+                    <li><strong>Why filled with gas?</strong> If a tungsten filament got that hot in normal air, oxygen would instantly burn (oxidize) it, snapping the wire. Bulbs are filled with chemically inactive gases like <span class="exam-keyword">Nitrogen</span> or <span class="exam-keyword">Argon</span> to prolong filament life.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electric Power</h2>
+                <p>Power is the rate at which electrical energy is used up in a circuit.</p>
+                <div class="equation">P = VI = I<sup>2</sup>R = V<sup>2</sup>/R</div>
+                <p>SI unit is the <strong>watt (W)</strong>; 1 W = 1 J/s. 1 kilowatt (kW) = 1000 W.</p>
+                <p style="margin-top:10px;"><strong>Interactive:</strong> Build the basic power formula.</p>
+                <div class="builder-workspace">
+                    <div class="formula-target">Target: <span style="color:var(--goku-accent);">P = VI</span></div>
+                    <div class="formula-display" id="formula-board-ch11-2" data-formula=""></div>
+                    <div class="builder-pieces">
+                        <button class="piece-btn" onclick="buildFormula('P', 'formula-board-ch11-2', 'P=VI')">P</button>
+                        <button class="piece-btn" onclick="buildFormula('=', 'formula-board-ch11-2', 'P=VI')">=</button>
+                        <button class="piece-btn" onclick="buildFormula('V', 'formula-board-ch11-2', 'P=VI')">V</button>
+                        <button class="piece-btn" onclick="buildFormula('I', 'formula-board-ch11-2', 'P=VI')">I</button>
+                    </div>
+                    <div class="controls-group">
+                        <button class="ctrl-btn undo-btn" onclick="undoFormula('formula-board-ch11-2')">Undo</button>
+                        <button class="ctrl-btn clear-btn" onclick="clearFormula('formula-board-ch11-2')">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Electrical Energy & the Commercial Unit</h2>
+                <div class="equation">E = P &times; t</div>
+                <p>The commercial unit of electrical energy is the <span class="exam-keyword">kilowatt-hour (kWh)</span>, also called "1 unit".</p>
+                <div class="equation">1 kWh = 3.6 &times; 10<sup>6</sup> J</div>
+                <div class="board-trap"><strong>Example:</strong> A 1000 W (1 kW) heater used for 2 hours consumes 1 &times; 2 = <strong>2 kWh = 2 units</strong>.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Heating Effect: Applications</h2>
+                <table>
+                    <tr><th>Device</th><th>How it uses the heating effect</th></tr>
+                    <tr><td>Electric bulb</td><td>Tungsten filament glows white-hot; filled with argon/nitrogen.</td></tr>
+                    <tr><td>Heater / Iron</td><td>Nichrome coil (high resistance) produces heat.</td></tr>
+                    <tr><td>Fuse</td><td>Thin, low-melting wire melts if the current is too high — a safety device.</td></tr>
+                </table>
+                <div class="board-trap"><strong>Fuse rule:</strong> Always connected in the <strong>live wire</strong> and in <strong>series</strong> with the circuit.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Practice: Ohm's Law <span class="board-badge">🧩 Fill the Blanks</span></h2>
+                <p>Tap each blank to reveal the answer. <span class="punjabi-block">(ਹਰ ਖਾਲੀ ਥਾਂ 'ਤੇ ਟੈਪ ਕਰੋ।)</span></p>
+                <div class="cloze-paragraph">
+                    Ohm's law is written as V = I &times; <span class="cloze-blank" data-ans="R (Resistance)" onclick="revealCloze(this)"></span>. The SI unit of resistance is the <span class="cloze-blank" data-ans="ohm (Ω)" onclick="revealCloze(this)"></span>. If the voltage increases while resistance stays constant, the current will <span class="cloze-blank" data-ans="increase" onclick="revealCloze(this)"></span>. Current is measured by an <span class="cloze-blank" data-ans="ammeter" onclick="revealCloze(this)"></span>, which is connected in <span class="cloze-blank" data-ans="series" onclick="revealCloze(this)"></span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Match: Quantity &harr; Unit <span class="board-badge">🧩 Match It</span></h2>
+                <div class="match-grid">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Current (I)</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Voltage (V)</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Resistance (R)</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Power (P)</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Volt (V)</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Watt (W)</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Ampere (A)</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Ohm (Ω)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Spot the Error <span class="board-badge">🔍 Fix It</span></h2>
+                <p>This student's parallel-resistance formula is wrong. Tap the highlighted part to fix it.</p>
+                <div class="error-diagram">
+                    Parallel: R<sub>total</sub> = <span class="hotspot" onclick="fixError(this, 'err-ch11-1')">R₁ + R₂</span>
+                </div>
+                <div class="error-explanation" id="err-ch11-1"><strong>Corrected!</strong> For resistors in parallel, add the reciprocals: 1/R<sub>total</sub> = 1/R₁ + 1/R₂. Adding directly (R₁ + R₂) is the <strong>series</strong> rule.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Memorize This: Chapter Recap</h2>
+                <div class="ratta-box">
+                    <ul style="text-align:left; font-size:1.1rem; line-height:1.9; margin:0; padding-left:20px;">
+                        <li>Ohm's law: <strong>V = IR</strong> (at constant temperature).</li>
+                        <li>R = &rho;L/A → longer wire = more R; thicker wire = less R.</li>
+                        <li>Series: R = R₁ + R₂. Parallel: 1/R = 1/R₁ + 1/R₂.</li>
+                        <li>Power: <strong>P = VI = I²R = V²/R</strong> (unit: watt).</li>
+                        <li>Commercial unit = <strong>kWh</strong>; 1 kWh = 3.6 &times; 10⁶ J.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Numerical: Equivalent Resistance <span class="board-badge">🏆 Step-by-Step</span></h2>
+                <p><strong>Interactive Sequencer:</strong> Find total resistance when R&#8321;=2&#8486; and R&#8322;=4&#8486; are in series, and this pair is in parallel with R&#8323;=3&#8486;. <span class="punjabi-block">(ਕੁੱਲ ਪ੍ਰਤੀਰੋਧ ਲੱਭੋ।)</span></p>
+                <div class="sequencer-container" id="seq-ch11-req">
+                    <div class="seq-step"><strong>1. Series part:</strong> R&#8321; and R&#8322; are end-to-end, so add them: R<sub>s</sub> = 2 + 4 = <span class="exam-keyword">6 &#8486;</span>.</div>
+                    <div class="seq-step"><strong>2. Now a parallel pair:</strong> The 6 &#8486; group is in parallel with R&#8323; = 3 &#8486;.</div>
+                    <div class="seq-step"><strong>3. Parallel formula:</strong> 1/R<sub>p</sub> = 1/6 + 1/3 = 1/6 + 2/6 = <strong>3/6</strong>.</div>
+                    <div class="seq-step"><strong>4. Flip the fraction:</strong> R<sub>p</sub> = 6/3 = <span class="exam-keyword">2 &#8486;</span>.</div>
+                    <div class="seq-step"><span class="accent-blue">Answer:</span> Equivalent resistance = <strong>2 &#8486;</strong>. Notice parallel resistance is always LESS than the smallest resistor!</div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch11-req')">Reveal Next Step <span class="seq-counter">[0/5]</span></button>
+                </div>
+                <div class="board-trap"><strong>⚠️ Board Trap</strong> Never add resistances directly when they are in parallel. Always use 1/R<sub>p</sub> = 1/R&#8321; + 1/R&#8322; first, then flip the fraction.</div>
+            </div>
+        </div>
+
+        <!-- CH11 NUMERICAL PRACTICE -->
+        <div class="slide"><div class="content-box"><h2>Numerical Practice: Ohm's Law &amp; Power <span class="punjabi">(ਸੰਖਿਆਤਮਕ ਅਭਿਆਸ)</span></h2>
+            <p style="text-align:center;color:var(--punjabi-text);margin-top:-6px;">Solve on paper, then check your answer. <span class="punjabi">(ਪਹਿਲਾਂ ਹੱਲ ਕਰੋ, ਫੇਰ ਜਾਂਚੋ।)</span></p>
+            <div class="sub-slider-container" id="num-ch11">
+                <div class="sub-slide active short-answer" id="num-ch11-s1"><div class="sub-progress">Numerical 1 of 4</div><div class="question-text">A 12 V battery drives a current of 3 A through a resistor. Find its resistance $R$.<br><span class="punjabi-block">$R=\frac{V}{I}$</span></div><input type="text" class="sa-input" placeholder="e.g. 4 ohm"><button class="sa-submit-btn" onclick="checkSA(this, '4 ohm', 'R = 4 Ω')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch11', 2)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch11-s2"><div class="sub-progress">Numerical 2 of 4</div><div class="question-text">A bulb of resistance 100 Ω carries a current of 0.5 A. Find the <strong>power</strong> consumed.<br><span class="punjabi-block">$P=I^2R$</span></div><input type="text" class="sa-input" placeholder="e.g. 25 W"><button class="sa-submit-btn" onclick="checkSA(this, '25 W', 'P = 25 ਵਾਟ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch11', 3)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch11-s3"><div class="sub-progress">Numerical 3 of 4</div><div class="question-text">Find the energy used by a <strong>60 W</strong> bulb running for <strong>5 hours</strong>, in kWh (units).<br><span class="punjabi-block">$E=P\times t$ &mdash; convert W&middot;h to kWh.</span></div><input type="text" class="sa-input" placeholder="e.g. 0.3 kWh"><button class="sa-submit-btn" onclick="checkSA(this, '0.3 kWh', '0.3 ਯੂਨਿਟ (kWh)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch11', 4)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch11-s4"><div class="sub-progress">Numerical 4 of 4</div><div class="question-text">Three resistors of <strong>6 Ω</strong> each are connected in <strong>parallel</strong>. Find the equivalent resistance.<br><span class="punjabi-block">$\frac{1}{R}=\frac{1}{R_1}+\frac{1}{R_2}+\frac{1}{R_3}$</span></div><input type="text" class="sa-input" placeholder="e.g. 2 ohm"><button class="sa-submit-btn" onclick="checkSA(this, '2 ohm', 'R = 2 Ω')">Check Answer</button><div class="feedback"></div></div>
+            </div>
+        </div></div>
+
+        <!-- CH 11 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch11"><div class="sub-slide active" id="tf-ch11-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">The slope of a V-I graph gives the resistance of the conductor.<br><span class="punjabi-block">V-I ਗ੍ਰਾਫ ਦੀ ਢਲਾਨ ਕੰਡਕਟਰ ਦਾ ਪ੍ਰਤੀਰੋਧ ਦੱਸਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">In a series circuit, the current is different across each resistor.<br><span class="punjabi-block">ਲੜੀਬੱਧ ਸਰਕਟ ਵਿੱਚ, ਹਰੇਕ ਪ੍ਰਤੀਰੋਧਕ ਵਿੱਚ ਕਰੰਟ ਵੱਖਰਾ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Ohm's law states that V = I x R.<br><span class="punjabi-block">ਓਹਮ ਦਾ ਨਿਯਮ ਦੱਸਦਾ ਹੈ ਕਿ V = I x R।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Tungsten is used in bulb filaments due to its high melting point.<br><span class="punjabi-block">ਬਲਬ ਦੇ ਫਿਲਾਮੈਂਟ ਵਿੱਚ ਟੰਗਸਟਨ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿਉਂਕਿ ਇਸਦਾ ਪਿਘਲਣ ਅੰਕ ਉੱਚਾ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">Nichrome is used in heaters because it has a low melting point.<br><span class="punjabi-block">ਨਾਈਕ੍ਰੋਮ ਦੀ ਵਰਤੋਂ ਹੀਟਰਾਂ ਵਿੱਚ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਕਿਉਂਕਿ ਇਸਦਾ ਪਿਘਲਣ ਅੰਕ ਘੱਟ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">The resistance of a wire increases when its length increases.<br><span class="punjabi-block">ਤਾਰ ਦੀ ਲੰਬਾਈ ਵਧਣ ਨਾਲ ਇਸਦਾ ਪ੍ਰਤੀਰੋਧ ਵਧਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">In a parallel circuit, the total resistance is greater than the smallest resistor.<br><span class="punjabi-block">ਸਮਾਨਾਂਤਰ ਸਰਕਟ ਵਿੱਚ, ਕੁੱਲ ਪ੍ਰਤੀਰੋਧ ਸਭ ਤੋਂ ਛੋਟੇ ਪ੍ਰਤੀਰੋਧਕ ਤੋਂ ਵੱਧ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch11', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch11-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">A fuse is connected in series with the live wire.<br><span class="punjabi-block">ਫਿਊਜ਼ ਲਾਈਵ ਤਾਰ ਨਾਲ ਲੜੀ ਵਿੱਚ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 11</h2><div class="sub-slider-container" id="sib-ch11"><div class="sub-slide active short-answer" id="sib-ch11-s1" data-q="What connects end-to-end: Series or Parallel?" data-a="Series" data-pa="ਲੜੀਬੱਧ"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">What connects end-to-end: Series or Parallel?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Series', 'ਲੜੀਬੱਧ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s2" data-q="What divides in a parallel circuit: voltage or current?" data-a="Current" data-pa="ਕਰੰਟ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">What divides in a parallel circuit: voltage or current?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Current', 'ਕਰੰਟ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s3" data-q="What material is used for electric heater wires?" data-a="Nichrome" data-pa="ਨਾਈਕ੍ਰੋਮ"><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">What material is used for electric heater wires?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Nichrome', 'ਨਾਈਕ੍ਰੋਮ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s4" data-q="What inactive gas is filled inside an electric bulb?" data-a="Nitrogen or Argon" data-pa="ਨਾਈਟ੍ਰੋਜਨ ਜਾਂ ਆਰਗਨ"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">What inactive gas is filled inside an electric bulb?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Nitrogen or Argon', 'ਨਾਈਟ੍ਰੋਜਨ ਜਾਂ ਆਰਗਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s5" data-q="What is the commercial unit of electrical energy?" data-a="Kilowatt-hour" data-pa="ਕਿਲੋਵਾਟ-ਘੰਟਾ (kWh)"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">What is the commercial unit of electrical energy?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Kilowatt-hour', 'ਕਿਲੋਵਾਟ-ਘੰਟਾ (kWh)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s6" data-q="State the SI unit of electric current." data-a="Ampere" data-pa="ਐਂਪੀਅਰ"><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">State the SI unit of electric current.</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Ampere', 'ਐਂਪੀਅਰ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s7" data-q="Name the SI unit of electric power." data-a="Watt" data-pa="ਵਾਟ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">Name the SI unit of electric power.</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Watt', 'ਵਾਟ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch11', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch11-s8" data-q="The commercial unit of electrical energy is the ___?" data-a="Kilowatt-hour" data-pa="ਕਿਲੋਵਾਟ-ਘੰਟਾ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">The commercial unit of electrical energy is the ___?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Kilowatt-hour', 'ਕਿਲੋਵਾਟ-ਘੰਟਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 11 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch11"><div class="sub-slide active" id="mcq-ch11-s1"><div class="sub-progress">Question 1 of 8 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">To derive the formula for resistors in parallel, we use the fact that:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Voltage divides, Current is constant</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Both Voltage and Current divide</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Current divides, Voltage is constant</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">What happens to the resistance of a wire if its length is doubled?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It halves</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. It doubles</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. It remains the same</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Which of the following represents electric power (P)?</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. V² / R</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. V / R</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. I² / V</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Why are bulbs filled with inactive nitrogen gas?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. To make the light brighter</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. To prevent the tungsten filament from oxidizing and burning</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. To reduce the resistance of the bulb</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">1 kWh is equal to how many Joules?</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. 3.6 x 10⁶ J</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. 3.6 x 10³ J</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. 1000 J</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">The SI unit of electrical resistance is the:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Ohm (Ω)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Ampere (A)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Watt (W)</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">Which material is used to make the heating element of an electric heater?</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Nichrome</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Copper</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Silver</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch11', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch11-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">One kilowatt-hour (1 unit) is equal to:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. 3.6 &times; 10⁶ J</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. 1000 J</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. 3600 J</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Get Your Flashcards &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every "Say It Back" question in this deck has been formatted for Anki, with both English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+</div>
+<script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+        
+        function jumpToChapter(chapterId) {
+            const targetSlide = document.getElementById(chapterId);
+            if(targetSlide) {
+                const allSlidesArray = Array.from(slides);
+                const targetIndex = allSlidesArray.indexOf(targetSlide);
+                if(targetIndex !== -1) {
+                    currentSlide = targetIndex;
+                    updateUI();
+                }
+            }
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    grid.appendChild(msg);
+                    msg.style.display = 'block';
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+                
+                // Update Counter
+                const btn = container.querySelector('.seq-btn');
+                const counterSpan = btn.querySelector('.seq-counter');
+                if(counterSpan) {
+                    counterSpan.innerText = `[${currentIndex + 1}/${allSteps.length}]`;
+                }
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- MODULE 4: SPOT ERROR MODULE --- */
+        function fixError(el, expId) {
+            el.classList.add('fixed');
+            el.innerText = 'NEVER INTERSECT';
+            document.getElementById(expId).style.display = 'block';
+        }
+
+        /* --- MODULE 5: FORMULA BUILDER MODULE --- */
+        function buildFormula(val, boardId, targetString) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            let tokens = board.getAttribute('data-tokens');
+            tokens = tokens ? tokens.split('\u0001') : [];
+            tokens.push(val);
+            board.setAttribute('data-tokens', tokens.join('\u0001'));
+            const current = tokens.join('');
+            board.setAttribute('data-formula', current);
+            board.innerText = current;
+            if(current === targetString) board.classList.add('success');
+        }
+        
+        function undoFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            let tokens = board.getAttribute('data-tokens');
+            tokens = tokens ? tokens.split('\u0001') : [];
+            tokens.pop();
+            board.setAttribute('data-tokens', tokens.join('\u0001'));
+            const current = tokens.join('');
+            board.setAttribute('data-formula', current);
+            board.innerText = current;
+            board.classList.remove('success');
+        }
+        
+        function clearFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(board){
+                board.setAttribute('data-tokens', "");
+                board.setAttribute('data-formula', "");
+                board.innerText = "";
+                board.classList.remove('success');
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.error-diagram') || e.target.closest('.builder-workspace')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if (window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) {
+                            seqBtn.style.display = 'block';
+                            const counter = seqBtn.querySelector('.seq-counter');
+                            if(counter) counter.innerText = '[0/5]'; // General reset
+                        }
+                    });
+
+                    // Reset Error Spotter
+                    slide.querySelectorAll('.hotspot').forEach(h => {
+                        h.classList.remove('fixed');
+                        h.innerText = 'INTERSECTS';
+                    });
+                    slide.querySelectorAll('.error-explanation').forEach(e => e.style.display = 'none');
+
+                    // Reset Formulas
+                    clearFormula('formula-board-ch9');
+                    clearFormula('formula-board-ch11');
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase2_Premium_v3_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* --- TEXT-TO-SPEECH (added) --- */
+        window.activeReadBtn = null;
+
+        window.speakWord = function(text, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.85;
+            if (btn) {
+                btn.style.backgroundColor = '#D1FAE5';
+                utterance.onend = () => { btn.style.backgroundColor = ''; };
+                utterance.onerror = () => { btn.style.backgroundColor = ''; };
+            }
+            window.speechSynthesis.speak(utterance);
+        };
+
+        window.speakPassage = function(textId, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+            }
+            const textElement = document.getElementById(textId);
+            if (!textElement) return;
+            const text = textElement.innerText || textElement.textContent;
+            const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text]).map(s => s.trim()).filter(s => s.length > 0);
+            if (sentences.length === 0) return;
+            window.activeReadBtn = btn;
+            btn.innerHTML = '\uD83D\uDD0A Reading...';
+            btn.style.background = 'var(--goku-accent)';
+            let i = 0;
+            function speakNext() {
+                if (i < sentences.length) {
+                    const u = new SpeechSynthesisUtterance(sentences[i]);
+                    u.lang = 'en-US';
+                    u.rate = 0.85;
+                    u.onend = function() { i++; speakNext(); };
+                    u.onerror = function(e) { console.error("TTS Error:", e); window.stopSpeaking(); };
+                    window.speechSynthesis.speak(u);
+                } else {
+                    window.stopSpeaking();
+                }
+            }
+            speakNext();
+        };
+
+        window.stopSpeaking = function() {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+                window.activeReadBtn = null;
+            }
+        };
+
+        updateUI();
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

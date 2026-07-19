@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: Acids, Bases and Salts | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch01-05.css">
+
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
+
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" onclick="promptSlide()" title="Click to jump to a slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)" aria-label="Next Slide">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="slide-ch2"><div class="content-box chapter-divider"><h1>Chapter 2</h1><h2 style="border-bottom: 2px solid white;">Acids, Bases and Salts</h2><span class="punjabi">ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ</span></div></div>
+<div class="slide"><div class="content-box">
+                <h2>Key Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <table>
+                    <tr><th>English</th><th>Punjabi</th><th>Meaning</th></tr>
+                    <tr><td>Acid <button class="tts-btn" onclick="speakWord('Acid', this)" title="Listen to pronunciation">🔊</button></td><td>ਤੇਜ਼ਾਬ</td><td>Sour, gives H⁺</td></tr>
+                    <tr><td>Base <button class="tts-btn" onclick="speakWord('Base', this)" title="Listen to pronunciation">🔊</button></td><td>ਖਾਰ</td><td>Bitter, gives OH⁻</td></tr>
+                    <tr><td>Salt <button class="tts-btn" onclick="speakWord('Salt', this)" title="Listen to pronunciation">🔊</button></td><td>ਲੂਣ</td><td>Product of neutralization</td></tr>
+                    <tr><td>Indicator <button class="tts-btn" onclick="speakWord('Indicator', this)" title="Listen to pronunciation">🔊</button></td><td>ਸੂਚਕ</td><td>Shows acid/base via color/smell</td></tr>
+                    <tr><td>Neutralization <button class="tts-btn" onclick="speakWord('Neutralization', this)" title="Listen to pronunciation">🔊</button></td><td>ਉਦਾਸੀਨੀਕਰਨ</td><td>Acid + Base &rarr; Salt + Water</td></tr>
+                    <tr><td>Dilution <button class="tts-btn" onclick="speakWord('Dilution', this)" title="Listen to pronunciation">🔊</button></td><td>ਪਤਲਾ ਕਰਨਾ</td><td>Adding water to acid/base</td></tr>
+                </table>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Vocabulary Continued <span class="punjabi">(ਸ਼ਬਦਾਵਲੀ ਜਾਰੀ)</span></h2>
+                <table>
+                    <tr><th>English</th><th>Punjabi</th><th>Meaning</th></tr>
+                    <tr><td>Alkali <button class="tts-btn" onclick="speakWord('Alkali', this)" title="Listen to pronunciation">🔊</button></td><td>ਐਲਕਲੀ</td><td>A water-soluble base.</td></tr>
+                    <tr><td>Hydronium <button class="tts-btn" onclick="speakWord('Hydronium', this)" title="Listen to pronunciation">🔊</button></td><td>H₃O⁺</td><td>Formed when H⁺ joins with H₂O</td></tr>
+                    <tr><td>Brine <button class="tts-btn" onclick="speakWord('Brine', this)" title="Listen to pronunciation">🔊</button></td><td>ਬ੍ਰਾਈਨ</td><td>Aqueous solution of Sodium Chloride</td></tr>
+                    <tr><td>Acid Rain <button class="tts-btn" onclick="speakWord('Acid Rain', this)" title="Listen to pronunciation">🔊</button></td><td>ਤੇਜ਼ਾਬੀ ਵਰਖਾ</td><td>Rain with pH less than 5.6</td></tr>
+                    <tr><td>Chlor-Alkali <button class="tts-btn" onclick="speakWord('Chlor-Alkali', this)" title="Listen to pronunciation">🔊</button></td><td>ਕਲੋਰ-ਐਲਕਲੀ ਪ੍ਰਕਿਰਿਆ</td><td>Process making NaOH and Cl₂</td></tr>
+                </table>
+                <div class="template-box">
+                    <h3>📋 The Alkali Rule</h3>
+                    <p><em>"All alkalis are bases, but not all bases are alkalis!"</em> Only bases that dissolve completely in water are given the special name 'Alkali' (like NaOH).</p>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Acids vs. Bases <span class="punjabi">(ਤੇਜ਼ਾਬ ਅਤੇ ਖਾਰ)</span></h2>
+                <table>
+                    <tr>
+                        <th>Acids <span class="punjabi">(ਤੇਜ਼ਾਬ)</span></th>
+                        <th>Bases <span class="punjabi">(ਖਾਰ)</span></th>
+                    </tr>
+                    <tr>
+                        <td>Taste sour <span class="punjabi">(ਖੱਟੇ)</span></td>
+                        <td>Taste bitter <span class="punjabi">(ਕੌੜੇ)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Turn blue litmus to <span class="accent">RED</span></td>
+                        <td>Turn red litmus to <span class="accent-blue">BLUE</span></td>
+                    </tr>
+                    <tr>
+                        <td>Give <span class="accent">H⁺ ions</span> in water</td>
+                        <td>Give <span class="accent-blue">OH⁻ ions</span> in water</td>
+                    </tr>
+                </table>
+                <div class="pitfall-box">
+                    <h3>🚨 Dry HCl Exception</h3>
+                    <p>Acids ONLY show acidic nature in water. <strong>Dry HCl gas does not change dry blue litmus paper</strong> because it has no water to produce the required H⁺ ions!</p>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Strong vs. Weak <span class="punjabi">(ਸ਼ਕਤੀਸ਼ਾਲੀ ਅਤੇ ਕਮਜ਼ੋਰ)</span></h2>
+                <p>The strength of an acid or base depends on how many ions it produces in water.</p>
+                <table>
+                    <tr>
+                        <th>Strong Acid <span class="punjabi">(ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ)</span></th>
+                        <th>Weak Acid <span class="punjabi">(ਕਮਜ਼ੋਰ ਤੇਜ਼ਾਬ)</span></th>
+                    </tr>
+                    <tr>
+                        <td>Completely ionizes in water to give many H⁺ ions.</td>
+                        <td>Partially ionizes in water to give fewer H⁺ ions.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: HCl, H₂SO₄</td>
+                        <td>Example: Acetic Acid (CH₃COOH)</td>
+                    </tr>
+                </table>
+</div></div>
+<div class="slide"><div class="content-box"><h2>Reading Comprehension <span class="pyq-tag" style="background:#4F46E5;">Story Mode</span></h2>
+    <div class="reading-box">
+        <div class="read-controls">
+            <button class="read-btn" onclick="speakPassage('read-ch2a', this)">▶️ Read to Me</button>
+            <button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button>
+        </div>
+        <h3 style="margin-top:0; color: var(--goku-blue); font-size: 2rem;">The Magic of Litmus</h3>
+        <div class="reading-text" id="read-ch2a">Long before digital pH meters existed, ancient chemists relied on nature to reveal the invisible world of acids and bases. They discovered that certain natural dyes changed color depending on the environment. The most famous of these is litmus, a purple dye extracted from lichens—a slow-growing plant-like organism found on rocks and trees. When placed in an acidic solution, this purple dye instantly flushes to a bright red. When dropped into a basic solution, it turns a deep, vibrant blue. This simple biological extract gave early scientists the power to 'see' the chemical nature of a liquid simply by watching its color shift.</div>
+    </div>
+    </div></div>
+<div class="slide"><div class="content-box">
+                <h2>Indicators & pH <span class="punjabi">(ਸੂਚਕ ਅਤੇ pH)</span></h2>
+                <p>Indicators test if a solution is acid or base.</p>
+                <ul>
+                    <li><strong>Litmus:</strong> Red in acid, Blue in base.</li>
+                    <li><strong>Phenolphthalein:</strong> Colorless in acid, Pink in base.</li>
+                    <li><strong>Olfactory Indicators <span class="punjabi">(ਸੁੰਘਣ ਵਾਲੇ ਸੂਚਕ)</span>:</strong> Odor changes (e.g., Onion, Clove lose smell in bases).</li>
+                </ul>
+                <h3>The pH Scale</h3>
+                <ul>
+                    <li><span class="accent">Acidic:</span> pH &lt; 7 (Low pH)</li>
+                    <li><span class="accent-blue">Neutral:</span> pH = 7 (Pure water)</li>
+                    <li><span class="accent-blue">Basic:</span> pH &gt; 7 (High pH)</li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>pH in Digestion & Soil <span class="punjabi">(ਪਾਚਨ ਅਤੇ ਮਿੱਟੀ ਵਿੱਚ pH)</span></h2>
+                <ul>
+                    <li><strong>Digestive System <span class="punjabi">(ਪਾਚਨ ਪ੍ਰਣਾਲੀ)</span>:</strong> Our stomach produces Hydrochloric Acid (HCl) to digest food (pH ~1.2). If it produces too much, it causes pain (acidity). We use antacids to neutralize it.</li>
+                    <li><strong>Soil pH <span class="punjabi">(ਮਿੱਟੀ ਦਾ pH)</span>:</strong> Plants grow best in neutral soil (pH close to 7). If soil is too acidic (common with fertilizer overuse), farmers add <strong>Quicklime (CaO)</strong> to neutralize it.</li>
+                </ul>
+</div></div>
+
+        <!-- NEW FEATURE 2: pH Scale Mapping -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Interactive Tool: The pH Scale Map <span class="punjabi">(pH ਸਕੇਲ ਟੂਲ)</span></h2>
+                <p>Click on the everyday substances below to map where they fall on the universal pH scale.</p>
+                
+                <div class="ph-tool">
+                    <div class="ph-scale-wrapper">
+                        <div class="ph-gradient-bar"></div>
+                        <div class="ph-pointer" id="ph-pointer" data-val="Neutral (7.0)"></div>
+                    </div>
+                    <div class="ph-labels"><span>0 (Strong Acid)</span><span>7 (Neutral)</span><span>14 (Strong Base)</span></div>
+                    
+                    <h3 style="margin-top: 30px; text-align:center;">Select a Substance:</h3>
+                    <div class="ph-btn-grid">
+                        <button class="ph-item-btn" onclick="mapPh(1.2, 'Gastric Juice')">Gastric Juice (1.2)</button>
+                        <button class="ph-item-btn" onclick="mapPh(2.2, 'Lemon Juice')">Lemon Juice (2.2)</button>
+                        <button class="ph-item-btn" onclick="mapPh(5.6, 'Acid Rain')">Acid Rain (<5.6)</button>
+                        <button class="ph-item-btn" onclick="mapPh(7.0, 'Pure Water')">Pure Water (7.0)</button>
+                        <button class="ph-item-btn" onclick="mapPh(7.4, 'Human Blood')">Human Blood (7.4)</button>
+                        <button class="ph-item-btn" onclick="mapPh(10.0, 'Milk of Magnesia')">Milk of Magnesia (10)</button>
+                        <button class="ph-item-btn" onclick="mapPh(14.0, 'Sodium Hydroxide')">NaOH (14.0)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE: Indicator Colour Lab -->
+        <div class="slide"><div class="content-box">
+                <h2>Interactive Lab: Indicator Colour Test <span class="punjabi">(ਸੂਚਕ ਰੰਗ ਟੈਸਟ)</span></h2>
+                <p>Pick a <strong>solution</strong>, then pick an <strong>indicator</strong>. Watch the test tube change colour — just like in the school lab!</p>
+                <div class="indicator-lab">
+                    <div class="ind-controls">
+                        <div class="ind-group">
+                            <div class="ind-label">1. Choose a solution</div>
+                            <button class="ind-btn sol-btn active" data-sol="acid" onclick="pickSolution('acid', this)">HCl (Acid)</button>
+                            <button class="ind-btn sol-btn" data-sol="neutral" onclick="pickSolution('neutral', this)">NaCl (Neutral)</button>
+                            <button class="ind-btn sol-btn" data-sol="base" onclick="pickSolution('base', this)">NaOH (Base)</button>
+                        </div>
+                        <div class="ind-group">
+                            <div class="ind-label">2. Choose an indicator</div>
+                            <button class="ind-btn indc-btn active" data-ind="blue" onclick="pickIndicator('blue', this)">Blue Litmus</button>
+                            <button class="ind-btn indc-btn" data-ind="red" onclick="pickIndicator('red', this)">Red Litmus</button>
+                            <button class="ind-btn indc-btn" data-ind="phen" onclick="pickIndicator('phen', this)">Phenolphthalein</button>
+                            <button class="ind-btn indc-btn" data-ind="methyl" onclick="pickIndicator('methyl', this)">Methyl Orange</button>
+                        </div>
+                    </div>
+                    <div class="ind-result">
+                        <div class="test-tube"><div class="tube-liquid" id="tube-liquid"></div></div>
+                        <div class="ind-readout" id="ind-readout">Select options to begin.</div>
+                    </div>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box"><h2>Reading Comprehension <span class="pyq-tag" style="background:#4F46E5;">Story Mode</span></h2>
+    <div class="reading-box">
+        <div class="read-controls">
+            <button class="read-btn" onclick="speakPassage('read-ch2b', this)">▶️ Read to Me</button>
+            <button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button>
+        </div>
+        <h3 style="margin-top:0; color: var(--goku-blue); font-size: 2rem;">The Acid Rain Crisis</h3>
+        <div class="reading-text" id="read-ch2b">When fossil fuels like coal and petroleum are burned in factories and vehicles, they release large amounts of sulfur dioxide and nitrogen oxides into the atmosphere. These toxic gases float high into the sky and mix with atmospheric moisture. A chemical reaction occurs, transforming the water droplets into dilute sulfuric and nitric acids. When this moisture falls back to Earth, it is called acid rain. Normal rain is slightly acidic with a pH around 5.6, but acid rain drops significantly lower. As this highly acidic water flows into lakes and rivers, it lowers the pH of the entire body of water, making it nearly impossible for sensitive aquatic life, like fish and frogs, to survive.</div>
+    </div>
+    </div></div>
+<div class="slide"><div class="content-box">
+                <h2>Acid Reactions <span class="punjabi">(ਤੇਜ਼ਾਬ ਦੀਆਂ ਕਿਰਿਆਵਾਂ)</span></h2>
+                <ul>
+                    <li><span class="equation">Acid + Metal &rarr; Salt + Hydrogen Gas</span><br>
+                    <span class="punjabi">(ਤੇਜ਼ਾਬ + ਧਾਤ &rarr; ਲੂਣ + ਹਾਈਡ੍ਰੋਜਨ ਗੈਸ)</span></li>
+                    
+                    <li><span class="equation">Acid + Base &rarr; Salt + Water</span><br>
+                    <span class="punjabi">(Neutralization / ਉਦਾਸੀਨੀਕਰਨ ਕਿਰਿਆ)</span></li>
+                    
+                    <li><span class="equation">Acid + Carbonate &rarr; Salt + Water + CO₂</span></li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box"><h2>Reading Comprehension <span class="pyq-tag" style="background:#4F46E5;">Story Mode</span></h2>
+    <div class="reading-box">
+        <div class="read-controls">
+            <button class="read-btn" onclick="speakPassage('read-ch2c', this)">▶️ Read to Me</button>
+            <button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button>
+        </div>
+        <h3 style="margin-top:0; color: var(--goku-blue); font-size: 2rem;">The Baking Soda Volcano</h3>
+        <div class="reading-text" id="read-ch2c">If you have ever mixed vinegar and baking soda together to make a fake science-fair volcano, you have witnessed an acid-carbonate reaction firsthand. Vinegar contains ethanoic acid, and baking soda is sodium hydrogencarbonate. When they meet, the acid breaks apart the carbonate molecule, instantly releasing water and a massive surge of carbon dioxide gas. This sudden release of gas causes the bubbling eruption. Bakers use this exact same chemical principle to make cakes. By mixing baking soda with a mild edible acid, carbon dioxide bubbles get trapped in the wet dough. When the cake bakes, the gas expands, forcing the dough to rise and become light and fluffy!</div>
+    </div>
+    </div></div>
+<div class="slide"><div class="content-box">
+                <h2>Acids with Carbonates <span class="punjabi">(ਕਾਰਬੋਨੇਟਾਂ ਨਾਲ ਕਿਰਿਆ)</span></h2>
+                <p>When an acid reacts with a metal carbonate or metal hydrogencarbonate, it produces salt, water, and Carbon Dioxide gas.</p>
+                <div class="equation">Na₂CO₃(s) + 2HCl(aq) &rarr; 2NaCl(aq) + H₂O(l) + CO₂(g)</div>
+                <div class="equation">NaHCO₃(s) + HCl(aq) &rarr; NaCl(aq) + H₂O(l) + CO₂(g)</div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Metallic vs Non-Metallic Oxides</h2>
+                <table>
+                    <tr>
+                        <th>Metallic Oxides</th>
+                        <th>Non-Metallic Oxides</th>
+                    </tr>
+                    <tr>
+                        <td>React with acids to form salt & water.</td>
+                        <td>React with bases to form salt & water.</td>
+                    </tr>
+                    <tr>
+                        <td>Therefore, they are <strong>Basic</strong> in nature.</td>
+                        <td>Therefore, they are <strong>Acidic</strong> in nature.</td>
+                    </tr>
+                    <tr>
+                        <td>Example: $CuO, MgO$</td>
+                        <td>Example: $CO_2, SO_2$</td>
+                    </tr>
+                </table>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Lab Guide: Identifying Gases <span class="punjabi">(ਗੈਸਾਂ ਦੀ ਪਛਾਣ)</span></h2>
+                <p>When acids react, gases are released. How do we test which gas it is?</p>
+                <div class="lab-box">
+                    <h3>🧪 The Pop Test (Hydrogen Gas)</h3>
+                    <p>Bring a burning matchstick near the test tube. If the gas burns with a <strong>'pop' sound</strong>, it is Hydrogen ($H_2$).</p>
+                </div>
+                <div class="lab-box">
+                    <h3>🧪 The Milky Test (Carbon Dioxide)</h3>
+                    <p>Pass the gas through limewater (Calcium hydroxide). If the limewater <strong>turns milky/cloudy</strong>, it is Carbon Dioxide ($CO_2$). If you pass excess $CO_2$, it turns clear again!</p>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Safety: The Dilution Process <span class="punjabi">(ਪਤਲਾ ਕਰਨਾ)</span></h2>
+                <div class="pitfall-box">
+                    <h3>🚨 Rule: Add Acid to Water!</h3>
+                    <p>ALWAYS add acid to water slowly while stirring. <span class="accent">NEVER add water to acid.</span> Why? It is highly exothermic and the heat generated can cause the mixture to splash out and cause severe burns, or break the glass container.</p>
+                </div>
+                <p><strong>What happens internally?</strong> Dilution decreases the concentration of ions ($H_3O^+$/$OH^-$) per unit volume.</p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Top "Give Reason" Questions <span class="pyq-tag">PSEB 2017, 2019, 2023</span></h2>
+                <ul>
+                    <li><strong>Why should curd not be kept in brass or copper vessels?</strong><br>
+                    Curd contains acid (Lactic acid). It reacts with metal to form poisonous salts.</li>
+                    <li><strong>Why do acids not show acidic behavior without water?</strong><br>
+                    Acids only release H⁺ ions when dissolved in water.</li>
+                    <li><strong>Why does an aqueous solution of an acid conduct electricity?</strong><br>
+                    Because acids ionize in water to produce charged ions (H⁺) which carry the current.</li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>The Chlor-Alkali Process <span class="pyq-tag">PSEB 2020, 2022</span></h2>
+                <p>When electricity is passed through an aqueous solution of sodium chloride (called brine), it decomposes to form sodium hydroxide.</p>
+                <div class="equation">2NaCl(aq) + 2H₂O(l) &rarr; 2NaOH(aq) + Cl₂(g) + H₂(g)</div>
+                <ul>
+                    <li><strong>Chlorine gas (Anode):</strong> Used for water treatment and swimming pools.</li>
+                    <li><strong>Hydrogen gas (Cathode):</strong> Used for fuel and making margarine.</li>
+                    <li><strong>Sodium hydroxide (near Cathode):</strong> Used for degreasing metals and making soaps.</li>
+                </ul>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Manufacturing Salts: Bleaching Powder & Baking Soda</h2>
+                <p><strong>1. Bleaching Powder ($CaOCl_2$):</strong> Produced by the action of chlorine on dry slaked lime.</p>
+                <div class="equation">Ca(OH)₂ + Cl₂ &rarr; CaOCl₂ + H₂O</div>
+                <p><em>Uses: Disinfecting drinking water, bleaching cotton.</em></p>
+                
+                <p><strong>2. Baking Soda ($NaHCO_3$):</strong> Produced using sodium chloride, water, $CO_2$, and ammonia.</p>
+                <div class="equation">NaCl + H₂O + CO₂ + NH₃ &rarr; NH₄Cl + NaHCO₃</div>
+                <p><em>Uses: Making baking powder (which makes cakes fluffy), antacid.</em></p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Manufacturing Salts: Washing Soda & Plaster of Paris</h2>
+                <p><strong>3. Washing Soda ($Na_2CO_3 \cdot 10H_2O$):</strong> Recrystallization of sodium carbonate gives washing soda.</p>
+                <div class="equation">Na₂CO₃ + 10H₂O &rarr; Na₂CO₃·10H₂O</div>
+                <p><em>Uses: Glass/soap/paper industries, removing permanent hardness of water.</em></p>
+                
+                <p><strong>4. Plaster of Paris ($CaSO_4 \cdot rac{1}{2}H_2O$):</strong> Heating Gypsum at exactly 373K.</p>
+                <div class="equation">CaSO₄·2H₂O + Heat(373K) &rarr; CaSO₄·&frac12;H₂O + 1&frac12;H₂O</div>
+                <p><em>Uses: Doctors use it to support fractured bones.</em></p>
+</div></div>
+        <div class="slide">
+            <div class="content-box">
+                <h2>Everyday Applications of pH <span class="punjabi">(ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ pH)</span></h2>
+                <div class="sub-slider-container" id="ph-ch2">
+                    <div class="sub-slide active short-answer" id="ph-ch2-s1" data-q="Tooth decay starts when the pH of the mouth is lower than..." data-a="5.5">
+                        <div class="sub-progress">Application 1 of 2</div>
+                        <div class="question-text">
+                            Tooth decay starts when the pH of the mouth is lower than what number?<br>
+                            <span class="punjabi-block">ਦੰਦਾਂ ਦਾ ਸੜਨਾ ਉਦੋਂ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ ਜਦੋਂ ਮੂੰਹ ਦਾ pH ਕਿਸ ਤੋਂ ਘੱਟ ਹੁੰਦਾ ਹੈ?</span>
+                        </div>
+                        <input type="text" class="sa-input" placeholder="Type the pH value...">
+                        <button class="sa-submit-btn" onclick="checkSA(this, '5.5', '')">Check Answer</button>
+                        <div class="feedback"></div>
+                        <button class="next-sub-btn" onclick="nextSubSlide('ph-ch2', 2)">Next Application &rarr;</button>
+                    </div>
+                    
+                    <div class="sub-slide short-answer" id="ph-ch2-s2" data-q="What acid is injected during a bee sting?" data-a="Methanoic acid">
+                        <div class="sub-progress">Application 2 of 2</div>
+                        <div class="question-text">
+                            What acid is injected during a bee sting? (Self-defense by animals)<br>
+                            <span class="punjabi-block">ਮਧੂ ਮੱਖੀ ਦੇ ਡੰਗ ਵਿੱਚ ਕਿਹੜਾ ਐਸਿਡ ਹੁੰਦਾ ਹੈ?</span>
+                        </div>
+                        <input type="text" class="sa-input" placeholder="Type the acid name...">
+                        <button class="sa-submit-btn" onclick="checkSA(this, 'Methanoic acid', 'ਮਿਥੇਨੋਇਕ ਐਸਿਡ')">Check Answer</button>
+                        <div class="feedback"></div>
+                        <button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Continue &rarr;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div class="slide"><div class="content-box"><h2>Case Study: The Chlor-Alkali Process</h2><div class="lab-box" style="border-left-color: #8B5CF6; background: #F5F3FF;"><h3>Read the passage:</h3><p style="font-size:1.4rem; line-height:1.6;">When electricity is passed through an aqueous solution of sodium chloride (brine), it decomposes to form sodium hydroxide. Chlorine gas is given off at the anode, and hydrogen gas at the cathode.</p></div><p><em>Questions based on this passage will follow on the next slides!</em></p></div></div>
+<div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">What is the chemical formula for Brine?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. NaCl (solid)</button><button data-correct="true" class="option-btn" onclick="checkAnswer(this, true, true)">B. NaCl (aqueous)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. NaOH (aqueous)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. HCl (aqueous)</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">Which product of this process is used for water treatment?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Hydrogen</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Sodium Hydroxide</button><button data-correct="true" class="option-btn" onclick="checkAnswer(this, true, true)">C. Chlorine</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. Sodium Chloride</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box"><h2>Chapter 2 Quick Recap</h2><ul style="font-size:1.5rem;"><li>Acids taste sour and yield $H^+$; Bases taste bitter and yield $OH^-$.</li><li>Indicators like Litmus and Phenolphthalein show color changes.</li><li>pH scale measures $H^+$ concentration (0 to 14).</li><li>Salts like Baking Soda and Washing Soda have major industrial uses.</li><li>Water of crystallization gives crystals their shape and color.</li></ul></div></div>
+<div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch2"><div class="sub-slide active" id="tf-ch2-s1"><div class="sub-progress">Question 1 of 13</div><div class="question-text">Acids turn red litmus paper blue.<br><span class="punjabi-block">ਤੇਜ਼ਾਬ ਲਾਲ ਲਿਟਮਸ ਨੂੰ ਨੀਲਾ ਕਰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s2"><div class="sub-progress">Question 2 of 13</div><div class="question-text">Baking soda is basic in nature.<br><span class="punjabi-block">ਮਿੱਠਾ ਸੋਡਾ ਸੁਭਾਅ ਵਿੱਚ ਖਾਰਾ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s3"><div class="sub-progress">Question 3 of 13</div><div class="question-text">The pH of pure water is 0.<br><span class="punjabi-block">ਸ਼ੁੱਧ ਪਾਣੀ ਦਾ pH 0 ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s4"><div class="sub-progress">Question 4 of 13</div><div class="question-text">Acids taste bitter and feel soapy to touch.<br><span class="punjabi-block">ਤੇਜ਼ਾਬ ਸਵਾਦ ਵਿੱਚ ਕੌੜੇ ਅਤੇ ਛੂਹਣ 'ਤੇ ਸਾਬਣ ਵਰਗੇ ਹੁੰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s5"><div class="sub-progress">Question 5 of 13</div><div class="question-text">Water neutralizes a base to form salt and hydrogen gas.<br><span class="punjabi-block">ਪਾਣੀ ਖਾਰ ਨੂੰ ਉਦਾਸੀਨ ਕਰਕੇ ਲੂਣ ਅਤੇ ਹਾਈਡ੍ਰੋਜਨ ਗੈਸ ਬਣਾਉਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s6"><div class="sub-progress">Question 6 of 13</div><div class="question-text">Olfactory indicators change their odor in acidic or basic solutions.<br><span class="punjabi-block">ਸੁੰਘਣ ਵਾਲੇ ਸੂਚਕ ਤੇਜ਼ਾਬੀ ਜਾਂ ਖਾਰੇ ਘੋਲ ਵਿੱਚ ਆਪਣੀ ਗੰਧ ਬਦਲ ਲੈਂਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s7"><div class="sub-progress">Question 7 of 13</div><div class="question-text">A solution with pH 12 is a strong acid.<br><span class="punjabi-block">pH 12 ਵਾਲਾ ਘੋਲ ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s8"><div class="sub-progress">Question 8 of 13</div><div class="question-text">Baking soda is prepared using the Solvay process.<br><span class="punjabi-block">ਮਿੱਠਾ ਸੋਡਾ ਸੋਲਵੇ ਪ੍ਰਕਿਰਿਆ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 9)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s9"><div class="sub-progress">Question 9 of 13</div><div class="question-text">A strong acid completely ionizes in water.<br><span class="punjabi-block">ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ ਪਾਣੀ ਵਿੱਚ ਪੂਰੀ ਤਰ੍ਹਾਂ ਆਇਨੀਕ੍ਰਿਤ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 10)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s10"><div class="sub-progress">Question 10 of 13</div><div class="question-text">Dry HCl gas turns dry blue litmus paper red.<br><span class="punjabi-block">ਸੁੱਕੀ HCl ਗੈਸ ਸੁੱਕੇ ਨੀਲੇ ਲਿਟਮਸ ਪੇਪਰ ਨੂੰ ਲਾਲ ਕਰ ਦਿੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 11)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s11"><div class="sub-progress">Question 11 of 13</div><div class="question-text">Washing soda contains 10 molecules of water of crystallization.<br><span class="punjabi-block">ਕੱਪੜੇ ਧੋਣ ਵਾਲੇ ਸੋਡੇ ਵਿੱਚ ਕ੍ਰਿਸਟਲੀਕਰਨ ਦੇ ਪਾਣੀ ਦੇ 10 ਅਣੂ ਹੁੰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 12)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s12"><div class="sub-progress">Question 12 of 13</div><div class="question-text">Tamarind contains Tartaric acid.<br><span class="punjabi-block">ਇਮਲੀ ਵਿੱਚ ਟਾਰਟਰਿਕ ਐਸਿਡ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch2', 13)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch2-s13"><div class="sub-progress">Question 13 of 13</div><div class="question-text">When an acid reacts with a metal carbonate, oxygen gas is released.<br><span class="punjabi-block">ਜਦੋਂ ਤੇਜ਼ਾਬ ਧਾਤ ਦੇ ਕਾਰਬੋਨੇਟ ਨਾਲ ਕਿਰਿਆ ਕਰਦਾ ਹੈ, ਤਾਂ ਆਕਸੀਜਨ ਗੈਸ ਨਿਕਲਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 2</h2><div class="sub-slider-container" id="sib-ch2"><div class="sub-slide active short-answer" id="sib-ch2-s1" data-q="Acids give which ion in water?" data-a="H+ ions"><div class="sub-progress">Short Answer 1 of 12</div><div class="question-text">Acids give which ion in water?<br><span class="punjabi-block">ਤੇਜ਼ਾਬ ਪਾਣੀ ਵਿੱਚ ਕਿਹੜਾ ਆਇਨ ਦਿੰਦੇ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'H+ ions', 'H⁺ ਆਇਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s2" data-q="Bases give which ion in water?" data-a="OH- ions"><div class="sub-progress">Short Answer 2 of 12</div><div class="question-text">Bases give which ion in water?<br><span class="punjabi-block">ਖਾਰ ਪਾਣੀ ਵਿੱਚ ਕਿਹੜਾ ਆਇਨ ਦਿੰਦੇ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'OH- ions', 'OH⁻ ਆਇਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s3" data-q="Acid + Metal gives..." data-a="Salt + Hydrogen gas"><div class="sub-progress">Short Answer 3 of 12</div><div class="question-text">Acid + Metal gives...<br><span class="punjabi-block">ਤੇਜ਼ਾਬ + ਧਾਤ ਕੀ ਬਣਾਉਂਦੇ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Salt + Hydrogen gas', 'ਲੂਣ + ਹਾਈਡ੍ਰੋਜਨ ਗੈਸ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s4" data-q="What is the formula for Bleaching Powder?" data-a="CaOCl2"><div class="sub-progress">Short Answer 4 of 12</div><div class="question-text">What is the formula for Bleaching Powder?<br><span class="punjabi-block">ਰੰਗਕਾਟ ਪਾਊਡਰ ਦਾ ਸੂਤਰ ਕੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'CaOCl2', 'CaOCl₂')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s5" data-q="Heating Gypsu
+m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Short Answer 5 of 12</div><div class="question-text">Heating Gypsum to 373K produces what?<br><span class="punjabi-block">ਜਿਪਸਮ ਨੂੰ 373K 'ਤੇ ਗਰਮ ਕਰਨ ਨਾਲ ਕੀ ਬਣਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Plaster of Paris', 'ਪਲਾਸਟਰ ਆਫ਼ ਪੈਰਿਸ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s6" data-q="What mild base is used as an antacid?" data-a="Milk of Magnesia"><div class="sub-progress">Short Answer 6 of 12</div><div class="question-text">What mild base is used as an antacid?<br><span class="punjabi-block">ਐਂਟਾਸਿਡ ਦੇ ਤੌਰ 'ਤੇ ਕਿਹੜਾ ਹਲਕਾ ਖਾਰ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Milk of Magnesia', 'ਮਿਲਕ ਆਫ਼ ਮੈਗਨੀਸ਼ੀਆ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s7" data-q="Should you add acid to water or water to acid?" data-a="Acid to water"><div class="sub-progress">Short Answer 7 of 12</div><div class="question-text">Should you add acid to water or water to acid?<br><span class="punjabi-block">ਤੇਜ਼ਾਬ ਨੂੰ ਪਤਲਾ ਕਰਨ ਲਈ, ਤੇਜ਼ਾਬ ਨੂੰ ਪਾਣੀ ਵਿੱਚ ਪਾਉਣਾ ਚਾਹੀਦਾ ਹੈ ਜਾਂ ਪਾਣੀ ਨੂੰ ਤੇਜ਼ਾਬ ਵਿੱਚ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Acid to water', 'ਤੇਜ਼ਾਬ ਨੂੰ ਪਾਣੀ ਵਿੱਚ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s8" data-q="An acid that completely ionizes in water is called?" data-a="Strong acid"><div class="sub-progress">Short Answer 8 of 12</div><div class="question-text">An acid that completely ionizes in water is called?<br><span class="punjabi-block">ਜਿਹੜਾ ਤੇਜ਼ਾਬ ਪਾਣੀ ਵਿੱਚ ਪੂਰੀ ਤਰ੍ਹਾਂ ਆਇਨੀਕ੍ਰਿਤ ਹੋ ਜਾਂਦਾ ਹੈ, ਉਸਨੂੰ ਕੀ ਕਹਿੰਦੇ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Strong acid', 'ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 9)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s9" data-q="What color does phenolphthalein turn in an acidic solution?" data-a="Colorless"><div class="sub-progress">Short Answer 9 of 12</div><div class="question-text">What color does phenolphthalein turn in an acidic solution?<br><span class="punjabi-block">ਫਿਨੋਲਫਥਲੀਨ ਤੇਜ਼ਾਬੀ ਘੋਲ ਵਿੱਚ ਕਿਸ ਰੰਗ ਦਾ ਹੁੰਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Colorless', 'ਰੰਗਹੀਣ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 10)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s10" data-q="What gas is usually produced when an acid reacts with a carbonate?" data-a="Carbon dioxide"><div class="sub-progress">Short Answer 10 of 12</div><div class="question-text">What gas is usually produced when an acid reacts with a carbonate?<br><span class="punjabi-block">ਜਦੋਂ ਤੇਜ਼ਾਬ ਕਾਰਬੋਨੇਟ ਨਾਲ ਕਿਰਿਆ ਕਰਦਾ ਹੈ ਤਾਂ ਆਮ ਤੌਰ 'ਤੇ ਕਿਹੜੀ ਗੈਸ ਬਣਦੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Carbon dioxide', 'ਕਾਰਬਨ ਡਾਈਆਕਸਾਈਡ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 11)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s11" data-q="What is the common name of Sodium bicarbonate?" data-a="Baking soda"><div class="sub-progress">Short Answer 11 of 12</div><div class="question-text">What is the common name of Sodium bicarbonate?<br><span class="punjabi-block">ਸੋਡੀਅਮ ਬਾਈਕਾਰਬੋਨੇਟ ਦਾ ਆਮ ਨਾਮ ਕੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Baking soda', 'ਮਿੱਠਾ ਸੋਡਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch2', 12)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch2-s12" data-q="Which acid is present in curd?" data-a="Lactic acid"><div class="sub-progress">Short Answer 12 of 12</div><div class="question-text">Which acid is present in curd?<br><span class="punjabi-block">ਦਹੀਂ ਵਿੱਚ ਕਿਹੜਾ ਐਸਿਡ ਹੁੰਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Lactic acid', 'ਲੈਕਟਿਕ ਐਸਿਡ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 2 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch2"><div class="sub-slide active" id="mcq-ch2-s1"><div class="sub-progress">Question 1 of 12</div><div class="question-text">What is the pH of a neutral solution?<br><span class="punjabi-block">ਉਦਾਸੀਨ ਘੋਲ ਦਾ pH ਕੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. 0</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. 7</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. 14</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s2"><div class="sub-progress">Question 2 of 12</div><div class="question-text">Which gas is released when an acid reacts with a metal?<br><span class="punjabi-block">ਤੇਜ਼ਾਬ ਧਾਤ ਨਾਲ ਕਿਰਿਆ ਕਰਕੇ ਕਿਹੜੀ ਗੈਸ ਛੱਡਦੇ ਹਨ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Oxygen</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Carbon Dioxide</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Hydrogen</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s3"><div class="sub-progress">Question 3 of 12</div><div class="question-text">Plaster of Paris is made by heating:<br><span class="punjabi-block">ਪਲਾਸਟਰ ਆਫ਼ ਪੈਰਿਸ ਕਿਸ ਨੂੰ ਗਰਮ ਕਰਕੇ ਬਣਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Baking Soda</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Gypsum</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Washing Soda</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s4"><div class="sub-progress">Question 4 of 12</div><div class="question-text">Which of the following is a strong acid?<br><span class="punjabi-block">ਹੇਠ ਲਿਖਿਆਂ ਵਿੱਚੋਂ ਕਿਹੜਾ ਸ਼ਕਤੀਸ਼ਾਲੀ ਤੇਜ਼ਾਬ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Acetic acid</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Hydrochloric acid</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Citric acid</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s5"><div class="sub-progress">Question 5 of 12</div><div class="question-text">Baking soda is basic in nature. Which of the following is its formula?<br><span class="punjabi-block">ਮਿੱਠਾ ਸੋਡਾ ਸੁਭਾਅ ਵਿੱਚ ਖਾਰਾ ਹੈ। ਇਸਦਾ ਸੂਤਰ ਕੀ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Na₂CO₃</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. NaHCO₃</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. NaOH</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s6"><div class="sub-progress">Question 6 of 12</div><div class="question-text">Which acid is present in vinegar?<br><span class="punjabi-block">ਸਿਰਕੇ ਵਿੱਚ ਕਿਹੜਾ ਐਸਿਡ ਹੁੰਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Lactic acid</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Citric acid</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Acetic acid</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s7"><div class="sub-progress">Question 7 of 12</div><div class="question-text">Tooth decay starts when the pH of the mouth is lower than:<br><span class="punjabi-block">ਦੰਦਾਂ ਦਾ ਸੜਨਾ ਉਦੋਂ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ ਜਦੋਂ ਮੂੰਹ ਦਾ pH ਕਿਸ ਤੋਂ ਘੱਟ ਹੁੰਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. 7.0</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. 5.5</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. 6.5</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s8"><div class="sub-progress">Question 8 of 12</div><div class="question-text">An aqueous solution turns red litmus solution blue. Excess addition of which solution would reverse the change?<br><span class="punjabi-block">ਇੱਕ ਘੋਲ ਲਾਲ ਲਿਟਮਸ ਨੂੰ ਨੀਲਾ ਕਰਦਾ ਹੈ। ਕਿਹੜਾ ਘੋਲ ਪਾਉਣ ਨਾਲ ਇਹ ਬਦਲਾਅ ਉਲਟ ਜਾਵੇਗਾ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Baking powder</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Ammonium hydroxide</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Hydrochloric acid</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 9)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s9"><div class="sub-progress">Question 9 of 12</div><div class="question-text">Brine is an aqueous solution of:<br><span class="punjabi-block">ਬ੍ਰਾਈਨ (Brine) ਕਿਸ ਦਾ ਘੋਲ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Sodium hydroxide</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Sodium chloride</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Sodium carbonate</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 10)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s10"><div class="sub-progress">Question 10 of 12</div><div class="question-text">Which base is present in milk of magnesia?<br><span class="punjabi-block">ਮਿਲਕ ਆਫ਼ ਮੈਗਨੀਸ਼ੀਆ ਵਿੱਚ ਕਿਹੜਾ ਖਾਰ ਹੁੰਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Calcium hydroxide</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Magnesium hydroxide</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Sodium hydroxide</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 11)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s11"><div class="sub-progress">Question 11 of 12</div><div class="question-text">At what temperature is gypsum heated to form Plaster of Paris?<br><span class="punjabi-block">ਜਿਪਸਮ ਨੂੰ ਕਿਸ ਤਾਪਮਾਨ 'ਤੇ ਗਰਮ ਕਰਨ ਨਾਲ ਪਲਾਸਟਰ ਆਫ਼ ਪੈਰਿਸ ਬਣਦਾ ਹੈ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. 273 K</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. 373 K</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. 473 K</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch2', 12)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch2-s12"><div class="sub-progress">Question 12 of 12</div><div class="question-text">Which of the following salts does not contain water of crystallization?<br><span class="punjabi-block">ਕਿਹੜੇ ਲੂਣ ਵਿੱਚ ਕ੍ਰਿਸਟਲੀਕਰਨ ਦਾ ਪਾਣੀ ਨਹੀਂ ਹੁੰਦਾ?</span></div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Blue vitriol</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Baking soda</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Washing soda</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Continue to Chapter 3 &rarr;</button></div></div></div></div>
+
+        <!-- =================== CHAPTER 3 =================== -->
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        window.moveSlide = function(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+        
+        window.goToSlide = function(index) {
+            currentSlide = index;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+        
+        window.jumpToChapter = function(chId) {
+            const el = document.getElementById(chId);
+            if(el) {
+                const index = Array.from(slides).indexOf(el);
+                if(index !== -1) window.goToSlide(index);
+            }
+        }
+        
+        window.promptSlide = function() {
+            const numStr = prompt(`Enter a slide number (1 to ${totalSlides}):`);
+            if (numStr !== null) {
+                const num = parseInt(numStr, 10);
+                if (!isNaN(num) && num >= 1 && num <= totalSlides) {
+                    window.goToSlide(num - 1);
+                } else {
+                    alert("Invalid slide number.");
+                }
+            }
+        }
+
+        window.checkAnswer = function(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        window.checkSA = function(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 15px; border-radius: 8px; border-left: 5px solid var(--goku-blue);">`;
+            
+            if(userVal === expectedVal) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: bold; font-size: 1.2rem;">Correct!</span><br>`;
+            } else {
+                feedbackHtml += `<span style="color: #555; font-size: 1.1rem;">Expected Answer:</span><br>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-blue); font-size: 1.4rem;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 5px; font-weight: bold;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        window.nextSubSlide = function(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        /* TEXT-TO-SPEECH WITH UI FEEDBACK & CHROME FIX */
+        window.activeReadBtn = null;
+        
+        window.speakWord = function(text, btn) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.resume();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85; 
+                if(btn) {
+                    btn.style.backgroundColor = '#D1FAE5'; 
+                    utterance.onend = () => { btn.style.backgroundColor = ''; };
+                    utterance.onerror = () => { btn.style.backgroundColor = ''; };
+                }
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Text-to-speech is not supported in this browser.");
+            }
+        }
+        
+        window.speakPassage = function(textId, btn) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.resume();
+                
+                if(window.activeReadBtn) {
+                    window.activeReadBtn.innerHTML = '▶️ Read to Me';
+                    window.activeReadBtn.style.background = '';
+                }
+                
+                const textElement = document.getElementById(textId);
+                const text = textElement.innerText || textElement.textContent;
+                
+                const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text])
+                                    .map(s => s.trim())
+                                    .filter(s => s.length > 0);
+                
+                if(sentences.length === 0) return;
+
+                window.activeReadBtn = btn;
+                btn.innerHTML = '🔊 Reading...';
+                btn.style.background = 'var(--goku-orange)';
+                
+                let currentSentence = 0;
+                
+                function speakNext() {
+                    if (currentSentence < sentences.length) {
+                        const utterance = new SpeechSynthesisUtterance(sentences[currentSentence]);
+                        utterance.lang = 'en-US';
+                        utterance.rate = 0.85;
+                        
+                        utterance.onend = function() {
+                            currentSentence++;
+                            speakNext();
+                        };
+                        
+                        utterance.onerror = function(e) {
+                            console.error("TTS Error:", e);
+                            window.stopSpeaking();
+                        };
+                        
+                        window.speechSynthesis.speak(utterance);
+                    } else {
+                        window.stopSpeaking();
+                    }
+                }
+                
+                speakNext();
+                
+            } else {
+                alert("Text-to-speech is not supported in this browser.");
+            }
+        }
+        
+        window.stopSpeaking = function() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                if(window.activeReadBtn) {
+                    window.activeReadBtn.innerHTML = '▶️ Read to Me';
+                    window.activeReadBtn.style.background = '';
+                    window.activeReadBtn = null;
+                }
+            }
+        }
+
+        /* SIMULATOR 5: DISPLACEMENT PREDICTOR */
+        const reactivity = { 'K': 14, 'Na': 13, 'Ca': 12, 'Mg': 11, 'Al': 10, 'Zn': 9, 'Fe': 8, 'Pb': 7, 'H': 6, 'Cu': 5, 'Ag': 4, 'Au': 3 };
+        window.predictDisplacement = function() {
+            const m1 = document.getElementById('solid-metal').value;
+            const m2 = document.getElementById('aqueous-salt').value;
+            const res = document.getElementById('displacement-result');
+            
+            const v1 = reactivity[m1];
+            const v2 = reactivity[m2];
+            
+            const nameMap = {'K':'Potassium', 'Na':'Sodium', 'Ca':'Calcium', 'Mg':'Magnesium', 'Al':'Aluminum', 'Zn':'Zinc', 'Fe':'Iron', 'Pb':'Lead', 'Cu':'Copper', 'Ag':'Silver'};
+            
+            if(m1 === m2) {
+                res.innerHTML = "<span style='color:#555;'>No reaction. Same metal!</span>";
+            } else if (v1 > v2) {
+                res.innerHTML = `<span style='color:#10B981;'>Reaction Occurs! ✅<br><span style='font-size:1.4rem; font-weight:normal;'>${nameMap[m1]} is more reactive, so it displaces ${nameMap[m2]}.</span></span>`;
+            } else {
+                res.innerHTML = `<span style='color:#EF4444;'>No Reaction ❌<br><span style='font-size:1.4rem; font-weight:normal;'>${nameMap[m1]} is less reactive than ${nameMap[m2]}. It cannot displace it.</span></span>`;
+            }
+        };
+
+        /* SIMULATOR 6: ALKANE BUILDER */
+        const alkanes = ['-', 'Methane', 'Ethane', 'Propane', 'Butane', 'Pentane', 'Hexane'];
+        window.buildAlkane = function() {
+            const n = parseInt(document.getElementById('alkane-slider').value);
+            document.getElementById('alkane-name').innerText = alkanes[n];
+            const h = (2 * n) + 2;
+            
+            // Format subscript for formula
+            const subN = n > 1 ? `<sub>${n}</sub>` : '';
+            const subH = `<sub>${h}</sub>`;
+            document.getElementById('alkane-formula').innerHTML = `C${subN}H${subH}`;
+            
+            // Draw structure text
+            let tops = '   ' + ' H  '.repeat(n) + '\n   ' + ' |  '.repeat(n) + '\n';
+            let mid = 'H--' + 'C--'.repeat(n) + 'H\n';
+            let bots = '   ' + ' |  '.repeat(n) + '\n   ' + ' H  '.repeat(n);
+            
+            document.getElementById('alkane-structure').innerText = tops + mid + bots;
+        };
+
+        /* SIMULATOR 1: BALANCING */
+        window.calcBalance = function() {
+            const fe = parseInt(document.getElementById('c-fe').value) || 0;
+            const h2o = parseInt(document.getElementById('c-h2o').value) || 0;
+            const fe3o4 = parseInt(document.getElementById('c-fe3o4').value) || 0;
+            const h2 = parseInt(document.getElementById('c-h2').value) || 0;
+            
+            const lFe = fe * 1; const lH = h2o * 2; const lO = h2o * 1;
+            const rFe = fe3o4 * 3; const rH = h2 * 2; const rO = fe3o4 * 4;
+            
+            document.getElementById('lhs-fe').innerText = lFe;
+            document.getElementById('lhs-h').innerText = lH;
+            document.getElementById('lhs-o').innerText = lO;
+            document.getElementById('rhs-fe').innerText = rFe;
+            document.getElementById('rhs-h').innerText = rH;
+            document.getElementById('rhs-o').innerText = rO;
+            
+            const status = document.getElementById('balance-status');
+            if(lFe === rFe && lH === rH && lO === rO && lFe > 0) {
+                status.className = 'balance-status status-balanced';
+                status.innerText = 'Equation is BALANCED! ✅';
+            } else {
+                status.className = 'balance-status status-unbalanced';
+                status.innerText = 'Equation is UNBALANCED ❌';
+            }
+        }
+        
+        /* SIMULATOR 2: pH MAPPING */
+        window.mapPh = function(val, name) {
+            const pointer = document.getElementById('ph-pointer');
+            const percent = (val / 14) * 100;
+            pointer.style.left = `${percent}%`;
+            pointer.setAttribute('data-val', `${name} (${val})`);
+        }
+        
+        /* SIMULATOR 3: BOHR MODEL */
+        const elementsData = [
+            {n:1, sym:'H', conf:[1]}, {n:2, sym:'He', conf:[2]}, {n:3, sym:'Li', conf:[2,1]}, {n:4, sym:'Be', conf:[2,2]}, {n:5, sym:'B', conf:[2,3]},
+            {n:6, sym:'C', conf:[2,4]}, {n:7, sym:'N', conf:[2,5]}, {n:8, sym:'O', conf:[2,6]}, {n:9, sym:'F', conf:[2,7]}, {n:10, sym:'Ne', conf:[2,8]},
+            {n:11, sym:'Na', conf:[2,8,1]}, {n:12, sym:'Mg', conf:[2,8,2]}, {n:13, sym:'Al', conf:[2,8,3]}, {n:14, sym:'Si', conf:[2,8,4]}, {n:15, sym:'P', conf:[2,8,5]},
+            {n:16, sym:'S', conf:[2,8,6]}, {n:17, sym:'Cl', conf:[2,8,7]}, {n:18, sym:'Ar', conf:[2,8,8]}, {n:19, sym:'K', conf:[2,8,8,1]}, {n:20, sym:'Ca', conf:[2,8,8,2]}
+        ];
+        
+        function buildBohrButtons() {
+            const container = document.getElementById('bohr-buttons');
+            if(!container) return;
+            let html = '';
+            elementsData.forEach((el, index) => {
+                html += `<div class="element-btn" onclick="drawBohr(${index}, this)"><strong>${el.sym}</strong><span>${el.n}</span></div>`;
+            });
+            container.innerHTML = html;
+        }
+        
+        window.drawBohr = function(index, btnEl) {
+            document.querySelectorAll('.element-btn').forEach(b => b.classList.remove('active'));
+            if(btnEl) btnEl.classList.add('active');
+            
+            const el = elementsData[index];
+            document.getElementById('bohr-name').innerText = `${el.sym} (Atomic No. ${el.n})`;
+            document.getElementById('bohr-conf').innerText = `Configuration: [${el.conf.join(', ')}]`;
+            
+            const svgCont = document.getElementById('bohr-svg-container');
+            let svg = '<svg width="200" height="200" viewBox="0 0 200 200">';
+            svg += '<circle cx="100" cy="100" r="12" class="nucleus"/>';
+            svg += `<text x="100" y="104" font-size="10" fill="white" text-anchor="middle" font-weight="bold">${el.sym}</text>`;
+            
+            const radii = [35, 60, 85, 105];
+            for(let i=0; i<el.conf.length; i++) {
+                let r = radii[i];
+                svg += `<circle cx="100" cy="100" r="${r}" class="orbit"/>`;
+                let num_e = el.conf[i];
+                for(let j=0; j<num_e; j++) {
+                    let angle = (j / num_e) * Math.PI * 2;
+                    let x = 100 + r * Math.cos(angle);
+                    let y = 100 + r * Math.sin(angle);
+                    svg += `<circle cx="${x}" cy="${y}" r="4" class="electron" style="animation-delay: -${j}s"/>`;
+                }
+            }
+            svg += '</svg>';
+            svgCont.innerHTML = svg;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') window.moveSlide(1);
+            else if (e.key === 'ArrowLeft') window.moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', e => { 
+            touchStartX = e.changedTouches[0].screenX; 
+            touchStartY = e.changedTouches[0].screenY; 
+        }, {passive: true});
+        
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            touchEndY = e.changedTouches[0].screenY; 
+            
+            // Don't swipe if the user is scrolling vertically
+            if(Math.abs(touchEndY - touchStartY) > Math.abs(touchEndX - touchStartX)) return;
+            
+            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.indicator-lab')) return;
+            
+            if (touchEndX < touchStartX - 50) window.moveSlide(1); 
+            if (touchEndX > touchStartX + 50) window.moveSlide(-1); 
+        });
+
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if(window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    const subContainers = slide.querySelectorAll('.sub-slider-container');
+                    subContainers.forEach(container => {
+                        const subSlides = container.querySelectorAll('.sub-slide');
+                        subSlides.forEach((s, i) => {
+                            if(i === 0) s.classList.add('active');
+                            else s.classList.remove('active');
+                        });
+                        
+                        const btns = container.querySelectorAll('.option-btn');
+                        btns.forEach(b => {
+                            b.disabled = false;
+                            b.classList.remove('correct', 'incorrect');
+                        });
+
+                        const inputs = container.querySelectorAll('.sa-input');
+                        inputs.forEach(input => {
+                            input.value = '';
+                            input.disabled = false;
+                        });
+                        const saBtns = container.querySelectorAll('.sa-submit-btn');
+                        saBtns.forEach(btn => btn.disabled = false);
+
+                        const feedbacks = container.querySelectorAll('.feedback');
+                        feedbacks.forEach(f => f.innerHTML = '');
+                        const nextBtns = container.querySelectorAll('.next-sub-btn');
+                        nextBtns.forEach(nb => nb.style.display = 'none');
+                    });
+                }
+            });
+        });
+        
+        window.exportToAnki = function() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                const a = card.getAttribute('data-a').replace(/"/g, '""');
+                csvData += `"${q}","${a}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_PSEB_Final_Deck.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* SIMULATOR: INDICATOR COLOUR LAB */
+        var indData = {
+            acid:    {name:'HCl (Acid)',     blue:{c:'#E4322B',t:'Blue litmus turns RED.'},                red:{c:'#E4322B',t:'Red litmus stays RED (no change).'},        phen:{c:'#F4F4F4',t:'Phenolphthalein stays COLOURLESS.'}, methyl:{c:'#E4322B',t:'Methyl orange turns RED.'}},
+            neutral: {name:'NaCl (Neutral)', blue:{c:'#2B6CE4',t:'Blue litmus stays BLUE (no change).'},     red:{c:'#E4322B',t:'Red litmus stays RED (no change).'},        phen:{c:'#F4F4F4',t:'Phenolphthalein stays COLOURLESS.'}, methyl:{c:'#F59E0B',t:'Methyl orange stays ORANGE.'}},
+            base:    {name:'NaOH (Base)',    blue:{c:'#2B6CE4',t:'Blue litmus stays BLUE (no change).'},     red:{c:'#2B6CE4',t:'Red litmus turns BLUE.'},                   phen:{c:'#EC4899',t:'Phenolphthalein turns PINK.'},      methyl:{c:'#F6D32B',t:'Methyl orange turns YELLOW.'}}
+        };
+        var curSol = 'acid', curInd = 'blue';
+        function renderIndicator() {
+            var tube = document.getElementById('tube-liquid');
+            if (!tube) return;
+            var r = indData[curSol][curInd];
+            tube.style.background = r.c;
+            document.getElementById('ind-readout').innerHTML = '<strong>' + indData[curSol].name + '</strong><br>' + r.t;
+        }
+        window.pickSolution = function(sol, btn) {
+            curSol = sol;
+            document.querySelectorAll('.sol-btn').forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            renderIndicator();
+        };
+        window.pickIndicator = function(ind, btn) {
+            curInd = ind;
+            document.querySelectorAll('.indc-btn').forEach(function(b){ b.classList.remove('active'); });
+            btn.classList.add('active');
+            renderIndicator();
+        };
+
+        renderIndicator();
+        buildBohrButtons();
+        updateUI();
+    });
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

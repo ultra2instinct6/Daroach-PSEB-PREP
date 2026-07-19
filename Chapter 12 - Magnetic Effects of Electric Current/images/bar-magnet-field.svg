@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'Segoe UI',Arial,sans-serif">
+  <defs>
+    <marker id="arr12a" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#0f172a"/>
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#ffffff"/>
+  <!-- Bar magnet -->
+  <rect x="270" y="180" width="90" height="60" fill="#ef4444"/>
+  <rect x="360" y="180" width="90" height="60" fill="#3b82f6"/>
+  <text x="315" y="218" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">N</text>
+  <text x="405" y="218" font-size="26" fill="#ffffff" text-anchor="middle" font-weight="700">S</text>
+  <!-- Field lines N -> S (outside, curved loops) -->
+  <g fill="none" stroke="#0f172a" stroke-width="2">
+    <path d="M 360 185 C 470 90 250 90 360 185" marker-end="url(#arr12a)"/>
+    <path d="M 372 190 C 560 70 160 70 348 190" marker-end="url(#arr12a)"/>
+    <path d="M 382 200 C 640 110 80 110 338 200" marker-end="url(#arr12a)"/>
+    <path d="M 360 235 C 470 330 250 330 360 235" marker-end="url(#arr12a)"/>
+    <path d="M 372 230 C 560 350 160 350 348 230" marker-end="url(#arr12a)"/>
+    <path d="M 382 220 C 640 310 80 310 338 220" marker-end="url(#arr12a)"/>
+  </g>
+  <text x="360" y="400" font-size="17" fill="#0f172a" text-anchor="middle" font-weight="700">Magnetic Field Lines of a Bar Magnet (N &#8594; S outside)</text>
+</svg>

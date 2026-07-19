@@ -1,0 +1,1223 @@
+========================================================================
+CHAPTER 11 — ELECTRICITY
+PSEB Class 10 Science | Teaching Script — Version 1
+TOTAL SLIDES: 31
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 11 — Electricity
+========================================================================
+
+ON SCREEN:
+  - Chapter heading: "Chapter 12 — Electricity"
+  - Punjabi title: ਬਿਜਲੀ (Bijlee)
+
+SCRIPT (say this aloud):
+  Welcome, everyone! Today we begin Chapter 11 — Electricity, which in Punjabi we call ਬਿਜਲੀ (bijlee). Now, I know you use electricity every single day — when you switch on a light, charge your phone, or run a fan — but have you ever stopped to wonder *how* it actually works? That is exactly what this chapter answers.
+
+  Electricity is one of the most important chapters in your Class 10 board exam. It covers concepts that are not only asked in theory questions but also in numerical problems worth 3 to 5 marks each. So we are going to take this chapter very seriously, step by step.
+
+  By the end of this chapter, you will understand what electric current is, what makes it flow, what slows it down, how to connect resistors, and how electrical energy is converted into heat and light. Let's get started!
+
+KEY POINTS TO STRESS:
+  - This chapter is heavily examined — expect theory, numericals, and diagram questions.
+  - "Electricity" = ਬਿਜਲੀ (bijlee) in Punjabi.
+  - Connect to daily life: bulbs, heaters, fans all rely on the concepts in this chapter.
+
+BOARD TIP: This is one of the highest-weightage chapters in the PSEB Class 10 Science paper — expect at least 8–10 marks.
+
+
+========================================================================
+SLIDE 2: Core Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Six key terms with Punjabi translations and pronunciations:
+    Current (I) — ਬਿਜਲਈ ਕਰੰਟ (Flow of charge)
+    Voltage (V) — ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ (Pushing force)
+    Resistance (R) — ਪ੍ਰਤੀਰੋਧ (Opposition to flow)
+    Resistivity (ρ) — ਪ੍ਰਤੀਰੋਧਕਤਾ (Material property)
+    Ammeter — ਐਮੀਟਰ (Measures Current)
+    Voltmeter — ਵੋਲਟਮੀਟਰ (Measures Voltage)
+
+SCRIPT (say this aloud):
+  Before we dive into formulas, let's get our vocabulary right. These six terms are the building blocks of the entire chapter — if you know what each word means, the rest will fall into place naturally.
+
+  First: **Current**, symbol I. In Punjabi: ਬਿਜਲਈ ਕਰੰਟ (bijlee current). Think of current as the actual *flow* of electric charge — like water flowing in a river. The more charge flowing per second, the higher the current.
+
+  Second: **Voltage**, symbol V. In Punjabi: ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ (potential antar). Voltage is the *push* — the force that gets the charges moving in the first place. No voltage means no current flow.
+
+  Third: **Resistance**, symbol R. In Punjabi: ਪ੍ਰਤੀਰੋਧ (partirodh). This is the opposition to the flow of current — like friction for electricity. Higher resistance means less current for the same voltage.
+
+  Fourth: **Resistivity**, symbol ρ (the Greek letter rho). In Punjabi: ਪ੍ਰਤੀਰੋਧਕਤਾ (partirodh-kata). This is a property of the *material itself*, not of a specific wire. We will come back to this.
+
+  Fifth: **Ammeter** — ਐਮੀਟਰ. This instrument measures *current*. The name "Ammeter" comes from "Ampere-meter." Remember: it always goes *in series* in a circuit.
+
+  Sixth: **Voltmeter** — ਵੋਲਟਮੀਟਰ. This measures *voltage*. It always goes *in parallel* across the component being measured.
+
+  Keep these six terms in mind throughout the chapter — they appear in almost every question.
+
+KEY POINTS TO STRESS:
+  - Current (I) = flow of charge; measured by an Ammeter (in series).
+  - Voltage (V) = the push; measured by a Voltmeter (in parallel).
+  - Resistance (R) = opposition to current flow.
+  - Resistivity (ρ) is a material property — it does NOT depend on the size of the wire.
+
+BOARD TIP: Ammeter → Series; Voltmeter → Parallel. Mixing these up is a very common 1-mark mistake in board exams.
+
+
+========================================================================
+SLIDE 3: More Key Terms (ਹੋਰ ਸ਼ਬਦ)
+========================================================================
+
+ON SCREEN:
+  - Six more terms with Punjabi translations:
+    Electric Charge (Q) — ਬਿਜਲਈ ਚਾਰਜ (Measured in coulomb)
+    Coulomb (C) — ਕੂਲਾਂਬ (Unit of charge)
+    Circuit — ਸਰਕਟ (Closed path for current)
+    Rheostat — ਰਿਓਸਟੈਟ (Variable resistor)
+    Electric Power (P) — ਬਿਜਲਈ ਸ਼ਕਤੀ (Rate of energy use)
+    Kilowatt-hour (kWh) — ਕਿਲੋਵਾਟ-ਘੰਟਾ (Commercial unit)
+
+SCRIPT (say this aloud):
+  Let's continue building our vocabulary with six more essential terms.
+
+  **Electric Charge**, symbol Q. In Punjabi: ਬਿਜਲਈ ਚਾਰਜ. Charge is the fundamental property of particles like electrons. Current is simply charge flowing per unit time — so Q is the raw material that creates I.
+
+  **Coulomb**, symbol C. In Punjabi: ਕੂਲਾਂਬ (koolamb). This is the unit of electric charge. One coulomb is a huge amount of charge — it equals roughly 6.24 × 10¹⁸ electrons. In your formulas, Q is always in coulombs.
+
+  **Circuit** — ਸਰਕਟ. A circuit is simply a closed, continuous path through which electric current can flow. If the path is broken — say, by an open switch — no current flows. That's the key word: *closed*.
+
+  **Rheostat** — ਰਿਓਸਟੈਟ. A rheostat is a variable resistor. By sliding its contact, you can change the resistance in a circuit, which in turn changes the current. It is the standard device used in Ohm's law experiments to vary current.
+
+  **Electric Power**, symbol P. In Punjabi: ਬਿਜਲਈ ਸ਼ਕਤੀ. Power is the rate at which electrical energy is consumed. A 100 W bulb uses energy faster than a 60 W bulb.
+
+  **Kilowatt-hour**, abbreviation kWh. In Punjabi: ਕਿਲੋਵਾਟ-ਘੰਟਾ. This is the commercial unit of electrical energy — the unit on your electricity bill. We will see that 1 kWh = 3.6 × 10⁶ joules.
+
+KEY POINTS TO STRESS:
+  - Q = charge in coulombs (C); current I = Q/t.
+  - A circuit must be *closed* for current to flow.
+  - Rheostat = variable resistor — used to control current.
+  - kWh is the unit on electricity bills; 1 kWh = 3.6 × 10⁶ J.
+
+BOARD TIP: Students often confuse the *unit* of charge (coulomb) with the *unit* of current (ampere). Keep them distinct: charge is C, current is A.
+
+
+========================================================================
+SLIDE 4: Reading — The River of Charge
+========================================================================
+
+ON SCREEN:
+  - Reading passage titled "Voltage, Current and Resistance"
+  - Audio play/stop button
+  - Analogy: electricity flow in a wire compared to water in a river
+
+SCRIPT (say this aloud):
+  This slide gives you a wonderful analogy to help visualise electricity — and I want you to really absorb it before we move to the formulas.
+
+  Imagine a river flowing through a valley. The *push* that drives the water forward — like the slope of the land — is the **voltage**. The *amount* of water flowing past a point every second is the **current**. And anything that slows the water down — rocks, a narrow channel — is **resistance**.
+
+  Now here is something beautiful: a German school teacher named **Georg Ohm** discovered that for many materials, if you double the push (voltage), you double the flow (current). They are directly proportional. That relationship is called **Ohm's Law**, and it is the single most important equation in this chapter.
+
+  When charges are forced through a high-resistance wire, they collide with atoms and transfer their energy as heat. That is *exactly* how a bulb filament gets hot enough to glow white, and how a heater coil warms a room. The same energy transfer that was just "friction" in our river analogy becomes useful heat in real life.
+
+  Understanding these three ideas — voltage as a push, current as flow, and resistance as friction — will make every formula in this chapter make intuitive sense. Keep this mental picture with you throughout the chapter.
+
+KEY POINTS TO STRESS:
+  - Voltage = push driving charges; Current = rate of charge flow; Resistance = opposition.
+  - Ohm discovered that current ∝ voltage — this is Ohm's Law.
+  - High resistance → collisions → energy released as heat (basis of heating devices).
+  - The river analogy is a powerful memory tool — use it during revision.
+
+
+========================================================================
+SLIDE 5: Electric Current & Charge
+========================================================================
+
+ON SCREEN:
+  - Definition of electric current (I)
+  - Formula: I = Q / t
+  - SI unit: ampere (A); 1 A = 1 C/s
+  - Note on conventional current direction vs. electron flow
+  - Ammeter connected in series
+
+SCRIPT (say this aloud):
+  Now let's make the concept of current mathematically precise.
+
+  **Electric current (I)** is defined as the rate of flow of electric charge through a conductor. In equation form:
+
+      **I = Q / t**
+
+  Here, Q is the electric charge in **coulombs (C)** and t is the time in **seconds (s)**. So if 6 coulombs of charge pass a point in 2 seconds, the current is 6 ÷ 2 = 3 amperes. Simple.
+
+  The SI unit of current is the **ampere (A)**, named after the French physicist André-Marie Ampère. One ampere means one coulomb of charge passing a point every second — 1 A = 1 C/s.
+
+  Now, one important distinction: in a metal wire, it is actually the negatively charged **electrons** that physically move — and they flow from the negative terminal to the positive terminal of a battery. However, by historical convention, we say **conventional current** flows from the **positive terminal to the negative terminal** — that is, opposite to the direction of electron flow. In your diagrams, always draw arrows for conventional current (from + to −).
+
+  Finally, remember: current is measured using an **ammeter**, and the ammeter must always be connected **in series** — meaning it is placed *along* the wire so that the full current passes through it.
+
+KEY POINTS TO STRESS:
+  - I = Q/t — learn this formula and its units.
+  - 1 ampere = 1 coulomb per second.
+  - Conventional current flows from + to −; electrons flow from − to +.
+  - Ammeter is always connected in **series**.
+
+BOARD TIP: A very common exam question asks: "In which direction does conventional current flow?" Answer: from positive to negative terminal (opposite to electron flow). Worth 1 mark.
+
+
+========================================================================
+SLIDE 6: Potential Difference (Voltage)
+========================================================================
+
+ON SCREEN:
+  - Definition of potential difference (V)
+  - Formula: V = W / Q
+  - SI unit: volt (V); 1 V = 1 J/C
+  - Voltmeter connected in parallel
+  - Voltage described as the "push" that drives current
+
+SCRIPT (say this aloud):
+  We said voltage is the "push" — now let's define it precisely.
+
+  The **potential difference (V)** between two points is defined as the work done to move a unit positive charge from one point to the other. In equation form:
+
+      **V = W / Q**
+
+  Here, W is the work done in **joules (J)** and Q is the charge in **coulombs (C)**. So if 12 joules of work are needed to move 2 coulombs of charge between two points, the potential difference is 12 ÷ 2 = 6 volts.
+
+  The SI unit is the **volt (V)**, named after Alessandro Volta. One volt means one joule of work done per coulomb of charge — **1 V = 1 J/C**.
+
+  Think of it this way: the battery is like a pump that lifts water to a higher level. The "height" difference it creates is the potential difference. The higher that difference, the harder the charges are pushed through the circuit.
+
+  Potential difference is measured using a **voltmeter**, and crucially, it must be connected **in parallel** — meaning it is connected *across* the two points between which you want to measure the voltage. It does not disrupt the current path; it just reads the pressure difference.
+
+  A quick memory trick: **Vol**tmeter for **Vol**tage, and parallel both start with giving you a "side path." Keep the voltmeter on the side!
+
+KEY POINTS TO STRESS:
+  - V = W/Q — potential difference is work done per unit charge.
+  - SI unit: volt (V); 1 V = 1 J/C.
+  - Voltmeter is always connected in **parallel**.
+  - Potential difference is the "push" or "driving force" for current.
+
+BOARD TIP: Frequent 2-mark question — "Define potential difference and state its SI unit." Answer: V = W/Q; unit is volt (V) where 1 V = 1 J/C.
+
+
+========================================================================
+SLIDE 7: Electric Circuit & Symbols
+========================================================================
+
+ON SCREEN:
+  - Definition of a circuit (closed conducting path)
+  - Table of standard circuit component symbols and their rules:
+    Cell / Battery — Provides potential difference (voltage)
+    Ammeter (A) — Measures current — connected in series
+    Voltmeter (V) — Measures voltage — connected in parallel
+    Rheostat — Variable resistor — changes the current
+    Switch / Key — Opens or closes the circuit
+
+SCRIPT (say this aloud):
+  An **electric circuit** is a closed, continuous conducting path through which electric current flows. The word *closed* is critical — if the path is broken anywhere (like an open switch), no current flows at all.
+
+  In your board exam, you will often be asked to draw or label circuit diagrams. So you must know the standard symbols for each component. Let's go through them:
+
+  A **cell or battery** provides the potential difference — the push — for the circuit. A single cell has a long thin line (positive) and a short thick line (negative).
+
+  The **ammeter**, labelled A, measures current and is always placed *in series* — in line with the components. Its internal resistance is very small so it barely affects the circuit.
+
+  The **voltmeter**, labelled V, measures potential difference and is always placed *in parallel* — across the two points of interest. Its internal resistance is very high so almost no current flows through it.
+
+  A **rheostat** is a variable resistor — by sliding its contact, you change the resistance and therefore the current in the circuit. It is drawn as a resistor with an arrow through it.
+
+  The **switch or key** simply opens (breaks) or closes (completes) the circuit. When a question says "the key is closed," it means current can flow.
+
+  In lab experiments and board diagrams, these symbols are standard. Practise drawing them until they are automatic.
+
+KEY POINTS TO STRESS:
+  - A circuit must be *closed* for current to flow.
+  - Ammeter = series; Voltmeter = parallel (non-negotiable rules).
+  - Rheostat = variable resistor used to control current.
+  - Know all circuit symbols by heart for diagram questions.
+
+BOARD TIP: Diagram questions worth 3–5 marks often require you to label ammeter (series) and voltmeter (parallel) correctly. An incorrectly placed meter loses marks even if the rest of the diagram is right.
+
+
+========================================================================
+SLIDE 8: Ohm's Law & the V-I Graph
+========================================================================
+
+ON SCREEN:
+  - Formula: V = I × R
+  - Statement that the V-I graph is linear
+  - Slope formula: slope of V-I graph = V/I = R (resistance)
+  - Exam tip: steeper line = higher resistance
+
+SCRIPT (say this aloud):
+  This slide is about a crucial exam skill: interpreting the V-I graph. Let's understand it thoroughly.
+
+  Ohm's Law tells us that **V = I × R** — voltage equals current times resistance. If we keep resistance constant and vary the current I, then V and I are directly proportional. When we plot this on a graph with **V on the Y-axis** and **I on the X-axis**, we get a **straight line through the origin**.
+
+  Now, from your maths class, you know that the slope of a line = (change in Y) ÷ (change in X). On our V-I graph, that is (change in V) ÷ (change in I) = **V/I**. But from Ohm's Law, V/I = R. Therefore:
+
+      **Slope of the V-I graph = Resistance (R)**
+
+  This is a beautiful connection between geometry and physics. You can literally *read off* the resistance of a conductor by measuring how steep the line is on a V-I graph!
+
+  Here is the exam trick: if two wires are plotted on the same V-I graph, the wire with the **steeper line** has the **higher resistance**. Why? Because for the same current, a higher-resistance wire needs more voltage — so its V/I ratio, that is its slope, is larger.
+
+  Conversely, a flatter line means lower resistance. A superconductor would be a horizontal line — zero resistance.
+
+KEY POINTS TO STRESS:
+  - V-I graph for a resistor obeying Ohm's Law is a straight line through the origin.
+  - Slope of V-I graph = V/I = R (resistance in ohms).
+  - Steeper line → higher resistance; flatter line → lower resistance.
+  - This graph is ohmic behaviour — linear relationship between V and I.
+
+BOARD TIP: "What does the slope of a V-I graph represent?" is a frequent 1-mark or 2-mark board question. Answer: The slope equals the resistance (R) of the conductor.
+
+
+========================================================================
+SLIDE 9: Ohm's Law — Statement & Definition
+========================================================================
+
+ON SCREEN:
+  - Full statement of Ohm's Law (exam-format definition)
+  - Mathematical form: V ∝ I ⇒ V = IR
+  - Condition: temperature and physical state must remain constant
+  - Ohmic vs. non-ohmic conductors (metals vs. diode/filament bulb)
+
+SCRIPT (say this aloud):
+  Now let's state Ohm's Law in the precise way the board examiners expect.
+
+  **Ohm's Law:** At constant temperature and physical conditions, the current (I) flowing through a conductor is directly proportional to the potential difference (V) across its ends.
+
+  Mathematically: **V ∝ I**, which means **V = IR**, where R is the constant of proportionality called the *resistance* of the conductor.
+
+  Let's unpack each part. "Directly proportional" means if you double V, you double I. If you triple V, you triple I. They move up together in the same ratio. The resistance R is what keeps that ratio fixed.
+
+  The **condition** is critical for the exam: temperature must stay constant. At higher temperatures, metal atoms vibrate more, increasing resistance. Ohm's Law only holds when temperature is not changing.
+
+  Conductors that obey Ohm's Law — where the V-I graph is a straight line — are called **ohmic conductors**. Most metal wires are ohmic. But conductors like a **diode** or a **filament bulb** do not give a straight line — their resistance changes with temperature or direction. These are called **non-ohmic conductors**.
+
+  The distinction between ohmic and non-ohmic is often asked in 2-mark questions.
+
+KEY POINTS TO STRESS:
+  - Ohm's Law: V = IR at constant temperature.
+  - R = V/I is the resistance in ohms (Ω).
+  - Ohmic conductor: straight V-I graph (e.g., metals).
+  - Non-ohmic conductor: curved/non-linear V-I graph (e.g., diode, filament bulb).
+
+BOARD TIP: Always include the condition "at constant temperature" when stating Ohm's Law in a board exam — you lose half a mark without it.
+
+
+========================================================================
+SLIDE 10: Numerical — Using Ohm's Law (Step-by-Step)
+========================================================================
+
+ON SCREEN:
+  - Problem: A 12 V battery drives a current of 3 A through a resistor. Find R.
+  - Step-by-step solution:
+    1. Data: V = 12 V, I = 3 A, R = ?
+    2. Formula: V = I × R
+    3. Rearrange: R = V ÷ I
+    4. Substitute: R = 12 ÷ 3
+    5. Answer: R = 4 Ω
+
+SCRIPT (say this aloud):
+  Wonderful — let's do our first numerical. In the board exam, numericals carry 3 to 5 marks, so writing every step properly is essential. Let me walk you through the correct way.
+
+  **Problem:** A 12 V battery drives a current of 3 A through a resistor. Find the resistance R.
+
+  **Step 1 — List the data.** Always start by writing down what is given:
+    - Voltage, V = 12 V
+    - Current, I = 3 A
+    - R = ? (what we need to find)
+
+  **Step 2 — Choose the formula.** We are dealing with voltage, current, and resistance — that is Ohm's Law: V = I × R.
+
+  **Step 3 — Rearrange for the unknown.** We need R, so rearrange:
+    R = V ÷ I
+
+  **Step 4 — Substitute the values:**
+    R = 12 ÷ 3
+
+  **Step 5 — Calculate and write the answer with units:**
+    **R = 4 Ω** (four ohms)
+
+  Always write the unit — an answer without a unit is incomplete and may not get full credit.
+
+  Notice the pattern: V is 12, I is 3, and R is 4. Check: 4 × 3 = 12 ✓. Always verify your answer by substituting back into the original formula.
+
+  Practise this layout — data, formula, rearrange, substitute, answer — for every numerical in the chapter.
+
+KEY POINTS TO STRESS:
+  - Standard solution format: Given → Formula → Rearrange → Substitute → Answer (with units).
+  - R = V/I = 12/3 = 4 Ω.
+  - Always verify: V = IR → 4 × 3 = 12 V ✓.
+  - Never forget the unit — Ω for resistance.
+
+BOARD TIP: Board examiners award step marks. Even if you make an arithmetic error, you get marks for the correct formula and correct rearrangement. Write every step.
+
+
+========================================================================
+SLIDE 11: Factors Affecting Resistance
+========================================================================
+
+ON SCREEN:
+  - Formula: R = ρL / A
+  - Three factors:
+    Length (L): R ∝ L — longer wire = more resistance
+    Cross-sectional Area (A): R ∝ 1/A — thicker wire = less resistance
+    Material (ρ): resistivity depends only on material and temperature, not length
+
+SCRIPT (say this aloud):
+  Why does a thin, long wire have more resistance than a short, thick one? This slide answers that with a single beautiful formula.
+
+  The resistance of a wire is given by:
+
+      **R = ρL / A**
+
+  Let's understand each factor:
+
+  **L = Length of the wire.** Resistance is *directly proportional* to length: R ∝ L. Think of it this way — a longer wire is like a longer river with more rocks. Charges have to collide more often on their way through. Double the length, and you double the resistance.
+
+  **A = Cross-sectional area of the wire.** Resistance is *inversely proportional* to area: R ∝ 1/A. A thicker wire is like a wider road — more charges can flow side by side with fewer collisions. Double the thickness (area), and resistance is halved.
+
+  **ρ (rho) = Resistivity of the material.** This is the constant that ties everything together. Resistivity depends *only* on the material and its temperature — not on the length or thickness of the wire. It is a fundamental property of the substance. Silver has very low ρ; rubber has extremely high ρ.
+
+  So if a question asks "what happens to resistance when the length is doubled?" — answer: resistance doubles (R = ρ × 2L / A = 2R). If the area is doubled: resistance halves.
+
+KEY POINTS TO STRESS:
+  - R = ρL/A — learn this formula and understand what each symbol means.
+  - Longer wire → greater resistance (directly proportional).
+  - Thicker wire (larger A) → lower resistance (inversely proportional).
+  - Resistivity ρ is a property of the material only, not of the wire's dimensions.
+
+BOARD TIP: Frequent 3-mark question — "How does the resistance of a wire depend on its length, area, and material?" Use R = ρL/A and explain each factor separately.
+
+
+========================================================================
+SLIDE 12: Resistivity of Materials
+========================================================================
+
+ON SCREEN:
+  - Definition: resistivity (ρ) is a property of the material; unit: Ω·m
+  - Table of material types:
+    Conductors (Silver, Copper, Aluminium) — very low resistivity
+    Alloys (Nichrome, Constantan, Manganin) — high resistivity (used in heaters)
+    Insulators (Rubber, Glass, Wood) — very high resistivity
+  - Explanation of why alloys are used in heaters
+
+SCRIPT (say this aloud):
+  **Resistivity (ρ)** is a measure of how strongly a material opposes the flow of current — not a specific wire, but the material itself. Its SI unit is **ohm-metre (Ω·m)**.
+
+  Look at the table. Materials fall into three broad groups based on their resistivity:
+
+  **Conductors** — Silver, Copper, Aluminium — have very low resistivity, meaning they allow current to flow easily. Copper is the most widely used conductor for electrical wiring because it has low resistivity and is not too expensive. Silver has the lowest resistivity of all metals but it is too costly for wiring.
+
+  **Alloys** — Nichrome (an alloy of nickel and chromium), Constantan, and Manganin — have much higher resistivity than pure metals. Because of this high resistance, when current flows through them, they get hot and produce large amounts of heat. That is why **Nichrome** is used for heater coils and toaster elements.
+
+  **Insulators** — Rubber, Glass, Wood — have extremely high resistivity, essentially blocking current entirely. That is why electric wires are coated in rubber — to prevent the current from leaking out.
+
+  Now, why specifically use alloys like Nichrome for heaters, and not just a thin copper wire? Three reasons:
+  1. **High resistivity** — more heat for the same current.
+  2. **High melting point** — Nichrome does not melt even at very high temperatures.
+  3. **Does not oxidise** — it does not burn or corrode easily in air at high temperatures.
+
+  These three reasons together make Nichrome the ideal material for heating elements.
+
+KEY POINTS TO STRESS:
+  - Resistivity (ρ) is a material property; unit is Ω·m.
+  - Lower ρ → better conductor (Silver < Copper < Aluminium).
+  - Nichrome alloy: high ρ + high melting point + does not oxidise → ideal for heaters.
+  - Insulators (rubber, glass) have extremely high ρ.
+
+BOARD TIP: "Why is Nichrome used in heaters?" is a very common 3-mark question. Give all three reasons: high resistivity, high melting point, does not oxidise.
+
+
+========================================================================
+SLIDE 13: Series vs. Parallel Circuits
+========================================================================
+
+ON SCREEN:
+  - Comparison table:
+    Series (ਲੜੀਬੱਧ): Total R = R₁ + R₂ + …; Current (I) same everywhere
+    Parallel (ਸਮਾਨਾਂਤਰ): 1/R = 1/R₁ + 1/R₂ + …; Voltage (V) same everywhere
+  - Heading: "Why are Homes wired in Parallel?"
+    1. Series: if one breaks, all go off
+    2. Parallel: every appliance gets the full 220 V
+
+SCRIPT (say this aloud):
+  This is one of the most important conceptual slides in the chapter. You need to understand *both* circuit types and know *why* homes use one and not the other.
+
+  In a **Series circuit** (ਲੜੀਬੱਧ — ladhibadh), all components are connected end-to-end in a single path. There is only one route for current to travel, so the **same current flows through every component**. However, the voltage is shared — divided across each component. The total resistance simply adds up: **R_total = R₁ + R₂ + R₃ + ...**
+
+  In a **Parallel circuit** (ਸਮਾਨਾਂਤਰ — samanthar), components are connected side-by-side with both their ends touching the same two points. Now there are multiple paths for current, so current divides. But every branch experiences the **same voltage**. The total resistance is found using: **1/R_total = 1/R₁ + 1/R₂ + 1/R₃ + ...**
+
+  Now the big question — why are homes wired in *parallel*?
+
+  Reason 1 — the "All or Nothing" flaw of series: In a series connection, if even one bulb fuses (breaks), the circuit opens and *every* appliance in the house would stop working. That is completely impractical.
+
+  Reason 2 — Shared voltage problem: In series, voltage divides among all appliances. A 220 V supply split among ten appliances gives only 22 V to each — not nearly enough for any appliance to work properly. In parallel, every appliance gets the full 220 V it is designed for.
+
+  So parallel wiring gives independence to each appliance and ensures correct voltage. That is why every home and building is wired in parallel.
+
+KEY POINTS TO STRESS:
+  - Series: same current everywhere; voltage divides; R_total = R₁ + R₂ + ...
+  - Parallel: same voltage everywhere; current divides; 1/R_total = 1/R₁ + 1/R₂ + ...
+  - Homes are wired in parallel for two reasons: independence of appliances, and full voltage at each device.
+
+BOARD TIP: "Why are household appliances connected in parallel?" is a guaranteed 2-mark question every year. Give both reasons clearly.
+
+
+========================================================================
+SLIDE 14: Resistors in Series
+========================================================================
+
+ON SCREEN:
+  - Diagram concept: same current through all resistors
+  - Formula: Rs = R₁ + R₂ + R₃
+  - Key rule: total resistance is larger than the largest single resistor
+  - Voltage divides; current is the same everywhere
+
+SCRIPT (say this aloud):
+  Let's go deeper into series circuits and make the formula crystal clear.
+
+  When resistors are connected **in series**, they form one continuous chain. There is only one path for current, so the **same current I flows through every resistor**. The current has no choice — it must pass through each one in turn.
+
+  The total voltage, however, is shared. The voltage across the combination equals the sum of the individual voltages: V = V₁ + V₂ + V₃. Using Ohm's Law for each (V = IR), this gives us:
+
+      **Rs = R₁ + R₂ + R₃**
+
+  This is the total or equivalent resistance in series. Notice that the total resistance is *greater* than any individual resistor. Adding more resistors in series always increases the total resistance. That makes sense — you are adding more obstacles for the current.
+
+  **Quick example:** If R₁ = 2 Ω, R₂ = 3 Ω, R₃ = 5 Ω, then Rs = 2 + 3 + 5 = **10 Ω**. The current through each is the same, but the voltage across each is different (proportional to its resistance).
+
+  This is why Christmas lights wired in series are frustrating — when one bulb goes out, they all go dark!
+
+KEY POINTS TO STRESS:
+  - Series formula: Rs = R₁ + R₂ + R₃ (simple addition).
+  - Current is the same at every point in a series circuit.
+  - Voltage divides proportionally across each resistor.
+  - Total resistance is always greater than the largest individual resistor.
+
+BOARD TIP: For finding voltage across a specific resistor in series, use V₁ = I × R₁ after finding the total current I = V_total / Rs.
+
+
+========================================================================
+SLIDE 15: Resistors in Parallel
+========================================================================
+
+ON SCREEN:
+  - Diagram concept: same voltage across all resistors
+  - Formula: 1/Rp = 1/R₁ + 1/R₂ + 1/R₃
+  - Key rule: total resistance is smaller than the smallest single resistor
+  - Current divides; voltage is the same everywhere
+
+SCRIPT (say this aloud):
+  Now for parallel resistors — and this formula requires a bit more care.
+
+  When resistors are connected **in parallel**, their ends are all connected to the same two points, so every branch experiences the **same voltage V**. But the total current from the battery divides among the branches: I = I₁ + I₂ + I₃. Each branch carries a current inversely proportional to its resistance.
+
+  Applying I = V/R for each branch and adding them gives us the key formula:
+
+      **1/Rp = 1/R₁ + 1/R₂ + 1/R₃**
+
+  After finding 1/Rp, flip it to get Rp. This flipping step is where many students make errors — do not forget it!
+
+  A remarkable result: the **equivalent resistance is always less than the smallest individual resistor**. Why? Because adding parallel branches gives the current more paths, making it easier to flow — equivalent to widening the road.
+
+  **Quick example:** R₁ = 6 Ω, R₂ = 6 Ω in parallel.
+  1/Rp = 1/6 + 1/6 = 2/6 = 1/3
+  Rp = 3 Ω — which is less than either 6 Ω alone. ✓
+
+  This is why the total current from the battery increases when you add more appliances in a parallel household circuit — the equivalent resistance drops.
+
+KEY POINTS TO STRESS:
+  - Parallel formula: 1/Rp = 1/R₁ + 1/R₂ + 1/R₃ (add reciprocals, then flip).
+  - Voltage is the same across every branch in a parallel circuit.
+  - Current divides among branches — more resistance means less current in that branch.
+  - Total (equivalent) resistance is always *less* than the smallest individual resistor.
+
+BOARD TIP: Most common error — students add R₁ + R₂ instead of 1/R₁ + 1/R₂. Always use the reciprocal formula for parallel resistors, then flip to find Rp.
+
+
+========================================================================
+SLIDE 16: Match — Series vs. Parallel (Activity)
+========================================================================
+
+ON SCREEN:
+  - Interactive matching activity (ਮਿਲਾਓ exercise)
+  - Left column: properties — Current same everywhere / Voltage same everywhere / R = R₁ + R₂ / 1/R = 1/R₁ + 1/R₂
+  - Right column: labels — Series circuit / Parallel circuit / Series formula / Parallel formula
+
+SCRIPT (say this aloud):
+  Great — time for a quick activity to lock in what we have just learned! This is a matching exercise. On screen you can see four properties on the left and four labels on the right. Your job is to match each property to the correct circuit type or formula.
+
+  Let me give you 30 seconds to think before we go through the answers together. Go!
+
+  Alright, let's check:
+
+  — **"Current is same everywhere"** → this is the characteristic of a **Series circuit**. In series, there is only one path, so the same current flows throughout.
+
+  — **"Voltage is same everywhere"** → this is the characteristic of a **Parallel circuit**. Every branch connects to the same two points, so the same voltage appears across each.
+
+  — **"R = R₁ + R₂"** → this is the **Series formula**. You simply add resistances end-to-end.
+
+  — **"1/R = 1/R₁ + 1/R₂"** → this is the **Parallel formula**. Add reciprocals.
+
+  How did you do? If you got all four right, you have a solid grasp of the concepts. If you confused any, go back and read the key principle: in series, current is shared by one path; in parallel, voltage is shared by both ends.
+
+KEY POINTS TO STRESS:
+  - Series: same current everywhere; formula Rs = R₁ + R₂.
+  - Parallel: same voltage everywhere; formula 1/Rp = 1/R₁ + 1/R₂.
+  - These two rules are the core of all series/parallel calculations.
+
+BOARD TIP: Making a two-column comparison table of Series vs. Parallel in your answer always earns full marks for a 3-mark question on this topic.
+
+
+========================================================================
+SLIDE 17: Joule's Law of Heating (Interactive Formula Builder)
+========================================================================
+
+ON SCREEN:
+  - Activity: construct the formula for heat produced by current
+  - Target formula: H = I²Rt
+  - Draggable tiles: H, I², R, t, =
+
+SCRIPT (say this aloud):
+  Now we arrive at one of the most practical laws in the chapter — **Joule's Law of Heating**. This law explains how and why electrical devices produce heat.
+
+  Before you look at the formula, try the interactive activity on screen: arrange the tiles to build the correct formula. Have a go!
+
+  The correct formula is:
+
+      **H = I²Rt**
+
+  Let's understand each term:
+  - **H** = Heat produced, measured in **joules (J)**
+  - **I** = Current in amperes (A) — notice it is **squared**: I². This means heat is very sensitive to current. Double the current, and you get four times the heat!
+  - **R** = Resistance of the conductor in ohms (Ω)
+  - **t** = Time for which current flows, in seconds (s)
+
+  The physical reasoning: when a current flows through a resistor, electrons collide with atoms. Each collision transfers kinetic energy to the atoms, raising the temperature of the material. More current → more collisions per second → more heat. Higher resistance → more violent collisions → more heat per collision.
+
+  This law is the foundation of all heating appliances: electric irons, geysers, heaters, toasters, and the filament in a bulb — they all work because of H = I²Rt.
+
+KEY POINTS TO STRESS:
+  - Joule's heating law: H = I²Rt (Heat = current-squared × resistance × time).
+  - Heat is proportional to I² — doubling current quadruples heat.
+  - All electrical heating devices (heater, iron, bulb filament) work on this principle.
+  - Units: H in joules, I in amperes, R in ohms, t in seconds.
+
+BOARD TIP: Frequent 3-mark question — "State Joule's law of heating and write its formula." Also be ready to calculate H given I, R, t.
+
+
+========================================================================
+SLIDE 18: Joule's Law — Material Selection
+========================================================================
+
+ON SCREEN:
+  - H = I²Rt reminder
+  - Why Tungsten for bulb filaments: very high melting point (~3380°C), glows white-hot
+  - Why bulbs are gas-filled: oxygen would oxidise (burn) the tungsten; bulbs filled with Nitrogen or Argon
+
+SCRIPT (say this aloud):
+  Joule's Law tells us heat is produced when current flows through resistance. But *which materials* do we choose, and why? This slide answers that with two beautiful real-world applications.
+
+  **Why is Tungsten used for the filament in an electric bulb?**
+
+  A bulb works by heating a thin wire (the filament) until it glows. For a material to do this, it needs to reach temperatures of roughly **2500–3000°C** without melting. Tungsten has the **highest melting point of any metal — approximately 3380°C**. It is so thermally tough that it can be heated to white-hot temperatures and still remain solid, emitting visible light. No other common metal comes close to this tolerance.
+
+  **Why is the bulb filled with an inert gas (Nitrogen or Argon)?**
+
+  At 3000°C, if tungsten were in contact with air, the **oxygen in the air would immediately react with the hot tungsten** — oxidising it, essentially burning it — and the filament would snap in seconds. To prevent this, bulbs are filled with chemically **inactive (inert) gases** like **Nitrogen or Argon**. These gases do not react with tungsten at any temperature, so they protect the filament and extend the bulb's life dramatically.
+
+  This is a perfect example of how chemistry and physics combine in engineering: the physics of heating (H = I²Rt) chooses the material (tungsten for high melting point), and the chemistry of oxidation determines the environment (inert gas filling).
+
+KEY POINTS TO STRESS:
+  - Tungsten is used in bulbs because of its extremely high melting point (~3380°C).
+  - Tungsten can glow white-hot without melting — essential for producing light.
+  - Bulbs are filled with Nitrogen or Argon (inert gases) to prevent oxidation of the filament.
+  - This prevents the filament from burning out quickly.
+
+BOARD TIP: "Why is tungsten used in bulb filaments?" AND "Why is an electric bulb filled with gas?" are both frequent 2-mark board questions. Know both answers.
+
+
+========================================================================
+SLIDE 19: Electric Power
+========================================================================
+
+ON SCREEN:
+  - Definition: power = rate of electrical energy use
+  - Three equivalent formulae: P = VI = I²R = V²/R
+  - SI unit: watt (W); 1 W = 1 J/s; 1 kW = 1000 W
+  - Interactive formula builder for P = VI
+
+SCRIPT (say this aloud):
+  **Electric Power (P)** is the rate at which electrical energy is consumed — or produced — in a circuit. In simple terms: a high-power device converts electrical energy to other forms (heat, light, motion) more quickly than a low-power device.
+
+  The basic formula is:
+
+      **P = V × I**
+
+  Power equals voltage times current. Units: volt × ampere = **watt (W)**. One watt means one joule of energy is consumed every second: **1 W = 1 J/s**.
+
+  But we have two more equivalent forms of the same formula, derived by substituting Ohm's Law (V = IR):
+
+  — Substitute V = IR: P = (IR) × I = **I²R** (power in terms of current and resistance)
+  — Substitute I = V/R: P = V × (V/R) = **V²/R** (power in terms of voltage and resistance)
+
+  All three — P = VI, P = I²R, P = V²/R — are equivalent. Which one you use depends on what values you are given in the problem.
+
+  For large powers, we use:
+  - 1 **kilowatt (kW)** = 1000 W
+  - 1 **megawatt (MW)** = 10⁶ W
+
+  Now try the interactive builder on screen to construct P = VI from the tiles — it reinforces the formula.
+
+  A quick example: A bulb operates at 220 V and 0.5 A. Its power = 220 × 0.5 = **110 W**.
+
+KEY POINTS TO STRESS:
+  - P = VI = I²R = V²/R — all three forms are correct; choose based on given data.
+  - SI unit of power is the watt (W); 1 W = 1 J/s.
+  - 1 kW = 1000 W.
+  - Power is the rate of energy consumption, not total energy.
+
+BOARD TIP: Choose the correct form: if given V and R, use P = V²/R; if given I and R, use P = I²R; if given V and I, use P = VI.
+
+
+========================================================================
+SLIDE 20: Electrical Energy & the Commercial Unit
+========================================================================
+
+ON SCREEN:
+  - Formula: E = P × t
+  - Commercial unit: kilowatt-hour (kWh), also called "1 unit"
+  - Conversion: 1 kWh = 3.6 × 10⁶ J
+  - Example: 1000 W heater used for 2 hours = 2 kWh = 2 units
+
+SCRIPT (say this aloud):
+  Power is the *rate* of energy use. To get the total **energy consumed**, we simply multiply power by time:
+
+      **E = P × t**
+
+  where E is energy in joules (J), P is power in watts (W), and t is time in seconds (s).
+
+  However, in everyday life and on your electricity bill, joules are far too small a unit to be practical. A 1000 W heater running for one hour uses 1000 × 3600 = 3,600,000 joules. That is a huge number. So we use a bigger, more convenient unit:
+
+  **The kilowatt-hour (kWh)** — also called **"1 unit"** on electricity bills. In Punjabi: ਕਿਲੋਵਾਟ-ਘੰਟਾ.
+
+  1 kWh is the energy consumed when a device of **1 kilowatt** power is used for **1 hour**. Converting to joules:
+
+      **1 kWh = 1000 W × 3600 s = 3,600,000 J = 3.6 × 10⁶ J**
+
+  This is the number you must memorise: **1 kWh = 3.6 × 10⁶ J**.
+
+  **Worked example from the slide:** A 1000 W (1 kW) heater is used for 2 hours.
+  Energy = P × t = 1 kW × 2 h = **2 kWh = 2 units**.
+
+  So if your electricity company charges ₹5 per unit, this heater running for 2 hours costs ₹10. Practical and exam-relevant!
+
+KEY POINTS TO STRESS:
+  - Total energy E = P × t (watts × seconds = joules; kilowatts × hours = kWh).
+  - 1 kWh = "1 unit" on the electricity bill.
+  - 1 kWh = 3.6 × 10⁶ J — this exact value is frequently asked in exams.
+  - To calculate units consumed: E (kWh) = Power (kW) × Time (hours).
+
+BOARD TIP: "What is the commercial unit of electrical energy? How many joules does it equal?" — 1 kWh = 3.6 × 10⁶ J. Memorise this conversion — it appears every year.
+
+
+========================================================================
+SLIDE 21: Heating Effect — Applications
+========================================================================
+
+ON SCREEN:
+  - Table of devices and how each uses the heating effect:
+    Electric bulb — Tungsten filament glows white-hot; filled with argon/nitrogen
+    Heater / Iron — Nichrome coil (high resistance) produces heat
+    Fuse — Thin, low-melting wire melts if current is too high (safety device)
+  - Rule: Fuse is always connected in the live wire and in series
+
+SCRIPT (say this aloud):
+  Joule's heating effect is not just a laboratory curiosity — it is behind three essential devices that you use every day. Let's go through each.
+
+  **1. Electric Bulb:**
+  The filament is made of **tungsten** — as we discussed, it has an extremely high melting point (~3380°C). When current flows, the filament heats up so intensely (to about 2500°C) that it emits white light. The bulb is filled with **argon or nitrogen** to prevent the tungsten from oxidising.
+
+  **2. Electric Heater / Electric Iron:**
+  The heating element is made of **Nichrome** — a nickel-chromium alloy with high resistivity and high melting point. It gets hot enough to heat a room (in a heater) or press clothes (in an iron), but it does not melt because of its high melting point. The high resistance ensures lots of heat is produced per unit of current (H = I²Rt with large R).
+
+  **3. Electric Fuse:**
+  A fuse is a safety device — a thin wire made of a material with a **low melting point** (often tin-lead alloy). It is deliberately designed to *melt* when the current exceeds a safe level. This breaks the circuit before the excess current can damage expensive appliances or start a fire.
+
+  Two critical rules about the fuse:
+  - It is always connected in the **live wire** (never the neutral wire) so that it disconnects the appliance from the high-voltage side.
+  - It is always connected **in series** so that when it melts, the circuit is completely broken.
+
+  These three applications together show the power of a single equation — H = I²Rt — in practical engineering.
+
+KEY POINTS TO STRESS:
+  - Bulb: tungsten filament + inert gas filling (argon/nitrogen).
+  - Heater/Iron: Nichrome coil — high resistivity produces heat.
+  - Fuse: low melting point wire — melts to break circuit when current is too high (safety device).
+  - Fuse: always in the live wire, always in series — both conditions are board-exam essentials.
+
+BOARD TIP: "Why is a fuse connected in series with the live wire?" — it must carry the full current so it melts when overloaded, and it disconnects the appliance from the dangerous live wire.
+
+
+========================================================================
+SLIDE 22: Practice — Ohm's Law Fill in the Blanks (Activity)
+========================================================================
+
+ON SCREEN:
+  - Interactive fill-in-the-blank activity
+  - Sentence: "Ohm's law is written as V = I × ___. The SI unit of resistance is the ___. If the voltage increases while resistance stays constant, the current will ___. Current is measured by an ___, which is connected in ___."
+
+SCRIPT (say this aloud):
+  Let's pause for a quick consolidation activity. This is a fill-in-the-blanks exercise on Ohm's Law — the kind of short question that appears for 1 mark each in the board exam. Tap each blank on screen to reveal the answer, but first, try to recall from memory!
+
+  Let me read the sentences aloud and you say the answers before I reveal them:
+
+  "Ohm's law is written as V = I × ___."
+  — **R** (resistance). V = I × R.
+
+  "The SI unit of resistance is the ___."
+  — **ohm (Ω)**.
+
+  "If the voltage increases while resistance stays constant, the current will ___."
+  — **increase**. This follows directly from I = V/R: if V goes up and R stays constant, I must go up proportionally.
+
+  "Current is measured by an ___, which is connected in ___."
+  — **ammeter** … **series**.
+
+  All five blanks test the fundamentals. If you hesitated on any of them, that is exactly the area to revise tonight. These are guaranteed 1-mark questions in the board exam.
+
+KEY POINTS TO STRESS:
+  - V = I × R — R is the constant (resistance).
+  - SI unit of resistance = ohm (Ω).
+  - I = V/R — voltage and current are directly proportional when R is constant.
+  - Ammeter → series (always).
+
+BOARD TIP: Fill-in-the-blank questions on Ohm's Law basics appear almost every year. Learn these five points cold.
+
+
+========================================================================
+SLIDE 23: Match — Quantity ↔ Unit (Activity)
+========================================================================
+
+ON SCREEN:
+  - Matching activity: four physical quantities to their SI units
+    Current (I) ↔ Ampere (A)
+    Voltage (V) ↔ Volt (V)
+    Resistance (R) ↔ Ohm (Ω)
+    Power (P) ↔ Watt (W)
+
+SCRIPT (say this aloud):
+  Here is a matching activity that is deceptively simple but catches students in the board exam. Match each physical quantity on the left to its correct SI unit on the right. Try it on screen before I give you the answers!
+
+  Let's confirm the correct matches:
+
+  — **Current (I)** → **Ampere (A)**. Named after André-Marie Ampère. Symbol: A.
+
+  — **Voltage (V)** → **Volt (V)**. Named after Alessandro Volta. Symbol: V. (Note: both the quantity and its unit symbol are V — make sure you distinguish between them in your writing.)
+
+  — **Resistance (R)** → **Ohm (Ω)**. Named after Georg Ohm. Symbol: the Greek letter omega, Ω.
+
+  — **Power (P)** → **Watt (W)**. Named after James Watt. Symbol: W.
+
+  A memory trick: **AOVW** — Ampere, Ohm, Volt, Watt — one letter for each unit. Or think: all four scientists were European physicists who gave their names to units.
+
+  These units appear in every formula in this chapter. Getting even one wrong in a numerical means wrong units in the final answer — which loses marks.
+
+KEY POINTS TO STRESS:
+  - Current (I): ampere (A)
+  - Voltage (V): volt (V)
+  - Resistance (R): ohm (Ω)
+  - Power (P): watt (W)
+
+BOARD TIP: Students sometimes write the unit of resistance as "amp" or "volt" by mistake. The unit of resistance is uniquely the ohm (Ω). Never confuse these.
+
+
+========================================================================
+SLIDE 24: Spot the Error — Parallel Resistance Formula (Activity)
+========================================================================
+
+ON SCREEN:
+  - Error to find: student wrote Rtotal = R₁ + R₂ for a parallel circuit
+  - Corrected answer: For parallel resistors, 1/Rtotal = 1/R₁ + 1/R₂ (then flip)
+  - Explanation: R₁ + R₂ is the series rule — wrong for parallel
+
+SCRIPT (say this aloud):
+  This is a "Spot the Error" challenge — and this specific error appears in student answer sheets every single year in the board exam. Let's make sure it never appears in yours.
+
+  A student wrote:
+  **"Parallel: Rtotal = R₁ + R₂"**
+
+  What is wrong here? The student has used the **series formula** (R₁ + R₂) but labelled it as parallel. This is completely incorrect.
+
+  The correct formula for resistors **in parallel** is:
+
+      **1/Rtotal = 1/R₁ + 1/R₂**
+
+  You must add the *reciprocals* of the individual resistances, then take the reciprocal of the result to get Rtotal.
+
+  Why can you never just add resistances in parallel? Because adding parallel branches increases the total number of paths for current to flow, which *decreases* total resistance. If you added them directly, you'd get a *larger* number — but parallel always gives a *smaller* result. The two outcomes are completely opposite.
+
+  Let me illustrate: If R₁ = 4 Ω and R₂ = 4 Ω:
+  — Wrong (series rule applied): Rtotal = 4 + 4 = 8 Ω (too large — wrong!)
+  — Correct (parallel formula): 1/Rp = 1/4 + 1/4 = 2/4 = 1/2, so Rp = 2 Ω ✓ (less than smallest, which is 4 Ω)
+
+  Whenever you see the word "parallel," immediately write the reciprocal formula. Never directly add.
+
+KEY POINTS TO STRESS:
+  - Series: Rtotal = R₁ + R₂ (direct addition — result is larger).
+  - Parallel: 1/Rtotal = 1/R₁ + 1/R₂, then flip (result is smaller than smallest R).
+  - Mixing these two up is the most common error in Chapter 11 numericals.
+
+BOARD TIP: This is a classic board-exam trap. If a question says "parallel," immediately write the reciprocal formula — never direct addition.
+
+
+========================================================================
+SLIDE 25: Memorise This — Chapter Recap
+========================================================================
+
+ON SCREEN:
+  - Five core formulas/facts for rapid revision:
+    1. Ohm's law: V = IR (at constant temperature)
+    2. R = ρL/A → longer wire = more R; thicker wire = less R
+    3. Series: R = R₁ + R₂; Parallel: 1/R = 1/R₁ + 1/R₂
+    4. Power: P = VI = I²R = V²/R (unit: watt)
+    5. Commercial unit = kWh; 1 kWh = 3.6 × 10⁶ J
+
+SCRIPT (say this aloud):
+  This slide is your chapter summary card — the five things you absolutely must have memorised before walking into the board exam. Let's go through each one and make sure it is locked in.
+
+  **1. Ohm's Law: V = IR (at constant temperature).**
+  This is the king of all equations in this chapter. Derive everything from it: R = V/I, I = V/R. Always state "at constant temperature" when writing Ohm's Law in theory answers.
+
+  **2. Resistance formula: R = ρL/A.**
+  Longer wire → more R. Thicker wire (bigger A) → less R. Resistivity ρ is a material property. This formula gives you the physical basis of resistance.
+
+  **3. Series and Parallel:**
+  Series — R = R₁ + R₂ (add directly). Parallel — 1/R = 1/R₁ + 1/R₂ (add reciprocals, then flip). Never mix these up.
+
+  **4. Power: P = VI = I²R = V²/R (unit: watt, W).**
+  Three forms — use whichever matches your given data. The unit is the watt, and 1 W = 1 J/s.
+
+  **5. Commercial unit: kWh. 1 kWh = 3.6 × 10⁶ J.**
+  "One unit" on your electricity bill = one kilowatt-hour. To calculate units: Power (kW) × Time (hours).
+
+  Write all five of these on a flashcard or the first page of your revision notebook. These five points alone cover the most frequently tested content in this chapter.
+
+KEY POINTS TO STRESS:
+  - V = IR (Ohm's Law) — at constant temperature.
+  - R = ρL/A — know all three relationships.
+  - Series adds; parallel uses reciprocal formula.
+  - P = VI = I²R = V²/R; unit = watt.
+  - 1 kWh = 3.6 × 10⁶ J.
+
+BOARD TIP: If you only have 10 minutes before the exam, revise these five facts — they cover roughly 70% of the likely questions in this chapter.
+
+
+========================================================================
+SLIDE 26: Numerical — Equivalent Resistance (Step-by-Step)
+========================================================================
+
+ON SCREEN:
+  - Problem: R₁ = 2 Ω and R₂ = 4 Ω in series; this pair in parallel with R₃ = 3 Ω. Find Rtotal.
+  - Step-by-step:
+    1. Series part: Rs = 2 + 4 = 6 Ω
+    2. Parallel pair: 6 Ω in parallel with 3 Ω
+    3. 1/Rp = 1/6 + 1/3 = 1/6 + 2/6 = 3/6
+    4. Rp = 6/3 = 2 Ω
+  - Answer: 2 Ω
+  - Warning: never add parallel resistances directly
+
+SCRIPT (say this aloud):
+  This is a classic combined-circuit numerical — a very common 5-mark board problem. It tests whether you can identify which resistors are in series and which are in parallel, then apply the correct formula in the right order.
+
+  **Problem:** R₁ = 2 Ω and R₂ = 4 Ω are connected in series. This series combination is then connected in parallel with R₃ = 3 Ω. Find the equivalent resistance.
+
+  **Step 1 — Handle the series part first.**
+  R₁ and R₂ are end-to-end, so use the series formula:
+  Rs = R₁ + R₂ = 2 + 4 = **6 Ω**
+
+  Now we have effectively replaced R₁ and R₂ with a single 6 Ω resistor.
+
+  **Step 2 — Identify the parallel combination.**
+  The 6 Ω equivalent and R₃ = 3 Ω are now in parallel with each other.
+
+  **Step 3 — Apply the parallel formula.**
+  1/Rp = 1/6 + 1/3
+
+  To add these fractions, we need a common denominator. 1/3 = 2/6, so:
+  1/Rp = 1/6 + 2/6 = **3/6**
+
+  **Step 4 — Flip to get Rp.**
+  Rp = 6/3 = **2 Ω**
+
+  **Answer: The equivalent resistance = 2 Ω.**
+
+  Notice something beautiful: the final answer (2 Ω) is *less* than R₃ (3 Ω), which is the smallest individual resistor. This confirms our parallel result is correct — parallel always reduces total resistance.
+
+  The board trap highlighted here: never add 6 + 3 = 9 Ω for the parallel part. Always use 1/Rp = 1/6 + 1/3 first.
+
+KEY POINTS TO STRESS:
+  - In combined circuits: first simplify the series group, then apply parallel formula.
+  - Rs = 2 + 4 = 6 Ω (series part).
+  - 1/Rp = 1/6 + 1/3 = 3/6, so Rp = 2 Ω (parallel part).
+  - Final answer (2 Ω) is less than smallest resistor (3 Ω) — this is the check.
+
+BOARD TIP: For combined circuit problems, always solve the inner/series groups first, reduce them to a single equivalent resistor, then solve the parallel combination. Show every step for full marks.
+
+
+========================================================================
+SLIDE 27: Numerical Practice — Ohm's Law & Power (4 Questions)
+========================================================================
+
+ON SCREEN:
+  - 4 practice numericals with hint formulas:
+    Q1: 12 V battery, 3 A current → Find R (use R = V/I)
+    Q2: Bulb, R = 100 Ω, I = 0.5 A → Find power P (use P = I²R)
+    Q3: 60 W bulb, 5 hours → Find energy in kWh (use E = P × t)
+    Q4: Three 6 Ω resistors in parallel → Find equivalent R (use 1/R = 1/R₁ + 1/R₂ + 1/R₃)
+
+SCRIPT (say this aloud):
+  Now it's your turn — four practice numericals. Solve each one on paper first, then check. I will walk through each solution in full.
+
+  ---
+
+  **Numerical 1:** A 12 V battery drives a current of 3 A. Find R.
+
+  Given: V = 12 V, I = 3 A
+  Formula: R = V/I = 12/3 = **4 Ω** ✓
+
+  ---
+
+  **Numerical 2:** A bulb has resistance R = 100 Ω and carries current I = 0.5 A. Find the power consumed.
+
+  Given: R = 100 Ω, I = 0.5 A (V is not given — use P = I²R)
+  P = I²R = (0.5)² × 100 = 0.25 × 100 = **25 W** ✓
+
+  ---
+
+  **Numerical 3:** A 60 W bulb runs for 5 hours. Find energy consumed in kWh.
+
+  Given: P = 60 W = 0.060 kW, t = 5 hours
+  E = P × t = 0.060 kW × 5 h = **0.3 kWh** (= 0.3 units) ✓
+
+  Alternatively: E = 60 W × 5 × 3600 s = 1,080,000 J = 1.08 × 10⁶ J. Either form is acceptable.
+
+  ---
+
+  **Numerical 4:** Three resistors of 6 Ω each are connected in parallel. Find equivalent resistance.
+
+  Given: R₁ = R₂ = R₃ = 6 Ω (parallel)
+  1/Rp = 1/6 + 1/6 + 1/6 = 3/6 = 1/2
+  Rp = **2 Ω** ✓
+
+  Notice: three 6 Ω resistors in parallel give only 2 Ω — exactly one-third of one resistor's value. For n identical resistors in parallel: Rp = R/n.
+
+  ---
+
+  Practise writing the full solution layout for all four — data, formula, substitution, answer with units. These exact question types appear every year.
+
+KEY POINTS TO STRESS:
+  - Q1: R = V/I = 4 Ω (basic Ohm's Law).
+  - Q2: P = I²R = 25 W (use when V is not given).
+  - Q3: E = P(kW) × t(h) = 0.3 kWh (commercial energy unit).
+  - Q4: Three equal resistors in parallel: Rp = R/n = 6/3 = 2 Ω.
+
+BOARD TIP: For identical parallel resistors, Rp = R/n. This shortcut saves time in exams.
+
+
+========================================================================
+SLIDE 28: True or False? — 8 Questions
+========================================================================
+
+ON SCREEN:
+  - 8 True/False questions with Punjabi translations:
+    Q1: Slope of V-I graph gives resistance → True
+    Q2: Current is different across each resistor in series → False
+    Q3: Ohm's law states V = I × R → True
+    Q4: Tungsten used in bulbs due to high melting point → True
+    Q5: Nichrome used in heaters due to low melting point → False
+    Q6: Resistance increases when wire length increases → True
+    Q7: In parallel, total R is greater than smallest resistor → False
+    Q8: Fuse is connected in series with the live wire → True
+
+SCRIPT (say this aloud):
+  Eight True/False questions — these test your ability to spot exactly the kind of tricky half-truths that appear in MCQ and 1-mark questions. Let's go through each with the correct answer and reasoning.
+
+  **Q1: The slope of a V-I graph gives the resistance.** → **TRUE.** Slope = V/I = R. Correct.
+
+  **Q2: In a series circuit, the current is different across each resistor.** → **FALSE.** In series, the current is the **same** everywhere — there is only one path. Voltage differs, not current.
+
+  **Q3: Ohm's law states that V = I × R.** → **TRUE.** This is the correct mathematical expression of Ohm's Law.
+
+  **Q4: Tungsten is used in bulb filaments due to its high melting point.** → **TRUE.** ~3380°C melting point — highest among metals. Correct.
+
+  **Q5: Nichrome is used in heaters because it has a low melting point.** → **FALSE.** This is a cleverly worded trick! Nichrome is used because it has a **HIGH** resistivity AND a **HIGH** melting point. A low melting point would cause the heater to melt itself!
+
+  **Q6: The resistance of a wire increases when its length increases.** → **TRUE.** R ∝ L from R = ρL/A.
+
+  **Q7: In a parallel circuit, the total resistance is greater than the smallest resistor.** → **FALSE.** Parallel resistance is always **less** than the smallest individual resistor.
+
+  **Q8: A fuse is connected in series with the live wire.** → **TRUE.** Always in series, always in the live wire.
+
+  Questions 2, 5, and 7 are the trap questions — the ones students get wrong most often. Make sure you understand *why* each is True or False, not just memorise the answer.
+
+KEY POINTS TO STRESS:
+  - Q2: Series → same current everywhere (voltage divides, not current).
+  - Q5: Nichrome → HIGH melting point (not low) — used in heaters.
+  - Q7: Parallel → Rp is LESS than the smallest resistor (not greater).
+  - Q8: Fuse → always series in the live wire.
+
+BOARD TIP: Questions 5 and 7 are classic board-exam traps. Statement Q5 deliberately states the *opposite* of the correct property of Nichrome.
+
+
+========================================================================
+SLIDE 29: Say It Back — Short Answer Review (8 Questions)
+========================================================================
+
+ON SCREEN:
+  - 8 short-answer oral/written review questions:
+    Q1: What connects end-to-end — Series or Parallel?
+    Q2: What divides in a parallel circuit — voltage or current?
+    Q3: What material is used for electric heater wires?
+    Q4: What inactive gas is filled inside an electric bulb?
+    Q5: What is the commercial unit of electrical energy?
+    Q6: State the SI unit of electric current.
+    Q7: Name the SI unit of electric power.
+    Q8: The commercial unit of electrical energy is the ___?
+
+SCRIPT (say this aloud):
+  This "Say It Back" activity is brilliant for oral revision — close your book, read each question, and say the answer out loud before checking. Speaking the answer aloud uses a different part of your brain and builds stronger memory. Let's run through them together.
+
+  **Q1: What connects end-to-end — Series or Parallel?**
+  → **Series.** In a series circuit, components are connected end-to-end in a single chain.
+
+  **Q2: What divides in a parallel circuit — voltage or current?**
+  → **Current.** In a parallel circuit, the voltage is the same across all branches, but the current divides among the branches.
+
+  **Q3: What material is used for electric heater wires?**
+  → **Nichrome** (a nickel-chromium alloy). High resistivity, high melting point, does not oxidise.
+
+  **Q4: What inactive gas is filled inside an electric bulb?**
+  → **Argon or Nitrogen** (chemically inert gases that prevent oxidation of the tungsten filament).
+
+  **Q5: What is the commercial unit of electrical energy?**
+  → **Kilowatt-hour (kWh)**, also called "1 unit."
+
+  **Q6: State the SI unit of electric current.**
+  → **Ampere (A).**
+
+  **Q7: Name the SI unit of electric power.**
+  → **Watt (W).**
+
+  **Q8: The commercial unit of electrical energy is the ___?**
+  → **Kilowatt-hour (kWh).**
+
+  Every one of these can come as a 1-mark "fill in the blank" or short-answer question in the board exam. Run through this list every night during your revision week.
+
+KEY POINTS TO STRESS:
+  - Series = end-to-end; current same; voltage divides.
+  - Parallel = side-by-side; voltage same; current divides.
+  - Heater wire → Nichrome; Bulb gas → Argon/Nitrogen.
+  - Commercial energy unit = kWh; current unit = A; power unit = W.
+
+BOARD TIP: These 8 questions are directly board-relevant. Practice saying them aloud — oral rehearsal dramatically improves recall under exam conditions.
+
+
+========================================================================
+SLIDE 30: Quick Check — MCQ Review (8 Questions)
+========================================================================
+
+ON SCREEN:
+  - 8 multiple-choice questions (some labelled PSEB year):
+    Q1 [PSEB 2019]: In parallel, what is constant — voltage or both divide or current?
+    Q2: Resistance when length doubled → doubles
+    Q3: Which represents P? → V²/R
+    Q4: Why bulbs have nitrogen? → Prevents tungsten oxidation
+    Q5: 1 kWh = ? → 3.6 × 10⁶ J
+    Q6: SI unit of resistance → Ohm (Ω)
+    Q7: Material for heater element → Nichrome
+    Q8: 1 kWh = 3.6 × 10⁶ J or 1000 J or 3600 J?
+
+SCRIPT (say this aloud):
+  Eight MCQ — these are formatted exactly as they appear in the PSEB board exam. Let me run through each one with the answer and the reasoning you would need to justify it.
+
+  **Q1 [PSEB 2019]: To derive the parallel resistance formula, we use the fact that:**
+  → **C: Current divides, Voltage is constant.** In a parallel circuit, voltage is the same across all branches, but current divides. Using I = V/R for each branch and adding gives 1/Rp = 1/R₁ + 1/R₂.
+
+  **Q2: If the length of a wire is doubled, its resistance:**
+  → **B: Doubles.** R = ρL/A — resistance is directly proportional to length. Double L, double R.
+
+  **Q3: Which formula represents electric power P?**
+  → **A: V²/R.** The three valid forms are P = VI, P = I²R, and P = V²/R. Option B (V/R) = current, not power. Option C (I²/V) has no physical meaning.
+
+  **Q4: Why are bulbs filled with inactive nitrogen gas?**
+  → **B: To prevent the tungsten filament from oxidising and burning.** Not to increase brightness (A) or reduce resistance (C).
+
+  **Q5: 1 kWh is equal to how many joules?**
+  → **A: 3.6 × 10⁶ J.** 1 kW × 1 h = 1000 W × 3600 s = 3,600,000 J = 3.6 × 10⁶ J.
+
+  **Q6: The SI unit of electrical resistance is the:**
+  → **A: Ohm (Ω).** Not ampere (current) or watt (power).
+
+  **Q7: Which material makes the heating element of an electric heater?**
+  → **A: Nichrome.** Copper (B) and Silver (C) have low resistivity — they would not produce enough heat and would melt under high current.
+
+  **Q8: One kilowatt-hour (1 unit) is equal to:**
+  → **A: 3.6 × 10⁶ J.** Note that 3600 J (option C) is only 1 watt-hour, and 1000 J is not a standard conversion. The answer is always 3.6 × 10⁶ J.
+
+  For Q1 (PSEB 2019), Q5, and Q8 — these are direct board exam questions. Treat them as priority revision.
+
+KEY POINTS TO STRESS:
+  - Parallel → current divides, voltage is constant (basis of 1/Rp formula).
+  - Doubling length → doubles resistance (R ∝ L).
+  - P = V²/R is a valid power formula.
+  - 1 kWh = 3.6 × 10⁶ J (Q5 and Q8 both test this — it is that important).
+
+BOARD TIP: Q1 is a direct PSEB 2019 past paper question. Q5 and Q8 both test 1 kWh = 3.6 × 10⁶ J — this conversion is tested nearly every year in various formats.
+
+
+========================================================================
+SLIDE 31: Download Your Bilingual Flashcards
+========================================================================
+
+ON SCREEN:
+  - Heading: Download Your Bilingual Flashcards (ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)
+  - Information: All "Say It Back" questions formatted for Anki with English + Punjabi answers
+  - Instructions: Click to generate .csv → Open Anki → Import File
+  - "Export to Anki (Bilingual CSV)" button
+
+SCRIPT (say this aloud):
+  Congratulations — you have reached the end of Chapter 11 — Electricity! ਬਹੁਤ ਵਧੀਆ! (Bahut vadhiya — very well done!)
+
+  This final slide gives you a powerful revision tool. All eight "Say It Back" questions from Slide 29 have been prepared as **bilingual Anki flashcards** — with the question and answer in both English and Punjabi. Anki is a free, spaced-repetition flashcard app that is proven to improve long-term memory.
+
+  **How to use it:**
+  1. Click the "Export to Anki" button on screen to download a .csv file.
+  2. Open the Anki app on your computer (or phone).
+  3. Click "Import File" and select the downloaded .csv file.
+  4. Your Chapter 11 flashcard deck will be ready to study.
+
+  Spaced repetition means Anki will show you harder cards more often and easier cards less often — so your revision time is used as efficiently as possible. For a chapter with as many facts and formulas as Electricity, this kind of regular, low-intensity revision is far more effective than cramming the night before the exam.
+
+  Make it a habit: 10 minutes with your Anki deck every evening for the next two weeks, and Chapter 11 will feel effortless on exam day.
+
+  Best of luck! You have covered a complete chapter — formulas, concepts, numericals, applications, and revision. Now go practise!
+
+KEY POINTS TO STRESS:
+  - Use the Anki bilingual flashcards for daily revision of Chapter 11 key terms and Q&A.
+  - Spaced repetition (Anki) is scientifically proven to improve long-term memory.
+  - 10 minutes daily is more effective than one long study session before the exam.
+  - All flashcards are in English + Punjabi — ideal for bilingual learners.
+
+
+========================================================================
+END OF SCRIPT — CHAPTER 11: ELECTRICITY
+Total slides scripted: 31
+========================================================================

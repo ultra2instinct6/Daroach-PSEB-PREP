@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 15: Our Environment | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch08-13.css">
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="ch13">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 15</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">Our Environment</h2>
+                <span class="punjabi">ਸਾਡਾ ਵਾਤਾਵਰਣ</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Core Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Ecosystem <button class="tts-btn" onclick="speakWord('Ecosystem', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪਾਰਿਸਥਿਤੀ ਪ੍ਰਬੰਧ (Biotic + Abiotic together)</span><br><span class="phonetic">ਉਚਾਰਨ: ਈਕੋਸਿਸਟਮ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Biotic <button class="tts-btn" onclick="speakWord('Biotic', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਜੈਵਿਕ ਅੰਸ਼ (Living: plants, animals)</span><br><span class="phonetic">ਉਚਾਰਨ: ਬਾਇਓਟਿਕ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Abiotic <button class="tts-btn" onclick="speakWord('Abiotic', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਜੈਵਿਕ ਅੰਸ਼ (Non-living: air, water, soil)</span><br><span class="phonetic">ਉਚਾਰਨ: ਏਬਾਇਓਟਿਕ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Producer <button class="tts-btn" onclick="speakWord('Producer', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਉਤਪਾਦਕ (Green plants make food)</span><br><span class="phonetic">ਉਚਾਰਨ: ਪ੍ਰੋਡਿਊਸਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Consumer <button class="tts-btn" onclick="speakWord('Consumer', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਖਪਤਕਾਰ (Eats other organisms)</span><br><span class="phonetic">ਉਚਾਰਨ: ਕੰਜ਼ਿਊਮਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Decomposer <button class="tts-btn" onclick="speakWord('Decomposer', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਪਘਟਕ (Bacteria & fungi)</span><br><span class="phonetic">ਉਚਾਰਨ: ਡੀਕੰਪੋਜ਼ਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Food Chain <button class="tts-btn" onclick="speakWord('Food Chain', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਭੋਜਨ ਲੜੀ (Single feeding line)</span><br><span class="phonetic">ਉਚਾਰਨ: ਫੂਡ ਚੇਨ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Food Web <button class="tts-btn" onclick="speakWord('Food Web', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਭੋਜਨ ਜਾਲ (Network of food chains)</span><br><span class="phonetic">ਉਚਾਰਨ: ਫੂਡ ਵੈੱਬ</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>More Key Terms <span class="punjabi">(ਹੋਰ ਮੁੱਖ ਸ਼ਬਦ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Trophic Level <button class="tts-btn" onclick="speakWord('Trophic Level', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪੋਸ਼ੀ ਪੱਧਰ (A feeding step)</span><br><span class="phonetic">ਉਚਾਰਨ: ਟ੍ਰੋਫਿਕ ਲੈਵਲ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Ecological Pyramid <button class="tts-btn" onclick="speakWord('Ecological Pyramid', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪਾਰਿਸਥਿਤਕ ਪਿਰਾਮਿਡ (Energy / number pyramid)</span><br><span class="phonetic">ਉਚਾਰਨ: ਈਕੋਲੌਜੀਕਲ ਪਿਰਾਮਿਡ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Biological Magnification <button class="tts-btn" onclick="speakWord('Biological Magnification', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਜੈਵਿਕ ਵਾਧਾ (Toxin buildup up the chain)</span><br><span class="phonetic">ਉਚਾਰਨ: ਬਾਇਓ-ਮੈਗਨੀਫਿਕੇਸ਼ਨ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Ozone <button class="tts-btn" onclick="speakWord('Ozone', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਓਜ਼ੋਨ (O₃ – UV shield)</span><br><span class="phonetic">ਉਚਾਰਨ: ਓਜ਼ੋਨ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Biodegradable <button class="tts-btn" onclick="speakWord('Biodegradable', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ (Rots naturally)</span><br><span class="phonetic">ਉਚਾਰਨ: ਬਾਇਓ-ਡੀਗ੍ਰੇਡੇਬਲ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Non-biodegradable <button class="tts-btn" onclick="speakWord('Non biodegradable', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ (Does not rot)</span><br><span class="phonetic">ਉਚਾਰਨ: ਨਾਨ-ਬਾਇਓ-ਡੀਗ੍ਰੇਡੇਬਲ</span></div>
+                </div>
+            </div>
+        </div>
+<div class="slide"><div class="content-box"><h2>Reading: The Web of Life</h2><div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch13-1', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch13-1"><strong>Energy Flow and Our Environment</strong><br>Nothing in nature ever truly lives alone. A blade of grass captures sunlight, a grasshopper eats the grass, a frog eats the grasshopper, and a snake eats the frog, forming a chain in which energy passes from one living thing to the next. At each step, most of the energy is lost as heat, which is why there are always fewer snakes than there are blades of grass. When we dump plastic and other non-biodegradable waste into this system, it does not rot away but lingers for centuries, poisoning the creatures that swallow it. High above us, a fragile layer of ozone quietly shields all of this life from the Sun's harmful ultraviolet rays. Protecting these invisible connections is not just kindness to nature; it is how we protect ourselves.</div></div></div></div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Components of an Ecosystem <span class="board-badge">🏆 Definition</span></h2>
+                <p>An <span class="exam-keyword">ecosystem</span> is a unit where living things interact with their non-living surroundings. It has two parts. Tap each card to reveal the meaning.</p>
+                <div class="flip-grid">
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Biotic Components<br><span class="punjabi" style="color:white; margin-top:10px;">(ਜੈਵਿਕ ਅੰਸ਼)</span></div>
+                        <div class="flip-back"><strong>All living organisms</strong> — plants, animals, bacteria and fungi, grouped as producers, consumers and decomposers.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Abiotic Components<br><span class="punjabi" style="color:white; margin-top:10px;">(ਅਜੈਵਿਕ ਅੰਸ਼)</span></div>
+                        <div class="flip-back"><strong>All non-living factors</strong> — sunlight, temperature, air, water, soil and minerals. They decide which organisms can survive.</div>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Producers, Consumers & Decomposers</h2>
+                <p>Every organism has a <strong>trophic role</strong> based on how it gets food.</p>
+                <table>
+                    <tr><th>Role</th><th>What they do</th><th>Examples</th></tr>
+                    <tr><td><strong>Producers</strong><br><span class="punjabi">ਉਤਪਾਦਕ</span></td><td>Make their own food from sunlight (photosynthesis) — <span class="exam-keyword">autotrophs</span>.</td><td>Green plants, algae</td></tr>
+                    <tr><td><strong>Consumers</strong><br><span class="punjabi">ਖਪਤਕਾਰ</span></td><td>Cannot make food; eat plants or animals — <span class="exam-keyword">heterotrophs</span>.</td><td>Deer, frog, lion, humans</td></tr>
+                    <tr><td><strong>Decomposers</strong><br><span class="punjabi">ਅਪਘਟਕ</span></td><td>Break down dead bodies & waste into simple nutrients.</td><td>Bacteria, fungi</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Food Chains <span class="punjabi">(ਭੋਜਨ ਲੜੀ)</span></h2>
+                <p>A <span class="exam-keyword">food chain</span> is a single pathway showing who eats whom. Energy flows in <strong>one direction only</strong> — from the sun to producers to consumers.</p>
+                <img src="images/food-chain.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: Grass → Grasshopper → Frog → Snake → Eagle — add images/food-chain.png]'" alt="Grassland food chain from grass to eagle" class="slide-img">
+                <div class="equation" style="display:block; text-align:center; padding: 12px; margin-top:12px;">
+                    Grass &rarr; Grasshopper &rarr; Frog &rarr; Snake &rarr; Eagle
+                </div>
+                <p style="margin-top:10px;">Each stage is a <strong>trophic level</strong>: producers are the 1st, herbivores the 2nd, and so on.</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Food Webs <span class="board-badge">🏆 Frequently Asked</span></h2>
+                <p>In nature animals eat more than one type of food. When many food chains interconnect, they form a <span class="exam-keyword">food web</span>.</p>
+                <img src="images/food-web.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: interconnected food web of grass, insects, birds, snakes, hawks — add images/food-web.png]'" alt="A food web showing interconnected food chains" class="slide-img">
+                <div class="board-trap"><strong>Why is a food web more stable?</strong> If one species disappears, animals have alternative food sources, so the whole system does not collapse.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Trophic Levels & Ecological Pyramids</h2>
+                <p>The number, biomass or energy at each feeding step can be drawn as an <span class="exam-keyword">ecological pyramid</span>. The base (producers) is always the largest.</p>
+                <table>
+                    <tr><th>Level</th><th>Name</th><th>Example</th></tr>
+                    <tr><td>T1</td><td>Producer</td><td>Grass</td></tr>
+                    <tr><td>T2</td><td>Primary consumer (herbivore)</td><td>Grasshopper</td></tr>
+                    <tr><td>T3</td><td>Secondary consumer</td><td>Frog</td></tr>
+                    <tr><td>T4</td><td>Tertiary consumer</td><td>Snake</td></tr>
+                </table>
+                <p style="margin-top:10px;">Chains rarely exceed 4–5 levels because <strong>energy is lost at every step</strong> (the 10% Law).</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Practice: Build a Food Chain <span class="board-badge">🧩 Interactive</span></h2>
+                <p>Tap each blank to reveal the correct role. <span class="punjabi-block">(ਸਹੀ ਜਵਾਬ ਵੇਖਣ ਲਈ ਖਾਲੀ ਥਾਂ 'ਤੇ ਟੈਪ ਕਰੋ।)</span></p>
+                <div class="cloze-paragraph">
+                    In a grassland, the <span class="cloze-blank" data-ans="Grass (Producer)" onclick="revealCloze(this)"></span> traps solar energy to make food. A grasshopper eats it, so the grasshopper is a <span class="cloze-blank" data-ans="Primary Consumer" onclick="revealCloze(this)"></span>. A frog then eats the grasshopper, making the frog a <span class="cloze-blank" data-ans="Secondary Consumer" onclick="revealCloze(this)"></span>. When these organisms die, <span class="cloze-blank" data-ans="Decomposers" onclick="revealCloze(this)"></span> like bacteria and fungi break them down and return nutrients to the soil.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Energy Flow: The 10% Law</h2>
+                <p>Ecosystems rely on a <strong>unidirectional</strong> flow of energy. Plants (Producers) capture about 1% of the sun's energy to make food.</p>
+                <div style="background: #F8FAFC; padding: 20px; border-radius: 12px; border-left: 5px solid var(--goku-primary); margin-top: 15px;">
+                    <h3>The 10% Law <span class="punjabi">(10% ਦਾ ਨਿਯਮ)</span></h3>
+                    <p>Only <span class="exam-keyword">10%</span> of energy is transferred from one trophic level to the next. The other 90% is lost as heat. Because so much energy is lost, food chains rarely go beyond 3 or 4 steps!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIXED SLIDE 61: Intuitive Sequencer for Biomagnification -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Biological Magnification <span class="board-badge">🏆 Process Flow</span></h2>
+                <p><strong>Interactive Sequencer:</strong> Build the DDT toxin accumulation chain. Notice how the concentration increases at every step.</p>
+                <div class="sequencer-container" id="seq-ch13-1">
+                    <div class="seq-step">
+                        <strong>1. Water Source:</strong> Farmers spray pesticides (DDT). It washes into a local pond at a very low, safe concentration.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Producers (Plankton):</strong> Microscopic plants absorb the DDT. They cannot excrete it.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Primary Consumers (Small Fish):</strong> Eat hundreds of plankton. The DDT accumulates heavily in their fat.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Secondary Consumers (Large Fish):</strong> Eat dozens of small fish. Concentration spikes dramatically.
+                    </div>
+                    <div class="seq-step">
+                        <strong>5. Top Carnivores (Humans/Birds):</strong> We eat the large fish and receive the <span class="exam-keyword">maximum toxic dose</span>, leading to severe diseases.
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch13-1')">
+                        Reveal Next Trophic Level <span class="seq-counter">[0/5]</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Ozone Formation & Depletion</h2>
+                <p>Ozone (O₃) forms a protective shield in the upper atmosphere against UV radiation.</p>
+                
+                <div class="equation" style="display:block; text-align:center; padding: 15px;">
+                    1. &nbsp; O<sub>2</sub> &nbsp; &#x2192; (UV Light) &rarr; &nbsp; O + O <br><br>
+                    2. &nbsp; O + O<sub>2</sub> &nbsp; &#x2192; &nbsp; O<sub>3</sub> (Ozone)
+                </div>
+                
+                <p>It is destroyed by <span class="exam-keyword">CFCs</span> (Chlorofluorocarbons) used in old refrigerators, causing the "Ozone Hole".</p>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Biodegradable vs Non-biodegradable</h2>
+                <p>Waste is classified by whether decomposers can break it down.</p>
+                <table>
+                    <tr><th>Biodegradable <span class="punjabi">(ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ)</span></th><th>Non-biodegradable <span class="punjabi">(ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ)</span></th></tr>
+                    <tr><td>Broken down by microbes</td><td>Cannot be broken down by microbes</td></tr>
+                    <tr><td>Fruit peels, paper, cotton, cow dung, leaves</td><td>Plastic, glass, DDT, metals, polythene</td></tr>
+                    <tr><td>Return to nature quickly</td><td>Persist for years; cause pollution</td></tr>
+                </table>
+                <div class="board-trap"><strong>Board Trap:</strong> Non-biodegradable pesticides like <span class="exam-keyword">DDT</span> enter food chains and cause <strong>biological magnification</strong>.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sort the Waste <span class="board-badge">🧩 Match It</span></h2>
+                <p>Match each item to its correct category or effect. <span class="punjabi-block">(ਹਰ ਵਸਤੂ ਨੂੰ ਸਹੀ ਸ਼੍ਰੇਣੀ ਨਾਲ ਮਿਲਾਓ।)</span></p>
+                <div class="match-grid">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Banana peel</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Plastic bottle</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">DDT pesticide</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Non-biodegradable</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Biodegradable</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Causes biomagnification</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Managing Waste: The 3 R's <span class="punjabi">(ਕੂੜਾ ਪ੍ਰਬੰਧਨ)</span></h2>
+                <div class="flip-grid">
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Reduce<br><span class="punjabi" style="color:white; margin-top:10px;">(ਘਟਾਓ)</span></div>
+                        <div class="flip-back">Use less — buy only what you need; save water and electricity to create less waste.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Reuse<br><span class="punjabi" style="color:white; margin-top:10px;">(ਦੁਬਾਰਾ ਵਰਤੋ)</span></div>
+                        <div class="flip-back">Use items again — refill bottles, carry cloth bags instead of throwing away.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Recycle<br><span class="punjabi" style="color:white; margin-top:10px;">(ਮੁੜ ਵਰਤੋਂ)</span></div>
+                        <div class="flip-back">Make new products from used ones — recycle paper, metal and glass.</div>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>How CFCs Destroy Ozone <span class="board-badge">🏆 Process Flow</span></h2>
+                <p><strong>Interactive Sequencer:</strong> Follow how one CFC molecule can destroy thousands of ozone molecules.</p>
+                <div class="sequencer-container" id="seq-ch13-2">
+                    <div class="seq-step"><strong>1. Release:</strong> CFCs from old refrigerators, ACs and sprays drift up into the stratosphere.</div>
+                    <div class="seq-step"><strong>2. Breakdown:</strong> Strong UV rays break the CFC, releasing a free <span class="exam-keyword">chlorine (Cl)</span> atom.</div>
+                    <div class="seq-step"><strong>3. Attack:</strong> The Cl atom reacts with ozone (O₃), stealing an oxygen → ClO + O₂.</div>
+                    <div class="seq-step"><strong>4. Chain Reaction:</strong> The Cl atom is freed again and destroys thousands more ozone molecules.</div>
+                    <div class="seq-step"><strong>5. Result:</strong> The ozone layer thins, forming the <span class="exam-keyword">"Ozone Hole"</span> — more UV reaches Earth.</div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch13-2')">Reveal Next Step <span class="seq-counter">[0/5]</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Effects of Ozone Depletion</h2>
+                <p>A thinner ozone layer lets harmful <span class="exam-keyword">UV rays</span> reach the surface, which can cause:</p>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9; margin-top:10px;">
+                    <li>🧑 <strong>Skin cancer</strong> and skin ageing in humans</li>
+                    <li>👁️ <strong>Cataracts</strong> (damage to the eyes)</li>
+                    <li>🛡️ Weakened <strong>immune system</strong></li>
+                    <li>🌾 Reduced <strong>crop yield</strong> and harm to phytoplankton</li>
+                </ul>
+                <div class="board-trap"><strong>Solution:</strong> The <span class="exam-keyword">Montreal Protocol</span> (1987) banned CFC production worldwide to protect the ozone layer.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Reading: Our Responsibility</h2>
+                <div class="reading-pane">
+                    <div class="read-controls">
+                        <button class="read-btn" onclick="speakPassage('read-ch13-2', this)">▶️ Read to Me</button>
+                        <button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button>
+                    </div>
+                    <div class="reading-text" id="read-ch13-2"><strong>Human Impact on the Environment</strong><br>Human activities have disturbed the delicate balance of nature. We cut forests, burn fossil fuels, and dump non-biodegradable plastics into rivers and oceans. Harmful chemicals move up food chains and concentrate in the bodies of top consumers, including us. The gases we release have even damaged the ozone layer that protects all life from the Sun's ultraviolet rays. But there is hope: by reducing waste, recycling materials, planting trees, and using eco-friendly products, every person can help repair these broken connections. Protecting the environment is not a choice — it is our shared responsibility.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Spot the Error <span class="board-badge">🔍 Fix It</span></h2>
+                <p>This food chain has a mistake. Tap the highlighted arrow to correct it.</p>
+                <div class="error-diagram">
+                    Grass &rarr; Grasshopper &rarr; Frog <span class="hotspot" onclick="fixError(this, 'err-ch13-1')">&larr;</span> Snake
+                </div>
+                <div class="error-explanation" id="err-ch13-1"><strong>Corrected!</strong> Energy in a food chain flows in ONE direction only (unidirectional). The arrow must point <strong>from the eaten to the eater</strong>: Frog &rarr; Snake.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Memorize This: Chapter Recap</h2>
+                <div class="ratta-box">
+                    <ul style="text-align:left; font-size:1.1rem; line-height:1.9; margin:0; padding-left:20px;">
+                        <li>Energy flow is <strong>unidirectional</strong>; only <strong>10%</strong> passes to the next level.</li>
+                        <li>Food chain = single line; food web = many chains (more stable).</li>
+                        <li>Decomposers recycle nutrients back to the soil.</li>
+                        <li>Non-biodegradable waste → pollution + <strong>biomagnification</strong>.</li>
+                        <li>Ozone (O₃) blocks UV; destroyed by <strong>CFCs</strong>. Montreal Protocol banned CFCs.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The 10% Law: Energy Flow <span class="board-badge">🏆 Numerical Favourite</span></h2>
+                <p><strong>Interactive Sequencer:</strong> If grass (producers) captures <strong>10,000 J</strong> of the Sun's energy, trace how much reaches each level. <span class="punjabi-block">(ਹਰ ਪੱਧਰ 'ਤੇ ਊਰਜਾ ਵੇਖੋ।)</span></p>
+                <div class="sequencer-container" id="seq-ch13-energy">
+                    <div class="seq-step"><strong>1. Producers (Grass):</strong> Store <span class="exam-keyword">10,000 J</span> from the Sun (1st trophic level).</div>
+                    <div class="seq-step"><strong>2. Primary Consumers (Deer):</strong> Only 10% passes on &rarr; <span class="exam-keyword">1,000 J</span>. The other 90% is lost as heat &amp; life processes.</div>
+                    <div class="seq-step"><strong>3. Secondary Consumers (Snake):</strong> 10% of 1,000 &rarr; <span class="exam-keyword">100 J</span>.</div>
+                    <div class="seq-step"><strong>4. Tertiary Consumers (Hawk):</strong> 10% of 100 &rarr; <span class="exam-keyword">10 J</span> only!</div>
+                    <div class="seq-step"><span class="accent-blue">Conclusion:</span> Energy shrinks so fast that food chains rarely have more than <strong>4&ndash;5 trophic levels</strong>.</div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch13-energy')">Reveal Next Step <span class="seq-counter">[0/5]</span></button>
+                </div>
+                <div class="ratta-box">Lindeman's <strong>10% Law</strong>: only 10% of energy moves to the next trophic level; 90% is lost.</div>
+            </div>
+        </div>
+
+        <!-- CH13 INTERACTIVE: SORT BIODEGRADABLE VS NON-BIODEGRADABLE -->
+        <div class="slide"><div class="content-box">
+            <h2>Sort the Waste <span class="punjabi">(ਕੂੜੇ ਨੂੰ ਛਾਂਟੋ)</span></h2>
+            <div class="pd-game">
+                <p class="pd-instruction">Click an item, then click the correct bin. <span class="punjabi">(ਪਹਿਲਾਂ ਵਸਤੂ ਚੁਣੋ, ਫੇਰ ਸਹੀ ਡੱਬਾ ਚੁਣੋ।)</span></p>
+                <div class="pd-pool">
+                    <span class="pd-item" data-target="bio" onclick="psebPick(this)">Vegetable peels (ਸਬਜ਼ੀ ਦੇ ਛਿਲਕੇ)</span>
+                    <span class="pd-item" data-target="nonbio" onclick="psebPick(this)">Plastic bag (ਪਲਾਸਟਿਕ ਬੈਗ)</span>
+                    <span class="pd-item" data-target="bio" onclick="psebPick(this)">Paper (ਕਾਗਜ਼)</span>
+                    <span class="pd-item" data-target="nonbio" onclick="psebPick(this)">Glass bottle (ਕੱਚ ਦੀ ਬੋਤਲ)</span>
+                    <span class="pd-item" data-target="bio" onclick="psebPick(this)">Cow dung (ਗੋਬਰ)</span>
+                    <span class="pd-item" data-target="nonbio" onclick="psebPick(this)">Aluminium can (ਐਲੂਮੀਨੀਅਮ ਕੈਨ)</span>
+                    <span class="pd-item" data-target="bio" onclick="psebPick(this)">Cotton cloth (ਸੂਤੀ ਕੱਪੜਾ)</span>
+                    <span class="pd-item" data-target="nonbio" onclick="psebPick(this)">DDT / pesticide (ਡੀ.ਡੀ.ਟੀ.)</span>
+                </div>
+                <div class="pd-targets">
+                    <div class="pd-target" data-target="bio" onclick="psebDrop(this)"><span class="pd-label">&#127807; Biodegradable <small>ਜੈਵ-ਨਿਘਾਰਯੋਗ &mdash; decomposers break it down</small></span><div class="pd-drop"></div></div>
+                    <div class="pd-target" data-target="nonbio" onclick="psebDrop(this)"><span class="pd-label">&#9851; Non-biodegradable <small>ਗੈਰ ਜੈਵ-ਨਿਘਾਰਯੋਗ &mdash; stays for years</small></span><div class="pd-drop"></div></div>
+                </div>
+                <div class="pd-done">Great sorting! Biodegradable waste rots naturally; non-biodegradable waste pollutes for years. <span class="punjabi">(ਸ਼ਾਬਾਸ਼!)</span></div>
+                <button class="pd-reset-btn" onclick="psebReset(this)">&#8635; Reset</button>
+            </div>
+        </div></div>
+
+        <!-- CH 13 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch13"><div class="sub-slide active" id="tf-ch13-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">Decomposers return complex organic materials to the soil as simple inorganic substances.<br><span class="punjabi-block">ਅਪਘਟਕ ਗੁੰਝਲਦਾਰ ਜੈਵਿਕ ਪਦਾਰਥਾਂ ਨੂੰ ਸਾਧਾਰਨ ਅਕਾਰਬਨਿਕ ਪਦਾਰਥਾਂ ਵਜੋਂ ਮਿੱਟੀ ਵਿੱਚ ਵਾਪਸ ਕਰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s2"><div class="sub-progress">Question 2 of 8 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">The flow of energy in a food chain is bidirectional (goes both ways).<br><span class="punjabi-block">ਭੋਜਨ ਲੜੀ ਵਿੱਚ ਊਰਜਾ ਦਾ ਪ੍ਰਵਾਹ ਦੋ-ਪੱਖੀ ਹੁੰਦਾ ਹੈ (ਦੋਵੇਂ ਪਾਸੇ ਜਾਂਦਾ ਹੈ)।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Biological magnification is highest in top carnivores.<br><span class="punjabi-block">ਜੈਵਿਕ ਵਾਧਾ ਸਿਖਰਲੇ ਮਾਸਾਹਾਰੀਆਂ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Ozone is formed when UV light splits O2 into free oxygen atoms.<br><span class="punjabi-block">ਓਜ਼ੋਨ ਉਦੋਂ ਬਣਦਾ ਹੈ ਜਦੋਂ UV ਰੌਸ਼ਨੀ O2 ਨੂੰ ਮੁਕਤ ਆਕਸੀਜਨ ਪਰਮਾਣੂਆਂ ਵਿੱਚ ਵੰਡਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">CFCs are the main cause of ozone layer depletion.<br><span class="punjabi-block">ਓਜ਼ੋਨ ਪਰਤ ਦੇ ਖਾਤਮੇ ਦਾ ਮੁੱਖ ਕਾਰਨ CFCs ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">Grass, being a producer, occupies the first trophic level.<br><span class="punjabi-block">ਘਾਹ, ਇੱਕ ਉਤਪਾਦਕ ਹੋਣ ਕਰਕੇ, ਪਹਿਲੇ ਪੋਸ਼ੀ ਪੱਧਰ 'ਤੇ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">Non-biodegradable substances are quickly broken down by decomposers.<br><span class="punjabi-block">ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ ਪਦਾਰਥ ਅਪਘਟਕਾਂ ਦੁਆਰਾ ਜਲਦੀ ਟੁੱਟ ਜਾਂਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch13', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch13-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">The protective ozone layer lies in the upper atmosphere (stratosphere).<br><span class="punjabi-block">ਸੁਰੱਖਿਆਤਮਕ ਓਜ਼ੋਨ ਪਰਤ ਉੱਪਰਲੇ ਵਾਯੂਮੰਡਲ (ਸਟ੍ਰੈਟੋਸਫੀਅਰ) ਵਿੱਚ ਹੁੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 15</h2><div class="sub-slider-container" id="sib-ch13"><div class="sub-slide active short-answer" id="sib-ch13-s1" data-q="What is the chemical formula for Ozone?" data-a="O3" data-pa="O₃"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">What is the chemical formula for Ozone?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'O3', 'O₃')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s2" data-q="What is the percentage of energy transferred in a food chain?" data-a="10 percent" data-pa="10 ਪ੍ਰਤੀਸ਼ਤ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">What is the percentage of energy transferred in a food chain?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, '10 percent', '10 ਪ੍ਰਤੀਸ਼ਤ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s3" data-q="What chemicals caused the ozone hole?" data-a="CFCs" data-pa="ਕਲੋਰੋਫਲੋਰੋਕਾਰਬਨ (CFCs)"><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">What chemicals caused the ozone hole?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'CFCs', 'ਕਲੋਰੋਫਲੋਰੋਕਾਰਬਨ (CFCs)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s4" data-q="What is the buildup of toxins in a food chain called?" data-a="Biological magnification" data-pa="ਜੈਵਿਕ ਵਾਧਾ"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">What is the buildup of toxins in a food chain called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Biological magnification', 'ਜੈਵਿਕ ਵਾਧਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s5" data-q="Waste that can be broken down naturally is called?" data-a="Biodegradable" data-pa="ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">Waste that can be broken down naturally is called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Biodegradable', 'ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s6" data-q="Organisms that make their own food are called?" data-a="Producers" data-pa="ਉਤਪਾਦਕ"><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">Organisms that make their own food are called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Producers', 'ਉਤਪਾਦਕ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s7" data-q="Bacteria and fungi that break down dead matter are called?" data-a="Decomposers" data-pa="ਅਪਘਟਕ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">Bacteria and fungi that break down dead matter are called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Decomposers', 'ਅਪਘਟਕ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch13', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch13-s8" data-q="Waste that cannot be broken down naturally is called?" data-a="Non-biodegradable" data-pa="ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">Waste that cannot be broken down naturally is called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Non-biodegradable', 'ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 15 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch13"><div class="sub-slide active" id="mcq-ch13-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">Which of the following describes the flow of energy in an ecosystem?</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Unidirectional</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Bidirectional</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Cyclic</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">The depletion of the ozone layer is mainly due to:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Chlorofluorocarbons (CFCs)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Carbon dioxide</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Methane gas</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">In a food chain, the third trophic level is always occupied by:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Herbivores</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Carnivores</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Producers</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">Ozone layer protects us from:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Visible light</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Ultraviolet (UV) rays</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Infrared rays</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">Biological magnification leads to maximum toxin concentration in:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Primary consumers</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Producers</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Top carnivores (Humans)</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">Which group forms the base of every food chain?</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Producers</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Herbivores</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Decomposers</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">The 3 R's of waste management are Reduce, Reuse and:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Recycle</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Reject</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Return</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch13', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch13-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">Ozone (O₃) protects the Earth by absorbing which rays?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Infrared rays</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Ultraviolet rays</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Radio waves</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Finish Phase 2 &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every single "Say It Back" question in this deck has been automatically formatted for Anki. The back of each card will now display both the English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+</div>
+<script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+        
+        function jumpToChapter(chapterId) {
+            const targetSlide = document.getElementById(chapterId);
+            if(targetSlide) {
+                const allSlidesArray = Array.from(slides);
+                const targetIndex = allSlidesArray.indexOf(targetSlide);
+                if(targetIndex !== -1) {
+                    currentSlide = targetIndex;
+                    updateUI();
+                }
+            }
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    grid.appendChild(msg);
+                    msg.style.display = 'block';
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+                
+                // Update Counter
+                const btn = container.querySelector('.seq-btn');
+                const counterSpan = btn.querySelector('.seq-counter');
+                if(counterSpan) {
+                    counterSpan.innerText = `[${currentIndex + 1}/${allSteps.length}]`;
+                }
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- MODULE 4: SPOT ERROR MODULE --- */
+        function fixError(el, expId) {
+            el.classList.add('fixed');
+            el.innerText = 'NEVER INTERSECT';
+            document.getElementById(expId).style.display = 'block';
+        }
+
+        /* --- MODULE 5: FORMULA BUILDER MODULE --- */
+        function buildFormula(val, boardId, targetString) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            
+            let currentFormula = board.getAttribute('data-formula') || "";
+            currentFormula += val;
+            board.setAttribute('data-formula', currentFormula);
+            board.innerText = currentFormula;
+            
+            if(currentFormula === targetString) {
+                board.classList.add('success');
+            }
+        }
+        
+        function undoFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            let currentFormula = board.getAttribute('data-formula') || "";
+            if(currentFormula.length > 0) {
+                // Remove the last chunk added (which might be multiple chars like '1/v' or 'I²')
+                // A simpler way for a rigid builder is just tracking an array. 
+                // But since we appended as a string, let's just clear for V3 to keep it bulletproof, or re-implement array logic.
+                // Re-implementing array logic:
+                clearFormula(boardId);
+            }
+        }
+        
+        function clearFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(board){
+                board.setAttribute('data-formula', "");
+                board.innerText = "";
+                board.classList.remove('success');
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.error-diagram') || e.target.closest('.builder-workspace')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if (window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) {
+                            seqBtn.style.display = 'block';
+                            const counter = seqBtn.querySelector('.seq-counter');
+                            if(counter) counter.innerText = '[0/5]'; // General reset
+                        }
+                    });
+
+                    // Reset Error Spotter
+                    slide.querySelectorAll('.hotspot').forEach(h => {
+                        h.classList.remove('fixed');
+                        h.innerText = 'INTERSECTS';
+                    });
+                    slide.querySelectorAll('.error-explanation').forEach(e => e.style.display = 'none');
+
+                    // Reset Formulas
+                    clearFormula('formula-board-ch9');
+                    clearFormula('formula-board-ch11');
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase2_Premium_v3_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* --- TEXT-TO-SPEECH (added) --- */
+        window.activeReadBtn = null;
+
+        window.speakWord = function(text, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.85;
+            if (btn) {
+                btn.style.backgroundColor = '#D1FAE5';
+                utterance.onend = () => { btn.style.backgroundColor = ''; };
+                utterance.onerror = () => { btn.style.backgroundColor = ''; };
+            }
+            window.speechSynthesis.speak(utterance);
+        };
+
+        window.speakPassage = function(textId, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+            }
+            const textElement = document.getElementById(textId);
+            if (!textElement) return;
+            const text = textElement.innerText || textElement.textContent;
+            const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text]).map(s => s.trim()).filter(s => s.length > 0);
+            if (sentences.length === 0) return;
+            window.activeReadBtn = btn;
+            btn.innerHTML = '\uD83D\uDD0A Reading...';
+            btn.style.background = 'var(--goku-accent)';
+            let i = 0;
+            function speakNext() {
+                if (i < sentences.length) {
+                    const u = new SpeechSynthesisUtterance(sentences[i]);
+                    u.lang = 'en-US';
+                    u.rate = 0.85;
+                    u.onend = function() { i++; speakNext(); };
+                    u.onerror = function(e) { console.error("TTS Error:", e); window.stopSpeaking(); };
+                    window.speechSynthesis.speak(u);
+                } else {
+                    window.stopSpeaking();
+                }
+            }
+            speakNext();
+        };
+
+        window.stopSpeaking = function() {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+                window.activeReadBtn = null;
+            }
+        };
+
+        updateUI();
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" font-family="'Segoe UI',Arial,sans-serif">
+  <rect width="720" height="440" fill="#ffffff"/>
+  <text x="360" y="32" font-size="18" fill="#0f172a" text-anchor="middle" font-weight="700">Electric Motor (converts Electrical &#8594; Mechanical energy)</text>
+  <!-- Magnet poles -->
+  <rect x="70" y="120" width="70" height="180" fill="#ef4444"/>
+  <text x="105" y="218" font-size="26" fill="#fff" text-anchor="middle" font-weight="700">N</text>
+  <rect x="580" y="120" width="70" height="180" fill="#3b82f6"/>
+  <text x="615" y="218" font-size="26" fill="#fff" text-anchor="middle" font-weight="700">S</text>
+  <!-- Field lines N to S -->
+  <g stroke="#cbd5e1" stroke-width="2">
+    <line x1="140" y1="150" x2="580" y2="150"/>
+    <line x1="140" y1="210" x2="580" y2="210"/>
+    <line x1="140" y1="270" x2="580" y2="270"/>
+  </g>
+  <!-- Coil ABCD -->
+  <rect x="250" y="150" width="220" height="120" fill="none" stroke="#0f172a" stroke-width="5"/>
+  <text x="244" y="146" font-size="15" fill="#0f172a" font-weight="700">A</text>
+  <text x="470" y="146" font-size="15" fill="#0f172a" font-weight="700">B</text>
+  <text x="470" y="290" font-size="15" fill="#0f172a" font-weight="700">C</text>
+  <text x="244" y="290" font-size="15" fill="#0f172a" font-weight="700">D</text>
+  <text x="360" y="210" font-size="15" fill="#64748b" text-anchor="middle">Armature coil</text>
+  <!-- Leads down to commutator -->
+  <line x1="300" y1="270" x2="300" y2="330" stroke="#0f172a" stroke-width="4"/>
+  <line x1="420" y1="270" x2="420" y2="330" stroke="#0f172a" stroke-width="4"/>
+  <!-- Split-ring commutator (two halves) -->
+  <path d="M 300 330 A 60 30 0 0 0 300 390" fill="none" stroke="#b45309" stroke-width="8"/>
+  <path d="M 420 330 A 60 30 0 0 1 420 390" fill="none" stroke="#b45309" stroke-width="8"/>
+  <text x="360" y="352" font-size="13" fill="#b45309" text-anchor="middle">Split-ring commutator</text>
+  <!-- Brushes -->
+  <rect x="256" y="352" width="26" height="16" fill="#334155"/>
+  <rect x="438" y="352" width="26" height="16" fill="#334155"/>
+  <text x="230" y="345" font-size="13" fill="#334155">Brush</text>
+  <text x="470" y="345" font-size="13" fill="#334155">Brush</text>
+  <!-- Battery -->
+  <g stroke="#0f172a" stroke-width="3">
+    <line x1="269" y1="368" x2="269" y2="415"/>
+    <line x1="269" y1="415" x2="360" y2="415"/>
+    <line x1="360" y1="405" x2="360" y2="425"/>
+    <rect x="368" y="410" width="8" height="10" fill="#0f172a" stroke="none"/>
+    <line x1="376" y1="415" x2="451" y2="415"/>
+    <line x1="451" y1="415" x2="451" y2="368"/>
+  </g>
+  <text x="360" y="438" font-size="14" fill="#0f172a" text-anchor="middle" font-weight="600">Battery</text>
+</svg>

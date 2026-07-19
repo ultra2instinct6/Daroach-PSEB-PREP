@@ -1,0 +1,1371 @@
+========================================================================
+CHAPTER 4 — CARBON AND ITS COMPOUNDS
+PSEB Class 10 Science | Teaching Script — Version 1
+TOTAL SLIDES: 29
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 4 — Carbon and its Compounds
+========================================================================
+
+ON SCREEN:
+  - Chapter title: "Chapter 4 — Carbon and its Compounds"
+  - Punjabi subtitle: ਕਾਰਬਨ ਅਤੇ ਉਸਦੇ ਯੋਗਿਕ
+
+SCRIPT (say this aloud):
+  Welcome, everyone! Today we begin Chapter 4 — Carbon and its Compounds,
+  or in Punjabi, ਕਾਰਬਨ ਅਤੇ ਉਸਦੇ ਯੋਗਿਕ. This is one of the most important
+  chapters in Class 10 Science — not just for your PSEB board exam, but
+  because carbon is the foundation of all living things, including you!
+
+  Think about this for a moment: there are millions of known chemical
+  compounds on Earth. Of those millions, the vast majority — from the sugar
+  in your tea to the DNA in your cells to the fuel in a car engine — all
+  contain carbon. Why is carbon so special? That is exactly what this
+  chapter answers. By the end of our journey through these slides, you will
+  understand covalent bonds, how carbon forms chains and rings, how to name
+  compounds using IUPAC rules, and even how soap cleans your clothes at a
+  molecular level. Let's get started!
+
+KEY POINTS TO STRESS:
+  - Carbon is the basis of an enormous number of compounds — millions.
+  - This chapter covers covalent bonds, catenation, hydrocarbons, functional
+    groups, and the cleansing action of soap.
+  - Chapter 4 is heavily tested in PSEB board exams.
+
+
+========================================================================
+SLIDE 2: Key Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Table with three columns: English term | Punjabi term | Meaning
+  - Six terms: Covalent Bond, Catenation, Saturated, Unsaturated,
+    Isomers, Combustion
+
+SCRIPT (say this aloud):
+  Before we dive into the chemistry, let us lock down the key vocabulary
+  for this chapter. Science becomes much easier once you know the language.
+
+  The first term is Covalent Bond — ਸਹਿ-ਸੰਜੋਜਕ ਬੰਧਨ. A covalent bond is
+  formed by the sharing of electrons between atoms. This is very different
+  from ionic bonds, where electrons are transferred. Carbon almost always
+  forms covalent bonds.
+
+  Next, Catenation — ਲੜੀਬੰਧਨ. This is carbon's unique ability to bond
+  with other carbon atoms to form long chains, branched chains, and rings.
+  The word itself comes from the Latin "catena" meaning chain.
+
+  Saturated — ਸੰਤ੍ਰਿਪਤ — means a carbon compound that has only single bonds
+  between its carbon atoms. Think of it as "full" — every bond is a single
+  bond, nothing more.
+
+  Unsaturated — ਅਸੰਤ੍ਰਿਪਤ — means the compound has at least one double or
+  triple bond between carbon atoms.
+
+  Isomers — ਸਮਅੰਗ — are compounds that share the same molecular formula but
+  have different structural arrangements. Same ingredients, different design.
+
+  Finally, Combustion — ਬਲਣਾ — is the burning of a substance in oxygen to
+  release carbon dioxide, water, heat, and light.
+
+KEY POINTS TO STRESS:
+  - Covalent bond = sharing of electrons (ਸਹਿ-ਸੰਜੋਜਕ ਬੰਧਨ).
+  - Catenation (ਲੜੀਬੰਧਨ) = carbon chaining with other carbons.
+  - Saturated = only single bonds; Unsaturated = double or triple bonds.
+  - Isomers = same formula, different structure.
+
+BOARD TIP: These six terms appear frequently in 1-mark definition questions. Memorise the Punjabi equivalents too.
+
+
+========================================================================
+SLIDE 3: Vocabulary Continued (ਸ਼ਬਦਾਵਲੀ ਜਾਰੀ)
+========================================================================
+
+ON SCREEN:
+  - Table: English | Punjabi | Meaning — four more terms
+  - Etymology box: Catenation from Latin "Catena" (Chain / ਲੜੀ)
+
+SCRIPT (say this aloud):
+  Let us continue building our vocabulary. Four more important terms today.
+
+  Hydrocarbon — ਹਾਈਡ੍ਰੋਕਾਰਬਨ. A hydrocarbon is any compound made up of only
+  two elements: Carbon and Hydrogen. Methane, ethane, propane — these are
+  all hydrocarbons. They are the simplest family of carbon compounds.
+
+  Heteroatom — ਹੈਟਰੋਪਰਮਾਣੂ. When an atom other than carbon or hydrogen
+  appears in an organic molecule — for example, Chlorine, Oxygen, or
+  Nitrogen — that atom is called a heteroatom. Heteroatoms are important
+  because they create what we call functional groups, which completely
+  change the chemical behaviour of the molecule.
+
+  Micelle — ਮਿਸੈਲ. This is a spherical cluster of soap molecules that forms
+  in water. The soap molecules arrange themselves so that their oil-loving
+  (hydrophobic) tails are inside, trapping grease, while their water-loving
+  (hydrophilic) heads face outward. We will explore this in detail later.
+
+  Homologous Series — ਸਮਜਾਤੀ ਲੜੀ. This is a family of carbon compounds that
+  share the same functional group and the same general formula, and whose
+  successive members differ by just a -CH₂ unit.
+
+  And here is an interesting word-origin tip: the word "Catenation" comes
+  from the Latin root "Catena," meaning chain — ਲੜੀ in Punjabi. So when
+  you hear catenation, picture a chain of carbon atoms growing longer and
+  longer!
+
+KEY POINTS TO STRESS:
+  - Hydrocarbon = only Carbon + Hydrogen.
+  - Heteroatom = any atom other than C or H in an organic molecule.
+  - Micelle = spherical soap cluster that traps grease.
+  - Homologous Series = family of compounds with same functional group,
+    differing by -CH₂ each time.
+
+BOARD TIP: "Micelle" is frequently asked as a define/explain in 2-mark questions. Know both the word and the structure.
+
+
+========================================================================
+SLIDE 4: Why does Carbon Share? (Reasoning)
+========================================================================
+
+ON SCREEN:
+  - Carbon's electronic configuration: 2, 4 (4 valence electrons)
+  - Two arguments: Why C⁴⁻ is impossible; Why C⁴⁺ is impossible
+  - Conclusion: Carbon forms covalent bonds by sharing
+
+SCRIPT (say this aloud):
+  Now let us answer one of the most important reasoning questions of this
+  chapter: Why does carbon form covalent bonds instead of ionic bonds?
+
+  To be stable, an atom needs 8 electrons in its outermost shell — the
+  octet rule. Carbon has the electronic configuration 2, 4 — meaning it has
+  4 valence electrons. To complete its octet, carbon needs 4 more electrons.
+  It has two options.
+
+  Option 1: Carbon could gain 4 electrons to form a C⁴⁻ anion. But think
+  about what that means — the carbon nucleus has only 6 protons. It would
+  now need to hold onto 10 electrons. The positive charge of 6 protons is
+  simply not strong enough to hold 10 electrons in a stable way. So forming
+  C⁴⁻ is not feasible.
+
+  Option 2: Carbon could lose all 4 valence electrons to form a C⁴⁺ cation.
+  But removing 4 electrons requires an enormous amount of energy — far too
+  much for a stable compound to form under normal conditions. What you'd be
+  left with is a tiny, intensely positively charged nucleus — extremely
+  unstable.
+
+  So carbon's only practical solution is to share its 4 valence electrons
+  with other atoms, forming covalent bonds. This is elegant and efficient.
+  This is precisely why nearly all carbon compounds are covalent — and why
+  there are millions of them.
+
+KEY POINTS TO STRESS:
+  - Carbon has 4 valence electrons (configuration: 2, 4).
+  - C⁴⁻ not feasible: 6 protons cannot hold 10 electrons.
+  - C⁴⁺ not feasible: removing 4 electrons requires too much energy.
+  - Solution: Carbon shares electrons → forms covalent bonds.
+
+BOARD TIP: This reasoning question ("Why does carbon form covalent bonds?") is a classic 3-mark question. Write both arguments clearly.
+
+
+========================================================================
+SLIDE 5: Electron Dot Structures (ਇਲੈਕਟ੍ਰਾਨ ਬਿੰਦੂ ਬਣਤਰ)
+========================================================================
+
+ON SCREEN:
+  - Definition: Electron dot structures show how valence electrons are shared
+  - Four examples: H₂ (single bond), O₂ (double bond), N₂ (triple bond),
+    NH₃ (lone pair)
+
+SCRIPT (say this aloud):
+  Electron dot structures — ਇਲੈਕਟ੍ਰਾਨ ਬਿੰਦੂ ਬਣਤਰ — are diagrams that use
+  dots to represent the valence electrons of each atom, showing exactly
+  how those electrons are shared between atoms in a covalent bond.
+
+  Let us go through the four examples on screen.
+
+  Hydrogen gas, H₂: Each hydrogen atom has 1 valence electron. They each
+  need just one more to complete a pair. So two hydrogen atoms share 1 pair
+  of electrons — this is a single bond. Simple!
+
+  Oxygen gas, O₂: Each oxygen atom has 6 valence electrons and needs 8.
+  So each oxygen needs 2 more. They share 2 pairs of electrons — this is
+  a double bond. You'll draw it as a double line between the two oxygen
+  atoms.
+
+  Nitrogen gas, N₂: Each nitrogen has 5 valence electrons and needs 3 more.
+  So they share 3 pairs of electrons — a triple bond. This is an extremely
+  strong bond, which is why nitrogen gas is so stable and unreactive.
+
+  Ammonia, NH₃: Nitrogen shares one pair of electrons with each of its
+  three hydrogen atoms. But nitrogen started with 5 valence electrons and
+  used only 3 of them in bonding. The remaining 2 electrons form a "lone
+  pair" — they belong to nitrogen alone and are not shared with anyone.
+  This lone pair is important in reactions.
+
+KEY POINTS TO STRESS:
+  - Single bond = 1 shared pair (e.g., H₂).
+  - Double bond = 2 shared pairs (e.g., O₂).
+  - Triple bond = 3 shared pairs (e.g., N₂).
+  - Lone pair = unbonded electrons on an atom (e.g., N in NH₃).
+
+BOARD TIP: Drawing electron dot structures is a common 2-mark question. Always show lone pairs on nitrogen and oxygen atoms.
+
+
+========================================================================
+SLIDE 6: The Versatile Nature of Carbon (ਕਾਰਬਨ ਦਾ ਬਹੁਮੁਖੀ ਸੁਭਾਅ)
+========================================================================
+
+ON SCREEN:
+  - Heading: Why are there millions of carbon compounds?
+  - Two reasons: Catenation and Tetravalency
+  - Diagrams of chains, branched chains, and rings
+
+SCRIPT (say this aloud):
+  Why are there literally millions of carbon compounds, while most other
+  elements form only a handful? The answer lies in two remarkable
+  properties of carbon.
+
+  The first is Catenation — ਲੜੀਬੰਧਨ. Carbon is the only element that can
+  bond extensively with itself to form very long chains, branched chains,
+  and even closed rings. A carbon chain can have just 1 carbon or it can
+  have thousands of carbons linked together. No other element shows this
+  ability to such a vast extent. Silicon can do it a little, but carbon is
+  far superior. This one property alone accounts for the staggering variety
+  of organic molecules — from simple methane to complex proteins.
+
+  The second is Tetravalency — ਚੌ-ਸੰਜੋਜਕਤਾ. Because carbon has exactly 4
+  valence electrons, it can form 4 covalent bonds simultaneously. This
+  means carbon can bond with 4 different kinds of atoms at the same time —
+  hydrogen, oxygen, nitrogen, sulphur, chlorine, and so on. It can also
+  form single, double, or triple bonds. This flexibility in bonding creates
+  an almost unlimited range of molecular architectures.
+
+  Together — catenation and tetravalency — these two properties explain why
+  the chemistry of carbon is an entire branch of science in its own right,
+  called Organic Chemistry.
+
+KEY POINTS TO STRESS:
+  - Catenation (ਲੜੀਬੰਧਨ): carbon bonds with itself to form long chains,
+    branches, and rings.
+  - Tetravalency (ਚੌ-ਸੰਜੋਜਕਤਾ): carbon forms 4 bonds simultaneously.
+  - These two properties together explain millions of carbon compounds.
+  - Carbon can form single, double, or triple bonds.
+
+BOARD TIP: A 2-mark question often asks: "Name the two special properties of carbon." Answer: Catenation and Tetravalency — always give both.
+
+
+========================================================================
+SLIDE 7: Reading Comprehension Story — "The Diamond and the Pencil"
+========================================================================
+
+ON SCREEN:
+  - Story-mode slide with Read / Stop buttons
+  - Title: "The Diamond and the Pencil"
+  - Narrative passage about diamond vs. graphite
+
+SCRIPT (say this aloud):
+  This is our story-mode reading slide. You can play the audio for your
+  students, or read it aloud yourself. It is a wonderful analogy to
+  introduce allotropes of carbon before the comparison table that follows.
+
+  Here is the story: Carbon is the master of disguise. It is the only
+  element that can form materials with completely opposite physical
+  properties simply by changing how its atoms connect. Deep inside the
+  Earth, under immense heat and crushing pressure, carbon atoms are forced
+  into a rigid, 3D triangular grid where every atom holds tightly to four
+  others — this creates a Diamond, the hardest natural substance known to
+  humanity. However, if those exact same carbon atoms are arranged into flat,
+  hexagonal sheets that slide over each other, they form Graphite. Graphite
+  is so soft and slippery that we use it as the "lead" in our pencils to
+  leave marks on paper.
+
+  The key insight here — which you should make sure your students absorb —
+  is that diamond and graphite are made of absolutely identical atoms. One
+  hundred percent pure carbon in both cases. The only difference is the
+  arrangement, the structure. And yet the properties could not be more
+  different: one is the hardest known substance, the other is one of the
+  softest. This is the power of structure in chemistry.
+
+  After the story, ask students: "If I gave you a piece of diamond and a
+  piece of graphite, could you tell which is which just from the formula?"
+  The answer is no — you need to know the structure!
+
+KEY POINTS TO STRESS:
+  - Diamond and graphite are both 100% carbon — same atoms, different
+    arrangement.
+  - Structure determines properties.
+  - Diamond: every C bonded to 4 others — very hard.
+  - Graphite: C bonded to 3 others in flat sheets — soft, slippery.
+
+
+========================================================================
+SLIDE 8: Allotropes of Carbon (ਕਾਰਬਨ ਦੇ ਭਿੰਨ ਰੂਪ)
+========================================================================
+
+ON SCREEN:
+  - Definition: Allotropes = different physical forms of the same element
+  - Comparison table: Diamond vs. Graphite
+  - Bonus note: Buckminsterfullerene (C₆₀)
+
+SCRIPT (say this aloud):
+  Allotropes — ਭਿੰਨ ਰੂਪ — are different physical forms of the same element.
+  Carbon has three well-known allotropes: Diamond, Graphite, and
+  Buckminsterfullerene. Let us compare the first two carefully, because
+  they are certain to appear in your board exam.
+
+  Diamond (ਹੀਰਾ): In diamond, each carbon atom is covalently bonded to
+  four other carbon atoms in a tetrahedral arrangement. This creates a
+  giant, rigid three-dimensional network. Because every electron is used
+  in bonding, there are no free electrons — so diamond is an insulator and
+  cannot conduct electricity. This rigid network also makes diamond the
+  hardest natural substance on Earth. We use it to cut glass and in
+  drilling equipment.
+
+  Graphite (ਗ੍ਰੇਫਾਈਟ): In graphite, each carbon bonds to only three others
+  in flat hexagonal layers. These layers are held together by weak forces,
+  so they can slide over each other — that's why graphite is soft and
+  greasy to touch and makes a good lubricant. Crucially, every carbon in
+  graphite has one electron that is not used in the three bonds — this
+  fourth electron is free to move between the layers. These delocalised
+  electrons allow graphite to conduct electricity, making it useful in
+  electrodes and battery components.
+
+  As a bonus: Buckminsterfullerene is a C₆₀ allotrope shaped like a
+  football — a hollow cage of 60 carbon atoms arranged in pentagons and
+  hexagons. It is named after the architect Buckminster Fuller, who designed
+  similar dome structures.
+
+KEY POINTS TO STRESS:
+  - Diamond: each C bonded to 4 others → hard, insulator.
+  - Graphite: each C bonded to 3 others → soft, conductor.
+  - Free 4th electron in graphite allows electrical conduction.
+  - Buckminsterfullerene (C₆₀): football-shaped allotrope.
+
+BOARD TIP: A favourite 3-mark question: "Compare diamond and graphite as allotropes of carbon." Always mention bonding pattern, hardness, and conductivity.
+
+
+========================================================================
+SLIDE 9: Saturated vs. Unsaturated Hydrocarbons
+========================================================================
+
+ON SCREEN:
+  - Two-column comparison table
+  - Saturated (ਸੰਤ੍ਰਿਪਤ): single bonds only, example Ethane
+  - Unsaturated (ਅਸੰਤ੍ਰਿਪਤ): double or triple bonds, examples Ethene, Ethyne
+
+SCRIPT (say this aloud):
+  Now let us understand one of the most fundamental classifications of
+  carbon compounds: saturated versus unsaturated hydrocarbons.
+
+  A Saturated hydrocarbon — ਸੰਤ੍ਰਿਪਤ ਹਾਈਡ੍ਰੋਕਾਰਬਨ — is one in which all the
+  carbon-to-carbon bonds are single bonds. The word "saturated" means that
+  the carbon atoms are already bonded to the maximum number of hydrogen
+  atoms possible — they are "full up" or saturated with hydrogens. The most
+  important family of saturated hydrocarbons is called Alkanes. Example:
+  Ethane (C₂H₆), where the two carbon atoms share a single bond.
+
+  An Unsaturated hydrocarbon — ਅਸੰਤ੍ਰਿਪਤ ਹਾਈਡ੍ਰੋਕਾਰਬਨ — is one that contains
+  at least one double or triple bond between carbon atoms. Because some
+  bonds are "double" or "triple," the carbons are not bonded to as many
+  hydrogens as they could be — they are not fully saturated.
+  - Alkenes contain double bonds (e.g., Ethene, C₂H₄).
+  - Alkynes contain triple bonds (e.g., Ethyne, C₂H₂).
+
+  This distinction matters because saturated and unsaturated hydrocarbons
+  behave very differently in chemical reactions — saturated ones undergo
+  substitution reactions, while unsaturated ones undergo addition reactions.
+  And they burn very differently too, as we will see in the next slide.
+
+KEY POINTS TO STRESS:
+  - Saturated = single bonds only (Alkanes, general formula CₙH₂ₙ₊₂).
+  - Unsaturated = at least one double or triple bond (Alkenes / Alkynes).
+  - Alkenes: double bond, suffix -ene.
+  - Alkynes: triple bond, suffix -yne.
+
+BOARD TIP: A 1-mark question: "What type of bond is present in saturated hydrocarbons?" Answer: Single bond only.
+
+
+========================================================================
+SLIDE 10: Clean vs. Sooty Flames (ਸਾਫ਼ ਅਤੇ ਧੂੰਏਂ ਵਾਲੀ ਲਾਟ)
+========================================================================
+
+ON SCREEN:
+  - Label: Classic 2-mark reasoning question on combustion
+  - Saturated hydrocarbons → clean blue flame (complete combustion)
+  - Unsaturated hydrocarbons → yellow, sooty flame (incomplete combustion)
+  - Note about blocked gas stove air holes
+
+SCRIPT (say this aloud):
+  This slide covers a concept that comes up almost every year in board
+  exams as a reasoning question: why do some hydrocarbons burn with a
+  clean flame while others give a sooty, yellow flame?
+
+  Saturated hydrocarbons, which are Alkanes, have a relatively lower ratio
+  of carbon to hydrogen. When they burn in a sufficient supply of air, the
+  combustion is complete — all the carbon is fully oxidised to CO₂ and all
+  the hydrogen becomes water. This produces a clean, blue flame with no
+  soot. Your gas cooking stove uses LPG, which is a mixture of butane and
+  propane — both saturated hydrocarbons — and when working correctly, it
+  burns with a nice clean blue flame.
+
+  Unsaturated hydrocarbons — Alkenes and Alkynes — have a higher carbon-to-
+  hydrogen ratio. In a normal air supply, there is not enough oxygen to
+  completely combust all that carbon. As a result, some carbon particles are
+  left unburnt and released into the air as soot. This gives a yellow or
+  orange, sooty, smoky flame. If you have ever held a piece of acetylene
+  (ethyne) torch near paper, you know how much soot it produces!
+
+  Now here is the very important note: if you block the air holes of a gas
+  stove — even though it uses a saturated hydrocarbon — the same LPG will
+  now burn with a sooty yellow flame and blacken your cooking vessel! Why?
+  Because the supply of oxygen is now restricted, so combustion becomes
+  incomplete. The fuel is not the issue; the air supply is.
+
+KEY POINTS TO STRESS:
+  - Saturated hydrocarbons → clean blue flame (complete combustion,
+    lower C:H ratio).
+  - Unsaturated hydrocarbons → yellow sooty flame (incomplete combustion,
+    higher C:H ratio).
+  - Blocked air holes → even saturated fuels give sooty flames.
+
+BOARD TIP: Frequent 2-mark reasoning question: "Why does ethyne burn with a sooty flame while ethane gives a clean flame?" — always mention carbon content and oxygen supply.
+
+
+========================================================================
+SLIDE 11: Traits of a Homologous Series (PSEB 2020, 2022)
+========================================================================
+
+ON SCREEN:
+  - Label: Highly tested 3-mark question
+  - 4 key features of a homologous series listed
+
+SCRIPT (say this aloud):
+  This slide is flagged as a PSEB board exam question from 2020 and 2022 —
+  so pay very close attention! The question "State the characteristics of a
+  homologous series" is a classic 3-mark or 4-mark question, and every
+  student must know these four traits.
+
+  A Homologous Series — ਸਮਜਾਤੀ ਲੜੀ — is a family of organic compounds. Here
+  are its four defining traits:
+
+  First: All members share the same general formula. For example, all
+  Alkanes follow CₙH₂ₙ₊₂. If n=1, you get CH₄ (methane). If n=2, you get
+  C₂H₆ (ethane). If n=3, you get C₃H₈ (propane). The formula is the same
+  pattern for every member.
+
+  Second: Successive members differ by exactly one -CH₂ group. So you go
+  from methane to ethane by adding one carbon and two hydrogens, then
+  ethane to propane by adding another -CH₂, and so on.
+
+  Third: Because of this -CH₂ difference, each successive member has a
+  molecular mass that is 14 atomic mass units higher than the previous one.
+  (Carbon = 12, two Hydrogens = 2, total = 14 u.)
+
+  Fourth: All members of the series have similar chemical properties,
+  because they all contain the same functional group. However, their
+  physical properties — like melting point, boiling point, and density —
+  change gradually and predictably as the chain gets longer.
+
+KEY POINTS TO STRESS:
+  - Same general formula for all members (e.g., CₙH₂ₙ₊₂ for alkanes).
+  - Successive members differ by -CH₂.
+  - Molecular mass increases by 14 u each step.
+  - Similar chemical properties; gradually changing physical properties.
+
+BOARD TIP: This is a guaranteed 3-mark question (appeared 2020, 2022). Write all four traits with examples to score full marks.
+
+
+========================================================================
+SLIDE 12: Naming Carbon Compounds — IUPAC Rules
+========================================================================
+
+ON SCREEN:
+  - Table: Number of Carbons | Prefix | Example (Alkane)
+  - Meth- (1C, CH₄), Eth- (2C, C₂H₆), Prop- (3C, C₃H₈),
+    But- (4C, C₄H₁₀), Pent- (5C, C₅H₁₂)
+
+SCRIPT (say this aloud):
+  Now let us learn the IUPAC system for naming carbon compounds. IUPAC
+  stands for the International Union of Pure and Applied Chemistry — it is
+  the global standard for naming chemical compounds so that scientists
+  everywhere can communicate clearly.
+
+  The name of a carbon compound is built from two parts: a prefix that
+  tells you how many carbon atoms are in the main chain, and a suffix or
+  ending that tells you the family or functional group.
+
+  Here are the five prefixes you must know for Class 10:
+
+  One carbon → Meth- → Methane (CH₄). This is the simplest alkane.
+  Natural gas is mostly methane.
+
+  Two carbons → Eth- → Ethane (C₂H₆). The next alkane in the series.
+
+  Three carbons → Prop- → Propane (C₃H₈). LPG contains propane.
+
+  Four carbons → But- → Butane (C₄H₁₀). LPG also contains butane.
+
+  Five carbons → Pent- → Pentane (C₅H₁₂). Five carbons in the chain.
+
+  The suffix "-ane" tells you it is an alkane — a saturated hydrocarbon.
+  If the suffix was "-anol," it would be an alcohol. If it was "-anoic acid,"
+  it would be a carboxylic acid. We will cover suffixes in the next slide.
+  But for now: memorise the five prefixes: Meth, Eth, Prop, But, Pent.
+
+KEY POINTS TO STRESS:
+  - Prefix indicates number of carbons in the chain.
+  - Meth=1, Eth=2, Prop=3, But=4, Pent=5.
+  - Suffix indicates the functional group or type of compound.
+  - Alkanes end in "-ane."
+
+BOARD TIP: Mnemonic to remember prefixes in order: "My Enormous Purple Butterfly Pleases" — Meth, Eth, Prop, But, Pent.
+
+
+========================================================================
+SLIDE 13: Interactive Simulator — Alkane Builder (ਐਲਕੇਨ ਬਣਾਓ)
+========================================================================
+
+ON SCREEN:
+  - Slider to add carbon atoms
+  - IUPAC Name display, Formula display, Structural diagram
+  - Default shown: Methane (CH₄) with H–C–H structure
+
+SCRIPT (say this aloud):
+  This is an interactive simulator slide. Here, students can drag the
+  slider to add carbon atoms to a chain and watch how the compound changes
+  in real time.
+
+  As a teacher, run this activity with your class by asking them to call
+  out predictions before you move the slider. For example: "We are on
+  Methane — CH₄. If I add one carbon, what will the name become? What will
+  the formula be?" Students should answer: Ethane, C₂H₆. Then move the
+  slider to confirm.
+
+  Walk through each compound:
+  - n=1: Methane, CH₄. One carbon, four hydrogens. Draw the cross-shaped
+    structure on the board — one central carbon with four H atoms attached.
+  - n=2: Ethane, C₂H₆. Two carbons connected, each capped with hydrogens.
+  - n=3: Propane, C₃H₈.
+  - n=4: Butane, C₄H₁₀.
+  - n=5: Pentane, C₅H₁₂.
+
+  Reinforce the general formula: CₙH₂ₙ₊₂. Ask students to verify it for
+  each value of n. For example, n=3: C₃H(2×3+2) = C₃H₈. Correct!
+
+  This simulator builds the habit of thinking structurally — not just
+  memorising formulas but visualising molecules. Encourage students to
+  sketch each structure in their notebooks as the slider moves.
+
+KEY POINTS TO STRESS:
+  - Alkane general formula: CₙH₂ₙ₊₂.
+  - Each time you add one C, you add two H atoms (a -CH₂ unit).
+  - Verify the formula for each n.
+  - Practice drawing structural formulas of CH₄, C₂H₆, C₃H₈.
+
+
+========================================================================
+SLIDE 14: Functional Group Suffixes (ਪਿਛੇਤਰ)
+========================================================================
+
+ON SCREEN:
+  - 6 functional group suffixes listed with examples:
+    -ene (double bond), -yne (triple bond), -ol (alcohol, -OH),
+    -al (aldehyde, -CHO), -one (ketone, -CO-), -oic acid
+    (carboxylic acid, -COOH)
+
+SCRIPT (say this aloud):
+  We have learned the prefixes. Now let us learn the suffixes — ਪਿਛੇਤਰ —
+  which tell us what functional group is present in the compound.
+
+  A functional group is the reactive part of an organic molecule. The
+  heteroatom creates the functional group, and the functional group
+  determines how the entire molecule behaves chemically. Knowing the suffix
+  tells you the functional group instantly.
+
+  Here are the six functional groups and their suffixes:
+
+  Double bond between carbons: add the suffix -ene. Example: Propene —
+  a 3-carbon chain with a double bond.
+
+  Triple bond between carbons: add the suffix -yne. Example: Propyne —
+  a 3-carbon chain with a triple bond.
+
+  Alcohol group (-OH): add the suffix -ol. Example: Propanol — a 3-carbon
+  chain with an -OH group. Ethanol (the alcohol in drinks) is a 2-carbon
+  alcohol.
+
+  Aldehyde group (-CHO): add the suffix -al. Example: Propanal — the
+  -CHO group is at the end of the chain.
+
+  Ketone group (-CO- in the middle of the chain): add the suffix -one.
+  Example: Propanone — this is acetone, the nail-polish remover!
+
+  Carboxylic Acid group (-COOH): add the suffix -oic acid. Example:
+  Propanoic acid. The most famous example is Ethanoic acid — ਸਿਰਕਾ — better
+  known as acetic acid, the acid in vinegar.
+
+  Notice the pattern: the prefix gives you the carbon count, the suffix
+  gives you the functional group.
+
+KEY POINTS TO STRESS:
+  - -ene = double bond; -yne = triple bond.
+  - -ol = alcohol (-OH group).
+  - -al = aldehyde (-CHO); -one = ketone (-CO-).
+  - -oic acid = carboxylic acid (-COOH).
+
+BOARD TIP: Always link suffix to functional group in your answer. "Ethanol contains the -OH functional group, which is why its name ends in -ol."
+
+
+========================================================================
+SLIDE 15: Interactive — Functional Group Detective (ਕਿਰਿਆਸ਼ੀਲ ਸਮੂਹ ਖੋਜੀ)
+========================================================================
+
+ON SCREEN:
+  - Interactive panel: tap a compound to reveal its functional group,
+    family name, and suffix
+  - Compounds listed: Ethanol, Ethanoic Acid, Chloroethane, Propanone,
+    Ethanal
+  - Output panel: Functional Group | Family | Suffix/Prefix
+
+SCRIPT (say this aloud):
+  This is our Functional Group Detective activity. Use it as a quick
+  class engagement exercise after teaching the suffixes on the previous
+  slide.
+
+  Call on individual students to "tap" each compound and predict what the
+  detective panel will reveal before it appears. Walk through all five:
+
+  Ethanol: The suffix is -ol. The functional group is -OH. The family is
+  Alcohols. Point out that "Eth-" tells us 2 carbons, and "-anol" tells us
+  it's an alcohol.
+
+  Ethanoic Acid: The suffix is -oic acid. The functional group is -COOH.
+  The family is Carboxylic Acids. This is the acid in vinegar — ਸਿਰਕਾ.
+
+  Chloroethane: Here, "Chloro-" is a prefix — it tells us that a Chlorine
+  atom (the heteroatom) has replaced one of the hydrogens on ethane. The
+  functional group is -Cl (halide). The family is Haloalkanes.
+
+  Propanone: The suffix is -one. The functional group is the carbonyl group
+  (-CO-) in the middle of the chain. The family is Ketones. This is acetone!
+
+  Ethanal: The suffix is -al. The functional group is -CHO at the end of
+  the chain. The family is Aldehydes.
+
+  After the activity, ask students to name a compound if you give them the
+  family. For example: "Give me an alcohol with 3 carbons." Answer: Propanol.
+
+KEY POINTS TO STRESS:
+  - Ethanol → -OH → Alcohol.
+  - Ethanoic Acid → -COOH → Carboxylic Acid.
+  - Propanone → -CO- → Ketone.
+  - Ethanal → -CHO → Aldehyde.
+  - Chloroethane → -Cl → Haloalkane.
+
+
+========================================================================
+SLIDE 16: Reading Comprehension Story — "The Serpent and the Ring"
+========================================================================
+
+ON SCREEN:
+  - Story-mode slide with audio button
+  - Title: "The Serpent and the Ring"
+  - Story of Kekulé and the discovery of Benzene's ring structure
+
+SCRIPT (say this aloud):
+  Here is one of the most famous stories in the history of chemistry —
+  play the audio or read it aloud to your class. It is about how the
+  structure of Benzene was discovered.
+
+  By the 1860s, chemists knew that Benzene had the formula C₆H₆, but no
+  one could figure out the structure. If carbon needs 4 bonds and there
+  are 6 carbons — none of the standard straight-chain structures matched
+  the formula. It was a mystery.
+
+  The German chemist August Kekulé fell asleep by the fire and dreamed of
+  molecules twisting like snakes. Suddenly, one snake grabbed its own tail
+  and formed a spinning ring. Kekulé woke up with a flash of inspiration:
+  the six carbons of Benzene were arranged in a closed hexagonal ring, not
+  a straight chain! This insight unlocked the entire field of aromatic
+  chemistry.
+
+  After the story, explain to students: Benzene's ring structure means that
+  the double bonds are not fixed in one position — they alternate around the
+  ring. This is called resonance, and it gives Benzene unique stability.
+  While the full theory of aromatic compounds is beyond Class 10 scope, the
+  key fact to remember is that Benzene has the formula C₆H₆ and a ring
+  structure.
+
+  You might also mention: Kekulé's story teaches us that science is not just
+  logic — intuition, creativity, and even dreams can play a role!
+
+KEY POINTS TO STRESS:
+  - Benzene formula: C₆H₆.
+  - Structure: 6 carbons in a hexagonal ring with alternating bonds.
+  - The ring structure was proposed by Kekulé in the 1860s.
+  - Benzene is the parent compound of aromatic chemistry.
+
+
+========================================================================
+SLIDE 17: Structural Isomers of Pentane (ਪੈਂਟੇਨ ਦੇ ਸਮਅੰਗ)
+========================================================================
+
+ON SCREEN:
+  - Statement: Structural isomerism possible for 4+ carbon atoms
+  - 3 structural isomers of pentane (C₅H₁₂): n-pentane, isopentane,
+    neopentane with structural descriptions
+  - Board Exam Pitfall warning: every carbon must have exactly 4 bonds;
+    draw all H atoms
+
+SCRIPT (say this aloud):
+  Structural isomers — ਬਣਤਰ ਸਮਅੰਗ — are compounds with the same molecular
+  formula but different structural arrangements. And here is an important
+  rule to note: structural isomerism is only possible for compounds with
+  4 or more carbon atoms. You cannot draw two different structures for
+  methane, ethane, or propane.
+
+  Pentane, C₅H₁₂, has exactly three structural isomers — and the board
+  exam may ask you to name all three or draw them.
+
+  First isomer — n-pentane: A straight chain of 5 carbons in a row.
+  "n" stands for "normal." Structure: C–C–C–C–C with hydrogens attached
+  to all four bonds on each carbon.
+
+  Second isomer — isopentane: A 4-carbon main chain with a methyl branch
+  (-CH₃) attached to the second carbon. So the main chain has 4 carbons,
+  and there is one carbon branch.
+
+  Third isomer — neopentane: A 3-carbon main chain (or think of it as a
+  central carbon bonded to 4 methyl groups). The middle carbon carries two
+  methyl groups, creating a symmetrical cross-like shape.
+
+  Now, the board exam pitfall — this is very important. When drawing
+  structural isomers, never leave a carbon showing fewer than 4 bonds. If
+  your carbon shows only 2 bonds, add 2 hydrogen atoms. Every carbon in
+  every structure must have exactly 4 bonds total. A diagram with "naked
+  carbons" showing fewer than 4 bonds will lose you marks.
+
+KEY POINTS TO STRESS:
+  - Structural isomerism begins at 4+ carbons.
+  - C₅H₁₂ has 3 isomers: n-pentane, isopentane, neopentane.
+  - Every carbon must show exactly 4 bonds — draw all H atoms.
+  - Same molecular formula, different structural arrangement.
+
+BOARD TIP: Frequent 3-mark question — draw all three isomers of pentane. Also know that butane (C₄H₁₀) has 2 isomers: n-butane and isobutane.
+
+
+========================================================================
+SLIDE 18: The 4 Chemical Properties of Carbon
+========================================================================
+
+ON SCREEN:
+  - Four reactions listed: Combustion, Oxidation, Addition, Substitution
+  - Key examples for each
+
+SCRIPT (say this aloud):
+  Carbon compounds show four main types of chemical reactions, and each
+  one is important for your board exam.
+
+  First — Combustion (ਬਲਣਾ): When carbon compounds burn in oxygen, they
+  produce CO₂, water, heat, and light. This is the basis of all fossil
+  fuels. Complete combustion gives CO₂; incomplete combustion gives CO
+  (carbon monoxide), which is toxic.
+
+  Second — Oxidation: Some carbon compounds, particularly alcohols, can be
+  oxidised to become carboxylic acids. For example, Ethanol is oxidised to
+  Ethanoic acid when treated with an oxidising agent like alkaline KMnO₄
+  (potassium permanganate) or acidified K₂Cr₂O₇ (potassium dichromate).
+  Think of KMnO₄ as an "electron-taking" agent — it takes hydrogen from
+  the alcohol and converts it to an acid.
+
+  Third — Addition Reaction: Unsaturated hydrocarbons (those with double
+  or triple bonds) can add other atoms across the double or triple bond.
+  The most important example is the addition of Hydrogen — called
+  Hydrogenation. When vegetable oils (which are unsaturated) are reacted
+  with hydrogen gas in the presence of a Nickel or Palladium catalyst, the
+  double bonds are broken and hydrogen atoms are added. This converts the
+  liquid oil into a solid fat — this is how vanaspati ghee and margarine
+  are made!
+
+  Fourth — Substitution Reaction: Saturated hydrocarbons can undergo
+  substitution reactions. In the presence of sunlight, chlorine can replace
+  hydrogen atoms in alkanes one by one. For example, in methane + chlorine
+  under UV light, one H is replaced by Cl to give chloromethane, then
+  another H is replaced to give dichloromethane, and so on.
+
+KEY POINTS TO STRESS:
+  - Combustion: C compounds + O₂ → CO₂ + H₂O + energy.
+  - Oxidation: Alcohols → Carboxylic Acids (with KMnO₄).
+  - Addition: Unsaturated + H₂ (Ni/Pd catalyst) → Saturated
+    (e.g., oil → solid fat).
+  - Substitution: Alkane + Cl₂ (sunlight) → Halide.
+
+BOARD TIP: Hydrogenation of vegetable oils is a very popular 2-mark question — always mention the Nickel catalyst and that double bonds are converted to single bonds.
+
+
+========================================================================
+SLIDE 19: Ethanol vs. Ethanoic Acid
+========================================================================
+
+ON SCREEN:
+  - Properties of Ethanol (C₂H₅OH) and Ethanoic Acid (CH₃COOH)
+  - Esterification reaction: Ethanol + Ethanoic Acid → Ester
+  - Note on Saponification
+
+SCRIPT (say this aloud):
+  Let us study two of the most important carbon compounds in detail:
+  Ethanol and Ethanoic Acid.
+
+  Ethanol — C₂H₅OH — is the alcohol in alcoholic beverages. Industrially,
+  it is also a very important solvent. Here are its key chemical behaviours:
+  Ethanol reacts with Sodium metal to produce Hydrogen gas. When ethanol is
+  heated with concentrated sulphuric acid (H₂SO₄), it undergoes
+  dehydration — the water molecule is removed and ethene (an alkene) is
+  produced. This is why concentrated H₂SO₄ acts as a dehydrating agent here.
+
+  Ethanoic Acid — CH₃COOH — is the acid that gives vinegar its sharp smell
+  and taste. A 5–8% solution of ethanoic acid in water is what we call
+  vinegar — ਸਿਰਕਾ in Punjabi. One interesting physical fact about ethanoic
+  acid: it has a relatively high melting point of 16.6°C. In cold winters,
+  it can actually freeze into a solid. This solid, pure form is called
+  Glacial Acetic Acid — because it looks like ice.
+
+  Now the most important reaction connecting these two compounds:
+  Esterification — ਐਸਟਰੀਕਰਨ. When Ethanol is reacted with Ethanoic Acid
+  in the presence of a little concentrated H₂SO₄ as a catalyst, the two
+  combine to form an Ester and water. Esters are sweet-smelling compounds
+  used in perfumes, artificial flavours, and fruit essences. If you have
+  ever smelled nail polish remover or fruit-flavoured candy, you know the
+  smell of esters.
+
+  The reverse reaction — when an ester is reacted with a base (like NaOH)
+  to break it back into a carboxylic acid salt and alcohol — is called
+  Saponification. This is exactly how soap is made. We will come back to
+  this shortly.
+
+KEY POINTS TO STRESS:
+  - Ethanol (C₂H₅OH): active ingredient of alcoholic drinks; reacts with Na
+    to give H₂; dehydrates with H₂SO₄ to form ethene.
+  - Ethanoic Acid (CH₃COOH): 5–8% solution in water = vinegar (ਸਿਰਕਾ);
+    freezes in winter (glacial acetic acid).
+  - Esterification: Ethanol + Ethanoic Acid → Ester (sweet-smelling).
+  - Saponification: Ester + Base → Soap.
+
+BOARD TIP: "Glacial acetic acid" and "saponification" are frequent 1-mark terms. Esterification equation is worth 2–3 marks.
+
+
+========================================================================
+SLIDE 20: Reading Comprehension Story — "The Soap Tug-of-War"
+========================================================================
+
+ON SCREEN:
+  - Story-mode slide with audio button
+  - Title: "The Soap Tug-of-War"
+  - Narrative on the molecular mechanism of soap cleaning
+
+SCRIPT (say this aloud):
+  Here is our third story-mode reading slide. This one explains the
+  cleansing action of soap using a wonderful "tug-of-war" analogy. Play
+  the audio or read it aloud to your class as a bridge into the next
+  technical slide about micelle formation.
+
+  The story goes: Washing a greasy shirt requires a fascinating molecular
+  tug-of-war. Soap molecules are long chains with two very different ends.
+  One end is the hydrophilic head — "hydro" meaning water, "philic" meaning
+  loving. This head loves water and bonds easily with it. The other end is
+  the hydrophobic tail — "phobic" meaning fearing. This tail completely
+  repels water but acts like a magnet for oils and dirt.
+
+  When you put soap in water, the tails hide from the water by burrowing
+  into the greasy dirt, while the heads stick out into the surrounding water.
+  This creates a spherical structure called a Micelle. As the washing
+  machine agitates the water, the hydrophilic heads are pulled by the water
+  currents, and the entire micelle — with the dirt trapped inside — is torn
+  away from the fabric and washed down the drain.
+
+  After the story, ask students: "What is the name of the spherical
+  structure?" (Micelle.) "Which part of the soap attaches to grease?"
+  (The hydrophobic tail.) This reading prepares them perfectly for the
+  5-mark blueprint on the next slide.
+
+KEY POINTS TO STRESS:
+  - Soap has two ends: hydrophilic head (loves water) and hydrophobic
+    tail (loves oil/grease).
+  - Tails burrowing into grease + heads facing water = Micelle.
+  - Agitation pulls micelle + trapped dirt away from fabric.
+
+
+========================================================================
+SLIDE 21: Cleansing Action of Soap (PSEB 2019, 2021, 2023 — 5 Marks)
+========================================================================
+
+ON SCREEN:
+  - Two ends of soap molecule: Hydrophilic Head, Hydrophobic Tail
+  - 5-Mark Answer Blueprint: 4 structured steps
+  - Note: Soap forms insoluble scum in hard water; detergents do not
+
+SCRIPT (say this aloud):
+  This is possibly the highest-value slide in the entire chapter — the
+  cleansing action of soap has appeared in PSEB board exams in 2019, 2021,
+  and 2023 for 5 marks. Every student must know this answer perfectly.
+
+  Let me teach you the four-step blueprint for a full 5-mark answer.
+
+  Step 1 — Define the two ends of the soap molecule:
+  A soap molecule is a sodium or potassium salt of a long-chain fatty acid.
+  It has two distinct ends. The ionic end (the COO⁻ part) is called the
+  hydrophilic end — ਪਾਣੀ-ਪ੍ਰੇਮੀ. It is attracted to water. The long
+  hydrocarbon chain is the hydrophobic end — ਪਾਣੀ-ਵਿਰੋਧੀ. It is repelled
+  by water but attracted to oils and grease.
+
+  Step 2 — Explain micelle formation:
+  When soap is dissolved in water and comes into contact with greasy dirt,
+  the hydrophobic tails of soap molecules plunge into the grease droplet,
+  while the hydrophilic heads remain pointing outward toward the water.
+  This arrangement forms a spherical cluster called a Micelle — ਮਿਸੈਲ.
+  The dirt is trapped inside the micelle.
+
+  Step 3 — The cleaning step:
+  Because the outside of the micelle is covered with hydrophilic heads,
+  the entire micelle stays dispersed in water (it doesn't stick to the
+  fabric anymore).
+
+  Step 4 — Rinse and remove:
+  When the water is agitated (by scrubbing or the washing machine) and
+  rinsed away, the micelles — carrying the trapped dirt — are carried away
+  with the water, leaving the fabric clean.
+
+  Final important distinction: Soap does not work in hard water. Hard
+  water contains dissolved salts of Calcium (Ca²⁺) and Magnesium (Mg²⁺).
+  The soap reacts with these ions to form an insoluble white precipitate
+  called scum — ਮੈਲ. This wastes soap and leaves a residue on fabric.
+  Detergents, on the other hand, do not react with Ca²⁺ and Mg²⁺ ions, so
+  they work effectively in hard water.
+
+KEY POINTS TO STRESS:
+  - Soap has hydrophilic head (ionic end) and hydrophobic tail (hydrocarbon
+    chain).
+  - Tails enter grease; heads face water → forms a Micelle (ਮਿਸੈਲ).
+  - Micelles are dispersed in water; rinsing removes dirt.
+  - Soap + hard water → insoluble scum. Detergents work in hard water.
+
+BOARD TIP: Guaranteed 5-mark question (PSEB 2019, 2021, 2023). Draw a micelle diagram — circle with tails pointing inward and heads outward. Label clearly.
+
+
+========================================================================
+SLIDE 22: Structural Isomerism — Fill-in Quiz (ਬਣਤਰ ਸਮਅੰਗਤਾ)
+========================================================================
+
+ON SCREEN:
+  - Interactive question: "Compounds with the same molecular formula but
+    different structural arrangements are called...?"
+  - Punjabi translation of the question
+  - Check Answer / Continue buttons
+
+SCRIPT (say this aloud):
+  This is a quick interactive comprehension check. The question asks:
+  "Compounds with the same molecular formula but different structural
+  arrangements are called what?"
+
+  Pause here and ask your class to answer before clicking "Check Answer."
+  Give students 10 to 15 seconds to think.
+
+  The answer, of course, is Structural Isomers — ਸਮਅੰਗ or more specifically
+  ਬਣਤਰ ਸਮਅੰਗ.
+
+  Use this moment to reinforce the definition: the keyword is same formula,
+  different structure. Write both parts on the board. Students sometimes
+  confuse isomers with allotropes — allotropes are different forms of an
+  element (like diamond and graphite), while isomers are different structural
+  arrangements of a compound.
+
+  After confirming the answer, click Continue to proceed.
+
+KEY POINTS TO STRESS:
+  - Structural Isomers = same molecular formula, different structural
+    arrangement.
+  - Do not confuse isomers (compounds) with allotropes (elements).
+
+
+========================================================================
+SLIDE 23: Case Study — Saponification
+========================================================================
+
+ON SCREEN:
+  - Case Study title
+  - Passage: Soap = sodium/potassium salts of long-chain carboxylic acids;
+    made by heating fat/oil with concentrated NaOH; products are soap and
+    glycerol
+  - Note: Questions follow on next slides
+
+SCRIPT (say this aloud):
+  We now move into a short case study on Saponification — the process of
+  making soap. Read the passage carefully, because the next two slides will
+  ask you questions based on it.
+
+  The passage tells us three key facts:
+  First: Soaps are the sodium or potassium salts of long-chain carboxylic
+  acids. So when you use a bar of soap, you are using the sodium salt of a
+  fatty acid — a long organic molecule.
+
+  Second: Soap is made by heating animal fat or vegetable oil with
+  concentrated sodium hydroxide — NaOH. This process is called
+  Saponification — ਸਾਬਣੀਕਰਨ. The fat or oil, which is an ester, reacts
+  with the strong base NaOH. This is literally the reverse of
+  esterification.
+
+  Third: The products of saponification are Soap (the sodium salt of the
+  fatty acid) and Glycerol. Glycerol — also called glycerin — is a sweet,
+  viscous liquid that is used in cosmetics and medicines.
+
+  So the reaction is:
+  Fat/Oil (Ester) + NaOH (base) → Soap (sodium salt) + Glycerol
+
+  Remember this equation — it is the heart of saponification.
+
+KEY POINTS TO STRESS:
+  - Saponification = fat/oil + NaOH → soap + glycerol.
+  - Soap = sodium or potassium salt of a long-chain carboxylic acid.
+  - Glycerol is the by-product of soap making.
+  - Saponification is the reverse of esterification.
+
+BOARD TIP: "What is saponification?" is a 2-mark question. Always mention: ester + NaOH, and name both products (soap and glycerol).
+
+
+========================================================================
+SLIDE 24: Case Study Question 1
+========================================================================
+
+ON SCREEN:
+  - Question: "What is the chemical name for the reactants used to make
+    soap?"
+  - Options: A. Alcohols and Acids | B. Esters and Bases |
+    C. Aldehydes and Ketones | D. Alkanes and Halogens
+
+SCRIPT (say this aloud):
+  Let us answer the first case study question. The question asks: what are
+  the chemical names of the reactants used to make soap?
+
+  Think back to what we just read: soap is made from fat or vegetable oil
+  — which chemically is an ester — reacted with concentrated sodium
+  hydroxide, which is a base.
+
+  So the correct answer is B: Esters and Bases.
+
+  Let us rule out the others: Alcohols and Acids produce esters — that is
+  esterification, the reverse reaction. Aldehydes and Ketones are entirely
+  different functional groups with no direct role in soap-making. Alkanes
+  and Halogens undergo substitution reactions, not saponification.
+
+  Reinforce the logic: if a student sees "saponification" in an exam, they
+  must immediately recall Ester + Base → Soap + Glycerol. Option B is the
+  only one that matches this.
+
+KEY POINTS TO STRESS:
+  - Correct answer: B — Esters and Bases.
+  - Fat/oil = ester; NaOH = base.
+  - Saponification = ester hydrolysis by a base.
+
+
+========================================================================
+SLIDE 25: Case Study Question 2
+========================================================================
+
+ON SCREEN:
+  - Question: "Why are detergents preferred over soap in hard water?"
+  - Options: A. They are cheaper | B. They smell better |
+    C. They do not form insoluble scum | D. They are 100% natural
+
+SCRIPT (say this aloud):
+  The second case study question: Why are detergents preferred over soap
+  in hard water?
+
+  The correct answer is C: They do not form insoluble scum.
+
+  Here is the chemistry: Hard water contains dissolved salts of Calcium
+  (Ca²⁺) and Magnesium (Mg²⁺) ions. When soap — which is a sodium salt
+  of a carboxylic acid — is added to hard water, these Ca²⁺ and Mg²⁺ ions
+  react with the soap molecules to form calcium and magnesium salts of the
+  fatty acid. These salts are insoluble in water — they form a white
+  precipitate called scum or curd. This scum sticks to clothes, makes them
+  stiff, and wastes soap.
+
+  Detergents, on the other hand, are synthetic compounds made from
+  petroleum products. Their molecular structure is different from soap —
+  the calcium and magnesium salts of detergents are soluble in water.
+  So detergents do not form scum in hard water and are effective in any
+  type of water.
+
+  Options A, B, and D are irrelevant to chemistry — they may be marketing
+  claims but they are not scientific reasons.
+
+KEY POINTS TO STRESS:
+  - Correct answer: C — detergents do not form insoluble scum.
+  - Soap + Ca²⁺/Mg²⁺ ions → insoluble scum in hard water.
+  - Detergents' Ca/Mg salts are soluble → no scum → work in hard water.
+
+BOARD TIP: "Soap vs. detergent in hard water" is a 2-mark reasoning question. The keyword in the answer is always "insoluble scum."
+
+
+========================================================================
+SLIDE 26: Chapter 4 Quick Recap
+========================================================================
+
+ON SCREEN:
+  - 5 summary bullet points covering the main concepts of the chapter
+
+SCRIPT (say this aloud):
+  Excellent work! Let us now do a quick recap of Chapter 4 — Carbon and
+  its Compounds. Run through these five points with your class and ask
+  students to cover their notes and try to recall each one.
+
+  Point 1: Carbon forms covalent bonds by sharing electrons. It cannot
+  form ionic bonds because gaining or losing 4 electrons is not energetically
+  feasible. This leads to millions of organic compounds.
+
+  Point 2: Catenation — ਲੜੀਬੰਧਨ — is carbon's unique and extraordinary
+  ability to bond with other carbon atoms to form long chains, branches,
+  and rings.
+
+  Point 3: Saturated hydrocarbons contain only single bonds — they are
+  alkanes. Unsaturated hydrocarbons contain double bonds (alkenes) or
+  triple bonds (alkynes). Saturated burn cleanly; unsaturated burn with
+  soot.
+
+  Point 4: Functional groups — like -OH (alcohol), -COOH (carboxylic acid),
+  -CHO (aldehyde), -CO- (ketone) — dictate the chemical properties of the
+  entire molecule. The suffix in the compound's name tells you the
+  functional group.
+
+  Point 5: Soaps clean via micelle formation. The hydrophobic tails trap
+  grease, while the hydrophilic heads face water, forming a micelle. The
+  micelle is rinsed away during washing. Soap does not work in hard water
+  due to scum formation; detergents do.
+
+  These five points cover the essential framework of the chapter. Spend
+  time with any point that feels unclear before moving on to the practice
+  questions.
+
+KEY POINTS TO STRESS:
+  - Covalent bond (sharing) — not ionic.
+  - Catenation = carbon chains/rings.
+  - Saturated (single) vs. Unsaturated (double/triple).
+  - Functional groups determine chemical behaviour.
+  - Micelle formation = mechanism of soap cleaning.
+
+
+========================================================================
+SLIDE 27: True or False — Chapter 4 (14 Questions)
+========================================================================
+
+ON SCREEN:
+  - 14 True or False questions in English and Punjabi
+  - Topics cover saturated bonds, covalent bonding, vinegar, ionic bonds,
+    alkenes, allotropes, addition reactions, micelles, ethanol + Na,
+    carbon valency, detergents, alkynes formula, ketone group, methane
+
+SCRIPT (say this aloud):
+  This is our True or False practice round — 14 questions in both English
+  and Punjabi. Run this as a class activity. Read each question aloud, give
+  students a few seconds to decide, and then reveal the answer.
+
+  Here are the answers with brief explanations for the teacher:
+
+  Q1: Saturated carbon compounds contain double or triple bonds.
+  FALSE — Saturated means only single bonds. Double/triple bonds are
+  unsaturated.
+
+  Q2: Carbon shares its valence electrons to form covalent bonds.
+  TRUE — This is the definition of a covalent bond.
+
+  Q3: Ethanoic acid is the main component of vinegar.
+  TRUE — 5–8% ethanoic acid in water = vinegar (ਸਿਰਕਾ).
+
+  Q4: Carbon mainly forms ionic bonds with other elements.
+  FALSE — Carbon mainly forms covalent bonds, not ionic.
+
+  Q5: Alkenes contain at least one double bond between carbon atoms.
+  TRUE — By definition, alkenes have double bonds.
+
+  Q6: Diamond and graphite are allotropes of carbon.
+  TRUE — Both are pure carbon in different structural forms.
+
+  Q7: Saturated hydrocarbons undergo addition reactions easily.
+  FALSE — Saturated hydrocarbons undergo substitution reactions.
+  Addition reactions are characteristic of unsaturated hydrocarbons.
+
+  Q8: Micelles are formed when soap dissolves in water.
+  TRUE — When soap encounters grease in water, micelles form.
+
+  Q9: Ethanol reacts with sodium to produce hydrogen gas.
+  TRUE — 2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂↑
+
+  Q10: Carbon has a valency of 6.
+  FALSE — Carbon has a valency of 4, not 6.
+
+  Q11: Detergents work well even in hard water.
+  TRUE — They do not form scum with Ca²⁺/Mg²⁺ ions.
+
+  Q12: Alkynes have the general formula CₙH₂ₙ.
+  FALSE — CₙH₂ₙ is the formula for Alkenes (double bond). Alkynes have
+  the formula CₙH₂ₙ₋₂.
+
+  Q13: The functional group of a ketone is -OH.
+  FALSE — -OH is the functional group of an alcohol. Ketone's functional
+  group is -CO- (carbonyl in the middle of the chain).
+
+  Q14: Methane is the simplest alkane.
+  TRUE — CH₄, with just 1 carbon atom, is the first and simplest alkane.
+
+KEY POINTS TO STRESS:
+  - Saturated = single bonds (Q1 False). Carbon valency = 4, not 6 (Q10 False).
+  - Alkynes formula CₙH₂ₙ₋₂ (not CₙH₂ₙ) (Q12 False).
+  - Ketone = -CO- group, not -OH (Q13 False).
+  - Saturated hydrocarbons → substitution (not addition) (Q7 False).
+
+BOARD TIP: Q10 (valency = 6) and Q12 (alkynes formula) are common misconception traps. Highlight these with students.
+
+
+========================================================================
+SLIDE 28: Say It Back — Short Answer Review (11 Questions)
+========================================================================
+
+ON SCREEN:
+  - 11 short answer questions in English and Punjabi
+  - Topics: valence electrons, covalent bond, saturated, vinegar, 
+    saponification, hard water scum, alkane formula, graphite conductor,
+    methane bonds, oxidation of ethanol, Prop- prefix
+
+SCRIPT (say this aloud):
+  This is our short-answer recall round — "Say It Back." Use this as a
+  verbal drill. Read each question to the class and ask a different student
+  to answer. Here are the model answers you should confirm:
+
+  Q1: Carbon has how many valence electrons?
+  Answer: 4 valence electrons (configuration 2, 4).
+
+  Q2: Covalent bond means...?
+  Answer: The sharing of electron pairs between two atoms.
+
+  Q3: Saturated means...?
+  Answer: A carbon compound in which all carbon-carbon bonds are single
+  bonds.
+
+  Q4: What is a 5–8% solution of ethanoic acid in water called?
+  Answer: Vinegar — ਸਿਰਕਾ.
+
+  Q5: Ester reacting with a base to form soap is called...?
+  Answer: Saponification — ਸਾਬਣੀਕਰਨ.
+
+  Q6: Soap forms scum in what type of water?
+  Answer: Hard water (which contains dissolved Ca²⁺ and Mg²⁺ salts).
+
+  Q7: What is the general formula for alkanes?
+  Answer: CₙH₂ₙ₊₂.
+
+  Q8: Which carbon allotrope is a good conductor of electricity?
+  Answer: Graphite — because it has a free (delocalised) 4th electron.
+
+  Q9: How many single bonds are in a methane (CH₄) molecule?
+  Answer: 4 single bonds (one between carbon and each of the 4 hydrogens).
+
+  Q10: What is the process of converting ethanol into ethanoic acid called?
+  Answer: Oxidation.
+
+  Q11: The prefix for a 3-carbon chain is...?
+  Answer: Prop- (as in Propane, Propanol, Propanoic acid).
+
+KEY POINTS TO STRESS:
+  - Carbon: 4 valence electrons, valency = 4.
+  - Covalent bond = sharing of electrons.
+  - Alkane general formula = CₙH₂ₙ₊₂.
+  - Graphite = conductor; Diamond = insulator.
+  - Saponification = ester + base → soap + glycerol.
+
+BOARD TIP: Ensure every student can answer all 11 of these from memory before the board exam. These are the quick-mark questions that students should never drop.
+
+
+========================================================================
+SLIDE 29: Quick Check — Chapter 4 (12 MCQs)
+========================================================================
+
+ON SCREEN:
+  - 12 multiple-choice questions in English and Punjabi
+  - Topics: valency, -OH group, homologous series, hydrogenation,
+    catenation, butane formula, carboxylic acid group, Ni catalyst,
+    saponification by-product, hard water composition,
+    Buckminsterfullerene, Benzene formula
+
+SCRIPT (say this aloud):
+  We finish Chapter 4 with a 12-question multiple choice quick check.
+  Run this as a rapid-fire round — give 20 seconds per question. Here are
+  the correct answers with brief explanations:
+
+  Q1: Carbon has a valency of — Answer: B (4).
+  Carbon has 4 valence electrons and forms 4 bonds.
+
+  Q2: The functional group -OH represents — Answer: A (Alcohol).
+  -OH is the hydroxyl group, found in alcohols.
+
+  Q3: Successive members of a homologous series differ by —
+  Answer: B (-CH₂).
+  Each step up the series adds one carbon and two hydrogens.
+
+  Q4: Converting vegetable oils to solid fats using hydrogen is an example
+  of — Answer: B (Addition reaction).
+  Hydrogen is added across the double bonds of the unsaturated oil.
+
+  Q5: Carbon's unique ability to bond with other carbons is called —
+  Answer: C (Catenation).
+  Tetravalency describes its 4-bond capacity; isomerism is about structure.
+  Catenation specifically means self-bonding into chains.
+
+  Q6: The formula of Butane is — Answer: B (C₄H₁₀).
+  Using CₙH₂ₙ₊₂: n=4 → C₄H₁₀. (C₃H₈ is propane, C₄H₈ would be an alkene.)
+
+  Q7: The functional group in a carboxylic acid is —
+  Answer: C (-COOH).
+  -OH is alcohol; -CHO is aldehyde; -COOH is carboxylic acid.
+
+  Q8: Vegetable oils are hydrogenated using which catalyst —
+  Answer: B (Nickel).
+  Nickel (or Palladium) catalyst is used in the hydrogenation reaction.
+
+  Q9: The by-product of saponification is —
+  Answer: A (Glycerol).
+  Fat + NaOH → Soap + Glycerol. Glycerol is always the by-product.
+
+  Q10: Hard water contains salts of —
+  Answer: B (Calcium and Magnesium).
+  Ca²⁺ and Mg²⁺ ions in hard water react with soap to form scum.
+
+  Q11: Buckminsterfullerene is an allotrope of —
+  Answer: C (Carbon).
+  C₆₀, football-shaped — the third allotrope of carbon after diamond and
+  graphite.
+
+  Q12: The molecular formula of Benzene is —
+  Answer: B (C₆H₆).
+  Benzene: 6 carbons, 6 hydrogens in a hexagonal ring. Not C₆H₁₂ (that
+  would be cyclohexane) and not C₄H₁₀ (that is butane).
+
+  Congratulations — you have completed Chapter 4! Encourage students to
+  review any questions they got wrong, especially Q6 (Butane formula),
+  Q9 (saponification by-product), and Q12 (Benzene formula). Continue to
+  Chapter 5 when ready.
+
+KEY POINTS TO STRESS:
+  - Carbon valency = 4 (Q1).
+  - Successive homologous members differ by -CH₂, not -CH (Q3).
+  - Hydrogenation = Addition reaction with Ni catalyst (Q4, Q8).
+  - Butane = C₄H₁₀; Benzene = C₆H₆ (Q6, Q12).
+  - Saponification by-product = Glycerol (Q9).
+  - Hard water = Ca²⁺ + Mg²⁺ salts (Q10).
+
+BOARD TIP: Q4 (addition reaction / hydrogenation), Q9 (glycerol as by-product), and Q12 (Benzene = C₆H₆) are all popular board exam answers. Revise them thoroughly.
+
+
+========================================================================
+END OF CHAPTER 4 SCRIPT — 29 SLIDES COMPLETE
+========================================================================

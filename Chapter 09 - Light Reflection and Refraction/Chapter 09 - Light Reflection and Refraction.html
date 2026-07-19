@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 10: Light Reflection and Refraction | PSEB Class 10 Science</title>
+    <link rel="stylesheet" href="../assets/deck-ch08-13.css">
+
+    <!-- MathJax for LaTeX Rendering -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
+</head>
+<body>
+<a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
+<div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+<div class="slider" id="slider">
+<div class="slide" id="ch9">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 10</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">Light: Reflection & Refraction</h2>
+                <span class="punjabi">ਪ੍ਰਕਾਸ਼ - ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Core Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Reflection <button class="tts-btn" onclick="speakWord('Reflection', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਪਰਾਵਰਤਨ (Bouncing back)</span><br><span class="phonetic">ਉਚਾਰਨ: ਪਰਾਵਰਤਨ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Refraction <button class="tts-btn" onclick="speakWord('Refraction', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਪਵਰਤਨ (Bending of light)</span><br><span class="phonetic">ਉਚਾਰਨ: ਅਪਵਰਤਨ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Concave <button class="tts-btn" onclick="speakWord('Concave', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਵਤਲ (Curved inwards)</span><br><span class="phonetic">ਉਚਾਰਨ: ਕਨਕੇਵ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Convex <button class="tts-btn" onclick="speakWord('Convex', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਉੱਤਲ (Curved outwards)</span><br><span class="phonetic">ਉਚਾਰਨ: ਕਨਵੈਕਸ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Virtual Image <button class="tts-btn" onclick="speakWord('Virtual Image', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਭਾਸੀ ਪ੍ਰਤੀਬਿੰਬ (Not on screen)</span><br><span class="phonetic">ਉਚਾਰਨ: ਵਰਚੁਅਲ ਇਮੇਜ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Refractive Index <button class="tts-btn" onclick="speakWord('Refractive Index', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਪਵਰਤਨ ਅੰਕ (Measure of bending)</span><br><span class="phonetic">ਉਚਾਰਨ: ਰਿਫਰੈਕਟਿਵ ਇੰਡੈਕਸ</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content-box">
+                <h2>More Key Terms <span class="punjabi">(ਹੋਰ ਸ਼ਬਦ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Normal <button class="tts-btn" onclick="speakWord('Normal', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਅਭਿਲੰਬ (Line ⊥ to surface)</span><br><span class="phonetic">ਉਚਾਰਨ: ਨਾਰਮਲ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Centre of Curvature (C) <button class="tts-btn" onclick="speakWord('Centre of Curvature', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਵਕ੍ਰਤਾ ਕੇਂਦਰ (Center of the sphere)</span><br><span class="phonetic">ਉਚਾਰਨ: ਸੈਂਟਰ ਆਫ ਕਰਵੇਚਰ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Principal Axis <button class="tts-btn" onclick="speakWord('Principal Axis', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਮੁੱਖ ਧੁਰਾ (Line through P and C)</span><br><span class="phonetic">ਉਚਾਰਨ: ਪ੍ਰਿੰਸੀਪਲ ਐਕਸਿਸ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Focal Length (f) <button class="tts-btn" onclick="speakWord('Focal Length', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਫੋਕਸ ਦੂਰੀ (Distance P to F)</span><br><span class="phonetic">ਉਚਾਰਨ: ਫੋਕਲ ਲੰਥ</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Power of a Lens (P) <button class="tts-btn" onclick="speakWord('Power of a Lens', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਲੈਨਜ਼ ਦੀ ਸ਼ਕਤੀ (P = 1/f)</span><br><span class="phonetic">ਉਚਾਰਨ: ਪਾਵਰ ਆਫ ਲੈਨਜ਼</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Dioptre (D) <button class="tts-btn" onclick="speakWord('Dioptre', this)" title="Listen to pronunciation">🔊</button></span><br><span class="punjabi">ਡਾਇਓਪਟਰ (Unit of lens power)</span><br><span class="phonetic">ਉਚਾਰਨ: ਡਾਇਓਪਟਰ</span></div>
+                </div>
+            </div>
+        </div>
+<div class="slide"><div class="content-box"><h2>Reading: The Bending of Light</h2><div class="reading-pane"><div class="read-controls"><button class="read-btn" onclick="speakPassage('read-ch9-1', this)">▶️ Read to Me</button><button class="read-btn stop-btn" onclick="stopSpeaking()">⏹️ Stop</button></div><div class="reading-text" id="read-ch9-1"><strong>Reflection and Refraction</strong><br>Have you ever noticed that a straw in a glass of water looks broken at the surface? The light is not really bending the straw; it is bending itself. When light travels from air into water or glass, it slows down and changes direction, an effect we call refraction. This same bending is what allows a tiny lens in a magnifying glass to gather sunlight into a burning point, or a spectacle lens to fix blurry vision. Mirrors, on the other hand, work by reflection, bouncing light back so precisely that we can see our own face staring back at us. By carefully shaping glass and metal, humans learned to control light itself, building microscopes to see germs and telescopes to see distant galaxies.</div></div></div></div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Laws of Reflection</h2>
+                <p>When light bounces off a surface, it obeys two simple laws:</p>
+                <ol style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.15rem; line-height:1.9;">
+                    <li>The <span class="exam-keyword">angle of incidence (∠i)</span> equals the <span class="exam-keyword">angle of reflection (∠r)</span>.</li>
+                    <li>The incident ray, the reflected ray, and the <strong>normal</strong> (at the point of incidence) all lie in the same plane.</li>
+                </ol>
+                <img src="images/reflection-laws.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: incident ray, normal, reflected ray with angle i = angle r — add images/reflection-laws.png]'" alt="Laws of reflection diagram" class="slide-img">
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Real vs. Virtual Images</h2>
+                <table>
+                    <tr><th>Feature</th><th>Real Image</th><th>Virtual Image</th></tr>
+                    <tr><td>Formed by</td><td>Rays actually meeting</td><td>Rays only appearing to meet</td></tr>
+                    <tr><td>Can be on a screen?</td><td>Yes</td><td>No</td></tr>
+                    <tr><td>Orientation</td><td>Always inverted</td><td>Always erect</td></tr>
+                    <tr><td>Example</td><td>Cinema screen image</td><td>Plane-mirror image</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Plane Mirror: Image Characteristics</h2>
+                <p>Before diving into curved mirrors, you must know the 4 absolute properties of a flat (plane) mirror image:</p>
+                <ol style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Virtual and Erect:</strong> The image forms "behind" the mirror and is right-side up.</li>
+                    <li><strong>Same Size:</strong> The image is exactly the same height as the object.</li>
+                    <li><strong>Same Distance:</strong> The image forms as far behind the mirror as the object is in front of it.</li>
+                    <li><strong>Laterally Inverted:</strong> The left side of the object appears as the right side of the image (why AMBULANCE is written backward!).</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Spherical Mirrors: Key Terms</h2>
+                <p>A spherical mirror is a piece of a hollow sphere. <span class="exam-keyword">Concave</span> reflects from the inside; <span class="exam-keyword">Convex</span> reflects from the outside.</p>
+                <img src="images/spherical-mirror-terms.svg" onerror="this.onerror=null;this.style.cssText='display:block;padding:14px;background:#f0f4f8;border:2px dashed #aaa;border-radius:8px;color:#666;font-style:italic;text-align:center;';this.alt='[Diagram: pole P, centre of curvature C, focus F, principal axis, radius R — add images/spherical-mirror-terms.png]'" alt="Spherical mirror terms" class="slide-img">
+                <table>
+                    <tr><th>Term</th><th>Meaning</th></tr>
+                    <tr><td>Pole (P)</td><td>Centre of the mirror surface</td></tr>
+                    <tr><td>Centre of Curvature (C)</td><td>Centre of the sphere the mirror is part of</td></tr>
+                    <tr><td>Radius of Curvature (R)</td><td>Distance P to C</td></tr>
+                    <tr><td>Principal Focus (F)</td><td>Where parallel rays converge (or appear to)</td></tr>
+                    <tr><td>Focal Length (f)</td><td>Distance P to F</td></tr>
+                </table>
+                <div class="board-trap"><strong>Key relation:</strong> R = 2f (the focus is exactly halfway between P and C).</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Rules for Mirror Ray Diagrams</h2>
+                <p>Use any TWO of these rays to locate the image in a spherical mirror:</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.1rem; line-height:1.8;">
+                    <li><span class="accent-blue">Rule 1:</span> A ray parallel to the principal axis passes through the focus (F) after reflection.</li>
+                    <li><span class="accent-blue">Rule 2:</span> A ray through the focus (F) becomes parallel to the principal axis.</li>
+                    <li><span class="accent-blue">Rule 3:</span> A ray through the centre of curvature (C) reflects back along the same path.</li>
+                    <li><span class="accent-blue">Rule 4:</span> A ray hitting the pole (P) reflects making equal angles with the axis.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Concave Mirror: Image for Each Position</h2>
+                <table>
+                    <tr><th>Object Position</th><th>Image Position</th><th>Size</th><th>Nature</th></tr>
+                    <tr><td>At infinity</td><td>At F</td><td>Point-sized</td><td>Real, inverted</td></tr>
+                    <tr><td>Beyond C</td><td>Between F and C</td><td>Diminished</td><td>Real, inverted</td></tr>
+                    <tr><td>At C</td><td>At C</td><td>Same size</td><td>Real, inverted</td></tr>
+                    <tr><td>Between C and F</td><td>Beyond C</td><td>Enlarged</td><td>Real, inverted</td></tr>
+                    <tr><td>At F</td><td>At infinity</td><td>Very large</td><td>Real, inverted</td></tr>
+                    <tr><td>Between P and F</td><td>Behind mirror</td><td>Enlarged</td><td>Virtual, erect</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Convex Mirror: Uses</h2>
+                <p>A convex mirror <strong>always</strong> forms a virtual, erect and diminished image, whatever the object position.</p>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.15rem; line-height:1.9;">
+                    <li><strong>Vehicle rear-view mirrors</strong> — they give a wider field of view.</li>
+                    <li>Placed at blind turns and in shops for security.</li>
+                </ul>
+                <div class="board-trap"><strong>Why wider view?</strong> A convex mirror diverges the reflected rays, so it captures a larger area in a small mirror.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Sort It: Mirror Uses <span class="punjabi">(ਦਰਪਣਾਂ ਦੀ ਵਰਤੋਂ)</span></h2>
+                <div class="pd-game">
+                    <p class="pd-instruction">Click a use, then click the mirror that is used for it. <span class="punjabi">(ਵਰਤੋਂ ਚੁਣੋ, ਫਿਰ ਸਹੀ ਦਰਪਣ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।)</span></p>
+                    <div class="pd-pool">
+                        <span class="pd-item" data-target="concave" onclick="psebPick(this)">Torch / headlight reflector</span>
+                        <span class="pd-item" data-target="convex" onclick="psebPick(this)">Vehicle rear-view mirror</span>
+                        <span class="pd-item" data-target="concave" onclick="psebPick(this)">Shaving / make-up mirror</span>
+                        <span class="pd-item" data-target="convex" onclick="psebPick(this)">Security mirror in shops</span>
+                        <span class="pd-item" data-target="concave" onclick="psebPick(this)">Dentist's mirror</span>
+                        <span class="pd-item" data-target="convex" onclick="psebPick(this)">Wide view at blind turns</span>
+                    </div>
+                    <div class="pd-targets">
+                        <div class="pd-target" data-target="concave" onclick="psebDrop(this)"><span class="pd-label">&#127748; Concave Mirror <small>ਅਵਤਲ ਦਰਪਣ &mdash; converging</small></span><div class="pd-drop"></div></div>
+                        <div class="pd-target" data-target="convex" onclick="psebDrop(this)"><span class="pd-label">&#128302; Convex Mirror <small>ਉੱਤਲ ਦਰਪਣ &mdash; diverging</small></span><div class="pd-drop"></div></div>
+                    </div>
+                    <div class="pd-done">Great! Every use is matched to the correct mirror. <span class="punjabi">(ਸ਼ਾਬਾਸ਼!)</span></div>
+                    <button class="pd-reset-btn" onclick="psebReset(this)">&#8635; Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>New Cartesian Sign Convention</h2>
+                <ul style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.1rem; line-height:1.8;">
+                    <li>All distances are measured from the <strong>pole (P)</strong>.</li>
+                    <li>Distances measured in the direction of incident light are <strong>positive (+)</strong>; against it are <strong>negative (−)</strong>.</li>
+                    <li>Heights measured upward (above axis) are +; downward are −.</li>
+                </ul>
+                <div class="board-trap"><strong>Result:</strong> A concave mirror's focal length is negative (−f); a convex mirror's is positive (+f).</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Mirror Formula <span class="board-badge">🏆 Build It</span></h2>
+                <p><strong>Interactive:</strong> Construct the mirror formula. <span class="exam-keyword">Note the (+) sign!</span></p>
+                <div class="builder-workspace">
+                    <div class="formula-target">Target: <span style="color:var(--goku-accent);">1/v + 1/u = 1/f</span></div>
+                    <div class="formula-display" id="formula-board-ch9m" data-formula=""></div>
+                    <div class="builder-pieces">
+                        <button class="piece-btn" onclick="buildFormula('1/v', 'formula-board-ch9m', '1/v+1/u=1/f')">1/v</button>
+                        <button class="piece-btn" onclick="buildFormula('1/u', 'formula-board-ch9m', '1/v+1/u=1/f')">1/u</button>
+                        <button class="piece-btn" onclick="buildFormula('1/f', 'formula-board-ch9m', '1/v+1/u=1/f')">1/f</button>
+                        <button class="piece-btn" onclick="buildFormula('+', 'formula-board-ch9m', '1/v+1/u=1/f')">+</button>
+                        <button class="piece-btn" onclick="buildFormula('=', 'formula-board-ch9m', '1/v+1/u=1/f')">=</button>
+                    </div>
+                    <div class="controls-group">
+                        <button class="ctrl-btn undo-btn" onclick="undoFormula('formula-board-ch9m')">Undo</button>
+                        <button class="ctrl-btn clear-btn" onclick="clearFormula('formula-board-ch9m')">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Numerical: Mirror Formula <span class="board-badge">🏆 Step-by-Step</span></h2>
+                <p>An object is placed 15 cm in front of a concave mirror of focal length 10 cm. Find the image distance v.</p>
+                <div class="sequencer-container" id="seq-ch9-1">
+                    <div class="seq-step"><strong>1. Data (signs):</strong> u = −15 cm, f = −10 cm, v = ?</div>
+                    <div class="seq-step"><strong>2. Formula:</strong> 1/v + 1/u = 1/f</div>
+                    <div class="seq-step"><strong>3. Rearrange:</strong> 1/v = 1/f − 1/u</div>
+                    <div class="seq-step"><strong>4. Substitute:</strong> 1/v = 1/(−10) − 1/(−15) = −1/30</div>
+                    <div class="seq-step"><strong>5. Answer:</strong> v = <span class="exam-keyword">−30 cm</span> (real, in front of mirror)</div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch9-1')">Reveal Next Step <span class="seq-counter">[0/5]</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Rules for Lens Ray Diagrams</h2>
+                <p>Lenses use Refraction (bending through glass). You must draw these accurately in the board exam:</p>
+                <ul style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="accent-blue">Rule 1 (Parallel):</span> A ray parallel to the principal axis will pass through the principal Focus ($F_2$) on the other side.</li>
+                    <li><span class="accent-blue">Rule 2 (Focus):</span> A ray passing through the Focus ($F_1$) will emerge parallel to the principal axis.</li>
+                    <li><span class="accent">Rule 3 (Optical Center):</span> <br><strong>Crucial Board Exception:</strong> A ray of light passing through the exact Optical Center (O) of a lens goes completely straight and emerges without any deviation!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Image Formation Cheat Sheet</h2>
+                <table>
+                    <tr><th>Device</th><th>Typical Image Formed</th><th>Special Case / Rule</th></tr>
+                    <tr><td><strong>Concave Mirror</strong></td><td>Real & Inverted</td><td>Virtual & Erect ONLY if object is very close (between P and F).</td></tr>
+                    <tr><td><strong>Convex Mirror</strong></td><td><span class="accent-blue">Always Virtual, Erect, Diminished</span></td><td>Used as rear-view mirrors (wider field of view).</td></tr>
+                    <tr><td><strong>Convex Lens</strong></td><td>Real & Inverted</td><td>Virtual & Erect ONLY if object is very close (between O and F1).</td></tr>
+                    <tr><td><strong>Concave Lens</strong></td><td><span class="accent-blue">Always Virtual, Erect, Diminished</span></td><td>Similar to a Convex Mirror.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- FIXED SLIDE 21: V3 Formula Builder (Lens Formula) -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Formula Builder (Lens Formula)</h2>
+                <p><strong>Interactive:</strong> Construct the correct <strong>Lens Formula</strong>.</p>
+                <div class="builder-workspace">
+                    <div class="formula-target">Target: <span style="color:var(--goku-accent);">1/v - 1/u = 1/f</span></div>
+                    <div class="formula-display" id="formula-board-ch9" data-formula=""></div>
+                    <div class="builder-pieces">
+                        <button class="piece-btn" onclick="buildFormula('1/v', 'formula-board-ch9', '1/v-1/u=1/f')">1/v</button>
+                        <button class="piece-btn" onclick="buildFormula('1/u', 'formula-board-ch9', '1/v-1/u=1/f')">1/u</button>
+                        <button class="piece-btn" onclick="buildFormula('1/f', 'formula-board-ch9', '1/v-1/u=1/f')">1/f</button>
+                        <button class="piece-btn" onclick="buildFormula('+', 'formula-board-ch9', '1/v-1/u=1/f')">+</button>
+                        <button class="piece-btn" onclick="buildFormula('-', 'formula-board-ch9', '1/v-1/u=1/f')">-</button>
+                        <button class="piece-btn" onclick="buildFormula('=', 'formula-board-ch9', '1/v-1/u=1/f')">=</button>
+                    </div>
+                    <div class="controls-group">
+                        <button class="ctrl-btn undo-btn" onclick="undoFormula('formula-board-ch9')">Undo</button>
+                        <button class="ctrl-btn clear-btn" onclick="clearFormula('formula-board-ch9')">Clear All</button>
+                    </div>
+                </div>
+                <div class="board-trap">
+                    <strong>⚠️ Board Trap</strong>
+                    The Mirror formula has a (+). The Lens formula has a (-). Don't mix them up!
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Decoding Magnification ($m$) <span class="punjabi">(ਵੱਡਦਰਸ਼ਣ)</span></h2>
+                <p>Magnification tells you the height of the image compared to the object. It reveals the exact nature of the image instantly.</p>
+                <div class="equation">m = h' / h = -v / u</div>
+                
+                <h3 style="margin-top: 15px;">Rule 1: The Sign (+ or -)</h3>
+                <ul style="background: #F8FAFC; padding: 15px 15px 15px 40px; border-radius: 8px;">
+                    <li>If $m$ is <span class="accent-blue">Negative (-)</span> &rarr; Image is <strong>Real and Inverted</strong>.</li>
+                    <li>If $m$ is <span class="accent-blue">Positive (+)</span> &rarr; Image is <strong>Virtual and Erect</strong>.</li>
+                </ul>
+
+                <h3 style="margin-top: 15px;">Rule 2: The Number Value</h3>
+                <ul>
+                    <li>If $|m| > 1$ (e.g., 2, -3): Image is Enlarged (Magnified).</li>
+                    <li>If $|m| < 1$ (e.g., 0.5, -0.2): Image is Diminished (Smaller).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Laws of Refraction (Snell's Law)</h2>
+                <p>When light passes from one medium into another, it bends according to two laws:</p>
+                <ol style="background:#F8FAFC; padding:20px 20px 20px 40px; border-radius:12px; border:1px solid #E2E8F0; font-size:1.15rem; line-height:1.9;">
+                    <li>The incident ray, refracted ray and normal all lie in the same plane.</li>
+                    <li><span class="exam-keyword">Snell's Law:</span> sin i / sin r = constant = n<sub>21</sub> (a constant for the two media).</li>
+                </ol>
+                <div class="board-trap"><strong>Which way does it bend?</strong> Going into a denser medium → bends <strong>towards</strong> the normal. Going into a rarer medium → bends <strong>away</strong> from the normal.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Refractive Index in Detail</h2>
+                <p>The <span class="exam-keyword">refractive index</span> compares the speed of light in two media.</p>
+                <div class="equation">n = speed of light in vacuum (c) / speed in medium (v)</div>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>Higher n → denser medium → light travels slower.</li>
+                    <li>Diamond (n = 2.42) is optically the densest common material.</li>
+                    <li>It has no unit (it is a ratio of two speeds).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Power of a Lens</h2>
+                <p>The <span class="exam-keyword">power (P)</span> of a lens measures its ability to bend (converge/diverge) light.</p>
+                <div class="equation">P = 1 / f (in metres)</div>
+                <ul style="text-align:left; font-size:1.15rem; line-height:1.9;">
+                    <li>SI unit = <strong>dioptre (D)</strong>; 1 D = 1 m<sup>−1</sup>.</li>
+                    <li>Convex (converging) lens → power is <strong>positive (+)</strong>.</li>
+                    <li>Concave (diverging) lens → power is <strong>negative (−)</strong>.</li>
+                    <li>Shorter focal length → greater power.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Refractive Index Math Guide</h2>
+                <p><strong>Interactive Recall:</strong> Tap to reveal.</p>
+                <div class="cloze-paragraph">
+                    The extent to which light slows down when entering a new medium is measured by its <span class="cloze-blank" data-hint="R. I." data-ans="Refractive Index" onclick="revealCloze(this)"></span>. <br><br>
+                    <strong>Optical Density Rule:</strong> A higher index (like diamond's 2.42) means the medium is more optically dense. This means light travels <span class="cloze-blank" data-hint="S..." data-ans="Slower" onclick="revealCloze(this)"></span>, and the ray of light bends <span class="cloze-blank" data-hint="T..." data-ans="Towards" onclick="revealCloze(this)"></span> the normal line.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Match: Optics Terms <span class="board-badge">🧩 Match It</span></h2>
+                <p>Match each device or term to its property. <span class="punjabi-block">(ਹਰ ਉਪਕਰਨ ਨੂੰ ਹੁਣ ਮਿਲਾਓ।)</span></p>
+                <div class="match-grid">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Convex mirror</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Concave lens</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Mirror formula</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Power of lens</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Rear-view mirror</button>
+                    <button class="match-btn" data-match="4" onclick="handleMatch(this)">Measured in dioptre</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">1/v + 1/u = 1/f</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Always diverges light</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Spot the Error <span class="board-badge">🔍 Fix It</span></h2>
+                <p>A student wrote the lens formula with the wrong sign. Tap the highlighted part to fix it.</p>
+                <div class="error-diagram">
+                    Lens formula: 1/v <span class="hotspot" onclick="fixError(this, 'err-ch9-1')">+</span> 1/u = 1/f
+                </div>
+                <div class="error-explanation" id="err-ch9-1"><strong>Corrected!</strong> The lens formula uses a MINUS: 1/v − 1/u = 1/f. Only the MIRROR formula uses a plus sign.</div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Practice: Reflection & Refraction <span class="board-badge">🧩 Fill the Blanks</span></h2>
+                <div class="cloze-paragraph">
+                    In reflection, the angle of incidence equals the angle of <span class="cloze-blank" data-ans="reflection" onclick="revealCloze(this)"></span>. For a spherical mirror, R = <span class="cloze-blank" data-ans="2f" onclick="revealCloze(this)"></span>. When light enters a denser medium it bends <span class="cloze-blank" data-ans="towards" onclick="revealCloze(this)"></span> the normal. The power of a lens is measured in the <span class="cloze-blank" data-ans="dioptre" onclick="revealCloze(this)"></span>, and a concave lens has a <span class="cloze-blank" data-ans="negative" onclick="revealCloze(this)"></span> power.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Memorize This: Chapter Recap</h2>
+                <div class="ratta-box">
+                    <ul style="text-align:left; font-size:1.1rem; line-height:1.9; margin:0; padding-left:20px;">
+                        <li>Reflection: ∠i = ∠r. Mirror formula: 1/v + 1/u = 1/f.</li>
+                        <li>R = 2f. Concave f is −, convex f is +.</li>
+                        <li>Convex mirror & concave lens: always virtual, erect, diminished.</li>
+                        <li>Lens formula: 1/v − 1/u = 1/f (note the minus!).</li>
+                        <li>Magnification m = h'/h = −v/u (mirror) = v/u (lens).</li>
+                        <li>Power P = 1/f; unit dioptre (D); convex +, concave −.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Concave Mirror: Image Positions <span class="board-badge">🧩 Flip Cards</span></h2>
+                <p>Tap each card to reveal the image formed for that object position. <span class="punjabi-block">(ਹਰ ਕਾਰਡ ਟੈਪ ਕਰਕੇ ਬਣਿਆ ਪ੍ਰਤੀਬਿੰਬ ਵੇਖੋ।)</span></p>
+                <div class="flip-grid">
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Object at Infinity<br><span class="punjabi" style="color:white; margin-top:10px;">(ਅਨੰਤ 'ਤੇ)</span></div>
+                        <div class="flip-back">Image at <strong>Focus (F)</strong> &mdash; real, inverted, highly diminished (point-sized).</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Object beyond C<br><span class="punjabi" style="color:white; margin-top:10px;">(C ਤੋਂ ਪਰੇ)</span></div>
+                        <div class="flip-back">Image between <strong>F and C</strong> &mdash; real, inverted, diminished.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Object at C<br><span class="punjabi" style="color:white; margin-top:10px;">(C 'ਤੇ)</span></div>
+                        <div class="flip-back">Image at <strong>C</strong> &mdash; real, inverted, same size as the object.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Object between C &amp; F<br><span class="punjabi" style="color:white; margin-top:10px;">(C ਅਤੇ F ਵਿਚਕਾਰ)</span></div>
+                        <div class="flip-back">Image <strong>beyond C</strong> &mdash; real, inverted, enlarged.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Object at F<br><span class="punjabi" style="color:white; margin-top:10px;">(F 'ਤੇ)</span></div>
+                        <div class="flip-back">Image at <strong>Infinity</strong> &mdash; real, inverted, highly enlarged.</div>
+                    </div></div>
+                    <div class="flip-container"><div class="flip-card">
+                        <div class="flip-front">Object between F &amp; P<br><span class="punjabi" style="color:white; margin-top:10px;">(F ਅਤੇ P ਵਿਚਕਾਰ)</span></div>
+                        <div class="flip-back">Image <strong>behind the mirror</strong> &mdash; virtual, erect, enlarged.</div>
+                    </div></div>
+                </div>
+                <div class="ratta-box">Only when the object is <strong>between F and the Pole</strong> is the image virtual &amp; erect (like a shaving/make-up mirror).</div>
+            </div>
+        </div>
+
+        <!-- CH9 NUMERICAL PRACTICE -->
+        <div class="slide"><div class="content-box"><h2>Numerical Practice: Mirrors &amp; Lenses <span class="punjabi">(ਸੰਖਿਆਤਮਕ ਅਭਿਆਸ)</span></h2>
+            <p style="text-align:center;color:var(--punjabi-text);margin-top:-6px;">Solve on paper, then check. Use the sign convention. <span class="punjabi">(ਪਹਿਲਾਂ ਹੱਲ ਕਰੋ, ਫੇਰ ਜਾਂਚੋ।)</span></p>
+            <div class="sub-slider-container" id="num-ch9">
+                <div class="sub-slide active short-answer" id="num-ch9-s1"><div class="sub-progress">Numerical 1 of 4</div><div class="question-text">An object is placed 15 cm in front of a <strong>concave mirror</strong> of focal length 10 cm. Find the image distance $v$.<br><span class="punjabi-block">$\frac{1}{v}+\frac{1}{u}=\frac{1}{f}$ &mdash; $u=-15$ cm, $f=-10$ cm.</span></div><input type="text" class="sa-input" placeholder="e.g. -30 cm"><button class="sa-submit-btn" onclick="checkSA(this, '-30 cm', 'ਪ੍ਰਤੀਬਿੰਬ 30 cm ਅੱਗੇ (ਵਾਸਤਵਿਕ)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch9', 2)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch9-s2"><div class="sub-progress">Numerical 2 of 4</div><div class="question-text">For that same mirror ($u=-15$ cm, $v=-30$ cm), find the magnification $m$ and state the nature.<br><span class="punjabi-block">$m=-\frac{v}{u}$</span></div><input type="text" class="sa-input" placeholder="e.g. -2"><button class="sa-submit-btn" onclick="checkSA(this, '-2', 'm = -2 (ਵਾਸਤਵਿਕ, ਉਲਟਾ, ਵੱਡਾ)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch9', 3)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch9-s3"><div class="sub-progress">Numerical 3 of 4</div><div class="question-text">An object is 30 cm from a <strong>convex lens</strong> of focal length 20 cm. Find the image distance $v$.<br><span class="punjabi-block">$\frac{1}{v}-\frac{1}{u}=\frac{1}{f}$ &mdash; $u=-30$ cm, $f=+20$ cm.</span></div><input type="text" class="sa-input" placeholder="e.g. 60 cm"><button class="sa-submit-btn" onclick="checkSA(this, '60 cm', 'v = +60 cm (ਦੂਜੇ ਪਾਸੇ, ਵਾਸਤਵਿਕ)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('num-ch9', 4)">Next Question &rarr;</button></div>
+                <div class="sub-slide short-answer" id="num-ch9-s4"><div class="sub-progress">Numerical 4 of 4</div><div class="question-text">Find the <strong>power</strong> of a lens of focal length 25 cm.<br><span class="punjabi-block">$P=\frac{1}{f\,(\text{in metres})}$</span></div><input type="text" class="sa-input" placeholder="e.g. +4 D"><button class="sa-submit-btn" onclick="checkSA(this, '+4 D', 'P = +4 ਡਾਇਓਪਟਰ (ਉੱਤਲ ਲੈਨਜ਼)')">Check Answer</button><div class="feedback"></div></div>
+            </div>
+        </div></div>
+
+        <!-- CH 9 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch9"><div class="sub-slide active" id="tf-ch9-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">A ray passing through the Center of Curvature (C) reflects back along the same path.<br><span class="punjabi-block">C ਵਿੱਚੋਂ ਲੰਘਣ ਵਾਲੀ ਰੇਖਾ ਉਸੇ ਮਾਰਗ 'ਤੇ ਵਾਪਸ ਮੁੜਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">The focal length of a concave lens is negative.<br><span class="punjabi-block">ਅਵਤਲ ਲੈਨਜ਼ ਦੀ ਫੋਕਸ ਦੂਰੀ ਰਿਣਾਤਮਕ ਹੁੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">A ray of light passing through the optical center of a lens undergoes lateral displacement.<br><span class="punjabi-block">ਲੈਨਜ਼ ਦੇ ਆਪਟੀਕਲ ਸੈਂਟਰ ਵਿੱਚੋਂ ਲੰਘਣ ਵਾਲੀ ਪ੍ਰਕਾਸ਼ ਦੀ ਕਿਰਨ ਦਾ ਪਾਸੇ ਵੱਲ ਵਿਸਥਾਪਨ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">A plane mirror forms a laterally inverted image.<br><span class="punjabi-block">ਸਮਤਲ ਦਰਪਣ ਇੱਕ ਪਾਸਿਓਂ ਉਲਟਾ ਪ੍ਰਤੀਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">Negative magnification means the image is real and inverted.<br><span class="punjabi-block">ਰਿਣਾਤਮਕ ਵੱਡਦਰਸ਼ਣ ਦਾ ਮਤਲਬ ਹੈ ਕਿ ਪ੍ਰਤੀਬਿੰਬ ਵਾਸਤਵਿਕ ਅਤੇ ਉਲਟਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">The focal length of a spherical mirror is half its radius of curvature.<br><span class="punjabi-block">ਗੋਲਾਕਾਰ ਦਰਪਣ ਦੀ ਫੋਕਸ ਦੂਰੀ ਇਸਦੇ ਵਕ੍ਰਤਾ ਅਰਧ ਵਿਆਸ ਦੀ ਅੱਧੀ ਹੁੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">A convex lens is also called a diverging lens.<br><span class="punjabi-block">ਉੱਤਲ ਲੈਨਜ਼ ਨੂੰ ਅਪਸਾਰੀ ਲੈਨਜ਼ ਵੀ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch9', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch9-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">The power of a lens is measured in dioptres.<br><span class="punjabi-block">ਲੈਨਜ਼ ਦੀ ਸ਼ਕਤੀ ਡਾਇਓਪਟਰ ਵਿੱਚ ਮਾਪੀ ਜਾਂਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 10</h2><div class="sub-slider-container" id="sib-ch9"><div class="sub-slide active short-answer" id="sib-ch9-s1" data-q="A ray parallel to the principal axis passes through what point?" data-a="Focus" data-pa="ਫੋਕਸ (F)"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">A ray parallel to the principal axis passes through what point?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Focus', 'ਫੋਕਸ (F)')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s2" data-q="What is the unit of power of a lens?" data-a="Dioptre" data-pa="ਡਾਇਓਪਟਰ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">What is the unit of power of a lens?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Dioptre', 'ਡਾਇਓਪਟਰ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s3" data-q="What is the formula for absolute refractive index?" data-a="n = c/v" data-pa=""><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">What is the formula for absolute refractive index?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'n = c/v', '')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s4" data-q="If magnification is +2, is the image erect or inverted?" data-a="Erect" data-pa="ਸਿੱਧਾ"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">If magnification is +2, is the image erect or inverted?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Erect', 'ਸਿੱਧਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s5" data-q="Is the power of a concave lens positive or negative?" data-a="Negative" data-pa="ਰਿਣਾਤਮਕ"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">Is the power of a concave lens positive or negative?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Negative', 'ਰਿਣਾਤਮਕ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s6" data-q="What is the relation between focal length (f) and radius of curvature (R)?" data-a="R = 2f" data-pa=""><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">What is the relation between focal length (f) and radius of curvature (R)?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'R = 2f', '')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s7" data-q="A convex mirror always forms what type of image?" data-a="Virtual" data-pa="ਅਭਾਸੀ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">A convex mirror always forms what type of image?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Virtual', 'ਅਭਾਸੀ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch9', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch9-s8" data-q="Name the mirror used as a vehicle rear-view mirror." data-a="Convex mirror" data-pa="ਉੱਤਲ ਦਰਪਣ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">Name the mirror used as a vehicle rear-view mirror.</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Convex mirror', 'ਉੱਤਲ ਦਰਪਣ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 10 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch9"><div class="sub-slide active" id="mcq-ch9-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">Which mirror provides a wider field of view?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Plane mirror</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Convex mirror</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Concave mirror</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s2"><div class="sub-progress">Question 2 of 8</div><div class="question-text">If magnification (m) is negative, the image is:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Virtual and erect</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Real and inverted</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Magnified and erect</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">Diamond has a high refractive index (2.42). This means light travels:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Very fast through it</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. At the same speed as in a vacuum</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Very slowly through it</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s4"><div class="sub-progress">Question 4 of 8 <span class="pyq-tag">[PSEB 2021]</span></div><div class="question-text">A convex lens (+3 D) and concave lens (-1 D) are combined. The total power is:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. +4 D</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. +2 D</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. -2 D</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">When a ray of light passes exactly through the optical center of a lens, it:</div><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">A. Goes completely straight without deviating</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Bends towards the focus</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Reflects backwards</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">The image formed by a plane mirror is:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Real and inverted</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Virtual and erect</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Real and erect</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">The principal focus of a concave mirror lies:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Behind the mirror</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. In front of the mirror</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. At the pole</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch9', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch9-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">The SI unit of power of a lens is the:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Watt</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Dioptre</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Metre</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Get Your Flashcards &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every "Say It Back" question in this deck has been formatted for Anki, with both English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+</div>
+<script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+        
+        function jumpToChapter(chapterId) {
+            const targetSlide = document.getElementById(chapterId);
+            if(targetSlide) {
+                const allSlidesArray = Array.from(slides);
+                const targetIndex = allSlidesArray.indexOf(targetSlide);
+                if(targetIndex !== -1) {
+                    currentSlide = targetIndex;
+                    updateUI();
+                }
+            }
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    grid.appendChild(msg);
+                    msg.style.display = 'block';
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+                
+                // Update Counter
+                const btn = container.querySelector('.seq-btn');
+                const counterSpan = btn.querySelector('.seq-counter');
+                if(counterSpan) {
+                    counterSpan.innerText = `[${currentIndex + 1}/${allSteps.length}]`;
+                }
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- MODULE 4: SPOT ERROR MODULE --- */
+        function fixError(el, expId) {
+            el.classList.add('fixed');
+            el.innerText = 'NEVER INTERSECT';
+            document.getElementById(expId).style.display = 'block';
+        }
+
+        /* --- MODULE 5: FORMULA BUILDER MODULE --- */
+        function buildFormula(val, boardId, targetString) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            let tokens = board.getAttribute('data-tokens');
+            tokens = tokens ? tokens.split('\u0001') : [];
+            tokens.push(val);
+            board.setAttribute('data-tokens', tokens.join('\u0001'));
+            const current = tokens.join('');
+            board.setAttribute('data-formula', current);
+            board.innerText = current;
+            if(current === targetString) board.classList.add('success');
+        }
+        
+        function undoFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(!board || board.classList.contains('success')) return;
+            let tokens = board.getAttribute('data-tokens');
+            tokens = tokens ? tokens.split('\u0001') : [];
+            tokens.pop();
+            board.setAttribute('data-tokens', tokens.join('\u0001'));
+            const current = tokens.join('');
+            board.setAttribute('data-formula', current);
+            board.innerText = current;
+            board.classList.remove('success');
+        }
+        
+        function clearFormula(boardId) {
+            const board = document.getElementById(boardId);
+            if(board){
+                board.setAttribute('data-tokens', "");
+                board.setAttribute('data-formula', "");
+                board.innerText = "";
+                board.classList.remove('success');
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.error-diagram') || e.target.closest('.builder-workspace') || e.target.closest('.pd-game')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', (e) => {
+            if (e.target !== slider || e.propertyName !== 'transform') return;
+            if (window.stopSpeaking) window.stopSpeaking();
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) {
+                            seqBtn.style.display = 'block';
+                            const counter = seqBtn.querySelector('.seq-counter');
+                            if(counter) counter.innerText = '[0/5]'; // General reset
+                        }
+                    });
+
+                    // Reset Error Spotter
+                    slide.querySelectorAll('.hotspot').forEach(h => {
+                        h.classList.remove('fixed');
+                        h.innerText = 'INTERSECTS';
+                    });
+                    slide.querySelectorAll('.error-explanation').forEach(e => e.style.display = 'none');
+
+                    // Reset Formulas
+                    clearFormula('formula-board-ch9');
+                    clearFormula('formula-board-ch9m');
+                    clearFormula('formula-board-ch11');
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase2_Premium_v3_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        /* --- TEXT-TO-SPEECH (added) --- */
+        window.activeReadBtn = null;
+
+        window.speakWord = function(text, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.85;
+            if (btn) {
+                btn.style.backgroundColor = '#D1FAE5';
+                utterance.onend = () => { btn.style.backgroundColor = ''; };
+                utterance.onerror = () => { btn.style.backgroundColor = ''; };
+            }
+            window.speechSynthesis.speak(utterance);
+        };
+
+        window.speakPassage = function(textId, btn) {
+            if (!('speechSynthesis' in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.resume();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+            }
+            const textElement = document.getElementById(textId);
+            if (!textElement) return;
+            const text = textElement.innerText || textElement.textContent;
+            const sentences = (text.match(/[^.!?]+[.!?]*/g) || [text]).map(s => s.trim()).filter(s => s.length > 0);
+            if (sentences.length === 0) return;
+            window.activeReadBtn = btn;
+            btn.innerHTML = '\uD83D\uDD0A Reading...';
+            btn.style.background = 'var(--goku-accent)';
+            let i = 0;
+            function speakNext() {
+                if (i < sentences.length) {
+                    const u = new SpeechSynthesisUtterance(sentences[i]);
+                    u.lang = 'en-US';
+                    u.rate = 0.85;
+                    u.onend = function() { i++; speakNext(); };
+                    u.onerror = function(e) { console.error("TTS Error:", e); window.stopSpeaking(); };
+                    window.speechSynthesis.speak(u);
+                } else {
+                    window.stopSpeaking();
+                }
+            }
+            speakNext();
+        };
+
+        window.stopSpeaking = function() {
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (window.activeReadBtn) {
+                window.activeReadBtn.innerHTML = '\u25B6\uFE0F Read to Me';
+                window.activeReadBtn.style.background = '';
+                window.activeReadBtn = null;
+            }
+        };
+
+        updateUI();
+    </script>
+<script src="../assets/deck-enhance.js"></script>
+</body>
+</html>

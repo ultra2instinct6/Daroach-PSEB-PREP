@@ -1,0 +1,903 @@
+CHAPTER 3 — METALS AND NON-METALS
+PSEB Class 10 Science | Teaching Script Version 1
+TOTAL SLIDES: 27
+======================================================================
+
+========================================================================
+SLIDE 1: Chapter 3 — Metals and Non-metals (ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ)
+========================================================================
+
+ON SCREEN:
+  - Chapter title: "Chapter 3"
+  - Subtitle: "Metals and Non-metals"
+  - Punjabi title: ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ
+
+SCRIPT (say this aloud):
+  Welcome to Chapter 3 — Metals and Non-metals, or in Punjabi, ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ. This is one of the most important chapters in your Class 10 Science syllabus, and it is a consistent favourite on the PSEB board exam.
+
+  Think about everything around you — the iron in your desk, the copper wires carrying electricity to your home, the aluminum in your water bottle. All of these are metals. But carbon in your pencil, sulfur used in medicines, the oxygen you breathe — these are non-metals. Understanding what makes each group behave differently is what this chapter is all about.
+
+  We will cover physical properties, chemical reactions, the reactivity series, how metals are extracted from the earth through metallurgy, ionic bonding, corrosion, and alloys. By the end, you will be able to answer both short-answer and long-answer board questions from this chapter with confidence. Let us begin!
+
+KEY POINTS TO STRESS:
+  - Chapter 3 is a high-weightage chapter in PSEB board exams.
+  - Two broad categories: Metals (ਧਾਤਾਂ) and Non-metals (ਅਧਾਤਾਂ).
+  - Topics span physical properties, chemical reactions, metallurgy, ionic bonds, and alloys.
+
+========================================================================
+SLIDE 2: Key Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Table with three columns: English term | Punjabi term | Meaning
+  - Six vocabulary words: Metal, Non-metal, Malleable, Ductile, Ore, Alloy
+
+SCRIPT (say this aloud):
+  Before we dive into the chemistry, let us build our vocabulary. These words will appear again and again throughout this chapter, so understanding them now will make everything else easier.
+
+  First: Metal — ਧਾਤ. A metal is a substance that is typically shiny and conducts electricity. Think of iron, copper, gold, or silver.
+
+  Next: Non-metal — ਅਧਾਤ. A non-metal is generally dull-looking and a poor conductor of electricity. Sulfur, carbon, and oxygen are all non-metals.
+
+  Malleable — ਕੁਟੀਨਯੋਗ. This means a metal can be beaten into thin sheets. When you beat gold into gold leaf, you are using its malleability. The word comes from the Latin "malleus," meaning hammer.
+
+  Ductile — ਖਿਚੀਨਯੋਗ. This means the metal can be pulled or drawn into thin wires. The copper wires in electric cables exist because copper is highly ductile.
+
+  Ore — ਕੱਚੀ ਧਾਤ. Not every rock that contains a metal is useful. An ore is a rock or mineral from which a metal can be extracted profitably. The word "profitably" is key — there must be enough metal to make extraction worthwhile.
+
+  Finally, Alloy — ਮਿਸ਼ਰਤ ਧਾਤ. An alloy is a mixture of metals — or a metal mixed with a non-metal — designed to have better properties than the pure metals alone. Steel, brass, and bronze are all alloys.
+
+KEY POINTS TO STRESS:
+  - Malleable (ਕੁਟੀਨਯੋਗ) = beaten into sheets; Ductile (ਖਿਚੀਨਯੋਗ) = drawn into wires.
+  - An ore must be profitable to extract — not every mineral qualifies.
+  - Alloy (ਮਿਸ਼ਰਤ ਧਾਤ) is a mixture of metals with improved properties.
+
+BOARD TIP: Students often confuse "malleable" and "ductile" — use this trick: Ductile = Draw (both start with D).
+
+========================================================================
+SLIDE 3: Vocabulary Continued (ਸ਼ਬਦਾਵਲੀ ਜਾਰੀ)
+========================================================================
+
+ON SCREEN:
+  - Table: Mineral, Metallurgy, Gangue, Anodising — with Punjabi terms and meanings
+  - Word Origins section: "Amphoteric" from Greek "Amphoteroi" meaning "both"
+
+SCRIPT (say this aloud):
+  Let us continue with four more important vocabulary words.
+
+  Mineral — ਖਣਿਜ. A mineral is any naturally occurring compound found in the earth's crust. Minerals are the raw materials of the earth.
+
+  Metallurgy — ਧਾਤੂਕਰਨ. This is the science and process of extracting metals from their ores and then refining and purifying them. When we study how iron is extracted from its ore hematite, we are studying metallurgy.
+
+  Gangue — ਗੈਂਗ. When you dig up an ore from the ground, it does not come out pure. It is mixed with sand, dirt, and other rocky impurities. These unwanted impurities mixed with the ore are called gangue. The very first step in metallurgy is always to remove the gangue.
+
+  Anodising — ਐਨੋਡਾਈਜ਼ਿੰਗ. This is a special process used with aluminum. It deliberately thickens the natural protective oxide layer on aluminum's surface, making the metal far more resistant to corrosion. We will study this in detail in the next few slides.
+
+  Now, here is a beautiful word: Amphoteric. This word comes from the Greek root "Amphoteroi," which means "both" — ਦੋਵੇਂ. An amphoteric substance can behave as both an acid and a base. Aluminum oxide (Al₂O₃) is a perfect example — it can react with both acids and bases. Keep this word in mind; it is a board favourite!
+
+KEY POINTS TO STRESS:
+  - Gangue = impurities (sand/dirt) mixed with ore; must be removed first.
+  - Metallurgy (ਧਾਤੂਕਰਨ) = full process of extraction + refining.
+  - Amphoteric = reacts with both acids AND bases (e.g., Al₂O₃).
+  - Anodising creates a thicker protective oxide layer on aluminum.
+
+BOARD TIP: "Amphoteric" is a direct one-word answer question — definition must be memorized exactly.
+
+========================================================================
+SLIDE 4: Metals vs. Non-metals (ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ)
+========================================================================
+
+ON SCREEN:
+  - Two-column comparison table: Metals (ਧਾਤਾਂ) vs. Non-metals (ਅਧਾਤਾਂ)
+  - Rows: Lustre (ਚਮਕ) vs. Dull | Malleable (ਕੁਟੀਨਯੋਗ) vs. Brittle | Ductile (ਖਿਚੀਨਯੋਗ) vs. Poor conductors
+
+SCRIPT (say this aloud):
+  Now let us set up the fundamental comparison table between metals and non-metals. This table is the backbone of the chapter, and many short-answer questions are built directly from it.
+
+  First property: Lustre — ਚਮਕ. Metals are shiny. When you polish a piece of iron or copper, it reflects light beautifully. Non-metals, on the other hand, are generally dull. They do not have that metallic shine.
+
+  Second property: Metals are Malleable — ਕੁਟੀਨਯੋਗ. They can be hammered into sheets without breaking. Think of aluminum foil in your kitchen. Non-metals are Brittle — they crack and shatter when you try to bend or hammer them. Sulfur powder, for example, crumbles if you press it.
+
+  Third property: Metals are Ductile — ਖਿਚੀਨਯੋਗ. They can be stretched into wires. Non-metals are poor conductors of heat and electricity — they generally do not let electric current or heat pass through them easily.
+
+  Remember this table like a mirror image — every positive property of a metal is roughly the opposite for a non-metal. We will study the important exceptions on the very next slide, so pay close attention!
+
+KEY POINTS TO STRESS:
+  - Metals: lustrous, malleable, ductile, good conductors.
+  - Non-metals: dull, brittle, poor conductors.
+  - This 3-row table is a classic 3-mark board question.
+
+BOARD TIP: Draw and label this table in your answer — examiner loves a well-organized comparison table.
+
+========================================================================
+SLIDE 5: The Exceptions Rulebook
+========================================================================
+
+ON SCREEN:
+  - Bulleted list of five major exceptions to physical properties of metals/non-metals
+  - Covers: Mercury (liquid metal), Sodium/Potassium/Lithium (soft metals), Iodine (lustrous non-metal), Graphite (conducting non-metal), Gallium/Cesium (low melting-point metals)
+
+SCRIPT (say this aloud):
+  Here is something the PSEB board absolutely loves to test — the exceptions to the general rules. The general properties we just studied are true for most metals and non-metals, but nature always has its surprises. Let me walk you through each one carefully.
+
+  Exception 1: The Liquid Metal. We said all metals are solid. That is true — EXCEPT for Mercury (Hg). Mercury is the only metal that exists as a liquid at room temperature. You have seen it in thermometers.
+
+  Exception 2: Soft Metals. We said metals are hard. But Sodium (Na), Potassium (K), and Lithium (Li) are so soft they can literally be cut with a knife! This is why they are stored in kerosene oil — to keep them away from moisture and air, both of which they react with violently.
+
+  Exception 3: The Lustrous Non-metal. We said non-metals are dull. The exception is Iodine (I). Iodine is a non-metal but has a distinct shiny, metallic-looking surface. You can observe this with dark-purple iodine crystals.
+
+  Exception 4: The Conducting Non-metal. Non-metals are said to be poor conductors. But Graphite — which is an allotrope, or a different form, of Carbon — is a non-metal that conducts electricity. This is actually why graphite is used as electrodes in electrolysis.
+
+  Exception 5: Low Melting Metals. Gallium (Ga) and Cesium (Cs) have such incredibly low melting points that they will literally melt in your hand from the warmth of your palm!
+
+  Every single one of these exceptions is a potential board question. Make flashcards for them tonight.
+
+KEY POINTS TO STRESS:
+  - Mercury (Hg) = only liquid metal at room temperature.
+  - Na, K, Li = soft metals, cut with a knife, stored in kerosene.
+  - Iodine = only lustrous (shiny) non-metal.
+  - Graphite = only non-metal that conducts electricity.
+  - Gallium and Cesium melt at near-room temperature.
+
+BOARD TIP: These 5 exceptions appear as 1-mark "name the exception" questions almost every year — memorize all five.
+
+========================================================================
+SLIDE 6: Reading Comprehension Story Mode — The Anodizing Shield
+========================================================================
+
+ON SCREEN:
+  - Story title: "The Anodizing Shield"
+  - Audio controls: Read to Me / Stop buttons
+  - Full passage about how aluminum forms a natural oxide shield and how engineers thicken it through anodizing
+
+SCRIPT (say this aloud):
+  We are going to pause now for a short reading story. This is called "The Anodizing Shield," and it brings to life the chemistry we are about to study on the next slide. I will read it to you — or you can press the "Read to Me" button to have it read aloud.
+
+  Here is the story: Aluminum is a fascinating metal. By all chemical logic, it is highly reactive and should corrode away quickly in the open air. However, aluminum has a secret weapon. The moment raw aluminum touches oxygen, it reacts instantly to form a microscopic, transparent skin of aluminum oxide. Unlike iron rust, which flakes off and exposes more metal to destruction, this aluminum oxide skin sticks tightly to the surface like a waterproof shield. It completely blocks any more oxygen from getting in. Modern engineers purposely use electricity to make this oxide shield even thicker — a process called anodizing — which makes aluminum parts nearly indestructible against the weather.
+
+  Did you notice the key ideas? Aluminum is reactive, but it protects itself. The oxide layer is transparent, so the metal still looks shiny. And unlike iron rust, it does not flake off. Engineers exploit this by making the layer even thicker through anodizing. Keep these ideas in mind as we move to the next slide.
+
+KEY POINTS TO STRESS:
+  - Aluminum is reactive, yet corrosion-resistant — because of its natural oxide layer.
+  - The oxide layer is self-sealing — unlike iron rust, it does not flake off.
+  - Anodizing = deliberately thickening this protective layer using electricity.
+
+========================================================================
+SLIDE 7: Anodizing Aluminum
+========================================================================
+
+ON SCREEN:
+  - Explanation of why aluminum resists corrosion despite being reactive
+  - Formula: Al₂O₃ (aluminum oxide)
+  - Process description of anodizing: aluminum article as anode, dilute sulphuric acid electrolyte
+
+SCRIPT (say this aloud):
+  Now let us study the chemistry behind the story we just read.
+
+  Aluminum is placed high in the reactivity series, meaning it is a highly reactive metal. Logic says it should corrode quickly. Yet aluminum pots, window frames, and aircraft bodies last for decades. Why?
+
+  The answer is its natural oxide layer. The moment aluminum is exposed to air, it reacts with oxygen to instantly form aluminum oxide — Al₂O₃. This thin, transparent layer forms so quickly that the raw metal is almost never truly exposed. More importantly, this Al₂O₃ layer does not flake off the way iron rust does. It grips the metal surface firmly and acts as a physical barrier, preventing further corrosion.
+
+  Now — what is Anodizing? Anodizing is the industrial process of deliberately making this protective oxide layer much thicker and stronger. Here is how it works: A clean aluminum article is used as the anode — the positive terminal — in an electrolysis cell. The electrolyte is dilute sulphuric acid. When electricity is passed through, oxygen gas is evolved at the anode. This oxygen reacts directly with the aluminum surface, building a much thicker Al₂O₃ layer than what forms naturally. This anodized layer is far more resistant to corrosion, scratches, and wear.
+
+  This is why laptops, smartphones, and bicycle frames are often made from "anodized aluminum" — it looks great and lasts much longer.
+
+KEY POINTS TO STRESS:
+  - Natural Al₂O₃ layer forms instantly when aluminum contacts oxygen.
+  - This layer is transparent, self-sealing, and does not flake.
+  - Anodizing = electrolysis with aluminum as anode + dilute H₂SO₄ → thicker oxide layer.
+  - Oxygen evolved at anode reacts with aluminum to build the thicker coat.
+
+BOARD TIP: Frequent 3-mark question: "Explain why aluminum is resistant to corrosion despite being reactive." — mention natural oxide layer AND anodizing.
+
+========================================================================
+SLIDE 8: Ionic Bonds (ਆਇਨੀ ਬੰਧਨ)
+========================================================================
+
+ON SCREEN:
+  - Definition: metals transfer electrons to non-metals
+  - Example: NaCl — Na loses 1 electron (Na⁺), Cl gains 1 electron (Cl⁻)
+  - Properties of ionic compounds: high melting points, conduction in liquid/molten but not solid state
+
+SCRIPT (say this aloud):
+  Let us now talk about how metals bond with non-metals to form ionic compounds — ਆਇਨੀ ਬੰਧਨ.
+
+  When a metal meets a non-metal, the metal transfers — gives away — one or more of its outermost electrons to the non-metal. The metal, having lost electrons, becomes a positively charged ion (cation). The non-metal, having gained electrons, becomes a negatively charged ion (anion). These opposite charges attract each other strongly, forming what we call an ionic bond.
+
+  The classic example is common salt — Sodium Chloride (NaCl). Sodium (Na) has one electron in its outer shell that it is eager to give up. It loses that one electron to become Na⁺ — a positive ion. Chlorine has seven electrons in its outer shell and needs one more to be stable. It gains that one electron to become Cl⁻ — a negative ion. The attraction between Na⁺ and Cl⁻ is the ionic bond.
+
+  Now, what are the special properties of ionic compounds? Two major ones come up on exams repeatedly:
+
+  First — very high melting and boiling points. Why? Because the electrostatic forces of attraction between the positive and negative ions are extremely strong. You need to pump in a massive amount of energy — very high temperatures — to break those bonds. So the Punjabi phrase to remember is ਉੱਚ ਪਿਘਲਣ ਅੰਕ — high melting point.
+
+  Second — conduction of electricity. Ionic compounds conduct electricity when they are in liquid (aqueous solution) or in molten state, because in these states the ions are free to move and carry charge. But in solid state, the ions are locked tightly into a rigid crystal lattice and cannot move. So a solid ionic compound does NOT conduct electricity.
+
+KEY POINTS TO STRESS:
+  - Metal loses electrons → positive ion (cation); non-metal gains → negative ion (anion).
+  - NaCl: Na → Na⁺ (loses 1e⁻); Cl → Cl⁻ (gains 1e⁻).
+  - Ionic compounds have very high melting points due to strong electrostatic attraction.
+  - Conduct electricity only in molten or aqueous state — NOT in solid state.
+
+BOARD TIP: Common mistake — students say ionic compounds "always" conduct electricity. They conduct ONLY when molten or in solution. Solid ionic compounds do NOT conduct.
+
+========================================================================
+SLIDE 9: The Reactivity Series Mnemonic (ਕਿਰਿਆਸ਼ੀਲਤਾ ਲੜੀ)
+========================================================================
+
+ON SCREEN:
+  - Table: Mnemonic phrase | Element name | Symbol
+  - 14 entries from most reactive (Potassium, K) to least reactive (Gold, Au)
+  - Mnemonic: "Please Stop Calling Me A Careless Zebra Instead Try Learning How Copper Saves Gold"
+
+SCRIPT (say this aloud):
+  If there is one thing you absolutely must memorize for the PSEB board exam, it is the Reactivity Series — ਕਿਰਿਆਸ਼ੀਲਤਾ ਲੜੀ. And I am going to give you a mnemonic — a memory trick — that will make it impossible to forget.
+
+  The reactivity series ranks metals from most reactive at the top to least reactive at the bottom. A more reactive metal can displace — push out — a less reactive metal from its salt solution. This rule governs displacement reactions and tells us which metals occur freely in nature and which ones need electrolysis to extract.
+
+  Here is the mnemonic sentence. Say it aloud with me and remember the first letter of each word corresponds to the first letter of each element's symbol:
+
+  "Please Stop Calling Me A Careless Zebra Instead Try Learning How Copper Saves Gold"
+
+  Let me go through it:
+  - Please → Potassium (K) — most reactive
+  - Stop → Sodium (Na)
+  - Calling → Calcium (Ca)
+  - Me → Magnesium (Mg)
+  - A → Aluminum (Al)
+  - Careless → Carbon (C) — a non-metal reference point
+  - Zebra → Zinc (Zn)
+  - Instead → Iron (Fe)
+  - Try → Tin (Sn)
+  - Learning → Lead (Pb)
+  - How → Hydrogen (H) — another non-metal reference point
+  - Copper → Copper (Cu)
+  - Saves → Silver (Ag)
+  - Gold → Gold (Au) — least reactive
+
+  Notice that Hydrogen appears in the middle — this is why metals above hydrogen in the series can displace hydrogen gas from dilute acids, and metals below hydrogen (like copper, silver, gold) cannot. Carbon also appears as a reference — it is used in reducing the oxides of metals below it in the series.
+
+  Metals like gold and silver are found in their free state in nature precisely because they are the least reactive — they do not combine easily with other elements.
+
+KEY POINTS TO STRESS:
+  - Most reactive at top: K > Na > Ca > Mg > Al > (C) > Zn > Fe > Sn > Pb > (H) > Cu > Ag > Au.
+  - More reactive metal displaces less reactive metal from salt solution.
+  - Metals above H release H₂ with dilute acids; metals below H do not.
+  - Au, Ag found free in nature due to low reactivity.
+
+BOARD TIP: Frequent 3-mark question — write the reactivity series in order. Use the mnemonic; do NOT guess the order from memory alone.
+
+========================================================================
+SLIDE 10: Interactive Simulator — Displacement Predictor (ਵਿਸਥਾਪਨ ਕਿਰਿਆ)
+========================================================================
+
+ON SCREEN:
+  - Interactive activity: Choose a Solid Metal A + Aqueous Salt B → Predict whether a reaction occurs
+  - Dropdown lists of metals (K, Na, Mg, Al, Zn, Fe, Cu, Ag) and salt solutions
+  - Button: "Predict Reaction"
+
+SCRIPT (say this aloud):
+  This is an interactive simulator for displacement reactions — ਵਿਸਥਾਪਨ ਕਿਰਿਆ. Let us use it as a class activity to reinforce the reactivity series we just learned.
+
+  Here is the rule: A reaction will happen only if the solid metal (Metal A) is MORE reactive than the metal in the salt solution (Metal B). If Metal A is less reactive, nothing happens.
+
+  Teacher: Ask students to call out a metal and a salt solution, then select them in the simulator and click "Predict Reaction." Let students predict the answer first before revealing it.
+
+  For example: If we choose Zinc (Zn) as the solid metal and Copper Sulphate solution — from the reactivity series, Zinc is above Copper, so Zinc IS more reactive. Therefore, Zinc WILL displace Copper from copper sulphate solution. We would see the blue color of the copper sulphate solution fading and a reddish deposit of copper forming on the zinc strip. The equation is: Zn + CuSO₄ → ZnSO₄ + Cu.
+
+  Another example: Choose Copper with Silver Nitrate solution. Copper is above Silver in the reactivity series, so Copper WILL displace Silver. But if you choose Copper with Zinc sulphate — Zinc is above Copper, so Copper CANNOT displace Zinc. No reaction.
+
+  Try a few combinations as a class and verify your predictions using the simulator. This practice will directly help you answer displacement reaction questions in the board exam.
+
+KEY POINTS TO STRESS:
+  - Displacement happens only if Metal A is more reactive than the metal in the salt.
+  - Use the reactivity series to predict — it never fails.
+  - Key example: Zn + CuSO₄ → ZnSO₄ + Cu (reaction occurs; Zn > Cu in reactivity).
+  - Counter-example: Cu + ZnSO₄ → No reaction (Cu < Zn in reactivity).
+
+BOARD TIP: Frequent 2-mark question — "Will iron displace copper from copper sulphate?" Always justify your answer by stating their relative positions in the reactivity series.
+
+========================================================================
+SLIDE 11: Metals Reacting with Water
+========================================================================
+
+ON SCREEN:
+  - Bulleted list of four categories: Cold Water, Hot Water, Steam Only, No Reaction
+  - Specific metals listed for each category with Punjabi labels
+
+SCRIPT (say this aloud):
+  Not all metals react with water in the same way — in fact, their reaction with water is a direct demonstration of their reactivity. The more reactive the metal, the more violently it reacts with water.
+
+  Category 1 — Cold Water (ਠੰਡਾ ਪਾਣੀ): The most reactive metals react directly with cold water. Sodium (Na) and Potassium (K) react so violently and generate so much heat that the hydrogen gas produced immediately catches fire! You may have seen videos of sodium exploding on water. Potassium reacts even more violently than sodium, burning with a lilac-colored flame. Calcium (Ca) also reacts with cold water but less violently — it dissolves and floats, releasing hydrogen bubbles. The general reaction is: Metal + Water → Metal Hydroxide + Hydrogen gas.
+
+  Category 2 — Hot Water (ਗਰਮ ਪਾਣੀ): Magnesium (Mg) does not react with cold water, but it reacts gently with hot water, floating at the surface and slowly releasing hydrogen.
+
+  Category 3 — Steam Only (ਸਿਰਫ਼ ਭਾਫ਼): Aluminum (Al), Iron (Fe), and Zinc (Zn) are in the middle of the reactivity series. They do not react with liquid water at all — neither cold nor hot — but they do react when exposed to steam. For example: 3Fe + 4H₂O (steam) → Fe₃O₄ + 4H₂.
+
+  Category 4 — No Reaction: Lead, Copper, Silver, and Gold sit low in the reactivity series. They do not react with water in any form — cold, hot, or steam.
+
+  This graded reaction with water beautifully mirrors the reactivity series. The higher the metal in the series, the more aggressively it reacts with water.
+
+KEY POINTS TO STRESS:
+  - Na, K → react violently with cold water; H₂ catches fire.
+  - Mg → reacts with hot water.
+  - Al, Fe, Zn → react only with steam.
+  - Cu, Ag, Au, Pb → no reaction with water at all.
+
+BOARD TIP: Common 2-mark question: "Why are sodium and potassium stored in kerosene?" — because they react violently with water and even moisture in air.
+
+========================================================================
+SLIDE 12: Metals Reacting with Acids (ਤੇਜ਼ਾਬਾਂ ਨਾਲ ਧਾਤਾਂ ਦੀ ਕਿਰਿਆ)
+========================================================================
+
+ON SCREEN:
+  - General equation: Metal + Dilute Acid → Salt + Hydrogen Gas
+  - The Nitric Acid Anomaly: HNO₃ does NOT produce H₂ gas
+  - Explanation: HNO₃ is a strong oxidizing agent; oxidizes H₂ to H₂O; reduced to NO₂ or NO
+  - Exception within exception: Mg and Mn react with very dilute HNO₃ to give H₂
+
+SCRIPT (say this aloud):
+  When metals react with dilute acids, the general pattern is simple and clean: Metal + Dilute Acid → Salt + Hydrogen Gas. For example, zinc with dilute sulphuric acid gives zinc sulphate and hydrogen gas: Zn + H₂SO₄ → ZnSO₄ + H₂↑. You can test for the hydrogen gas by bringing a burning splint near the test tube mouth — it produces a characteristic "pop" sound.
+
+  However, there is a very important and frequently tested anomaly — Nitric Acid, HNO₃.
+
+  When a metal reacts with dilute Nitric Acid, hydrogen gas is NOT produced. This surprises many students. Why does HNO₃ break the rule?
+
+  The answer is that HNO₃ is a powerful oxidizing agent. As soon as any hydrogen gas (H₂) is produced, the HNO₃ immediately oxidizes it — converts it back into water (H₂O). At the same time, the HNO₃ itself gets reduced to nitrogen oxides — typically NO₂ (nitrogen dioxide, a brown gas) or NO (nitrogen monoxide, a colorless gas) depending on the concentration of the acid.
+
+  So instead of hydrogen gas bubbling out, you see brown or colorless fumes of nitrogen oxides.
+
+  There is, however, an exception to this exception — and the board loves this: Magnesium (Mg) and Manganese (Mn) — two metals that start with "M" — do react with very dilute HNO₃ to produce hydrogen gas.
+
+  Always remember: HNO₃ → No H₂ (except Mg and Mn with very dilute HNO₃).
+
+KEY POINTS TO STRESS:
+  - General rule: Metal + Dilute Acid → Salt + H₂ gas.
+  - Exception: HNO₃ does NOT produce H₂ — it oxidizes H₂ to H₂O.
+  - HNO₃ is reduced to NO₂ or NO gases instead.
+  - Exception to exception: Mg and Mn + very dilute HNO₃ → do give H₂.
+
+BOARD TIP: This is a very frequent 3-mark question: "Why is hydrogen gas not produced when a metal reacts with nitric acid?" — Explain the oxidizing nature of HNO₃.
+
+========================================================================
+SLIDE 13: Metallurgy: The 3 Stages
+========================================================================
+
+ON SCREEN:
+  - Definition of Minerals, Ores, and Gangue
+  - Three stages listed: (1) Enrichment of Ore, (2) Extraction of Metal, (3) Refining
+
+SCRIPT (say this aloud):
+  Now we enter the topic of Metallurgy — ਧਾਤੂਕਰਨ — the process of obtaining pure metals from the earth. This is a 3-stage process, and the board frequently asks you to describe all three stages.
+
+  First, let us clarify the vocabulary. A Mineral is any naturally occurring compound in the earth's crust. An Ore is a mineral from which a metal can be extracted profitably — it has a high enough percentage of the useful metal. The dirt, sand, and rocky impurities mixed with the ore are called Gangue — ਗੈਂਗ.
+
+  Stage 1 — Enrichment of Ore (also called Concentration of Ore): The first job is to remove the gangue. The ore as dug from the earth is too impure to work with directly. Various physical and chemical methods are used — like magnetic separation for iron ores, or froth flotation for sulfide ores — to remove the unwanted gangue and concentrate the metal-containing minerals.
+
+  Stage 2 — Extraction of Metal: Once the ore is concentrated, the actual metal must be obtained from it. How this is done depends entirely on the reactivity of the metal. Highly reactive metals need more extreme methods (like electrolysis), while less reactive metals can be obtained by simple heating. We will go into detail on this in the next slide.
+
+  Stage 3 — Refining: The metal obtained from Stage 2 is still not pure. It may contain traces of other metals or impurities. Refining removes these to obtain a high-purity metal. The most common refining method is Electrolytic Refining, which we will also study in detail.
+
+KEY POINTS TO STRESS:
+  - Mineral → Ore → Gangue: know all three definitions.
+  - Three stages: Enrichment → Extraction → Refining (in that order).
+  - Extraction method depends on reactivity of the metal.
+
+BOARD TIP: A 3-mark question often asks "What are the three stages of metallurgy?" — name and briefly define each.
+
+========================================================================
+SLIDE 14: Extraction Based on Reactivity
+========================================================================
+
+ON SCREEN:
+  - Three tiers of metals by reactivity and extraction method:
+    Low Reactivity (Hg, Cu) → heating in air
+    Medium Reactivity (Zn, Fe) → oxide → carbon reduction
+    High Reactivity (Na, Al) → electrolytic reduction
+  - Equation for mercury: 2HgS + 3O₂ → 2HgO + 2SO₂ (then HgO heated to get Hg)
+
+SCRIPT (say this aloud):
+  The method we use to extract a metal from its ore depends directly on how reactive the metal is. Think of it this way — the more reactive a metal, the more tightly it holds on to the oxygen and sulfur it is bonded with in its ore, so more energy is needed to pull the metal free.
+
+  Tier 1 — Low Reactivity metals (e.g., Mercury and Copper): These metals are at the bottom of the reactivity series. Because they are not very reactive, their ores can be reduced — broken down — simply by heating them in air. Take mercury sulfide (cinnabar): When HgS is roasted in air, it first forms HgO, and then when heated further, the HgO decomposes directly into mercury metal and oxygen. The equation is: 2HgS + 3O₂ → 2HgO + 2SO₂, and then heating HgO gives: 2HgO → 2Hg + O₂.
+
+  Tier 2 — Medium Reactivity metals (e.g., Zinc, Iron, Lead, Tin): These metals sit in the middle of the reactivity series. They cannot be reduced by simple heating in air, but they can be reduced by Carbon (coke). The process involves two steps: First, the sulfide or carbonate ore is converted to the metal's oxide by Roasting or Calcination. Then, the oxide is mixed with carbon (coke) and heated — the carbon reduces the oxide, pulling out the metal. For example: ZnO + C → Zn + CO.
+
+  Tier 3 — High Reactivity metals (e.g., Sodium, Calcium, Magnesium, Aluminum): These metals at the top of the reactivity series bond very tightly with oxygen and cannot be displaced even by carbon. The only way to extract them is through Electrolytic Reduction. Electricity is passed through the molten ore or molten salt (like molten NaCl for sodium), and the metal is deposited at the cathode. This requires a lot of energy, which is why these metals are expensive.
+
+KEY POINTS TO STRESS:
+  - Low reactivity (Hg, Cu) → extracted by heating in air alone.
+  - Medium reactivity (Zn, Fe) → roasting/calcination to oxide, then carbon reduction.
+  - High reactivity (Na, Al) → electrolytic reduction only; cannot use carbon.
+  - Carbon cannot reduce metals above it in the reactivity series.
+
+BOARD TIP: Frequent 3-mark question: "How are metals of different reactivities extracted differently?" — three tiers with one example each.
+
+========================================================================
+SLIDE 15: Roasting vs. Calcination (3-Mark Question)
+========================================================================
+
+ON SCREEN:
+  - Two-column comparison table: Roasting (ਭੁੰਨਣਾ) vs. Calcination (ਕੈਲਸੀਨੇਸ਼ਨ)
+  - PSEB 2018, 2022 exam tag
+  - Equations: 2ZnS + 3O₂ → 2ZnO + 2SO₂ (roasting) | ZnCO₃ → ZnO + CO₂ (calcination)
+
+SCRIPT (say this aloud):
+  This slide is flagged as a 3-mark question from PSEB 2018 and 2022 — so please pay very careful attention. Roasting and Calcination are both heating processes used in metallurgy to convert ores into their oxides before carbon reduction, but they are used for different types of ores and work in different ways.
+
+  Let us compare them side by side.
+
+  Roasting — ਭੁੰਨਣਾ: Roasting means heating the ore strongly in the presence of excess air. It is used for Sulphide ores — ores where the metal is combined with sulfur, like Zinc Sulphide (ZnS). When you roast a sulphide ore, the sulfur burns off as sulfur dioxide gas (SO₂), leaving behind the metal oxide. The equation for roasting zinc sulphide is: 2ZnS + 3O₂ → 2ZnO + 2SO₂. The gas produced is SO₂.
+
+  Calcination — ਕੈਲਸੀਨੇਸ਼ਨ: Calcination means heating the ore strongly in limited air or no air. It is used for Carbonate ores — ores where the metal is combined with carbonate, like Zinc Carbonate (ZnCO₃). When you calcinate a carbonate ore, the carbonate breaks down and carbon dioxide gas (CO₂) is released, leaving behind the metal oxide. The equation is: ZnCO₃ → ZnO + CO₂. The gas released is CO₂.
+
+  The memory trick: Roasting = air + sulphide → SO₂. Calcination = limited air + carbonate → CO₂.
+
+  In both cases, the end product is the metal oxide, which is then ready for the next step — carbon reduction.
+
+KEY POINTS TO STRESS:
+  - Roasting: excess air + sulphide ore → metal oxide + SO₂.
+  - Calcination: limited/no air + carbonate ore → metal oxide + CO₂.
+  - Both produce the metal oxide, which is then reduced by carbon.
+  - Remember: Roasting → SO₂; Calcination → CO₂.
+
+BOARD TIP: This is a confirmed PSEB 2018 and 2022 question. Write it as a comparison table in your exam answer for full marks.
+
+========================================================================
+SLIDE 16: Reading Comprehension Story Mode — The Thermit Welding Process
+========================================================================
+
+ON SCREEN:
+  - Story title: "The Thermit Welding Process"
+  - Audio controls: Read to Me / Stop
+  - Full passage describing the thermit reaction and its use in welding railway tracks
+
+SCRIPT (say this aloud):
+  We have another story passage — "The Thermit Welding Process." This prepares us for the detailed chemistry on the next slide. Let me read it for you.
+
+  "The thermit reaction is one of the most spectacular and violent displacement reactions in chemistry. When a mixture of iron(III) oxide and aluminum powder is ignited, the highly reactive aluminum forcefully displaces the iron from its oxide. This reaction is intensely exothermic, meaning it releases a massive amount of heat. In fact, so much heat is generated that the iron produced is entirely in a liquid, molten state. Engineers use this specific chemical property to their advantage. They ignite this mixture directly over broken railway tracks, allowing the molten iron to flow into the cracks and weld the heavy steel rails seamlessly together."
+
+  Think about this story — you are actually witnessing a displacement reaction happening in front of you. Aluminum, being more reactive than iron, pushes iron out of its compound. The energy released is so tremendous that the iron comes out not as a solid, but as a glowing liquid. That liquid iron flows into broken rails and solidifies to seal them. No separate welding torch is needed. The chemistry does all the work!
+
+  This story directly sets up our next slide on the Thermit Reaction equation and electrolytic refining.
+
+KEY POINTS TO STRESS:
+  - Thermit reaction = displacement reaction (Al displaces Fe).
+  - Highly exothermic → iron produced in molten/liquid state.
+  - Used to weld broken railway tracks in the field.
+
+========================================================================
+SLIDE 17: Extraction Deep Dive — Thermit Reaction & Electrolytic Refining
+========================================================================
+
+ON SCREEN:
+  - Thermit Reaction (ਥਰਮਿਟ ਕਿਰਿਆ): Fe₂O₃ + 2Al → 2Fe(liquid) + Al₂O₃ + Heat
+  - Electrolytic Refining (ਬਿਜਲਈ ਸੋਧਣ): Anode = impure copper; Cathode = pure copper; Anode Mud = insoluble impurities
+  - Board Exam Pitfall warning about Anode vs. Cathode
+
+SCRIPT (say this aloud):
+  This slide covers two landmark processes from this chapter — the Thermit Reaction and Electrolytic Refining. Both are examination staples.
+
+  First — The Thermit Reaction (ਥਰਮਿਟ ਕਿਰਿਆ). Look at the equation: Fe₂O₃ + 2Al → 2Fe (liquid) + Al₂O₃ + Heat. This is a displacement reaction. Aluminum is more reactive than iron, so aluminum displaces iron from iron(III) oxide (Fe₂O₃). The reaction releases an enormous amount of heat — it is highly exothermic. In fact, so much heat is released that the iron produced comes out in molten liquid form. This liquid iron is used to fill cracks in broken railway tracks — the molten iron flows in, cools, and solidifies, bonding the rails. This technique is called thermite welding, and it is used by railway engineers around the world.
+
+  Second — Electrolytic Refining (ਬਿਜਲਈ ਸੋਧਣ). After a metal has been extracted, it still contains impurities. Electrolytic refining uses electricity to purify it. The setup for purifying copper works like this:
+  - The Anode (+) is a block of impure copper.
+  - The Cathode (−) is a thin strip of pure copper.
+  - The electrolyte is a copper sulphate solution.
+  - When electricity flows, the impure copper at the anode slowly dissolves into the solution. Pure copper ions from the solution deposit themselves on the cathode, building a growing block of pure copper.
+  - The impurities that were in the anode — like gold, silver, and platinum — do not dissolve. They fall to the bottom of the cell as "Anode Mud," which is actually collected separately as it may contain valuable metals!
+
+  Now, the Board Exam Pitfall: Do NOT swap anode and cathode! The impure metal is ALWAYS the anode. The pure metal ALWAYS deposits at the cathode — the negative terminal. Burn this into your memory.
+
+KEY POINTS TO STRESS:
+  - Thermit: Fe₂O₃ + 2Al → 2Fe(l) + Al₂O₃ + Heat. Al displaces Fe. Molten Fe welds railway tracks.
+  - Electrolytic Refining: Anode = impure metal; Cathode = pure metal deposited here.
+  - Anode Mud = insoluble impurities that settle at the bottom.
+  - Pure metal is ALWAYS at the CATHODE (negative terminal).
+
+BOARD TIP: Very common mistake — reversing anode and cathode. Remember: **C**athode = **C**lean/Pure metal. Anode (A) = dirty/Impure metal going in.
+
+========================================================================
+SLIDE 18: Reading Comprehension Story Mode — The Dawn of the Bronze Age
+========================================================================
+
+ON SCREEN:
+  - Story title: "The Dawn of the Bronze Age"
+  - Audio controls: Read to Me / Stop
+  - Passage about discovery of bronze alloy and its historical impact
+
+SCRIPT (say this aloud):
+  Our third story passage is called "The Dawn of the Bronze Age," and it beautifully contextualizes why alloys were one of the most transformative discoveries in human history.
+
+  Let me read it: "Pure copper is a beautiful, shiny metal, but it is far too soft to forge strong weapons or sturdy tools. Thousands of years ago, ancient metallurgists made a world-changing discovery: by melting copper and mixing in a small amount of tin, they created a completely new material. This new mixture, called an alloy, was significantly harder and more durable than either of its parent metals. They named this alloy 'Bronze'. This single chemical discovery was so revolutionary that it gave birth to the Bronze Age, allowing human civilizations to build stronger plows, sharper swords, and massive empires."
+
+  Let that sink in. Two soft, individually limited metals — copper and tin — combined to create something stronger than either of them alone. That is the power of alloys. The alloy has different and improved properties compared to its constituent metals. The next slide will give us all the important alloys we need to know for the board exam.
+
+KEY POINTS TO STRESS:
+  - Bronze = Copper + Tin; harder than either parent metal.
+  - Alloys have properties different from — and often better than — their component metals.
+  - The discovery of bronze was historically transformative.
+
+========================================================================
+SLIDE 19: Rusting & Alloys (ਜੰਗ ਲੱਗਣਾ)
+========================================================================
+
+ON SCREEN:
+  - Rusting of iron: requires both Oxygen + Water
+  - Prevention methods: painting, oiling, Galvanisation (ਗੈਲਵੈਨੀਕਰਨ) = zinc coating
+  - Alloys definition and table: Brass, Bronze, Solder, Amalgam with compositions
+
+SCRIPT (say this aloud):
+  This slide covers two closely related topics — rusting and alloys. Both are important for the board exam.
+
+  Rusting — ਜੰਗ ਲੱਗਣਾ. Iron, when exposed to air and water, undergoes a slow chemical reaction that forms a reddish-brown layer of hydrated iron oxide — commonly called rust. The key condition to remember is that iron requires BOTH oxygen AND water to rust. If you remove either one, rusting does not occur. This is why iron items that are kept completely dry, or completely submerged in oil, do not rust.
+
+  How do we prevent rusting? Several methods are used: Painting the iron surface creates a barrier against air and water. Oiling or greasing works the same way. The most important method for the board exam is Galvanisation — ਗੈਲਵੈਨੀਕਰਨ — which is the process of coating steel or iron with a thin layer of Zinc. The zinc layer acts as a sacrificial barrier — even if the zinc coating is scratched, zinc is more reactive than iron and will corrode preferentially, protecting the iron underneath. You see galvanized iron in roofing sheets and buckets.
+
+  Now, Alloys — ਮਿਸ਼ਰਤ ਧਾਤਾਂ. An alloy is a homogeneous mixture of two or more metals (or a metal and a non-metal). The key word is "homogeneous" — the components are uniformly mixed. Pure metals often have limitations — pure iron, for example, is too soft and brittle. Adding a small percentage of carbon to iron creates steel, which is much stronger.
+
+  Here are the four alloys you must know for the board exam:
+  - Brass = Copper (Cu) + Zinc (Zn). Used in musical instruments, taps, and fittings.
+  - Bronze = Copper (Cu) + Tin (Sn). Used in statues, medals, and bells.
+  - Solder = Lead (Pb) + Tin (Sn). Has a low melting point, which makes it perfect for joining electrical wires without damaging components.
+  - Amalgam = Any alloy in which one component is Mercury (Hg). Dental fillings were traditionally made from a silver amalgam.
+
+KEY POINTS TO STRESS:
+  - Rusting requires BOTH O₂ AND H₂O — remove either one to prevent rusting.
+  - Galvanisation (ਗੈਲਵੈਨੀਕਰਨ) = zinc coating on iron/steel.
+  - Brass = Cu + Zn; Bronze = Cu + Sn; Solder = Pb + Sn; Amalgam = any alloy with Hg.
+  - Alloy = homogeneous mixture; has improved properties over pure metals.
+
+BOARD TIP: "Name the constituents of brass and bronze" is a very common 1-mark question. Don't mix them up: BrASS = Cu + Zinc; BrONZE = Cu + Tin.
+
+========================================================================
+SLIDE 20: Nature of Element Oxides (ਆਕਸਾਈਡਾਂ ਦਾ ਸੁਭਾਅ) — Interactive Check
+========================================================================
+
+ON SCREEN:
+  - Interactive comprehension check with two questions
+  - Check 1: Metal oxides (like MgO) — Basic or Acidic? (turn red litmus blue)
+  - Check 2: Non-metal oxides (like SO₂) — Basic or Acidic? (turn blue litmus red)
+  - Punjabi translations of both questions
+
+SCRIPT (say this aloud):
+  This is an interactive comprehension check on the nature of element oxides — ਆਕਸਾਈਡਾਂ ਦਾ ਸੁਭਾਅ. Let me first teach the concept, then we will answer the two check questions.
+
+  The nature of an oxide — whether it is acidic or basic — depends on whether the parent element is a metal or a non-metal.
+
+  Metal oxides are Basic in nature. For example, Magnesium oxide (MgO). When MgO is dissolved in water, it forms Magnesium hydroxide — Mg(OH)₂ — which is a base. You can test this with litmus paper: a metal oxide solution turns red litmus blue, confirming it is basic. Similarly, calcium oxide (CaO) dissolved in water gives calcium hydroxide, a strong base.
+
+  Non-metal oxides are Acidic in nature. For example, Sulfur dioxide (SO₂). When SO₂ dissolves in water, it forms sulphurous acid — H₂SO₃. This is an acid. You can test it: a non-metal oxide solution turns blue litmus red, confirming it is acidic. Carbon dioxide (CO₂) dissolved in water forms carbonic acid (H₂CO₃). This is why acid rain occurs — SO₂ and NO₂ from factories dissolve in rainwater to make it acidic.
+
+  Now the special case — Aluminum oxide (Al₂O₃). It is Amphoteric — ਦੋਗਲਾ — meaning it behaves as both a base and an acid. It can react with both acids and bases, which is why it is called amphoteric (from Greek "both").
+
+  Teacher: Now direct students to check the two questions on-screen using this knowledge — they should now know the answers with confidence!
+
+  Check 1 Answer: Metal oxides (like MgO) are BASIC — they turn red litmus blue.
+  Check 2 Answer: Non-metal oxides (like SO₂) are ACIDIC — they turn blue litmus red.
+
+KEY POINTS TO STRESS:
+  - Metal oxides → Basic (turn red litmus blue).
+  - Non-metal oxides → Acidic (turn blue litmus red).
+  - Al₂O₃ is Amphoteric — reacts with both acids and bases.
+  - Acid rain: SO₂/NO₂ + H₂O → acid.
+
+BOARD TIP: "What is an amphoteric oxide? Give an example." — Al₂O₃. Define + example for 2 marks.
+
+========================================================================
+SLIDE 21: Case Study — Thermit Reaction (Passage)
+========================================================================
+
+ON SCREEN:
+  - Case study passage: thermit reaction described
+  - Iron(III) oxide + Aluminum → molten iron → used to weld railway tracks
+  - Note: questions based on this passage will follow on next slides
+
+SCRIPT (say this aloud):
+  We now have a Case Study — a reading passage followed by questions. This is a format that appears increasingly in PSEB board exams for 3-to-5 mark questions. Read the passage carefully before answering — the answers are always in the passage, combined with your prior knowledge.
+
+  Here is the passage — listen carefully:
+  "A mixture of Iron(III) oxide and Aluminum powder is ignited. A highly exothermic reaction takes place, producing molten iron. This liquid iron is immediately poured into cracks in railway tracks to weld them together."
+
+  Teacher: Have students read this passage silently for 60 seconds before revealing the questions on the next two slides. Tell them to underline key phrases: "Iron(III) oxide," "Aluminum powder," "exothermic," "molten iron," and "weld railway tracks." These phrases directly answer the questions that follow.
+
+  Key observations from the passage:
+  - Two reactants: Iron(III) oxide (Fe₂O₃) and Aluminum (Al).
+  - Aluminum is more reactive than iron → this is a displacement reaction.
+  - "Highly exothermic" → so much heat is released that iron comes out as liquid.
+  - "Molten iron" → iron in liquid state.
+  - Real-world application → welding broken railway tracks.
+
+  Now move to the next slides for the questions!
+
+KEY POINTS TO STRESS:
+  - Case study format: read → underline key phrases → answer based on passage + chapter knowledge.
+  - Two reactants: Fe₂O₃ + Al.
+  - Reaction is exothermic and produces molten Fe.
+
+========================================================================
+SLIDE 22: Case Study Question 1 — Type of Reaction
+========================================================================
+
+ON SCREEN:
+  - Question: "What type of reaction is the Thermit reaction?"
+  - Options: A. Combination  B. Displacement  C. Decomposition  D. Double Displacement
+
+SCRIPT (say this aloud):
+  Case Study Question 1: What type of reaction is the Thermit reaction?
+
+  Teacher: Give students 30 seconds to choose their answer, then discuss as a class.
+
+  Let us think through this systematically.
+  - A Combination reaction joins two or more substances to form one product. Here, we start with two reactants and end up with two products — Fe and Al₂O₃. That rules out A.
+  - A Decomposition reaction breaks one substance into two or more. That is not what is happening here. Rules out C.
+  - A Double Displacement reaction involves the exchange of ions between two compounds. That is not happening here either. Rules out D.
+  - A Displacement reaction is when a more reactive element pushes out a less reactive element from its compound. Here, Aluminum (Al) — which is more reactive than Iron — pushes Iron out of its oxide (Fe₂O₃). That fits perfectly!
+
+  The correct answer is B — Displacement Reaction.
+
+  The equation is: Fe₂O₃ + 2Al → 2Fe + Al₂O₃ + Heat. Aluminum displaces iron. Classic displacement.
+
+KEY POINTS TO STRESS:
+  - Correct answer: B — Displacement Reaction.
+  - Al is more reactive than Fe → Al displaces Fe from Fe₂O₃.
+  - Equation: Fe₂O₃ + 2Al → 2Fe + Al₂O₃ + Heat.
+
+BOARD TIP: When asked to identify a reaction type, always justify your answer with one sentence explaining why — examiners award marks for reasoning.
+
+========================================================================
+SLIDE 23: Case Study Question 2 — Why is Iron in Liquid State?
+========================================================================
+
+ON SCREEN:
+  - Question: "Why is the iron produced in the liquid state?"
+  - Options: A. Because iron has a low melting point  B. Because aluminum lowers the melting point  C. Because the reaction produces a massive amount of heat  D. Because of the pressure applied
+
+SCRIPT (say this aloud):
+  Case Study Question 2: Why is the iron produced in the liquid state?
+
+  Teacher: Let students think for 30 seconds, then discuss. Ask them: "What do we know about the iron's melting point? What did the passage say about the reaction?"
+
+  Let us evaluate each option:
+  - A. "Iron has a low melting point" — This is completely false. Iron has a very HIGH melting point of about 1538°C. Iron being a solid metal, you need enormous heat to melt it. Eliminate A.
+  - B. "Aluminum lowers the melting point" — Aluminum does not lower iron's melting point. This is not a physical mixing effect. Eliminate B.
+  - D. "Because of the pressure applied" — There is no special pressure involved in the thermit reaction. It happens at atmospheric pressure. Eliminate D.
+  - C. "Because the reaction produces a massive amount of heat" — YES! The thermit reaction is intensely exothermic. The heat generated is so enormous — temperatures can exceed 2500°C — that it is more than enough to not just melt the iron produced, but to keep it in a liquid state. This is the correct answer.
+
+  The correct answer is C. The iron is liquid because the exothermic thermit reaction generates temperatures far above iron's melting point.
+
+KEY POINTS TO STRESS:
+  - Correct answer: C — massive heat from the exothermic reaction.
+  - Iron has a HIGH melting point (~1538°C); it melts only because the reaction generates enormous heat (>2500°C).
+  - Exothermic = heat released; this heat liquefies the iron.
+
+BOARD TIP: This question tests whether students understand "exothermic" in context. Always link "exothermic" to "heat released → temperature rise → possible state changes."
+
+========================================================================
+SLIDE 24: Chapter 3 Quick Recap
+========================================================================
+
+ON SCREEN:
+  - Five bulleted recap points covering metals/non-metals properties, ionic compounds, reactivity series, and metallurgy
+
+SCRIPT (say this aloud):
+  Excellent work, everyone! Let us do a lightning-fast recap of everything we have covered in Chapter 3. Tick each point off mentally as I say it — if you are unsure about any point, make a note to review that slide.
+
+  Point 1: Metals are lustrous, malleable, ductile, and good conductors of heat and electricity. Non-metals are generally dull, brittle, and poor conductors. And remember the key exceptions — Mercury is a liquid metal; Graphite conducts electricity; Iodine has lustre.
+
+  Point 2: Ionic compounds — formed when metals transfer electrons to non-metals — have very high melting points due to strong electrostatic forces, and they conduct electricity only in solution or molten state, not in solid form.
+
+  Point 3: The Reactivity Series tells us how reactive metals are relative to each other. A more reactive metal displaces a less reactive one from its salt solution. The mnemonic was: "Please Stop Calling Me A Careless Zebra Instead Try Learning How Copper Saves Gold."
+
+  Point 4: Metallurgy has three stages — Enrichment (removing gangue), Extraction (based on reactivity — heating, carbon reduction, or electrolysis), and Refining (electrolytic refining; pure metal deposits at cathode).
+
+  Point 5: Rusting of iron requires both water AND oxygen. Galvanisation prevents it. Key alloys: Brass = Cu + Zn; Bronze = Cu + Sn; Solder = Pb + Sn; Amalgam contains Mercury.
+
+  That is the heart of Chapter 3. Practice the vocabulary, the comparison tables, and the equations — and you will score full marks on this chapter's board questions.
+
+KEY POINTS TO STRESS:
+  - Properties of metals vs. non-metals + key exceptions.
+  - Ionic compounds: high melting point, conduct only in solution/molten state.
+  - Reactivity series determines displacement and extraction method.
+  - Three stages of metallurgy: Enrichment → Extraction → Refining.
+  - Rusting: O₂ + H₂O; Galvanisation; 4 key alloys.
+
+BOARD TIP: Use this recap as a 10-minute revision checklist the night before the exam.
+
+========================================================================
+SLIDE 25: True or False? (ਸਹੀ ਜਾਂ ਗਲਤ?) — 14 Questions
+========================================================================
+
+ON SCREEN:
+  - Interactive True/False quiz, 14 questions, with Punjabi translations
+  - Topics: Graphite, metal ions, displacement, mercury, non-metals, gold/silver, ionic compounds, alloys, Al₂O₃, Na/K storage, calcination, iodine, electrolytic refining, HNO₃
+
+SCRIPT (say this aloud):
+  This is a 14-question True or False activity — ਸਹੀ ਜਾਂ ਗਲਤ — to test your understanding of the entire chapter. Teacher: Run this as a rapid-fire class activity. For each question, have students raise their hand for True or False before revealing the answer. Discuss any question where the class is divided.
+
+  Let me walk through all 14 questions with the correct answers and brief explanations:
+
+  Q1: Graphite is a non-metal but it conducts electricity.
+  Answer: TRUE. Graphite is an allotrope of carbon (a non-metal), but its special layered structure allows electrons to move freely between layers — making it an excellent conductor. This is the key exception.
+
+  Q2: Metals gain electrons to form positive ions.
+  Answer: FALSE. Metals LOSE electrons to form positive ions (cations). Non-metals gain electrons to form negative ions (anions). This is a very common confusion — metal = lose, non-metal = gain.
+
+  Q3: Zinc can displace copper from copper sulphate solution.
+  Answer: TRUE. Zinc is above Copper in the reactivity series, so Zinc is more reactive and can displace Copper. Zn + CuSO₄ → ZnSO₄ + Cu.
+
+  Q4: All metals are solid at room temperature.
+  Answer: FALSE. Mercury (Hg) is a metal that is liquid at room temperature. It is the only exception.
+
+  Q5: Non-metals generally do not conduct heat and electricity.
+  Answer: TRUE. Non-metals are generally poor conductors. (Remember: Graphite is the only exception that conducts electricity.)
+
+  Q6: Gold and silver are found in the free state in nature.
+  Answer: TRUE. Gold and silver are at the bottom of the reactivity series — they are the least reactive metals. Because they do not react readily with other elements, they are found as free elements in nature (native gold, native silver), not combined in compounds.
+
+  Q7: Ionic compounds are generally insoluble in water.
+  Answer: FALSE. Ionic compounds are generally SOLUBLE in water. This is a classic false statement designed to trick students. Most ionic compounds dissolve readily in water.
+
+  Q8: An alloy is a homogeneous mixture of two or more metals.
+  Answer: TRUE. An alloy is indeed a homogeneous mixture. (Note: it can also include a non-metal, like carbon in steel — but the core statement is true.)
+
+  Q9: Aluminum oxide is an amphoteric oxide.
+  Answer: TRUE. Al₂O₃ reacts with both acids and bases, making it amphoteric. This is a key fact.
+
+  Q10: Metals like sodium and potassium are stored under water.
+  Answer: FALSE. Na and K are stored under KEROSENE OIL, not water! They react violently with water, so storing them in water would cause an explosion. They cannot even be stored in air because they react with atmospheric moisture.
+
+  Q11: Calcination is used for sulphide ores.
+  Answer: FALSE. Calcination is used for CARBONATE ores (releases CO₂). ROASTING is used for sulphide ores (releases SO₂). Students frequently mix these up — this is why it is tested.
+
+  Q12: Iodine is a non-metal that has a shiny appearance (lustre).
+  Answer: TRUE. Iodine is the one lustrous non-metal — the major exception to the rule that non-metals are dull.
+
+  Q13: In electrolytic refining, the impure metal is made the anode.
+  Answer: TRUE. The impure metal is always the anode (positive terminal). The cathode receives pure metal ions and builds a block of pure metal.
+
+  Q14: Hydrogen gas is usually evolved when a metal reacts with dilute Nitric Acid (HNO₃).
+  Answer: FALSE. HNO₃ does NOT produce hydrogen gas because it is a strong oxidizing agent — it oxidizes H₂ to H₂O as soon as it forms. This is the nitric acid anomaly, and it is a very high-priority board topic.
+
+KEY POINTS TO STRESS:
+  - Q2: Metals LOSE electrons (form cations); non-metals GAIN electrons (form anions).
+  - Q7: Ionic compounds are generally SOLUBLE in water (not insoluble).
+  - Q10: Na, K stored in KEROSENE — not water.
+  - Q11: Roasting = sulphide ores; Calcination = carbonate ores.
+  - Q14: HNO₃ does NOT produce H₂ gas.
+
+BOARD TIP: Questions 2, 7, 10, 11, and 14 are classic "trap" questions designed to catch students who have not read carefully. Review each one until you are certain.
+
+========================================================================
+SLIDE 26: Say It Back: Chapter 3 — Short Answer Review (12 Questions)
+========================================================================
+
+ON SCREEN:
+  - Interactive short-answer activity, 12 questions
+  - Topics: malleable, ductile, ionic melting points, thermit welding, electrolytic refining, steam-reactive metals, brass composition, calcination, roasting, lustrous non-metal, best conductor, copper corrosion color
+
+SCRIPT (say this aloud):
+  This is the "Say It Back" activity — a series of 12 short answer questions where you say the answer aloud in your own words before revealing it. Teacher: Go through each one and cold-call students for answers.
+
+  Here are all 12 questions with model answers:
+
+  Q1: Malleable means...
+  Answer: Malleable (ਕੁਟੀਨਯੋਗ) means the metal can be beaten into thin sheets without breaking. Example: gold beaten into gold leaf.
+
+  Q2: Ductile means...
+  Answer: Ductile (ਖਿਚੀਨਯੋਗ) means the metal can be pulled or drawn into thin wires. Example: copper drawn into electric wires.
+
+  Q3: Why do ionic compounds have high melting points?
+  Answer: Ionic compounds have high melting points because of the strong electrostatic forces of attraction between their oppositely charged ions (cations and anions). A large amount of energy is needed to overcome these forces.
+
+  Q4: What reaction is used to join railway tracks?
+  Answer: The Thermit Reaction (ਥਰਮਿਟ ਕਿਰਿਆ). It is a highly exothermic displacement reaction between aluminum powder and iron(III) oxide, producing molten iron: Fe₂O₃ + 2Al → 2Fe(l) + Al₂O₃ + Heat.
+
+  Q5: In electrolytic refining, pure metal deposits on the...
+  Answer: The Cathode — the negative terminal. The impure metal is at the anode; the pure metal builds up at the cathode.
+
+  Q6: Which metals react only with steam?
+  Answer: Aluminum (Al), Iron (Fe), and Zinc (Zn). They do not react with liquid water but do react when steam is passed over them.
+
+  Q7: Brass is an alloy of Copper and what?
+  Answer: Zinc (Zn). Brass = Copper + Zinc. (Do not confuse with Bronze = Copper + Tin.)
+
+  Q8: Heating a carbonate ore in limited air is called?
+  Answer: Calcination (ਕੈਲਸੀਨੇਸ਼ਨ). It releases CO₂ and leaves behind the metal oxide.
+
+  Q9: What is the process of heating a sulphide ore in excess air called?
+  Answer: Roasting (ਭੁੰਨਣਾ). It releases SO₂ and leaves behind the metal oxide.
+
+  Q10: Which non-metal is lustrous (shiny)?
+  Answer: Iodine (I). It is the only lustrous non-metal — the main exception to the rule that non-metals are dull.
+
+  Q11: Which metal is the best conductor of electricity?
+  Answer: Silver (Ag) is the best conductor of electricity among all metals, though Copper (Cu) is used more practically due to its much lower cost.
+
+  Q12: Corrosion of copper forms a layer of what color?
+  Answer: Green. When copper corrodes, it forms a greenish layer of copper carbonate and copper hydroxide — this is the patina you see on old copper statues, coins, and utensils. The Statue of Liberty is actually made of copper and has turned green due to corrosion!
+
+KEY POINTS TO STRESS:
+  - Cathode = where pure metal deposits in electrolytic refining.
+  - Roasting (sulphide + excess air → SO₂); Calcination (carbonate + limited air → CO₂).
+  - Brass = Cu + Zn; Bronze = Cu + Sn.
+  - Silver = best conductor; Copper = most widely used conductor.
+  - Copper corrosion = green layer.
+
+BOARD TIP: Q3 (ionic melting points) and Q4 (thermit reaction) are both 2–3 mark board questions — practice writing full-sentence answers.
+
+========================================================================
+SLIDE 27: Quick Check: Chapter 3 (ਤੁਰੰਤ ਜਾਂਚ) — 12 MCQs
+========================================================================
+
+ON SCREEN:
+  - Multiple choice quiz, 12 questions with 3 options each and Punjabi translations
+  - Final slide — "Continue to Chapter 4" button
+
+SCRIPT (say this aloud):
+  We have reached the final slide — the Chapter 3 Quick Check! This is a 12-question multiple choice quiz. Teacher: Project each question, give 20–30 seconds for students to write their answers, then reveal and explain. This is excellent last-minute exam practice.
+
+  Here are all 12 questions with the correct answers and explanations:
+
+  Q1: Which metal is liquid at room temperature?
+  Options: A. Iron  B. Mercury  C. Copper
+  Answer: B — Mercury (Hg). The only metal that is liquid at room temperature. This is the most fundamental exception in the chapter.
+
+  Q2: The ability of metals to be drawn into wires is called:
+  Options: A. Malleability  B. Ductility  C. Sonorous
+  Answer: B — Ductility (ਖਿਚੀਨਯੋਗ). Drawing into wires = ductility. Malleability is beating into sheets. Sonorous means metals produce a ringing sound when struck.
+
+  Q3: Roasting is used for which type of ore?
+  Options: A. Carbonate ore  B. Sulphide ore  C. Oxide ore
+  Answer: B — Sulphide ore. Roasting involves heating sulphide ores in excess air, converting them to oxides and releasing SO₂.
+
+  Q4: Which metal is safely stored under kerosene oil?
+  Options: A. Sodium  B. Magnesium  C. Zinc
+  Answer: A — Sodium (Na). Sodium (and Potassium) are so reactive that they react violently with water and even atmospheric moisture. They are stored in kerosene oil to prevent this.
+
+  Q5: The poorest conductor of heat among metals is:
+  Options: A. Copper  B. Lead  C. Silver
+  Answer: B — Lead (Pb). While all metals conduct heat, Lead is the poorest conductor among metals. Silver and Copper are the best conductors.
+
+  Q6: Which property of metals is used for making ringing bells?
+  Options: A. Malleability  B. Sonorous  C. Ductility
+  Answer: B — Sonorous. Metals produce a clear, ringing sound when struck — this property is called Sonority. It is why bells, cymbals, and gongs are made of metals.
+
+  Q7: Al₂O₃ is an example of a/an:
+  Options: A. Basic oxide  B. Acidic oxide  C. Amphoteric oxide
+  Answer: C — Amphoteric oxide. Al₂O₃ reacts with both acids AND bases. It is the classic example of an amphoteric oxide. (Note: Most metal oxides are basic, but Al₂O₃ is special.)
+
+  Q8: The extraction of metals from their ores and refining them is known as:
+  Options: A. Calcination  B. Metallurgy  C. Roasting
+  Answer: B — Metallurgy (ਧਾਤੂਕਰਨ). Metallurgy is the complete science of extracting and purifying metals from ores. Calcination and Roasting are just two sub-steps within metallurgy.
+
+  Q9: Which of the following pairs will give displacement reactions?
+  Options: A. NaCl solution and copper coin  B. AgNO₃ solution and copper coin  C. FeSO₄ solution and silver coin
+  Answer: B — AgNO₃ solution and copper coin. Copper is above Silver in the reactivity series, so Copper CAN displace Silver from Silver Nitrate. The reaction: Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag. Option A will not work (Cu cannot displace Na). Option C will not work (Ag cannot displace Fe, as Fe is above Ag in the series).
+
+  Q10: An alloy of Pb and Sn is called:
+  Options: A. Brass  B. Bronze  C. Solder
+  Answer: C — Solder. Lead (Pb) + Tin (Sn) = Solder. It has a low melting point, making it ideal for joining electrical connections. (Brass = Cu + Zn; Bronze = Cu + Sn.)
+
+  Q11: Galvanisation protects iron from rusting by coating it with:
+  Options: A. Copper  B. Zinc  C. Tin
+  Answer: B — Zinc. Galvanisation coats iron or steel with a thin layer of Zinc. Zinc is more reactive than iron and preferentially corrodes (sacrificial protection), keeping the iron safe.
+
+  Q12: Which non-metal is a liquid at room temperature?
+  Options: A. Iodine  B. Carbon  C. Bromine
+  Answer: C — Bromine (Br). Bromine is the only non-metal that is liquid at room temperature. (Iodine is a solid; Carbon is a solid. Mercury is a liquid metal — Bromine is the liquid non-metal.)
+
+  Excellent work completing Chapter 3! You have covered all the properties, reactions, reactivity series, metallurgy, and alloys. Now continue to Chapter 4 when you are ready!
+
+KEY POINTS TO STRESS:
+  - Q1: Mercury = liquid metal; Q12: Bromine = liquid non-metal.
+  - Q7: Al₂O₃ = amphoteric (not basic, not acidic — BOTH).
+  - Q9: Cu displaces Ag from AgNO₃ because Cu > Ag in reactivity.
+  - Q10: Solder = Pb + Sn (low melting point for electrical work).
+  - Q11: Galvanisation = zinc coating on iron.
+
+BOARD TIP: Q7 and Q9 are the two hardest questions in this quiz. For Q9, always check the reactivity positions of both metals before deciding if displacement occurs.
+
+======================================================================
+END OF CHAPTER 3 SCRIPT — 27 SLIDES TOTAL
+Version 1 | PSEB Class 10 Science | Metals and Non-metals
+======================================================================

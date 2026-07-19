@@ -1,0 +1,706 @@
+CHAPTER 6 — CONTROL AND COORDINATION
+PSEB Class 10 Science — Teaching Script (Version 1)
+TOTAL SLIDES: 31
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 6 — Control and Coordination
+========================================================================
+
+ON SCREEN:
+  - Chapter title: "Chapter 7 — Control and Coordination"
+  - Punjabi translation: ਕਾਬੂ ਅਤੇ ਤਾਲਮੇਲ
+
+SCRIPT (say this aloud):
+  Good day, everyone! Today we begin Chapter 6 — Control and Coordination. In Punjabi, this is called ਕਾਬੂ ਅਤੇ ਤਾਲਮੇਲ — "ਕਾਬੂ" means control, and "ਤਾਲਮੇਲ" means coordination. This is one of the most important and interesting chapters in your Class 10 Science syllabus. Think about this for a moment — right now, your eyes are reading this slide, your brain is processing the information, and your body is sitting still without you consciously telling it to breathe. How does your body manage all of this at once? That is exactly what this chapter answers. We will explore how the human nervous system and hormones work together to keep the body functioning, and we will also look at how plants — without a single nerve cell — still manage to respond to their environment. Get ready — this chapter is a board exam favourite and very scoring!
+
+KEY POINTS TO STRESS:
+  - Chapter 6 covers how living organisms detect and respond to changes in their environment.
+  - Two main systems are involved: the nervous system and the endocrine (hormonal) system.
+  - Plants coordinate through hormones called phytohormones.
+  - This chapter is heavily tested in PSEB board exams.
+
+BOARD TIP: This chapter regularly contributes 5-mark and 3-mark questions in the PSEB board exam. Pay close attention to every definition and diagram.
+
+
+========================================================================
+SLIDE 2: Bilingual Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Six key terms with English word, Punjabi meaning, brief definition, and pronunciation guide
+  - Neuron, Synapse, Receptor, Effector, Tropism, Hormone
+
+SCRIPT (say this aloud):
+  Before we dive into the chapter content, let us build our vocabulary. A strong grip on these terms will make every explanation much easier to follow. First — Neuron, or in Punjabi ਨਾੜੀ ਸੈੱਲ. A neuron is simply a nerve cell, the basic unit of the nervous system. Second — Synapse, ਸਿਨੈਪਸ. This is the tiny gap between two neurons where signals pass from one to the other. Third — Receptor, ਗ੍ਰਾਹੀ. Receptors are special cells or organs that detect changes in the environment — like the light-sensitive cells in your eyes, or the pain receptors in your skin. Fourth — Effector, ਪ੍ਰਭਾਵਕ. The effector is what actually carries out the response — this is usually a muscle that contracts or a gland that secretes something. Fifth — Tropism, ਅਨੁਵਰਤਨ. This is a directional growth movement in plants in response to a stimulus, like a shoot growing towards light. And sixth — Hormone, ਹਾਰਮੋਨ. A hormone is a chemical messenger produced by a gland and carried in the blood to a target organ. Keep these six words firmly in mind — they appear in nearly every question from this chapter.
+
+KEY POINTS TO STRESS:
+  - Neuron = nerve cell (ਨਾੜੀ ਸੈੱਲ); basic unit of the nervous system.
+  - Synapse = gap between two neurons (ਸਿਨੈਪਸ).
+  - Receptor detects stimuli; Effector carries out the response.
+  - Hormone = chemical messenger carried in the blood (ਹਾਰਮੋਨ).
+  - Tropism = directional growth in plants (ਅਨੁਵਰਤਨ).
+
+
+========================================================================
+SLIDE 3: More Key Terms (ਹੋਰ ਮੁੱਖ ਸ਼ਬਦ)
+========================================================================
+
+ON SCREEN:
+  - Eight more key terms: Stimulus, Response, Reflex Action, Reflex Arc, CNS, Gland, Phototropism, Geotropism
+  - Each with Punjabi translation, brief definition, and pronunciation
+
+SCRIPT (say this aloud):
+  Let us continue building our vocabulary with eight more essential terms. Stimulus — ਉਦੀਪਨ — is any change in the environment that is detected by an organism, for example a sudden loud noise or a flash of light. Response — ਪ੍ਰਤੀਕਿਰਿਆ — is the organism's reaction to that stimulus, such as turning your head toward the noise. Now, two very important terms: Reflex Action — ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆ — is a sudden, automatic, involuntary response that happens without conscious thought, like pulling your hand away from a hot surface. The Reflex Arc — ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ — is the complete pathway the signal travels during a reflex action. Then we have CNS — ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ — which stands for Central Nervous System and consists of the brain and spinal cord. A Gland — ਗ੍ਰੰਥੀ — is an organ that produces and secretes hormones. Finally, two plant movement terms: Phototropism — ਪ੍ਰਕਾਸ਼ ਅਨੁਵਰਤਨ — is growth towards or away from light, and Geotropism — ਗੁਰੂਤਾ ਅਨੁਵਰਤਨ — is growth in response to gravity. These eight terms are essential exam vocabulary.
+
+KEY POINTS TO STRESS:
+  - Stimulus (ਉਦੀਪਨ) triggers a Response (ਪ੍ਰਤੀਕਿਰਿਆ).
+  - Reflex Action is involuntary and sudden (ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆ).
+  - Reflex Arc is the pathway of a reflex signal (ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ).
+  - CNS = Brain + Spinal Cord (ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ).
+  - Phototropism = growth towards light; Geotropism = growth towards gravity.
+
+BOARD TIP: "Define reflex action and reflex arc" is a very common 2-mark question. Write both definitions clearly and distinctly.
+
+
+========================================================================
+SLIDE 4: Introduction to Coordination
+========================================================================
+
+ON SCREEN:
+  - Heading: "Why Respond?"
+  - A prose paragraph explaining stimuli and the need for control and coordination
+  - Read-aloud button present (interactive audio feature)
+
+SCRIPT (say this aloud):
+  Now let us understand why coordination is so vital for life. Think about a sunflower turning its face toward the morning sun — quietly, slowly, the whole flower head rotates to follow the light. Or think about yourself accidentally touching a hot tawa — your hand pulls back instantly, before you even have time to think "that's hot!" Both of these examples show that living organisms must be able to detect changes in their environment and then produce the correct response. These environmental changes are what we call stimuli — ਉਦੀਪਨ. But here is the bigger question: a human body has trillions of cells. How do they all work together so that when one hand touches something hot, the whole body responds correctly? This requires millions of cells to communicate and cooperate perfectly. This synchronized working of various organs and systems is what we call Control and Coordination — ਕਾਬੂ ਅਤੇ ਤਾਲਮੇਲ. Without it, no multicellular organism could survive. This chapter explains exactly how this miracle of communication happens — through nerves, hormones, and in plants, through special chemical signals.
+
+KEY POINTS TO STRESS:
+  - All living organisms must detect and respond to environmental changes (stimuli).
+  - Stimuli = changes in the environment; ਉਦੀਪਨ.
+  - In multicellular organisms, millions of cells must work in harmony — this is coordination.
+  - Control and Coordination is essential for survival.
+
+
+========================================================================
+SLIDE 5: Structure of a Neuron (ਨਾੜੀ ਸੈੱਲ)
+========================================================================
+
+ON SCREEN:
+  - Diagram/description of a neuron with four labeled parts
+  - Dendrite, Cell Body (Soma), Axon, Nerve Ending
+
+SCRIPT (say this aloud):
+  The neuron — ਨਾੜੀ ਸੈੱਲ — is the fundamental unit of the nervous system. Every message that travels in your body travels through neurons, so understanding the structure of a neuron is absolutely essential. Let us go through each part. The Dendrites are the branch-like projections at one end of the neuron. Think of them as the antenna — they receive incoming information from other neurons or from sense organs. The signal then enters the Cell Body, also called the Soma. This is where the nucleus is located and where the signal is processed. From the cell body, the signal travels along a long, thin extension called the Axon. The axon is like a wire — it carries the electrical impulse away from the cell body toward the next neuron or the target organ. At the far end of the axon is the Nerve Ending — this is where the signal is passed on to the next neuron, a muscle, or a gland. So the direction of signal flow in a neuron is always: Dendrite → Cell Body → Axon → Nerve Ending. Remember this order — it is frequently asked in the exam.
+
+KEY POINTS TO STRESS:
+  - Neuron has four parts: Dendrite → Cell Body (Soma) → Axon → Nerve Ending.
+  - Dendrite receives signals; Axon transmits signals away from the cell body.
+  - Signal always travels in one direction through a neuron.
+  - Neurons are the structural and functional units of the nervous system.
+
+BOARD TIP: Draw and label a neuron for 3-mark diagram questions. The four labels — Dendrite, Cell Body, Axon, Nerve Ending — must all be present.
+
+
+========================================================================
+SLIDE 6: The Synapse Conversion (ਸਿਨੈਪਸ)
+========================================================================
+
+ON SCREEN:
+  - Interactive slide with blue blocks to reveal the synapse mechanism
+  - Description of the gap between neurons and how signals cross it using neurotransmitters
+
+SCRIPT (say this aloud):
+  Now we come to one of the most elegant mechanisms in biology — the synapse — ਸਿਨੈਪਸ. Here is the challenge: two neurons never actually touch each other. There is always a tiny physical gap between the nerve ending of one neuron and the dendrite of the next. So how does an electrical signal cross a gap? It cannot — electricity cannot jump across empty space. The body solves this brilliantly. When the electrical impulse reaches the nerve ending of the first neuron, it triggers the release of special chemicals called neurotransmitters. These neurotransmitters are stored in tiny packets at the nerve ending. They are released into the synapse gap and they rapidly diffuse across it — just like a scent spreading through a room. On the other side, these chemicals bind to specific receptor proteins on the dendrite of the next neuron. This binding creates a new electrical impulse in the second neuron. The signal has successfully crossed the gap! Notice something important: this process only works in one direction. Neurotransmitters are released from the nerve ending and received at the dendrite — never the other way around. This is why nerve signals always travel in a single direction. This one-way flow is a key exam point.
+
+KEY POINTS TO STRESS:
+  - Synapse = tiny gap between two neurons (ਸਿਨੈਪਸ).
+  - Electrical signals cannot cross the gap directly.
+  - The nerve ending releases chemicals called neurotransmitters.
+  - Neurotransmitters diffuse across the gap and bind to receptors on the next neuron.
+  - Signals cross the synapse in ONE direction only.
+
+BOARD TIP: "Explain how a signal crosses the synapse" is a common 3-mark question. Always mention neurotransmitters and one-way flow.
+
+
+========================================================================
+SLIDE 7: Organisation of the Nervous System (ਨਾੜੀ ਪ੍ਰਣਾਲੀ ਦੀ ਬਣਤਰ)
+========================================================================
+
+ON SCREEN:
+  - Table with two divisions of the nervous system
+  - CNS: Brain + Spinal Cord → Processes information and takes decisions
+  - PNS: Cranial nerves + Spinal nerves → Carries messages to and from the CNS
+  - Punjabi text below the table
+
+SCRIPT (say this aloud):
+  The nervous system of the human body is organised into two major divisions that work together like a government with a capital city and a network of roads. Look at the table on the screen. The first division is the Central Nervous System, or CNS — ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ. It consists of the Brain and the Spinal Cord. The CNS is the command centre — it receives information, processes it, and takes decisions. Every important decision in your body passes through the CNS. The second division is the Peripheral Nervous System, or PNS — ਪੈਰੀਫਿਰਲ ਨਾੜੀ ਪ੍ਰਣਾਲੀ. It consists of all the Cranial nerves — the nerves coming from the brain — and all the Spinal nerves — the nerves branching out from the spinal cord. The PNS acts like the road network: it carries messages from the sense organs and body parts to the CNS, and carries the CNS's orders back out to the muscles and glands. Together, CNS and PNS cover the entire body and keep the communication flowing. As the Punjabi text on screen says — ਦਿਮਾਗ ਅਤੇ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਮਿਲ ਕੇ ਕੇਂਦਰੀ ਨਾੜੀ ਪ੍ਰਣਾਲੀ ਬਣਾਉਂਦੇ ਹਨ — the brain and spinal cord together form the CNS.
+
+KEY POINTS TO STRESS:
+  - CNS = Brain + Spinal Cord; the command centre of the body.
+  - PNS = Cranial nerves + Spinal nerves; the communication highway.
+  - PNS carries messages TO and FROM the CNS.
+  - These two divisions work together to coordinate all body functions.
+
+BOARD TIP: Students often confuse CNS and PNS. Remember — CNS is in the centre (brain + spinal cord); PNS is everything peripheral (all other nerves).
+
+
+========================================================================
+SLIDE 8: Three Types of Neurons (ਨਾੜੀ ਸੈੱਲਾਂ ਦੀਆਂ ਕਿਸਮਾਂ)
+========================================================================
+
+ON SCREEN:
+  - Table with three types of neurons
+  - Sensory Neuron: Receptor → CNS | Carries messages from sense organs to CNS
+  - Relay (Inter) Neuron: Inside CNS | Connects sensory and motor neurons
+  - Motor Neuron: CNS → Effector | Carries commands to muscles or glands
+
+SCRIPT (say this aloud):
+  Neurons are not all the same — they come in three types, each with a specific job in the communication chain. Look at the table carefully, because this is frequently tested. The first type is the Sensory Neuron — ਸੰਵੇਦੀ ਨਾੜੀ ਸੈੱਲ. Its job is to carry signals FROM the receptors — your sense organs — TO the CNS. For example, when your finger touches a hot surface, sensory neurons carry that pain signal from your skin to your spinal cord and brain. The second type is the Relay Neuron, also called the Inter Neuron — ਰੀਲੇਅ ਨਿਊਰੋਨ. These neurons live entirely inside the CNS — in the brain and spinal cord. Their job is to act as the connector — they receive signals from sensory neurons, process them, and pass them on to motor neurons. They are the decision-making link. The third type is the Motor Neuron — ਪ੍ਰੇਰਕ ਨਾੜੀ ਸੈੱਲ. Motor neurons carry commands FROM the CNS TO the effectors — the muscles and glands — telling them what to do. So the order of signal flow through these three neurons is: Sensory → Relay → Motor. From receptor to spinal cord or brain, then a decision is made, then the command goes out to the muscle. This sequence is the foundation of the reflex arc, which we will cover very soon.
+
+KEY POINTS TO STRESS:
+  - Three neuron types: Sensory, Relay (Inter), Motor.
+  - Sensory: Receptor → CNS (carries incoming information).
+  - Relay: Inside CNS only (connects and processes).
+  - Motor: CNS → Effector (carries outgoing commands).
+  - Signal flow order: Sensory → Relay → Motor.
+
+BOARD TIP: A table comparing the three types of neurons is a very common 3-mark question. Memorize the direction of impulse for each.
+
+
+========================================================================
+SLIDE 9: How a Nerve Impulse Travels (ਨਾੜੀ ਸੰਦੇਸ਼ ਦੀ ਯਾਤਰਾ)
+========================================================================
+
+ON SCREEN:
+  - Interactive recall slide with blue blocks to reveal stages
+  - Five stages: Dendrite reception → electrical impulse → axon → neurotransmitters across synapse → effector response
+
+SCRIPT (say this aloud):
+  Now let us put everything together and trace the complete journey of a nerve impulse from start to finish. This slide is an interactive recall — the blue blocks hide each stage, and you reveal them one by one. As your teacher, let me walk you through the full sequence. Stage one: Information — the stimulus — is first picked up by the Dendrite of a sensory neuron. The dendrite is the receiving end. Stage two: This incoming signal sets off a chemical reaction inside the neuron, which generates an electrical impulse. The cell body processes this and the impulse begins to travel. Stage three: The impulse travels along the length of the Axon — the long wire-like extension — all the way to the nerve ending. Stage four: At the nerve ending, the electrical signal cannot jump across the synapse gap by itself. So the nerve ending releases chemicals called Neurotransmitters into the synapse. These chemicals diffuse across the gap and bind to receptors on the next neuron's dendrite, restarting the electrical impulse in the next neuron. Stage five: After passing through relay neurons in the CNS, the final motor neuron delivers the impulse to the Effector — a muscle or gland. The muscle contracts or the gland secretes, and a response is produced. This entire journey happens in a fraction of a second. Remarkable, isn't it?
+
+KEY POINTS TO STRESS:
+  - Impulse journey: Dendrite → Cell Body → Axon → Nerve Ending → Synapse → Next Neuron → Effector.
+  - Neurotransmitters are the chemical bridge across the synapse.
+  - The impulse is electrical inside the neuron; chemical across the synapse.
+  - Effector (muscle/gland) is the final destination — it produces the response.
+
+
+========================================================================
+SLIDE 10: The Reflex Arc Sequence 🏆 5-Mark Favourite
+========================================================================
+
+ON SCREEN:
+  - Interactive sequencer showing the 5-step reflex arc using the "hot surface" example
+  - Step 1: Receptor (skin thermoreceptors) → Step 2: Sensory Neuron → Step 3: Relay Neuron (Spinal Cord) → Step 4: Motor Neuron → Step 5: Effector (arm muscle contracts)
+  - Labelled as a 5-mark board favourite
+
+SCRIPT (say this aloud):
+  This slide is marked as a 5-mark board favourite — and for good reason. The reflex arc is one of the most commonly examined topics in this chapter. Let us walk through it using the perfect example: you accidentally touch a very hot surface. Step 1 — Receptor. The thermoreceptors in your skin detect extreme heat and a painful stimulus. They convert this physical change into a nerve signal. Step 2 — Sensory Neuron. This signal is immediately picked up by a sensory neuron, which rushes it up your arm towards the central nervous system — specifically, toward the spinal cord. Step 3 — Relay Neuron in the Spinal Cord. This is the critical step. The relay neuron is located strictly in the spinal cord, NOT in the brain. It instantly processes the signal and redirects it — without waiting for the brain to be consulted. This is what makes a reflex so fast. Step 4 — Motor Neuron. The relay neuron sends the command via a motor neuron, which carries it back down your arm to the muscles. Step 5 — Effector. Your arm muscle — the effector — receives the command, contracts powerfully, and your hand jerks away from the heat instantly! Notice that the brain only receives the pain signal after the hand has already moved — you feel the pain a moment after you've already reacted. The complete pathway — Receptor → Sensory Neuron → Relay Neuron (Spinal Cord) → Motor Neuron → Effector — is called the Reflex Arc — ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ.
+
+KEY POINTS TO STRESS:
+  - Reflex Arc sequence: Receptor → Sensory Neuron → Relay Neuron (Spinal Cord) → Motor Neuron → Effector.
+  - The relay neuron is in the SPINAL CORD, not the brain — this is why reflexes are so fast.
+  - The brain is NOT involved in initiating a reflex — it only receives the information afterwards.
+  - Reflex actions are automatic, involuntary, and protective.
+
+BOARD TIP: This 5-step sequence is THE most asked question in this chapter. Write it as a numbered list with the spinal cord role clearly stated. Students who write "brain" instead of "spinal cord" for the relay neuron lose marks.
+
+
+========================================================================
+SLIDE 11: Brain Localisation (ਦਿਮਾਗ ਦੇ ਹਿੱਸੇ)
+========================================================================
+
+ON SCREEN:
+  - Three brain regions with hover descriptions
+  - Cerebrum (Forebrain): Main thinking part — voluntary actions, learning, memory, sensory interpretation
+  - Cerebellum (Hindbrain): Precision and balance — posture, balance (e.g., riding a bike)
+  - Medulla (Hindbrain): Autopilot — involuntary actions like blood pressure, heartbeat, vomiting
+
+SCRIPT (say this aloud):
+  Now we go inside the brain itself. The brain is not a single uniform organ — it is divided into distinct regions, each with a specific and important job. For the board exam, you need to know three regions perfectly. The first is the Cerebrum — ਸੈਰੀਬ੍ਰਮ — which forms most of the forebrain. This is the main thinking part of your brain. Every time you solve a maths problem, recall a memory, make a decision, or feel hunger, it is your cerebrum working. It also processes all incoming sensory information — sight, sound, smell, touch, and taste. Voluntary actions — any movement you consciously choose to make — are controlled by the cerebrum. The second region is the Cerebellum — ਸੈਰੀਬੈਲਮ — located at the back of the brain in the hindbrain. This is your brain's precision and balance centre. Think of learning to ride a bicycle — after practice, your body finds its balance automatically. That "automatic balance" is the cerebellum at work. It coordinates fine motor movements and maintains posture. If the cerebellum is damaged, a person cannot walk in a straight line or perform coordinated movements. The third region is the Medulla — ਮੈਡੂਲਾ — also in the hindbrain. This is the body's autopilot. It controls all the vital involuntary actions that keep you alive without conscious effort — your heartbeat, blood pressure, breathing rate, and even the vomiting reflex. You never need to "remember" to make your heart beat — that is the medulla's job, running silently 24 hours a day.
+
+KEY POINTS TO STRESS:
+  - Cerebrum (Forebrain) = thinking, memory, voluntary actions, sensory interpretation.
+  - Cerebellum (Hindbrain) = balance and posture (e.g., riding a bike, walking straight).
+  - Medulla (Hindbrain) = involuntary vital actions — heartbeat, blood pressure, vomiting.
+  - These three are the most exam-critical parts of the brain.
+
+BOARD TIP: Students frequently mix up Cerebellum and Medulla. Remember: Cerebellum = Balance (both start with the concept of coordination of movement). Medulla = heartbeat/breathing (vital, automatic).
+
+
+========================================================================
+SLIDE 12: Human Brain: Three Divisions 🏆 5-Mark Favourite
+========================================================================
+
+ON SCREEN:
+  - Table with three brain divisions: Forebrain, Midbrain, Hindbrain
+  - Forebrain: Cerebrum → Thinking, memory, voluntary actions, sensing
+  - Midbrain: — → Controls reflexes of the eye (pupil, head movements)
+  - Hindbrain: Cerebellum, Medulla, Pons → Balance, posture & involuntary actions
+  - Punjabi notes below the table
+
+SCRIPT (say this aloud):
+  This table gives you a complete, board-ready summary of the three divisions of the human brain. This is a 5-mark board favourite, so let us go through it carefully. The brain is divided into three regions based on position: Forebrain, Midbrain, and Hindbrain. The Forebrain — ਅਗਲਾ ਦਿਮਾਗ — is dominated by the Cerebrum. This is the largest and most developed part of the human brain. It handles all higher functions: thinking, reasoning, learning, memory, voluntary actions, and the interpretation of all sensory inputs. Everything that makes us distinctly human — language, logic, creativity — comes from the cerebrum. The Midbrain — ਵਿਚਕਾਰਲਾ ਦਿਮਾਗ — connects the forebrain to the hindbrain. Its specific board-tested function is the control of eye reflexes — pupil dilation and constriction in response to light, and reflexive head-and-eye movements. The Hindbrain — ਪਿਛਲਾ ਦਿਮਾਗ — contains three important structures: the Cerebellum, which controls balance and posture; the Medulla, which controls all vital involuntary actions like heartbeat, breathing, and blood pressure; and the Pons, which helps coordinate breathing and acts as a bridge between the cerebellum and the rest of the brain. Remember the Punjabi reminder on screen: ਸੈਰੀਬੈਲਮ = ਸੰਤੁਲਨ; ਮੈਡੂਲਾ = ਅਣਇੱਛਤ ਕਿਰਿਆਵਾਂ. Cerebellum equals balance; Medulla equals involuntary actions.
+
+KEY POINTS TO STRESS:
+  - Forebrain (Cerebrum): thinking, memory, voluntary actions, all senses.
+  - Midbrain: eye reflexes (pupil response, head movement).
+  - Hindbrain: Cerebellum (balance/posture), Medulla (heartbeat, BP, vomiting), Pons (breathing bridge).
+  - All three divisions and their specific functions must be memorised for the board exam.
+
+BOARD TIP: Draw and label the three brain divisions with their functions for 5-mark questions. The Midbrain's role in eye reflexes is often overlooked — don't forget it.
+
+
+========================================================================
+SLIDE 13: Why Reflexes Skip the Brain (ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ)
+========================================================================
+
+ON SCREEN:
+  - Explanation of why reflex actions bypass the brain
+  - Three bullet points about the spinal cord's role
+  - Punjabi statement: ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆਵਾਂ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਦੁਆਰਾ ਕੰਟਰੋਲ ਹੁੰਦੀਆਂ ਹਨ
+
+SCRIPT (say this aloud):
+  This slide answers a brilliant conceptual question — one that the board exam loves to ask: Why do reflex actions bypass the brain? Let us think about this logically. Imagine you accidentally touch a hot tawa in the kitchen. The brain is located in your skull. For the signal to reach your brain from your hand, travel through the brain for processing, and then send a command back down to your hand — all of this takes time. In that time, your skin could suffer serious burns. The body's solution is elegant: instead of sending the signal all the way to the brain, the spinal cord takes a shortcut. The relay neuron inside the spinal cord processes the signal instantly, right there in the cord, and immediately sends the command back to the hand muscles to pull away. This entire response happens before the brain has even received the pain signal! The pre-programmed, ready-made pathway the signal follows — Receptor → Sensory Neuron → Relay Neuron (Spinal Cord) → Motor Neuron → Effector — is called the Reflex Arc. After the hand has already moved, the brain finally receives the pain signal, and that is when you consciously feel "Ouch!" Reflex actions — ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆਵਾਂ — are fast, automatic, and are managed by the spinal cord, not the brain. ਇਹ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਦੁਆਰਾ ਕੰਟਰੋਲ ਹੁੰਦੀਆਂ ਹਨ।
+
+KEY POINTS TO STRESS:
+  - Reflex actions bypass the brain to save time and prevent injury.
+  - The relay neuron in the SPINAL CORD processes and redirects the signal instantly.
+  - The command to move reaches the muscle BEFORE the brain feels the pain.
+  - The complete pathway is the Reflex Arc (ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ).
+  - Reflex actions are automatic and managed by the spinal cord.
+
+BOARD TIP: "Why are reflex actions controlled by the spinal cord and not the brain?" is a classic 3-mark question. Answer: speed is critical — waiting for the brain would cause injury.
+
+
+========================================================================
+SLIDE 14: How Do Muscles Move? (ਮਾਸਪੇਸ਼ੀਆਂ ਦੀ ਹਰਕਤ)
+========================================================================
+
+ON SCREEN:
+  - Prose explanation of how muscle cells produce movement
+  - Three bullet points: proteins in muscle cells, rearrangement on nerve impulse, contraction causes movement
+  - Key statement: Muscles can only PULL, not push — they work in pairs
+  - Punjabi: ਮਾਸਪੇਸ਼ੀਆਂ ਸਿਰਫ਼ ਖਿੱਚ ਸਕਦੀਆਂ ਹਨ
+
+SCRIPT (say this aloud):
+  We have seen how nerve impulses travel and how the reflex arc works. But there is one more question to answer: when the motor neuron delivers its command to the effector, what actually physically happens? How does a muscle move a bone? Here is the explanation. Muscle cells are different from other cells in one important way — they contain special proteins arranged in a precise pattern. When a nerve impulse arrives at a muscle cell, it triggers a chemical reaction that causes these proteins to rearrange — they slide over each other and cause the muscle cell to become shorter. This shortening is called muscle contraction. When enough muscle cells contract together, the whole muscle becomes shorter and pulls the bone it is attached to — causing the limb to move. Now here is a critical point: muscles can only PULL — they can contract and become shorter — but they cannot push. A muscle has no mechanism to lengthen itself by force. So how does the arm both bend and straighten? The answer is that muscles work in pairs — called antagonistic pairs. One muscle contracts to bend the joint; the other contracts to straighten it. The biceps and triceps in your upper arm are the classic example. When the biceps contracts, the arm bends. When the triceps contracts, the arm straightens. ਮਾਸਪੇਸ਼ੀਆਂ ਸਿਰਫ਼ ਖਿੱਚ ਸਕਦੀਆਂ ਹਨ, ਧੱਕ ਨਹੀਂ ਸਕਦੀਆਂ — muscles can only pull, they cannot push.
+
+KEY POINTS TO STRESS:
+  - Muscle cells contain proteins that rearrange when a nerve impulse arrives.
+  - Rearrangement → cell shortens → muscle contracts → bone moves.
+  - Muscles can ONLY PULL (contract), never push.
+  - Muscles work in antagonistic pairs to produce both bending and straightening.
+  - Example: Biceps (bends arm) and Triceps (straightens arm).
+
+BOARD TIP: "Muscles work in pairs" and "muscles can only pull" are frequently tested as 1-mark or 2-mark questions. Mention antagonistic pairs and the biceps/triceps example.
+
+
+========================================================================
+SLIDE 15: The Endocrine System
+========================================================================
+
+ON SCREEN:
+  - Heading: "The Speed Limit of Nerves"
+  - Prose paragraph explaining the limitations of the nervous system and introducing the endocrine system
+  - Key concept: hormones secreted into bloodstream for slow, wide, lasting coordination
+  - Read-aloud button present
+
+SCRIPT (say this aloud):
+  Excellent — we have covered the nervous system in depth. But here is something to think about: the nervous system is incredibly fast, but it has real limitations. First — nerve impulses only travel along nerve fibres. This means they can only reach cells that are directly connected by a nerve. A hormone in the blood, by contrast, can reach every single cell in the body. Second — after sending an impulse, a neuron needs a brief recovery time before it can fire again. It cannot send a continuous, sustained signal. Third — and most importantly — some body processes need slow, steady, long-lasting coordination over hours, days, or even years. Think about growth — you do not grow taller in a split second. Think about puberty — it is a gradual process that takes years. Think about the body's daily regulation of blood sugar, calcium, and metabolism. For all of these slow, sustained, body-wide coordination needs, the body uses a completely different system: the Endocrine System. The endocrine system uses chemical messengers called Hormones — ਹਾਰਮੋਨ — that are produced by special glands and secreted directly into the bloodstream. The blood then carries these hormones to every cell in the body. Because they travel through the blood, they are slower than nerve impulses, but they reach far more cells and their effects last much longer. This is the beautiful complementarity between the two systems — nerves for speed, hormones for sustained wide-body control.
+
+KEY POINTS TO STRESS:
+  - Nervous system is fast but limited — only reaches connected cells, effects are brief.
+  - Endocrine system uses hormones — chemical messengers secreted into the blood.
+  - Hormones reach every cell via the bloodstream — slower but body-wide and long-lasting.
+  - Endocrine system controls growth, metabolism, reproduction, and long-term homeostasis.
+  - The two systems work together and complement each other.
+
+BOARD TIP: "Compare the nervous system and endocrine system" is a common 5-mark question. Key differences: speed (fast vs slow), medium (nerves vs blood), duration (brief vs long-lasting), reach (targeted vs body-wide).
+
+
+========================================================================
+SLIDE 16: The Insulin Feedback Loop (ਫੀਡਬੈਕ ਵਿਧੀ)
+========================================================================
+
+ON SCREEN:
+  - Four-step diagram/description of the insulin feedback loop
+  - Step 1: Eat → blood sugar rises
+  - Step 2: Pancreas detects high sugar → secretes Insulin
+  - Step 3: Insulin → cells absorb sugar → blood sugar falls
+  - Step 4: Pancreas detects low sugar → reduces insulin secretion
+  - Interactive "Reveal Feedback Loop" button
+
+SCRIPT (say this aloud):
+  One of the most important concepts in the endocrine system is the Feedback Mechanism — ਫੀਡਬੈਕ ਵਿਧੀ. This is how the body maintains perfect balance — called homeostasis — by constantly monitoring hormone levels and adjusting secretion automatically. Let us use insulin as the perfect example, which you will also see in your disease chapter. Step 1: You eat a meal — chapati, rice, daal. Carbohydrates are digested into glucose, which is absorbed into the blood. Your blood sugar level rises. Step 2: The Pancreas — ਪੈਨਕ੍ਰੀਆਸ — detects this rise in blood glucose. In response, it secretes the hormone Insulin — ਇਨਸੁਲਿਨ — into the bloodstream. Step 3: Insulin acts as a signal to cells all over the body — especially liver and muscle cells — telling them to absorb glucose from the blood and either use it for energy or store it. The blood sugar level falls back toward normal. Step 4: Now the pancreas detects that blood sugar has dropped back to normal — or is getting too low. It reduces or stops insulin secretion. If it continued secreting insulin, blood sugar would fall dangerously low, causing fainting. So the falling glucose level itself acts as the feedback signal that tells the pancreas to stop. This self-regulating cycle is the feedback mechanism — the body is continuously measuring its own hormone levels and adjusting production to maintain balance. It is beautifully precise.
+
+KEY POINTS TO STRESS:
+  - Feedback mechanism maintains homeostasis — constant internal balance.
+  - Insulin is secreted by the Pancreas when blood sugar rises.
+  - Insulin causes cells to absorb glucose → blood sugar falls.
+  - When blood sugar falls, the pancreas reduces insulin secretion.
+  - The effect of the hormone feeds back to control its own production.
+
+BOARD TIP: "Explain the feedback mechanism using insulin" is a frequently asked 3-mark question. Write all four steps clearly.
+
+
+========================================================================
+SLIDE 17: Human Endocrine Glands 🏆 Board Favourite
+========================================================================
+
+ON SCREEN:
+  - Table: 6 glands, their hormones, and functions
+  - Pituitary → Growth Hormone → Controls body growth & other glands
+  - Thyroid → Thyroxine → Controls metabolism (needs iodine)
+  - Pancreas → Insulin → Controls blood sugar level
+  - Adrenal → Adrenaline → Prepares body for emergency (fight/flight)
+  - Testis → Testosterone → Male sexual development
+  - Ovary → Oestrogen → Female sexual development
+
+SCRIPT (say this aloud):
+  This table is a board exam gold mine — learn every row. We have six major endocrine glands, and you must know the gland name, the hormone it produces, and what that hormone does. Let us go through them one by one. First — the Pituitary Gland — ਪਿਟਿਉਟਰੀ. This tiny gland at the base of the brain produces Growth Hormone, which stimulates overall body growth. It is also called the master gland because it controls the activity of several other endocrine glands. Second — the Thyroid Gland — ਥਾਇਰਾਇਡ. Located in the neck, it produces Thyroxine, which controls the body's metabolism — how fast cells convert food into energy. Crucially, the thyroid needs iodine from the diet to make thyroxine. Third — the Pancreas — ਪੈਨਕ੍ਰੀਆਸ. We just studied this one — it produces Insulin, which regulates blood sugar. Fourth — the Adrenal Glands — ਐਡਰੀਨਲ. Sitting on top of each kidney, they produce Adrenaline — ਐਡਰੀਨਲੀਨ — the emergency hormone. When you are frightened or angry, adrenaline floods your blood and prepares your body for rapid action. Fifth — the Testis — ਟੈਸਟਿਸ — in males. It produces Testosterone, which controls the development of male secondary sexual characteristics during puberty. Sixth — the Ovary — ਓਵਰੀ — in females. It produces Oestrogen, which controls female secondary sexual characteristics. Make a neat table in your notes right now — Gland, Hormone, Function. This will earn you full marks on any 3-mark or 5-mark question.
+
+KEY POINTS TO STRESS:
+  - Pituitary: Growth Hormone — growth and master gland.
+  - Thyroid: Thyroxine — metabolism; needs iodine.
+  - Pancreas: Insulin — blood sugar control.
+  - Adrenal: Adrenaline — fight-or-flight emergency response.
+  - Testis: Testosterone — male sexual development.
+  - Ovary: Oestrogen — female sexual development.
+
+BOARD TIP: This table appears almost every year in some form. A "match the column" or "fill in the blank" question from this table is nearly guaranteed in the PSEB board exam.
+
+
+========================================================================
+SLIDE 18: Thyroid, Iodine & Goitre (ਗਿਲੜ ਰੋਗ)
+========================================================================
+
+ON SCREEN:
+  - Explanation of the thyroid gland's role in metabolism
+  - Three bullet points: Thyroxine needs iodine; iodine deficiency causes goitre; iodised salt as prevention
+  - Chain: No iodine → No thyroxine → Goitre
+  - Punjabi: ਆਇਓਡੀਨ ਦੀ ਕਮੀ ਨਾਲ ਗਿਲੜ ਰੋਗ ਹੁੰਦਾ ਹੈ
+
+SCRIPT (say this aloud):
+  Let us zoom in on the thyroid gland because it has an important health connection that frequently appears in the exam. The thyroid gland, located in your neck, produces the hormone Thyroxine, which acts like the body's throttle — it controls how fast your cells burn food for energy. This is called metabolism. A person with too little thyroxine feels sluggish, gains weight, and feels constantly cold — their metabolism is running too slowly. Now here is the critical point: the thyroid gland can only manufacture thyroxine if it has a sufficient supply of the mineral Iodine from the diet. Iodine is found naturally in seafood and in iodised salt. If a person's diet is consistently low in iodine — this used to be common in mountainous regions far from the sea — the thyroid gland keeps trying to make thyroxine but cannot. In its frustration, it grows larger and larger in an attempt to capture more iodine. This abnormal swelling of the thyroid gland is visible as a large lump in the neck — this condition is called Goitre — ਗਿਲੜ ਰੋਗ. The chain is simple and must be memorised: No iodine → No thyroxine → Goitre. The solution? Iodised salt — common table salt to which iodine has been added. This simple public health measure has virtually eliminated goitre in many countries. ਆਇਓਡੀਨ ਦੀ ਕਮੀ ਨਾਲ ਗਿਲੜ ਰੋਗ ਹੁੰਦਾ ਹੈ।
+
+KEY POINTS TO STRESS:
+  - Thyroid produces Thyroxine, which controls metabolism.
+  - Thyroxine synthesis requires Iodine from the diet.
+  - Iodine deficiency → thyroid cannot make thyroxine → gland swells → Goitre (ਗਿਲੜ ਰੋਗ).
+  - Prevention: use iodised salt in cooking.
+  - Chain: No iodine → No thyroxine → Goitre.
+
+BOARD TIP: "What is goitre and what causes it?" is a classic 2-mark question. Always mention iodine deficiency and the thyroid gland.
+
+
+========================================================================
+SLIDE 19: Adrenaline: Fight or Flight (ਐਡਰੀਨਲੀਨ)
+========================================================================
+
+ON SCREEN:
+  - Introduction: adrenal glands release adrenaline during fear/anger
+  - Table with three body changes and their purpose:
+    - Faster heartbeat & breathing → More oxygen to muscles
+    - Blood diverted to muscles → More energy for reaction
+    - Higher blood sugar → Instant fuel for the body
+
+SCRIPT (say this aloud):
+  Have you ever felt your heart suddenly pounding when you saw a dog running toward you, or felt a rush of energy when you were very angry? That feeling is Adrenaline — ਐਡਰੀਨਲੀਨ — at work. Adrenaline is produced by the Adrenal Glands, which sit on top of your kidneys. The moment your brain perceives a threat or extreme stress, it signals the adrenal glands, and they immediately release adrenaline directly into the bloodstream. Within seconds, adrenaline produces a cascade of body changes — all aimed at one goal: preparing you to either fight the threat or run away from it. This is the famous "fight or flight" response. Look at the table. First — your heartbeat speeds up and your breathing rate increases. Why? Because faster circulation means more oxygen reaches the muscles, which need it to generate energy rapidly. Second — blood is diverted away from organs like the digestive system and redirected to the muscles. The muscles need as much blood and oxygen as possible for the coming effort. Third — blood sugar levels rise. Adrenaline signals the liver to release stored glucose into the blood, providing instant fuel for the muscles and brain. All of these changes together make your body a faster, stronger, more alert version of itself — temporarily. Once the danger passes, adrenaline levels drop and the body returns to its normal resting state. This is another example of the feedback mechanism at work.
+
+KEY POINTS TO STRESS:
+  - Adrenaline is produced by the Adrenal Glands (on top of kidneys).
+  - Released during emergencies, fear, or anger — triggers "fight or flight" response.
+  - Faster heartbeat/breathing → more oxygen to muscles.
+  - Blood diverted to muscles → more energy for rapid reaction.
+  - Higher blood sugar → instant fuel supply.
+
+BOARD TIP: "What is the role of adrenaline?" is a common 3-mark question. Mention: gland (adrenal), trigger (emergency), and at least two specific body changes with their purpose.
+
+
+========================================================================
+SLIDE 20: Plant Coordination
+========================================================================
+
+ON SCREEN:
+  - Heading: "Slower, But Smart"
+  - Prose paragraph explaining plant coordination through phytohormones
+  - Describes how plants lack a nervous system but use chemical growth regulation
+  - Read-aloud button present
+
+SCRIPT (say this aloud):
+  We have spent a good deal of time on animal coordination. Now let us shift our attention to plants, which solve the same problem — responding to the environment — in a completely different way. Plants have no nervous system. They have no brain, no spinal cord, no neurons, no muscles. A plant cannot run away from danger, it cannot grab a passing nutrient, and it cannot signal its neighbor with a nerve impulse. Yet plants respond beautifully to their environment — a sunflower tracks the sun across the sky, roots grow toward water, shoots grow toward light, some plants even fold their leaves when touched. How do they do this? Plants coordinate their behavior entirely through Phytohormones — plant hormones — ਪੌਦਿਆਂ ਦੇ ਹਾਰਮੋਨ. These are chemical substances produced in one part of the plant that travel through plant tissue to affect the growth of other parts. When a plant detects a directional stimulus — sunlight coming from one side, gravity pulling downward, water in the soil below — it uses phytohormones to alter the growth rate of cells on different sides of the stem or root. Cells on one side grow faster or slower than cells on the other side, causing the plant organ to curve or bend in the direction of the response. It is slow — it might take hours or days — but it is effective and elegant. Slower than nerves? Yes. But smart? Absolutely.
+
+KEY POINTS TO STRESS:
+  - Plants have NO nervous system — coordination is entirely through phytohormones (plant hormones).
+  - Phytohormones are chemical substances that affect growth rate of cells.
+  - Unequal growth on two sides of a stem or root causes bending or curving.
+  - Plant responses are slow compared to animal reflexes but are directional and effective.
+
+
+========================================================================
+SLIDE 21: Plant Hormones Matrix (ਪੌਦਿਆਂ ਦੇ ਹਾਰਮੋਨ)
+========================================================================
+
+ON SCREEN:
+  - Interactive matching activity (tap hormone to match its function)
+  - Auxin → Promotes cell elongation (Phototropism)
+  - Cytokinins → Promotes rapid cell division
+  - Abscisic Acid (ABA) → Growth Inhibitor (causes wilting / leaf fall)
+
+SCRIPT (say this aloud):
+  Plants have several hormones, each with a specific job. This slide presents three key plant hormones as a matching activity, and we need to know all three for the board exam. Let us go through them. The first and most important is Auxin — ਔਕਸਿਨ. Auxin is produced at the growing tips of plant shoots. Its main effect is to promote cell elongation — it makes cells grow longer. When light falls on a shoot from one side, auxin moves to the shady side of the shoot. The cells on the shady side receive more auxin, so they elongate more and grow faster than the cells on the sunny side. This unequal growth causes the shoot to curve toward the light — this is phototropism — ਪ੍ਰਕਾਸ਼ ਅਨੁਵਰਤਨ. So Auxin = cell elongation = phototropism. The second hormone is Cytokinin — ਸਾਈਟੋਕਾਇਨਿਨ. Cytokinins are produced primarily in the roots and transported to other parts of the plant. Their main function is to promote rapid cell division — they stimulate cells to divide and are important for plant growth and fruit development. Third is Abscisic Acid, or ABA — ਐਬਸਿਸਿਕ ਐਸਿਡ. This is a growth inhibitor — it does the opposite of auxin and cytokinin. ABA slows down growth and promotes processes like seed dormancy, stomatal closure under drought stress, and leaf fall (abscission). It is the hormone of "slow down and conserve."
+
+KEY POINTS TO STRESS:
+  - Auxin → promotes cell elongation → causes phototropism (shoot bends toward light).
+  - Cytokinin → promotes cell division → important for growth.
+  - Abscisic Acid (ABA) → growth inhibitor → promotes leaf fall, seed dormancy, drought response.
+  - Auxin accumulates on the SHADY side of the shoot, causing that side to grow faster.
+
+BOARD TIP: "Name the plant hormone responsible for phototropism and explain how it works" is a very common 3-mark question. Answer: Auxin; it accumulates on the shady side causing unequal cell elongation, bending the shoot toward light.
+
+
+========================================================================
+SLIDE 22: Movements in Plants (ਪੌਦਿਆਂ ਵਿੱਚ ਹਰਕਤ)
+========================================================================
+
+ON SCREEN:
+  - Two cards comparing types of plant movement
+  - Tropic Movement (ਅਨੁਵਰਤੀ ਗਤੀ): direction depends on stimulus; growth-dependent and directional; example: shoot bending toward light
+  - Nastic Movement (ਅਨਿਸ਼ਚਿਤ ਗਤੀ): direction independent of stimulus; non-directional, usually fast; example: Touch-me-not leaves folding
+
+SCRIPT (say this aloud):
+  Plant movements fall into two broad categories, and distinguishing between them is essential for the board exam. The first type is Tropic Movement — ਅਨੁਵਰਤੀ ਗਤੀ — also called tropism. A tropic movement is one where the direction of the movement or growth is determined by the direction of the stimulus. The stimulus tells the plant which way to grow. For example, when light comes from the left, the shoot grows toward the left — toward the light. The direction of bending is directly linked to the direction the stimulus is coming from. Tropic movements are also growth-dependent — they involve actual, permanent cell growth, so they are slow and take time. Classic examples include a shoot bending toward light (phototropism) and roots growing downward into the ground (geotropism). The second type is Nastic Movement — ਅਨਿਸ਼ਚਿਤ ਗਤੀ. In nastic movements, the direction of the response is NOT determined by the direction of the stimulus. The stimulus simply triggers the movement, and the movement is pre-determined — it always happens in the same way regardless of where the stimulus comes from. Nastic movements are usually fast because they do not involve growth — instead, they involve rapid changes in water pressure (turgor pressure) in cells. The most famous example is the Touch-me-not plant — Mimosa pudica. When you touch any part of a Mimosa leaf, regardless of where or in which direction you touch it, the leaves fold inward. It is always the same response — the direction of your touch does not matter.
+
+KEY POINTS TO STRESS:
+  - Tropic movement: direction of response determined by direction of stimulus; slow; growth-based.
+  - Nastic movement: direction of response NOT linked to direction of stimulus; fast; turgor pressure-based.
+  - Tropism example: shoot bending toward light (phototropism).
+  - Nastic example: Mimosa (Touch-me-not) leaf folding when touched.
+  - Tropisms are permanent growth changes; nastic movements are usually reversible.
+
+BOARD TIP: Students often confuse tropic and nastic movements. Key difference: Tropic = directional (follows the stimulus direction). Nastic = non-directional (same response no matter where stimulus comes from).
+
+
+========================================================================
+SLIDE 23: Types of Tropic Movements (ਅਨੁਵਰਤਨ ਦੀਆਂ ਕਿਸਮਾਂ)
+========================================================================
+
+ON SCREEN:
+  - Interactive matching activity (tap tropism to match its stimulus)
+  - Phototropism → Response to light
+  - Geotropism → Response to gravity
+  - Hydrotropism → Response to water
+  - Chemotropism → Response to chemicals (pollen tube example)
+
+SCRIPT (say this aloud):
+  There are four types of tropic movements you need to know, and each is named after its stimulus. This slide presents them as a matching activity — let us go through all four now. First — Phototropism — ਪ੍ਰਕਾਸ਼ ਅਨੁਵਰਤਨ. This is the response to light. Shoots are positively phototropic — they grow toward light. Roots are negatively phototropic — they grow away from light. This is controlled by the hormone Auxin, as we discussed. Second — Geotropism — ਗੁਰੂਤਾ ਅਨੁਵਰਤਨ. This is the response to gravity. Roots are positively geotropic — they grow downward, in the direction of gravity, to anchor the plant and reach water. Shoots are negatively geotropic — they grow upward, against gravity, toward sunlight. Third — Hydrotropism — ਜਲ ਅਨੁਵਰਤਨ. This is the response to water. Roots show positive hydrotropism — they grow toward the source of moisture in the soil, which is why plant roots can travel surprisingly far to find water. Fourth — Chemotropism — ਰਸਾਇਣਿਕ ਅਨੁਵਰਤਨ. This is the response to chemical stimuli. The most important board-level example is the growth of the pollen tube. When a pollen grain lands on the stigma of a flower, the pollen tube grows down through the style toward the ovule — guided by chemical signals released by the ovule. This is chemotropism.
+
+KEY POINTS TO STRESS:
+  - Phototropism = response to light (shoot grows toward light).
+  - Geotropism = response to gravity (root grows downward; shoot grows upward).
+  - Hydrotropism = response to water (roots grow toward moisture).
+  - Chemotropism = response to chemicals (pollen tube growth toward ovule).
+  - Shoots: positive phototropism, negative geotropism. Roots: positive geotropism, positive hydrotropism.
+
+BOARD TIP: "Give two examples of tropic movements in plants" is a common 2-mark question. Phototropism and geotropism with examples (shoot bending toward light; root growing downward) will always score full marks.
+
+
+========================================================================
+SLIDE 24: Match: Gland ↔ Hormone (ਗ੍ਰੰਥੀ ਅਤੇ ਹਾਰਮੋਨ)
+========================================================================
+
+ON SCREEN:
+  - Interactive matching activity
+  - Glands: Thyroid, Adrenal, Pituitary, Pancreas
+  - Hormones: Insulin, Growth Hormone, Thyroxine, Adrenaline
+  - Correct matches: Thyroid → Thyroxine | Adrenal → Adrenaline | Pituitary → Growth Hormone | Pancreas → Insulin
+
+SCRIPT (say this aloud):
+  This is a revision activity — an interactive matching game where you tap a gland and then tap the hormone it secretes. Let us use this as a rapid oral revision before you try it yourself. I will call out the gland — you tell me the hormone. Thyroid? — Thyroxine! Adrenal? — Adrenaline! Pituitary? — Growth Hormone! Pancreas? — Insulin! Brilliant. Now let me add the function as a quick triple-recall. Thyroid secretes Thyroxine — controls metabolism, requires iodine. Adrenal secretes Adrenaline — fight-or-flight emergency response. Pituitary secretes Growth Hormone — controls body growth and other glands. Pancreas secretes Insulin — lowers blood sugar by helping cells absorb glucose. Now try the interactive activity on screen — tap each gland on the left and match it to the correct hormone on the right. If you can complete this matching exercise perfectly without any hints, you have fully mastered the glands section of this chapter. Note that the Testis (Testosterone) and Ovary (Oestrogen) are not in this particular activity but must also be memorised from Slide 17.
+
+KEY POINTS TO STRESS:
+  - Thyroid → Thyroxine (metabolism, needs iodine).
+  - Adrenal → Adrenaline (fight-or-flight).
+  - Pituitary → Growth Hormone (growth, master gland).
+  - Pancreas → Insulin (blood sugar regulation).
+  - Also remember: Testis → Testosterone; Ovary → Oestrogen.
+
+BOARD TIP: "Match the column" questions pairing glands and hormones appear almost every year. Make sure you also link the function — gland + hormone + function in one memory unit.
+
+
+========================================================================
+SLIDE 25: Sort It — Nervous vs Endocrine (ਦਿਮਾਗੀ ਬਨਾਮ ਹਾਰਮੋਨ ਪ੍ਰਣਾਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Interactive sorting activity
+  - Features to sort: Electrical impulse, Chemical hormone, Very fast response, Slow and long-lasting, Carried by neurons, Carried by blood
+  - Two categories: Nervous System (⚡) and Endocrine System (💊)
+  - Punjabi labels: ਨਾੜੀ ਪ੍ਰਣਾਲੀ and ਅੰਤਹ-ਸ੍ਰਾਵੀ ਪ੍ਰਣਾਲੀ
+
+SCRIPT (say this aloud):
+  This is a fantastic revision activity that tests one of the most important comparison topics in this chapter — the differences between the Nervous System and the Endocrine System. Before you try the interactive sort, let me teach the comparison so it is crystal clear in your mind. The Nervous System — ਨਾੜੀ ਪ੍ਰਣਾਲੀ — works using electrical impulses. These signals are carried by neurons — nerve cells — and travel at extremely high speeds. The response produced is very fast — it happens in milliseconds. Because nerve fibres must physically connect the source to the target, signals are very targeted and specific. The effects are brief — once the signal stops, the response stops. The Endocrine System — ਅੰਤਹ-ਸ੍ਰਾਵੀ ਪ੍ਰਣਾਲੀ — works using chemical hormones. These hormones are secreted into the bloodstream and travel through the blood to reach target organs. This is much slower — it may take seconds to minutes for the hormone to reach its destination. But the effects are long-lasting — hormones can influence cells for hours or even days. Because the blood reaches every cell, hormonal signals can be body-wide. Now sort the features on screen: Electrical impulse, Carried by neurons, Very fast response → Nervous System. Chemical hormone, Carried by blood, Slow and long-lasting → Endocrine System. ਸ਼ਾਬਾਸ਼! — Well done!
+
+KEY POINTS TO STRESS:
+  - Nervous System: electrical impulse, carried by neurons, very fast, short-lasting, targeted.
+  - Endocrine System: chemical hormone, carried by blood, slow, long-lasting, body-wide.
+  - These two systems complement each other — together they provide complete coordination.
+
+BOARD TIP: A comparison table of the nervous and endocrine systems is a classic 5-mark or 3-mark question. Memorise at least three clear differences: medium of signal (electrical vs chemical), speed (fast vs slow), and duration of effect (brief vs long-lasting).
+
+
+========================================================================
+SLIDE 26: Rapid Recall (ਤੇਜ਼ ਦੁਹਰਾਈ)
+========================================================================
+
+ON SCREEN:
+  - Interactive fill-in-the-blanks with blue blocks to reveal answers
+  - Five blanks: functional unit (neuron), reflex control (spinal cord), growth toward light (phototropism), blood sugar hormone (insulin), goitre-causing deficiency (iodine)
+
+SCRIPT (say this aloud):
+  Excellent — time for a quick chapter recap. This slide has five fill-in-the-blank statements that cover the most important facts from this chapter. Let us run through them one by one. First — "The functional unit of the nervous system is the ___." The answer is the Neuron — ਨਿਊਰੋਨ. Every nerve signal, every reflex, every thought begins and ends with neurons. Second — "Reflex actions are controlled by the ___." The answer is the Spinal Cord — ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ. Not the brain — the spinal cord, because speed is critical. Third — "In plants, growth towards light is called ___." The answer is Phototropism — ਪ੍ਰਕਾਸ਼ ਅਨੁਵਰਤਨ. Shoots are positively phototropic, bending toward the light source due to auxin. Fourth — "The hormone that controls blood sugar is ___." The answer is Insulin — ਇਨਸੁਲਿਨ. Produced by the pancreas, it keeps blood glucose at safe levels. Fifth — "A lack of ___ causes goitre." The answer is Iodine — ਆਇਓਡੀਨ. Iodine is needed to make thyroxine; without it, the thyroid swells into a goitre. Five facts, five marks in a potential board question. Go through these again mentally before moving to the practice questions.
+
+KEY POINTS TO STRESS:
+  - Functional unit of nervous system = Neuron.
+  - Reflex actions controlled by = Spinal Cord (not brain).
+  - Plant growth toward light = Phototropism.
+  - Blood sugar controlled by = Insulin (from Pancreas).
+  - Goitre caused by deficiency of = Iodine.
+
+
+========================================================================
+SLIDE 27: Must-Memorise for Boards (ਪਰੀਖਿਆ ਲਈ ਯਾਦ ਰੱਖੋ)
+========================================================================
+
+ON SCREEN:
+  - Seven one-line exam facts:
+    1. Synapse = one-way gap between neurons
+    2. Cerebellum = balance & posture
+    3. Medulla = heartbeat, BP, vomiting
+    4. Auxin = phototropism (cell elongation)
+    5. Insulin = pancreas, controls blood sugar
+    6. Iodine deficiency = goitre
+    7. Reflex arc order: Receptor → Sensory → Spinal cord (relay) → Motor → Effector
+  - Punjabi reminder: ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ ਦਾ ਕ੍ਰਮ ਯਾਦ ਰੱਖੋ
+
+SCRIPT (say this aloud):
+  This is your chapter cheat sheet — seven non-negotiable facts that you absolutely must have memorised before you walk into the board exam hall. Let me read through them and add a word of emphasis to each. One: Synapse equals a one-way gap between neurons. Both parts of this matter — it is a gap, and it is one-way. Signals can only go forward, never backward. Two: Cerebellum equals balance and posture. If someone asks "which part of the brain controls balance?", the answer is Cerebellum, always. Three: Medulla equals heartbeat, blood pressure, and vomiting. These three examples are the board-standard functions of the medulla. Four: Auxin equals phototropism through cell elongation. Auxin makes cells longer, and unequal elongation causes bending toward light. Five: Insulin is produced by the Pancreas and controls blood sugar. Gland — Pancreas. Hormone — Insulin. Function — blood sugar control. All three together in one breath. Six: Iodine deficiency causes Goitre. No iodine → no thyroxine → thyroid swells → goitre. Seven: The Reflex Arc order — write this out and say it five times: Receptor → Sensory Neuron → Spinal Cord relay neuron → Motor Neuron → Effector. ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ ਦਾ ਕ੍ਰਮ ਯਾਦ ਰੱਖੋ — Remember the order of the reflex arc. These seven points could account for fifteen or more marks across different questions in the exam.
+
+KEY POINTS TO STRESS:
+  - Synapse: one-way gap between neurons.
+  - Cerebellum: balance and posture. Medulla: heartbeat, BP, vomiting.
+  - Auxin: phototropism via cell elongation.
+  - Insulin: pancreas → blood sugar control.
+  - Iodine deficiency → goitre.
+  - Reflex arc: Receptor → Sensory → Spinal Cord → Motor → Effector.
+
+BOARD TIP: Copy these seven points into a revision card. This list covers the most tested facts from the entire chapter.
+
+
+========================================================================
+SLIDE 28: True or False? (ਸਹੀ ਜਾਂ ਗਲਤ?)
+========================================================================
+
+ON SCREEN:
+  - 8 True/False questions, several marked with PSEB year (2019, 2020, 2021)
+  - Q1: Synapse = gap between two neurons (True)
+  - Q2: Reflex actions controlled by forebrain (False — spinal cord)
+  - Q3: Cytokinins promote cell division (True)
+  - Q4: Nastic movements depend on stimulus direction (False)
+  - Q5: Iodine essential for thyroxine (True)
+  - Q6: Spinal cord controls reflexes (True)
+  - Q7: Adrenaline secreted by pancreas (False — adrenal gland)
+  - Q8: Cerebellum controls thinking and memory (False — cerebrum does)
+
+SCRIPT (say this aloud):
+  This activity gives you eight True or False questions, several of which are from actual PSEB past papers. Let us go through each one as a class — I will state the answer and explain why. Question 1: "The gap between two neurons is called a synapse." TRUE. This is a direct definition — the synapse is exactly the tiny gap between two neurons. Question 2: "Reflex actions are controlled primarily by the forebrain." FALSE. Reflex actions are controlled by the Spinal Cord, not the forebrain. The forebrain — cerebrum — handles voluntary, conscious actions. Question 3: "Cytokinins promote rapid cell division in plants." TRUE. Cytokinins are plant hormones that stimulate cell division and are important for plant growth. Question 4: "Nastic movements depend on the direction of the stimulus." FALSE. This is the exact opposite. Nastic movements do NOT depend on the direction of the stimulus — that is what makes them nastic, not tropic. Question 5: "Iodine is essential for the synthesis of thyroxine." TRUE. The thyroid gland must have iodine to manufacture thyroxine. Question 6: "The spinal cord controls reflex actions." TRUE. The relay neuron in the spinal cord processes and redirects reflex signals without brain involvement. Question 7: "Adrenaline is secreted by the pancreas." FALSE. Adrenaline is secreted by the Adrenal Glands — on top of the kidneys. The pancreas secretes Insulin. Question 8: "The cerebellum controls thinking and memory." FALSE. Thinking and memory are controlled by the Cerebrum — the forebrain. The Cerebellum controls balance and posture.
+
+KEY POINTS TO STRESS:
+  - Q2: Reflexes → Spinal Cord (NOT forebrain). A common exam trap.
+  - Q4: Nastic movements are NON-directional. Another common mistake.
+  - Q7: Adrenaline → Adrenal Gland (NOT pancreas). Pancreas → Insulin.
+  - Q8: Cerebellum → Balance (NOT thinking). Cerebrum → Thinking.
+
+BOARD TIP: Questions 2, 7, and 8 are classic confusions in the exam. Students who have not studied carefully will get these wrong. Make sure you are among those who get them right.
+
+
+========================================================================
+SLIDE 29: Say It Back: Chapter 6
+========================================================================
+
+ON SCREEN:
+  - 8 short-answer questions for oral/written practice
+  - Q1: Chemicals that carry signals across the synapse?
+  - Q2: Brain part controlling voluntary actions?
+  - Q3: Plant hormone causing bending toward light?
+  - Q4: Plant hormone inhibiting growth and causing leaf fall?
+  - Q5: Brain part controlling balance and posture?
+  - Q6: Gland that secretes insulin?
+  - Q7: Hormone for fight-or-flight?
+  - Q8: Root growth toward gravity?
+
+SCRIPT (say this aloud):
+  This slide is your short-answer self-assessment. I am going to ask you each question and give you five seconds to think of the answer before I reveal it. Ready? Question 1: What chemicals carry signals across the synapse? Answer — Neurotransmitters. These are the chemical messengers released at the nerve ending that diffuse across the synapse gap. Question 2: Which part of the brain controls voluntary actions like thinking? Answer — the Cerebrum — part of the forebrain. It controls all conscious, deliberate actions. Question 3: Which plant hormone causes bending toward light? Answer — Auxin. It accumulates on the shady side, causing unequal cell elongation and the shoot curving toward light. Question 4: Which plant hormone inhibits growth and causes leaves to fall? Answer — Abscisic Acid, or ABA. It is the growth inhibitor that promotes leaf abscission and stress responses. Question 5: Which part of the brain controls balance and posture? Answer — the Cerebellum — part of the hindbrain. Question 6: Which gland secretes insulin? Answer — the Pancreas — ਪੈਨਕ੍ਰੀਆਸ. Question 7: Which hormone prepares the body for fight or flight? Answer — Adrenaline — produced by the Adrenal Glands. Question 8: Growth of a plant root toward gravity is called what? Answer — Geotropism — specifically, positive geotropism. Eight questions, eight key answers. If you got all eight right, you are very well prepared for this chapter. If you missed any, go back and review the relevant slide.
+
+KEY POINTS TO STRESS:
+  - Neurotransmitters cross the synapse.
+  - Cerebrum: voluntary actions and thinking.
+  - Auxin: phototropism — bending toward light.
+  - ABA (Abscisic Acid): growth inhibitor — leaf fall.
+  - Cerebellum: balance and posture.
+  - Pancreas: insulin. Adrenal: adrenaline.
+  - Root growing downward toward gravity: Positive Geotropism.
+
+BOARD TIP: Practice writing these as 1-mark or 2-mark answers. For a 2-mark answer, always state the term and add one line of explanation.
+
+
+========================================================================
+SLIDE 30: Quick Check: Chapter 6 (ਤੁਰੰਤ ਜਾਂਚ)
+========================================================================
+
+ON SCREEN:
+  - 8 multiple-choice questions, several from PSEB past papers (2018)
+  - Q1: Brain part for involuntary actions → C: Medulla
+  - Q2: Side auxin diffuses to when light is unidirectional → B: Shady side
+  - Q3: Mimosa leaf folding due to → B: Changes in turgor pressure
+  - Q4: Mechanism controlling hormone amounts → B: Feedback mechanism
+  - Q5: Receptor to spinal cord signal carrier → C: Sensory neuron
+  - Q6: CNS composition → B: Brain and spinal cord
+  - Q7: Iodine deficiency causes → B: Goitre
+  - Q8: Fast, non-directional plant movement → C: Folding of Touch-me-not leaves
+
+SCRIPT (say this aloud):
+  Final quiz — eight multiple-choice questions. Let us go through each with the correct answer and a brief explanation. Question 1: Which part of the brain controls involuntary actions like blood pressure and vomiting? Answer C — Medulla. The medulla in the hindbrain is the autopilot for vital involuntary functions. Question 2: To which side of the shoot does auxin diffuse when light comes from one direction? Answer B — the shady side. Auxin moves away from light, accumulating on the shady side, making those cells elongate more, causing the shoot to bend toward the light. Question 3: The rapid folding of Mimosa (Touch-me-not) leaves is due to? Answer B — changes in turgor pressure, specifically the loss of water from cells at the base of each leaflet, causing them to lose rigidity and fold. This is a nastic movement, not due to growth or auxin. Question 4: Which mechanism controls the exact amount of hormones released? Answer B — Feedback mechanism. The level of hormone in the blood signals the gland to increase or decrease production — as we saw with insulin. Question 5: In a reflex arc, the signal from receptor to spinal cord is carried by? Answer C — Sensory neuron. The sensory neuron carries the incoming signal from the receptor to the CNS. Question 6: The CNS is made up of? Answer B — Brain and spinal cord. Not the heart, not all nerves — just brain and spinal cord. Question 7: Iodine deficiency causes? Answer B — Goitre. Not diabetes (lack of insulin) and not night blindness (lack of Vitamin A). Question 8: Which is a fast, non-directional (nastic) plant movement? Answer C — Folding of Touch-me-not leaves. Shoot bending toward light and root growing downward are both tropic (directional) movements. Well done if you got all eight!
+
+KEY POINTS TO STRESS:
+  - Medulla controls involuntary vital functions (Q1).
+  - Auxin diffuses to the SHADY side (Q2) — this causes the shoot to bend toward light.
+  - Mimosa folding is due to turgor pressure changes, NOT auxin (Q3).
+  - CNS = Brain + Spinal Cord only (Q6).
+  - Iodine deficiency → Goitre, not diabetes (Q7).
+  - Touch-me-not leaf folding is NASTIC (non-directional), not tropic (Q8).
+
+BOARD TIP: Questions 2, 3, and 8 test conceptual understanding, not just memorisation. Understand the difference between auxin-driven tropic growth and turgor-pressure-driven nastic movement.
+
+
+========================================================================
+SLIDE 31: Download Your Bilingual Flashcards (ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)
+========================================================================
+
+ON SCREEN:
+  - Information about Anki bilingual flashcard export
+  - Instructions: generate .csv → open Anki → Import File
+  - "Export to Anki (Bilingual CSV)" button
+  - Punjabi description of the feature
+
+SCRIPT (say this aloud):
+  We have reached the end of Chapter 6 — Control and Coordination. Excellent work making it through! This final slide gives you a powerful revision tool. Every short-answer question from the "Say It Back" section of this chapter has been pre-formatted as a bilingual Anki flashcard, with the question in English and the answer available in both English and Punjabi. Anki is a free flashcard app that uses spaced repetition — it shows you cards you are finding difficult more often, and cards you know well less often, so your revision time is always spent where it is most needed. To use the flashcards: click the "Export to Anki" button to download the CSV file. Then open the Anki app on your computer or phone, click "Import File," and select the downloaded file. The cards will be added to your Anki deck automatically. Revising these flashcards every day for the next two weeks before your exam will significantly strengthen your recall of this chapter. As a final message for this chapter: ਕਾਬੂ ਅਤੇ ਤਾਲਮੇਲ is a chapter full of fascinating biology — from the lightning-fast reflex arc to the slow bending of a sunflower. Understand the logic behind each mechanism, don't just memorise the words, and this chapter will be one of your strongest in the board exam. Best of luck!
+
+KEY POINTS TO STRESS:
+  - Use the Anki flashcard export for spaced repetition revision.
+  - All "Say It Back" questions are included, in bilingual (English + Punjabi) format.
+  - Daily flashcard revision for two weeks before the exam will greatly improve retention.
+  - Chapter 6 is highly scoring — master the vocabulary, diagrams, and comparisons.

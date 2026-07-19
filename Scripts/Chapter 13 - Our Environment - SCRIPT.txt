@@ -1,0 +1,1184 @@
+========================================================================
+CHAPTER 13 — OUR ENVIRONMENT
+PSEB Class 10 Science
+TOTAL SLIDES: 27
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter Title — Our Environment
+========================================================================
+
+ON SCREEN:
+  - Chapter heading: "Chapter 15"
+  - Title: "Our Environment"
+  - Punjabi subtitle: ਸਾਡਾ ਵਾਤਾਵਰਣ
+
+SCRIPT (say this aloud):
+  Welcome, students! Today we begin Chapter 13 — Our Environment, which in Punjabi we call
+  ਸਾਡਾ ਵਾਤਾਵਰਣ (saada vaataavaran). This chapter is one of the most important chapters for
+  your PSEB board exam, and honestly, it is one of the most important topics for your life too.
+
+  We are going to learn how all living things on Earth are connected through food chains and food
+  webs, how energy flows through nature, why some waste is harmless and some is dangerous, and
+  how human activities — especially the use of chemicals called CFCs — have damaged the ozone
+  layer that protects us from the Sun's harmful rays.
+
+  By the end of this chapter, you will understand why a plastic bag thrown in a drain is not just
+  an eyesore, but a real threat to the entire web of life. Let's get started!
+
+KEY POINTS TO STRESS:
+  - Chapter 13 covers ecosystems, food chains, energy flow, waste, and ozone depletion.
+  - It is a high-weightage chapter — expect 3-mark and 5-mark questions from it.
+  - Connect every concept to real life — that helps you remember it.
+
+BOARD TIP:  This chapter regularly appears as short-answer and long-answer questions; do not skip any section.
+
+
+========================================================================
+SLIDE 2: Core Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Eight key terms with Punjabi translations and pronunciation guides:
+    Ecosystem, Biotic, Abiotic, Producer, Consumer, Decomposer, Food Chain, Food Web
+
+SCRIPT (say this aloud):
+  Before we dive into the chapter, let's build our vocabulary. Every science topic has its own
+  language, and once you know these words, the whole chapter becomes much easier.
+
+  First: Ecosystem — ਪਾਰਿਸਥਿਤੀ ਪ੍ਰਬੰਧ. An ecosystem is a unit where living organisms and their
+  non-living surroundings work together. Think of a pond — the fish, frogs, water plants, sunlight,
+  water, and mud together form one ecosystem.
+
+  Biotic — ਜੈਵਿਕ ਅੰਸ਼ — means all the living parts: plants, animals, fungi, bacteria. Abiotic —
+  ਅਜੈਵਿਕ ਅੰਸ਼ — means all the non-living parts: sunlight, temperature, air, water, and soil.
+  Remember: "bio" means life, so biotic = living, abiotic = non-living.
+
+  Producer — ਉਤਪਾਦਕ — are green plants. They produce their own food using sunlight. Consumer —
+  ਖਪਤਕਾਰ — eats other organisms because it cannot make its own food. Decomposer — ਅਪਘਟਕ — are
+  bacteria and fungi that break down dead matter and return nutrients to the soil.
+
+  A Food Chain — ਭੋਜਨ ਲੜੀ — is a single straight line showing who eats whom. A Food Web —
+  ਭੋਜਨ ਜਾਲ — is a network of many food chains linked together. Think of a web like a fishing net
+  — many chains crossed together.
+
+KEY POINTS TO STRESS:
+  - Biotic = living; Abiotic = non-living. These are core definitions.
+  - Producers make food; Consumers eat food; Decomposers recycle dead matter.
+  - Food chain = single line; Food web = many interconnected chains.
+  - Pronounce these terms correctly — examiners look for accurate terminology.
+
+
+========================================================================
+SLIDE 3: More Key Terms (ਹੋਰ ਮੁੱਖ ਸ਼ਬਦ)
+========================================================================
+
+ON SCREEN:
+  - Six more key terms with Punjabi translations and pronunciations:
+    Trophic Level, Ecological Pyramid, Biological Magnification, Ozone, Biodegradable,
+    Non-biodegradable
+
+SCRIPT (say this aloud):
+  Let's continue with more important vocabulary. These terms will come up again and again
+  throughout the chapter.
+
+  Trophic Level — ਪੋਸ਼ੀ ਪੱਧਰ — means a feeding step in a food chain. Grass is at trophic level 1,
+  a grasshopper at level 2, a frog at level 3, and so on. Every time you move up one step, you
+  are at a higher trophic level.
+
+  Ecological Pyramid — ਪਾਰਿਸਥਿਤਕ ਪਿਰਾਮਿਡ — is a diagram shaped like a pyramid that shows the
+  number, biomass, or energy at each trophic level. The base is always the producers — they are
+  the most abundant — and the top is the top carnivore, the least abundant.
+
+  Biological Magnification — ਜੈਵਿਕ ਵਾਧਾ — is a very important concept. It means that
+  non-biodegradable chemicals like DDT become more and more concentrated as you move up the food
+  chain. By the time they reach humans or eagles at the top, the concentration can be dangerously
+  high.
+
+  Ozone — ਓਜ਼ੋਨ — is O₃, a special molecule made of three oxygen atoms. It forms a layer in the
+  upper atmosphere that shields us from the Sun's ultraviolet (UV) rays.
+
+  Biodegradable — ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ — means waste that can be broken down naturally by
+  microorganisms. Non-biodegradable — ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ — means waste that cannot be broken
+  down — it persists in the environment for years or even centuries.
+
+KEY POINTS TO STRESS:
+  - Trophic level = a step in the food chain (T1 = producers, T2 = herbivores, etc.).
+  - Biological magnification = toxin concentration increases at every higher trophic level.
+  - Ozone = O₃; it absorbs harmful UV radiation.
+  - Biodegradable rots; non-biodegradable does not.
+
+BOARD TIP:  "Biological magnification" and "trophic level" are frequently tested — know the definitions word-for-word.
+
+
+========================================================================
+SLIDE 4: Reading — The Web of Life
+========================================================================
+
+ON SCREEN:
+  - Read-aloud passage titled "Energy Flow and Our Environment"
+  - Play/Stop button for audio narration
+
+SCRIPT (say this aloud):
+  This slide gives us a beautiful overview of the entire chapter in the form of a short reading
+  passage. Let me read it aloud and explain each idea as we go.
+
+  "Nothing in nature ever truly lives alone." Think about that. Every organism depends on
+  another. A blade of grass captures sunlight through photosynthesis. A grasshopper eats that
+  grass. A frog eats the grasshopper. A snake eats the frog. This is a food chain — energy passes
+  from the sun, to the grass, to the grasshopper, to the frog, to the snake.
+
+  Now, "at each step, most of the energy is lost as heat." This is why there are always fewer
+  snakes than blades of grass — there simply is not enough energy left to support large numbers at
+  higher levels. This is what we will study as the 10% Law.
+
+  The passage also mentions that when we dump plastic and non-biodegradable waste, it does not
+  rot away — it stays in the environment for centuries and poisons creatures that swallow it.
+
+  High above us, the ozone layer quietly shields all life from the Sun's harmful ultraviolet rays.
+  Protecting these invisible connections is not just kindness to nature — it is how we protect
+  ourselves.
+
+  This single paragraph captures the heart of Chapter 13. Keep this big picture in mind as we
+  go into the details.
+
+KEY POINTS TO STRESS:
+  - Energy flows from Sun → Producers → Consumers (one direction only).
+  - Energy is lost at each step — that is why food chains are short.
+  - Non-biodegradable waste causes long-term environmental damage.
+  - The ozone layer is our shield against UV rays.
+
+
+========================================================================
+SLIDE 5: Components of an Ecosystem — Definition
+========================================================================
+
+ON SCREEN:
+  - Definition: An ecosystem is a unit where living things interact with their non-living surroundings.
+  - Two flip cards: Biotic Components (ਜੈਵਿਕ ਅੰਸ਼) and Abiotic Components (ਅਜੈਵਿਕ ਅੰਸ਼)
+
+SCRIPT (say this aloud):
+  Let's now formally define an ecosystem. An ecosystem — ਪਾਰਿਸਥਿਤੀ ਪ੍ਰਬੰਧ — is a self-contained
+  unit in which all living organisms interact with each other and with their non-living
+  surroundings. Examples include a forest, a pond, a grassland, a desert, or even a small aquarium.
+
+  Every ecosystem has two types of components. The first is Biotic Components — ਜੈਵਿਕ ਅੰਸ਼.
+  These are all the living organisms in the ecosystem — plants, animals, bacteria, and fungi. They
+  are further grouped into producers, consumers, and decomposers based on how they get their food.
+
+  The second is Abiotic Components — ਅਜੈਵਿਕ ਅੰਸ਼. These are all the non-living physical and
+  chemical factors — sunlight, temperature, rainfall, air, water, soil, and minerals. These factors
+  determine which organisms can survive in a particular ecosystem. For example, cacti survive in
+  a desert because they are adapted to the abiotic conditions there — high heat and low water.
+
+  Remember: you cannot have a complete ecosystem without both biotic AND abiotic components
+  working together.
+
+KEY POINTS TO STRESS:
+  - Ecosystem = living organisms + non-living environment interacting together.
+  - Biotic = all living things (plants, animals, microorganisms).
+  - Abiotic = all non-living factors (sunlight, water, soil, temperature).
+  - Both components are essential; neither alone makes an ecosystem.
+
+BOARD TIP:  "Define ecosystem" or "What are the components of an ecosystem?" is a frequent 2–3 mark question.
+
+
+========================================================================
+SLIDE 6: Producers, Consumers & Decomposers
+========================================================================
+
+ON SCREEN:
+  - Heading: Every organism has a trophic role based on how it gets food.
+  - Table with three columns: Role | What they do | Examples
+    - Producers ਉਤਪਾਦਕ: make food via photosynthesis (autotrophs) — green plants, algae
+    - Consumers ਖਪਤਕਾਰ: eat plants or animals (heterotrophs) — deer, frog, lion, humans
+    - Decomposers ਅਪਘਟਕ: break down dead bodies into simple nutrients — bacteria, fungi
+
+SCRIPT (say this aloud):
+  Every organism in an ecosystem plays a specific role based on how it obtains its food. Let's
+  study these three roles carefully because they form the foundation of everything else in this
+  chapter.
+
+  Producers — ਉਤਪਾਦਕ — are green plants and algae. They are called autotrophs, meaning they make
+  their own food. They capture sunlight and, through photosynthesis, convert carbon dioxide and
+  water into glucose. They are always at the first trophic level — they are the starting point of
+  every food chain.
+
+  Consumers — ਖਪਤਕਾਰ — cannot make their own food. They are heterotrophs — they must eat other
+  organisms. There are different levels of consumers. Primary consumers — like deer and grasshoppers
+  — eat plants directly. Secondary consumers — like frogs — eat the primary consumers. Tertiary
+  consumers — like snakes or eagles — eat the secondary consumers. Even we humans are consumers.
+
+  Decomposers — ਅਪਘਟਕ — are the unsung heroes of the ecosystem. Bacteria and fungi break down
+  dead plants and animals and the waste produced by living organisms into simple inorganic
+  nutrients. These nutrients go back into the soil and are used again by producers. Without
+  decomposers, dead matter would pile up everywhere and nutrients would be permanently locked
+  away.
+
+  So the cycle is: Producers make food → Consumers eat → Decomposers recycle. This keeps the
+  ecosystem running continuously.
+
+KEY POINTS TO STRESS:
+  - Producers = autotrophs; make food via photosynthesis; occupy T1.
+  - Consumers = heterotrophs; eat other organisms; can be primary, secondary, tertiary.
+  - Decomposers = bacteria and fungi; break down dead matter; return nutrients to soil.
+  - Decomposers are essential — they complete the nutrient cycle.
+
+BOARD TIP:  A common question: "What is the role of decomposers in an ecosystem?" — answer must mention nutrient recycling.
+
+
+========================================================================
+SLIDE 7: Food Chains (ਭੋਜਨ ਲੜੀ)
+========================================================================
+
+ON SCREEN:
+  - Definition of a food chain
+  - Example chain: Grass → Grasshopper → Frog → Snake → Eagle
+  - Note that each stage is a trophic level
+
+SCRIPT (say this aloud):
+  A food chain — ਭੋਜਨ ਲੜੀ — is a single, straight-line sequence that shows the feeding
+  relationships between organisms. It shows us who eats whom and how energy flows from one
+  organism to the next.
+
+  Look at this example: Grass → Grasshopper → Frog → Snake → Eagle.
+
+  The grass is the producer — it uses sunlight to make food. The grasshopper eats the grass, so
+  it is the primary consumer at trophic level 2. The frog eats the grasshopper — secondary
+  consumer, trophic level 3. The snake eats the frog — tertiary consumer, trophic level 4. The
+  eagle eats the snake — it is at trophic level 5.
+
+  Two things are absolutely critical to remember about food chains. First: energy flows in ONE
+  direction only — from the sun, to the producers, to the consumers. It never flows backwards.
+  This is called unidirectional flow. Second: at each step, a large amount of energy is lost as
+  heat, so by the time we reach the eagle, very little of the original energy captured by the
+  grass remains.
+
+  The arrow in a food chain always points from the organism being eaten to the organism doing
+  the eating — it shows the direction of energy transfer.
+
+KEY POINTS TO STRESS:
+  - A food chain is a single feeding sequence — one straight line.
+  - Energy flow is unidirectional — from Sun → Producer → Consumer (never backwards).
+  - Each link in the chain is a trophic level (T1, T2, T3…).
+  - The arrow shows direction of energy flow: eaten organism → eating organism.
+
+BOARD TIP:  Drawing the arrow in the wrong direction (backwards) is a very common student mistake — always point from prey to predator.
+
+
+========================================================================
+SLIDE 8: Food Webs (ਭੋਜਨ ਜਾਲ) — Frequently Asked
+========================================================================
+
+ON SCREEN:
+  - Definition of a food web
+  - Explanation of why food webs are more stable than food chains
+  - Diagram of interconnected food chains forming a web
+
+SCRIPT (say this aloud):
+  In the real world, animals rarely eat just one type of food. A frog does not eat only
+  grasshoppers — it might eat flies, worms, and other insects too. When many food chains are
+  linked together because of these multiple feeding relationships, the result is a food web —
+  ਭੋਜਨ ਜਾਲ.
+
+  Think of a food web like a spider's web or a fishing net — many lines crossing each other,
+  connecting many organisms in many different ways. Each intersection represents an organism that
+  belongs to more than one food chain.
+
+  Now here is a very important point that the board examiners love to ask: Why is a food web
+  more stable than a single food chain? The answer is: because of alternative food sources. If
+  one species in a food chain disappears — say, all the frogs die due to a disease — then in a
+  simple food chain, the snake starves and the grasshoppers multiply out of control. The whole
+  chain collapses. But in a food web, the snake might also eat rats or lizards, so it can
+  survive. The system does not collapse because there are backup connections.
+
+  This is why biodiversity — having many different species — is so important for ecosystem
+  stability. A complex food web is more resilient to disturbances.
+
+KEY POINTS TO STRESS:
+  - Food web = many interconnected food chains in a real ecosystem.
+  - Animals typically have more than one food source — this creates the web.
+  - Food webs are more stable than single food chains because of alternative food sources.
+  - If one species disappears, the ecosystem can still function via other pathways.
+
+BOARD TIP:  "Why is a food web more stable than a food chain?" is a very frequently asked 3-mark question — memorize the explanation about alternative food sources.
+
+
+========================================================================
+SLIDE 9: Trophic Levels & Ecological Pyramids
+========================================================================
+
+ON SCREEN:
+  - Definition: number, biomass, or energy at each feeding step drawn as a pyramid
+  - Table:
+    T1 — Producer — Grass
+    T2 — Primary Consumer (herbivore) — Grasshopper
+    T3 — Secondary Consumer — Frog
+    T4 — Tertiary Consumer — Snake
+  - Note: chains rarely exceed 4–5 levels due to the 10% Law
+
+SCRIPT (say this aloud):
+  We have already seen that each step in a food chain is called a trophic level — ਪੋਸ਼ੀ ਪੱਧਰ.
+  "Trophic" comes from the Greek word for food or nourishment. Let's look at the levels more
+  carefully.
+
+  Trophic Level 1, or T1, is always the Producers — green plants like grass. They are the most
+  numerous and capture the most energy.
+
+  T2 is the Primary Consumer — the herbivore, the plant-eater — such as a grasshopper.
+
+  T3 is the Secondary Consumer — an organism that eats the herbivore — such as a frog.
+
+  T4 is the Tertiary Consumer — an organism that eats the secondary consumer — such as a snake.
+
+  Now, if we draw the number of organisms, or their total biomass, or the total energy at each
+  level, we get a diagram shaped like a pyramid — the Ecological Pyramid — ਪਾਰਿਸਥਿਤਕ ਪਿਰਾਮਿਡ.
+  The base is wide because there are many producers. As we go up, each level gets smaller —
+  fewer individuals, less biomass, less energy — because energy is lost at every step.
+
+  This is why food chains rarely go beyond 4 or 5 trophic levels. By the 5th level, so little
+  energy remains that it cannot support another level of consumers. This is directly related to
+  the 10% Law, which we will study in the next few slides.
+
+KEY POINTS TO STRESS:
+  - T1 = Producers, T2 = Primary consumers (herbivores), T3 = Secondary consumers, T4 = Tertiary consumers.
+  - Ecological pyramid: base (producers) is broadest; top (top carnivores) is narrowest.
+  - The pyramid narrows because energy, biomass, and organism numbers decrease going upward.
+  - Food chains rarely exceed 4–5 trophic levels due to energy loss at each step.
+
+BOARD TIP:  Be able to draw and label a 4-level ecological pyramid with correct organism names — frequently asked as a diagram question.
+
+
+========================================================================
+SLIDE 10: Practice — Build a Food Chain (Interactive)
+========================================================================
+
+ON SCREEN:
+  - Interactive fill-in-the-blank activity (grassland food chain)
+  - Blanks for: producer, primary consumer, secondary consumer, decomposers
+  - Punjabi instruction: ਸਹੀ ਜਵਾਬ ਵੇਖਣ ਲਈ ਖਾਲੀ ਥਾਂ 'ਤੇ ਟੈਪ ਕਰੋ।
+
+SCRIPT (say this aloud):
+  Great — now let's test what we have learned so far with a quick activity. I want everyone to
+  read the passage on screen and figure out the missing words before tapping to reveal the answers.
+
+  The passage reads: "In a grassland, the _____ traps solar energy to make food." — What is the
+  answer? It is the Producer — in this case, grass. Grass is the producer because it uses
+  photosynthesis to convert sunlight into food.
+
+  "A grasshopper eats it, so the grasshopper is a _____." — A Primary Consumer. It eats the
+  producer directly, so it is at trophic level 2.
+
+  "A frog then eats the grasshopper, making the frog a _____." — A Secondary Consumer. It eats
+  the primary consumer, placing it at trophic level 3.
+
+  "When these organisms die, like bacteria and fungi break them down and return nutrients to the
+  soil." — The answer is Decomposers — ਅਪਘਟਕ — bacteria and fungi.
+
+  So the complete chain is: Grass (Producer) → Grasshopper (Primary Consumer) → Frog (Secondary
+  Consumer), and when any of them die, Decomposers break them down. This is a complete mini
+  ecosystem cycle.
+
+  Try writing this chain in your notebook from memory — that is great exam practice.
+
+KEY POINTS TO STRESS:
+  - Producers trap solar energy — they always start the food chain.
+  - Consumers are named primary, secondary, tertiary based on what they eat.
+  - Decomposers close the loop by returning nutrients to the soil.
+  - Practice drawing food chains from memory — it will come in the exam.
+
+
+========================================================================
+SLIDE 11: Energy Flow — The 10% Law
+========================================================================
+
+ON SCREEN:
+  - Statement: Energy flow in ecosystems is unidirectional
+  - Plants capture about 1% of the Sun's energy
+  - Highlighted box: The 10% Law (10% ਦਾ ਨਿਯਮ)
+  - Only 10% of energy transfers to the next trophic level; 90% is lost as heat
+  - Food chains rarely go beyond 3–4 steps
+
+SCRIPT (say this aloud):
+  This is one of the most important laws in this chapter — the 10% Law, or in Punjabi, 10% ਦਾ
+  ਨਿਯਮ. Let me explain it very clearly.
+
+  The Sun provides an enormous amount of energy. When plants carry out photosynthesis, they
+  capture only about 1% of the total solar energy that falls on them — the rest is reflected or
+  lost as heat.
+
+  Now, when a grasshopper eats the grass, it does not get all the energy stored in the grass.
+  The grasshopper uses most of that energy for its own life processes — moving, breathing,
+  growing, staying warm. Only 10% of the energy stored in the grass is actually transferred to
+  the grasshopper's body. The other 90% is lost, mainly as heat.
+
+  The same happens at every step. When a frog eats the grasshopper, only 10% of the
+  grasshopper's energy reaches the frog. When a snake eats the frog, only 10% of the frog's
+  energy reaches the snake.
+
+  So if grass has 10,000 joules of energy: the grasshopper gets 1,000 J, the frog gets 100 J,
+  the snake gets 10 J, and an eagle would get only 1 J. You can see why after 4 or 5 steps,
+  there is simply not enough energy left to support another organism. This is why food chains are
+  short!
+
+  This law was proposed by a scientist named Lindeman, so it is sometimes called Lindeman's 10%
+  Law or the Law of Tenfold Energy Reduction.
+
+KEY POINTS TO STRESS:
+  - Only 10% of energy at one trophic level is passed to the next level.
+  - 90% is lost as heat at every step.
+  - This is why food chains rarely have more than 4–5 trophic levels.
+  - Energy flow is always unidirectional — from Sun → Producers → Consumers.
+
+BOARD TIP:  Numerical questions based on the 10% Law are extremely common — if producers have 10,000 J, be able to calculate energy at T2, T3, T4 quickly.
+
+
+========================================================================
+SLIDE 12: Biological Magnification — Process Flow
+========================================================================
+
+ON SCREEN:
+  - Interactive sequencer: DDT accumulation through 5 trophic levels
+  - Step 1: Water source — DDT at low concentration
+  - Step 2: Producers (Plankton) — absorb DDT, cannot excrete it
+  - Step 3: Primary Consumers (Small Fish) — eat hundreds of plankton; DDT accumulates in fat
+  - Step 4: Secondary Consumers (Large Fish) — eat dozens of small fish; concentration spikes
+  - Step 5: Top Carnivores (Humans/Birds) — maximum toxic dose; severe diseases possible
+
+SCRIPT (say this aloud):
+  Now we come to biological magnification — ਜੈਵਿਕ ਵਾਧਾ — one of the most alarming concepts in
+  this chapter. This is also called biomagnification.
+
+  Let's follow the story of DDT, a pesticide once widely used in farming. Farmers spray DDT on
+  crops and fields to kill insects. Rainwater washes this DDT into nearby ponds and rivers. At
+  first, the concentration of DDT in the water is extremely low — barely detectable.
+
+  Step 1: The DDT is now in the water. The concentration is very low — let's say 0.003 parts per
+  million (ppm).
+
+  Step 2: Microscopic plants called plankton — the producers — absorb this DDT as they take in
+  water. Here is the key problem: DDT dissolves in fat, not water. So plankton cannot excrete it.
+  It builds up inside them. Now the concentration in plankton might be 0.04 ppm.
+
+  Step 3: Small fish eat hundreds and thousands of plankton. All that DDT from thousands of
+  plankton concentrates into one fish. The concentration might now be 0.5 ppm.
+
+  Step 4: A large fish eats dozens of small fish. All of their accumulated DDT enters the large
+  fish. Concentration might now be 2 ppm.
+
+  Step 5: A human or a large bird like an eagle eats the large fish. All the DDT that was spread
+  across many fish now concentrates in one body. The concentration might reach 25 ppm or more —
+  thousands of times higher than the original level in the water!
+
+  This enormous concentration in top carnivores can cause cancer, reproductive failure, immune
+  system damage, and in birds, it caused egg shells to become so thin that they broke before
+  hatching, wiping out entire populations.
+
+  The lesson: even a tiny amount of non-biodegradable pollutant in the environment becomes
+  extremely dangerous by the time it reaches the top of the food chain — which includes us.
+
+KEY POINTS TO STRESS:
+  - Biological magnification = non-biodegradable toxins increase in concentration at each higher trophic level.
+  - DDT cannot be excreted — it accumulates in fatty tissues.
+  - Concentration is LOWEST in producers and HIGHEST in top carnivores (including humans).
+  - This is why non-biodegradable pesticides are so dangerous.
+
+BOARD TIP:  "Explain biological magnification with an example" is a guaranteed long-answer question — use DDT and include concentration increasing at each step.
+
+
+========================================================================
+SLIDE 13: Ozone Formation & Depletion
+========================================================================
+
+ON SCREEN:
+  - Statement: Ozone (O₃) forms a protective shield against UV radiation in the upper atmosphere
+  - Chemical equations:
+    1. O₂ → (UV Light) → O + O
+    2. O + O₂ → O₃ (Ozone)
+  - Note: CFCs from old refrigerators destroy ozone and cause the "Ozone Hole"
+
+SCRIPT (say this aloud):
+  High up in the Earth's atmosphere, in a layer called the stratosphere, there exists a thin but
+  vital shield made of ozone — O₃ — ਓਜ਼ੋਨ. This ozone layer absorbs most of the Sun's harmful
+  ultraviolet radiation before it can reach the Earth's surface. Without it, life as we know it
+  could not exist.
+
+  How does ozone form? It is a natural process. When ultraviolet rays from the Sun strike
+  ordinary oxygen molecules — O₂ — they split them into two free oxygen atoms:
+  O₂ → O + O (using UV light as energy).
+
+  Each free oxygen atom is highly reactive. It quickly combines with another O₂ molecule to form
+  ozone:
+  O + O₂ → O₃.
+
+  So ozone is essentially three oxygen atoms bonded together. It forms naturally in the
+  stratosphere and is also continuously broken down and re-formed — it is a natural balance.
+
+  The problem is that human beings have been releasing chemicals called CFCs —
+  Chlorofluorocarbons — into the atmosphere. These were used in old refrigerators, air
+  conditioners, aerosol spray cans, and fire extinguishers. CFCs rise into the stratosphere and
+  react with ozone, destroying it. This has caused a thinning of the ozone layer — what we call
+  the Ozone Hole — particularly over Antarctica.
+
+  We will study the exact mechanism of CFC destruction in Slide 17. For now, remember: ozone
+  forms from O₂ splitting under UV, and CFCs are its main destroyer.
+
+KEY POINTS TO STRESS:
+  - Ozone (O₃) is in the stratosphere and absorbs harmful UV radiation.
+  - Formation: UV splits O₂ → 2O; then O + O₂ → O₃.
+  - CFCs (Chlorofluorocarbons) destroy the ozone layer, causing the Ozone Hole.
+  - Sources of CFCs: old refrigerators, ACs, aerosol sprays.
+
+BOARD TIP:  Write the two chemical equations for ozone formation correctly — they are often asked as a 2-mark question.
+
+
+========================================================================
+SLIDE 14: Biodegradable vs Non-biodegradable
+========================================================================
+
+ON SCREEN:
+  - Table comparing the two types of waste:
+    - Biodegradable (ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ): broken down by microbes; examples: fruit peels, paper, cotton, cow dung, leaves; return to nature quickly
+    - Non-biodegradable (ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ): cannot be broken down by microbes; examples: plastic, glass, DDT, metals, polythene; persist for years; cause pollution
+  - Board Trap note: Non-biodegradable pesticides like DDT cause biological magnification
+
+SCRIPT (say this aloud):
+  All waste that we produce can be classified into two categories based on whether
+  microorganisms can break it down.
+
+  Biodegradable waste — ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ — is waste that can be broken down by bacteria, fungi, and
+  other decomposers. This includes natural things like fruit peels, vegetable scraps, fallen
+  leaves, paper, cotton, and cow dung. When these are broken down, the nutrients return to the
+  soil and are used again by plants. They cause minimal long-term environmental harm.
+
+  Non-biodegradable waste — ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ — is waste that decomposers cannot break down. This
+  includes plastic, polythene bags, glass, metals, and chemicals like DDT. Plastic takes
+  anywhere from 100 to 1,000 years to degrade. These materials accumulate in soil and water,
+  disrupt ecosystems, and harm or kill animals that ingest them.
+
+  Here is the critical board trap to remember: when a non-biodegradable substance like DDT
+  enters a food chain, it does not break down at any level. Instead, it accumulates and
+  concentrates at each higher trophic level — which is exactly what biological magnification is.
+  So the harm caused by non-biodegradable waste is not just pollution — it enters our bodies.
+
+  The solution? Separate your waste. Biodegradable waste can be composted. Non-biodegradable
+  waste must be carefully collected and either recycled or safely disposed of.
+
+KEY POINTS TO STRESS:
+  - Biodegradable: broken down by microbes naturally; includes natural/organic materials.
+  - Non-biodegradable: NOT broken down by microbes; persists for decades or centuries.
+  - Non-biodegradable pesticides (DDT) cause biological magnification.
+  - Examples must be memorized: plastic, glass, DDT = non-biodegradable; food waste, paper, cotton = biodegradable.
+
+BOARD TIP:  Give at least two examples of each category in any answer — examiners award marks for specific examples.
+
+
+========================================================================
+SLIDE 15: Sort the Waste — Match It (Interactive)
+========================================================================
+
+ON SCREEN:
+  - Interactive matching activity
+  - Items: Banana peel, Plastic bottle, DDT pesticide
+  - Categories: Non-biodegradable, Biodegradable, Causes biomagnification
+
+SCRIPT (say this aloud):
+  Let's do a quick matching activity to reinforce what we just learned. I'll read out each item
+  and you try to match it in your head before we reveal the answer.
+
+  Item 1: Banana peel. Is it biodegradable or non-biodegradable? Yes — Biodegradable. A banana
+  peel is organic matter. Bacteria and fungi will break it down within days or weeks and return
+  its nutrients to the soil.
+
+  Item 2: Plastic bottle. Where does this go? Non-biodegradable. Plastic cannot be broken down
+  by microorganisms. It persists in the environment for hundreds of years, fragmenting into
+  microplastics that are even more dangerous.
+
+  Item 3: DDT pesticide. This matches with both Non-biodegradable AND Causes biomagnification.
+  DDT is a chemical pesticide that cannot be broken down. It enters the food chain, accumulates
+  in fatty tissues, and concentrates dangerously in top carnivores — this is biological
+  magnification.
+
+  When you get a question in the exam asking for examples of biodegradable or non-biodegradable
+  substances, always try to give a variety — include one chemical, one plastic item, and one
+  natural item for completeness.
+
+KEY POINTS TO STRESS:
+  - Banana peel = biodegradable.
+  - Plastic bottle = non-biodegradable.
+  - DDT = non-biodegradable AND causes biological magnification.
+  - These are the most commonly tested examples in board exams.
+
+
+========================================================================
+SLIDE 16: Managing Waste — The 3 R's (ਕੂੜਾ ਪ੍ਰਬੰਧਨ)
+========================================================================
+
+ON SCREEN:
+  - Three cards: Reduce (ਘਟਾਓ), Reuse (ਦੁਬਾਰਾ ਵਰਤੋ), Recycle (ਮੁੜ ਵਰਤੋਂ)
+  - Descriptions:
+    - Reduce: use less; buy only what you need; save water and electricity
+    - Reuse: use items again; refill bottles; carry cloth bags
+    - Recycle: make new products from used ones; recycle paper, metal, glass
+
+SCRIPT (say this aloud):
+  We have learned about the problems caused by waste. Now let's talk about solutions. The most
+  well-known and widely recommended approach to waste management is the 3 R's strategy —
+  Reduce, Reuse, and Recycle. In Punjabi: ਘਟਾਓ, ਦੁਬਾਰਾ ਵਰਤੋ, ਮੁੜ ਵਰਤੋਂ.
+
+  The most powerful of the three — and the one we should always try first — is Reduce. ਘਟਾਓ.
+  This means creating less waste in the first place. Buy only what you need. Avoid over-packaged
+  products. Switch off lights and fans when not in use. Save water. The best waste is the waste
+  that was never created.
+
+  Second is Reuse — ਦੁਬਾਰਾ ਵਰਤੋ. Before throwing something away, ask: can I use it again?
+  Instead of buying a new plastic water bottle every day, carry a refillable bottle. Instead of
+  accepting a plastic bag at the shop, carry a cloth bag. Reusing items means fewer resources
+  are consumed and less waste is generated.
+
+  Third is Recycle — ਮੁੜ ਵਰਤੋਂ. When something truly cannot be reused, it should be recycled —
+  that is, broken down and made into new products. Paper can be recycled into new paper. Metal
+  cans can be melted and recast. Glass can be melted and reshaped. Recycling reduces the need to
+  extract new raw materials from the Earth.
+
+  These three actions, done consistently by individuals and communities, can significantly reduce
+  the environmental damage caused by non-biodegradable waste.
+
+KEY POINTS TO STRESS:
+  - The 3 R's: Reduce → Reuse → Recycle (in order of priority).
+  - Reduce = create less waste; most effective approach.
+  - Reuse = use the same item more than once.
+  - Recycle = convert used materials into new products.
+
+BOARD TIP:  The 3 R's often appear as a 3-mark question — give one clear example for each R.
+
+
+========================================================================
+SLIDE 17: How CFCs Destroy Ozone — Process Flow
+========================================================================
+
+ON SCREEN:
+  - Interactive sequencer with 5 steps of CFC-driven ozone destruction:
+    Step 1: Release — CFCs from refrigerators/ACs drift to stratosphere
+    Step 2: Breakdown — UV breaks CFC, releasing free chlorine (Cl) atom
+    Step 3: Attack — Cl reacts with O₃, stealing an oxygen → ClO + O₂
+    Step 4: Chain Reaction — Cl is freed again and destroys thousands more O₃ molecules
+    Step 5: Result — Ozone layer thins; Ozone Hole forms; more UV reaches Earth
+
+SCRIPT (say this aloud):
+  We learned that CFCs destroy ozone. Now let's understand exactly HOW this happens, step by
+  step, because this process flow is frequently asked in the board exam.
+
+  Step 1 — Release: CFCs, or Chlorofluorocarbons, were widely used as coolants in refrigerators
+  and air conditioners, as propellants in aerosol spray cans, and in fire extinguishers. When
+  these devices leak or are improperly disposed of, the CFC gas escapes into the air. Being very
+  stable and lightweight, CFCs drift upward all the way into the stratosphere — the layer of
+  atmosphere where the ozone layer sits.
+
+  Step 2 — Breakdown: In the stratosphere, CFCs are exposed to intense UV radiation. This UV
+  energy is strong enough to break apart the CFC molecule, releasing a highly reactive free
+  chlorine atom — Cl.
+
+  Step 3 — Attack: This free chlorine atom is chemically very aggressive. It attacks an ozone
+  molecule: Cl + O₃ → ClO + O₂. In other words, it steals one oxygen atom from ozone, converting
+  ozone (O₃) into ordinary oxygen (O₂). The ozone is destroyed.
+
+  Step 4 — Chain Reaction: Here is what makes CFCs so devastatingly effective. After the
+  chlorine reacts with ozone to form ClO, that ClO molecule is unstable. It quickly reacts with
+  another free oxygen atom: ClO + O → Cl + O₂. The chlorine atom is released again — free to
+  attack another ozone molecule! A single chlorine atom can destroy tens of thousands of ozone
+  molecules before it is finally removed from the stratosphere.
+
+  Step 5 — Result: Slowly, the ozone layer thins. Over Antarctica, this thinning became so
+  severe that a massive hole — the Ozone Hole — formed. With less ozone to absorb UV radiation,
+  more UV reaches the Earth's surface, causing the harmful effects we will see in the next slide.
+
+KEY POINTS TO STRESS:
+  - CFCs rise to the stratosphere where UV light breaks them apart, releasing free Cl atoms.
+  - Cl + O₃ → ClO + O₂ (ozone is destroyed).
+  - The Cl is regenerated and can destroy thousands of ozone molecules in a chain reaction.
+  - A single CFC molecule can cause enormous cumulative damage.
+
+BOARD TIP:  Write the reaction Cl + O₃ → ClO + O₂ correctly in your answer — it demonstrates understanding and earns full marks.
+
+
+========================================================================
+SLIDE 18: Effects of Ozone Depletion
+========================================================================
+
+ON SCREEN:
+  - A thinner ozone layer allows harmful UV rays to reach the surface
+  - Effects listed with icons:
+    - Skin cancer and skin ageing in humans
+    - Cataracts (damage to the eyes)
+    - Weakened immune system
+    - Reduced crop yield and harm to phytoplankton
+  - Solution: The Montreal Protocol (1987) banned CFC production worldwide
+
+SCRIPT (say this aloud):
+  When the ozone layer is depleted, more ultraviolet radiation reaches the Earth's surface.
+  This has serious and wide-ranging consequences.
+
+  For human health: UV radiation can cause skin cancer. It damages the DNA in skin cells,
+  causing uncontrolled cell growth. UV also causes premature skin ageing — wrinkles and age
+  spots. It damages the eyes, leading to cataracts, a condition where the lens of the eye
+  becomes cloudy, causing blurred vision and, if untreated, blindness. UV radiation also
+  suppresses the immune system, making the body less able to fight infections.
+
+  For the environment: Increased UV radiation reduces the yield of crops — plants are also
+  harmed by excess UV. More critically, it harms phytoplankton — the microscopic plant-like
+  organisms in the ocean that are the producers of marine food webs. If phytoplankton populations
+  collapse, the entire marine food web — fish, whales, seabirds — collapses too.
+
+  Fortunately, the world responded. In 1987, nations came together and signed the Montreal
+  Protocol — a landmark international agreement that banned the production and use of CFCs and
+  other ozone-depleting substances. This is considered one of the most successful environmental
+  treaties in history. Since the ban, the ozone layer has been slowly recovering.
+
+  Remember: 1987, Montreal Protocol, banned CFCs — these three facts are important for the exam.
+
+KEY POINTS TO STRESS:
+  - Ozone depletion → more UV radiation reaching Earth's surface.
+  - Effects on humans: skin cancer, cataracts, weakened immune system.
+  - Effects on environment: reduced crop yields, harm to phytoplankton and marine food webs.
+  - Solution: Montreal Protocol (1987) — banned CFC production worldwide.
+
+BOARD TIP:  "Name the international agreement that banned CFCs" — answer is the Montreal Protocol, 1987. This is a direct 1-mark question.
+
+
+========================================================================
+SLIDE 19: Reading — Our Responsibility
+========================================================================
+
+ON SCREEN:
+  - Read-aloud passage titled "Human Impact on the Environment"
+  - Play/Stop button for audio narration
+
+SCRIPT (say this aloud):
+  Let's read this passage together — it brings together everything we have learned in this
+  chapter and gives it a human perspective.
+
+  "Human activities have disturbed the delicate balance of nature." Every concept we studied
+  today connects to a human action. We cut forests — destroying biotic components and habitats.
+  We burn fossil fuels — releasing gases that pollute the air. We dump non-biodegradable plastics
+  into rivers and oceans — these never decompose and harm aquatic life for centuries.
+
+  "Harmful chemicals move up food chains and concentrate in the bodies of top consumers,
+  including us." This is biological magnification. When farmers spray DDT, and when we eat fish
+  from those water bodies, we are the top carnivores receiving the highest concentration of that
+  toxin. We are harming ourselves.
+
+  "The gases we release have even damaged the ozone layer that protects all life from the Sun's
+  ultraviolet rays." CFCs from our refrigerators and sprays have created the ozone hole.
+
+  "But there is hope." The passage ends on an encouraging note. By reducing waste, recycling
+  materials, planting trees, and choosing eco-friendly products, every single person can make a
+  difference. Protecting the environment is not optional — it is our shared responsibility.
+
+  As students studying science, you are in a special position. You understand these processes.
+  That gives you a duty — and an opportunity — to make better choices and to educate others.
+
+KEY POINTS TO STRESS:
+  - Human activities (deforestation, fossil fuels, plastic dumping) disturb ecosystem balance.
+  - We ourselves suffer the consequences — as top carnivores, we receive the most accumulated toxins.
+  - Individual actions (reduce, reuse, recycle, plant trees) genuinely help.
+  - Environmental protection is a shared responsibility.
+
+
+========================================================================
+SLIDE 20: Spot the Error — Fix It (Interactive)
+========================================================================
+
+ON SCREEN:
+  - Incorrect food chain shown: Grass → Grasshopper → Frog ← Snake
+  - Students tap the incorrect arrow to correct it
+  - Correction revealed: Energy flows in ONE direction only (unidirectional); arrow must go Frog → Snake
+
+SCRIPT (say this aloud):
+  Here is a fun but very important activity. Look at this food chain on the screen:
+  Grass → Grasshopper → Frog ← Snake.
+
+  Can you spot the error? Look carefully at the direction of the arrows. The last arrow — between
+  Frog and Snake — is pointing the wrong way! It is pointing FROM the snake TO the frog, which
+  would suggest the frog is eating the snake. That is incorrect.
+
+  In a food chain, the arrow always points from the organism being eaten to the organism that is
+  eating it. This shows the direction of energy transfer — energy flows from prey to predator, from
+  the eaten to the eater.
+
+  So the correct food chain should be: Grass → Grasshopper → Frog → Snake. All arrows point in
+  the same direction — from left to right, from producer toward the top carnivore.
+
+  Remember the key rule: energy flow in a food chain is UNIDIRECTIONAL — it flows in one
+  direction only. It never flows backwards. A snake's energy never flows back to the frog.
+
+  This type of "spot the error" question is very common in board exams. Always check the
+  direction of arrows whenever you draw or read a food chain.
+
+KEY POINTS TO STRESS:
+  - Arrows in a food chain point from eaten organism to the eater (direction of energy flow).
+  - Energy flow is strictly unidirectional — it never reverses.
+  - The corrected chain: Grass → Grasshopper → Frog → Snake.
+  - Always double-check arrow direction in food chain questions.
+
+BOARD TIP:  Drawing arrows pointing in the wrong direction is a classic board exam error that costs marks — always draw arrows from prey to predator.
+
+
+========================================================================
+SLIDE 21: Memorize This — Chapter Recap
+========================================================================
+
+ON SCREEN:
+  - Five summary bullet points:
+    - Energy flow is unidirectional; only 10% passes to the next level
+    - Food chain = single line; food web = many chains (more stable)
+    - Decomposers recycle nutrients back to the soil
+    - Non-biodegradable waste → pollution + biomagnification
+    - Ozone (O₃) blocks UV; destroyed by CFCs; Montreal Protocol banned CFCs
+
+SCRIPT (say this aloud):
+  Students, we have now covered all the major concepts of Chapter 13. Let's do a final recap —
+  these five points are the non-negotiable things you must know for your board exam.
+
+  One: Energy flow is unidirectional. Energy moves from the Sun to producers to consumers —
+  in one direction only, never backwards. And only 10% of energy passes from one trophic level
+  to the next — the rest is lost as heat. This is Lindeman's 10% Law.
+
+  Two: A food chain is a single, straight feeding sequence. A food web is many food chains
+  linked together. A food web is more stable because if one species is lost, organisms have
+  alternative food sources and the system survives.
+
+  Three: Decomposers — bacteria and fungi — are essential. They break down dead matter and
+  return nutrients to the soil. Without them, the nutrient cycle would stop and producers would
+  have nothing to grow on.
+
+  Four: Non-biodegradable waste is dangerous. It does not break down, so it accumulates in the
+  environment and enters food chains where it causes biological magnification — becoming most
+  concentrated and harmful in top carnivores.
+
+  Five: The ozone layer (O₃) in the stratosphere absorbs UV radiation. CFCs destroy it.
+  The Montreal Protocol of 1987 was the international response — it banned CFC production and
+  the ozone layer has been recovering since.
+
+  Write these five points in your notebook. Read them before every exam.
+
+KEY POINTS TO STRESS:
+  - 10% Law: only 10% energy transfers at each trophic level; 90% lost as heat.
+  - Food web = more stable than food chain due to alternative food sources.
+  - Decomposers close the nutrient cycle by returning nutrients to the soil.
+  - Non-biodegradable waste → biological magnification in top carnivores.
+  - CFCs → ozone depletion; Montreal Protocol (1987) banned CFCs.
+
+BOARD TIP:  These five statements make excellent answers for "state any three/four points about ecosystem energy flow" — memorize them precisely.
+
+
+========================================================================
+SLIDE 22: The 10% Law — Energy Flow Numerical (Interactive)
+========================================================================
+
+ON SCREEN:
+  - Interactive sequencer tracing energy from 10,000 J at producers through 4 trophic levels
+  - Step 1: Producers (Grass) = 10,000 J
+  - Step 2: Primary Consumers (Deer) = 1,000 J (10% of 10,000)
+  - Step 3: Secondary Consumers (Snake) = 100 J (10% of 1,000)
+  - Step 4: Tertiary Consumers (Hawk) = 10 J (10% of 100)
+  - Conclusion: Energy shrinks so fast, food chains rarely have more than 4–5 trophic levels
+  - Footer: Lindeman's 10% Law
+
+SCRIPT (say this aloud):
+  This is the slide that shows you how to solve the numerical questions based on the 10% Law —
+  and these definitely come in the board exam. Let's work through it together.
+
+  Imagine a grassland where grass (the producers) captures 10,000 joules of energy from
+  the Sun. This is trophic level 1.
+
+  Now, when deer eat the grass, only 10% of that energy is transferred. 10% of 10,000 J is
+  1,000 J. So the deer have 1,000 J. The other 9,000 J was lost — used by the grass for its own
+  life processes or released as heat.
+
+  Next, a snake eats the deer. 10% of 1,000 J is 100 J. The snake has 100 J. 900 J was lost.
+
+  Then a hawk eats the snake. 10% of 100 J is just 10 J. The hawk has only 10 J.
+
+  Think about this — we started with 10,000 joules and after just four trophic levels, only 10
+  joules remain. That is 99.9% of the original energy gone! If there were a fifth level — say a
+  human eating the hawk — they would receive only 1 J.
+
+  Now you can clearly see why food chains almost never go beyond 4 or 5 levels. There simply is
+  not enough energy left to sustain another level of life.
+
+  This law was proposed by the ecologist Raymond Lindeman and is called Lindeman's 10% Law or
+  the Law of Tenfold Reduction.
+
+  Practice the calculation: if a question says "producers have X joules, calculate energy at T3",
+  multiply by 0.1 twice (or divide by 100).
+
+KEY POINTS TO STRESS:
+  - 10,000 J → 1,000 J → 100 J → 10 J → 1 J (10% at each step).
+  - To find energy at any trophic level: multiply previous level by 0.1 (or divide by 10).
+  - Food chains stop at 4–5 levels because energy becomes insufficient beyond that.
+  - This is Lindeman's 10% Law — know the scientist's name.
+
+BOARD TIP:  A very common numerical: "Producers have 20,000 J — find energy at T4." Answer: 20,000 × 0.1 × 0.1 × 0.1 = 20 J. Practice this pattern.
+
+
+========================================================================
+SLIDE 23: Sort the Waste (ਕੂੜੇ ਨੂੰ ਛਾਂਟੋ) — Interactive
+========================================================================
+
+ON SCREEN:
+  - Interactive sorting game: click item, then click the correct bin
+  - Items: Vegetable peels, Plastic bag, Paper, Glass bottle, Cow dung, Aluminium can, Cotton cloth, DDT/pesticide
+  - Two bins: 🌿 Biodegradable (ਜੈਵ-ਨਿਘਾਰਯੋਗ) and ♻ Non-biodegradable (ਗੈਰ ਜੈਵ-ਨਿਘਾਰਯੋਗ)
+
+SCRIPT (say this aloud):
+  Excellent — let's sort these items into the correct bins. I want you to think through each one
+  before we reveal the answer, because this exact type of question appears on the board exam.
+
+  Vegetable peels — ਸਬਜ਼ੀ ਦੇ ਛਿਲਕੇ — go into the Biodegradable bin. They are organic matter from
+  plants and will be broken down by bacteria within weeks.
+
+  Plastic bag — ਪਲਾਸਟਿਕ ਬੈਗ — Non-biodegradable. Plastic is a synthetic polymer; no microorganism
+  can effectively break it down. It persists for hundreds of years.
+
+  Paper — ਕਾਗਜ਼ — Biodegradable. Paper is made from plant cellulose and can be broken down by
+  microorganisms, though it takes longer than food waste.
+
+  Glass bottle — ਕੱਚ ਦੀ ਬੋਤਲ — Non-biodegradable. Glass does not decompose. It fragments into
+  sharp pieces but is never broken down by microorganisms.
+
+  Cow dung — ਗੋਬਰ — Biodegradable. It is organic waste from an animal and is broken down
+  quickly. In fact, cow dung is used to make compost and biogas.
+
+  Aluminium can — ਐਲੂਮੀਨੀਅਮ ਕੈਨ — Non-biodegradable. Metal is not decomposed by
+  microorganisms, though it can rust (oxidize) very slowly. It should be recycled.
+
+  Cotton cloth — ਸੂਤੀ ਕੱਪੜਾ — Biodegradable. Cotton is a natural plant fibre and can be broken
+  down by microorganisms over time.
+
+  DDT / pesticide — ਡੀ.ਡੀ.ਟੀ. — Non-biodegradable. DDT is a synthetic chemical that
+  microorganisms cannot break down. It accumulates in food chains — biological magnification!
+
+  So biodegradable: vegetable peels, paper, cow dung, cotton cloth.
+  Non-biodegradable: plastic bag, glass bottle, aluminium can, DDT.
+  Remember these examples — they come up constantly.
+
+KEY POINTS TO STRESS:
+  - Biodegradable: vegetable peels, paper, cow dung, cotton cloth (natural/organic origins).
+  - Non-biodegradable: plastic, glass, aluminium, DDT (synthetic or inorganic).
+  - DDT is the most dangerous non-biodegradable waste because it causes biomagnification.
+  - These specific examples are board exam favourites.
+
+
+========================================================================
+SLIDE 24: True or False? (ਸਹੀ ਜਾਂ ਗਲਤ?) — 8 Questions
+========================================================================
+
+ON SCREEN:
+  - 8 True/False questions covering key chapter concepts
+  - Questions include topics on decomposers, energy flow, biomagnification, ozone, CFCs, trophic levels, biodegradability
+
+SCRIPT (say this aloud):
+  Now let's test your understanding with these eight True or False questions. I'll go through
+  each one with you and explain why the answer is what it is.
+
+  Question 1: "Decomposers return complex organic materials to the soil as simple inorganic
+  substances." — TRUE. This is exactly the role of decomposers. Bacteria and fungi break down
+  complex dead organic matter into simple inorganic compounds like nitrates, phosphates, and
+  carbon dioxide, which return to the soil and air to be used again by producers.
+
+  Question 2 [PSEB 2019]: "The flow of energy in a food chain is bidirectional (goes both
+  ways)." — FALSE. This is a critical point. Energy flow is strictly UNIDIRECTIONAL — it flows
+  only from producers to consumers, from lower trophic levels to higher ones. It never flows
+  backwards.
+
+  Question 3: "Biological magnification is highest in top carnivores." — TRUE. Non-biodegradable
+  toxins accumulate at each trophic level. By the time they reach top carnivores, the
+  concentration is at its maximum.
+
+  Question 4: "Ozone is formed when UV light splits O₂ into free oxygen atoms." — TRUE. This
+  is exactly the first step: UV + O₂ → O + O, and then O + O₂ → O₃.
+
+  Question 5: "CFCs are the main cause of ozone layer depletion." — TRUE. CFCs release free
+  chlorine atoms that destroy ozone in a chain reaction.
+
+  Question 6: "Grass, being a producer, occupies the first trophic level." — TRUE. Producers
+  are always at T1, the first trophic level, because they are the entry point of energy into the
+  food chain.
+
+  Question 7: "Non-biodegradable substances are quickly broken down by decomposers." — FALSE.
+  That is the whole point — they CANNOT be broken down by decomposers. That is what makes them
+  harmful.
+
+  Question 8: "The protective ozone layer lies in the upper atmosphere (stratosphere)." — TRUE.
+  The ozone layer is specifically in the stratosphere, which is 15–50 kilometres above the
+  Earth's surface.
+
+KEY POINTS TO STRESS:
+  - Energy flow = UNIDIRECTIONAL (Q2 is False — a PSEB 2019 question!).
+  - Biomagnification is highest in top carnivores (Q3 True).
+  - Non-biodegradable substances CANNOT be broken down by decomposers (Q7 False).
+  - Ozone layer is in the stratosphere (Q8 True).
+
+BOARD TIP:  Question 2 appeared in PSEB 2019 — bidirectional energy flow is FALSE; energy flow is always unidirectional. This exact statement may appear again.
+
+
+========================================================================
+SLIDE 25: Say It Back — Short Answer Review (8 Questions)
+========================================================================
+
+ON SCREEN:
+  - 8 short-answer questions for self-testing
+  - Topics: ozone formula, energy transfer percentage, cause of ozone hole, biomagnification term,
+    biodegradable waste definition, producers, decomposers, non-biodegradable waste
+
+SCRIPT (say this aloud):
+  Now we move into the "Say It Back" phase. This is where you check whether you can recall and
+  express the answers in your own words — which is exactly what the board exam requires. I'll
+  read each question and then give you the answer.
+
+  Question 1: What is the chemical formula for Ozone? — O₃. Ozone is a molecule made of three
+  oxygen atoms.
+
+  Question 2: What is the percentage of energy transferred in a food chain? — 10%. Only 10% of
+  energy at one trophic level is transferred to the next; 90% is lost as heat. This is the 10%
+  Law.
+
+  Question 3: What chemicals caused the ozone hole? — CFCs — Chlorofluorocarbons. These were
+  used in refrigerators, air conditioners, and aerosol sprays.
+
+  Question 4: What is the buildup of toxins in a food chain called? — Biological Magnification —
+  ਜੈਵਿਕ ਵਾਧਾ. Also called biomagnification.
+
+  Question 5: Waste that can be broken down naturally is called? — Biodegradable waste —
+  ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ.
+
+  Question 6: Organisms that make their own food are called? — Producers — ਉਤਪਾਦਕ. They are
+  autotrophs, and they use photosynthesis to make food from sunlight.
+
+  Question 7: Bacteria and fungi that break down dead matter are called? — Decomposers —
+  ਅਪਘਟਕ.
+
+  Question 8: Waste that cannot be broken down naturally is called? — Non-biodegradable waste —
+  ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ.
+
+  Go through these eight questions again on your own — cover the answers and say them aloud.
+  If you can answer all eight confidently, you know the core vocabulary and concepts of this
+  chapter cold.
+
+KEY POINTS TO STRESS:
+  - Ozone formula = O₃.
+  - Energy transfer = 10% per trophic level.
+  - CFCs = cause of ozone hole.
+  - Biological magnification = toxin buildup going up the food chain.
+
+BOARD TIP:  These eight questions map directly to 1-mark and 2-mark board exam questions — treat them as a must-know checklist.
+
+
+========================================================================
+SLIDE 26: Quick Check — Chapter 15 MCQs (ਤੁਰੰਤ ਜਾਂਚ) — 8 Questions
+========================================================================
+
+ON SCREEN:
+  - 8 multiple-choice questions covering entire chapter
+  - Topics: energy flow direction, ozone depletion cause, third trophic level, ozone protection,
+    biomagnification, food chain base, 3 R's, ozone and UV rays
+
+SCRIPT (say this aloud):
+  These eight multiple-choice questions cover everything we have studied. Let me go through each
+  one with you and explain why the correct answer is correct.
+
+  Question 1: Which of the following describes the flow of energy in an ecosystem?
+  A. Unidirectional  B. Bidirectional  C. Cyclic
+  — Answer: A. Unidirectional. Energy flows in one direction only — from Sun to producers to
+  consumers. It is never cyclic and never flows backwards.
+
+  Question 2: The depletion of the ozone layer is mainly due to:
+  A. CFCs  B. Carbon dioxide  C. Methane gas
+  — Answer: A. Chlorofluorocarbons (CFCs). Carbon dioxide causes global warming, and methane is
+  also a greenhouse gas, but neither directly destroys ozone. CFCs release chlorine atoms that
+  destroy O₃.
+
+  Question 3: In a food chain, the third trophic level is always occupied by:
+  A. Herbivores  B. Carnivores  C. Producers
+  — Answer: B. Carnivores (secondary consumers). T1 = Producers, T2 = Herbivores/Primary
+  consumers, T3 = Carnivores/Secondary consumers.
+
+  Question 4: Ozone layer protects us from:
+  A. Visible light  B. Ultraviolet (UV) rays  C. Infrared rays
+  — Answer: B. Ultraviolet (UV) rays. Ozone absorbs UV radiation, which causes skin cancer,
+  cataracts, and immune suppression.
+
+  Question 5: Biological magnification leads to maximum toxin concentration in:
+  A. Primary consumers  B. Producers  C. Top carnivores (Humans)
+  — Answer: C. Top carnivores (Humans). Toxins accumulate at each level and are highest at the
+  top of the food chain.
+
+  Question 6: Which group forms the base of every food chain?
+  A. Producers  B. Herbivores  C. Decomposers
+  — Answer: A. Producers. Green plants are always at the base (T1) of every food chain because
+  they capture energy from the Sun.
+
+  Question 7: The 3 R's of waste management are Reduce, Reuse and:
+  A. Recycle  B. Reject  C. Return
+  — Answer: A. Recycle. The three R's are Reduce, Reuse, Recycle.
+
+  Question 8: Ozone (O₃) protects the Earth by absorbing which rays?
+  A. Infrared rays  B. Ultraviolet rays  C. Radio waves
+  — Answer: B. Ultraviolet rays. This is the primary function of the ozone layer.
+
+KEY POINTS TO STRESS:
+  - Energy flow = Unidirectional (not bidirectional, not cyclic).
+  - Ozone depletion = CFCs (not CO₂, not methane).
+  - T3 = carnivores (secondary consumers).
+  - Biomagnification is maximum in top carnivores.
+
+BOARD TIP:  All 8 questions are direct board-exam style. If you got any wrong, go back and re-read that section before your exam.
+
+
+========================================================================
+SLIDE 27: Download Your Bilingual Flashcards
+========================================================================
+
+ON SCREEN:
+  - Information about Anki bilingual flashcard export
+  - All "Say It Back" questions formatted for Anki with English + Punjabi answers
+  - Instructions: click button → download CSV → import into Anki app
+  - "Export to Anki (Bilingual CSV)" button
+
+SCRIPT (say this aloud):
+  Fantastic work making it to the end of Chapter 13 — Our Environment! You have covered
+  ecosystems, food chains, food webs, the 10% Law, biological magnification, ozone formation
+  and depletion, biodegradable vs non-biodegradable waste, the 3 R's, and the Montreal Protocol.
+  That is a complete and thorough chapter!
+
+  This final slide offers you a very useful study tool. All the "Say It Back" questions from
+  this chapter — the key terms, definitions, and short-answer questions — have been automatically
+  formatted as bilingual flashcards for the Anki app. Each card shows the question on the front
+  and both the English and Punjabi answer on the back.
+
+  To use them: click the "Export to Anki" button on this slide to download the CSV file. Then
+  open the Anki app on your computer or phone, click "Import File," and select the downloaded
+  file. Your flashcard deck will be ready immediately.
+
+  Anki uses spaced repetition — it shows you the cards you struggle with more often and the ones
+  you know well less often. This is scientifically proven to be one of the most effective ways
+  to memorize vocabulary and definitions for exams.
+
+  Before your board exam, aim to review this deck every day for at least ten minutes. Pay
+  special attention to: the 10% Law, biological magnification, ozone depletion, and the
+  difference between biodegradable and non-biodegradable waste — these are the highest-frequency
+  topics from this chapter.
+
+  Best of luck, students. You have done excellent work today! ਸ਼ਾਬਾਸ਼!
+
+KEY POINTS TO STRESS:
+  - Use the Anki flashcard export to memorize key terms in both English and Punjabi.
+  - Spaced repetition (Anki) is highly effective for exam preparation.
+  - Priority revision topics: 10% Law, biomagnification, ozone depletion, biodegradable vs non-biodegradable.
+  - Review the flashcards daily in the weeks before the board exam.
+
+========================================================================
+END OF CHAPTER 13 SCRIPT — TOTAL SLIDES SCRIPTED: 27
+========================================================================

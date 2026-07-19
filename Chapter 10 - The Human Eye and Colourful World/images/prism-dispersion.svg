@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'Segoe UI',Arial,sans-serif">
+  <rect width="720" height="420" fill="#ffffff"/>
+  <!-- Prism (triangle) -->
+  <polygon points="330,90 250,300 410,300" fill="#e0f2fe" stroke="#0369a1" stroke-width="3"/>
+  <text x="330" y="330" font-size="15" fill="#0369a1" text-anchor="middle" font-weight="700">Glass Prism</text>
+  <!-- Incident white light -->
+  <line x1="70" y1="180" x2="288" y2="180" stroke="#334155" stroke-width="5"/>
+  <text x="70" y="168" font-size="15" fill="#334155" font-weight="700">White light</text>
+  <!-- Dispersed spectrum from exit face ~ (368,220) -->
+  <g stroke-width="6">
+    <line x1="372" y1="222" x2="660" y2="150" stroke="#ef4444"/>
+    <line x1="372" y1="224" x2="660" y2="176" stroke="#f97316"/>
+    <line x1="372" y1="226" x2="660" y2="200" stroke="#eab308"/>
+    <line x1="372" y1="228" x2="660" y2="224" stroke="#22c55e"/>
+    <line x1="372" y1="230" x2="660" y2="248" stroke="#3b82f6"/>
+    <line x1="372" y1="232" x2="660" y2="272" stroke="#4f46e5"/>
+    <line x1="372" y1="234" x2="660" y2="296" stroke="#7c3aed"/>
+  </g>
+  <!-- Spectrum labels -->
+  <text x="666" y="154" font-size="13" fill="#ef4444">Red (bends least)</text>
+  <text x="666" y="204" font-size="13" fill="#eab308">Yellow</text>
+  <text x="666" y="252" font-size="13" fill="#3b82f6">Blue</text>
+  <text x="666" y="300" font-size="13" fill="#7c3aed">Violet (bends most)</text>
+  <text x="530" y="120" font-size="16" fill="#0f172a" font-weight="700">V I B G Y O R</text>
+  <text x="360" y="398" font-size="17" fill="#0f172a" text-anchor="middle" font-weight="700">Dispersion of White Light through a Prism</text>
+</svg>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 10 Science: Part 1 (Ch 6-7) - Interactive Masterclass</title>
+    <style>
+        :root {
+            --goku-primary: #0047BB;
+            --goku-accent: #FF5C00;
+            --bg-white: #FFFFFF;
+            --text-main: #2C3E50;
+            --card-bg: #F8FAFC;
+            --punjabi-text: #64748B; 
+            --badge-bg: #FEF3C7;
+            --badge-text: #B45309;
+        }
+
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; background: radial-gradient(circle at top right, #eef2f3 0%, #ffffff 100%); color: var(--text-main); overflow: hidden; touch-action: pan-y; }
+
+        .slider { display: flex; width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+        .slide { min-width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px 10%; box-sizing: border-box; }
+        
+        .content-box { max-width: 1050px; width: 100%; background: var(--bg-white); padding: 50px; border-radius: 16px; border-left: 8px solid var(--goku-primary); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06); opacity: 0; transform: scale(0.95) translateY(20px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); max-height: 85vh; overflow-y: auto; position: relative; }
+        .slide.active .content-box { opacity: 1; transform: scale(1) translateY(0); }
+        .slide:nth-child(even) .content-box { border-left: 8px solid var(--goku-accent); }
+        
+        .title-slide { border-left: none !important; border-top: 8px solid var(--goku-primary) !important; border-bottom: 8px solid var(--goku-accent) !important; text-align: center; }
+        .chapter-divider { background-color: var(--goku-primary); color: white; border-left: none !important; border-right: 8px solid var(--goku-accent); text-align: center; }
+        .chapter-divider h2, .chapter-divider h1 { color: white; border-bottom: 2px solid var(--goku-accent); display: inline-block; padding-bottom: 10px; }
+        .chapter-divider .punjabi { color: #E5E7EB; display: block; margin-top: 10px; font-size: 1.8rem; }
+
+        h1 { color: var(--goku-primary); font-size: 3.5rem; margin: 0 0 10px 0; line-height: 1.2; font-weight: 700; }
+        h2 { color: var(--goku-primary); font-size: 2.5rem; margin: 0 0 15px 0; padding-bottom: 10px; border-bottom: 2px solid var(--goku-accent); font-weight: 600; display: flex; align-items: center; justify-content: space-between;}
+        h3 { color: var(--goku-accent); font-size: 1.8rem; margin: 20px 0 10px 0; font-weight: 600;}
+        p, li { font-size: 1.3rem; line-height: 1.6; }
+        ul, ol { margin-top: 10px; padding-left: 30px; }
+        li { margin-bottom: 12px; }
+
+        .accent { color: var(--goku-accent); font-weight: bold; }
+        .accent-blue { color: var(--goku-primary); font-weight: bold; }
+        
+        /* Reading Paragraph UI */
+        .reading-pane { background: #F8FAFC; padding: 25px 35px; border-radius: 12px; border-left: 6px solid var(--goku-accent); font-size: 1.4rem; line-height: 1.8; color: #334155; margin-bottom: 20px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);}
+        .reading-pane::before { content: '📖 LECTURE READING'; display: block; font-size: 1rem; font-weight: bold; color: var(--goku-accent); margin-bottom: 10px; letter-spacing: 1.5px; }
+        
+        /* Image UI */
+        .slide-img { max-width: 100%; max-height: 320px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); margin: 20px auto; display: block; border: 1px solid #E2E8F0; object-fit: contain; background: white; padding: 10px;}
+
+        /* Typography System */
+        .punjabi { color: var(--punjabi-text); font-weight: normal; font-size: 0.95em; margin-left: 6px; }
+        .punjabi-block { color: var(--punjabi-text); font-weight: normal; font-size: 0.95em; display: block; margin-top: 4px; }
+        .phonetic { color: #94A3B8; font-size: 0.85em; font-style: italic; display: block; margin-top: 4px;}
+        .exam-keyword { background: #FEF08A; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #854D0E; border: 1px solid #FDE047; }
+        .board-badge { background: var(--badge-bg); color: var(--badge-text); font-size: 1.1rem; padding: 6px 12px; border-radius: 20px; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #FCD34D;}
+        
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 1.2rem; background: var(--bg-white); box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden;}
+        th, td { border: 1px solid #E2E8F0; padding: 14px; text-align: left; vertical-align: top; }
+        th { background-color: var(--goku-primary); color: white; font-weight: bold; }
+        tr:nth-child(even) { background-color: var(--card-bg); }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .vocab-item { background: #F8FAFC; padding: 15px; border-radius: 10px; border-left: 4px solid var(--goku-accent); border: 1px solid #E2E8F0; border-left-width: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);}
+        .vocab-en { font-weight: bold; font-size: 1.3rem; color: var(--goku-primary); margin-bottom: 5px; display: block;}
+
+        /* ========================================= */
+        /* INTERACTIVE: ACTIVE RECALL BLANKS         */
+        /* ========================================= */
+        .cloze-paragraph { background: #F8FAFC; padding: 30px; border-radius: 12px; border: 2px solid #E2E8F0; font-size: 1.4rem; line-height: 1.9; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); }
+        .cloze-blank { background: var(--goku-primary); color: transparent; padding: 4px 16px; border-radius: 6px; cursor: pointer; user-select: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; font-weight: bold; margin: 0 5px; position: relative; box-shadow: 0 4px 6px rgba(0,71,187,0.3);}
+        .cloze-blank::after { content: '?'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; }
+        .cloze-blank:hover { transform: translateY(-2px) scale(1.05); }
+        .cloze-blank.revealed { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; box-shadow: 0 0 15px rgba(16,185,129,0.3); transform: scale(1.02); }
+        .cloze-blank.revealed::after { display: none; }
+
+        /* ========================================= */
+        /* INTERACTIVE: MEMORY MATCH MATRIX          */
+        /* ========================================= */
+        .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; perspective: 1000px; position: relative;}
+        .match-btn { padding: 15px; border: 2px solid var(--goku-primary); border-radius: 12px; cursor: pointer; transition: all 0.3s; background: white; font-weight: bold; font-size: 1.2rem; color: var(--text-main); box-shadow: 0 4px 6px rgba(0,0,0,0.05); transform-style: preserve-3d;}
+        .match-btn:hover { background: #F0F4F8; transform: translateY(-3px); box-shadow: 0 8px 15px rgba(0,0,0,0.1);}
+        .match-btn.selected { background: var(--goku-accent); color: white; border-color: var(--goku-accent); transform: scale(1.05); box-shadow: 0 8px 20px rgba(255,92,0,0.4); }
+        .match-btn.matched { background: #F8FAFC; color: #64748B; border-color: #10B981; pointer-events: none; opacity: 0.9; transform: scale(0.98); border-width: 3px;}
+        @keyframes shakeError { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px) rotate(-2deg); } 75% { transform: translateX(10px) rotate(2deg); } }
+        .match-btn.error { animation: shakeError 0.4s ease-in-out; background: #EF4444; color: white; border-color: #B91C1C; }
+
+        /* ========================================= */
+        /* INTERACTIVE: CASCADING SEQUENCER          */
+        /* ========================================= */
+        .sequencer-container { background: #F8FAFC; padding: 30px; border-radius: 16px; border: 2px solid var(--goku-primary); position: relative;}
+        .seq-step { opacity: 0; transform: translateY(-30px) scale(0.95); display: none; margin-bottom: 15px; padding: 20px; background: white; border-left: 6px solid var(--goku-accent); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.3rem; position: relative;}
+        .seq-step:first-child { opacity: 1; transform: translateY(0) scale(1); display: block; }
+        .seq-step:not(:last-child)::after { content: '↓'; position: absolute; bottom: -25px; left: 40px; font-size: 2rem; color: var(--goku-primary); font-weight: bold; opacity: 0; transition: opacity 0.3s; z-index: 10;}
+        .seq-step.arrow-visible::after { opacity: 1; }
+        @keyframes slideCascade { to { opacity: 1; transform: translateY(0) scale(1); } }
+        .seq-step.visible { display: block; animation: slideCascade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .seq-btn { background: var(--goku-primary); color: white; border: none; padding: 16px 30px; font-size: 1.4rem; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 10px rgba(0,71,187,0.2); margin-top: 20px; width: 100%;}
+        .seq-btn:hover { background: var(--goku-accent); box-shadow: 0 6px 15px rgba(255,92,0,0.3); transform: translateY(-2px);}
+
+        /* ========================================= */
+        /* INTERACTIVE: 3D CONCEPT FLIP-CARDS        */
+        /* ========================================= */
+        .flip-grid { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;}
+        .flip-container { perspective: 1200px; flex: 1; min-width: 250px; height: 280px; }
+        .flip-card { width: 100%; height: 100%; transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); transform-style: preserve-3d; cursor: pointer; position: relative; }
+        .flip-container:hover .flip-card { transform: rotateY(180deg); }
+        .flip-front, .flip-back { width: 100%; height: 100%; position: absolute; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 12px; padding: 20px; box-sizing: border-box; text-align: center; box-shadow: 0 8px 20px rgba(0,0,0,0.1);}
+        .flip-front { background: var(--goku-primary); color: white; font-size: 1.6rem; font-weight: bold; border: 2px solid var(--goku-primary);}
+        .flip-back { background: #FEF3C7; color: #92400E; transform: rotateY(180deg); font-size: 1.2rem; border: 2px solid #F59E0B; overflow-y: auto;}
+
+        /* Standard End Quizzes */
+        .sub-slider-container { background: #F8FAFC; padding: 30px; border-radius: 16px; margin: 20px 0; border: 2px solid var(--goku-primary); min-height: 250px; display: flex; flex-direction: column; justify-content: center; position: relative; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);}
+        .sub-slide { display: none; animation: fadeIn 0.4s ease; width: 100%; }
+        .sub-slide.active { display: block; }
+        .question-text { font-size: 1.6rem; font-weight: bold; margin-bottom: 20px; color: var(--goku-primary); text-align: center;}
+        .option-btn { display: block; width: 100%; padding: 16px 20px; margin: 10px 0; text-align: left; background: var(--bg-white); border: 2px solid #E2E8F0; border-radius: 10px; cursor: pointer; transition: all 0.2s; font-size: 1.4rem; color: var(--text-main); font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
+        .option-btn:hover:not(:disabled) { background: #E8F0FE; border-color: var(--goku-primary); transform: translateX(5px); }
+        .option-btn.correct { background: #D1FAE5 !important; border-color: #10B981 !important; color: #065F46 !important; }
+        .option-btn.incorrect { background: #FEE2E2 !important; border-color: #EF4444 !important; color: #991B1B !important; }
+        .tf-grid { display: flex; gap: 15px; justify-content: space-between; }
+        .tf-grid .option-btn { text-align: center; }
+        .sa-input { width: 100%; padding: 16px; font-size: 1.4rem; border: 2px solid #CBD5E1; border-radius: 10px; margin-bottom: 15px; box-sizing: border-box; font-family: inherit; color: var(--text-main); transition: all 0.2s; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);}
+        .sa-input:focus { border-color: var(--goku-accent); outline: none; box-shadow: 0 0 0 3px rgba(255, 92, 0, 0.1), inset 0 2px 4px rgba(0,0,0,0.02); }
+        .sa-input:disabled { background-color: #F1F5F9; color: #94A3B8; }
+        .sa-submit-btn { background: var(--goku-primary); color: white; border: none; padding: 14px 24px; font-size: 1.3rem; border-radius: 10px; cursor: pointer; width: 100%; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 6px rgba(0,71,187,0.2);}
+        .sa-submit-btn:hover:not(:disabled) { background: var(--goku-accent); transform: translateY(-2px); box-shadow: 0 6px 12px rgba(255,92,0,0.25);}
+        .feedback { margin-top: 15px; font-size: 1.4rem; min-height: 30px; text-align: center; }
+        .next-sub-btn { background: var(--goku-accent); margin-top: 20px; display: none; width: 100%; padding: 16px; font-size: 1.4rem; border-radius: 10px; color: white; border: none; cursor: pointer; font-weight: bold; text-align: center; box-shadow: 0 4px 10px rgba(255, 92, 0, 0.3); transition: all 0.2s;}
+        .next-sub-btn:hover { background: #E65300; transform: translateY(-2px); }
+        .sub-progress { text-align: center; font-size: 1.1rem; color: #94A3B8; margin-bottom: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* Global Nav */
+        .side-nav { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.8); font-size: 2.5rem; color: var(--goku-primary); cursor: pointer; width: 60px; height: 60px; display: flex; justify-content: center; align-items: center; z-index: 150; transition: all 0.3s ease; border-radius: 50%; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .side-nav:hover:not(:disabled) { background: var(--goku-primary); color: white; box-shadow: 0 8px 25px rgba(0,71,187,0.25); transform: translateY(-50%) scale(1.1); border-color: var(--goku-primary);}
+        .side-nav:disabled { opacity: 0; cursor: not-allowed; pointer-events: none;}
+        .left-nav { left: 20px; }
+        .right-nav { right: 20px; }
+        .export-btn { background-color: #10B981; margin-top: 20px; font-size: 1.4rem; padding: 16px 30px; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3); color: white; cursor: pointer; border-radius: 10px; border: none; font-weight: bold; width: 100%; transition: all 0.2s;}
+        .export-btn:hover { background-color: #059669; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);}
+        .progress { position: fixed; top: 0; left: 0; height: 6px; background: var(--goku-accent); transition: width 0.3s ease; z-index: 100; box-shadow: 0 2px 5px rgba(255,92,0,0.3);}
+        .slide-counter { position: fixed; bottom: 30px; left: 30px; font-size: 1.2rem; color: var(--goku-primary); font-weight: bold; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.8); padding: 10px 20px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; transition: all 0.2s; z-index: 150;}
+        .slide-counter:hover { border-color: var(--goku-primary); background: var(--bg-white); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,71,187,0.15);}
+        
+        .content-box::-webkit-scrollbar { width: 8px; }
+        .content-box::-webkit-scrollbar-track { background: #F1F5F9; border-radius: 8px; }
+        .content-box::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 8px; }
+
+        @media (max-width: 768px) {
+            .slide { padding: 15px 5%; }
+            .content-box { padding: 30px 20px; max-height: 85vh; border-radius: 12px;}
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.7rem; flex-direction: column; align-items: flex-start; gap: 10px;}
+            p, li, table { font-size: 1.1rem; }
+            .vocab-grid { grid-template-columns: 1fr; }
+            .match-grid { grid-template-columns: 1fr; }
+            .flip-container { width: 100%; margin: 10px 0; height: 200px;}
+            .side-nav { width: 45px; height: 45px; font-size: 1.8rem; }
+            .left-nav { left: 10px; }
+            .right-nav { right: 10px; }
+            .slide-counter { bottom: 15px; left: 15px; font-size: 1rem; padding: 8px 15px;}
+        }
+    </style>
+</head>
+<body>
+
+    <div class="progress" id="progress-bar" style="width: 0%;"></div>
+    <div class="slide-counter" id="counter" title="Jump to slide">Loading...</div>
+
+    <button class="side-nav left-nav" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="side-nav right-nav" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
+
+    <div class="slider" id="slider">
+
+        <!-- TITLE SLIDE -->
+        <div class="slide active">
+            <div class="content-box title-slide">
+                <h1>Class 10 Science</h1>
+                <h2 style="border:none; margin-bottom: 0; justify-content: center;">Board Prep Masterclass</h2>
+                <p class="punjabi" style="font-size: 1.8rem; margin-top: 10px;">Phase 1: Chapters 6 & 7</p>
+                <p style="font-size: 1.6rem; color: #64748B; margin-top: 30px; font-weight: 500;">
+                    The Premium Clinical & Conceptual Edition.<br>
+                    <span class="punjabi-block" style="margin-top:10px;">(ਪ੍ਰੀਮੀਅਮ ਇੰਟਰਐਕਟਿਵ ਐਡੀਸ਼ਨ)</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- CHAPTER 6: CONTROL AND COORDINATION -->
+        <!-- ========================================== -->
+        <div class="slide" id="ch6">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 6</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">Control and Coordination</h2>
+                <span class="punjabi">ਕਾਬੂ ਅਤੇ ਤਾਲਮੇਲ</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Bilingual Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Neuron</span><br><span class="punjabi">ਨਾੜੀ ਸੈੱਲ (Nerve cell)</span><br><span class="phonetic">ਨਿਊਰੋਨ / New-ron</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Synapse</span><br><span class="punjabi">ਸਿਨੈਪਸ (Gap between two neurons)</span><br><span class="phonetic">ਸਿਨੈਪਸ / Sin-aps</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Receptor</span><br><span class="punjabi">ਗ੍ਰਾਹੀ (Detects stimuli)</span><br><span class="phonetic">ਰੀਸੈਪਟਰ / Re-sep-tor</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Effector</span><br><span class="punjabi">ਪ੍ਰਭਾਵਕ (Muscle/gland that responds)</span><br><span class="phonetic">ਇਫੈਕਟਰ / Ee-fec-tor</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Tropism</span><br><span class="punjabi">ਅਨੁਵਰਤਨ (Directional plant growth)</span><br><span class="phonetic">ਟਰੋਪਿਜ਼ਮ / Tro-piz-um</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Hormone</span><br><span class="punjabi">ਹਾਰਮੋਨ (Chemical messenger)</span><br><span class="phonetic">ਹਾਰਮੋਨ / Hor-moan</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 1 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Introduction to Coordination</h2>
+                <div class="reading-pane">
+                    <strong>Why Respond?</strong><br>
+                    All living organisms—whether it is a sunflower turning toward the morning sun or a human pulling their hand away from a hot surface—must be able to detect changes in their environment. These environmental changes are called <em>stimuli</em>. To survive, a multicellular organism must ensure that its millions of cells work together harmoniously to produce the correct response. This synchronized working of various organs is what we call <strong>Control and Coordination</strong>.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Structure of a Neuron <span class="punjabi">(ਨਾੜੀ ਸੈੱਲ)</span></h2>
+                <img src="images/Blausen_0657_MultipolarNeuron.png" alt="Neuron Structure" class="slide-img">
+                <ol style="background: #F8FAFC; padding: 20px 20px 20px 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="exam-keyword">Dendrite</span>: Branch-like structures that acquire information.</li>
+                    <li><span class="exam-keyword">Cell Body (Soma)</span>: Processes the signal.</li>
+                    <li><span class="exam-keyword">Axon</span>: Transmits the electrical impulse away from the cell body.</li>
+                    <li><span class="exam-keyword">Nerve Ending</span>: The tip where the signal is passed on.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Synapse Conversion <span class="punjabi">(ਸਿਨੈਪਸ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Tap the blue blocks to reveal the clinical mechanism.</p>
+                <div class="cloze-paragraph">
+                    The gap between two neurons is called the synapse. Because <span class="cloze-blank" data-ans="Electrical" onclick="revealCloze(this)"></span> signals cannot physically jump across this gap, the nerve ending converts the signal by releasing chemicals called <span class="cloze-blank" data-ans="Neurotransmitters" onclick="revealCloze(this)"></span>. These chemicals rapidly diffuse across the gap and bind to the <span class="cloze-blank" data-ans="Dendrite" onclick="revealCloze(this)"></span> of the next neuron. This chemical conversion ensures that the impulse only flows in a strict <span class="cloze-blank" data-ans="One-way" onclick="revealCloze(this)"></span> direction.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Reflex Arc Sequence <span class="board-badge">🏆 5-Mark Favorite</span></h2>
+                <img src="images/pain-withdrawal-arc_med.jpeg" alt="Reflex Arc" class="slide-img">
+                <p><strong>Interactive Sequencer:</strong> Build the chronological sequence of a reflex action.</p>
+                <div class="sequencer-container" id="seq-ch6-1">
+                    <div class="seq-step">
+                        <strong>1. Receptor:</strong> Thermoreceptors in your skin detect extreme heat.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Sensory Neuron:</strong> Rushes the pain signal up your arm towards the central nervous system.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Relay Neuron:</strong> Located strictly in the <span class="exam-keyword">Spinal Cord</span>. It instantly processes and redirects the signal without waiting for brain input.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Motor Neuron:</strong> Rushes the command back down your arm.
+                    </div>
+                    <div class="seq-step">
+                        <strong>5. Effector:</strong> Your arm muscle contracts, pulling your hand away instantly!
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch6-1')">Reveal Next Step &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Brain Localization <span class="punjabi">(ਦਿਮਾਗ ਦੇ ਹਿੱਸੇ)</span></h2>
+                <p>Hover over the brain regions to reveal their exact board-tested functions.</p>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Cerebrum (Forebrain)<br><span class="punjabi">ਸੈਰੀਬ੍ਰਮ</span></div>
+                            <div class="flip-back"><strong>Main thinking part.</strong><br><br>Controls <span class="exam-keyword">voluntary actions</span>, learning, memory, and sensory interpretation.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Cerebellum (Hindbrain)<br><span class="punjabi">ਸੈਰੀਬੈਲਮ</span></div>
+                            <div class="flip-back"><strong>Precision and balance.</strong><br><br>Maintains <span class="exam-keyword">posture and balance</span> (e.g., riding a bike, walking in a straight line).</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Medulla (Hindbrain)<br><span class="punjabi">ਮੈਡੂਲਾ</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>Autopilot.</strong><br><br>Controls <span class="exam-keyword">vital involuntary actions</span> like blood pressure, heartbeat, and vomiting.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 2 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Endocrine System</h2>
+                <div class="reading-pane">
+                    <strong>The Speed Limit of Nerves</strong><br>
+                    Nervous tissue allows for incredibly rapid responses, but it has limitations. Firstly, electrical impulses only reach cells that are directly connected by nerve fibers. Secondly, once an impulse is sent, a neuron takes time to reset its mechanism before it can fire again. To provide a steady, slow, and wide-reaching coordination across the entire body (like regulating growth or puberty), we rely on the <strong>Endocrine System</strong>. This system uses chemical messengers called hormones, which are secreted directly into the bloodstream to reach every single cell.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Insulin Feedback Loop <span class="punjabi">(ਫੀਡਬੈਕ ਵਿਧੀ)</span></h2>
+                <img src="images/c0279374-800px-wm.jpg" alt="Insulin Mechanism" class="slide-img">
+                <p>Hormones operate on a precise feedback mechanism to maintain homeostasis.</p>
+                <div class="sequencer-container" id="seq-ch6-2">
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 1:</span> You eat a meal &rarr; Blood sugar levels rise.
+                    </div>
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 2:</span> The <span class="exam-keyword">Pancreas</span> detects the high sugar and secretes <span class="exam-keyword">Insulin</span>.
+                    </div>
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 3:</span> Insulin commands cells to absorb sugar &rarr; Blood sugar levels fall.
+                    </div>
+                    <div class="seq-step">
+                        <span class="accent-blue">Step 4:</span> Pancreas detects the low sugar and <em>stops/reduces</em> insulin secretion to prevent fainting.
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch6-2')">Reveal Feedback Loop &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 3 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Plant Coordination</h2>
+                <div class="reading-pane">
+                    <strong>Slower, But Smart</strong><br>
+                    Unlike animals, plants do not have a nervous system or muscles. They cannot run away from danger or physically grab nutrients. Instead, they coordinate their behavior entirely through <strong>Phytohormones</strong> (plant hormones). When a plant detects sunlight, gravity, or water, it uses these slow-moving chemicals to alter the growth rate of specific cells, allowing the stem to slowly bend towards light or the roots to seek out deep water.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Plant Hormones Matrix <span class="punjabi">(ਪੌਦਿਆਂ ਦੇ ਹਾਰਮੋਨ)</span></h2>
+                <p><strong>Interactive Match:</strong> Tap a plant hormone, then tap its correct clinical function.</p>
+                <div class="match-grid" id="match-ch6-1">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Auxin</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Growth Inhibitor (causes wilting of leaves)</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Promotes rapid cell division</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Cytokinins</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Abscisic Acid (ABA)</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Promotes cell elongation (Phototropism)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CH 6 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch6"><div class="sub-slide active" id="tf-ch6-s1"><div class="sub-progress">Question 1 of 5 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">The gap between two neurons is called a synapse.<br><span class="punjabi-block">ਦੋ ਨਾੜੀ ਸੈੱਲਾਂ ਵਿਚਕਾਰਲੀ ਖਾਲੀ ਥਾਂ ਨੂੰ ਸਿਨੈਪਸ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s2"><div class="sub-progress">Question 2 of 5 <span class="pyq-tag">[PSEB 2021]</span></div><div class="question-text">Reflex actions are controlled primarily by the forebrain.<br><span class="punjabi-block">ਰਿਫਲੈਕਸ ਕਿਰਿਆਵਾਂ ਮੁੱਖ ਤੌਰ 'ਤੇ ਅਗਲੇ ਦਿਮਾਗ ਦੁਆਰਾ ਕੰਟਰੋਲ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s3"><div class="sub-progress">Question 3 of 5</div><div class="question-text">Cytokinins promote rapid cell division in plants.<br><span class="punjabi-block">ਸਾਈਟੋਕਾਇਨਿਨ ਪੌਦਿਆਂ ਵਿੱਚ ਤੇਜ਼ੀ ਨਾਲ ਸੈੱਲ ਵੰਡ ਨੂੰ ਉਤਸ਼ਾਹਿਤ ਕਰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s4"><div class="sub-progress">Question 4 of 5</div><div class="question-text">Nastic movements depend on the direction of the stimulus.<br><span class="punjabi-block">ਨੈਸਟਿਕ ਗਤੀਆਂ ਉਤੇਜਕ ਦੀ ਦਿਸ਼ਾ 'ਤੇ ਨਿਰਭਰ ਕਰਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch6', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch6-s5"><div class="sub-progress">Question 5 of 5 <span class="pyq-tag">[PSEB 2020]</span></div><div class="question-text">Iodine is essential for the synthesis of thyroxine.<br><span class="punjabi-block">ਥਾਇਰੌਕਸਿਨ ਦੇ ਸੰਸਲੇਸ਼ਣ ਲਈ ਆਇਓਡੀਨ ਜ਼ਰੂਰੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 6</h2><div class="sub-slider-container" id="sib-ch6"><div class="sub-slide active short-answer" id="sib-ch6-s1" data-q="What chemicals carry signals across the synapse?" data-a="Neurotransmitters" data-pa="ਨਿਊਰੋਟ੍ਰਾਂਸਮੀਟਰ"><div class="sub-progress">Short Answer 1 of 5</div><div class="question-text">What chemicals carry signals across the synapse?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Neurotransmitters', 'ਨਿਊਰੋਟ੍ਰਾਂਸਮੀਟਰ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s2" data-q="Which part of the brain controls voluntary actions like thinking?" data-a="Cerebrum" data-pa="ਸੈਰੀਬ੍ਰਮ / ਅਗਲਾ ਦਿਮਾਗ"><div class="sub-progress">Short Answer 2 of 5</div><div class="question-text">Which part of the brain controls voluntary actions like thinking?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Cerebrum', 'ਸੈਰੀਬ੍ਰਮ / ਅਗਲਾ ਦਿਮਾਗ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s3" data-q="Which plant hormone causes bending towards light?" data-a="Auxin" data-pa="ਔਕਸਿਨ"><div class="sub-progress">Short Answer 3 of 5</div><div class="question-text">Which plant hormone causes bending towards light?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Auxin', 'ਔਕਸਿਨ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s4" data-q="Which plant hormone inhibits growth and causes leaves to fall?" data-a="Abscisic Acid" data-pa="ਐਬਸਿਸਿਕ ਐਸਿਡ"><div class="sub-progress">Short Answer 4 of 5</div><div class="question-text">Which plant hormone inhibits growth and causes leaves to fall?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Abscisic Acid', 'ਐਬਸਿਸਿਕ ਐਸਿਡ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch6', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch6-s5" data-q="Which part of the brain controls balance and posture?" data-a="Cerebellum" data-pa="ਸੈਰੀਬੈਲਮ"><div class="sub-progress">Short Answer 5 of 5</div><div class="question-text">Which part of the brain controls balance and posture?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Cerebellum', 'ਸੈਰੀਬੈਲਮ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 6 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch6"><div class="sub-slide active" id="mcq-ch6-s1"><div class="sub-progress">Question 1 of 5 <span class="pyq-tag">[PSEB 2018]</span></div><div class="question-text">Which part of the brain controls involuntary actions like blood pressure and vomiting?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Cerebrum</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Cerebellum</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Medulla</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s2"><div class="sub-progress">Question 2 of 5</div><div class="question-text">To which side of the shoot does auxin diffuse when light comes from one direction?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. The sunny side</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. The shady side</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. It remains equally distributed</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s3"><div class="sub-progress">Question 3 of 5</div><div class="question-text">The rapid folding of Mimosa (Touch-me-not) leaves is due to:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Cell division</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Changes in turgor pressure (water content)</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Action of Auxin</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s4"><div class="sub-progress">Question 4 of 5</div><div class="question-text">Which mechanism controls the exact amount of hormones released in the body?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Reflex action</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Feedback mechanism</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Synaptic transmission</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch6', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch6-s5"><div class="sub-progress">Question 5 of 5</div><div class="question-text">In a reflex arc, the signal is carried from the receptor to the spinal cord by:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Motor neuron</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Relay neuron</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Sensory neuron</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Continue to Chapter 7 &rarr;</button></div></div></div></div>
+
+        <!-- ========================================== -->
+        <!-- CHAPTER 7: REPRODUCTION -->
+        <!-- ========================================== -->
+        <div class="slide" id="ch7">
+            <div class="content-box chapter-divider">
+                <h1>Chapter 7</h1>
+                <h2 style="border-bottom: 2px solid white; justify-content: center;">How do Organisms Reproduce?</h2>
+                <span class="punjabi">ਜੀਵ ਪ੍ਰਜਣਨ ਕਿਵੇਂ ਕਰਦੇ ਹਨ?</span>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Bilingual Vocabulary <span class="punjabi">(ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)</span></h2>
+                <div class="vocab-grid">
+                    <div class="vocab-item"><span class="vocab-en">Asexual</span><br><span class="punjabi">ਅਲਿੰਗੀ (Single parent)</span><br><span class="phonetic">ਏ-ਸੈਕਸ਼ੂਅਲ / A-sex-you-al</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Sexual</span><br><span class="punjabi">ਲਿੰਗੀ (Two parents)</span><br><span class="phonetic">ਸੈਕਸ਼ੂਅਲ / Sex-you-al</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Fission</span><br><span class="punjabi">ਵਿਖੰਡਨ (Splitting)</span><br><span class="phonetic">ਫਿਸ਼ਨ / Fish-un</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Placenta</span><br><span class="punjabi">ਪਲੈਸੈਂਟਾ (Nourishes embryo)</span><br><span class="phonetic">ਪਲੈ-ਸੈਂ-ਟਾ / Pla-sen-ta</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Puberty</span><br><span class="punjabi">ਜਵਾਨੀ (Sexual maturity)</span><br><span class="phonetic">ਪਿਊਬਰਟੀ / Pew-ber-tee</span></div>
+                    <div class="vocab-item"><span class="vocab-en">Menstruation</span><br><span class="punjabi">ਮਾਹਵਾਰੀ (Shedding lining)</span><br><span class="phonetic">ਮੇਨਸਟ੍ਰੂਏਸ਼ਨ / Men-stroo-ay-shun</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 4 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Introduction to Reproduction</h2>
+                <div class="reading-pane">
+                    <strong>The Energy Cost of Reproduction</strong><br>
+                    Unlike essential life processes such as respiration or digestion, reproduction is not strictly necessary to keep an individual organism alive. In fact, creating a new individual takes a massive amount of energy. So, why do organisms waste this energy? The answer lies in the survival of the species, not the individual. Reproduction is the only biological mechanism that ensures a species does not go extinct, allowing their unique DNA blueprint to be passed forward through time.
+                </div>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 5 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>DNA Copying & Variation</h2>
+                <div class="reading-pane">
+                    <strong>The Spice of Survival</strong><br>
+                    The fundamental event in reproduction is the creation of a DNA copy inside the cell nucleus. However, no biochemical reaction is absolutely reliable. Therefore, the DNA copies generated will be similar, but rarely identical to the original. These minor copying errors create <strong>Variation</strong>. While severe errors can cause a cell to die, slight variations are the "spice of life." They allow a species to slowly adapt to environmental changes (like rising temperatures or new diseases), ensuring their long-term survival.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Asexual vs. Sexual Reproduction <span class="board-badge">🏆 3-Mark Favorite</span></h2>
+                <div class="flip-grid">
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front">Asexual Reproduction<br><span class="punjabi" style="color:white; margin-top:10px;">(ਅਲਿੰਗੀ)</span></div>
+                            <div class="flip-back"><strong>One parent</strong> involved.<br><br>No gametes formed.<br><br>Offspring are identical <span class="exam-keyword">clones</span>.</div>
+                        </div>
+                    </div>
+                    <div class="flip-container">
+                        <div class="flip-card">
+                            <div class="flip-front" style="background:var(--goku-accent); border-color:var(--goku-accent);">Sexual Reproduction<br><span class="punjabi" style="color:white; margin-top:10px;">(ਲਿੰਗੀ)</span></div>
+                            <div class="flip-back" style="border-color:var(--goku-primary);"><strong>Two parents</strong> involved.<br><br>Fusion of male & female gametes.<br><br>Creates significant genetic <span class="exam-keyword">variation</span>.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Asexual Organisms Matrix <span class="punjabi">(ਅਲਿੰਗੀ ਪ੍ਰਜਣਨ)</span></h2>
+                <p><strong>Interactive Match:</strong> Connect the organism to its method of asexual reproduction.</p>
+                <div class="match-grid" id="match-ch7-1">
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Plasmodium</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Regeneration</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Rhizopus (Bread Mould)</button>
+                    <button class="match-btn" data-match="1" onclick="handleMatch(this)">Multiple Fission (Cyst)</button>
+                    <button class="match-btn" data-match="3" onclick="handleMatch(this)">Planaria</button>
+                    <button class="match-btn" data-match="2" onclick="handleMatch(this)">Spore Formation</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Why Regeneration isn't true Reproduction</h2>
+                <p><strong>Regeneration</strong> (e.g., <em>Planaria</em> and <em>Hydra</em>) is the ability to regrow a complete organism from a cut body part.</p>
+                <div class="board-trap">
+                    <strong>⚠️ Board Trap</strong>
+                    Do not write that complex animals reproduce via regeneration. It is a specialized repair mechanism. Most organisms would not normally depend on being accidentally chopped into pieces to multiply! 
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Tissue Culture Sequence <span class="punjabi">(ਟਿਸ਼ੂ ਕਲਚਰ)</span></h2>
+                <p><strong>Interactive Sequencer:</strong> Build the process of micropropagation.</p>
+                <div class="sequencer-container" id="seq-ch7-1">
+                    <div class="seq-step">
+                        <strong>1. Extraction:</strong> A small piece of tissue is removed from the growing tip of a plant.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Culture Medium:</strong> It is placed in an artificial jelly medium containing nutrients.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Callus Formation:</strong> The cells divide rapidly to form an unorganized mass called a <span class="exam-keyword">Callus</span>.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Hormonal Transfer:</strong> The callus is transferred to another medium with hormones to trigger root and shoot growth.
+                    </div>
+                    <div class="seq-step">
+                        <strong>5. Planting:</strong> The new disease-free plantlets are placed in soil to mature.
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch7-1')">Reveal Next Step &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Anatomy of a Flower & Fertilization</h2>
+                <img src="images/dreamstimelarge_311719841.jpg" alt="Flower Anatomy" class="slide-img">
+                <ul>
+                    <li><span class="accent-blue">Male Part (Stamen):</span> Made of <span class="exam-keyword">Anther</span> (produces pollen) and Filament.</li>
+                    <li><span class="accent-blue">Female Part (Pistil):</span> Made of <span class="exam-keyword">Stigma</span> (sticky top), Style (tube), and <span class="exam-keyword">Ovary</span>.</li>
+                </ul>
+                <div class="board-trap">
+                    <strong>⚠️ Board Trap</strong>
+                    Pollination is NOT Fertilization. <br><strong>Pollination</strong> is just the physical transfer of pollen to the stigma. <br><strong>Fertilization</strong> is the actual fusion of the male germ cell with the female egg inside the ovary.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Seed Germination Anatomy <span class="board-badge">🏆 Diagram Check</span></h2>
+                <p>After fertilization, the embryo within the seed contains three highly tested parts:</p>
+                <ul style="background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><span class="exam-keyword">Plumule</span>: The future <strong>Shoot</strong> (grows upward into stem and leaves).</li>
+                    <li><span class="exam-keyword">Radicle</span>: The future <strong>Root</strong> (grows downward into the soil).</li>
+                    <li><span class="exam-keyword">Cotyledon</span>: The fleshy part that acts as the <strong>Food Store</strong> to provide energy for the baby plant until it can photosynthesize.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- LECTURE READING 6 -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Human Reproduction</h2>
+                <div class="reading-pane">
+                    <strong>The Shift to Maturity</strong><br>
+                    During childhood, the body's resources are primarily directed toward somatic (general body) growth. However, as humans enter their early teenage years, a biological shift occurs. General growth begins to slow down, and reproductive tissues begin to mature. This period during adolescence is called <strong>Puberty</strong>. The body starts producing specialized sex hormones (testosterone in males, estrogen in females) that trigger dramatic physical changes to prepare the individual for sexual reproduction.
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Male Reproductive System Anatomy</h2>
+                <table>
+                    <tr><th>Organ</th><th>Clinical Function</th></tr>
+                    <tr><td><strong>Testes</strong></td><td>Produces sperm and testosterone. Located outside the abdominal cavity in the scrotum because sperm requires a <span class="exam-keyword">lower temperature</span> to form.</td></tr>
+                    <tr><td><strong>Vas Deferens</strong></td><td>The tube that carries sperm from the testes.</td></tr>
+                    <tr><td><strong>Prostate & Seminal Vesicles</strong></td><td><span class="accent">Crucial:</span> These glands add fluid secretions to make the transport of sperm easier (fluid medium) and provide <span class="exam-keyword">nutrition</span> to the sperm.</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Female Reproductive System & Placenta</h2>
+                <ul>
+                    <li><span class="exam-keyword">Ovaries</span>: Release one mature egg every month and produce estrogen.</li>
+                    <li><span class="exam-keyword">Fallopian Tube (Oviduct)</span>: Carries the egg to the uterus. <span class="accent">This is where fertilization happens!</span></li>
+                    <li><span class="exam-keyword">Uterus (Womb)</span>: Where the embryo implants and grows.</li>
+                </ul>
+                <div style="background: #F0F4F8; padding: 20px; border-radius: 12px; margin-top: 15px; border-left: 5px solid var(--goku-primary);">
+                    <h3>The Placenta's Villi</h3>
+                    <p>The placenta transfers nutrients and oxygen from mother to child. It contains finger-like projections called <strong>villi</strong>. Why? To vastly increase the <span class="exam-keyword">surface area</span> for rapid exchange of glucose and oxygen.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>The Menstrual Cycle Timeline <span class="punjabi">(ਮਾਹਵਾਰੀ)</span></h2>
+                <p><strong>Interactive Sequencer:</strong> What happens if the egg is NOT fertilized?</p>
+                <div class="sequencer-container" id="seq-ch7-2">
+                    <div class="seq-step">
+                        <strong>1. Preparation:</strong> The Uterus prepares to receive a fertilized egg by growing a thick, spongy lining rich in blood vessels.
+                    </div>
+                    <div class="seq-step">
+                        <strong>2. Ovulation:</strong> The ovary releases an egg. If not fertilized within 1 day, the egg dies.
+                    </div>
+                    <div class="seq-step">
+                        <strong>3. Breakdown:</strong> Because pregnancy did not occur, the thick uterine lining is no longer needed.
+                    </div>
+                    <div class="seq-step">
+                        <strong>4. Menstruation:</strong> The lining slowly breaks down and exits the vagina as blood and mucus (lasts 2-8 days).
+                    </div>
+                    <button class="seq-btn" onclick="revealNextStep('seq-ch7-2')">Reveal Next Step &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Contraception & The STD Catch <span class="punjabi">(ਗਰਭ-ਨਿਰੋਧਕ)</span></h2>
+                <p><strong>Interactive Recall:</strong> Reveal the missing keywords.</p>
+                <div class="cloze-paragraph">
+                    Sexually Transmitted Diseases (STDs) like HIV (viral) and Syphilis (bacterial) are passed through sexual contact. While chemical methods (like oral pills) and surgical methods (like a <span class="cloze-blank" data-ans="Vasectomy" onclick="revealCloze(this)"></span> in males or Tubectomy in females) prevent pregnancy, they DO NOT protect against STDs. The only contraceptive method that provides protection against both pregnancy and STDs is the use of <span class="cloze-blank" data-ans="Barrier Methods" onclick="revealCloze(this)"></span>, such as condoms.
+                </div>
+            </div>
+        </div>
+
+        <!-- CH 7 QUIZZES -->
+        <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch7"><div class="sub-slide active" id="tf-ch7-s1"><div class="sub-progress">Question 1 of 5 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">Spores of Rhizopus possess thick protective walls.<br><span class="punjabi-block">ਰਾਈਜ਼ੋਪਸ ਦੇ ਬੀਜਾਣੂਆਂ ਵਿੱਚ ਮੋਟੀਆਂ ਸੁਰੱਖਿਆਤਮਕ ਕੰਧਾਂ ਹੁੰਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s2"><div class="sub-progress">Question 2 of 5</div><div class="question-text">In tissue culture, the unorganized mass of cells is called a callus.<br><span class="punjabi-block">ਟਿਸ਼ੂ ਕਲਚਰ ਵਿੱਚ, ਸੈੱਲਾਂ ਦੇ ਸੰਗਠਿਤ ਪੁੰਜ ਨੂੰ ਕੈਲਸ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s3"><div class="sub-progress">Question 3 of 5</div><div class="question-text">The ovary of a flower develops into a seed after fertilization.<br><span class="punjabi-block">ਨਿਸ਼ੇਚਨ ਤੋਂ ਬਾਅਦ ਫੁੱਲ ਦਾ ਅੰਡਕੋਸ਼ ਬੀਜ ਵਿੱਚ ਬਦਲ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s4"><div class="sub-progress">Question 4 of 5 <span class="pyq-tag">[PSEB 2022]</span></div><div class="question-text">Oral pills protect against sexually transmitted diseases like HIV.<br><span class="punjabi-block">ਗੋਲੀਆਂ HIV ਵਰਗੀਆਂ ਜਿਨਸੀ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਾਉਂਦੀਆਂ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch7', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch7-s5"><div class="sub-progress">Question 5 of 5</div><div class="question-text">The placenta has villi to increase the surface area for nutrient exchange.<br><span class="punjabi-block">ਪਲੈਸੈਂਟਾ ਵਿੱਚ ਪੋਸ਼ਕ ਤੱਤਾਂ ਦੇ ਆਦਾਨ-ਪ੍ਰਦਾਨ ਲਈ ਸਤਹ ਖੇਤਰ ਵਧਾਉਣ ਲਈ ਵਿਲੀ ਹੁੰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Say It Back: Chapter 7</h2><div class="sub-slider-container" id="sib-ch7"><div class="sub-slide active short-answer" id="sib-ch7-s1" data-q="What asexual method does Bread Mould (Rhizopus) use?" data-a="Spore formation" data-pa="ਬੀਜਾਣੂ ਨਿਰਮਾਣ"><div class="sub-progress">Short Answer 1 of 5</div><div class="question-text">What asexual method does Bread Mould (Rhizopus) use?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Spore formation', 'ਬੀਜਾਣੂ ਨਿਰਮਾਣ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s2" data-q="What is the unorganized mass of cells in tissue culture called?" data-a="Callus" data-pa="ਕੈਲਸ"><div class="sub-progress">Short Answer 2 of 5</div><div class="question-text">What is the unorganized mass of cells in tissue culture called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Callus', 'ਕੈਲਸ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s3" data-q="What part of the seed becomes the future root?" data-a="Radicle" data-pa="ਰੈਡੀਕਲ"><div class="sub-progress">Short Answer 3 of 5</div><div class="question-text">What part of the seed becomes the future root?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Radicle', 'ਰੈਡੀਕਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s4" data-q="Where does fertilization happen in human females?" data-a="Fallopian tube" data-pa="ਫੈਲੋਪੀਅਨ ਟਿਊਬ"><div class="sub-progress">Short Answer 4 of 5</div><div class="question-text">Where does fertilization happen in human females?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Fallopian tube', 'ਫੈਲੋਪੀਅਨ ਟਿਊਬ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch7', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch7-s5" data-q="What surgical method blocks the fallopian tubes in females?" data-a="Tubectomy" data-pa="ਟਿਊਬੈਕਟੋਮੀ"><div class="sub-progress">Short Answer 5 of 5</div><div class="question-text">What surgical method blocks the fallopian tubes in females?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Tubectomy', 'ਟਿਊਬੈਕਟੋਮੀ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
+<div class="slide"><div class="content-box"><h2>Quick Check: Chapter 7 <span class="punjabi">(ਤੁਰੰਤ ਜਾਂਚ)</span></h2><div class="sub-slider-container" id="mcq-ch7"><div class="sub-slide active" id="mcq-ch7-s1"><div class="sub-progress">Question 1 of 5</div><div class="question-text">Why is regeneration NOT considered reproduction in complex animals?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It requires two parents</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Animals don't normally depend on being cut to multiply</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. It only happens in plants</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s2"><div class="sub-progress">Question 2 of 5 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">Which of the following adds fluid to sperm to provide nutrition?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Testes</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Seminal Vesicles & Prostate</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Vas deferens</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s3"><div class="sub-progress">Question 3 of 5</div><div class="question-text">Testes are located outside the abdominal cavity because:</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It protects them</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">B. Sperm formation requires a lower temperature</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. They need more oxygen</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s4"><div class="sub-progress">Question 4 of 5</div><div class="question-text">What happens if an egg is not fertilized?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. It stays in the ovary</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. A placenta forms</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Menstruation occurs</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('mcq-ch7', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="mcq-ch7-s5"><div class="sub-progress">Question 5 of 5</div><div class="question-text">Which contraceptive method also protects against STDs?</div><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Copper-T</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. Oral Pills</button><button class="option-btn" data-correct="true" onclick="checkAnswer(this, true, true)">C. Condoms</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Finish Phase 1 &rarr;</button></div></div></div></div>
+
+        <!-- END SLIDE / ANKI EXPORT -->
+        <div class="slide" id="anki">
+            <div class="content-box title-slide" style="border-top: 10px solid var(--goku-accent) !important; border-bottom: 10px solid var(--goku-primary) !important;">
+                <h2>Download Your Bilingual Flashcards <span class="punjabi">(ਫਲੈਸ਼ਕਾਰਡ ਡਾਊਨਲੋਡ ਕਰੋ)</span></h2>
+                <p style="text-align: left;">Every single "Say It Back" question in this deck has been automatically formatted for Anki. The back of each card will now display both the English and Punjabi answers. <span class="punjabi-block">(ਇਸ ਡੈੱਕ ਵਿੱਚ ਹਰ "Say It Back" ਸਵਾਲ ਅੰਕੀ ਲਈ ਤਿਆਰ ਹੈ।)</span></p>
+                <ol style="text-align: left; margin-top: 20px; font-size: 1.2rem; background: #F8FAFC; padding: 25px 25px 25px 45px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                    <li><strong>Click</strong> the button below to generate your .csv file.</li>
+                    <li><strong>Open</strong> the Anki App on your computer.</li>
+                    <li><strong>Click</strong> "Import File" and select the downloaded file.</li>
+                </ol>
+                <button class="export-btn" onclick="exportToAnki()">Export to Anki (Bilingual CSV)</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SLIDER NAVIGATION
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('slider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const counter = document.getElementById('counter');
+
+        function updateUI() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            if(counter) counter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 0;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            updateUI();
+        }
+
+        if(counter) {
+            counter.addEventListener('click', () => {
+                const target = prompt(`Enter slide number to jump to (1 - ${totalSlides}):`);
+                if (target !== null && !isNaN(target)) {
+                    let index = parseInt(target) - 1;
+                    if (index >= 0 && index < totalSlides) {
+                        currentSlide = index;
+                        updateUI();
+                    } else {
+                        alert("Invalid slide number.");
+                    }
+                }
+            });
+        }
+
+        /* --- MODULE 1: ACTIVE RECALL BLANKS JS --- */
+        function revealCloze(el) {
+            el.classList.add('revealed');
+            el.innerText = el.getAttribute('data-ans');
+        }
+
+        /* --- MODULE 2: MEMORY MATCH MATRIX JS --- */
+        let firstSelection = null;
+        function handleMatch(btn) {
+            if(btn.classList.contains('matched')) return;
+            
+            if(!firstSelection) {
+                firstSelection = btn;
+                btn.classList.add('selected');
+            } else {
+                if(btn === firstSelection) {
+                    btn.classList.remove('selected');
+                    firstSelection = null;
+                    return;
+                }
+                if(firstSelection.dataset.match === btn.dataset.match) {
+                    btn.classList.add('matched');
+                    btn.classList.remove('selected');
+                    firstSelection.classList.remove('selected');
+                    firstSelection.classList.add('matched');
+                    
+                    // Add checkmarks
+                    btn.innerHTML += ' ✅';
+                    firstSelection.innerHTML += ' ✅';
+                    
+                    let grid = btn.closest('.match-grid');
+                    firstSelection = null;
+                    checkAllMatched(grid);
+                } else {
+                    btn.classList.add('error');
+                    firstSelection.classList.add('error');
+                    setTimeout(() => {
+                        btn.classList.remove('error');
+                        firstSelection.classList.remove('error', 'selected');
+                        firstSelection = null;
+                    }, 400);
+                }
+            }
+        }
+        
+        function checkAllMatched(grid) {
+            const allBtns = grid.querySelectorAll('.match-btn');
+            const matchedBtns = grid.querySelectorAll('.match-btn.matched');
+            if(allBtns.length === matchedBtns.length) {
+                let msg = grid.querySelector('.completion-msg');
+                if(!msg) {
+                    msg = document.createElement('div');
+                    msg.className = 'completion-msg';
+                    msg.innerHTML = '🎉 All Matches Found! Excellent Work!';
+                    msg.style.cssText = 'grid-column: 1 / -1; text-align: center; font-size: 1.5rem; color: #10B981; font-weight: bold; margin-top: 15px; animation: fadeIn 0.5s;';
+                    grid.appendChild(msg);
+                }
+            }
+        }
+
+        /* --- MODULE 3: PROCESS SEQUENCER JS --- */
+        function revealNextStep(containerId) {
+            const container = document.getElementById(containerId);
+            const hiddenSteps = Array.from(container.querySelectorAll('.seq-step')).filter(s => !s.classList.contains('visible') && window.getComputedStyle(s).opacity == 0);
+            
+            if(hiddenSteps.length > 0) {
+                const allSteps = container.querySelectorAll('.seq-step');
+                const currentIndex = Array.from(allSteps).indexOf(hiddenSteps[0]);
+                if(currentIndex > 0) {
+                    allSteps[currentIndex-1].classList.add('arrow-visible');
+                }
+                hiddenSteps[0].classList.add('visible');
+            }
+            if(hiddenSteps.length <= 1) { 
+                const btn = container.querySelector('.seq-btn');
+                if(btn) btn.style.display = 'none';
+            }
+        }
+
+        /* --- STANDARD ASSESSMENT JS --- */
+        function checkAnswer(btn, isCorrect, isMCQ) {
+            const qDiv = btn.closest('.sub-slide');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            const buttons = qDiv.querySelectorAll('.option-btn');
+
+            buttons.forEach(b => b.disabled = true); 
+            
+            if (isCorrect) {
+                btn.classList.add('correct');
+                feedback.innerHTML = "<span style='color: #10B981; font-weight: bold;'>Correct! (ਸਹੀ)</span>";
+            } else {
+                btn.classList.add('incorrect');
+                feedback.innerHTML = "<span style='color: #EF4444; font-weight: bold;'>Incorrect (ਗਲਤ).</span>";
+                if(isMCQ) {
+                    const correctBtn = qDiv.querySelector('[data-correct="true"]');
+                    if(correctBtn) correctBtn.classList.add('correct');
+                }
+            }
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function checkSA(btn, expectedEn, expectedPa) {
+            const qDiv = btn.closest('.sub-slide');
+            const input = qDiv.querySelector('.sa-input');
+            const feedback = qDiv.querySelector('.feedback');
+            const nextBtn = qDiv.querySelector('.next-sub-btn');
+            
+            const userVal = input.value.trim().toLowerCase();
+            const expectedVal = expectedEn.toLowerCase();
+            
+            input.disabled = true;
+            btn.disabled = true;
+            
+            let feedbackHtml = `<div style="text-align: left; background: #E8F0FE; padding: 20px; border-radius: 12px; border-left: 6px solid var(--goku-primary); box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-top: 15px;">`;
+            
+            if(userVal === expectedVal || userVal.includes(expectedVal)) {
+                feedbackHtml += `<span style="color: #10B981; font-weight: 800; font-size: 1.3rem; display: block; margin-bottom: 8px;">Correct!</span>`;
+            } else {
+                feedbackHtml += `<span style="color: #64748B; font-size: 1.2rem; display: block; margin-bottom: 8px;">Expected Answer:</span>`;
+            }
+            
+            feedbackHtml += `<strong style="color: var(--goku-primary); font-size: 1.6rem; letter-spacing: 0.5px;">${expectedEn}</strong>`;
+            if (expectedPa) {
+                feedbackHtml += `<br><span class="punjabi-block" style="margin-top: 8px; font-weight: 500; font-size: 1.3rem;">${expectedPa}</span>`;
+            }
+            feedbackHtml += `</div>`;
+            
+            feedback.innerHTML = feedbackHtml;
+            if(nextBtn) nextBtn.style.display = 'block';
+        }
+
+        function nextSubSlide(containerId, nextIndex) {
+            const container = document.getElementById(containerId);
+            const subSlides = container.querySelectorAll('.sub-slide');
+            subSlides.forEach(s => s.classList.remove('active'));
+            const nextSlide = container.querySelector('#' + containerId + '-s' + nextIndex);
+            if(nextSlide) nextSlide.classList.add('active');
+        }
+
+        // Global Keyboard & Touch Nav
+        document.addEventListener('keydown', (e) => {
+            if (document.activeElement.tagName === 'INPUT') return;
+            if (e.key === 'ArrowRight') moveSlide(1);
+            else if (e.key === 'ArrowLeft') moveSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => { 
+            touchEndX = e.changedTouches[0].screenX; 
+            if(e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph')) return;
+            if (touchEndX < touchStartX - 50) moveSlide(1); 
+            if (touchEndX > touchStartX + 50) moveSlide(-1); 
+        });
+
+        // The Transition Reset Loop
+        slider.addEventListener('transitionend', () => {
+            slides.forEach((slide, index) => {
+                if (index !== currentSlide) {
+                    // Reset Cloze
+                    slide.querySelectorAll('.cloze-blank').forEach(b => {
+                        b.classList.remove('revealed');
+                        b.innerText = '';
+                    });
+                    
+                    // Reset Match
+                    slide.querySelectorAll('.match-btn').forEach(b => {
+                        b.classList.remove('selected', 'matched', 'error');
+                        b.style.pointerEvents = 'auto';
+                        // Remove checkmark
+                        b.innerHTML = b.innerHTML.replace(' ✅', '');
+                    });
+                    slide.querySelectorAll('.completion-msg').forEach(m => m.remove());
+                    firstSelection = null;
+
+                    // Reset Sequencer
+                    slide.querySelectorAll('.sequencer-container').forEach(c => {
+                        c.querySelectorAll('.seq-step').forEach((s, i) => {
+                            if(i !== 0) s.classList.remove('visible'); // Keep step 1 visible
+                            s.classList.remove('arrow-visible');
+                        });
+                        const seqBtn = c.querySelector('.seq-btn');
+                        if(seqBtn) seqBtn.style.display = 'block';
+                    });
+
+                    // Reset Standard Quizzes
+                    slide.querySelectorAll('.sub-slider-container').forEach(container => {
+                        if(!container.classList.contains('sequencer-container')) {
+                            const subSlides = container.querySelectorAll('.sub-slide');
+                            subSlides.forEach((s, i) => {
+                                if(i === 0) s.classList.add('active');
+                                else s.classList.remove('active');
+                            });
+                            
+                            const btns = container.querySelectorAll('.option-btn');
+                            btns.forEach(b => {
+                                b.disabled = false;
+                                b.classList.remove('correct', 'incorrect');
+                            });
+
+                            const inputs = container.querySelectorAll('.sa-input');
+                            inputs.forEach(input => {
+                                input.value = '';
+                                input.disabled = false;
+                            });
+                            const saBtns = container.querySelectorAll('.sa-submit-btn');
+                            saBtns.forEach(btn => btn.disabled = false);
+
+                            const feedbacks = container.querySelectorAll('.feedback');
+                            feedbacks.forEach(f => f.innerHTML = '');
+                            const nextBtns = container.querySelectorAll('.next-sub-btn');
+                            nextBtns.forEach(nb => nb.style.display = 'none');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Bilingual Anki Export
+        function exportToAnki() {
+            let csvData = "";
+            const saCards = document.querySelectorAll('.short-answer');
+            if(saCards.length === 0) {
+                alert("No Anki flashcards found in this version.");
+                return;
+            }
+            saCards.forEach(card => {
+                const q = card.getAttribute('data-q').replace(/"/g, '""');
+                let aEn = card.getAttribute('data-a').replace(/"/g, '""');
+                let aPa = card.getAttribute('data-pa') || "";
+                
+                let fullAnswer = aEn;
+                if(aPa !== "") {
+                    fullAnswer += ` <br><br><span style='color:#64748B;'>${aPa}</span>`;
+                }
+                
+                csvData += `"${q}","${fullAnswer}"\n`;
+            });
+            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "Class10_Science_Phase1_Premium_Anki.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        updateUI();
+    </script>
+</body>
+</html>

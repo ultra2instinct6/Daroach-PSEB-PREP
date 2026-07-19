@@ -1,0 +1,1253 @@
+========================================================================
+CHAPTER 1 — Chemical Reactions and Equations
+PSEB Class 10 Science | Teaching Script — Version 1
+TOTAL SLIDES: 27
+========================================================================
+
+
+========================================================================
+SLIDE 1: Chapter 1 — Chemical Reactions and Equations
+========================================================================
+
+ON SCREEN:
+  - Chapter title: "Chapter 1"
+  - Subtitle: "Chemical Reactions and Equations"
+  - Punjabi title: ਰਸਾਇਣਕ ਕਿਰਿਆਵਾਂ ਅਤੇ ਸਮੀਕਰਣ
+
+SCRIPT (say this aloud):
+  Good morning, everyone! Welcome to Chapter 1 — Chemical Reactions and Equations,
+  or in Punjabi: ਰਸਾਇਣਕ ਕਿਰਿਆਵਾਂ ਅਤੇ ਸਮੀਕਰਣ.
+
+  This is one of the most important chapters in Class 10 Science. Every year, the PSEB
+  board exam asks multiple questions from this chapter — short answers, long answers,
+  and balanced equation problems. So pay very close attention.
+
+  Think about what happens when you burn a piece of paper. The paper is gone, and in
+  its place you have ash, smoke, and heat. That transformation — where one set of
+  substances is converted into a completely different set — is a chemical reaction.
+  This chapter will teach you how to describe, write, balance, and classify those
+  reactions scientifically. By the end of this chapter, you will not just memorise
+  reactions — you will understand WHY they happen the way they do.
+
+KEY POINTS TO STRESS:
+  - This chapter appears every single year in the PSEB board exam.
+  - A chemical reaction produces NEW substances — the originals are transformed.
+  - We will learn to write, balance, and classify chemical equations.
+
+BOARD TIP: This chapter carries 8–10 marks in the board exam. Do not skip any reaction type.
+
+
+========================================================================
+SLIDE 2: Key Vocabulary (ਮੁੱਖ ਸ਼ਬਦਾਵਲੀ)
+========================================================================
+
+ON SCREEN:
+  - Table with three columns: English | Punjabi | Meaning
+  - Six terms: Reactant, Product, Equation, Exothermic, Endothermic, Precipitate
+  - Punjabi equivalents: ਅਭਿਕਾਰਕ, ਉਤਪਾਦ, ਸਮੀਕਰਣ, ਤਾਪ ਨਿਕਾਸੀ, ਤਾਪ ਸੋਖੀ, ਅਵਖੇਪ
+
+SCRIPT (say this aloud):
+  Before we dive into the chemistry, let us build our vocabulary. These six words will
+  appear again and again throughout the chapter, so you must know them cold.
+
+  First: Reactant — ਅਭਿਕਾਰਕ. A reactant is the starting substance. It is what you
+  put INTO the reaction. Think of it as the ingredient.
+
+  Second: Product — ਉਤਪਾਦ. The product is the new substance formed AFTER the reaction.
+  It is what you get OUT of the reaction.
+
+  Third: Equation — ਸਮੀਕਰਣ. A chemical equation is the mathematical representation
+  of a reaction. It uses symbols and formulas to show what reacts and what is formed.
+
+  Fourth: Exothermic — ਤਾਪ ਨਿਕਾਸੀ. Exothermic reactions RELEASE heat. The reaction
+  gives out energy to the surroundings. Burning wood is exothermic — you feel the heat.
+
+  Fifth: Endothermic — ਤਾਪ ਸੋਖੀ. Endothermic reactions ABSORB heat. They take energy
+  in from the surroundings. When you cool something down using a reaction, that is
+  endothermic.
+
+  Sixth: Precipitate — ਅਵਖੇਪ. A precipitate is an insoluble solid that forms inside
+  a liquid during a reaction. It appears as a cloudiness or a solid settling at the
+  bottom.
+
+  Keep these six words in your mind — they are the language of this chapter.
+
+KEY POINTS TO STRESS:
+  - Reactant (ਅਭਿਕਾਰਕ) = what goes IN; Product (ਉਤਪਾਦ) = what comes OUT.
+  - Exothermic (ਤਾਪ ਨਿਕਾਸੀ) releases heat; Endothermic (ਤਾਪ ਸੋਖੀ) absorbs heat.
+  - Precipitate (ਅਵਖੇਪ) is a solid formed inside a liquid reaction mixture.
+
+BOARD TIP: "Exothermic vs Endothermic" is a very common 1-mark definition question — memorise both.
+
+
+========================================================================
+SLIDE 3: Vocabulary Continued (ਸ਼ਬਦਾਵਲੀ ਜਾਰੀ)
+========================================================================
+
+ON SCREEN:
+  - Table: Catalyst (ਉਤਪ੍ਰੇਰਕ), Aqueous (ਜਲਮਈ), Redox (ਰੈਡੌਕਸ),
+    Oxidation (ਆਕਸੀਕਰਨ), Reduction (ਲਘੂਕਰਨ)
+  - Etymology box: Exo (Exit/ਬਾਹਰ) + Thermic (Heat/ਤਾਪ); Endo (Enter/ਅੰਦਰ) + Thermic
+
+SCRIPT (say this aloud):
+  Let us continue with five more important vocabulary words.
+
+  Catalyst — ਉਤਪ੍ਰੇਰਕ. A catalyst is a substance that speeds up a chemical reaction
+  without itself being consumed or permanently changed. It is like a helpful friend
+  who arranges a meeting between two people — the meeting happens faster because of
+  them, but they themselves are unchanged. MnO₂ is a classic example used in the
+  decomposition of hydrogen peroxide.
+
+  Aqueous — ਜਲਮਈ. This simply means "dissolved in water." When you see (aq) written
+  next to a substance in an equation, it means that substance is dissolved in water.
+
+  Redox — ਰੈਡੌਕਸ. This is short for "Reduction-Oxidation." Oxidation and reduction
+  always happen together in the same reaction. You cannot have one without the other.
+  We will study this in detail later in the chapter.
+
+  Oxidation — ਆਕਸੀਕਰਨ. Oxidation means gaining oxygen OR losing hydrogen.
+
+  Reduction — ਲਘੂਕਰਨ. Reduction means losing oxygen OR gaining hydrogen. Reduction
+  is the opposite of oxidation.
+
+  Now, look at this clever trick on screen. The word "Exothermic" comes from "Exo"
+  meaning exit, and "Thermic" meaning heat — so heat EXITS the reaction. "Endothermic"
+  comes from "Endo" meaning enter — heat ENTERS the reaction. If you remember the
+  etymology, you will never confuse these two words again!
+
+KEY POINTS TO STRESS:
+  - Catalyst (ਉਤਪ੍ਰੇਰਕ) speeds up a reaction but is NOT used up.
+  - Oxidation = gain O or lose H; Reduction = lose O or gain H.
+  - Redox = both happening simultaneously in one reaction.
+  - Exo = exit (heat out); Endo = enter (heat in). Use this to remember forever.
+
+BOARD TIP: Mnemonic for Redox — "OIL RIG": Oxidation Is Loss (of electrons/hydrogen), Reduction Is Gain.
+
+
+========================================================================
+SLIDE 4: Chemical Reactions (ਰਸਾਇਣਕ ਕਿਰਿਆਵਾਂ)
+========================================================================
+
+ON SCREEN:
+  - Definition: "A chemical reaction means new substances are formed."
+  - Table: Reactants (ਅਭਿਕਾਰਕ) vs. Products (ਉਤਪਾਦ)
+  - Example: Magnesium + Oxygen → Magnesium oxide
+
+SCRIPT (say this aloud):
+  So, what exactly is a chemical reaction? Very simply: a chemical reaction is a
+  process in which NEW substances are formed — ਨਵੇਂ ਪਦਾਰਥ ਬਣਦੇ ਹਨ. The original
+  substances are called Reactants (ਅਭਿਕਾਰਕ) — they are the starting materials, the
+  things that react together. The new substances produced are called Products (ਉਤਪਾਦ).
+
+  Look at the example on screen: Magnesium + Oxygen → Magnesium oxide.
+  Magnesium and Oxygen are the reactants — they exist before the reaction. Magnesium
+  oxide is the product — it is the brand new substance formed after the reaction.
+  Notice that Magnesium oxide is completely different from both Magnesium and Oxygen.
+  It is a new substance with new properties. That is the hallmark of a chemical reaction.
+
+  How do we know a chemical reaction has occurred? We look for signs: a change in
+  colour, a change in smell, the release of a gas (bubbles), the formation of a
+  precipitate, or a change in temperature. When any of these happen, a chemical
+  reaction is likely taking place.
+
+KEY POINTS TO STRESS:
+  - In a chemical reaction, NEW substances (products) are always formed.
+  - Reactants (ਅਭਿਕਾਰਕ) go in; Products (ਉਤਪਾਦ) come out.
+  - Signs of a chemical reaction: colour change, gas evolved, temperature change, precipitate formed.
+  - Example: Mg + O₂ → MgO (Magnesium combines with oxygen to form magnesium oxide).
+
+BOARD TIP: "List four observations that indicate a chemical reaction has occurred" — a very common 2-mark question.
+
+
+========================================================================
+SLIDE 5: Word Equation vs. Skeletal Equation
+========================================================================
+
+ON SCREEN:
+  - Two types of chemical equations contrasted
+  - Word Equation (ਸ਼ਬਦ ਸਮੀਕਰਣ): Magnesium + Oxygen → Magnesium oxide
+  - Skeletal Equation (ਢਾਂਚਾ ਸਮੀਕਰਣ): Mg + O₂ → MgO
+  - Note that the skeletal equation is NOT yet balanced
+
+SCRIPT (say this aloud):
+  A chemical reaction can be written in two different ways, and you must know both.
+
+  The first way is a Word Equation — ਸ਼ਬਦ ਸਮੀਕਰਣ. In a word equation, we write
+  the full names of all the chemicals. For example: Magnesium + Oxygen → Magnesium
+  oxide. This is easy to read and understand, but it is not very scientific or precise.
+
+  The second way is a Skeletal Equation — ਢਾਂਚਾ ਸਮੀਕਰਣ. Here, we replace the names
+  with chemical formulas. So our example becomes: Mg + O₂ → MgO. This is more
+  compact and scientific. However — and this is very important — a skeletal equation
+  is NOT balanced yet. It just gives us the "skeleton" or framework of the reaction.
+  It tells us WHICH substances react and WHICH substances are formed, but the number
+  of atoms on the left and right sides may not be equal yet.
+
+  The arrow (→) in the equation means "reacts to form" or "yields." Reactants are
+  always written on the LEFT side of the arrow, and products are always on the RIGHT.
+
+  After writing the skeletal equation, our next job is to BALANCE it — which is what
+  we will learn on the very next slides.
+
+KEY POINTS TO STRESS:
+  - Word equation uses full names; Skeletal equation uses chemical symbols/formulas.
+  - Reactants are on the left of →; Products are on the right.
+  - A Skeletal equation (ਢਾਂਚਾ ਸਮੀਕਰਣ) is NOT balanced — it is just the first step.
+  - Balancing is the process of making atom counts equal on both sides.
+
+BOARD TIP: Always label which type of equation you are writing in exam answers. "This is a skeletal equation" or "This is a balanced equation."
+
+
+========================================================================
+SLIDE 6: Reading Comprehension — The Philosophy of Balancing
+========================================================================
+
+ON SCREEN:
+  - Story passage about Antoine Lavoisier and the Law of Conservation of Mass
+  - Audio controls: ▶️ Read to Me / ⏹️ Stop
+  - Key idea: matter is neither created nor destroyed; atoms are merely rearranged
+
+SCRIPT (say this aloud):
+  Now we have a beautiful reading comprehension passage, and I want you to really
+  think about this story — it explains WHY we balance equations in the first place.
+
+  In the late 18th century, a French chemist named Antoine Lavoisier conducted a
+  famous experiment. He sealed a container and carefully weighed everything before
+  and after a violent chemical reaction — including burning. What he found was
+  extraordinary: the total mass of the sealed container never changed. No matter how
+  dramatic the reaction, mass was conserved.
+
+  This discovery became what we now call the Law of Conservation of Mass: "Matter
+  can neither be created nor destroyed in a chemical reaction." In Punjabi terms,
+  ਪਦਾਰਥ ਨਾ ਤਾਂ ਬਣਾਇਆ ਜਾ ਸਕਦਾ ਹੈ ਅਤੇ ਨਾ ਹੀ ਨਸ਼ਟ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ.
+
+  Think about what this means for chemical equations. If you start with 10 atoms of
+  iron, you must end with exactly 10 atoms of iron. The atoms do not disappear — they
+  are simply rearranged into new molecules. This is EXACTLY why we balance equations.
+  An unbalanced equation violates Lavoisier's law — it is scientifically wrong. Every
+  balanced equation is a tribute to this 250-year-old discovery.
+
+  Read through this passage carefully. Understanding the "why" behind balancing makes
+  the process feel logical rather than mechanical.
+
+KEY POINTS TO STRESS:
+  - Antoine Lavoisier discovered the Law of Conservation of Mass.
+  - Matter cannot be created or destroyed — only rearranged.
+  - We MUST balance equations to obey this fundamental law.
+  - An unbalanced equation is scientifically incorrect.
+
+BOARD TIP: "State the Law of Conservation of Mass" is a direct 1-mark question — memorise the exact wording.
+
+
+========================================================================
+SLIDE 7: Balancing Equations — Pro Tips (ਸਮੀਕਰਣ ਸੰਤੁਲਿਤ ਕਰਨ ਦੇ ਨੁਕਤੇ)
+========================================================================
+
+ON SCREEN:
+  - Four step-by-step tips for balancing equations
+  - Law of Conservation of Mass statement
+  - Key rule: never change subscripts inside formulas, only add coefficients
+
+SCRIPT (say this aloud):
+  Balancing equations is a GUARANTEED question on the board exam. Let me give you
+  the exact method that works every time.
+
+  Step 1: Draw a box around each chemical formula. This is a mental trick — it reminds
+  you that you can NEVER change anything inside the box. You cannot change H₂O to H₃O,
+  for example. The only thing you can change is the big number written IN FRONT of the
+  formula. That big number is called the coefficient.
+
+  Step 2: Start with the atom that appears the most. Often this is a metal, but
+  sometimes it is oxygen or hydrogen if they appear in multiple places.
+
+  Step 3: Follow this order — balance metals first, then non-metals, then oxygen,
+  and hydrogen last. Hydrogen and oxygen are usually balanced at the end because
+  they appear in many compounds.
+
+  Step 4: Double check. Count every atom on the left-hand side (LHS) and every atom
+  on the right-hand side (RHS). They must match completely for each element.
+
+  Remember the golden rule: we balance to obey the Law of Conservation of Mass —
+  "Matter can neither be created nor destroyed in a chemical reaction." Every atom
+  that enters the reaction as a reactant must appear somewhere in the products.
+
+KEY POINTS TO STRESS:
+  - NEVER change subscripts (numbers inside formulas) — only change coefficients (numbers in front).
+  - Balancing order: Metals → Non-metals → Oxygen → Hydrogen.
+  - Always verify by counting atoms on both sides after balancing.
+  - Balancing is mandatory — an unbalanced equation is a wrong equation.
+
+BOARD TIP: The most common mistake students make is changing the subscript (e.g., writing H₃ instead of H₂) — this changes the substance entirely and is always wrong.
+
+
+========================================================================
+SLIDE 8: Interactive Simulator — Balancing Equations (ਸਮੀਕਰਣ ਸੰਤੁਲਿਤ ਕਰੋ)
+========================================================================
+
+ON SCREEN:
+  - Interactive equation: Fe + H₂O → Fe₃O₄ + H₂
+  - Coefficient sliders for each substance
+  - Real-time atom counts for Fe, H, O on both LHS and RHS
+  - Current status: UNBALANCED ❌
+
+SCRIPT (say this aloud):
+  Now we have an interactive balancing simulator. This is a hands-on activity, so
+  let us work through it together as a class.
+
+  The unbalanced equation on screen is: Fe + H₂O → Fe₃O₄ + H₂. Right now, the
+  atom counts are unequal on both sides, which is why it shows UNBALANCED ❌.
+
+  Your job is to adjust the coefficients — the big numbers placed in front of each
+  formula — until every element has equal atoms on both sides.
+
+  Let us think through this together. The product Fe₃O₄ tells us we need 3 iron
+  atoms on the left, so we put a coefficient of 3 in front of Fe. Fe₃O₄ has 4 oxygen
+  atoms, so we need 4 H₂O molecules on the left to supply 4 oxygen atoms. That gives
+  us 4 × 2 = 8 hydrogen atoms on the left, so we need a coefficient of 4 in front of
+  H₂ on the right. The balanced equation is: 3Fe + 4H₂O → Fe₃O₄ + 4H₂.
+
+  Let each student try the simulator independently. Adjust the coefficients using the
+  controls and watch the atom counts update in real time. Aim for the BALANCED ✅ message.
+
+  Pause here — give students 3–5 minutes to work through the simulator themselves.
+  Encourage them to use the step-by-step tips from the previous slide.
+
+KEY POINTS TO STRESS:
+  - Balanced equation for this reaction: 3Fe + 4H₂O → Fe₃O₄ + 4H₂.
+  - Only coefficients change — never the subscripts inside formulas.
+  - Verify: Fe: 3=3 ✅, H: 8=8 ✅, O: 4=4 ✅.
+  - Practice balancing on paper after completing the simulator.
+
+BOARD TIP: This exact reaction (Fe + H₂O → Fe₃O₄ + H₂) has appeared in PSEB exams. Memorise the balanced form: 3Fe + 4H₂O → Fe₃O₄ + 4H₂.
+
+
+========================================================================
+SLIDE 9: Concept Map — Reaction Architecture (ਕਿਰਿਆਵਾਂ ਦਾ ਨਕਸ਼ਾ)
+========================================================================
+
+ON SCREEN:
+  - Central node: "Chemical Reactions"
+  - Four branches: Combination (ਸੰਜੋਜਨ) A+B→AB, Decomposition (ਅਪਘਟਨ) AB→A+B,
+    Displacement (ਵਿਸਥਾਪਨ) A+BC→AC+B, Double Displacement (ਦੋਹਰਾ ਵਿਸਥਾਪਨ) AB+CD→AD+CB
+
+SCRIPT (say this aloud):
+  Now we come to the four main types of chemical reactions. This concept map gives
+  you a beautiful bird's-eye view. Study the map carefully — this is the architecture
+  of all chemical reactions.
+
+  Type 1: Combination — ਸੰਜੋਜਨ. The general form is A + B → AB. Two or more
+  substances combine to form a SINGLE new substance. Think of it as two things joining
+  together. Example: Magnesium burns in oxygen to form Magnesium oxide — 2Mg + O₂ → 2MgO.
+
+  Type 2: Decomposition — ਅਪਘਟਨ. The general form is AB → A + B. A SINGLE reactant
+  breaks down into two or more products. It is the exact opposite of combination.
+  Example: Limestone heated to form quicklime and CO₂.
+
+  Type 3: Displacement — ਵਿਸਥਾਪਨ. The general form is A + BC → AC + B. A more
+  reactive element kicks out a less reactive element from its compound and takes its
+  place. Example: Iron displaces copper from copper sulphate solution.
+
+  Type 4: Double Displacement — ਦੋਹਰਾ ਵਿਸਥਾਪਨ. The general form is AB + CD → AD + CB.
+  Two compounds exchange their ions. It is like two couples swapping partners. Example:
+  Barium chloride + sodium sulphate → barium sulphate + sodium chloride.
+
+  Keep this map in your mind. When you see any reaction in the exam, your first
+  question should be: which of these four types is it?
+
+KEY POINTS TO STRESS:
+  - Four types: Combination, Decomposition, Displacement, Double Displacement.
+  - Combination: two things join → one product; Decomposition: one thing breaks → multiple products.
+  - Displacement involves a MORE reactive element replacing a LESS reactive one.
+  - Double Displacement: two compounds exchange ions — often produces a precipitate or gas.
+
+BOARD TIP: "Classify the given reaction and give its general form" is a 2-mark question. Always write both the name AND the general formula (e.g., A + B → AB).
+
+
+========================================================================
+SLIDE 10: Physical States in Equations (ਭੌਤਿਕ ਅਵਸਥਾਵਾਂ)
+========================================================================
+
+ON SCREEN:
+  - State symbols: (s) Solid, (l) Liquid, (g) Gas, (aq) Aqueous
+  - Punjabi translations for each state
+  - Example equation: Ca(OH)₂(aq) + CO₂(g) → CaCO₃(s)↓ + H₂O(l)
+  - Note about ↓ (precipitate) and ↑ (gas) arrows
+
+SCRIPT (say this aloud):
+  A chemical equation becomes much more informative when we include the physical
+  states of every substance. Scientists use four symbols for this.
+
+  (s) stands for Solid — ਠੋਸ. The substance is in solid form.
+  (l) stands for Liquid — ਤਰਲ. The substance is in liquid form.
+  (g) stands for Gas — ਗੈਸ. The substance is a gas.
+  (aq) stands for Aqueous — ਜਲਮਈ ਘੋਲ. The substance is dissolved in water.
+
+  Now look at the example: Ca(OH)₂(aq) + CO₂(g) → CaCO₃(s)↓ + H₂O(l).
+  Read it like a story: Calcium hydroxide, which is dissolved in water, reacts with
+  carbon dioxide gas to produce calcium carbonate as a solid and water as a liquid.
+
+  Notice the downward arrow ↓ after CaCO₃(s). This arrow indicates a PRECIPITATE —
+  a solid that has formed inside a liquid reaction mixture. It sinks to the bottom.
+  If you see an upward arrow ↑ after a formula, it means a GAS has been produced and
+  is escaping from the reaction mixture.
+
+  Including state symbols makes your equation complete and scientifically accurate.
+  In board exams, writing state symbols often earns you extra marks in long-answer questions.
+
+KEY POINTS TO STRESS:
+  - Four state symbols: (s) solid, (l) liquid, (g) gas, (aq) aqueous.
+  - ↓ after a formula = precipitate formed; ↑ after a formula = gas evolved.
+  - Always include state symbols in balanced equations for full marks.
+  - (aq) means dissolved in water — not the same as (l) liquid.
+
+BOARD TIP: Forgetting (aq) vs (l) is a very common mistake. NaCl(aq) is dissolved salt in water; H₂O(l) is liquid water. They are different!
+
+
+========================================================================
+SLIDE 11: Reaction Prediction Flowchart (ਕਿਰਿਆ ਦੀ ਭਵਿੱਖਬਾਣੀ)
+========================================================================
+
+ON SCREEN:
+  - Four decision questions leading to reaction type identification
+  - "Are two elements combining into one?" → Combination
+  - "Is there only ONE reactant being heated?" → Decomposition
+  - "Is a single element reacting with a compound?" → Displacement
+  - "Are two compounds exchanging ions?" → Double Displacement
+
+SCRIPT (say this aloud):
+  Instead of just memorising reaction types, let me give you a thinking tool — a
+  flowchart you can use in the exam when you need to classify any reaction.
+
+  Ask yourself these four questions in order:
+
+  Question 1: Are two or more elements or compounds combining to form ONE single
+  product? If yes — it is a Combination reaction (ਸੰਜੋਜਨ ਕਿਰਿਆ).
+
+  Question 2: Is there only ONE reactant, and is it being broken down, especially
+  by heat, electricity, or light? If yes — it is a Decomposition reaction
+  (ਅਪਘਟਨ ਕਿਰਿਆ).
+
+  Question 3: Is a single uncombined element reacting with a compound? Does the
+  element substitute into the compound and push out another element? If yes — it is
+  a Displacement reaction (ਵਿਸਥਾਪਨ ਕਿਰਿਆ).
+
+  Question 4: Are there two compounds as reactants, and do they exchange partners to
+  form two new compounds? If yes — it is a Double Displacement reaction
+  (ਦੋਹਰਾ ਵਿਸਥਾਪਨ ਕਿਰਿਆ).
+
+  This flowchart approach means you do not need to memorise every single example.
+  You can REASON your way to the correct answer. Practice applying these four
+  questions to the equations we have seen so far, and try the interactive activity
+  on the next slide.
+
+KEY POINTS TO STRESS:
+  - Use these four questions to classify ANY unfamiliar reaction in the exam.
+  - One product → Combination; One reactant → Decomposition.
+  - Single element + compound → Displacement; Two compounds swapping → Double Displacement.
+  - Always justify your classification with a reason, not just the name.
+
+BOARD TIP: In 3-mark questions, state the reaction type, write the general formula, and give the example equation with state symbols for full marks.
+
+
+========================================================================
+SLIDE 12: Interactive — Reaction Type Classifier (ਕਿਰਿਆ ਦੀ ਕਿਸਮ ਪਛਾਣੋ)
+========================================================================
+
+ON SCREEN:
+  - Interactive activity: read an equation, tap the correct reaction type
+  - Four answer buttons: Combination, Decomposition, Displacement, Double Displacement
+  - Score tracker: Score: 0 / 0
+  - "Next Reaction →" button
+  - Loading screen
+
+SCRIPT (say this aloud):
+  Here is our second interactive activity — a Reaction Type Classifier. This is
+  a brilliant way to test whether you have truly understood the four reaction types
+  or whether you were just listening passively.
+
+  Here is how to run this activity: An equation will appear on screen. Read it
+  carefully, apply the four-question flowchart from the previous slide, and then
+  tap the button for the reaction type you think it is. The system will give you
+  instant feedback — correct or incorrect — and your score will update automatically.
+  Work through all five questions.
+
+  As the teacher, watch how students respond to the first two or three equations.
+  If many students are getting the same wrong answer, pause and explain that
+  particular type again before continuing.
+
+  After the activity, ask students: which type was hardest to identify? Why?
+  Use that discussion to reinforce the key differences between Displacement and
+  Double Displacement — those two are the most commonly confused.
+
+  The goal of this activity is not just getting a good score. It is building the
+  habit of READING equations carefully and thinking systematically before answering.
+
+KEY POINTS TO STRESS:
+  - Read the equation completely before choosing an answer — do not guess.
+  - Use the four-question flowchart from Slide 11.
+  - Displacement and Double Displacement are the most commonly confused types.
+  - Aim for 5/5 — then try again until you can do it consistently.
+
+
+========================================================================
+SLIDE 13: Decomposition Specifics (3 Marks) — PSEB 2018, 2021, 2023
+========================================================================
+
+ON SCREEN:
+  - Three sub-types of decomposition: Thermal, Electrolytic, Photolytic
+  - Thermal: CaCO₃(s) + Heat → CaO(s) + CO₂(g)
+  - Electrolytic: 2H₂O(l) + Electricity → 2H₂(g) + O₂(g)
+  - Photolytic: 2AgCl(s) + Sunlight → 2Ag(s) + Cl₂(g)
+  - Board Exam Pitfall warning box
+
+SCRIPT (say this aloud):
+  Pay very close attention to this slide. This topic has appeared in the PSEB board
+  exam in 2018, 2021, and 2023 — it is one of the most frequently tested areas in
+  this entire chapter.
+
+  Decomposition reactions are endothermic — they always ABSORB energy to break chemical
+  bonds. But the energy can come from three different sources, and each gives a
+  different TYPE of decomposition.
+
+  Type 1: Thermal Decomposition (using Heat). When limestone — calcium carbonate —
+  is heated strongly, it breaks down into quicklime and carbon dioxide gas.
+  CaCO₃(s) + Heat → CaO(s) + CO₂(g).
+  This reaction is the basis of the cement and lime industry.
+
+  Type 2: Electrolytic Decomposition (using Electricity). When electricity is passed
+  through water, it splits into hydrogen gas and oxygen gas. This process is called
+  electrolysis.
+  2H₂O(l) + Electricity → 2H₂(g) + O₂(g).
+
+  Type 3: Photolytic Decomposition (using Light). When silver chloride is exposed to
+  sunlight, it decomposes into silver metal and chlorine gas. The silver turns grey.
+  2AgCl(s) + Sunlight → 2Ag(s) + Cl₂(g).
+  This reaction was historically used in black-and-white photography — the film was
+  coated with silver chloride, and wherever light hit it, silver metal formed,
+  creating the dark areas of the photograph.
+
+  Now, here is the critical board exam pitfall shown in the red box: If the exam
+  shows you the equation 2AgCl → 2Ag + Cl₂ and asks you to identify the reaction,
+  do NOT write just "Decomposition." You MUST write "Photolytic Decomposition" to
+  get full marks. Specifying the energy source is required!
+
+KEY POINTS TO STRESS:
+  - Three types: Thermal (heat), Electrolytic (electricity), Photolytic (light).
+  - All decomposition reactions are ENDOTHERMIC.
+  - CaCO₃ → CaO + CO₂ (thermal); 2H₂O → 2H₂ + O₂ (electrolytic); 2AgCl → 2Ag + Cl₂ (photolytic).
+  - ALWAYS name the specific type — "Photolytic Decomposition," not just "Decomposition."
+
+BOARD TIP: This is a guaranteed 3-mark question. Write: reaction name + energy source + balanced equation with state symbols. That's your full-mark formula.
+
+
+========================================================================
+SLIDE 14: Oxidation & Reduction (ਆਕਸੀਕਰਨ ਅਤੇ ਲਘੂਕਰਨ)
+========================================================================
+
+ON SCREEN:
+  - Table: Oxidation vs. Reduction
+  - Oxidation: Gains Oxygen (+O) OR Loses Hydrogen (-H)
+  - Reduction: Loses Oxygen (-O) OR Gains Hydrogen (+H)
+  - Agent trick: the oxidized substance = Reducing Agent; the reduced substance = Oxidizing Agent
+
+SCRIPT (say this aloud):
+  Now we come to one of the most conceptually rich topics in this chapter: Oxidation
+  and Reduction — ਆਕਸੀਕਰਨ ਅਤੇ ਲਘੂਕਰਨ.
+
+  These two processes always occur together in the same reaction — that is why we
+  call them Redox reactions (ਰੈਡੌਕਸ ਕਿਰਿਆਵਾਂ).
+
+  Oxidation — ਆਕਸੀਕਰਨ — is defined in two ways:
+  Either a substance GAINS oxygen, or it LOSES hydrogen. If you see a substance
+  pick up an oxygen atom during the reaction, that substance is being oxidised.
+
+  Reduction — ਲਘੂਕਰਨ — is the exact opposite:
+  Either a substance LOSES oxygen, or it GAINS hydrogen.
+
+  These definitions are perfectly symmetrical and opposite to each other. Learn them
+  as a pair.
+
+  Now, here is a very tricky concept that students often get wrong — the agents.
+  The substance that gets OXIDISED in a reaction is called the REDUCING agent.
+  The substance that gets REDUCED is called the OXIDISING agent.
+  Why? Because the reducing agent is doing the work of REDUCING the other substance
+  — it donates electrons or oxygen to the other substance. Similarly, the oxidising
+  agent causes oxidation in the other substance.
+
+  In short: they are opposites. The thing being oxidised helps reduce something else
+  — so it is the reducing agent. Remember this relationship!
+
+KEY POINTS TO STRESS:
+  - Oxidation = gain O or lose H; Reduction = lose O or gain H.
+  - Oxidation and reduction always happen simultaneously — they are always paired.
+  - The substance that is OXIDISED = the Reducing Agent (ਅਪਚਾਇਕ ਕਰਕ).
+  - The substance that is REDUCED = the Oxidising Agent (ਆਕਸੀਕਰਕ ਕਰਕ). They are opposites!
+
+BOARD TIP: "Identify the oxidising agent and reducing agent in the given reaction" is a frequent 2-mark question. Always identify what gains and what loses oxygen first.
+
+
+========================================================================
+SLIDE 15: Oxidation Tracking — Example
+========================================================================
+
+ON SCREEN:
+  - Reaction: CuO + H₂ → Cu + H₂O
+  - Analysis: CuO loses oxygen → it is Reduced → CuO is the Oxidising Agent
+  - Analysis: H₂ gains oxygen → it is Oxidised → H₂ is the Reducing Agent
+
+SCRIPT (say this aloud):
+  Now let us apply the rules of oxidation and reduction to a specific example.
+  This type of question — identify the oxidised/reduced substance and the agents —
+  appears almost every year in the board exam.
+
+  The reaction is: CuO + H₂ → Cu + H₂O.
+
+  Step 1: Look at CuO. Before the reaction, copper has oxygen attached to it (CuO).
+  After the reaction, copper is just Cu — it has LOST its oxygen. When a substance
+  loses oxygen, it is REDUCED. So CuO is reduced.
+
+  Step 2: Because CuO is reduced, it is the OXIDISING agent. It caused something
+  else to be oxidised.
+
+  Step 3: Look at H₂. Before the reaction, hydrogen has no oxygen. After the
+  reaction, it becomes H₂O — it has GAINED oxygen. When a substance gains oxygen,
+  it is OXIDISED. So H₂ is oxidised.
+
+  Step 4: Because H₂ is oxidised, it is the REDUCING agent. It caused CuO to be
+  reduced.
+
+  This is the complete, four-step analysis you should write in the exam. Notice
+  how neatly the two processes happen at the same time — CuO gives its oxygen to H₂.
+  One loses, the other gains. That is the essence of a Redox reaction.
+
+KEY POINTS TO STRESS:
+  - CuO loses O → it is REDUCED → CuO is the Oxidising Agent.
+  - H₂ gains O → it is OXIDISED → H₂ is the Reducing Agent.
+  - Always state BOTH the process (oxidised/reduced) AND the role (agent) in exam answers.
+  - In this reaction, CuO provides oxygen to H₂ — it is the oxygen donor = oxidising agent.
+
+BOARD TIP: Write your analysis in a table format in the exam: Substance | Change | Process | Role as Agent. This earns maximum marks for 3–4 mark questions.
+
+
+========================================================================
+SLIDE 16: Reading Comprehension — The Heat of Life
+========================================================================
+
+ON SCREEN:
+  - Story passage: Respiration as an exothermic reaction in body cells
+  - Glucose + Oxygen → energy for muscles, brain, body heat
+  - Audio controls: ▶️ Read to Me / ⏹️ Stop
+
+SCRIPT (say this aloud):
+  Here is our second reading comprehension passage, and I love this one — it
+  connects chemistry directly to your own body.
+
+  The passage describes respiration — ਸਾਹ ਕਿਰਿਆ. We all think of respiration as
+  breathing. But at the cellular level, respiration is a chemical reaction. When
+  you eat food, it is broken down into glucose. When you breathe in, oxygen reaches
+  your cells. Then glucose reacts with oxygen in a slow, controlled process that
+  releases energy. This energy powers your muscles when you run, your brain when
+  you think, and keeps your body warm.
+
+  This is an EXOTHERMIC reaction — ਤਾਪ ਨਿਕਾਸੀ. Heat and energy are released.
+  Glucose + Oxygen → Carbon dioxide + Water + ENERGY.
+
+  The passage makes a brilliant point: this is not a violent explosion. It is a slow,
+  microscopic, beautifully controlled chemical fire happening inside every single
+  cell of your body, right now. Without this continuous exothermic reaction, human
+  life would immediately cease.
+
+  Have students read this passage silently, or use the audio "Read to Me" feature.
+  Then ask the class: Can you name the reactants and products of cellular respiration?
+
+KEY POINTS TO STRESS:
+  - Cellular respiration is an EXOTHERMIC reaction (ਤਾਪ ਨਿਕਾਸੀ).
+  - Reactants: Glucose + Oxygen; Products: CO₂ + H₂O + Energy.
+  - Respiration is a biological example of a combustion-type (exothermic) reaction.
+  - This is happening inside your body continuously, right now.
+
+BOARD TIP: "Is respiration exothermic or endothermic? Give a reason." — 2-mark question. Answer: Exothermic, because energy is released.
+
+
+========================================================================
+SLIDE 17: Respiration vs. Photosynthesis
+========================================================================
+
+ON SCREEN:
+  - Comparison table: Respiration (ਸਾਹ ਕਿਰਿਆ) vs. Photosynthesis (ਪ੍ਰਕਾਸ਼ ਸੰਸਲੇਸ਼ਣ)
+  - Respiration: Exothermic (ਤਾਪ ਨਿਕਾਸੀ) — breaks down glucose to release energy
+  - Photosynthesis: Endothermic (ਤਾਪ ਸੋਖੀ) — absorbs sunlight to CREATE glucose
+
+SCRIPT (say this aloud):
+  This comparison table shows two essential life processes — and they are perfect
+  opposites of each other in terms of energy.
+
+  Respiration — ਸਾਹ ਕਿਰਿਆ — is Exothermic (ਤਾਪ ਨਿਕਾਸੀ). It breaks down glucose
+  using oxygen to release energy for the body. Energy flows OUT of the chemical
+  reaction and into the organism. This happens in all living organisms — animals,
+  plants, fungi, bacteria.
+
+  Photosynthesis — ਪ੍ਰਕਾਸ਼ ਸੰਸਲੇਸ਼ਣ — is Endothermic (ਤਾਪ ਸੋਖੀ). Plants absorb
+  sunlight energy — electromagnetic energy from the sun — and use it to CREATE glucose
+  from carbon dioxide and water. Energy flows INTO the chemical system from the sun.
+  This only happens in green plants and some bacteria that contain chlorophyll.
+
+  Notice the beautiful symmetry: photosynthesis builds glucose using energy;
+  respiration breaks down glucose to release that same energy. The plant first
+  deposits energy into chemical bonds, and then the organism withdraws that energy
+  through respiration. Nature is perfectly balanced.
+
+  In terms of the chemical equation, photosynthesis is literally the reverse of
+  respiration: 6CO₂ + 6H₂O + Light → C₆H₁₂O₆ + 6O₂.
+
+KEY POINTS TO STRESS:
+  - Respiration is EXOTHERMIC — releases energy (heat out).
+  - Photosynthesis is ENDOTHERMIC — absorbs energy (light in).
+  - They are biochemical opposites: one builds glucose, the other burns it.
+  - Both are critical examples for the board exam.
+
+BOARD TIP: "Compare respiration and photosynthesis in terms of energy changes" — 3-mark question. Use the table format: Type | Energy Change | Process for maximum marks.
+
+
+========================================================================
+SLIDE 18: Reading Comprehension — The Silent Destroyers
+========================================================================
+
+ON SCREEN:
+  - Story passage about corrosion and rancidity
+  - Rust: iron + air/moisture → reddish-brown crust
+  - Rancidity: fats/oils oxidise → change smell and taste
+  - Prevention methods: zinc coating, nitrogen flushing
+  - Audio controls: ▶️ Read to Me / ⏹️ Stop
+
+SCRIPT (say this aloud):
+  Our third reading passage is called "The Silent Destroyers" — and it is about
+  oxidation happening slowly in everyday life. This is critically important for the
+  board exam.
+
+  The passage describes two forms of slow oxidation. First: Corrosion — ਖੋਰਨ.
+  When iron is exposed to moisture and oxygen in the air, it slowly forms rust —
+  a reddish-brown, flaky, crumbly substance. This is not a violent fire. It is a
+  slow, steady chemical attack. Bridges, ships, and cars are eaten away over years
+  by this silent process, causing enormous economic damage.
+
+  Second: Rancidity — ਦੁਰਗੰਧਤਾ. When fats and oils in our food are exposed to air,
+  they oxidise over time and turn rancid — their smell and taste become unpleasant and
+  they become unsafe to eat. You have probably experienced this with old butter, chips
+  left open, or stale cooking oil.
+
+  To fight these "silent destroyers," we have developed preventive measures. We coat
+  iron in zinc (called galvanisation) to prevent rust. We flush potato chip bags with
+  nitrogen gas — an inert gas — to keep oxygen out and prevent rancidity. These are
+  practical applications of chemistry that protect both our infrastructure and our food.
+
+  Ask students: Can you think of any other examples of corrosion or rancidity in
+  daily life? This discussion connects chemistry to real-world experience.
+
+KEY POINTS TO STRESS:
+  - Corrosion (ਖੋਰਨ) = slow oxidation of metals (e.g., rusting of iron).
+  - Rancidity (ਦੁਰਗੰਧਤਾ) = slow oxidation of fats/oils causing bad smell and taste.
+  - Both are types of slow, undesirable oxidation in everyday life.
+  - Prevention of rancidity: nitrogen flushing, refrigeration, airtight containers.
+
+BOARD TIP: Questions about corrosion and rancidity appear regularly as 2-mark "explain and prevent" questions. Always link to oxidation for full marks.
+
+
+========================================================================
+SLIDE 19: Oxidation in Everyday Life (ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ ਆਕਸੀਕਰਨ)
+========================================================================
+
+ON SCREEN:
+  - Section 1: Corrosion (ਖੋਰਨ) — rusting of iron (Fe₂O₃·xH₂O), tarnishing of copper and silver
+  - Section 2: Rancidity (ਦੁਰਗੰਧਤਾ) — fats/oils going bad
+  - Prevention methods: Nitrogen gas, refrigeration, vacuum/airtight containers
+
+SCRIPT (say this aloud):
+  This slide gives us the detailed science behind the two everyday oxidation processes
+  we read about in the story — and this detail is exactly what the board exam tests.
+
+  Corrosion — ਖੋਰਨ — is the slow eating away of metals by exposure to air and moisture.
+  Let us look at three important examples.
+
+  Rusting of Iron: Iron reacts with oxygen and water vapour in the air to form
+  hydrated iron oxide — Fe₂O₃·xH₂O. This is rust. It is reddish-brown, flaky, and
+  it does not protect the iron underneath — it keeps falling off, exposing more iron
+  to further attack. This is why rust is so destructive.
+
+  Tarnishing of Copper: Copper reacts with CO₂ and moisture in the air to form a
+  greenish layer (copper carbonate). You see this on old copper statues and rooftops.
+
+  Tarnishing of Silver: Silver reacts with traces of sulphur in the air to form
+  silver sulphide — a black layer. This is why silver jewellery turns black over time.
+
+  Rancidity — ਦੁਰਗੰਧਤਾ — is the oxidation of fats and oils in food, making them
+  smell and taste bad and potentially harmful. To prevent rancidity, food manufacturers use:
+  - Flushing packaging with Nitrogen gas — nitrogen is inert and displaces oxygen.
+  - Refrigeration — low temperatures slow down oxidation reactions.
+  - Vacuum or airtight containers — no oxygen means no oxidation.
+  - Adding Antioxidants like Vitamin C or BHA to food.
+
+KEY POINTS TO STRESS:
+  - Chemical formula of rust: Fe₂O₃·xH₂O (memorise this formula!).
+  - Copper tarnishes green; Silver tarnishes black.
+  - Rancidity prevention: Nitrogen flushing is the key method in chip packaging.
+  - Antioxidants added to food also prevent rancidity.
+
+BOARD TIP: "What is rancidity? How is it prevented?" is a direct board exam question worth 3 marks. Write: definition + cause (oxidation) + three prevention methods.
+
+
+========================================================================
+SLIDE 20: Chemical Formula Drill (ਰਸਾਇਣਕ ਸੂਤਰ ਲਿਖਣਾ)
+========================================================================
+
+ON SCREEN:
+  - Three-step interactive drill for writing Aluminum Oxide formula
+  - Step 1: Find valency of Aluminum (Al)
+  - Step 2: Find valency of Oxygen (O)
+  - Step 3: Cross the valencies to get the final formula Al₂O₃
+  - Check Answer / Next Step buttons
+
+SCRIPT (say this aloud):
+  Now we have an interactive formula-writing drill. Let us work through it step
+  by step together.
+
+  The goal is to write the correct chemical formula for Aluminum Oxide.
+
+  Step 1: What is the valency of Aluminum? Aluminum (Al) has a valency of 3. That
+  means each aluminum atom forms 3 bonds.
+
+  Step 2: What is the valency of Oxygen? Oxygen (O) has a valency of 2. Each
+  oxygen atom forms 2 bonds.
+
+  Step 3: Now we use the "cross-multiplication" or "criss-cross" method. Take the
+  valency of aluminum (3) and make it the SUBSCRIPT of oxygen. Take the valency of
+  oxygen (2) and make it the SUBSCRIPT of aluminum. So aluminum gets subscript 2
+  and oxygen gets subscript 3. The final formula is Al₂O₃ — Aluminum Oxide.
+
+  Let students try each step in the interactive drill and check their answers.
+  Pause at each step and confirm the answer before moving on.
+
+  After finishing, ask students to try the same method for other common compounds:
+  Magnesium Oxide (Mg = valency 2, O = valency 2 → MgO), or Calcium Chloride
+  (Ca = valency 2, Cl = valency 1 → CaCl₂). The cross-valency method works for all
+  ionic compounds.
+
+KEY POINTS TO STRESS:
+  - Valency of Aluminum (Al) = 3; Valency of Oxygen (O) = 2.
+  - Criss-cross method: swap valencies as subscripts → Al₂O₃.
+  - Reduce the ratio if possible (e.g., Ca₂O₂ reduces to CaO).
+  - Final answer: Aluminum Oxide = Al₂O₃.
+
+BOARD TIP: Formula writing questions appear in the 1-mark section. Master the criss-cross method for all common elements using their valencies.
+
+
+========================================================================
+SLIDE 21: Case Study — Endothermic Reactions
+========================================================================
+
+ON SCREEN:
+  - Case study passage: Ba(OH)₂ + NH₄Cl reaction
+  - Student mixes the two substances, stirs, touches the test tube
+  - Observes a drastic DROP in temperature
+  - Note: Questions from this passage follow on the next slides
+
+SCRIPT (say this aloud):
+  We now have a case study — a scenario-based question. This type of question
+  tests whether you can apply your knowledge to a real observation.
+
+  Read the passage carefully: A student takes 2 grams of Barium Hydroxide
+  — Ba(OH)₂ — in a test tube. He adds Ammonium Chloride — NH₄Cl — to it. He mixes
+  them with a glass rod. When he touches the bottom of the test tube, he notices a
+  DRASTIC DROP in temperature. The test tube feels very cold.
+
+  Now, think about this observation. The temperature is FALLING. The reaction is
+  absorbing heat from the surroundings — from the glass, from the student's fingers,
+  from the air. This is the key signature of an ENDOTHERMIC reaction (ਤਾਪ ਸੋਖੀ).
+  In an endothermic reaction, the surroundings get colder because the reaction is
+  pulling heat inward.
+
+  This specific reaction — Ba(OH)₂ with NH₄Cl — is a classic PSEB example of an
+  endothermic reaction. It is the opposite of burning wood or dissolving strong acid
+  in water, which release heat and make things hot.
+
+  Pause here and let students re-read the passage. The next two slides will test
+  comprehension with MCQ questions. Encourage students to identify: What is the key
+  observation? What type of reaction does this indicate?
+
+KEY POINTS TO STRESS:
+  - Barium Hydroxide + Ammonium Chloride = classic PSEB endothermic reaction example.
+  - Temperature DROPS = heat is ABSORBED = Endothermic reaction (ਤਾਪ ਸੋਖੀ).
+  - Endothermic reactions feel COLD to the touch — they absorb heat from surroundings.
+  - This is a scenario-based question — read carefully, identify the observation, classify the reaction.
+
+BOARD TIP: "A student observes a drop in temperature — what type of reaction is this?" — 1-mark identification question. Always connect observation (temp drop) to classification (endothermic).
+
+
+========================================================================
+SLIDE 22: Case Study Question — Reaction Type
+========================================================================
+
+ON SCREEN:
+  - Question: "What type of reaction is observed in the test tube?"
+  - Options: A. Exothermic | B. Endothermic | C. Displacement | D. Combination
+
+SCRIPT (say this aloud):
+  Based on the case study passage we just read, let us answer this MCQ.
+
+  The question is: What type of reaction is observed in the test tube?
+
+  The key observation was a DRASTIC DROP in temperature. The test tube became very
+  cold. This means the reaction was ABSORBING heat from the surroundings.
+
+  A reaction that absorbs heat is called an ENDOTHERMIC reaction — ਤਾਪ ਸੋਖੀ.
+
+  Let us eliminate the wrong options: Option A, Exothermic, is wrong because exothermic
+  reactions RELEASE heat — the temperature would RISE. Option C, Displacement, is a
+  type of reaction based on structure, not energy change — it is irrelevant here.
+  Option D, Combination, is also structural — not relevant to energy observation.
+
+  The correct answer is B — Endothermic.
+
+  Always remember: temperature drops → endothermic. Temperature rises → exothermic.
+  This is the fundamental test for identifying reaction energy type from observation.
+
+KEY POINTS TO STRESS:
+  - Correct answer: B. Endothermic (ਤਾਪ ਸੋਖੀ).
+  - Temperature drop = heat absorbed = Endothermic.
+  - Temperature rise = heat released = Exothermic.
+  - Ba(OH)₂ + NH₄Cl is the standard PSEB example of an endothermic reaction.
+
+BOARD TIP: When identifying reaction type from a temperature observation, always state: "Since temperature decreases/increases, this is an endothermic/exothermic reaction."
+
+
+========================================================================
+SLIDE 23: Case Study Question — Another Example
+========================================================================
+
+ON SCREEN:
+  - Question: "Which of the following is another example of this type of reaction?"
+  - Options: A. Burning of natural gas | B. Respiration | C. Photosynthesis | D. Digestion
+
+SCRIPT (say this aloud):
+  The previous question established that the Ba(OH)₂ + NH₄Cl reaction is
+  endothermic. Now this question asks: which of the following is ANOTHER example of
+  an endothermic reaction?
+
+  Let us evaluate each option.
+
+  Option A: Burning of natural gas. Burning always releases heat — it is exothermic.
+  This is NOT endothermic. Eliminate A.
+
+  Option B: Respiration. We learned earlier that respiration breaks down glucose to
+  release energy for the body. It releases heat — it is exothermic. Eliminate B.
+
+  Option C: Photosynthesis — ਪ੍ਰਕਾਸ਼ ਸੰਸਲੇਸ਼ਣ. Plants absorb sunlight energy to
+  build glucose. Energy is absorbed INTO the reaction. This is ENDOTHERMIC. This
+  matches our reaction type.
+
+  Option D: Digestion. Digestion is an exothermic process — it releases energy from
+  food. Eliminate D.
+
+  The correct answer is C — Photosynthesis. Like the Ba(OH)₂ + NH₄Cl experiment,
+  photosynthesis absorbs energy — it just absorbs light energy instead of thermal
+  energy.
+
+KEY POINTS TO STRESS:
+  - Correct answer: C. Photosynthesis (ਪ੍ਰਕਾਸ਼ ਸੰਸਲੇਸ਼ਣ).
+  - Both photosynthesis and the Ba(OH)₂ + NH₄Cl reaction are endothermic.
+  - Burning, respiration, and digestion are all exothermic.
+  - Energy source matters: photosynthesis uses light; Ba(OH)₂ + NH₄Cl uses thermal energy from surroundings.
+
+BOARD TIP: Know at least 3 examples of exothermic reactions and 3 examples of endothermic reactions for MCQ and short-answer questions.
+
+
+========================================================================
+SLIDE 24: Chapter 1 Quick Recap
+========================================================================
+
+ON SCREEN:
+  - Six summary bullet points covering all major topics of Chapter 1
+  - Reaction signs, equation balancing, four reaction types, redox
+
+SCRIPT (say this aloud):
+  Before we move to the revision activities, let us do a complete rapid recap of
+  everything we have covered in Chapter 1.
+
+  Point 1: Chemical reactions involve observable changes — change in state, colour,
+  smell, temperature, or the formation of gas or precipitate. If you see any of
+  these, a chemical reaction has occurred.
+
+  Point 2: Chemical equations MUST be balanced to obey the Law of Conservation of
+  Mass. Equal atoms of each element on both sides. Never change subscripts — only
+  add coefficients.
+
+  Point 3: Combination reaction: A + B → AB. Two or more substances join to form
+  one product. Example: 2Mg + O₂ → 2MgO.
+
+  Point 4: Decomposition reaction: AB → A + B. One substance breaks down into
+  multiple products. Requires energy (heat, electricity, or light). Always endothermic.
+
+  Point 5: Displacement reaction: A + BC → AC + B. A more reactive element replaces
+  a less reactive one from its compound. Example: Fe + CuSO₄ → FeSO₄ + Cu.
+
+  Point 6: Redox reactions involve simultaneous oxidation AND reduction. Oxidation =
+  gain O or lose H. Reduction = lose O or gain H. The oxidised substance is the
+  reducing agent, and the reduced substance is the oxidising agent.
+
+  If you understand and can explain all six of these points, you are ready for the
+  board exam on this chapter.
+
+KEY POINTS TO STRESS:
+  - All four reaction types with their general formulas must be memorised.
+  - Balanced equations obey Conservation of Mass — never change subscripts.
+  - Decomposition always needs energy input (endothermic).
+  - Redox: the oxidised substance = reducing agent (they are OPPOSITES).
+
+BOARD TIP: This recap slide is your revision checklist. If you cannot explain any of these six points from memory, go back and revise that section before the exam.
+
+
+========================================================================
+SLIDE 25: True or False? (ਸਹੀ ਜਾਂ ਗਲਤ?) — 13 Questions
+========================================================================
+
+ON SCREEN:
+  - 13 True or False questions covering all major Chapter 1 topics
+  - Bilingual questions (English + Punjabi)
+  - True/False buttons with Next Question navigation
+
+SCRIPT (say this aloud):
+  Excellent! Now it is time for our True or False revision activity. This has 13
+  questions covering everything in Chapter 1. I will work through all 13 with you
+  and give you the correct answer and explanation for each.
+
+  Question 1: "Rusting of iron is an endothermic reaction."
+  Answer: FALSE. Rusting is a type of corrosion — slow oxidation of iron. It is an
+  EXOTHERMIC reaction. Iron releases energy as it reacts with oxygen and water.
+
+  Question 2: "In a balanced equation, the number of atoms of each element remains
+  the same."
+  Answer: TRUE. This is the Law of Conservation of Mass in action. The total atoms
+  of each element must be equal on both sides.
+
+  Question 3: "Digestion of food in our body is an exothermic reaction."
+  Answer: TRUE. Digestion breaks down food molecules and releases energy — it is
+  exothermic.
+
+  Question 4: "Burning of natural gas is an endothermic reaction."
+  Answer: FALSE. Burning (combustion) always RELEASES heat — it is exothermic.
+
+  Question 5: "The insoluble substance formed during a reaction is called a
+  precipitate."
+  Answer: TRUE. A precipitate (ਅਵਖੇਪ) is an insoluble solid that forms inside a
+  liquid reaction mixture.
+
+  Question 6: "A change in state or color can indicate a chemical reaction."
+  Answer: TRUE. These are both recognised signs that a chemical reaction has taken
+  place.
+
+  Question 7: "In a combination reaction, two or more products are formed from a
+  single reactant."
+  Answer: FALSE. This describes DECOMPOSITION, not combination. In a combination
+  reaction, multiple reactants form a SINGLE product.
+
+  Question 8: "Antioxidants are added to foods containing fats and oils to prevent
+  oxidation."
+  Answer: TRUE. Antioxidants (like Vitamin E, BHA) prevent the fats from reacting
+  with oxygen and turning rancid.
+
+  Question 9: "When magnesium ribbon is burnt, it forms a bright white light."
+  Answer: TRUE. Magnesium burns with a brilliant, intense white light — this is why
+  it was historically used in photography flashes and fireworks.
+
+  Question 10: "Displacement reactions only occur between non-metals."
+  Answer: FALSE. Displacement reactions typically involve metals displacing other
+  metals from their compounds. Example: Zinc displaces copper from copper sulphate.
+
+  Question 11: "Zinc is more reactive than copper."
+  Answer: TRUE. In the reactivity series, Zinc (Zn) is higher than Copper (Cu).
+  This is why Zinc can displace Copper from CuSO₄ solution.
+
+  Question 12: "Water can be decomposed into hydrogen and oxygen by using electricity."
+  Answer: TRUE. This is electrolytic decomposition (electrolysis of water):
+  2H₂O → 2H₂ + O₂.
+
+  Question 13: "Heating lead nitrate produces brown fumes of nitrogen dioxide."
+  Answer: TRUE. 2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂. The brown fumes are nitrogen
+  dioxide (NO₂) gas.
+
+KEY POINTS TO STRESS:
+  - Rusting is exothermic, not endothermic (Q1).
+  - Combination: many reactants → one product; Decomposition: one reactant → many products (Q7).
+  - Zinc is MORE reactive than copper (Q11) — important for reactivity series.
+  - Lead nitrate decomposition produces brown NO₂ fumes (Q13) — a PSEB favourite.
+
+BOARD TIP: Questions 1, 7, 11, and 13 are the ones students most commonly get wrong. Review them carefully.
+
+
+========================================================================
+SLIDE 26: Say It Back: Chapter 1 — Short Answer Review (13 Questions)
+========================================================================
+
+ON SCREEN:
+  - 13 short-answer questions in both English and Punjabi
+  - Check Answer / Next Question navigation
+  - Topics: reactions, balancing, reaction types, rancidity, oxidation, photography, precipitates
+
+SCRIPT (say this aloud):
+  Now we have 13 short-answer questions. These are "Say It Back" questions — the
+  best way to test real understanding. A student who truly understands can explain
+  it in their own words. I will give the model answer for each.
+
+  Q1: What does a chemical reaction make?
+  Answer: A chemical reaction makes new substances called Products (ਉਤਪਾਦ).
+
+  Q2: What does 'balanced' mean?
+  Answer: Balanced means the number of atoms of each element is equal on both the
+  left side (reactants) and right side (products) of the equation.
+
+  Q3: Combination means join or break?
+  Answer: Join. In a combination reaction (ਸੰਜੋਜਨ), two or more substances join
+  together to form one new substance.
+
+  Q4: What gas prevents rancidity in chips?
+  Answer: Nitrogen gas (N₂). Chip bags are flushed with nitrogen to remove oxygen
+  and prevent oxidation of the fats and oils.
+
+  Q5: What does Oxidation mean?
+  Answer: Oxidation (ਆਕਸੀਕਰਨ) means gaining oxygen OR losing hydrogen during a
+  chemical reaction.
+
+  Q6: A substance that gives oxygen in a reaction is called an...?
+  Answer: Oxidising Agent. It gives oxygen to another substance, causing that
+  substance to be oxidised.
+
+  Q7: AgCl turning grey in sunlight is used in what type of photography?
+  Answer: Black and white photography. Silver chloride (AgCl) decomposes in light
+  to form silver metal (Ag), which appears grey/dark on photographic film.
+
+  Q8: What color is the Barium Sulphate (BaSO₄) precipitate?
+  Answer: White. BaSO₄ is an insoluble white precipitate formed in double
+  displacement reactions.
+
+  Q9: What type of reaction involves the exchange of ions between reactants?
+  Answer: Double Displacement reaction (ਦੋਹਰਾ ਵਿਸਥਾਪਨ). Two compounds exchange
+  their ions to form two new compounds.
+
+  Q10: What is the slow eating away of metals by air or moisture called?
+  Answer: Corrosion (ਖੋਰਨ). For example, rusting of iron is corrosion.
+
+  Q11: The chemical formula of marble is...?
+  Answer: CaCO₃ — Calcium Carbonate. Marble is a form of calcium carbonate. This
+  is also the formula of limestone and chalk.
+
+  Q12: Photosynthesis is an example of what type of energy reaction?
+  Answer: Endothermic (ਤਾਪ ਸੋਖੀ). Plants absorb light energy to produce glucose.
+
+  Q13: What does the symbol (aq) mean in a chemical equation?
+  Answer: Aqueous (ਜਲਮਈ ਘੋਲ) — the substance is dissolved in water.
+
+KEY POINTS TO STRESS:
+  - BaSO₄ precipitate is WHITE — a commonly asked colour.
+  - Marble formula = CaCO₃ (same as limestone and chalk).
+  - Nitrogen prevents rancidity by displacing oxygen in packaging.
+  - (aq) = dissolved in water — not to be confused with (l) = liquid.
+
+BOARD TIP: Short-answer questions in the board exam often directly mirror these "Say It Back" questions. Practice answering them in complete sentences, not just single words.
+
+
+========================================================================
+SLIDE 27: Quick Check: Chapter 1 (ਤੁਰੰਤ ਜਾਂਚ) — 12 MCQ Questions
+========================================================================
+
+ON SCREEN:
+  - 12 Multiple Choice Questions with bilingual text
+  - Topics span the full chapter: rancidity, conservation of mass, reaction types,
+    decomposition, redox, photolytic reactions, displacement, rust formula, oxidation tracking
+  - Navigation: Next Question →
+
+SCRIPT (say this aloud):
+  We end Chapter 1 with our final Quick Check — 12 multiple choice questions that
+  are modelled on the style of actual PSEB board exam questions. Let me walk through
+  all 12 with the correct answers and brief explanations.
+
+  Q1: Which gas prevents rancidity?
+  A. Oxygen  B. Nitrogen  C. Carbon Dioxide
+  Answer: B — Nitrogen. It is inert and displaces oxygen from food packaging.
+
+  Q2: A chemical equation must satisfy the law of:
+  A. Conservation of Mass  B. Conservation of Energy  C. Constant Proportions
+  Answer: A — Conservation of Mass. We balance equations to ensure no atoms are
+  created or destroyed.
+
+  Q3: Fe + CuSO₄ → FeSO₄ + Cu is an example of:
+  A. Combination  B. Decomposition  C. Displacement
+  Answer: C — Displacement. Iron (Fe) is more reactive than copper and displaces
+  copper from copper sulphate solution.
+
+  Q4: The decomposition of limestone produces quicklime and which gas?
+  A. Oxygen  B. Hydrogen  C. Carbon Dioxide
+  Answer: C — Carbon Dioxide. CaCO₃ → CaO + CO₂. CaO is quicklime; CO₂ is the gas.
+
+  Q5: Which of the following is a decomposition reaction?
+  A. CaCO₃ → CaO + CO₂  B. 2H₂ + O₂ → 2H₂O  C. C + O₂ → CO₂
+  Answer: A — CaCO₃ → CaO + CO₂. One reactant breaks into multiple products.
+  Options B and C are combination reactions.
+
+  Q6: Respiration is an example of which type of reaction?
+  A. Endothermic  B. Exothermic  C. Displacement
+  Answer: B — Exothermic. Respiration releases energy — that is why your body stays
+  warm and your muscles work.
+
+  Q7: When AgCl is exposed to sunlight, it turns grey due to the formation of:
+  A. Chlorine gas  B. Silver metal  C. Silver Oxide
+  Answer: B — Silver metal. 2AgCl → 2Ag + Cl₂. The grey colour comes from
+  fine particles of silver metal (Ag) forming on the surface.
+
+  Q8: Which gas is evolved when dilute HCl is added to zinc granules?
+  A. Oxygen  B. Hydrogen  C. Chlorine
+  Answer: B — Hydrogen. Zn + 2HCl → ZnCl₂ + H₂↑. Zinc displaces hydrogen from
+  hydrochloric acid. This is a displacement reaction.
+
+  Q9: The chemical formula of rust is:
+  A. Fe₂O₃  B. FeCO₃  C. Fe₂O₃·xH₂O
+  Answer: C — Fe₂O₃·xH₂O. Rust is hydrated iron oxide. Option A (Fe₂O₃) is
+  anhydrous iron oxide — not rust. The ·xH₂O part (water of crystallisation) is
+  essential.
+
+  Q10: In the reaction PbO + C → Pb + CO, which substance is oxidised?
+  A. PbO  B. C  C. Pb
+  Answer: B — Carbon (C). Carbon gains oxygen (from PbO) to form CO — it is
+  oxidised. PbO loses oxygen to become Pb — PbO is reduced. Carbon is the
+  reducing agent here.
+
+  Q11: What is the color of the precipitate formed when Barium Chloride reacts
+  with Sodium Sulphate?
+  A. Yellow  B. White  C. Green
+  Answer: B — White. BaCl₂ + Na₂SO₄ → BaSO₄↓ + 2NaCl. Barium sulphate (BaSO₄)
+  is a white precipitate.
+
+  Q12: A substance that gains oxygen during a reaction is said to be:
+  A. Reduced  B. Oxidised  C. Precipitated
+  Answer: B — Oxidised. Gaining oxygen = oxidation. This is the basic definition.
+
+  That completes Chapter 1 — Chemical Reactions and Equations!
+
+  Congratulations on completing this chapter. You have covered the law of conservation
+  of mass, balancing equations, four types of reactions, redox reactions, corrosion,
+  and rancidity. These topics will appear in your board exam — and now you are prepared.
+
+KEY POINTS TO STRESS:
+  - Rust formula: Fe₂O₃·xH₂O — NOT just Fe₂O₃ (Q9).
+  - In PbO + C: Carbon is OXIDISED (gains O), PbO is REDUCED (loses O) (Q10).
+  - BaSO₄ precipitate is WHITE (Q11).
+  - Zn + HCl → H₂ gas (displacement reaction) (Q8).
+
+BOARD TIP: This Quick Check mirrors real PSEB MCQ patterns. If you can answer all 12 correctly from memory, you are fully prepared for Chapter 1 in the board exam.
+
+
+========================================================================
+END OF CHAPTER 1 SCRIPT
+Chapter: Chemical Reactions and Equations
+Total Slides Scripted: 27 / 27
+Version: 1
+========================================================================
