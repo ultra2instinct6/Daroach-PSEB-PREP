@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    
+    <title>BOLO.INSTINCT - Premium Prep</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           CORE VARIABLES & FLUID SPACING
+        ========================================= */
+        :root {
+            --bg-void: #000000; 
+            --text-bold: #ffffff; 
+            --text-dim: #8e9bb0;
+            --shard-active: #09090b;
+            
+            --aura-chem: #00e5ff; 
+            --aura-bio: #2ecc71;  
+            --aura-phy: #b026ff;  
+            --aura-env: #ffaa00;  
+            
+            --radius: clamp(170px, min(33vh, 35vw), 380px); 
+            --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
+            --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
+
+        body { 
+            background-color: var(--bg-void); color: var(--text-bold); 
+            height: 100vh; overflow: hidden; 
+            display: flex; justify-content: center; align-items: center; 
+            user-select: none; 
+            -webkit-font-smoothing: antialiased;
+            overscroll-behavior: none; 
+        }
+
+        body::after { 
+            content: ''; position: fixed; inset: 0; 
+            background: radial-gradient(circle at center, transparent 10%, rgba(0,0,0,0.98) 100%); 
+            pointer-events: none; z-index: -1; 
+        }
+
+        /* Ambient FX */
+        @keyframes deltaWave { 0%, 100% { opacity: 0.02; transform: scale(1); } 50% { opacity: 0.05; transform: scale(1.05); } }
+        .neural-mesh { position: fixed; inset: -5%; width: 110vw; height: 110vh; background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 32px 32px; z-index: -3; animation: deltaWave 8s infinite ease-in-out; pointer-events: none; will-change: transform; }
+        
+        @keyframes auraBreathe { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.85; } }
+        .aura-bleed { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 120vw; height: 120vh; background: radial-gradient(circle at center, transparent 0%, var(--bg-void) 65%); z-index: -2; transition: background 1s var(--fluid-curve); animation: auraBreathe 10s ease-in-out infinite; pointer-events: none; }
+
+        @keyframes appIgnition { 0% { opacity: 0; transform: scale(0.9) translateY(20px); filter: blur(10px); } 100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } }
+
+        /* =========================================
+           HEADER & NAVIGATION SYSTEMS
+        ========================================= */
+        .web-utility-header { 
+            position: fixed; top: 0; left: 0; width: 100vw; 
+            padding: max(24px, env(safe-area-inset-top)) 48px 24px; 
+            display: flex; justify-content: space-between; align-items: flex-start; 
+            z-index: 100; pointer-events: none; animation: appIgnition 1.2s var(--fluid-curve) forwards; 
+        }
+        
+        .header-left { display: flex; align-items: center; gap: 32px; pointer-events: auto; }
+        .header-logo { 
+            font-weight: 900; font-size: clamp(1.2rem, 3vw, 1.4rem); letter-spacing: 2px; 
+            text-transform: uppercase; cursor: pointer; transition: transform 0.4s var(--fluid-curve), text-shadow 0.4s; 
+            background: linear-gradient(135deg, #ffffff 0%, #8e9bb0 100%); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+        }
+        .header-center { display: flex; align-items: center; gap: 16px; }
+
+        .domain-router { 
+            display: flex; background: rgba(18, 18, 22, 0.6); 
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 40px; padding: 4px; 
+            backdrop-filter: blur(20px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .domain-btn { 
+            padding: 8px 18px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; 
+            letter-spacing: 1px; color: var(--text-dim); border-radius: 30px; cursor: pointer; 
+            transition: all 0.4s var(--fluid-curve); 
+        }
+        .domain-btn:hover { color: #fff; }
+        .domain-btn.active { 
+            background: rgba(255,255,255,0.12); color: #fff; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4); pointer-events: none; 
+        }
+
+        .header-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.15); margin: 0 4px; }
+        .header-trust { display: flex; flex-direction: column; gap: 4px; }
+        .trust-primary { font-size: 1.1rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #ffffff; line-height: 1.1; transition: opacity 0.3s ease;}
+        .trust-secondary { font-size: 0.65rem; color: #8e9bb0; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; line-height: 1; transition: opacity 0.3s ease;}
+
+        .header-right { display: flex; align-items: center; pointer-events: auto; }
+        .streak-hud { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 8px 18px; border-radius: 30px; backdrop-filter: blur(16px) saturate(150%); cursor: pointer; transition: all 0.4s var(--fluid-curve); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .streak-hud:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); border-color: rgba(255,255,255,0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.6); }
+        .streak-icon { font-size: 1.1rem; filter: drop-shadow(0 0 8px rgba(255, 115, 0, 0.6)); }
+        .streak-text { font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; font-variant-numeric: tabular-nums; }
+
+        @media (max-width: 1200px) {
+            .web-utility-header { flex-direction: column; gap: 20px; }
+            .header-left { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .header-right { position: absolute; top: max(24px, env(safe-area-inset-top)); right: 24px; }
+        }
+        @media (max-width: 768px) {
+            .web-utility-header { padding: max(20px, env(safe-area-inset-top)) 20px 20px; }
+            .header-center { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .header-divider { display: none; }
+            .header-right { top: max(20px, env(safe-area-inset-top)); right: 20px; }
+        }
+
+        /* =========================================
+           CENTRAL MASS CORE
+        ========================================= */
+        .arena-wrapper { perspective: 1500px; width: 100vw; height: 100vh; position: relative; display: flex; justify-content: center; align-items: center; opacity: 0; animation: appIgnition 1.2s 0.2s var(--fluid-curve) forwards; }
+        .arena { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; cursor: grab; transform-style: preserve-3d; will-change: transform; backface-visibility: hidden; touch-action: none; transition: opacity 0.5s ease;}
+        .arena.fade-out { opacity: 0 !important; }
+        .arena:active { cursor: grabbing; }
+
+        .core-system { position: relative; display: flex; justify-content: center; align-items: center; z-index: 10; transform-style: preserve-3d; pointer-events: none; }
+        @keyframes orbitalSpin { 100% { transform: rotate(360deg); } }
+        .core-ring { position: absolute; width: clamp(140px, 35vw, 190px); height: clamp(140px, 35vw, 190px); border-radius: 50%; background: conic-gradient(from 0deg, transparent 60%, rgba(255,255,255,0.05) 80%, rgba(255,255,255,0.6) 100%); -webkit-mask: radial-gradient(transparent 68%, black 69%); mask: radial-gradient(transparent 68%, black 69%); animation: orbitalSpin 4s linear infinite; transition: all 0.8s var(--fluid-curve); opacity: 0.08; }
+        .core-mass { position: relative; width: clamp(110px, 28vw, 150px); height: clamp(110px, 28vw, 150px); background: rgba(10, 10, 14, 0.85); backdrop-filter: blur(24px) saturate(150%); border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: all 0.8s var(--fluid-curve); box-shadow: 0 0 50px rgba(0,0,0,0.9), inset 0 2px 10px rgba(255,255,255,0.03), inset 0 -10px 40px rgba(0,0,0,0.8); }
+        .core-val { font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 800; letter-spacing: -1.5px; transition: color 0.6s var(--fluid-curve), text-shadow 0.6s, transform 0.6s var(--spring-curve); z-index: 2; text-shadow: 0 0 20px rgba(255,255,255,0.1); font-variant-numeric: tabular-nums; }
+        .core-lbl { font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: clamp(0.6rem, 2vw, 0.7rem); text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-top: 4px; transition: color 0.6s var(--fluid-curve); z-index: 2; font-weight: 600; text-align: center; padding: 0 10px;}
+
+        /* =========================================
+           DIAL & NODE MECHANICS (FOCAL LOCKED)
+        ========================================= */
+        .dial { position: absolute; width: 0; height: 0; display: flex; justify-content: center; align-items: center; transform-style: preserve-3d; will-change: transform; z-index: 5; }
+        .node-anchor { position: absolute; transform-style: preserve-3d; will-change: transform, opacity, filter; }
+        
+        .arena-locked .node-anchor { transition: opacity 0.8s var(--fluid-curve), filter 0.8s var(--fluid-curve); }
+        .arena-locked .node-anchor:not(.is-active) { opacity: 0 !important; filter: blur(20px) !important; pointer-events: none; }
+        .node-anchor.is-active { z-index: 100 !important; opacity: 1 !important; filter: blur(0px) !important; }
+
+        .shard-anchor.is-targeted .shard { border-top-color: rgba(255, 255, 255, 0.25); box-shadow: 0 30px 60px rgba(0,0,0,0.95), inset 0 1px 2px rgba(255,255,255,0.12); }
+        .shard-anchor.is-active .shard { background: linear-gradient(180deg, rgba(15,15,18,1) 0%, rgba(5,5,8,1) 100%); width: min(92vw, 360px); border-top-color: currentColor; box-shadow: 0 50px 100px rgba(0,0,0,0.99), 0 -10px 50px rgba(currentColor, 0.3), inset 0 2px 4px rgba(255,255,255,0.15); cursor: default; --shard-scale: 1.06 !important; }
+        .shard-anchor.is-active .pa-title { color: currentColor; text-shadow: 0 0 25px rgba(currentColor, 0.6); }
+        .shard-anchor.is-active .btn-prime { border-color: currentColor; color: currentColor; background: rgba(currentColor, 0.08); }
+        .shard-anchor.is-active .ch-icon { color: currentColor; filter: drop-shadow(0 0 8px currentColor); }
+
+        .shard { 
+            position: absolute; width: min(88vw, 330px); background: rgba(18, 18, 22, 0.95); 
+            border-radius: 24px; padding: clamp(16px, 4vw, 24px); cursor: pointer; display: flex; flex-direction: column; gap: 0; 
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.05), 0 20px 40px rgba(0,0,0,0.95); border: 1px solid rgba(255,255,255,0.04); 
+            --shard-rot: 0deg; --shard-scale: 1; transform: translate(-50%, -50%) rotate(var(--shard-rot)) scale(var(--shard-scale)); 
+            will-change: transform; overflow: hidden; backface-visibility: hidden; 
+            transition: background 0.6s var(--fluid-curve), box-shadow 0.6s var(--fluid-curve), border-color 0.6s var(--fluid-curve), width 0.6s var(--fluid-curve), transform 0.6s var(--fluid-curve); 
+        }
+
+        .s-head { display: flex; justify-content: space-between; align-items: flex-start; z-index: 2; position: relative; }
+        .s-titles { display: flex; gap: 14px; align-items: flex-start; overflow: hidden; }
+        .ch-icon { width: 14px; height: 14px; color: var(--text-dim); margin-top: 6px; flex-shrink: 0; transition: color 0.5s var(--fluid-curve); }
+        .ch-icon svg { width: 100%; height: 100%; stroke: currentColor; }
+        .ch-num { font-size: 0.85rem; font-weight: 900; color: var(--text-dim); flex-shrink: 0; padding-top: 4px; font-variant-numeric: tabular-nums; }
+        .title-group { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-right: 8px;}
+        .pa-title { font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: clamp(1rem, 3.5vw, 1.1rem); font-weight: 700; color: var(--text-bold); white-space: normal; line-height: 1.35; transition: color 0.5s var(--fluid-curve), text-shadow 0.5s var(--fluid-curve); }
+        .en-title { font-size: 0.7rem; font-weight: 700; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.5px; text-transform: uppercase;}
+
+        .svg-progress-container { position: relative; width: clamp(38px, 10vw, 44px); height: clamp(38px, 10vw, 44px); display: flex; justify-content: center; align-items: center; flex-shrink: 0; cursor: pointer; border-radius: 50%; transition: transform 0.4s var(--spring-curve), background 0.4s ease; z-index: 10; }
+        .prog-ring { width: 100%; height: 100%; transform: rotate(-90deg); position: absolute; top: 0; left: 0; pointer-events: none; }
+        .prog-ring circle { fill: transparent; stroke-width: 2.5; }
+        .prog-ring .bg { stroke: rgba(255,255,255,0.05); }
+        .prog-ring .fill { stroke: currentColor; stroke-dasharray: 100; stroke-linecap: round; transition: stroke-dashoffset 0.8s var(--spring-curve); }
+        .prog-text { font-size: 0.65rem; font-weight: 800; color: var(--text-dim); z-index: 1; pointer-events: none; transition: color 0.5s var(--fluid-curve); font-variant-numeric: tabular-nums; }
+        .shard-anchor.is-active .prog-text { color: currentColor; }
+        .svg-progress-container.done .prog-text { color: currentColor; text-shadow: 0 0 10px rgba(currentColor, 0.6); font-size: 0.8rem; }
+        .svg-progress-container.done .fill { stroke-dashoffset: 0 !important; filter: drop-shadow(0 0 6px rgba(currentColor, 0.4)); }
+
+        .s-expansion { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.6s var(--fluid-curve); width: 100%; }
+        .s-expansion-inner { min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 16px; padding-top: 0; transition: padding-top 0.6s var(--fluid-curve), opacity 0.4s ease; opacity: 0; }
+        .shard-anchor.is-active .s-expansion { grid-template-rows: 1fr; }
+        .shard-anchor.is-active .s-expansion-inner { padding-top: 16px; opacity: 1; }
+        .rune-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .rune { font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: 0.6rem; font-weight: 600; padding: 6px 12px; border-radius: 8px; background: rgba(255,255,255,0.04); color: var(--text-dim); letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.02);}
+        .btn-prime { position: relative; overflow: hidden; background: rgba(255,255,255,0.02); color: var(--text-bold); border: 1px solid rgba(255,255,255,0.08); padding: 14px 18px; border-radius: 12px; font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; transition: all 0.4s var(--fluid-curve); display: flex; justify-content: space-between; align-items: center; }
+
+        /* BOTTOM MIRRORS */
+        .mirror-anchor.is-targeted .lecture-mirror { border-color: rgba(255,255,255,0.25); border-bottom-color: currentColor; box-shadow: 0 20px 50px rgba(0,0,0,0.9), inset 0 1px 2px rgba(255,255,255,0.2); }
+        .mirror-anchor.is-targeted .mirror-title { text-shadow: 0 0 15px currentColor; color: var(--text-bold); }
+        .mirror-anchor.is-targeted .mirror-icon { color: currentColor; background: rgba(255,255,255,0.12); }
+        
+        .mirror-anchor.is-active .lecture-mirror { background: linear-gradient(145deg, rgba(20, 20, 25, 1), rgba(10, 10, 14, 1)); border-color: currentColor; box-shadow: 0 20px 60px rgba(0,0,0,0.9), 0 0 35px rgba(currentColor, 0.45), inset 0 1px 4px rgba(currentColor, 0.5); --node-scale: 1.15 !important; }
+        .mirror-anchor.is-active .mirror-title { color: currentColor; text-shadow: 0 0 25px rgba(currentColor, 0.8); }
+        .mirror-anchor.is-active .mirror-icon { color: #000; background: currentColor; box-shadow: 0 0 20px currentColor; }
+
+        .lecture-mirror { 
+            position: absolute; width: max-content; max-width: 90vw; background: rgba(22, 20, 26, 0.95); 
+            border: 1px solid rgba(255, 255, 255, 0.08); padding: 8px 24px 8px 8px; border-radius: 50px; display: flex; align-items: center; gap: clamp(10px, 3vw, 16px); 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), inset 0 1px 2px rgba(255,255,255,0.1); 
+            --node-rot: 0deg; --node-scale: 1; transform: translate(-50%, -50%) rotate(var(--node-rot)) scale(var(--node-scale));
+            will-change: transform; backface-visibility: hidden; cursor: pointer;
+            transition: transform 0.6s var(--fluid-curve), border-color 0.6s var(--fluid-curve), background 0.6s var(--fluid-curve), box-shadow 0.6s var(--fluid-curve);
+        }
+        @media (max-width: 768px) { .lecture-mirror { padding: 6px 20px 6px 6px; border-radius: 40px; } }
+        .mirror-icon { display: flex; justify-content: center; align-items: center; width: clamp(32px, 8vw, 36px); height: clamp(32px, 8vw, 36px); border-radius: 50%; background: rgba(255,255,255,0.05); color: var(--text-dim); transition: all 0.6s var(--fluid-curve); flex-shrink: 0;}
+        .mirror-icon svg { width: 14px; height: 14px; fill: currentColor; margin-left: 2px; }
+        .mirror-text-container { display: flex; flex-direction: column; gap: 2px; justify-content: center; min-width: 0;}
+        .mirror-label { font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dim); opacity: 0.8; }
+        .mirror-title { font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: clamp(0.85rem, 3vw, 0.95rem); font-weight: 600; color: var(--text-bold); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 0.6s var(--fluid-curve), text-shadow 0.6s var(--fluid-curve); line-height: 1.1; }
+
+        /* =========================================
+           MODAL MODES (ORGANIC SHARE OVERLAY)
+        ========================================= */
+        .cmd-palette { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(30px); display: flex; justify-content: center; align-items: flex-start; padding-top: 15vh; z-index: 999; opacity: 0; pointer-events: none; transition: opacity 0.5s var(--fluid-curve); }
+        .cmd-palette.is-open { opacity: 1; pointer-events: auto; }
+        .cmd-box { width: 90%; max-width: 500px; background: #0c0c0e; border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.9); transform: translateY(-30px) scale(0.95); transition: all 0.5s var(--fluid-curve); padding: 24px; }
+        .cmd-palette.is-open .cmd-box { transform: translateY(0) scale(1); }
+        
+        .modal-title { font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-bold); margin-bottom: 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 12px; }
+        .share-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .share-tile { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 18px; border-radius: 16px; color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; cursor: pointer; transition: all 0.3s var(--fluid-curve); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;}
+        .share-tile:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+        .share-tile svg { width: 22px; height: 22px; fill: currentColor; }
+        
+        /* Floating Trigger */
+        .share-hub-container { position: fixed; bottom: max(24px, env(safe-area-inset-bottom)); right: 48px; z-index: 100; pointer-events: auto; }
+        .share-trigger { width: 48px; height: 48px; border-radius: 50%; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: var(--text-bold); display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(16px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.3s var(--fluid-curve); }
+        .share-trigger:hover { transform: scale(1.05); background: rgba(255,255,255,0.06); }
+        .share-trigger svg { width: 16px; height: 16px; fill: currentColor; }
+        @media (max-width: 768px) { .share-hub-container { bottom: max(20px, env(safe-area-inset-bottom)); right: 20px; } }
+
+        .toast-notify { position: fixed; bottom: max(90px, env(safe-area-inset-bottom)); right: 48px; background: #09090b; border: 1px solid rgba(255,255,255,0.15); padding: 12px 24px; border-radius: 12px; font-family: 'Noto Sans Gurmukhi', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; color: var(--text-bold); opacity: 0; transform: translateY(10px); transition: all 0.4s var(--fluid-curve); pointer-events: none; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
+        .toast-notify.show { opacity: 1; transform: translateY(0); }
+        @media (max-width: 768px) { .toast-notify { right: 20px; bottom: max(80px, env(safe-area-inset-bottom)); } }
+
+        .particle { position: absolute; width: 4px; height: 4px; background: #fff; border-radius: 50%; pointer-events: none; opacity: 0; z-index: 99; }
+        .gateway-core { position: fixed; top: 50%; left: 50%; width: 5px; height: 5px; border-radius: 50%; background: #fff; opacity: 0; pointer-events: none; transform: translate(-50%, -50%) scale(1); transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1), opacity 0.6s, box-shadow 0.8s; z-index: 9999; }
+        body.gateway-active .gateway-core { opacity: 1; transform: translate(-50%, -50%) scale(600); box-shadow: 0 0 150px 80px #fff; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="ariaAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="web-utility-header">
+        <div class="header-left">
+            <div class="header-logo" onclick="location.reload()">BOLO.INSTINCT</div>
+            
+            <div class="header-center">
+                <div class="domain-router">
+                    <div class="domain-btn active" data-domain="PSEB">PSEB</div>
+                    <div class="domain-btn" data-domain="IM">IM</div>
+                </div>
+                
+                <div class="domain-router" id="subjectRouter">
+                    <div class="domain-btn active" data-subject="SCI">SCIENCE</div>
+                    <div class="domain-btn" data-subject="MATH">MATH</div>
+                </div>
+                
+                <div class="header-divider"></div>
+                
+                <div class="header-trust">
+                    <span class="trust-primary" id="trustPrimary">PSEB 10TH SCIENCE</span>
+                    <span class="trust-secondary" id="trustSecondary">CURATED BY DR. DEEPAK DAROACH, MD</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-right">
+            <div class="streak-hud" onclick="alert('Streak tracks consecutive daily study loops! 🔥')">
+                <span class="streak-icon">🔥</span>
+                <span class="streak-text" id="streakCount">1 Day</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="neural-mesh" id="neuralMesh"></div>
+    <div class="aura-bleed" id="auraBleed"></div>
+    <div class="gateway-core" id="gatewayCore"></div>
+
+    <!-- Master Action Floating Hub -->
+    <div class="share-hub-container" id="shareHub">
+        <div class="share-trigger" data-action="open-share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+    </div>
+
+    <!-- Production Sharing Overlay Modal (Organic Focus) -->
+    <div class="cmd-palette" id="sharePalette">
+        <div class="cmd-box">
+            <div class="modal-title">Share Platform</div>
+            <div class="share-grid">
+                <div class="share-tile" data-share="whatsapp" style="color: #25D366;">
+                    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    <span>WhatsApp</span>
+                </div>
+                <!-- Swapped Instagram for Telegram for organic study group sharing -->
+                <div class="share-tile" data-share="telegram" style="color: #0088cc;">
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.331 15.344c-.166.495-.741 1.229-1.201 1.394-.403.144-.812.112-1.2.083-.4-.029-.75-.24-1.087-.49l-1.694-1.256-.812.783c-.114.11-.22.21-.433.21-.19 0-.295-.09-.371-.239l-.953-3.13-2.734-.848c-.466-.144-.479-.472-.01-.663l10.233-3.951c.469-.181.864.09.688.663l-1.926 7.444z"/></svg>
+                    <span>Telegram</span>
+                </div>
+                <div class="share-tile" data-share="email" style="color: #ea4335;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>Email Share</span>
+                </div>
+                <div class="share-tile" data-share="system" style="color: #00e5ff;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                    <span>Copy Link</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-notify" id="toastNotify">ਸਿਲੇਬਸ ਲਿੰਕ ਕਾਪੀ ਹੋ ਗਿਆ ਹੈ! (Link Copied)</div>
+
+    <div class="cmd-palette" id="cmdPalette" onclick="if(event.target===this) togglePalette()">
+        <div class="cmd-box">
+            <input type="text" class="cmd-input" id="cmdInput" placeholder="ਸਿਲੇਬਸ ਖੋਜੋ... (Search Syllabus...)" autocomplete="off">
+            <div class="cmd-results" id="cmdResults"></div>
+        </div>
+    </div>
+
+    <!-- Kinetic Arena Wrapper -->
+    <div class="arena-wrapper">
+        <main class="arena arena-idle" id="arena" aria-label="Syllabus Ring Matrix">
+            <div class="core-system" id="coreSystem">
+                <div class="core-ring" id="coreRing"></div>
+                <div class="core-mass" id="coreMass">
+                    <span class="core-val" id="coreVal">0%</span>
+                    <span class="core-lbl" id="coreLbl">ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ</span>
+                </div>
+            </div>
+            <nav class="dial" id="dial"></nav>
+        </main>
+    </div>
+
+    <script>
+        const syllabus = [
+            { id: 1, en: "Chemical Reactions", pa: "ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ", type: "chem", defaultVal: 100, slides: 27 },
+            { id: 2, en: "Acids, Bases and Salts", pa: "ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", type: "chem", defaultVal: 25, slides: 29 },
+            { id: 3, en: "Metals and Non-metals", pa: "ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", type: "chem", defaultVal: 4, slides: 27 },
+            { id: 4, en: "Carbon and its Compounds", pa: "ਕਾਰਬਨ ਅਤੇ ਇਸਦੇ ਯੋਗਿਕ", type: "chem", defaultVal: 0, slides: 29 },
+            { id: 5, en: "Periodic Classification", pa: "ਤੱਤਾਂ ਦਾ ਆਵਰਤੀ ਵਰਗੀਕਰਣ", type: "chem", defaultVal: 0, slides: 27 },
+            { id: 6, en: "Life Processes", pa: "ਜੀਵਨ ਪ੍ਰਕਿਰਿਆਵਾਂ", type: "bio", defaultVal: 0, slides: 42 }, 
+            { id: 7, en: "Control and Coordination", pa: "ਨਿਯੰਤਰਣ ਅਤੇ ਤਾਲਮੇਲ", type: "bio", defaultVal: 0, slides: 31 },
+            { id: 8, en: "How do Organisms Reproduce?", pa: "ਜੀਵ ਕਿਵੇਂ ਪ੍ਰਜਨਨ ਕਰਦੇ ਹਨ", type: "bio", defaultVal: 100, slides: 33 },
+            { id: 9, en: "Heredity and Evolution", pa: "ਅਨੁਵੰਸ਼ਿਕਤਾ ਅਤੇ ਵਿਕਾਸ", type: "bio", defaultVal: 100, slides: 27 },
+            { id: 10, en: "Light: Reflection & Refraction", pa: "ਪ੍ਰਕਾਸ਼: ਪਰਾਵਰਤਨ", type: "phy", defaultVal: 0, slides: 33 },
+            { id: 11, en: "The Human Eye", pa: "ਮਨੁੱਖੀ ਅੱਖ", type: "phy", defaultVal: 100, slides: 32 },
+            { id: 12, en: "Electricity", pa: "ਬਿਜਲੀ", type: "phy", defaultVal: 0, slides: 31 },
+            { id: 13, en: "Magnetic Effects", pa: "ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", type: "phy", defaultVal: 100, slides: 33 },
+            { id: 14, en: "Sources of Energy", pa: "ਊਰਜਾ ਦੇ ਸੋਮੇ", type: "phy", defaultVal: 0, slides: 24 }, 
+            { id: 15, en: "Our Environment", pa: "ਸਾਡਾ ਵਾਤਾਵਰਣ", type: "env", defaultVal: 0, slides: 27 },
+            { id: 16, en: "Sustainable Management", pa: "ਕੁਦਰਤੀ ਸਾਧਨਾਂ ਦਾ ਪ੍ਰਬੰਧ", type: "env", defaultVal: 0, slides: 18 } 
+        ];
+
+        const auras = { 'chem': '#00e5ff', 'bio': '#2ecc71', 'phy': '#b026ff', 'env': '#ffaa00' };
+        
+        const icons = {
+            'chem': `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><circle cx="12" cy="16" r="1"/></svg>`,
+            'bio': `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-4-4-10 0-14 4 4 4 10 0 14z"/><path d="M12 22V8"/></svg>`,
+            'phy': `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+            'env': `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
+        };
+        
+        let localData = {};
+        try {
+            const rawCache = localStorage.getItem('bolo_pseb_data');
+            if(rawCache) localData = JSON.parse(rawCache) || {};
+        } catch(e) { localData = {}; }
+        
+        let isLocked = false; let currentAngle = 0; let targetAngle = 0; let isDragging = false; 
+        let startX = 0; let velocity = 0; let lastX = 0; let lastTickIdx = -1; 
+        let isLooping = false; 
+        let currentDomain = 'PSEB';
+        let currentSubject = 'SCI';
+        let isPlaceholderView = false;
+        const degreePerNode = 360 / syllabus.length;
+
+        const dial = document.getElementById('dial');
+        const arena = document.getElementById('arena');
+        const coreVal = document.getElementById('coreVal');
+        const coreLbl = document.getElementById('coreLbl');
+        const coreMass = document.getElementById('coreMass');
+        const coreRing = document.getElementById('coreRing');
+        const gatewayCore = document.getElementById('gatewayCore');
+        const neuralMesh = document.getElementById('neuralMesh');
+        const ariaAnnouncer = document.getElementById('ariaAnnouncer');
+        const sharePalette = document.getElementById('sharePalette');
+
+        let audioCtx;
+        function initAudio() { 
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+        function playTick(vol = 0.15, freq = 150) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator(); const gainNode = audioCtx.createGain();
+            osc.type = 'sine'; osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+            gainNode.gain.setValueAtTime(vol, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+            osc.connect(gainNode); gainNode.connect(audioCtx.destination);
+            osc.start(); osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotify');
+            toast.innerText = msg; toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 2500);
+        }
+
+        /* =========================================
+           PRODUCTION ROUTING & SHARING SYSTEM (ORGANIC)
+        ========================================= */
+        function toggleShareModal(open) {
+            if(open) { sharePalette.classList.add('is-open'); } 
+            else { sharePalette.classList.remove('is-open'); }
+        }
+
+        function executeExplicitShare(platform) {
+            initAudio(); playTick(0.25, 450);
+            const appUrl = window.location.href;
+            
+            // Organic, utility-focused text meant for student-to-student sharing
+            const shareText = "Accelerate your PSEB Class 10 Board preparation with the free BOLO.INSTINCT platform.";
+            
+            if (platform === 'whatsapp') {
+                const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + "\n\n🔗 Link: " + appUrl)}`;
+                window.open(waUrl, '_blank');
+            } 
+            else if (platform === 'telegram') {
+                const tgUrl = `https://t.me/share/url?url=${encodeURIComponent(appUrl)}&text=${encodeURIComponent(shareText)}`;
+                window.open(tgUrl, '_blank');
+            }
+            else if (platform === 'email') {
+                const mailUrl = `mailto:?subject=${encodeURIComponent("BOLO.INSTINCT Board Preparation Platform")}&body=${encodeURIComponent(shareText + "\n\nExplore here: " + appUrl)}`;
+                window.open(mailUrl, '_self');
+            } 
+            else if (platform === 'system') {
+                if (navigator.share) {
+                    navigator.share({ title: 'BOLO.INSTINCT', text: shareText, url: appUrl }).catch(e => console.log(e));
+                } else {
+                    navigator.clipboard.writeText(appUrl).then(() => {
+                        showToast("ਸਿਲੇਬਸ lਲਿੰਕ ਕਾਪੀ ਹੋ ਗਿਆ ਹੈ! (Link Copied)");
+                    });
+                }
+            }
+            toggleShareModal(false);
+        }
+
+        function setView(domain, subject) {
+            currentDomain = domain;
+            if (subject) currentSubject = subject;
+
+            document.querySelectorAll('[data-domain]').forEach(b => b.classList.toggle('active', b.getAttribute('data-domain') === currentDomain));
+            document.querySelectorAll('[data-subject]').forEach(b => b.classList.toggle('active', b.getAttribute('data-subject') === currentSubject));
+
+            const subjRouter = document.getElementById('subjectRouter');
+            if (currentDomain === 'IM') { subjRouter.style.display = 'none'; } 
+            else { subjRouter.style.display = 'flex'; }
+
+            let newTitle = ""; let toastMsg = ""; isPlaceholderView = false;
+
+            if (currentDomain === 'IM') {
+                newTitle = "INTERNAL MEDICINE"; toastMsg = "Internal Medicine modules coming soon!"; isPlaceholderView = true;
+            } else if (currentDomain === 'PSEB') {
+                if (currentSubject === 'MATH') {
+                    newTitle = "PSEB 10TH MATH"; toastMsg = "PSEB Math modules coming soon!"; isPlaceholderView = true;
+                } else { newTitle = "PSEB 10TH SCIENCE"; }
+            }
+
+            const tPrimary = document.getElementById('trustPrimary');
+            tPrimary.style.opacity = 0;
+            setTimeout(() => { tPrimary.innerText = newTitle; tPrimary.style.opacity = 1; }, 300);
+
+            arena.classList.add('fade-out');
+            setTimeout(() => {
+                isLocked = false;
+                if (isPlaceholderView) {
+                    dial.innerHTML = ''; coreRing.style.opacity = '0.02';
+                    coreVal.innerText = '🔒'; coreVal.style.color = 'var(--text-dim)'; coreVal.style.textShadow = 'none'; coreVal.style.transform = 'scale(1)';
+                    coreLbl.innerText = 'COMING SOON'; coreLbl.style.color = 'var(--text-dim)';
+                    coreMass.style.borderColor = 'rgba(255,255,255,0.02)';
+                    coreMass.style.boxShadow = 'inset 0 2px 10px rgba(255,255,255,0.01), inset 0 -10px 40px rgba(0,0,0,0.8)';
+                    showToast(toastMsg);
+                } else { initDial(); }
+                arena.classList.remove('fade-out');
+            }, 400);
+        }
+
+        function getActiveIndex() {
+            let normalized = ((targetAngle % 360) + 360) % 360;
+            return (syllabus.length - Math.round(normalized / degreePerNode)) % syllabus.length;
+        }
+
+        function updateGlobalSync() {
+            if (isPlaceholderView) return;
+            let total = 0;
+            syllabus.forEach(c => total += (localData[c.id] !== undefined ? localData[c.id] : c.defaultVal));
+            if(!isLocked) coreVal.innerText = Math.floor(total / syllabus.length) + '%';
+        }
+
+        function createBurst(x, y, color) {
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle'; particle.style.background = color;
+                particle.style.left = x + 'px'; particle.style.top = y + 'px';
+                document.body.appendChild(particle);
+
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 20 + Math.random() * 40;
+                const tx = Math.cos(angle) * velocity; const ty = Math.sin(angle) * velocity;
+
+                particle.animate([ { transform: 'translate(0, 0) scale(1.5)', opacity: 1 }, { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 } ], { duration: 600 + Math.random() * 400, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' });
+                setTimeout(() => particle.remove(), 1000);
+            }
+        }
+
+        function initDial() {
+            dial.innerHTML = '';
+            let savedIdx = parseInt(localStorage.getItem('bolo_pseb_idx')) || 0;
+            if (savedIdx >= syllabus.length) savedIdx = 0;
+
+            syllabus.forEach((chap, index) => {
+                const angle = index * degreePerNode; 
+                const color = auras[chap.type] || '#ffffff';
+                const currentVal = localData[chap.id] !== undefined ? localData[chap.id] : chap.defaultVal;
+                const isDone = currentVal === 100;
+                
+                let actionText = "ਲੈਕਚਰ ਸ਼ੁਰੂ ਕਰੋ"; 
+                if(isDone) actionText = "ਦੁਹਰਾਈ ਕਰੋ"; else if(currentVal > 0) actionText = `ਮੁੜ-ਸ਼ੁਰੂ ਕਰੋ ${currentVal}%`;
+
+                const anchor = document.createElement('article');
+                anchor.className = `node-anchor shard-anchor`; anchor.id = `shard-anchor-${index}`;
+                anchor.style.transform = `rotate(${angle}deg) translateY(calc(var(--radius) * -1))`;
+                anchor.style.color = color;
+
+                const shard = document.createElement('div'); shard.className = `shard`; 
+                
+                let progressSVG = `
+                    <div class="svg-progress-container ${isDone ? 'done' : ''}" data-node-progress="${chap.id}" title="Cycle Progress" tabindex="0" role="button">
+                        <svg class="prog-ring" viewBox="0 0 36 36"><circle class="bg" cx="18" cy="18" r="16"></circle><circle class="fill" id="fill-${chap.id}" cx="18" cy="18" r="16" stroke-dashoffset="${100 - currentVal}"></circle></svg>
+                        <span class="prog-text" id="text-${chap.id}">${isDone ? '✓' : currentVal + '%'}</span>
+                    </div>`;
+
+                let lockButton = `<button class="btn-prime" data-gateway-trigger="${color}"><span id="action-${chap.id}">${actionText}</span><span>▶</span></button>`;
+
+                shard.innerHTML = `
+                    <div class="s-head">
+                        <div class="s-titles" data-node-select="${index}">
+                            <div class="ch-icon">${icons[chap.type]}</div>
+                            <div class="ch-num">${chap.id.toString().padStart(2, '0')}</div>
+                            <div class="title-group">
+                                <span class="pa-title">${chap.pa}</span>
+                                <span class="en-title">${chap.en}</span>
+                            </div>
+                        </div>
+                        ${progressSVG}
+                    </div>
+                    <div class="s-expansion">
+                        <div class="s-expansion-inner">
+                            <div class="rune-row"><span class="rune">${chap.slides} ਭਾਗ (Nodes)</span></div>
+                            ${lockButton}
+                        </div>
+                    </div>
+                `;
+                anchor.appendChild(shard);
+
+                const mirrorAnchor = document.createElement('article');
+                mirrorAnchor.className = `node-anchor mirror-anchor`; mirrorAnchor.id = `mirror-anchor-${index}`;
+                mirrorAnchor.style.transform = `rotate(${angle}deg) translateY(calc(var(--radius) * 1.05))`;
+                mirrorAnchor.style.color = color;
+
+                const mirror = document.createElement('div'); mirror.className = 'lecture-mirror';
+                mirror.setAttribute('data-node-select', index);
+                mirror.innerHTML = `
+                    <div class="mirror-icon"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>
+                    <div class="mirror-text-container">
+                        <span class="mirror-label">ਵੀਡੀਓ ਲੈਕਚਰ (Video)</span>
+                        <span class="mirror-title">${chap.pa}</span>
+                    </div>
+                `;
+                mirrorAnchor.appendChild(mirror);
+
+                dial.appendChild(anchor); dial.appendChild(mirrorAnchor);
+            });
+
+            targetAngle = -savedIdx * degreePerNode; velocity = 0; resetCore(); wakePhysicsLoop();
+        }
+
+        function markComplete(e, id) {
+            e.stopPropagation(); initAudio();
+            const chap = syllabus.find(s => s.id === parseInt(id)); if(!chap) return;
+
+            let currentVal = localData[id] !== undefined ? localData[id] : chap.defaultVal;
+            currentVal = currentVal >= 100 ? 0 : currentVal + 25;
+            localData[id] = currentVal; localStorage.setItem('bolo_pseb_data', JSON.stringify(localData));
+            
+            const container = document.getElementById(`prog-${id}`);
+            const fill = document.getElementById(`fill-${id}`);
+            const text = document.getElementById(`text-${id}`);
+            const actionBtn = document.getElementById(`action-${id}`);
+            
+            fill.style.strokeDashoffset = 100 - currentVal;
+            
+            if(currentVal === 100) {
+                playTick(0.4, 900); createBurst(e.clientX, e.clientY, auras[chap.type] || '#ffffff'); 
+                container.classList.add('done'); text.innerText = '✓'; actionBtn.innerText = 'ਦੁਹਰਾਈ ਕਰੋ';
+            } else {
+                playTick(0.2, 500);
+                container.classList.remove('done'); text.innerText = currentVal + '%';
+                actionBtn.innerText = currentVal > 0 ? `ਮੁੜ-ਸ਼ੁਰੂ ਕਰੋ ${currentVal}%` : 'ਲੈਕਚਰ ਸ਼ੁਰੂ ਕਰੋ';
+            }
+            
+            if(isLocked && syllabus[getActiveIndex()].id === parseInt(id)) { coreVal.innerText = currentVal + "%"; } 
+            updateGlobalSync(); wakePhysicsLoop();
+        }
+
+        function wakePhysicsLoop() {
+            if (!isLooping && !isPlaceholderView) { isLooping = true; requestAnimationFrame(renderPhysics); }
+        }
+
+        function renderPhysics() {
+            if (isPlaceholderView || dial.innerHTML === '') { isLooping = false; return; }
+            let needsMoreFrames = false;
+
+            if (!isDragging) {
+                targetAngle += velocity; velocity *= 0.92; 
+                if (Math.abs(velocity) < 0.005) { velocity = 0; } else { needsMoreFrames = true; }
+
+                let closestSnap = Math.round(targetAngle / degreePerNode) * degreePerNode;
+                let snapDiff = closestSnap - targetAngle;
+                if (Math.abs(snapDiff) > 0.005) { targetAngle += snapDiff * 0.15; needsMoreFrames = true; } 
+                else if (velocity === 0) { targetAngle = closestSnap; }
+            } else { needsMoreFrames = true; }
+
+            let angleDiff = targetAngle - currentAngle;
+            if (Math.abs(angleDiff) > 0.005) { currentAngle += angleDiff * 0.2; needsMoreFrames = true; } 
+            else { currentAngle = targetAngle; }
+
+            dial.style.transform = `rotate(${currentAngle}deg)`;
+            let tilt = Math.max(-10, Math.min(10, velocity * 1.2));
+            arena.style.transform = `rotateY(${-tilt}deg) rotateX(${Math.abs(tilt)/4}deg)`;
+
+            let activeIdx = getActiveIndex();
+
+            for (let i = 0; i < syllabus.length; i++) {
+                const nodeAngle = i * degreePerNode; const counterRot = `${-(nodeAngle + currentAngle)}deg`;
+                let distRaw = Math.abs(((nodeAngle + currentAngle) % 360 + 360) % 360);
+                if (distRaw > 180) distRaw = 360 - distRaw; 
+                
+                let adjustedDist = Math.max(0, distRaw - 15);
+                let depthRatio = Math.min(adjustedDist / 75, 1); let easeDepth = Math.pow(depthRatio, 1.4);
+
+                const sAnchor = document.getElementById(`shard-anchor-${i}`);
+                const mAnchor = document.getElementById(`mirror-anchor-${i}`);
+                if(!sAnchor || !mAnchor) continue;
+
+                sAnchor.querySelector('.shard').style.setProperty('--shard-rot', counterRot);
+                mAnchor.querySelector('.lecture-mirror').style.setProperty('--node-rot', counterRot);
+
+                if(!isLocked) {
+                    let sScale = 1 - (easeDepth * 0.4); let sOpacity = 1 - (easeDepth * 0.9); let sBlur = easeDepth * 12; let sZIndex = Math.round((1 - easeDepth) * 100); 
+                    sAnchor.style.opacity = sOpacity; sAnchor.style.filter = `blur(${sBlur}px)`; sAnchor.style.zIndex = sZIndex;
+                    sAnchor.querySelector('.shard').style.setProperty('--shard-scale', sScale);
+                    mAnchor.style.opacity = sOpacity; mAnchor.style.filter = `blur(${sBlur}px)`; mAnchor.style.zIndex = sZIndex;
+                    mAnchor.querySelector('.lecture-mirror').style.setProperty('--node-scale', sScale);
+
+                    let dist = Math.min(Math.abs(i - activeIdx), syllabus.length - Math.abs(i - activeIdx));
+                    [sAnchor, mAnchor].forEach(node => {
+                        node.classList.remove('is-targeted', 'is-faded-1', 'is-faded-2', 'is-culled');
+                        if (dist === 0) { node.classList.add('is-targeted'); }
+                        else if (dist === 1) { node.classList.add('is-faded-1'); }
+                        else if (dist === 2) { node.classList.add('is-faded-2'); }
+                        else { node.classList.add('is-culled'); }
+                    });
+                }
+            }
+
+            if(activeIdx !== lastTickIdx && !isLocked) {
+                if(Math.abs(targetAngle - currentAngle) > 1.5 && lastTickIdx !== -1) { 
+                    playTick(0.08 + (Math.abs(velocity)/120)); if(navigator.vibrate) navigator.vibrate(4);
+                }
+                lastTickIdx = activeIdx; localStorage.setItem('bolo_pseb_idx', activeIdx);
+            }
+
+            if (needsMoreFrames || isDragging || isLocked) { requestAnimationFrame(renderPhysics); } 
+            else { isLooping = false; }
+        }
+
+        /* =========================================
+           EVENT DELEGATION SUITE
+        ========================================= */
+        document.body.addEventListener('click', (e) => {
+            initAudio(); 
+            
+            const actionBtn = e.target.closest('[data-action]');
+            if (actionBtn) {
+                const action = actionBtn.getAttribute('data-action');
+                if (action === 'open-share') { toggleShareModal(true); return; }
+                return;
+            }
+
+            const domainSwitch = e.target.closest('[data-domain]');
+            if (domainSwitch) { setView(domainSwitch.getAttribute('data-domain'), currentSubject); return; }
+
+            const subjectSwitch = e.target.closest('[data-subject]');
+            if (subjectSwitch) { setView(currentDomain, subjectSwitch.getAttribute('data-subject')); return; }
+
+            const shareTile = e.target.closest('[data-share]');
+            if (shareTile) { executeExplicitShare(shareTile.getAttribute('data-share')); return; }
+
+            if (e.target === sharePalette) { toggleShareModal(false); return; }
+
+            const progressTarget = e.target.closest('[data-node-progress]');
+            if (progressTarget) { markComplete(e, progressTarget.getAttribute('data-node-progress')); return; }
+
+            const gatewayTrigger = e.target.closest('[data-gateway-trigger]');
+            if (gatewayTrigger) { triggerGateway(e, gatewayTrigger.getAttribute('data-gateway-trigger')); return; }
+
+            const nodeSelect = e.target.closest('[data-node-select]');
+            if (nodeSelect) { handleNodeAction(parseInt(nodeSelect.getAttribute('data-node-select'))); return; }
+
+            if (isLocked && e.target === arena && !isPlaceholderView) { resetCore(); }
+        });
+
+        // Kinetic Drag Interface
+        function handleDragStart(x) { if(isLocked || isPlaceholderView) return; initAudio(); isDragging = true; startX = x; lastX = x; velocity = 0; wakePhysicsLoop(); }
+        function handleDragMove(e) {
+            if (!isDragging || isLocked || isPlaceholderView) return;
+            let currentClientX = e.touches ? e.touches[0].clientX : e.clientX;
+            let delta = currentClientX - lastX; let sensitivity = window.innerWidth < 768 ? 1.4 : 0.8;
+            targetAngle += delta * 0.4 * sensitivity; velocity = delta * 0.7 * sensitivity; lastX = currentClientX;
+            wakePhysicsLoop();
+        }
+        function handleDragEnd() { isDragging = false; wakePhysicsLoop(); }
+
+        arena.addEventListener('mousedown', e => handleDragStart(e.clientX));
+        window.addEventListener('mousemove', e => { if(isDragging) { e.preventDefault(); handleDragMove(e); } });
+        window.addEventListener('mouseup', handleDragEnd);
+        arena.addEventListener('touchstart', e => { handleDragStart(e.touches[0].clientX); }, {passive: false});
+        arena.addEventListener('touchmove', e => { if(isDragging) { e.preventDefault(); handleDragMove(e); } }, {passive: false});
+        window.addEventListener('touchend', handleDragEnd);
+
+        window.addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20; const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            neuralMesh.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        function handleNodeAction(index) {
+            if(isPlaceholderView) return;
+            const anchors = document.querySelectorAll('.shard-anchor');
+            if (isLocked && anchors[index].classList.contains('is-active')) resetCore(); else lockCore(index);
+        }
+
+        function lockCore(index) {
+            isLocked = true; targetAngle = -index * degreePerNode; velocity = 0;
+            const chap = syllabus[index]; const color = auras[chap.type] || '#ffffff';
+            const currentVal = localData[chap.id] !== undefined ? localData[chap.id] : chap.defaultVal;
+
+            arena.classList.replace('arena-idle', 'arena-locked'); arena.style.transform = `rotateY(0deg) rotateX(0deg)`; 
+            document.querySelectorAll('.node-anchor').forEach(a => { a.classList.remove('is-active'); a.style.opacity = ''; a.style.filter = ''; });
+
+            document.getElementById(`shard-anchor-${index}`).classList.add('is-active');
+            document.getElementById(`mirror-anchor-${index}`).classList.add('is-active');
+
+            coreRing.style.background = `conic-gradient(from 0deg, transparent 50%, ${color}40 80%, ${color} 100%)`;
+            coreRing.style.opacity = '1'; coreRing.style.animationDuration = '2s';
+            document.getElementById('auraBleed').style.background = `radial-gradient(circle at center, ${color}30 0%, var(--bg-void) 80%)`;
+            
+            coreMass.style.borderColor = color;
+            coreMass.style.boxShadow = `0 0 100px ${color}70, inset 0 2px 15px rgba(255,255,255,0.05), inset 0 -10px 40px rgba(0,0,0,0.9)`;
+            coreVal.innerText = currentVal + "%"; coreVal.style.color = color; coreVal.style.textShadow = `0 0 30px ${color}`; coreVal.style.transform = 'scale(1.1)';
+            coreLbl.innerText = "ਲੈਕਚਰ ਜਾਰੀ ਹੈ"; coreLbl.style.color = color;
+            playTick(0.25, 300); wakePhysicsLoop();
+        }
+
+        function resetCore() {
+            isLocked = false; playTick(0.1, 100);
+            arena.classList.replace('arena-locked', 'arena-idle');
+            document.querySelectorAll('.node-anchor.is-active').forEach(a => a.classList.remove('is-active'));
+            
+            coreRing.style.background = `conic-gradient(from 0deg, transparent 60%, rgba(255,255,255,0.05) 80%, rgba(255,255,255,0.6) 100%)`;
+            coreRing.style.opacity = '0.08'; coreRing.style.animationDuration = '4s';
+            document.getElementById('auraBleed').style.background = `radial-gradient(circle at center, transparent 0%, var(--bg-void) 65%)`;
+            
+            coreMass.style.borderColor = 'rgba(255,255,255,0.06)';
+            coreMass.style.boxShadow = `0 0 50px rgba(0,0,0,0.9), inset 0 2px 10px rgba(255,255,255,0.03), inset 0 -10px 40px rgba(0,0,0,0.8)`;
+            updateGlobalSync(); 
+            coreVal.style.color = 'var(--text-bold)'; coreVal.style.textShadow = `0 0 20px rgba(255,255,255,0.1)`; coreVal.style.transform = 'scale(1)';
+            coreLbl.innerText = 'ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ'; coreLbl.style.color = 'var(--text-dim)';
+            wakePhysicsLoop();
+        }
+
+        function triggerGateway(e, color) {
+            e.stopPropagation(); initAudio(); playTick(0.5, 600);
+            gatewayCore.style.background = color; document.body.classList.add('gateway-active');
+            setTimeout(() => { document.body.classList.remove('gateway-active'); resetCore(); }, 1800);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { toggleShareModal(false); if(isLocked) resetCore(); }
+            if(!isLocked && !isPlaceholderView) {
+                initAudio(); 
+                if (e.key === 'ArrowRight') { targetAngle -= degreePerNode; velocity = 0; wakePhysicsLoop(); }
+                if (e.key === 'ArrowLeft') { targetAngle += degreePerNode; velocity = 0; wakePhysicsLoop(); }
+                if (e.key === 'Enter') handleNodeAction(getActiveIndex());
+            }
+        });
+
+        window.addEventListener('resize', () => { wakePhysicsLoop(); });
+        initDial();
+    </script>
+</body>
+</html>

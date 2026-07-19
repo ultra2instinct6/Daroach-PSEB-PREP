@@ -613,6 +613,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     buildOverlay();
     enhanceInteractives();
+    initBiReadings();
 
     var counter = document.getElementById("counter");
     if (counter && "MutationObserver" in window) {
@@ -759,4 +760,112 @@
     var m = g.querySelector(".pd-done");
     if (m) m.style.display = "none";
   };
+
+  // ==== Bilingual (Punjabi-first) reading component ==========================
+  // Markup: .bi-reading > .bi-body > (.bi-pa[lang=pa] + .bi-en[lang=en][hidden])
+  // Controls: .bi-toggle (swap language) · .bi-listen (TTS) · .bi-stop
+  function injectBiReadingStyle() {
+    if (document.getElementById("pseb-bi-style")) return;
+    var s = document.createElement("style");
+    s.id = "pseb-bi-style";
+    s.textContent =
+      ".bi-reading{max-width:920px;margin:0 auto;text-align:left}" +
+      ".bi-read-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}" +
+      ".bi-title{margin:0;font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.25;font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif);color:var(--deck-text,#f8fafc)}" +
+      ".bi-title .bi-title-en{display:block;font-size:.62em;font-family:'Segoe UI',system-ui,sans-serif;color:var(--deck-aura,#7c9cff);font-weight:600;margin-top:2px}" +
+      ".bi-actions{display:flex;gap:8px;flex:none}" +
+      ".bi-btn{border:1px solid var(--deck-border-strong,rgba(255,255,255,.18));background:var(--deck-panel,rgba(18,18,24,.92));color:var(--deck-text,#f1f5f9);font-size:1rem;font-weight:600;padding:9px 14px;border-radius:10px;cursor:pointer;transition:background .18s,border-color .18s,transform .12s;font-family:'Segoe UI',system-ui,sans-serif}" +
+      ".bi-btn:hover{background:var(--deck-aura-soft,rgba(124,156,255,.16));border-color:var(--deck-aura,#7c9cff);transform:translateY(-1px)}" +
+      ".bi-btn.bi-toggle{background:#4F46E5;border-color:#4F46E5;color:#fff}" +
+      ".bi-btn.bi-toggle:hover{background:#4338ca}" +
+      ".bi-btn.is-speaking{background:var(--deck-warn,#ffaa00);border-color:var(--deck-warn,#ffaa00);color:#111}" +
+      ".bi-body{background:var(--deck-panel,rgba(18,18,24,.6));border:1px solid var(--deck-border,rgba(255,255,255,.08));border-left:5px solid #4F46E5;border-radius:14px;padding:22px 26px}" +
+      ".bi-pa{font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif);font-size:clamp(1.25rem,3.4vw,1.7rem);line-height:1.9;margin:0;color:var(--deck-text,#f1f5f9)}" +
+      ".bi-en{font-size:clamp(1.15rem,3vw,1.5rem);line-height:1.75;margin:0;color:var(--deck-text,#e9eef7)}" +
+      ".bi-pa .k,.bi-en .k{color:var(--deck-aura,#7c9cff);font-weight:700}" +
+      ".bi-tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.03em;background:#4F46E5;color:#fff;padding:3px 10px;border-radius:999px;font-family:'Segoe UI',system-ui,sans-serif;vertical-align:middle}";
+    document.head.appendChild(s);
+  }
+
+  var biVoices = [];
+  function loadBiVoices() {
+    try { biVoices = window.speechSynthesis ? window.speechSynthesis.getVoices() : []; } catch (e) { biVoices = []; }
+  }
+  function pickVoice(lang) {
+    if (!biVoices.length) loadBiVoices();
+    var pref = lang === "pa" ? ["pa-in", "pa-", "hi-in", "hi-"] : ["en-in", "en-gb", "en-us", "en-"];
+    for (var p = 0; p < pref.length; p++) {
+      for (var i = 0; i < biVoices.length; i++) {
+        var vl = (biVoices[i].lang || "").toLowerCase();
+        if (vl.indexOf(pref[p]) === 0 || vl.indexOf(pref[p]) !== -1) return biVoices[i];
+      }
+    }
+    return null;
+  }
+  function biStop() {
+    try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {}
+    document.querySelectorAll(".bi-listen.is-speaking").forEach(function (b) {
+      b.classList.remove("is-speaking");
+      b.textContent = b.getAttribute("data-idle") || b.textContent;
+    });
+  }
+  function biSpeak(box, btn) {
+    if (!("speechSynthesis" in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+    biStop();
+    var enShown = box.classList.contains("show-en");
+    var el = box.querySelector(enShown ? ".bi-en" : ".bi-pa");
+    if (!el) return;
+    var lang = enShown ? "en" : "pa";
+    var text = (el.innerText || el.textContent || "").trim();
+    if (!text) return;
+    window.speechSynthesis.cancel();
+    try { window.speechSynthesis.resume(); } catch (e) {}
+    var voice = pickVoice(lang);
+    var sentences = (text.match(/[^.!?।]+[.!?।]*/g) || [text]).map(function (s) { return s.trim(); }).filter(Boolean);
+    var i = 0;
+    if (!btn.getAttribute("data-idle")) btn.setAttribute("data-idle", btn.textContent);
+    btn.classList.add("is-speaking");
+    btn.textContent = "🔊 …";
+    function next() {
+      if (i >= sentences.length) { biStop(); return; }
+      var u = new SpeechSynthesisUtterance(sentences[i]);
+      u.lang = enShown ? "en-IN" : "pa-IN";
+      if (voice) u.voice = voice;
+      u.rate = 0.9;
+      u.onend = function () { i++; next(); };
+      u.onerror = function () { i++; next(); };
+      window.speechSynthesis.speak(u);
+    }
+    next();
+  }
+  function initBiReadings() {
+    injectBiReadingStyle();
+    if (window.speechSynthesis && typeof window.speechSynthesis.onvoiceschanged !== "undefined") {
+      window.speechSynthesis.onvoiceschanged = loadBiVoices;
+    }
+    loadBiVoices();
+    if (window.__psebBiWired) return;
+    window.__psebBiWired = true;
+    document.addEventListener("click", function (e) {
+      var t = e.target.closest ? e.target.closest(".bi-toggle,.bi-listen,.bi-stop") : null;
+      if (!t) return;
+      var box = t.closest(".bi-reading");
+      if (!box) return;
+      if (t.classList.contains("bi-toggle")) {
+        biStop();
+        var toEn = !box.classList.contains("show-en");
+        box.classList.toggle("show-en", toEn);
+        var pa = box.querySelector(".bi-pa"), en = box.querySelector(".bi-en");
+        if (pa) pa.hidden = toEn;
+        if (en) en.hidden = !toEn;
+        t.textContent = toEn ? "ਪੰਜਾਬੀ" : "English";
+        t.setAttribute("aria-pressed", toEn ? "true" : "false");
+      } else if (t.classList.contains("bi-listen")) {
+        biSpeak(box, t);
+      } else if (t.classList.contains("bi-stop")) {
+        biStop();
+      }
+    });
+  }
+  window.psebStopReading = biStop;
 })();

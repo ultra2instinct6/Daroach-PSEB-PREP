@@ -37,6 +37,19 @@ html {
   --trap-text: #fecaca;
 }
 
+/* Each chapter CSS declares these legacy "compat" vars under :root (specificity
+   0,1,0), which outranks our html-scoped remaps above (0,0,1) — so in the DEFAULT
+   dark theme --text-main stayed #333 (invisible, e.g. Ch4 .fg-formula and the
+   molecule display). Re-assert --text-main under :root here: deck-theme.css loads
+   AFTER the chapter CSS, so with equal specificity the later source wins, and the
+   value tracks --deck-text so it still adapts to the legacy colorway.
+   NOTE: we deliberately do NOT remap --goku-* here — those are used as solid button
+   backgrounds (with white text) in the chemistry decks, and forcing them to the
+   bright aura would make that white text unreadable. */
+:root {
+  --text-main: var(--deck-text);
+}
+
 html[data-subject-tone="chem"] { --deck-aura: #00e5ff; --deck-aura-soft: rgba(0, 229, 255, 0.16); }
 html[data-subject-tone="bio"] { --deck-aura: #2ecc71; --deck-aura-soft: rgba(46, 204, 113, 0.16); }
 html[data-subject-tone="phy"] { --deck-aura: #b026ff; --deck-aura-soft: rgba(176, 38, 255, 0.16); }
@@ -255,6 +268,54 @@ th,
 .lab-box,
 .template-box,
 .ratta-box { border-left-color: var(--deck-warn) !important; }
+
+/* Sequencer reveal steps — chapter CSS hardcodes `background:white`, so in the
+   dark theme the revealed text renders light-on-white and disappears. Repaint the
+   step surface with theme tokens; the amber left border comes from --goku-accent. */
+.seq-step,
+.seq-step:first-child,
+.seq-step.visible {
+  background: var(--deck-panel) !important;
+  color: var(--deck-text) !important;
+  border-color: var(--deck-border-strong) !important;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.30) !important;
+}
+html[data-deck-theme="legacy"] .seq-step,
+html[data-deck-theme="legacy"] .seq-step:first-child,
+html[data-deck-theme="legacy"] .seq-step.visible { box-shadow: 0 6px 15px rgba(16, 42, 82, 0.10) !important; }
+.seq-step::after { color: var(--deck-aura) !important; }
+.seq-counter { background: rgba(0, 0, 0, 0.28) !important; }
+
+/* Balancing-equations simulator — the inner atom tracker is a hardcoded white
+   panel, so its counts and headers vanish in the dark theme. */
+.atom-tracker {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.tracker-header { border-bottom-color: var(--deck-border-strong) !important; }
+
+/* Board-trap / pitfall labels: chapter CSS paints the nested <strong> a very dark
+   red (#7F1D1D) which is invisible on the dark panel. Use the bright danger red so
+   the warning label reads in BOTH colorways. (Also fixes nested spans that inherit
+   this colour, e.g. the clock-face numbers in Ch12.) */
+.board-trap strong,
+.pitfall-box strong { color: var(--deck-danger) !important; }
+
+/* Flip-card fronts use a bright --deck-aura background with dark #050507 text, but
+   the nested Punjabi gloss keeps the muted grey token → low contrast on the aura.
+   Match it to the card's dark ink. */
+.flip-front .punjabi,
+.flip-front .punjabi-block,
+.flip-front .phonetic { color: #050507 !important; }
+
+/* Speaker glyph buttons render as a monochrome glyph on some platforms; force a
+   light ink so they never disappear on the dark surface. */
+.tts-btn { color: var(--deck-text) !important; }
+
+/* Formula-builder Undo sits on a solid amber chip — white text is borderline, use
+   near-black ink for a clean read. */
+.undo-btn { color: #050507 !important; }
 
 table {
   background: transparent !important;
@@ -760,6 +821,16 @@ html[data-deck-theme="legacy"] .punnett-cell.pun-short { color: #8a4b12 !importa
     white-space: nowrap !important;
   }
   body > a[title="Back to Chapter Index"]:hover { transform: translateY(-1px) !important; }
+
+  /* Interactive widgets: tighten spacing + prevent horizontal overflow on phones */
+  .sequencer-container { padding: 18px 16px !important; }
+  .seq-step { padding: 15px !important; margin-bottom: 18px !important; font-size: 1.1rem !important; }
+  .seq-step:not(:last-child)::after { bottom: -26px !important; left: 22px !important; font-size: 1.6rem !important; }
+  .seq-btn { padding: 14px 18px !important; font-size: 1.15rem !important; }
+  .balancer-panel { padding: 16px !important; }
+  .balancer-eq { flex-wrap: wrap !important; font-size: 1.25rem !important; gap: 6px !important; }
+  .atom-tracker { flex-wrap: wrap !important; gap: 14px !important; font-size: 1.15rem !important; }
+  .atom-tracker .tracker-col { width: 100% !important; border-left: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

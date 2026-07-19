@@ -37,7 +37,7 @@
     --aura-bio: #2ecc71;
     --aura-phy: #b026ff;
     --aura-env: #ffaa00;
-    --radius: clamp(170px, min(33vh, 35vw), 380px);
+    --radius: clamp(160px, min(30vh, 34vw), 350px);
     --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
     --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
     --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
@@ -322,7 +322,7 @@
     .round-trigger { width: 42px; height: 42px; }
     .toast-notify { right: 16px; bottom: max(74px, env(safe-area-inset-bottom)); }
   }
-  @media (max-height: 700px) and (min-width: 769px) { :root { --radius: clamp(145px, 30vh, 240px); } .web-utility-header { padding-top: max(18px, env(safe-area-inset-top)); } }
+  @media (max-height: 700px) and (min-width: 769px) { :root { --radius: clamp(140px, 27vh, 220px); } .web-utility-header { padding-top: max(18px, env(safe-area-inset-top)); } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
 </style>
 </head>
@@ -488,6 +488,21 @@
   arena.addEventListener("touchstart", e => handleDragStart(e.touches[0].clientX), { passive: false });
   arena.addEventListener("touchmove", e => { if (isDragging) { e.preventDefault(); handleDragMove(e); } }, { passive: false });
   window.addEventListener("touchend", handleDragEnd);
+  let lastWheelTs = 0;
+  arena.addEventListener("wheel", e => {
+    if (isLocked || isPlaceholderView || !syllabus.length) return;
+    e.preventDefault();
+    const now = Date.now();
+    if (now - lastWheelTs < 90) return;
+    let d = e.deltaY;
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) d = e.deltaX;
+    if (!d) return;
+    lastWheelTs = now;
+    initAudio();
+    targetAngle += (d > 0 ? -1 : 1) * degreePerNode;
+    velocity = 0;
+    wakePhysicsLoop();
+  }, { passive: false });
   window.addEventListener("mousemove", e => { const x = (e.clientX / window.innerWidth - 0.5) * 20; const y = (e.clientY / window.innerHeight - 0.5) * 20; neuralMesh.style.transform = "translate(" + x + "px, " + y + "px)"; });
   document.addEventListener("keydown", e => { if (e.key === "Escape") { closePalettes(); if (isLocked) resetCore(true); } if (e.key === "/" && !searchPalette.classList.contains("is-open")) { e.preventDefault(); openSearchPalette(); } if (e.target === cmdInput) return; if (!isLocked && !isPlaceholderView) { if (e.key === "ArrowRight") { initAudio(); targetAngle -= degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "ArrowLeft") { initAudio(); targetAngle += degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "Enter") handleNodeAction(getActiveIndex()); } });
   window.addEventListener("resize", wakePhysicsLoop);
