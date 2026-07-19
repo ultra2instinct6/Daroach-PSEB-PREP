@@ -585,6 +585,130 @@ html[data-deck-theme="legacy"] .pseb-outline-backdrop { background: rgba(16, 42,
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24) !important;
 }
 
+/* ============================================================
+   Interactive-widget colorway fixes
+   Several interactive sub-elements kept hardcoded light-theme
+   colors in the per-chapter CSS (white panels / dark text), so
+   they broke — white boxes and invisible text — under the dark
+   "instinct" colorway. Re-map them onto the shared theme tokens
+   so every colorway (instinct + legacy) and subject tone stays
+   consistent and legible.
+   ============================================================ */
+
+/* Ch1-5 — equation display keeps its warn accent but themed surface */
+.classifier-eq {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-warn) !important;
+  color: var(--deck-text) !important;
+}
+
+/* Answer/active feedback states that the !important base button
+   background was flattening: the chapter CSS colours these two-class
+   selectors (.rtc-btn.correct, .fg-btn.active …) without !important,
+   so the themed base bg won — the correct/active highlight vanished.
+   Re-assert them here so the feedback is visible again. */
+.rtc-btn.correct {
+  background: rgba(46, 204, 113, 0.16) !important;
+  border-color: var(--deck-success) !important;
+  color: #c9f7dc !important;
+}
+.rtc-btn.incorrect {
+  background: rgba(239, 68, 68, 0.16) !important;
+  border-color: var(--deck-danger) !important;
+  color: #fecaca !important;
+}
+html[data-deck-theme="legacy"] .rtc-btn.correct { color: #11613e !important; }
+html[data-deck-theme="legacy"] .rtc-btn.incorrect { color: #8f1d1d !important; }
+.fg-btn.active {
+  background: var(--deck-aura) !important;
+  border-color: var(--deck-aura) !important;
+  color: #050507 !important;
+}
+
+/* Ch1-5 — indicator result panel, mindmap nodes, bohr formula chip */
+.ind-result,
+.mm-node,
+.bohr-info p {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+}
+.mm-node:hover { background: var(--deck-aura-soft) !important; }
+.mm-title { color: var(--deck-aura) !important; }
+.mm-eq { background: rgba(255, 255, 255, 0.05) !important; color: var(--deck-muted) !important; }
+html[data-deck-theme="legacy"] .mm-eq { background: rgba(11, 86, 197, 0.06) !important; }
+
+.ph-labels { color: var(--deck-muted) !important; }
+.element-btn span { color: var(--deck-muted) !important; }
+.element-btn:hover span,
+.element-btn.active span { color: #050507 !important; }
+
+/* Ch1-5 — pH pointer line + value bubble (was solid black / #333) */
+.ph-pointer { background: var(--deck-text) !important; }
+.ph-pointer::after {
+  background: var(--deck-panel-strong) !important;
+  color: var(--deck-text) !important;
+  border: 1px solid var(--deck-border-strong) !important;
+}
+
+/* Ch1-5 — indicator test tube glass + functional-group divider */
+.test-tube { border-color: var(--deck-border-strong) !important; background: rgba(255, 255, 255, 0.06) !important; }
+.fg-row { border-bottom-color: var(--deck-border) !important; }
+
+/* Ch6-13 — pick-and-drop target label (ch06-07 hardcoded dark #1E293B) */
+.pd-target .pd-label { color: var(--deck-text) !important; }
+
+/* Ch8 — Punnett square unfilled cells + header row/column were white */
+.punnett-cell { background: var(--deck-panel-soft) !important; color: var(--deck-muted) !important; }
+.punnett-cell:hover { background: var(--deck-aura-soft) !important; color: var(--deck-text) !important; }
+.punnett-grid .pq-head { background: var(--deck-aura-soft) !important; color: var(--deck-text) !important; }
+.punnett-cell.pun-short {
+  background: rgba(255, 170, 0, 0.14) !important;
+  border-color: var(--deck-warn) !important;
+  color: #ffd8a3 !important;
+}
+html[data-deck-theme="legacy"] .punnett-cell.pun-short { color: #8a4b12 !important; }
+
+/* Core Vocabulary cards — chapter CSS hardcodes a white #F8FAFC panel.
+   On the dark "instinct" theme the English term + Punjabi gloss turned
+   light-on-white and vanished, so the card looked "all Punjabi". Theme
+   the surface so both scripts stay legible in either colorway. */
+.vocab-item {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.vocab-item strong { color: var(--deck-text) !important; }
+
+/* Phonetic pronunciation chip — chapter CSS pins a light lavender
+   (#E0E7FF) chip; retone it so the chip + text keep contrast on dark. */
+.phonetic {
+  background: var(--deck-aura-soft) !important;
+  color: var(--deck-aura) !important;
+}
+.tts-btn:hover { background: var(--deck-aura-soft) !important; }
+
+/* Inline light-background boxes authored in the chapter HTML
+   (style="background:#F8FAFC" / #E8F0FE / #F5F3FF / #F0F4F8 / white).
+   Their text inherits the theme's light --deck-text, so on the dark
+   "instinct" colorway they became light-on-light and vanished. A
+   stylesheet !important rule beats an un-flagged inline style, so we
+   remap just the background+text onto theme tokens. The chained
+   [style*="background"] guard keeps this from touching elements that
+   merely use one of these hexes as a text/border colour. */
+[style*="background"][style*="#F8FAFC" i],
+[style*="background"][style*="#E8F0FE" i],
+[style*="background"][style*="#F5F3FF" i],
+[style*="background"][style*="#F0F4F8" i],
+[style*="background"][style*="#F0FDF4" i],
+[style*="background: white" i],
+[style*="background:white" i] {
+  background: var(--deck-panel-soft) !important;
+  color: var(--deck-text) !important;
+  border-color: var(--deck-border-strong) !important;
+}
+
 @media (max-width: 768px) {
   .slide { padding: 16px 4% !important; }
   .content-box { padding: 28px 20px !important; border-radius: 20px !important; max-height: 86vh !important; }
