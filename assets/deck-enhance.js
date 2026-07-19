@@ -16,8 +16,35 @@
   var BOOKMARK_KEY = "pseb.bookmarks.v1";
   var STUDY_KEY = "pseb.study.v1";
   var FONTSCALE_KEY = "pseb.fontscale.v1";
+  var DECK_THEME_KEY = "pseb.decktheme.v1";
 
   var FS_MIN = 60, FS_MAX = 140, FS_STEP = 10, FS_DEFAULT = 100;
+  var THEME_ICONS = {
+    instinct: {
+      outline: "\u2637",
+      bookmarkOff: "\u2727",
+      bookmarkOn: "\u2726",
+      recall: "\u25C9",
+      print: "\u2399",
+      timer: "\u23F1",
+      fullscreen: "\u26F6",
+      theme: "\u25CF",
+      font: "A",
+      help: "?"
+    },
+    legacy: {
+      outline: "\u2630",
+      bookmarkOff: "\u2606",
+      bookmarkOn: "\u2605",
+      recall: "\u25CE",
+      print: "\u2399",
+      timer: "\u23F1",
+      fullscreen: "\u26F6",
+      theme: "\u25D0",
+      font: "A",
+      help: "?"
+    }
+  };
 
   function clampScale(v) {
     v = Math.round(v / FS_STEP) * FS_STEP;
@@ -41,6 +68,67 @@
 
   var m = /Chapter\s+(\d+)/i.exec(document.title || "");
   var CH = m ? parseInt(m[1], 10) : null;
+
+  function injectDeckThemeCss() {
+    if (document.getElementById("pseb-deck-theme-css")) return;
+    var l = document.createElement("link");
+    l.id = "pseb-deck-theme-css";
+    l.rel = "stylesheet";
+    l.href = "../assets/deck-theme.css";
+    document.head.appendChild(l);
+  }
+  function chapterTone() {
+    if (CH == null) return "chem";
+    if (CH >= 1 && CH <= 5) return "chem";
+    if (CH >= 6 && CH <= 9) return "bio";
+    if (CH >= 10 && CH <= 14) return "phy";
+    return "env";
+  }
+  function getDeckTheme() {
+    var v = "";
+    try { v = localStorage.getItem(DECK_THEME_KEY) || ""; } catch (e) {}
+    return v === "legacy" ? "legacy" : "instinct";
+  }
+  function applyDeckTheme(v) {
+    v = v === "legacy" ? "legacy" : "instinct";
+    document.documentElement.setAttribute("data-deck-theme", v);
+    document.documentElement.setAttribute("data-subject-tone", chapterTone());
+    try { localStorage.setItem(DECK_THEME_KEY, v); } catch (e) {}
+    refreshDeckChrome();
+  }
+  function toggleDeckTheme() {
+    var next = getDeckTheme() === "legacy" ? "instinct" : "legacy";
+    document.documentElement.classList.add("pseb-theme-switching");
+    applyDeckTheme(next);
+    toast(next === "legacy" ? "Colorway: Classic light" : "Colorway: Instinct dark");
+    setTimeout(function () { document.documentElement.classList.remove("pseb-theme-switching"); }, 420);
+  }
+  function setBtn(id, text, title) {
+    var btn = document.getElementById(id);
+    if (!btn) return null;
+    btn.textContent = text;
+    if (title) {
+      btn.title = title;
+      btn.setAttribute("aria-label", title);
+    }
+    return btn;
+  }
+  function refreshDeckChrome() {
+    var legacy = getDeckTheme() === "legacy";
+    var icons = THEME_ICONS[legacy ? "legacy" : "instinct"];
+    setBtn("pseb-outline", icons.outline, "Slide outline (O)");
+    setBtn("pseb-recall", icons.recall, "Active recall: hide answers (H)");
+    setBtn("pseb-print", icons.print, "Print / save as PDF (P)");
+    setBtn("pseb-timer-btn", icons.timer, "Presenter timer (T)");
+    setBtn("pseb-fs", icons.fullscreen, "Toggle fullscreen (F)");
+    var themeBtn = setBtn("pseb-theme", icons.theme, legacy ? "Colorway: Classic light (C)" : "Colorway: Instinct dark (C)");
+    setBtn("pseb-font", icons.font, "Text size (\u2212 / +)");
+    setBtn("pseb-help-btn", icons.help, "Keyboard shortcuts (?)");
+    if (themeBtn) themeBtn.classList.toggle("pseb-theme-legacy", legacy);
+    refreshBookmarkBtn();
+  }
+  applyDeckTheme(getDeckTheme());
+  injectDeckThemeCss();
 
   function readProgress() {
     try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; } catch (e) { return {}; }
@@ -158,7 +246,8 @@
     var btn = document.getElementById("pseb-bookmark");
     if (!btn) return;
     var on = isBookmarked(currentIndex());
-    btn.textContent = on ? "\u2605" : "\u2606";
+    var icons = THEME_ICONS[getDeckTheme() === "legacy" ? "legacy" : "instinct"];
+    btn.textContent = on ? icons.bookmarkOn : icons.bookmarkOff;
     btn.classList.toggle("pseb-bm-on", on);
     btn.title = (on ? "Remove bookmark" : "Bookmark this slide") + " (B)";
   }
@@ -201,19 +290,20 @@
     style.textContent =
       "html,body{overscroll-behavior-x:none!important}" +
       ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:1200}" +
-      ".pseb-tools button{width:40px;height:40px;border:none;border-radius:8px;background:rgba(0,71,187,.85);color:#fff;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:background .2s,transform .15s}" +
-      ".pseb-tools button:hover{background:#FF5C00;transform:translateY(-2px)}" +
+      ".pseb-tools button{width:40px;height:40px;border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));border-radius:10px;background:var(--deck-panel,rgba(14,14,18,.92));color:var(--deck-aura,#00e5ff);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.24);transition:background .2s,border-color .2s,color .2s,transform .15s}" +
+      ".pseb-tools button:hover{background:var(--deck-aura-soft,rgba(0,229,255,.16));border-color:var(--deck-aura,#00e5ff);color:var(--deck-text,#f8fafc);transform:translateY(-2px)}" +
+      ".pseb-tools button#pseb-theme{color:var(--deck-warn,#ffaa00)}" +
       ".pseb-tools button#pseb-font{font-size:17px;font-weight:800;font-family:'Segoe UI',system-ui,sans-serif}" +
-      ".pseb-font-pop{position:fixed;top:64px;right:15px;z-index:1250;background:#fff;color:#1e293b;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.28);padding:12px;display:none;flex-direction:column;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;width:210px}" +
+      ".pseb-font-pop{position:fixed;top:64px;right:15px;z-index:1250;background:var(--deck-panel-strong,#141419);color:var(--deck-text,#f8fafc);border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.28);padding:12px;display:none;flex-direction:column;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;width:210px}" +
       ".pseb-font-pop.show{display:flex}" +
       ".pseb-font-pop .row{display:flex;align-items:center;gap:8px}" +
-      ".pseb-font-pop .step{flex:none;width:46px;height:46px;border:none;border-radius:10px;background:#0047BB;color:#fff;font-size:22px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s}" +
-      ".pseb-font-pop .step:hover{background:#FF5C00}" +
-      ".pseb-font-pop .step:disabled{opacity:.4;cursor:default;background:#94a3b8}" +
+      ".pseb-font-pop .step{flex:none;width:46px;height:46px;border:none;border-radius:10px;background:var(--deck-aura,#00e5ff);color:#050507;font-size:22px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s}" +
+      ".pseb-font-pop .step:hover{background:var(--deck-warn,#ffaa00)}" +
+      ".pseb-font-pop .step:disabled{opacity:.4;cursor:default;background:var(--deck-faint,#657386)}" +
       ".pseb-font-pop .val{flex:1;text-align:center;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}" +
-      ".pseb-font-pop .lbl{font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;text-align:center}" +
-      ".pseb-font-pop .reset{border:none;background:#f1f5f9;color:#0047BB;font-weight:700;font-size:13px;padding:8px;border-radius:8px;cursor:pointer}" +
-      ".pseb-font-pop .reset:hover{background:#e0e7ff}" +
+      ".pseb-font-pop .lbl{font-size:12px;font-weight:700;color:var(--deck-muted,#9aa7ba);text-transform:uppercase;letter-spacing:.5px;text-align:center}" +
+      ".pseb-font-pop .reset{border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));background:var(--deck-panel-soft,rgba(255,255,255,.045));color:var(--deck-aura,#00e5ff);font-weight:700;font-size:13px;padding:8px;border-radius:8px;cursor:pointer}" +
+      ".pseb-font-pop .reset:hover{background:var(--deck-aura-soft,rgba(0,229,255,.16))}" +
       ".pseb-help-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.6);display:none;align-items:center;justify-content:center;z-index:1300}" +
       ".pseb-help-backdrop.show{display:flex}" +
       ".pseb-help{background:#fff;color:#333;max-width:420px;width:90%;border-radius:12px;padding:28px 30px;box-shadow:0 20px 50px rgba(0,0,0,.35);font-family:'Segoe UI',system-ui,sans-serif}" +
@@ -250,11 +340,11 @@
       ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
       ".pseb-recall-on .pseb-recall-hint{display:block}" +
       "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}" +
-      ".side-nav{top:auto!important;bottom:14px!important;transform:none!important;height:48px!important;min-width:96px!important;width:auto!important;padding:0 18px!important;font-size:1rem!important;font-weight:800!important;font-family:'Segoe UI',system-ui,sans-serif!important;letter-spacing:.3px;display:flex!important;align-items:center;justify-content:center;gap:6px;opacity:1!important;z-index:160!important;background:var(--goku-primary,#0047BB)!important;color:#fff!important;border:none!important;border-radius:12px!important;box-shadow:0 4px 14px rgba(0,0,0,.28)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:transform .12s,background .2s!important}" +
+      ".side-nav{top:auto!important;bottom:14px!important;transform:none!important;height:48px!important;min-width:96px!important;width:auto!important;padding:0 18px!important;font-size:1rem!important;font-weight:800!important;font-family:var(--deck-font-ui,'Segoe UI',system-ui,sans-serif)!important;letter-spacing:.3px;display:flex!important;align-items:center;justify-content:center;gap:6px;opacity:1!important;z-index:160!important;background:var(--deck-aura,#00e5ff)!important;color:#050507!important;border:1px solid var(--deck-aura,#00e5ff)!important;border-radius:12px!important;box-shadow:0 10px 24px var(--deck-aura-soft,rgba(0,229,255,.16))!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:transform .12s,background .2s,border-color .2s,color .2s!important}" +
       ".side-nav::after{font-size:.62rem;font-weight:700;letter-spacing:.6px;opacity:.95}" +
       ".left-nav::after{content:'BACK'}.right-nav::after{content:'NEXT'}" +
-      ".side-nav:active:not(:disabled){transform:scale(.94)!important;background:#FF5C00!important;color:#fff!important;box-shadow:0 3px 10px rgba(0,0,0,.3)!important}" +
-      ".side-nav:hover:not(:disabled){background:var(--goku-primary,#0047BB)!important;color:#fff!important;transform:none!important;box-shadow:0 4px 14px rgba(0,0,0,.28)!important}" +
+      ".side-nav:active:not(:disabled){transform:scale(.94)!important;background:var(--deck-warn,#ffaa00)!important;border-color:var(--deck-warn,#ffaa00)!important;color:#050507!important;box-shadow:0 8px 20px rgba(0,0,0,.3)!important}" +
+      ".side-nav:hover:not(:disabled){background:var(--deck-aura,#00e5ff)!important;color:#050507!important;transform:none!important;box-shadow:0 10px 24px var(--deck-aura-soft,rgba(0,229,255,.16))!important}" +
       ".side-nav:disabled{opacity:.32!important;pointer-events:none}" +
       ".left-nav{left:14px!important;right:auto!important}.right-nav{right:14px!important;left:auto!important}" +
       ".slide-counter{top:12px!important;bottom:auto!important;left:12px!important;right:auto!important;z-index:150!important}}";
@@ -269,9 +359,11 @@
       '<button type="button" id="pseb-print" title="Print / save as PDF (P)" aria-label="Print or save as PDF">\u2399</button>' +
       '<button type="button" id="pseb-timer-btn" title="Presenter timer (T)" aria-label="Presenter timer">\u23F1</button>' +
       '<button type="button" id="pseb-fs" title="Fullscreen (F)" aria-label="Toggle fullscreen">\u26F6</button>' +
+      '<button type="button" id="pseb-theme" title="Colorway (C)" aria-label="Colorway">\u25CF</button>' +
       '<button type="button" id="pseb-font" title="Text size (\u2212 / +)" aria-label="Text size">A</button>' +
       '<button type="button" id="pseb-help-btn" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>';
     document.body.appendChild(tools);
+    refreshDeckChrome();
 
     var fontPop = document.createElement("div");
     fontPop.className = "pseb-font-pop";
@@ -313,6 +405,7 @@
     window.__psebRefreshFontUI = refreshFontUI;
 
     document.getElementById("pseb-font").addEventListener("click", function (e) { e.stopPropagation(); showFontPop(); });
+    document.getElementById("pseb-theme").addEventListener("click", toggleDeckTheme);
     fontDecEl.addEventListener("click", function () { setScale(getScale() - FS_STEP, true); });
     fontIncEl.addEventListener("click", function () { setScale(getScale() + FS_STEP, true); });
     fontPop.querySelector("#pseb-font-reset").addEventListener("click", function () { setScale(FS_DEFAULT, true); });
@@ -338,6 +431,7 @@
           '<dt>P</dt><dd>Print / save as PDF</dd>' +
           '<dt>T</dt><dd>Presenter timer</dd>' +
           '<dt>F</dt><dd>Toggle fullscreen</dd>' +
+          '<dt>C</dt><dd>Switch slide colorway</dd>' +
           '<dt>\u2212 / +</dt><dd>Smaller / larger text</dd>' +
           '<dt>0</dt><dd>Reset text size</dd>' +
           '<dt>?</dt><dd>Show this help</dd>' +
@@ -560,6 +654,7 @@
       else if (e.key === "0") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(FS_DEFAULT, true); }
       else if (e.key === "p" || e.key === "P") { e.preventDefault(); window.print(); }
       else if (e.key === "t" || e.key === "T") { if (window.__psebTimerToggle) window.__psebTimerToggle(); }
+      else if (e.key === "c" || e.key === "C") { toggleDeckTheme(); }
       else if (e.key === "b" || e.key === "B") { doToggleBookmark(); }
       else if (e.key === "h" || e.key === "H") { toggleRecall(); }
       else if (e.key === "f" || e.key === "F") { toggleFullscreen(); }

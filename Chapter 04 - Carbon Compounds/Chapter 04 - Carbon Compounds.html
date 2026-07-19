@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 4: Carbon and its Compounds | PSEB Class 10 Science</title>
+    <script src="../assets/deck-theme-init.js"></script>
     <link rel="stylesheet" href="../assets/deck-ch01-05.css">
+    <link id="pseb-deck-theme-css" rel="stylesheet" href="../assets/deck-theme.css">
 
     <!-- MathJax for LaTeX Rendering -->
     <script>
@@ -314,6 +316,35 @@ H--C--H
 <div class="slide"><div class="content-box"><h2>Case Study: Saponification</h2><div class="lab-box" style="border-left-color: #8B5CF6; background: #F5F3FF;"><h3>Read the passage:</h3><p style="font-size:1.4rem; line-height:1.6;">Soaps are sodium or potassium salts of long-chain carboxylic acids. They are prepared by heating animal fat or vegetable oil with concentrated sodium hydroxide solution. This process produces soap and glycerol.</p></div><p><em>Questions based on this passage will follow on the next slides!</em></p></div></div>
 <div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">What is the chemical name for the reactants used to make soap?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Alcohols and Acids</button><button data-correct="true" class="option-btn" onclick="checkAnswer(this, true, true)">B. Esters and Bases</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Aldehydes and Ketones</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. Alkanes and Halogens</button></div><div class="feedback"></div></div></div>
 <div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">Why are detergents preferred over soap in hard water?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. They are cheaper</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. They smell better</button><button data-correct="true" class="option-btn" onclick="checkAnswer(this, true, true)">C. They do not form insoluble scum</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. They are 100% natural</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box">
+                <h2>Soaps vs Detergents &amp; Hard Water <span class="punjabi">(ਸਾਬਣ ਬਨਾਮ ਡਿਟਰਜੈਂਟ)</span></h2>
+                <p>Both clean by forming <strong>micelles</strong>, but they behave very differently in hard water.</p>
+                <table>
+                    <tr><th>Feature</th><th>Soap</th><th>Detergent</th></tr>
+                    <tr><td>Chemical type</td><td>Sodium salt of long-chain fatty acid</td><td>Sodium salt of sulphonic acid</td></tr>
+                    <tr><td>In hard water</td><td>Forms insoluble <strong>scum</strong> — wastes soap</td><td>Works well — no scum</td></tr>
+                    <tr><td>Biodegradable?</td><td>Yes</td><td>Some are not (cause pollution)</td></tr>
+                </table>
+                <div class="ratta-box">Hard water contains Ca²⁺ / Mg²⁺ ions. These react with soap to form scum, so detergents are preferred for hard water. <span class="punjabi">(ਸਖ਼ਤ ਪਾਣੀ ਵਿੱਚ ਡਿਟਰਜੈਂਟ ਵਧੀਆ ਕੰਮ ਕਰਦੇ ਹਨ।)</span></div>
+</div></div>
+
+        <!-- INTERACTIVE: Saturated or Unsaturated? -->
+        <div class="slide"><div class="content-box">
+                <h2>Interactive: Saturated or Unsaturated? <span class="punjabi">(ਸੰਤ੍ਰਿਪਤ ਜਾਂ ਅਸੰਤ੍ਰਿਪਤ?)</span></h2>
+                <p>Look at each hydrocarbon. Does it have only single bonds (saturated) or a double/triple bond (unsaturated)? Tap to answer.</p>
+                <div class="classifier-panel">
+                    <div class="classifier-eq" id="rtc-eq">Loading…</div>
+                    <div class="classifier-options">
+                        <button class="rtc-btn" onclick="answerReaction('Saturated', this)">Saturated</button>
+                        <button class="rtc-btn" onclick="answerReaction('Unsaturated', this)">Unsaturated</button>
+                    </div>
+                    <div class="classifier-feedback" id="rtc-feedback"></div>
+                    <div class="classifier-bar">
+                        <span id="rtc-score">Score: 0 / 0</span>
+                        <button class="rtc-next" id="rtc-next" onclick="nextReaction()" style="display:none;">Next &rarr;</button>
+                    </div>
+                </div>
+</div></div>
 <div class="slide"><div class="content-box"><h2>Chapter 4 Quick Recap</h2><ul style="font-size:1.5rem;"><li>Carbon forms covalent bonds by sharing electrons.</li><li>Catenation is carbon's ability to form long chains.</li><li>Saturated hydrocarbons have single bonds; Unsaturated have double/triple.</li><li>Functional groups (-OH, -COOH) dictate chemical properties.</li><li>Soaps clean via micelle formation, trapping oil in hydrophobic tails.</li></ul></div></div>
 <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch4"><div class="sub-slide active" id="tf-ch4-s1"><div class="sub-progress">Question 1 of 14</div><div class="question-text">Saturated carbon compounds contain double or triple bonds.<br><span class="punjabi-block">ਸੰਤ੍ਰਿਪਤ ਕਾਰਬਨ ਯੋਗਿਕਾਂ ਵਿੱਚ ਦੂਹਰੇ ਜਾਂ ਤੀਹਰੇ ਬੰਧਨ ਹੁੰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s2"><div class="sub-progress">Question 2 of 14</div><div class="question-text">Carbon shares its valence electrons to form covalent bonds.<br><span class="punjabi-block">ਕਾਰਬਨ ਸਹਿ-ਸੰਜੋਜਕ ਬੰਧਨ ਬਣਾਉਣ ਲਈ ਆਪਣੇ ਇਲੈਕਟ੍ਰਾਨਾਂ ਦੀ ਸਾਂਝ ਕਰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" oncli
     ck="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s3"><div class="sub-progress">Question 3 of 14</div><div class="question-text">Ethanoic acid is the main component of vinegar.<br><span class="punjabi-block">ਇਥੇਨੋਇਕ ਐਸਿਡ ਸਿਰਕੇ ਦਾ ਮੁੱਖ ਹਿੱਸਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s4"><div class="sub-progress">Question 4 of 14</div><div class="question-text">Carbon mainly forms ionic bonds with other elements.<br><span class="punjabi-block">ਕਾਰਬਨ ਮੁੱਖ ਤੌਰ 'ਤੇ ਹੋਰ ਤੱਤਾਂ ਨਾਲ ਆਇਨੀ ਬੰਧਨ ਬਣਾਉਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s5"><div class="sub-progress">Question 5 of 14</div><div class="question-text">Alkenes contain at least one double bond between carbon atoms.<br><span class="punjabi-block">ਐਲਕੀਨਾਂ ਵਿੱਚ ਕਾਰਬਨ ਪਰਮਾਣੂਆਂ ਵਿਚਕਾਰ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਦੂਹਰਾ ਬੰਧਨ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s6"><div class="sub-progress">Question 6 of 14</div><div class="question-text">Diamond and graphite are allotropes of carbon.<br><span class="punjabi-block">ਹੀਰਾ ਅਤੇ ਗ੍ਰੇਫਾਈਟ ਕਾਰਬਨ ਦੇ ਭਿੰਨ ਰੂਪ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s7"><div class="sub-progress">Question 7 of 14</div><div class="question-text">Saturated hydrocarbons undergo addition reactions easily.<br><span class="punjabi-block">ਸੰਤ੍ਰਿਪਤ ਹਾਈਡ੍ਰੋਕਾਰਬਨ ਆਸਾਨੀ ਨਾਲ ਜੋੜ ਕਿਰਿਆਵਾਂ ਕਰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s8"><div class="sub-progress">Question 8 of 14</div><div class="question-text">Micelles are formed when soap dissolves in water.<br><span class="punjabi-block">ਜਦੋਂ ਸਾਬਣ ਪਾਣੀ ਵਿੱਚ ਘੁਲਦਾ ਹੈ ਤਾਂ ਮਿਸੈਲ ਬਣਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 9)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s9"><div class="sub-progress">Question 9 of 14</div><div class="question-text">Ethanol reacts with sodium to produce hydrogen gas.<br><span class="punjabi-block">ਈਥਾਨੌਲ ਸੋਡੀਅਮ ਨਾਲ ਕਿਰਿਆ ਕਰਕੇ ਹਾਈਡ੍ਰੋਜਨ ਗੈਸ ਪੈਦਾ ਕਰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 10)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s10"><div class="sub-progress">Question 10 of 14</div><div class="question-text">Carbon has a valency of 6.<br><span class="punjabi-block">ਕਾਰਬਨ ਦੀ ਸੰਜੋਜਕਤਾ 6 ਹੁੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 11)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s11"><div class="sub-progress">Question 11 of 14</div><div class="question-text">Detergents work well even in hard water.<br><span class="punjabi-block">ਡਿਟਰਜੈਂਟ ਕਠੋਰ ਪਾਣੀ ਵਿੱਚ ਵੀ ਚੰਗੀ ਤਰ੍ਹਾਂ ਕੰਮ ਕਰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 12)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s12"><div class="sub-progress">Question 12 of 14</div><div class="question-text">Alkynes have the general formula CnH2n.<br><span class="punjabi-block">ਐਲਕਾਈਨਾਂ ਦਾ ਆਮ ਸੂਤਰ CnH2n ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 13)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s13"><div class="sub-progress">Question 13 of 14</div><div class="question-text">The functional group of a ketone is -OH.<br><span class="punjabi-block">ਕੀਟੋਨ ਦਾ ਫੰਕਸ਼ਨਲ ਗਰੁੱਪ -OH ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch4', 14)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch4-s14"><div class="sub-progress">Question 14 of 14</div><div class="question-text">Methane is the simplest alkane.<br><span class="punjabi-block">ਮੀਥੇਨ ਸਭ ਤੋਂ ਸਰਲ ਐਲਕੇਨ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
@@ -680,7 +711,7 @@ H--C--H
             // Don't swipe if the user is scrolling vertically
             if(Math.abs(touchEndY - touchStartY) > Math.abs(touchEndX - touchStartX)) return;
             
-            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.fg-lab')) return;
+            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.fg-lab') || e.target.closest('.classifier-panel')) return;
             
             if (touchEndX < touchStartX - 50) window.moveSlide(1); 
             if (touchEndX > touchStartX + 50) window.moveSlide(-1); 
@@ -765,7 +796,55 @@ H--C--H
             renderCompound(i);
         };
 
+        /* SIMULATOR: SATURATED OR UNSATURATED CLASSIFIER */
+        const reactionSet = [
+            {eq:'Ethane \u2014 C\u2082H\u2086', type:'Saturated', why:'Only single C\u2013C bonds (C\u2099H\u2082\u2099\u208A\u2082).'},
+            {eq:'Ethene \u2014 C\u2082H\u2084', type:'Unsaturated', why:'Contains a C=C double bond (C\u2099H\u2082\u2099).'},
+            {eq:'Ethyne \u2014 C\u2082H\u2082', type:'Unsaturated', why:'Contains a C\u2261C triple bond (C\u2099H\u2082\u2099\u208B\u2082).'},
+            {eq:'Butane \u2014 C\u2084H\u2081\u2080', type:'Saturated', why:'All single bonds; fits C\u2099H\u2082\u2099\u208A\u2082.'},
+            {eq:'Propene \u2014 C\u2083H\u2086', type:'Unsaturated', why:'Contains a C=C double bond.'}
+        ];
+        let rtcIndex = 0, rtcScore = 0, rtcAsked = 0, rtcAnswered = false;
+        function renderReaction() {
+            var eqEl = document.getElementById('rtc-eq');
+            if (!eqEl) return;
+            eqEl.innerText = reactionSet[rtcIndex].eq;
+            var fb = document.getElementById('rtc-feedback');
+            fb.innerHTML = ''; fb.className = 'classifier-feedback';
+            document.getElementById('rtc-next').style.display = 'none';
+            rtcAnswered = false;
+            document.querySelectorAll('.rtc-btn').forEach(function(b){ b.disabled = false; b.classList.remove('correct','incorrect'); });
+        }
+        window.answerReaction = function(choice, btn) {
+            if (rtcAnswered) return;
+            rtcAnswered = true; rtcAsked++;
+            var item = reactionSet[rtcIndex];
+            var fb = document.getElementById('rtc-feedback');
+            document.querySelectorAll('.rtc-btn').forEach(function(b){ b.disabled = true; });
+            if (choice === item.type) {
+                rtcScore++;
+                btn.classList.add('correct');
+                fb.className = 'classifier-feedback fb-correct';
+                fb.innerHTML = '\u2705 Correct! ' + item.why;
+            } else {
+                btn.classList.add('incorrect');
+                document.querySelectorAll('.rtc-btn').forEach(function(b){ if (b.innerText === item.type) b.classList.add('correct'); });
+                fb.className = 'classifier-feedback fb-incorrect';
+                fb.innerHTML = '\u274C It is <strong>' + item.type + '</strong>. ' + item.why;
+            }
+            document.getElementById('rtc-score').innerText = 'Score: ' + rtcScore + ' / ' + rtcAsked;
+            if (rtcIndex < reactionSet.length - 1) {
+                document.getElementById('rtc-next').style.display = 'inline-block';
+            } else {
+                fb.innerHTML += '<br><em>All done! Final score: ' + rtcScore + ' / ' + rtcAsked + '.</em>';
+            }
+        };
+        window.nextReaction = function() {
+            if (rtcIndex < reactionSet.length - 1) { rtcIndex++; renderReaction(); }
+        };
+
         renderCompound(0);
+        renderReaction();
         buildBohrButtons();
         updateUI();
     });

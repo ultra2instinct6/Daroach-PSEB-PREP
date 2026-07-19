@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 5: Periodic Classification of Elements | PSEB Class 10 Science</title>
+    <script src="../assets/deck-theme-init.js"></script>
     <link rel="stylesheet" href="../assets/deck-ch01-05.css">
+    <link id="pseb-deck-theme-css" rel="stylesheet" href="../assets/deck-theme.css">
 
     <!-- MathJax for LaTeX Rendering -->
     <script>
@@ -307,6 +309,57 @@ alency <button class="tts-btn" onclick="speakWord('Valency', this)" title="Liste
 <div class="slide"><div class="content-box"><h2>Case Study: Moseley's Discovery</h2><div class="lab-box" style="border-left-color: #8B5CF6; background: #F5F3FF;"><h3>Read the passage:</h3><p style="font-size:1.4rem; line-height:1.6;">In 1913, Henry Moseley showed that the atomic number of an element is a more fundamental property than its atomic mass. This discovery led to the modification of Mendeleev's Periodic Law into the Modern Periodic Law.</p></div><p><em>Questions based on this passage will follow on the next slides!</em></p></div></div>
 <div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">What exactly does the 'Atomic Number' represent?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Number of Neutrons</button><button data-correct="true" class="option-btn" onclick="checkAnswer(this, true, true)">B. Number of Protons</button><button class="option-btn" onclick="checkAnswer(this, false, true)">C. Atomic Mass</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. Number of Shells</button></div><div class="feedback"></div></div></div>
 <div class="slide"><div class="content-box"><h2>Case Study Question</h2><p class="question-text" style="font-size:1.8rem; text-align:left;">Which anomaly of Mendeleev's table did this discovery instantly fix?</p><div class="tf-grid" style="flex-direction: column;"><button class="option-btn" onclick="checkAnswer(this, false, true)">A. Position of Hydrogen</button><button class="option-btn" onclick="checkAnswer(this, false, true)">B. The discovery of Noble Gases</button><button data-correct="true" class="option-btn" onclick="checkAnswer(this, true, true)">C. The Position of Isotopes</button><button class="option-btn" onclick="checkAnswer(this, false, true)">D. The properties of Eka-Silicon</button></div><div class="feedback"></div></div></div>
+<div class="slide"><div class="content-box">
+                <h2>Mendeleev's Table: Merits &amp; Demerits <span class="punjabi">(ਗੁਣ ਅਤੇ ਦੋਸ਼)</span></h2>
+                <table>
+                    <tr><th>Merits ✔</th><th>Demerits ✘</th></tr>
+                    <tr><td>Left gaps for undiscovered elements (eka-boron, eka-silicon)</td><td>No fixed place for isotopes</td></tr>
+                    <tr><td>Correctly predicted their properties</td><td>H placed with Group 1 but resembles Group 17 too</td></tr>
+                    <tr><td>Corrected some atomic masses</td><td>Some heavier elements placed before lighter ones (Co before Ni)</td></tr>
+                    <tr><td>Accommodated noble gases later without disturbance</td><td>Increasing mass order was not always followed</td></tr>
+                </table>
+                <div class="ratta-box">Root cause of the flaws: the table was based on <strong>atomic mass</strong>, not atomic number. <span class="punjabi">(ਪਰਮਾਣੂ ਪੁੰਜ ਦੇ ਆਧਾਰ ਤੇ।)</span></div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Modern Periodic Law: Position Predicts Properties <span class="punjabi">(ਸਥਿਤੀ ਤੋਂ ਗੁਣ)</span></h2>
+                <p><strong>Modern Periodic Law:</strong> properties of elements are a periodic function of their <strong>atomic number</strong>.</p>
+                <ul>
+                    <li><strong>Group number</strong> &rarr; number of valence electrons &rarr; chemical behaviour.</li>
+                    <li><strong>Period number</strong> &rarr; number of occupied shells.</li>
+                    <li>Elements in the <strong>same group</strong> have similar properties (same valence electrons).</li>
+                    <li>18 groups &amp; 7 periods; atomic number increases by one each step.</li>
+                </ul>
+                <div class="pitfall-box"><h3>🚨 Exam Tip</h3><p>Given "Group 2, Period 3" you can locate the element (Mg), state 2 valence electrons and 3 shells — a classic 3-mark question.</p></div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Metallic vs Non-metallic Character <span class="punjabi">(ਧਾਤਵੀ ਬਨਾਮ ਅਧਾਤਵੀ ਗੁਣ)</span></h2>
+                <table>
+                    <tr><th>Trend</th><th>Across a Period (→)</th><th>Down a Group (↓)</th></tr>
+                    <tr><td>Metallic character</td><td>Decreases</td><td>Increases</td></tr>
+                    <tr><td>Non-metallic character</td><td>Increases</td><td>Decreases</td></tr>
+                    <tr><td>Reason</td><td>Nuclear pull rises, atoms hold electrons</td><td>Extra shells, electrons lost easily</td></tr>
+                </table>
+                <div class="ratta-box">Metals lose electrons (electropositive); non-metals gain electrons (electronegative). Most metallic element sits bottom-left; most non-metallic sits top-right. <span class="punjabi">(ਸਭ ਤੋਂ ਵੱਧ ਧਾਤਵੀ = ਹੇਠਾਂ-ਖੱਬੇ।)</span></div>
+</div></div>
+
+        <!-- INTERACTIVE: Metal, Non-metal or Metalloid? -->
+        <div class="slide"><div class="content-box">
+                <h2>Interactive: Metal, Non-metal or Metalloid? <span class="punjabi">(ਧਾਤ, ਅਧਾਤ ਜਾਂ ਉਪਧਾਤ?)</span></h2>
+                <p>Classify each element by its position and behaviour in the periodic table. Tap for instant feedback.</p>
+                <div class="classifier-panel">
+                    <div class="classifier-eq" id="rtc-eq">Loading…</div>
+                    <div class="classifier-options">
+                        <button class="rtc-btn" onclick="answerReaction('Metal', this)">Metal</button>
+                        <button class="rtc-btn" onclick="answerReaction('Non-metal', this)">Non-metal</button>
+                        <button class="rtc-btn" onclick="answerReaction('Metalloid', this)">Metalloid</button>
+                    </div>
+                    <div class="classifier-feedback" id="rtc-feedback"></div>
+                    <div class="classifier-bar">
+                        <span id="rtc-score">Score: 0 / 0</span>
+                        <button class="rtc-next" id="rtc-next" onclick="nextReaction()" style="display:none;">Next &rarr;</button>
+                    </div>
+                </div>
+</div></div>
 <div class="slide"><div class="content-box"><h2>Chapter 5 Quick Recap</h2><ul style="font-size:1.5rem;"><li>Dobereiner grouped by triads; Newlands by octaves.</li><li>Mendeleev predicted undiscovered elements but struggled with isotopes.</li><li>Modern Table is based on Atomic Number.</li><li>Groups dictate valence electrons; Periods dictate electron shells.</li><li>Atomic size decreases across a period and increases down a group.</li></ul></div></div>
 <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch5"><div class="sub-slide active" id="tf-ch5-s1"><div class="sub-progress">Question 1 of 13</div><div class="question-text">Mendeleev arranged elements based on their Atomic Number.<br><span class="punjabi-block">ਮੈਂਡਲੀਵ ਨੇ ਤੱਤਾਂ ਨੂੰ ਪਰਮਾਣੂ ਸੰਖਿਆ ਦੇ ਆਧਾਰ 'ਤੇ ਵਿਵਸਥਿਤ ਕੀਤਾ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s2"><div class="sub-progress">Question 2 of 13</div><div class="question-text">Elements in the same group have the same number of valence electrons.<br><span class="punjabi-block">ਇੱਕੋ ਗਰੁੱਪ ਦੇ ਤੱਤਾਂ ਵਿੱਚ ਬਾਹਰੀ ਇਲੈਕਟ੍ਰਾਨਾਂ ਦੀ ਗਿਣਤੀ ਸਮਾਨ ਹੁੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s3"><div class="sub-progress">Question 3 of 13</div><div class="question-text">Atomic size increases as you move from left to right across a period.<br><span class="punjabi-block">ਪੀਰੀਅਡ ਵਿੱਚ ਖੱਬੇ ਤੋਂ ਸੱਜੇ ਜਾਣ 'ਤੇ ਪਰਮਾਣੂ ਦਾ ਆਕਾਰ ਵਧਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s4"><div class="sub-progress">Question 4 of 13</div><div class="question-text">Dobereiner grouped elements into sets of eight called octaves.<br><span class="punjabi-block">ਡੋਬੇਰਾਈਨਰ ਨੇ ਤੱਤਾਂ ਨੂੰ ਅੱਠ ਦੇ ਸਮੂਹਾਂ ਵਿੱਚ ਵੰਡਿਆ ਜਿਸਨੂੰ ਅਸ਼ਟਕ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s5"><div class="sub-progress">Question 5 of 13</div><div class="question-text">Mendeleev left gaps in his periodic table for undiscovered elements.<br><span class="punjabi-block">ਮੈਂਡਲੀਵ ਨੇ ਆਪਣੀ ਆਵਰਤੀ ਸਾਰਣੀ ਵਿੱਚ ਨਾ-ਖੋਜੇ ਗਏ ਤੱਤਾਂ ਲਈ ਖਾਲੀ ਥਾਵਾਂ ਛੱਡੀਆਂ ਸਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s6"><div class="sub-progress">Question 6 of 13</div><div class="question-text">The modern periodic table has 18 vertical columns known as groups.<br><span class="punjabi-block">ਆਧੁਨਿਕ ਆਵਰਤੀ ਸਾਰਣੀ ਵਿੱਚ 18 ਲੰਬਕਾਰੀ ਕਾਲਮ ਹਨ ਜਿਨ੍ਹਾਂ ਨੂੰ ਗਰੁੱਪ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s7"><div class="sub-progress">Question 7 of 13</div><div class="question-text">Metallic character increases as we move from left to right across a period.<br><span class="punjabi-block">ਪੀਰੀਅਡ ਵਿੱਚ ਖੱਬੇ ਤੋਂ ਸੱਜੇ ਜਾਣ 'ਤੇ ਧਾਤਵੀ ਗੁਣ ਵਧਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s8"><div class="sub-progress">Question 8 of 13</div><div class="question-text">Elements in the same period have the same number of valence electrons.<br><span class="punjabi-block">ਇੱਕੋ ਪੀਰੀਅਡ ਦੇ ਤੱਤਾਂ ਵਿੱਚ ਬਾਹਰੀ ਇਲੈਕਟ੍ਰਾਨਾਂ ਦੀ ਗਿਣਤੀ ਸਮਾਨ ਹੁੰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 9)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s9"><div class="sub-progress">Question 9 of 13</div><div class="question-text">Isotopes pose a problem for Mendeleev's periodic table.<br><span class="punjabi-block">ਸਮਸਥਾਨਕ ਮੈਂਡਲੀਵ ਦੀ ਆਵਰਤੀ ਸਾਰਣੀ ਲਈ ਇੱਕ ਸਮੱਸਿਆ ਸਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 10)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s10"><div class="sub-progress">Question 10 of 13</div><div class="question-text">Henry Moseley proposed the Modern Periodic Law.<br><span class="punjabi-block">ਹੈਨਰੀ ਮੋਜ਼ਲੇ ਨੇ ਆਧੁਨਿਕ ਆਵਰਤੀ ਨਿਯਮ ਪੇਸ਼ ਕੀਤਾ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 11)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s11"><div class="sub-progress">Question 11 of 13</div><div class="question-text">Noble gases were placed in Group 1 of the Modern Periodic Table.<br><span class="punjabi-block">ਆਧੁਨਿਕ ਆਵਰਤੀ ਸਾਰਣੀ ਵਿੱਚ ਨੋਬਲ ਗੈਸਾਂ ਨੂੰ ਗਰੁੱਪ 1 ਵਿੱਚ ਰੱਖਿਆ ਗਿਆ ਸੀ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 12)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s12"><div class="sub-progress">Question 12 of 13</div><div class="question-text">Atomic radius increases down a group due to the addition of new shells.<br><span class="punjabi-block">ਨਵੇਂ ਸ਼ੈੱਲ ਜੁੜਨ ਕਾਰਨ ਗਰੁੱਪ ਵਿੱਚ ਹੇਠਾਂ ਜਾਣ 'ਤੇ ਪਰਮਾਣੂ ਦਾ ਆਕਾਰ ਵਧਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch5', 13)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch5-s13"><div class="sub-progress">Question 13 of 13</div><div class="question-text">Silicon is classified as a metal.<br><span class="punjabi-block">ਸਿਲੀਕਾਨ ਨੂੰ ਇੱਕ ਧਾਤ ਵਜੋਂ ਸ਼੍ਰੇਣੀਬੱਧ ਕੀਤਾ ਗਿਆ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
 <div class="slide"><div class="content-box"><h2>Say It Back: Chapter 5</h2><div class="sub-slider-container" id="sib-ch5"><div class="sub-slide active short-answer" id="sib-ch5-s1" data-q="What does the periodic table organize?" data-a="Elements"><div class="sub-progress">Short Answer 1 of 9</div><div class="question-text">What does the periodic table organize?<br><span class="punjabi-block">ਆਵਰਤੀ ਸਾਰਣੀ ਕੀ ਵਿਵਸਥਿਤ ਕਰਦੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Elements', 'ਤੱਤ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s2" data-q="Groups are vertical or horizontal?" data-a="Vertical columns"><div class="sub-progress">Short Answer 2 of 9</div><div class="question-text">Groups are vertical or horizontal?<br><span class="punjabi-block">ਗਰੁੱਪ ਲੰਬਕਾਰੀ ਹੁੰਦੇ ਹਨ ਜਾਂ ਖਿਤਿਜੀ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Vertical columns', 'ਲੰਬਕਾਰੀ ਕਾਲਮ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s3" data-q="Periods are vertical or horizontal?" data-a="Horizontal rows"><div class="sub-progress">Short Answer 3 of 9</div><div class="question-text">Periods are vertical or horizontal?<br><span class="punjabi-block">ਪੀਰੀਅਡ ਲੰਬਕਾਰੀ ਹੁੰਦੇ ਹਨ ਜਾਂ ਖਿਤਿਜੀ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Horizontal rows', 'ਖਿਤਿਜੀ ਕਤਾਰਾਂ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s4" data-q="The Modern table is based on atomic number or mass?" data-a="Atomic Number"><div class="sub-progress">Short Answer 4 of 9</div><div class="question-text">The Modern table is based on atomic number or mass?<br><span class="punjabi-block">ਆਧੁਨਿਕ ਸਾਰਣੀ ਪਰਮਾਣੂ ਸੰਖਿਆ 'ਤੇ ਆਧਾਰਿਤ ਹੈ ਜਾਂ ਪੁੰਜ 'ਤੇ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Atomic Number', 'ਪਰਮਾਣੂ ਸੰਖਿਆ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s5" data-q="Down a group, does valency change?" data-a="No, it remains the same"><div class="sub-progress">Short Answer 5 of 9</div><div class="question-text">Down a group, does valency change?<br><span class="punjabi-block">ਗਰੁੱਪ ਵਿੱਚ ਹੇਠਾਂ ਜਾਣ 'ਤੇ, ਕੀ ਸੰਜੋਜਕਤਾ ਬਦਲਦੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'No, it remains the same', 'ਨਹੀਂ, ਇਹ ਸਮਾਨ ਰਹਿੰਦੀ ਹੈ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s6" data-q="What is the valency of elements in Group 1?" data-a="1"><div class="sub-progress">Short Answer 6 of 9</div><div class="question-text">What is the valency of elements in Group 1?<br><span class="punjabi-block">ਗਰੁੱਪ 1 ਦੇ ਤੱਤਾਂ ਦੀ ਸੰਜੋਜਕਤਾ ਕੀ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, '1', 'ਇੱਕ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s7" data-q="Who proposed the law of octaves?" data-a="Newlands"><div class="sub-progress">Short Answer 7 of 9</div><div class="question-text">Who proposed the law of octaves?<br><span class="punjabi-block">ਅਸ਼ਟਕ ਦਾ ਨਿਯਮ ਕਿਸਨੇ ਪੇਸ਼ ਕੀਤਾ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Newlands', 'ਨਿਊਲੈਂਡਸ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s8" data-q="Which group in the periodic table contains the noble gases?" data-a="Group 18"><div class="sub-progress">Short Answer 8 of 9</div><div class="question-text">Which group in the periodic table contains the noble gases?<br><span class="punjabi-block">ਆਵਰਤੀ ਸਾਰਣੀ ਦੇ ਕਿਹੜੇ ਗਰੁੱਪ ਵਿੱਚ ਨੋਬਲ ਗੈਸਾਂ ਹੁੰਦੀਆਂ ਹਨ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Group 18', 'ਗਰੁੱਪ 18')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch5', 9)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch5-s9" data-q="Elements in the same period have the same number of what?" data-a="Shells"><div class="sub-progress">Short Answer 9 of 9</div><div class="question-text">Elements in the same period have the same number of what?<br><span class="punjabi-block">ਇੱਕੋ ਪੀਰੀਅਡ ਦੇ ਤੱਤਾਂ ਵਿੱਚ ਕੀ ਸਮਾਨ ਹੁੰਦਾ ਹੈ?</span></div><input type="text" class="sa-input" placeholder="Type your answer here..."><button class="sa-submit-btn" onclick="checkSA(this, 'Shells', 'ਸ਼ੈੱਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
@@ -699,7 +752,7 @@ class="punjabi">(ਅੰਕੀ ਕੀ ਹੈ?)</span></h2>
             // Don't swipe if the user is scrolling vertically
             if(Math.abs(touchEndY - touchStartY) > Math.abs(touchEndX - touchStartX)) return;
             
-            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.trend-lab')) return;
+            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.trend-lab') || e.target.closest('.classifier-panel')) return;
             
             if (touchEndX < touchStartX - 50) window.moveSlide(1); 
             if (touchEndX > touchStartX + 50) window.moveSlide(-1); 
@@ -800,7 +853,55 @@ class="punjabi">(ਅੰਕੀ ਕੀ ਹੈ?)</span></h2>
             renderTrend();
         };
 
+        /* SIMULATOR: METAL / NON-METAL / METALLOID CLASSIFIER */
+        const reactionSet = [
+            {eq:'Sodium (Na) \u2014 Group 1', type:'Metal', why:'Far left; loses electrons and forms a basic oxide.'},
+            {eq:'Chlorine (Cl) \u2014 Group 17', type:'Non-metal', why:'Far right; gains electrons and forms an acidic oxide.'},
+            {eq:'Silicon (Si)', type:'Metalloid', why:'Lies along the zig-zag line; shows properties of both.'},
+            {eq:'Magnesium (Mg) \u2014 Group 2', type:'Metal', why:'A reactive metal; forms basic oxide MgO.'},
+            {eq:'Sulphur (S) \u2014 Group 16', type:'Non-metal', why:'A non-metal; forms acidic oxide SO\u2082.'}
+        ];
+        let rtcIndex = 0, rtcScore = 0, rtcAsked = 0, rtcAnswered = false;
+        function renderReaction() {
+            var eqEl = document.getElementById('rtc-eq');
+            if (!eqEl) return;
+            eqEl.innerText = reactionSet[rtcIndex].eq;
+            var fb = document.getElementById('rtc-feedback');
+            fb.innerHTML = ''; fb.className = 'classifier-feedback';
+            document.getElementById('rtc-next').style.display = 'none';
+            rtcAnswered = false;
+            document.querySelectorAll('.rtc-btn').forEach(function(b){ b.disabled = false; b.classList.remove('correct','incorrect'); });
+        }
+        window.answerReaction = function(choice, btn) {
+            if (rtcAnswered) return;
+            rtcAnswered = true; rtcAsked++;
+            var item = reactionSet[rtcIndex];
+            var fb = document.getElementById('rtc-feedback');
+            document.querySelectorAll('.rtc-btn').forEach(function(b){ b.disabled = true; });
+            if (choice === item.type) {
+                rtcScore++;
+                btn.classList.add('correct');
+                fb.className = 'classifier-feedback fb-correct';
+                fb.innerHTML = '\u2705 Correct! ' + item.why;
+            } else {
+                btn.classList.add('incorrect');
+                document.querySelectorAll('.rtc-btn').forEach(function(b){ if (b.innerText === item.type) b.classList.add('correct'); });
+                fb.className = 'classifier-feedback fb-incorrect';
+                fb.innerHTML = '\u274C It is <strong>' + item.type + '</strong>. ' + item.why;
+            }
+            document.getElementById('rtc-score').innerText = 'Score: ' + rtcScore + ' / ' + rtcAsked;
+            if (rtcIndex < reactionSet.length - 1) {
+                document.getElementById('rtc-next').style.display = 'inline-block';
+            } else {
+                fb.innerHTML += '<br><em>All done! Final score: ' + rtcScore + ' / ' + rtcAsked + '.</em>';
+            }
+        };
+        window.nextReaction = function() {
+            if (rtcIndex < reactionSet.length - 1) { rtcIndex++; renderReaction(); }
+        };
+
         renderTrend();
+        renderReaction();
         buildBohrButtons();
         updateUI();
     });

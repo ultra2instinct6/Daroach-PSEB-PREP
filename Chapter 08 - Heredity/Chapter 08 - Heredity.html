@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 9: Heredity and Evolution | PSEB Class 10 Science</title>
+    <script src="../assets/deck-theme-init.js"></script>
     <link rel="stylesheet" href="../assets/deck-ch08-13.css">
+    <link id="pseb-deck-theme-css" rel="stylesheet" href="../assets/deck-theme.css">
 </head>
 <body>
 <a href="../index.html" style="position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9999;background:#1e293b;color:#38bdf8;border:1px solid #38bdf8;border-radius:20px;padding:5px 16px;font-size:0.8rem;text-decoration:none;font-family:system-ui,sans-serif;letter-spacing:0.5px;opacity:0.85;" title="Back to Chapter Index">&#8592; Index</a>
@@ -361,6 +363,71 @@
             </div>
         </div>
 
+        <!-- CH 9 EVOLUTION MODULE -->
+        <div class="slide">
+            <div class="content-box">
+                <h2>Evolution: Darwin's Natural Selection <span class="punjabi">(ਵਿਕਾਸ: ਕੁਦਰਤੀ ਚੋਣ)</span></h2>
+                <p>Charles Darwin explained how species change over generations through <span class="exam-keyword">Natural Selection</span> &mdash; "survival of the fittest".</p>
+                <ul style="text-align:left;">
+                    <li><strong>Variation:</strong> individuals in a population differ slightly.</li>
+                    <li><strong>Struggle for existence:</strong> more offspring are born than can survive.</li>
+                    <li><strong>Survival of the fittest:</strong> the best-adapted variations survive and reproduce.</li>
+                    <li><strong>Inheritance:</strong> useful traits are passed on, so the population slowly changes.</li>
+                </ul>
+                <div class="ratta-box">Nature "selects" the fittest variations &mdash; over long periods this produces new species. <span class="punjabi-block">(ਕੁਦਰਤ ਸਭ ਤੋਂ ਯੋਗ ਨੂੰ ਚੁਣਦੀ ਹੈ।)</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Evidence for Evolution <span class="punjabi">(ਵਿਕਾਸ ਦੇ ਪ੍ਰਮਾਣ)</span></h2>
+                <table>
+                    <tr><th>Evidence</th><th>Meaning</th><th>Example</th></tr>
+                    <tr><td>Homologous organs</td><td>Same basic structure, different functions &rarr; common ancestor</td><td>Forelimbs of human, bat, whale</td></tr>
+                    <tr><td>Analogous organs</td><td>Different structure, same function &rarr; similar environment</td><td>Wings of bird &amp; insect</td></tr>
+                    <tr><td>Vestigial organs</td><td>Reduced, non-functional remnants</td><td>Appendix, wisdom teeth</td></tr>
+                    <tr><td>Fossils</td><td>Preserved remains show extinct links</td><td>Archaeopteryx (reptile → bird)</td></tr>
+                </table>
+                <div class="ratta-box">Homologous = common ancestry; Analogous = common environment. Archaeopteryx is a "connecting link". <span class="punjabi-block">(ਸਮਰੂਪ ਅੰਗ = ਸਾਂਝਾ ਪੂਰਵਜ।)</span></div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content-box">
+                <h2>Speciation &amp; Lamarck vs Darwin <span class="punjabi">(ਪ੍ਰਜਾਤੀਕਰਨ)</span></h2>
+                <p><span class="exam-keyword">Speciation</span> is the formation of a new species when a group can no longer interbreed with the original population &mdash; often due to <strong>geographical isolation</strong> and <strong>genetic drift</strong>.</p>
+                <table>
+                    <tr><th>Lamarck</th><th>Darwin</th></tr>
+                    <tr><td>Inheritance of <em>acquired</em> characters (use &amp; disuse)</td><td>Natural selection of <em>inherited</em> variations</td></tr>
+                    <tr><td>Giraffe stretched its neck, passed it on</td><td>Longer-necked giraffes survived &amp; reproduced</td></tr>
+                </table>
+                <div class="ratta-box">Acquired traits (e.g. a cut, big muscles) are <strong>not</strong> inherited &mdash; only changes in germ (reproductive) cells pass on. <span class="punjabi-block">(ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ ਵਿਰਾਸਤ ਵਿੱਚ ਨਹੀਂ ਮਿਲਦੇ।)</span></div>
+            </div>
+        </div>
+
+        <!-- CH 9 INTERACTIVE: SORT THE EVOLUTION EVIDENCE -->
+        <div class="slide"><div class="content-box">
+            <h2>Sort the Evolution Evidence <span class="punjabi">(ਪ੍ਰਮਾਣ ਛਾਂਟੋ)</span></h2>
+            <div class="pd-game">
+                <p class="pd-instruction">Click an example, then click the correct type of organ/evidence. <span class="punjabi">(ਪਹਿਲਾਂ ਉਦਾਹਰਨ ਚੁਣੋ, ਫੇਰ ਸਹੀ ਕਿਸਮ।)</span></p>
+                <div class="pd-pool">
+                    <span class="pd-item" data-target="homo" onclick="psebPick(this)">Forelimbs of human, bat &amp; whale</span>
+                    <span class="pd-item" data-target="ana" onclick="psebPick(this)">Wings of a bird &amp; an insect</span>
+                    <span class="pd-item" data-target="vest" onclick="psebPick(this)">Human appendix</span>
+                    <span class="pd-item" data-target="homo" onclick="psebPick(this)">Bat wing &amp; human hand bones</span>
+                    <span class="pd-item" data-target="ana" onclick="psebPick(this)">Eye of octopus &amp; human</span>
+                    <span class="pd-item" data-target="vest" onclick="psebPick(this)">Wisdom teeth</span>
+                </div>
+                <div class="pd-targets">
+                    <div class="pd-target" data-target="homo" onclick="psebDrop(this)"><span class="pd-label">🦴 Homologous <small>same structure, different function</small></span><div class="pd-drop"></div></div>
+                    <div class="pd-target" data-target="ana" onclick="psebDrop(this)"><span class="pd-label">🦋 Analogous <small>different structure, same function</small></span><div class="pd-drop"></div></div>
+                    <div class="pd-target" data-target="vest" onclick="psebDrop(this)"><span class="pd-label">🦷 Vestigial <small>reduced, non-functional</small></span><div class="pd-drop"></div></div>
+                </div>
+                <div class="pd-done">Perfect! Homologous = common ancestry, Analogous = common environment, Vestigial = leftover organs. <span class="punjabi">(ਸ਼ਾਬਾਸ਼!)</span></div>
+                <button class="pd-reset-btn" onclick="psebReset(this)">&#8635; Reset</button>
+            </div>
+        </div></div>
+
         <!-- CH 8 QUIZZES -->
         <div class="slide"><div class="content-box"><h2>True or False? <span class="punjabi">(ਸਹੀ ਜਾਂ ਗਲਤ?)</span></h2><div class="sub-slider-container" id="tf-ch8"><div class="sub-slide active" id="tf-ch8-s1"><div class="sub-progress">Question 1 of 8</div><div class="question-text">Acquired traits alter the DNA of germ cells.<br><span class="punjabi-block">ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ ਜਰਮ ਸੈੱਲਾਂ ਦੇ DNA ਨੂੰ ਬਦਲਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 2)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s2"><div class="sub-progress">Question 2 of 8 <span class="pyq-tag">[PSEB 2019]</span></div><div class="question-text">The phenotypic ratio of Mendel's F2 monohybrid cross is 3:1.<br><span class="punjabi-block">ਮੈਂਡਲ ਦੇ F2 ਮੋਨੋਹਾਈਬ੍ਰਿਡ ਕਰਾਸ ਦਾ ਫੀਨੋਟਾਈਪ ਅਨੁਪਾਤ 3:1 ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 3)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s3"><div class="sub-progress">Question 3 of 8</div><div class="question-text">The dihybrid cross ratio 9:3:3:1 proves traits are inherited independently.<br><span class="punjabi-block">ਡਾਈਹਾਈਬ੍ਰਿਡ ਕਰਾਸ ਅਨੁਪਾਤ 9:3:3:1 ਸਾਬਤ ਕਰਦਾ ਹੈ ਕਿ ਲੱਛਣ ਸੁਤੰਤਰ ਤੌਰ 'ਤੇ ਵਿਰਾਸਤ ਵਿੱਚ ਮਿਲਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 4)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s4"><div class="sub-progress">Question 4 of 8</div><div class="question-text">The mother determines the sex of the human child.<br><span class="punjabi-block">ਮਾਂ ਮਨੁੱਖੀ ਬੱਚੇ ਦੇ ਲਿੰਗ ਦਾ ਨਿਰਧਾਰਨ ਕਰਦੀ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 5)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s5"><div class="sub-progress">Question 5 of 8</div><div class="question-text">Human males have an XY sex chromosome pair.<br><span class="punjabi-block">ਮਨੁੱਖੀ ਮਰਦਾਂ ਵਿੱਚ XY ਲਿੰਗ ਕ੍ਰੋਮੋਸੋਮ ਦਾ ਜੋੜਾ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 6)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s6"><div class="sub-progress">Question 6 of 8</div><div class="question-text">Alleles are different versions of the same gene.<br><span class="punjabi-block">ਏਲੀਲ ਇੱਕੋ ਜੀਨ ਦੇ ਵੱਖ-ਵੱਖ ਰੂਪ ਹੁੰਦੇ ਹਨ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 7)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s7"><div class="sub-progress">Question 7 of 8</div><div class="question-text">A monohybrid cross shows a 3:1 ratio in the F1 generation.<br><span class="punjabi-block">ਮੋਨੋਹਾਈਬ੍ਰਿਡ ਕਰਾਸ F1 ਪੀੜ੍ਹੀ ਵਿੱਚ 3:1 ਅਨੁਪਾਤ ਦਿਖਾਉਂਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, false, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, true, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('tf-ch8', 8)">Next Question &rarr;</button></div><div class="sub-slide" id="tf-ch8-s8"><div class="sub-progress">Question 8 of 8</div><div class="question-text">The sex of a child is determined by the chromosome contributed by the father.<br><span class="punjabi-block">ਬੱਚੇ ਦਾ ਲਿੰਗ ਪਿਤਾ ਦੁਆਰਾ ਦਿੱਤੇ ਕ੍ਰੋਮੋਸੋਮ ਦੁਆਰਾ ਨਿਰਧਾਰਤ ਹੁੰਦਾ ਹੈ।</span></div><div class="tf-grid"><button class="option-btn" onclick="checkAnswer(this, true, false)">True <span class="punjabi">(ਸਹੀ)</span></button><button class="option-btn" onclick="checkAnswer(this, false, false)">False <span class="punjabi">(ਗਲਤ)</span></button></div><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Short Answer Review &rarr;</button></div></div></div></div>
 <div class="slide"><div class="content-box"><h2>Say It Back: Chapter 9</h2><div class="sub-slider-container" id="sib-ch8"><div class="sub-slide active short-answer" id="sib-ch8-s1" data-q="What plant did Mendel use for his experiments?" data-a="Pea plant" data-pa="ਮਟਰ ਦਾ ਪੌਦਾ"><div class="sub-progress">Short Answer 1 of 8</div><div class="question-text">What plant did Mendel use for his experiments?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Pea plant', 'ਮਟਰ ਦਾ ਪੌਦਾ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 2)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s2" data-q="Traits that only affect somatic cells and aren't passed down are called?" data-a="Acquired traits" data-pa="ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ"><div class="sub-progress">Short Answer 2 of 8</div><div class="question-text">Traits that only affect somatic cells and aren't passed down are called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Acquired traits', 'ਗ੍ਰਹਿਣ ਕੀਤੇ ਲੱਛਣ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 3)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s3" data-q="The genetic makeup (e.g., Tt) is called what?" data-a="Genotype" data-pa="ਜੀਨੋਟਾਈਪ"><div class="sub-progress">Short Answer 3 of 8</div><div class="question-text">The genetic makeup (e.g., Tt) is called what?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Genotype', 'ਜੀਨੋਟਾਈਪ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 4)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s4" data-q="What is the F2 phenotype ratio in a dihybrid cross?" data-a="9:3:3:1" data-pa="9:3:3:1"><div class="sub-progress">Short Answer 4 of 8</div><div class="question-text">What is the F2 phenotype ratio in a dihybrid cross?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, '9:3:3:1', '9:3:3:1')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 5)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s5" data-q="What letters represent a human male's sex chromosomes?" data-a="XY" data-pa="XY"><div class="sub-progress">Short Answer 5 of 8</div><div class="question-text">What letters represent a human male's sex chromosomes?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'XY', 'XY')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 6)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s6" data-q="The physical, visible expression of a gene (e.g., Tall) is called?" data-a="Phenotype" data-pa="ਫੀਨੋਟਾਈਪ"><div class="sub-progress">Short Answer 6 of 8</div><div class="question-text">The physical, visible expression of a gene (e.g., Tall) is called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Phenotype', 'ਫੀਨੋਟਾਈਪ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 7)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s7" data-q="Different forms of the same gene are called?" data-a="Alleles" data-pa="ਏਲੀਲ"><div class="sub-progress">Short Answer 7 of 8</div><div class="question-text">Different forms of the same gene are called?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Alleles', 'ਏਲੀਲ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="nextSubSlide('sib-ch8', 8)">Next Question &rarr;</button></div><div class="sub-slide short-answer" id="sib-ch8-s8" data-q="The grid used to predict offspring genotypes is the ___ square?" data-a="Punnett" data-pa="ਪਨੇਟ"><div class="sub-progress">Short Answer 8 of 8</div><div class="question-text">The grid used to predict offspring genotypes is the ___ square?</div><input type="text" class="sa-input" placeholder="Type your answer..."><button class="sa-submit-btn" onclick="checkSA(this, 'Punnett', 'ਪਨੇਟ')">Check Answer</button><div class="feedback"></div><button class="next-sub-btn" onclick="document.getElementById('nextBtn').click()">Start Quick Check &rarr;</button></div></div></div></div>
@@ -664,7 +731,7 @@
         document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
         document.addEventListener('touchend', e => { 
             touchEndX = e.changedTouches[0].screenX; 
-            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.error-diagram') || e.target.closest('.builder-workspace') || e.target.closest('.punnett-game')) return;
+            if(e.target.closest('.reading-pane') || e.target.closest('.sub-slider-container') || e.target.closest('.match-grid') || e.target.closest('.cloze-paragraph') || e.target.closest('.error-diagram') || e.target.closest('.builder-workspace') || e.target.closest('.punnett-game') || e.target.closest('.pd-game')) return;
             if (touchEndX < touchStartX - 50) moveSlide(1); 
             if (touchEndX > touchStartX + 50) moveSlide(-1); 
         });

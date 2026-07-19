@@ -2,518 +2,485 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Interactive, bilingual (English/Punjabi) chapter-by-chapter study deck for PSEB Class 10 Science. Board-exam focused with quizzes, simulators and Anki export.">
-<meta name="theme-color" content="#0f172a">
-<title>PSEB Class 10 Science — Chapter Index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Interactive bilingual PSEB Class 10 Science study menu with chapter lectures, progress, revision bookmarks and future content placeholders.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<title>BOLO.INSTINCT — PSEB Class 10 Science</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+
+<!-- Social preview (Open Graph / Twitter). NOTE: set og:url + og:image to your
+     full https:// URLs after you know the final domain, e.g.
+     https://your-domain.com/index.html and https://your-domain.com/assets/favicon.svg -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BOLO.INSTINCT">
+<meta property="og:title" content="BOLO.INSTINCT — PSEB Class 10 Science">
+<meta property="og:description" content="Interactive bilingual PSEB Class 10 Science lecture decks: 16 chapters with progress tracking, revision bookmarks and MathJax. Curated by Dr. Deepak Daroach, MD.">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="assets/favicon.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BOLO.INSTINCT — PSEB Class 10 Science">
+<meta name="twitter:description" content="Interactive bilingual PSEB Class 10 Science lecture decks with progress tracking, revision bookmarks and MathJax.">
+<meta name="twitter:image" content="assets/favicon.svg">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0f172a;
-    --bg-elev: #1e293b;
-    --bg-elev-2: #1e3a5f;
-    --border: #334155;
-    --text: #e2e8f0;
-    --text-dim: #94a3b8;
-    --text-faint: #64748b;
-    --accent: #38bdf8;
-    --title: #f1f5f9;
-    --shadow: rgba(56,189,248,.15);
-  }
-  html[data-theme="light"] {
-    --bg: #f1f5f9;
-    --bg-elev: #ffffff;
-    --bg-elev-2: #e0f2fe;
-    --border: #cbd5e1;
-    --text: #1e293b;
-    --text-dim: #475569;
-    --text-faint: #64748b;
-    --accent: #0284c7;
-    --title: #0f172a;
-    --shadow: rgba(2,132,199,.18);
+    --bg-void: #000000;
+    --text-bold: #ffffff;
+    --text-dim: #8e9bb0;
+    --panel: rgba(18, 18, 22, 0.94);
+    --border: rgba(255, 255, 255, 0.08);
+    --aura-chem: #00e5ff;
+    --aura-bio: #2ecc71;
+    --aura-phy: #b026ff;
+    --aura-env: #ffaa00;
+    --radius: clamp(170px, min(33vh, 35vw), 380px);
+    --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
+    --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
   }
 
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { background: var(--bg-void); }
   body {
-    font-family: 'Segoe UI', system-ui, 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
-    background: var(--bg);
-    color: var(--text);
     min-height: 100vh;
-    padding: 40px 20px 60px;
-    transition: background .25s, color .25s;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg-void);
+    color: var(--text-bold);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, var(--font-gurmukhi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+    user-select: none;
   }
 
-  .skip-link {
-    position: absolute; left: -999px; top: 0;
-    background: var(--accent); color: #04121f;
-    padding: 10px 16px; border-radius: 0 0 8px 0; font-weight: 700; z-index: 200;
-  }
-  .skip-link:focus { left: 0; }
-
-  header { text-align: center; margin-bottom: 20px; position: relative; }
-  header h1 { font-size: 2rem; color: var(--accent); letter-spacing: -0.5px; }
-  header p  { margin-top: 8px; color: var(--text-dim); font-size: 1rem; }
-
-  .theme-toggle {
-    position: absolute; top: 0; right: 0;
-    background: var(--bg-elev); border: 1px solid var(--border);
-    color: var(--text); border-radius: 99px; padding: 8px 14px;
-    font-size: 0.85rem; font-weight: 600; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 6px;
-    transition: border-color .2s, background .2s;
-  }
-  .theme-toggle:hover, .theme-toggle:focus-visible { border-color: var(--accent); }
-
-  .stats-bar {
-    display: flex; justify-content: center; gap: 28px;
-    flex-wrap: wrap; margin: 18px auto 24px;
-    max-width: 640px; align-items: center;
-  }
-  .stat { text-align: center; }
-  .stat-val { font-size: 1.6rem; font-weight: 700; color: var(--accent); }
-  .stat-lbl { font-size: 0.75rem; color: var(--text-faint); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-
-  .ring-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .ring { position: relative; width: 66px; height: 66px; }
-  .ring svg { transform: rotate(-90deg); }
-  .ring-track { stroke: var(--border); }
-  .ring-fill { stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset .5s ease; }
-  .ring-pct {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    font-size: 0.95rem; font-weight: 700; color: var(--accent);
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 8%, rgba(0, 0, 0, 0.98) 100%);
   }
 
-  .toolbar {
-    max-width: 1100px; margin: 0 auto 26px;
-    display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
-  }
-  .search-wrap { position: relative; flex: 1 1 260px; min-width: 220px; }
-  .search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-faint); }
-  #search {
-    width: 100%; padding: 11px 14px 11px 38px;
-    background: var(--bg-elev); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text); font-size: 0.95rem;
-    transition: border-color .2s;
-  }
-  #search:focus { outline: none; border-color: var(--accent); }
+  button, input { font: inherit; }
+  button { border: 0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
 
-  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
-  .filter-btn {
-    background: var(--bg-elev); border: 1px solid var(--border);
-    color: var(--text-dim); border-radius: 99px; padding: 8px 14px;
-    font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all .18s;
-  }
-  .filter-btn:hover { border-color: var(--accent); color: var(--text); }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #04121f; }
+  @keyframes deltaWave { 0%, 100% { opacity: 0.02; transform: scale(1); } 50% { opacity: 0.05; transform: scale(1.05); } }
+  @keyframes auraBreathe { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; } 50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.85; } }
+  @keyframes appIgnition { 0% { opacity: 0; transform: scale(0.94) translateY(18px); filter: blur(10px); } 100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); } }
+  @keyframes orbitalSpin { to { transform: rotate(360deg); } }
 
-  .resume-bar { max-width: 1100px; margin: 0 auto 26px; }
-  .resume-btn {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: var(--bg-elev-2); border: 1px solid var(--accent);
-    color: var(--text); text-decoration: none;
-    border-radius: 10px; padding: 12px 18px; font-size: 0.92rem; font-weight: 600;
-    transition: transform .18s, box-shadow .2s;
+  .neural-mesh {
+    position: fixed;
+    inset: -5%;
+    z-index: -3;
+    width: 110vw;
+    height: 110vh;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+    background-size: 32px 32px;
+    animation: deltaWave 8s infinite ease-in-out;
+    will-change: transform;
   }
-  .resume-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--shadow); }
-  .resume-btn .rlabel { color: var(--text-dim); font-weight: 500; }
 
-  .revision-bar { max-width: 1100px; margin: 0 auto 26px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
-  .revision-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-  .revision-title { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; color: #f59e0b; }
-  .revision-clear { background: transparent; border: 1px solid var(--border); color: var(--text-dim); border-radius: 99px; padding: 4px 12px; font-size: 0.72rem; font-weight: 600; cursor: pointer; transition: all .18s; }
-  .revision-clear:hover { border-color: #ef4444; color: #f87171; }
-  .revision-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .revision-chip { display: inline-flex; align-items: center; gap: 8px; max-width: 300px; text-decoration: none; color: inherit; background: var(--bg-elev-2); border: 1px solid var(--border); border-radius: 99px; padding: 6px 12px; transition: border-color .2s, transform .15s; }
-  .revision-chip:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .revision-chip .rc-ch { font-size: 0.68rem; font-weight: 700; color: var(--accent); flex: none; }
-  .revision-chip .rc-sl { font-size: 0.78rem; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .revision-chip .rc-num { font-size: 0.66rem; font-weight: 700; color: var(--text-faint); flex: none; }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-    max-width: 1100px;
-    margin: 0 auto;
+  .aura-bleed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: -2;
+    width: 120vw;
+    height: 120vh;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-void) 65%);
+    transition: background 1s var(--fluid-curve);
+    animation: auraBreathe 10s ease-in-out infinite;
+    pointer-events: none;
   }
-  a.card {
-    display: flex; flex-direction: column; justify-content: space-between;
-    background: var(--bg-elev);
+
+  .gateway-core {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1), opacity 0.6s, box-shadow 0.8s;
+    z-index: 9999;
+  }
+  body.gateway-active .gateway-core { opacity: 1; transform: translate(-50%, -50%) scale(600); box-shadow: 0 0 150px 80px #fff; }
+
+  .web-utility-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    padding: max(24px, env(safe-area-inset-top)) 48px 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    pointer-events: none;
+    animation: appIgnition 1.2s var(--fluid-curve) forwards;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 32px; pointer-events: auto; }
+  .header-logo {
+    background: linear-gradient(135deg, #fff 0%, #8e9bb0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header-center { display: flex; align-items: center; gap: 16px; }
+  .domain-router {
+    display: flex;
+    gap: 2px;
+    padding: 4px;
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px 20px;
-    text-decoration: none;
-    color: inherit;
-    position: relative;
-    transition: border-color .2s, transform .18s, background .2s, box-shadow .2s;
-    min-height: 120px;
+    border-radius: 999px;
+    background: rgba(18, 18, 22, 0.62);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
   }
-  a.card:hover, a.card:focus-visible {
-    border-color: var(--accent);
-    background: var(--bg-elev-2);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px var(--shadow);
-    outline: none;
+  .domain-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.35s var(--fluid-curve), background 0.35s var(--fluid-curve), transform 0.35s var(--fluid-curve);
   }
-  a.card.done { border-color: #10b981; }
-  a.card.done::after {
-    content: '✓'; position: absolute; top: 12px; right: 14px;
-    width: 22px; height: 22px; border-radius: 50%;
-    background: #10b981; color: #04120b; font-size: 0.8rem; font-weight: 800;
-    display: flex; align-items: center; justify-content: center;
+  .domain-btn:hover, .domain-btn:focus-visible { color: #fff; outline: none; }
+  .domain-btn.active { background: rgba(255, 255, 255, 0.12); color: #fff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
+  .header-divider { width: 1px; height: 32px; background: rgba(255, 255, 255, 0.15); }
+  .header-trust { display: flex; flex-direction: column; gap: 4px; }
+  .trust-primary { color: #fff; font-size: 1.1rem; font-weight: 800; letter-spacing: 1.5px; line-height: 1.1; text-transform: uppercase; transition: opacity 0.25s; }
+  .trust-secondary { color: var(--text-dim); font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; line-height: 1; text-transform: uppercase; }
+  .header-right { display: flex; align-items: center; gap: 10px; pointer-events: auto; }
+  .hud-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 38px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text-bold);
+    cursor: pointer;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px) saturate(150%);
+    transition: background 0.35s var(--fluid-curve), transform 0.35s var(--fluid-curve), border-color 0.35s var(--fluid-curve);
   }
-  .ch-num {
-    font-size: 0.72rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 1px;
-    color: var(--accent); margin-bottom: 5px;
-  }
-  .ch-title { font-size: 1rem; font-weight: 600; color: var(--title); line-height: 1.35; padding-right: 24px; }
-  .card-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-  .badge { font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 99px; letter-spacing: 0.4px; }
-  .badge-slides { background: #0f3460; color: #7dd3fc; border: 1px solid #1e4d7a; }
-  .badge-anki   { background: #1a2e1a; color: #86efac; border: 1px solid #2d4a2d; }
-  .badge-math   { background: #2a1a3e; color: #d8b4fe; border: 1px solid #4a2d6e; }
-  html[data-theme="light"] .badge-slides { background: #e0f2fe; color: #0369a1; border-color: #bae6fd; }
-  html[data-theme="light"] .badge-anki   { background: #dcfce7; color: #15803d; border-color: #bbf7d0; }
-  html[data-theme="light"] .badge-math   { background: #f3e8ff; color: #7e22ce; border-color: #e9d5ff; }
-  .card.placeholder { display: flex; flex-direction: column; justify-content: space-between; background: var(--bg-elev); border: 1px dashed var(--border); border-radius: 12px; padding: 18px 20px; min-height: 120px; opacity: 0.6; cursor: not-allowed; position: relative; }
-  .badge-soon { background: #334155; color: #cbd5e1; border: 1px solid #475569; }
-  html[data-theme="light"] .badge-soon { background: #e2e8f0; color: #475569; border-color: #cbd5e1; }
+  .hud-pill:hover, .hud-pill:focus-visible { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15); transform: translateY(-2px); outline: none; }
+  .hud-icon { color: #ffaa00; text-shadow: 0 0 10px rgba(255, 170, 0, 0.7); }
 
-  .card-progress { height: 5px; border-radius: 99px; background: var(--border); margin-top: 12px; overflow: hidden; }
-  .card-progress > span { display: block; height: 100%; background: var(--accent); width: 0; transition: width .4s; }
-  .card-status { display: flex; justify-content: space-between; align-items: center; margin-top: 7px; font-size: 0.7rem; color: var(--text-faint); }
-  .card-status .cs-pct { font-weight: 700; color: var(--accent); }
-  a.card.done .card-status .cs-pct { color: #10b981; }
+  .arena-wrapper { position: relative; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; perspective: 1500px; opacity: 0; animation: appIgnition 1.2s 0.18s var(--fluid-curve) forwards; }
+  .arena { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; cursor: grab; transform-style: preserve-3d; backface-visibility: hidden; touch-action: none; will-change: transform; transition: opacity 0.5s ease; }
+  .arena:active { cursor: grabbing; }
+  .arena.fade-out { opacity: 0; }
+  .core-system { position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; pointer-events: none; }
+  .core-ring { position: absolute; width: clamp(140px, 35vw, 190px); height: clamp(140px, 35vw, 190px); border-radius: 50%; background: conic-gradient(from 0deg, transparent 60%, rgba(255, 255, 255, 0.05) 80%, rgba(255, 255, 255, 0.6) 100%); -webkit-mask: radial-gradient(transparent 68%, black 69%); mask: radial-gradient(transparent 68%, black 69%); animation: orbitalSpin 4s linear infinite; opacity: 0.08; transition: all 0.8s var(--fluid-curve); }
+  .core-mass { position: relative; width: clamp(110px, 28vw, 150px); height: clamp(110px, 28vw, 150px); display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 50%; background: rgba(10, 10, 14, 0.86); box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), inset 0 2px 10px rgba(255, 255, 255, 0.03), inset 0 -10px 40px rgba(0, 0, 0, 0.8); backdrop-filter: blur(24px) saturate(150%); transition: all 0.8s var(--fluid-curve); }
+  .core-val { z-index: 2; color: var(--text-bold); font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 800; letter-spacing: -1.5px; text-shadow: 0 0 20px rgba(255, 255, 255, 0.1); font-variant-numeric: tabular-nums; transition: color 0.6s var(--fluid-curve), text-shadow 0.6s, transform 0.6s var(--spring-curve); }
+  .core-lbl { z-index: 2; margin-top: 4px; padding: 0 10px; color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: clamp(0.6rem, 2vw, 0.7rem); font-weight: 700; letter-spacing: 1px; text-align: center; text-transform: uppercase; transition: color 0.6s var(--fluid-curve); }
+  .dial { position: absolute; z-index: 5; width: 0; height: 0; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; will-change: transform; }
+  .node-anchor { position: absolute; transform-style: preserve-3d; will-change: transform, opacity, filter; }
+  .arena-locked .node-anchor { transition: opacity 0.8s var(--fluid-curve), filter 0.8s var(--fluid-curve); }
+  .arena-locked .node-anchor:not(.is-active) { opacity: 0 !important; filter: blur(20px) !important; pointer-events: none; }
+  .node-anchor.is-active { z-index: 100 !important; opacity: 1 !important; filter: blur(0) !important; }
 
-  .card-actions { display: flex; justify-content: flex-end; margin-top: 10px; }
-  .mark-btn {
-    background: transparent; border: 1px solid var(--border); color: var(--text-dim);
-    border-radius: 99px; padding: 4px 10px; font-size: 0.7rem; font-weight: 600; cursor: pointer;
-    transition: all .18s;
-  }
-  .mark-btn:hover { border-color: var(--accent); color: var(--text); }
-  a.card.done .mark-btn { border-color: #10b981; color: #86efac; }
+  .shard { position: absolute; width: min(88vw, 330px); display: flex; flex-direction: column; overflow: hidden; padding: clamp(16px, 4vw, 24px); border: 1px solid rgba(255, 255, 255, 0.045); border-radius: 24px; background: var(--panel); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.95); cursor: pointer; --shard-rot: 0deg; --shard-scale: 1; transform: translate(-50%, -50%) rotate(var(--shard-rot)) scale(var(--shard-scale)); backface-visibility: hidden; will-change: transform; transition: background 0.6s var(--fluid-curve), box-shadow 0.6s var(--fluid-curve), border-color 0.6s var(--fluid-curve), width 0.6s var(--fluid-curve), transform 0.6s var(--fluid-curve), opacity 0.3s; }
+  .shard-anchor.is-targeted .shard { border-top-color: rgba(255, 255, 255, 0.26); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), inset 0 1px 2px rgba(255, 255, 255, 0.12); }
+  .shard-anchor.is-active .shard { width: min(92vw, 360px); border-top-color: currentColor; background: linear-gradient(180deg, rgba(15, 15, 18, 1) 0%, rgba(5, 5, 8, 1) 100%); box-shadow: 0 50px 100px rgba(0, 0, 0, 0.99), inset 0 2px 4px rgba(255, 255, 255, 0.15); cursor: default; --shard-scale: 1.06 !important; }
+  .shard-anchor.is-active .pa-title { color: currentColor; text-shadow: 0 0 25px currentColor; }
+  .shard-anchor.is-active .btn-prime { border-color: currentColor; color: currentColor; }
+  .shard-anchor.is-active .ch-icon { color: currentColor; filter: drop-shadow(0 0 8px currentColor); }
+  .s-head { position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; }
+  .s-titles { display: flex; align-items: flex-start; gap: 14px; min-width: 0; overflow: hidden; }
+  .ch-icon { width: 14px; height: 14px; margin-top: 6px; flex: none; color: var(--text-dim); transition: color 0.5s var(--fluid-curve); }
+  .ch-icon svg { width: 100%; height: 100%; stroke: currentColor; }
+  .ch-num { padding-top: 4px; color: var(--text-dim); font-size: 0.85rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .title-group { display: flex; flex-direction: column; gap: 3px; min-width: 0; padding-right: 8px; }
+  .pa-title { color: var(--text-bold); font-family: var(--font-gurmukhi); font-size: clamp(1rem, 3.5vw, 1.1rem); font-weight: 700; line-height: 1.35; transition: color 0.5s var(--fluid-curve), text-shadow 0.5s var(--fluid-curve); }
+  .en-title { color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+  .svg-progress-container { position: relative; width: clamp(38px, 10vw, 44px); height: clamp(38px, 10vw, 44px); display: flex; align-items: center; justify-content: center; flex: none; border-radius: 999px; background: transparent; color: inherit; cursor: pointer; transition: transform 0.4s var(--spring-curve), background 0.4s; }
+  .svg-progress-container:hover, .svg-progress-container:focus-visible { background: rgba(255, 255, 255, 0.06); outline: none; transform: scale(1.08); }
+  .prog-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); pointer-events: none; }
+  .prog-ring circle { fill: transparent; stroke-width: 2.5; }
+  .prog-ring .bg { stroke: rgba(255, 255, 255, 0.05); }
+  .prog-ring .fill { stroke: currentColor; stroke-dasharray: 100; stroke-linecap: round; transition: stroke-dashoffset 0.8s var(--spring-curve); }
+  .prog-text { z-index: 1; color: var(--text-dim); font-size: 0.65rem; font-weight: 800; font-variant-numeric: tabular-nums; pointer-events: none; }
+  .svg-progress-container.done .prog-text { color: currentColor; font-size: 0.8rem; text-shadow: 0 0 10px currentColor; }
+  .svg-progress-container.done .fill { stroke-dashoffset: 0 !important; filter: drop-shadow(0 0 6px currentColor); }
+  .svg-progress-container.locked { opacity: 0.42; cursor: not-allowed; }
+  .s-expansion { display: grid; grid-template-rows: 0fr; width: 100%; transition: grid-template-rows 0.6s var(--fluid-curve); }
+  .s-expansion-inner { min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 12px; padding-top: 0; opacity: 0; transition: padding-top 0.6s var(--fluid-curve), opacity 0.4s; }
+  .shard-anchor.is-active .s-expansion { grid-template-rows: 1fr; }
+  .shard-anchor.is-active .s-expansion-inner { padding-top: 16px; opacity: 1; }
+  .rune-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .rune { padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.025); border-radius: 8px; background: rgba(255, 255, 255, 0.04); color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.5px; }
+  .rune.soon { color: #ffaa00; }
+  .action-row { display: grid; grid-template-columns: 1fr 46px; gap: 8px; }
+  .btn-prime, .btn-video { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 46px; padding: 13px 16px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; background: rgba(255, 255, 255, 0.025); color: var(--text-bold); cursor: pointer; font-family: var(--font-gurmukhi); font-size: 0.84rem; font-weight: 700; letter-spacing: 0.4px; text-decoration: none; transition: transform 0.3s var(--fluid-curve), background 0.3s var(--fluid-curve), border-color 0.3s var(--fluid-curve); }
+  .btn-video { justify-content: center; padding: 0; font-family: inherit; }
+  .btn-prime:hover, .btn-prime:focus-visible, .btn-video:hover, .btn-video:focus-visible { background: rgba(255, 255, 255, 0.07); transform: translateY(-1px); outline: none; }
+  .btn-prime[aria-disabled="true"] { color: var(--text-dim); cursor: not-allowed; }
 
-  .section-heading {
-    max-width: 1100px; margin: 0 auto 12px; padding: 0 4px;
-    font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
-    color: var(--text-faint); display: flex; align-items: center; gap: 12px;
-  }
-  .section-heading::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .section-heading:not(:first-of-type) { margin-top: 36px; }
+  .lecture-mirror { position: absolute; width: max-content; max-width: 90vw; display: flex; align-items: center; gap: clamp(10px, 3vw, 16px); padding: 8px 24px 8px 8px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 999px; background: rgba(22, 20, 26, 0.95); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.1); cursor: pointer; --node-rot: 0deg; --node-scale: 1; transform: translate(-50%, -50%) rotate(var(--node-rot)) scale(var(--node-scale)); backface-visibility: hidden; will-change: transform; transition: transform 0.6s var(--fluid-curve), border-color 0.6s var(--fluid-curve), background 0.6s var(--fluid-curve), box-shadow 0.6s var(--fluid-curve); }
+  .mirror-anchor.is-targeted .lecture-mirror { border-color: rgba(255, 255, 255, 0.25); border-bottom-color: currentColor; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 1px 2px rgba(255, 255, 255, 0.2); }
+  .mirror-anchor.is-targeted .mirror-title { color: var(--text-bold); text-shadow: 0 0 15px currentColor; }
+  .mirror-anchor.is-targeted .mirror-icon { color: currentColor; background: rgba(255, 255, 255, 0.12); }
+  .mirror-anchor.is-active .lecture-mirror { border-color: currentColor; background: linear-gradient(145deg, rgba(20, 20, 25, 1), rgba(10, 10, 14, 1)); --node-scale: 1.15 !important; }
+  .mirror-anchor.is-active .mirror-title { color: currentColor; text-shadow: 0 0 25px currentColor; }
+  .mirror-anchor.is-active .mirror-icon { color: #000; background: currentColor; box-shadow: 0 0 20px currentColor; }
+  .mirror-icon { width: clamp(32px, 8vw, 36px); height: clamp(32px, 8vw, 36px); display: flex; align-items: center; justify-content: center; flex: none; border-radius: 50%; background: rgba(255, 255, 255, 0.05); color: var(--text-dim); transition: all 0.6s var(--fluid-curve); }
+  .mirror-icon svg { width: 14px; height: 14px; fill: currentColor; margin-left: 2px; }
+  .mirror-text-container { display: flex; flex-direction: column; gap: 2px; justify-content: center; min-width: 0; }
+  .mirror-label { color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.55rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.8; }
+  .mirror-title { color: var(--text-bold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-gurmukhi); font-size: clamp(0.85rem, 3vw, 0.95rem); font-weight: 700; line-height: 1.1; transition: color 0.6s var(--fluid-curve), text-shadow 0.6s var(--fluid-curve); }
 
-  .empty-state {
-    max-width: 1100px; margin: 40px auto; text-align: center;
-    color: var(--text-faint); font-size: 1.05rem; display: none;
-  }
-  .empty-state.show { display: block; }
+  .utility-hub { position: fixed; right: 48px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 100; display: flex; gap: 10px; pointer-events: auto; }
+  .round-trigger { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50%; background: rgba(255, 255, 255, 0.03); color: var(--text-bold); cursor: pointer; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); backdrop-filter: blur(16px); transition: transform 0.3s var(--fluid-curve), background 0.3s var(--fluid-curve); }
+  .round-trigger:hover, .round-trigger:focus-visible { transform: scale(1.05); background: rgba(255, 255, 255, 0.06); outline: none; }
+  .round-trigger svg { width: 17px; height: 17px; stroke: currentColor; }
 
-  @media (max-width: 500px) {
-    .grid { grid-template-columns: 1fr; }
-    .stats-bar { gap: 20px; }
-    .theme-toggle { position: static; margin-top: 12px; }
+  .cmd-palette { position: fixed; inset: 0; z-index: 999; display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(30px); opacity: 0; pointer-events: none; transition: opacity 0.5s var(--fluid-curve); }
+  .cmd-palette.is-open { opacity: 1; pointer-events: auto; }
+  .cmd-box { width: min(92vw, 520px); overflow: hidden; padding: 24px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; background: #0c0c0e; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9); transform: translateY(-30px) scale(0.95); transition: transform 0.5s var(--fluid-curve); }
+  .cmd-palette.is-open .cmd-box { transform: translateY(0) scale(1); }
+  .modal-title { margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.06); color: var(--text-bold); font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; text-align: center; text-transform: uppercase; }
+  .cmd-input { width: 100%; padding: 15px 16px; border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px; background: rgba(255, 255, 255, 0.035); color: #fff; font-family: var(--font-gurmukhi); font-size: 0.95rem; outline: none; }
+  .cmd-input:focus { border-color: #00e5ff; }
+  .cmd-results { display: grid; gap: 8px; max-height: 48vh; margin-top: 14px; overflow-y: auto; }
+  .cmd-result { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 14px; border: 1px solid rgba(255, 255, 255, 0.055); border-radius: 14px; background: rgba(255, 255, 255, 0.025); color: #fff; cursor: pointer; text-align: left; }
+  .cmd-result:hover, .cmd-result:focus-visible { border-color: currentColor; outline: none; }
+  .cmd-result-title { display: flex; flex-direction: column; min-width: 0; }
+  .cmd-result-title strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--font-gurmukhi); font-size: 0.9rem; }
+  .cmd-result-title span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-dim); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+  .cmd-result-meta { flex: none; color: var(--text-dim); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
+  .share-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .share-tile { min-height: 92px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 18px; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; background: rgba(255, 255, 255, 0.025); color: #fff; cursor: pointer; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; transition: transform 0.3s var(--fluid-curve), border-color 0.3s var(--fluid-curve), background 0.3s var(--fluid-curve); }
+  .share-tile:hover, .share-tile:focus-visible { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15); transform: translateY(-2px); outline: none; }
+  .share-tile svg { width: 22px; height: 22px; stroke: currentColor; fill: none; }
+  .toast-notify { position: fixed; right: 48px; bottom: max(90px, env(safe-area-inset-bottom)); z-index: 1000; max-width: min(460px, calc(100vw - 40px)); padding: 12px 22px; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 12px; background: #09090b; color: var(--text-bold); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); font-family: var(--font-gurmukhi); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.4px; opacity: 0; pointer-events: none; transform: translateY(10px); transition: all 0.4s var(--fluid-curve); }
+  .toast-notify.show { opacity: 1; transform: translateY(0); }
+  .particle { position: absolute; z-index: 99; width: 4px; height: 4px; border-radius: 50%; pointer-events: none; opacity: 0; }
+
+  @media (max-width: 1200px) {
+    .web-utility-header { flex-direction: column; gap: 20px; }
+    .header-left { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .header-right { position: absolute; top: max(24px, env(safe-area-inset-top)); right: 24px; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; animation: none !important; }
+  @media (max-width: 768px) {
+    :root { --radius: clamp(104px, 21vh, 154px); }
+    .web-utility-header { padding: max(16px, env(safe-area-inset-top)) 16px 18px; }
+    .header-left { gap: 10px; }
+    .header-logo { max-width: 46vw; font-size: 0.92rem; letter-spacing: 1.7px; }
+    .header-center { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .domain-router { padding: 3px; }
+    .domain-btn { padding: 7px 11px; font-size: 0.6rem; }
+    .header-divider, .trust-secondary { display: none; }
+    .trust-primary { font-size: 0.78rem; letter-spacing: 1.2px; }
+    .header-right { top: max(16px, env(safe-area-inset-top)); right: 16px; gap: 8px; }
+    .hud-pill { min-height: 32px; padding: 7px 9px; font-size: 0.62rem; }
+    .core-ring { width: clamp(104px, 26vw, 128px); height: clamp(104px, 26vw, 128px); }
+    .core-mass { width: clamp(84px, 22vw, 108px); height: clamp(84px, 22vw, 108px); }
+    .core-val { font-size: clamp(1.45rem, 7.4vw, 1.9rem); }
+    .core-lbl { font-size: 0.56rem; }
+    .shard { width: min(70vw, 248px); padding: 13px; border-radius: 17px; }
+    .shard-anchor.is-active .shard { width: min(76vw, 274px); --shard-scale: 1.01 !important; }
+    .pa-title { font-size: clamp(0.9rem, 3.2vw, 1rem); }
+    .en-title { font-size: 0.62rem; }
+    .lecture-mirror { max-width: 70vw; padding: 6px 14px 6px 6px; border-radius: 40px; }
+    .mirror-title { max-width: 48vw; font-size: 0.78rem; }
+    .utility-hub { right: 16px; bottom: max(18px, env(safe-area-inset-bottom)); }
+    .round-trigger { width: 42px; height: 42px; }
+    .toast-notify { right: 16px; bottom: max(74px, env(safe-area-inset-bottom)); }
   }
+  @media (max-height: 700px) and (min-width: 769px) { :root { --radius: clamp(145px, 30vh, 240px); } .web-utility-header { padding-top: max(18px, env(safe-area-inset-top)); } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
 </style>
 </head>
 <body>
-<a href="#main" class="skip-link">Skip to chapters</a>
-
-<header>
-  <h1>PSEB Class 10 — Science</h1>
-  <p>Interactive chapter-by-chapter study deck &nbsp;·&nbsp; Board exam focused</p>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light or dark theme">
-    <span id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
-  </button>
-</header>
-
-<div class="stats-bar">
-  <div class="stat"><div class="stat-val">16</div><div class="stat-lbl">Chapters</div></div>
-  <div class="stat"><div class="stat-val">386</div><div class="stat-lbl">Total Slides</div></div>
-  <div class="ring-wrap">
-    <div class="ring">
-      <svg width="66" height="66">
-        <circle class="ring-track" cx="33" cy="33" r="28" fill="none" stroke-width="6"></circle>
-        <circle class="ring-fill" id="ringFill" cx="33" cy="33" r="28" fill="none" stroke-width="6"></circle>
-      </svg>
-      <div class="ring-pct" id="ringPct">0%</div>
+<div id="ariaAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<header class="web-utility-header">
+  <div class="header-left">
+    <button class="header-logo" type="button" id="homeReset">BOLO.INSTINCT</button>
+    <div class="header-center">
+      <div class="domain-router" aria-label="Program selector">
+        <button class="domain-btn active" type="button" data-domain="PSEB">PSEB</button>
+        <button class="domain-btn" type="button" data-domain="IM">IM</button>
+      </div>
+      <div class="domain-router" id="subjectRouter" aria-label="Subject selector">
+        <button class="domain-btn active" type="button" data-subject="SCI">Science</button>
+        <button class="domain-btn" type="button" data-subject="MATH">Math</button>
+      </div>
+      <div class="header-divider"></div>
+      <div class="header-trust">
+        <span class="trust-primary" id="trustPrimary">PSEB 10th Science</span>
+        <span class="trust-secondary">Curated by Dr. Deepak Daroach, MD</span>
+      </div>
     </div>
-    <div class="stat-lbl">Completed</div>
   </div>
-  <div class="stat"><div class="stat-val" id="doneCount">0</div><div class="stat-lbl">Chapters Done</div></div>
-  <div class="stat"><div class="stat-val" id="streakVal">0</div><div class="stat-lbl">Day Streak</div></div>
-  <div class="stat"><div class="stat-val" id="todayVal">0m</div><div class="stat-lbl">Studied Today</div></div>
-</div>
-
-<div class="resume-bar" id="resumeBar" hidden>
-  <a class="resume-btn" id="resumeBtn" href="#">
-    ▶ <span><span class="rlabel">Resume:</span> <strong id="resumeTitle"></strong></span>
-  </a>
-</div>
-
-<div class="revision-bar" id="revisionBar" hidden>
-  <div class="revision-head">
-    <span class="revision-title">★ For revision</span>
-    <button class="revision-clear" id="revisionClear" type="button">Clear all</button>
+  <div class="header-right">
+    <button class="hud-pill" type="button" id="resumeBtn" hidden><span>Resume</span><span id="resumeText">Ch 1</span></button>
+    <button class="hud-pill" type="button" id="streakHud"><span class="hud-icon">*</span><span id="streakCount">0 Day</span></button>
   </div>
-  <div class="revision-list" id="revisionList"></div>
+</header>
+<div class="neural-mesh" id="neuralMesh"></div>
+<div class="aura-bleed" id="auraBleed"></div>
+<div class="gateway-core" id="gatewayCore"></div>
+<div class="utility-hub" aria-label="Dashboard utilities">
+  <button class="round-trigger" type="button" data-action="open-search" aria-label="Search chapters"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
+  <button class="round-trigger" type="button" data-action="open-share" aria-label="Share platform"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button>
 </div>
-
-<div class="toolbar">
-  <div class="search-wrap">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    <input id="search" type="search" placeholder="Search chapters… (press /)" aria-label="Search chapters">
-  </div>
-  <div class="filters" id="filters" role="tablist">
-    <button class="filter-btn active" data-subject="all" role="tab" aria-selected="true">All</button>
-    <button class="filter-btn" data-subject="chemistry" role="tab" aria-selected="false">Chemistry</button>
-    <button class="filter-btn" data-subject="biology" role="tab" aria-selected="false">Biology</button>
-    <button class="filter-btn" data-subject="physics" role="tab" aria-selected="false">Physics</button>
-    <button class="filter-btn" data-subject="environment" role="tab" aria-selected="false">Environment</button>
+<div class="cmd-palette" id="sharePalette" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
+  <div class="cmd-box">
+    <div class="modal-title" id="shareTitle">Share Platform</div>
+    <div class="share-grid">
+      <button class="share-tile" type="button" data-share="whatsapp" style="color: #25D366;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.7 14.5c-.3-.2-1.8-.9-2-.9-.3-.1-.5-.2-.7.1-.2.3-.8.9-1 1.1-.2.2-.3.2-.6.1-1.8-.9-3-2-3.8-3.8-.1-.3-.1-.5.1-.6.2-.2.4-.4.5-.6.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6s-.7-1.7-.9-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.2 3.2c.2.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.8.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.3-.3-.6-.4z"></path><path d="M3 21l1.3-4A9 9 0 1 1 8 20.4L3 21z"></path></svg><span>WhatsApp</span></button>
+      <button class="share-tile" type="button" data-share="telegram" style="color: #0088cc;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.7 4.3 18.4 20c-.2.9-.8 1.1-1.6.7l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.3L6.1 13.5 1.3 12c-1-.3-1-1 .2-1.5L20.2 3.3c.9-.3 1.7.2 1.5 1z"></path></svg><span>Telegram</span></button>
+      <button class="share-tile" type="button" data-share="email" style="color: #ea4335;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>Email</span></button>
+      <button class="share-tile" type="button" data-share="system" style="color: #00e5ff;"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg><span>Copy Link</span></button>
+    </div>
   </div>
 </div>
-
-<main id="main"></main>
-
-<p class="empty-state" id="emptyState">No chapters match your search.</p>
-
+<div class="cmd-palette" id="searchPalette" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+  <div class="cmd-box">
+    <div class="modal-title" id="searchTitle">Search Syllabus</div>
+    <input class="cmd-input" id="cmdInput" type="search" placeholder="ਸਿਲੇਬਸ ਖੋਜੋ... Search chapters..." autocomplete="off">
+    <div class="cmd-results" id="cmdResults"></div>
+  </div>
+</div>
+<div class="toast-notify" id="toastNotify">Ready</div>
+<div class="arena-wrapper">
+  <main class="arena arena-idle" id="arena" aria-label="PSEB Class 10 Science syllabus ring">
+    <div class="core-system" id="coreSystem">
+      <div class="core-ring" id="coreRing"></div>
+      <div class="core-mass" id="coreMass"><span class="core-val" id="coreVal">0%</span><span class="core-lbl" id="coreLbl">ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ</span></div>
+    </div>
+    <nav class="dial" id="dial" aria-label="Chapter lecture menu"></nav>
+  </main>
+</div>
 <script src="assets/chapters.js"></script>
 <script>
   const CHAPTERS = window.PSEB_CHAPTERS || [];
-  const SECTIONS = window.PSEB_SECTIONS || [];
-
   const PROGRESS_KEY = "pseb.progress.v1";
-  const THEME_KEY = "pseb.theme.v1";
   const LAST_KEY = "pseb.last.v1";
   const BOOKMARK_KEY = "pseb.bookmarks.v1";
   const STUDY_KEY = "pseb.study.v1";
-
-  const store = {
-    read() { try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; } catch { return {}; } },
-    write(v) { try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(v)); } catch {} }
+  const punjabiTitles = { 1: "ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ ਅਤੇ ਸਮੀਕਰਨ", 2: "ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", 3: "ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", 4: "ਕਾਰਬਨ ਅਤੇ ਇਸਦੇ ਯੋਗਿਕ", 5: "ਤੱਤਾਂ ਦਾ ਆਵਰਤੀ ਵਰਗੀਕਰਣ", 6: "ਜੀਵਨ ਪ੍ਰਕਿਰਿਆਵਾਂ", 7: "ਨਿਯੰਤਰਣ ਅਤੇ ਤਾਲਮੇਲ", 8: "ਜੀਵ ਕਿਵੇਂ ਪ੍ਰਜਨਨ ਕਰਦੇ ਹਨ?", 9: "ਅਨੁਵੰਸ਼ਿਕਤਾ ਅਤੇ ਵਿਕਾਸ", 10: "ਪ੍ਰਕਾਸ਼: ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ", 11: "ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", 12: "ਬਿਜਲੀ", 13: "ਬਿਜਲੀ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", 14: "ਊਰਜਾ ਦੇ ਸੋਮੇ", 15: "ਸਾਡਾ ਵਾਤਾਵਰਣ", 16: "ਕੁਦਰਤੀ ਸਾਧਨਾਂ ਦਾ ਟਿਕਾਊ ਪ੍ਰਬੰਧ" };
+  const subjectType = { chemistry: "chem", biology: "bio", physics: "phy", environment: "env" };
+  const subjectPunjabi = { chem: "ਰਸਾਇਣ", bio: "ਜੀਵ ਵਿਗਿਆਨ", phy: "ਭੌਤਿਕ", env: "ਵਾਤਾਵਰਣ" };
+  const auras = { chem: "#00e5ff", bio: "#2ecc71", phy: "#b026ff", env: "#ffaa00" };
+  const icons = {
+    chem: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"></path><path d="M14 9.3V1.99"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><circle cx="12" cy="16" r="1"></circle></svg>',
+    bio: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-4-4-10 0-14 4 4 4 10 0 14z"></path><path d="M12 22V8"></path></svg>',
+    phy: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M4 12h2"></path><path d="M18 12h2"></path><path d="M12 4v2"></path><path d="M12 18v2"></path><path d="m6.3 6.3 1.4 1.4"></path><path d="m16.3 16.3 1.4 1.4"></path><path d="m17.7 6.3-1.4 1.4"></path><path d="m7.7 16.3-1.4 1.4"></path></svg>',
+    env: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>'
   };
-
-  function readBookmarks() { try { return JSON.parse(localStorage.getItem(BOOKMARK_KEY)) || {}; } catch { return {}; } }
-  function writeBookmarks(b) { try { localStorage.setItem(BOOKMARK_KEY, JSON.stringify(b)); } catch {} }
-  function readStudy() { try { return JSON.parse(localStorage.getItem(STUDY_KEY)) || {}; } catch { return {}; } }
-  function dayKey(d) { const mo = d.getMonth() + 1, da = d.getDate(); return d.getFullYear() + "-" + (mo < 10 ? "0" : "") + mo + "-" + (da < 10 ? "0" : "") + da; }
-  function computeStreak(days) {
-    if (!days) return 0;
-    const d = new Date();
-    if (!days[dayKey(d)]) { d.setDate(d.getDate() - 1); if (!days[dayKey(d)]) return 0; }
-    let streak = 0;
-    while (days[dayKey(d)]) { streak++; d.setDate(d.getDate() - 1); }
-    return streak;
-  }
-  function fmtDuration(sec) {
-    sec = Math.round(sec || 0);
-    const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
-    if (h) return h + "h " + m + "m";
-    if (m) return m + "m";
-    return sec + "s";
-  }
-
-  let progress = store.read();
-  let activeSubject = "all";
-  let query = "";
-
-  const main = document.getElementById("main");
-  const emptyState = document.getElementById("emptyState");
-
-  function pctFor(ch) {
-    const p = progress[ch.n];
-    if (!p) return 0;
-    if (p.done) return 100;
-    if (p.lastSlide && p.total) return Math.round((p.lastSlide / p.total) * 100);
-    return p.visited ? 5 : 0;
-  }
-
-  function statusFor(c) {
-    const p = progress[c.n];
-    if (p && p.done) return "Completed";
-    if (p && p.lastSlide && p.total) return "Slide " + (p.lastSlide + 1) + " / " + p.total;
-    if (p && p.visited) return "Started";
-    return "Not started";
-  }
-
-  function render() {
-    main.innerHTML = "";
-    let anyVisible = false;
-
-    SECTIONS.forEach(sec => {
-      const chaps = CHAPTERS.filter(c =>
-        c.n >= sec.range[0] && c.n <= sec.range[1] &&
-        (activeSubject === "all" || c.subject === activeSubject) &&
-        (query === "" || c.title.toLowerCase().includes(query) || ("chapter " + c.n).includes(query))
-      );
-      if (!chaps.length) return;
-      anyVisible = true;
-
-      const heading = document.createElement("p");
-      heading.className = "section-heading";
-      heading.textContent = "Chapters " + sec.range[0] + (sec.range[0] !== sec.range[1] ? "\u2013" + sec.range[1] : "") + "  " + sec.label;
-      main.appendChild(heading);
-
-      const grid = document.createElement("div");
-      grid.className = "grid";
-      chaps.forEach(c => grid.appendChild(cardFor(c)));
-      main.appendChild(grid);
-    });
-
-    emptyState.classList.toggle("show", !anyVisible);
-    updateStats();
-  }
-
-  function cardFor(c) {
-    if (c.placeholder) {
-      const d = document.createElement("div");
-      d.className = "card placeholder";
-      d.setAttribute("aria-label", "Chapter " + c.n + ": " + c.title + " (coming soon)");
-      d.innerHTML =
-        '<div>' +
-          '<div class="ch-num">Chapter ' + c.n + '</div>' +
-          '<div class="ch-title">' + c.title + '</div>' +
-          '<div class="card-meta"><span class="badge badge-soon">Coming soon</span></div>' +
-        '</div>' +
-        '<div class="card-status"><span class="cs-label">Not yet available</span></div>';
-      return d;
-    }
-    const pct = pctFor(c);
-    const done = progress[c.n] && progress[c.n].done;
-
-    const a = document.createElement("a");
-    a.className = "card" + (done ? " done" : "");
-    a.href = c.file;
-    a.setAttribute("aria-label", "Chapter " + c.n + ": " + c.title + (done ? " (completed)" : ""));
-    a.addEventListener("click", () => {
-      const p = progress[c.n] || {};
-      p.visited = true; p.total = c.slides;
-      progress[c.n] = p; store.write(progress);
-      localStorage.setItem(LAST_KEY, String(c.n));
-    });
-
-    const badges = ['<span class="badge badge-slides">' + c.slides + ' slides</span>'];
-    if (c.math) badges.push('<span class="badge badge-math">MathJax</span>');
-    badges.push('<span class="badge badge-anki">Anki Export</span>');
-
-    a.innerHTML =
-      '<div>' +
-        '<div class="ch-num">Chapter ' + c.n + '</div>' +
-        '<div class="ch-title">' + c.title + '</div>' +
-        '<div class="card-meta">' + badges.join("") + '</div>' +
-      '</div>' +
-      '<div class="card-progress"><span style="width:' + pct + '%"></span></div>' +
-      '<div class="card-status"><span class="cs-label">' + statusFor(c) + '</span><span class="cs-pct">' + pct + '%</span></div>' +
-      '<div class="card-actions">' +
-        '<button class="mark-btn" type="button">' + (done ? "\u2713 Completed" : "Mark done") + '</button>' +
-      '</div>';
-
-    a.querySelector(".mark-btn").addEventListener("click", (e) => {
-      e.preventDefault(); e.stopPropagation();
-      const p = progress[c.n] || {};
-      p.done = !p.done; p.total = c.slides;
-      progress[c.n] = p; store.write(progress);
-      render();
-    });
-
-    return a;
-  }
-
-  function updateStats() {
-    const doneList = CHAPTERS.filter(c => progress[c.n] && progress[c.n].done);
-    document.getElementById("doneCount").textContent = doneList.length;
-
-    const realChaps = CHAPTERS.filter(c => !c.placeholder);
-    const overall = Math.round(realChaps.reduce((s, c) => s + pctFor(c), 0) / realChaps.length);
-    const ring = document.getElementById("ringFill");
-    const circ = 2 * Math.PI * 28;
-    ring.style.strokeDasharray = circ;
-    ring.style.strokeDashoffset = circ * (1 - overall / 100);
-    document.getElementById("ringPct").textContent = overall + "%";
-
-    const days = (readStudy().days) || {};
-    document.getElementById("streakVal").textContent = computeStreak(days);
-    document.getElementById("todayVal").textContent = fmtDuration(days[dayKey(new Date())] || 0);
-  }
-
-  function setupResume() {
-    const lastN = parseInt(localStorage.getItem(LAST_KEY) || "", 10);
-    const ch = CHAPTERS.find(c => c.n === lastN);
-    const bar = document.getElementById("resumeBar");
-    if (!ch) { bar.hidden = true; return; }
-    bar.hidden = false;
-    const btn = document.getElementById("resumeBtn");
-    btn.href = ch.file;
-    document.getElementById("resumeTitle").textContent = "Ch " + ch.n + " \u00b7 " + ch.title;
-  }
-
-  function renderRevision() {
-    const bm = readBookmarks();
-    const bar = document.getElementById("revisionBar");
-    const list = document.getElementById("revisionList");
-    list.innerHTML = "";
-    let count = 0;
-    Object.keys(bm).map(Number).sort((a, b) => a - b).forEach(n => {
-      const ch = CHAPTERS.find(c => c.n === n);
-      if (!ch) return;
-      (bm[n] || []).slice().sort((a, b) => a - b).forEach(idx => {
-        count++;
-        const a = document.createElement("a");
-        a.className = "revision-chip";
-        a.href = ch.file + "#slide=" + (idx + 1);
-        a.title = ch.title + " \u2014 slide " + (idx + 1);
-        const chSpan = document.createElement("span"); chSpan.className = "rc-ch"; chSpan.textContent = "Ch " + n;
-        const tSpan = document.createElement("span"); tSpan.className = "rc-sl"; tSpan.textContent = ch.title;
-        const nSpan = document.createElement("span"); nSpan.className = "rc-num"; nSpan.textContent = "S" + (idx + 1);
-        a.appendChild(chSpan); a.appendChild(tSpan); a.appendChild(nSpan);
-        list.appendChild(a);
-      });
-    });
-    bar.hidden = count === 0;
-  }
-
-  function applyTheme(t) {
-    document.documentElement.setAttribute("data-theme", t);
-    document.getElementById("themeIcon").textContent = t === "light" ? "\u2600\ufe0f" : "\ud83c\udf19";
-    document.getElementById("themeLabel").textContent = t === "light" ? "Light" : "Dark";
-    try { localStorage.setItem(THEME_KEY, t); } catch {}
-  }
-  (function initTheme() {
-    let t = localStorage.getItem(THEME_KEY);
-    if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-    applyTheme(t);
-  })();
-  document.getElementById("themeToggle").addEventListener("click", () => {
-    applyTheme(document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light");
-  });
-
-  document.getElementById("filters").addEventListener("click", (e) => {
-    const btn = e.target.closest(".filter-btn");
-    if (!btn) return;
-    document.querySelectorAll(".filter-btn").forEach(b => { b.classList.remove("active"); b.setAttribute("aria-selected", "false"); });
-    btn.classList.add("active"); btn.setAttribute("aria-selected", "true");
-    activeSubject = btn.dataset.subject;
-    render();
-  });
-
-  const searchEl = document.getElementById("search");
-  searchEl.addEventListener("input", () => { query = searchEl.value.trim().toLowerCase(); render(); });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/" && document.activeElement !== searchEl) { e.preventDefault(); searchEl.focus(); }
-    if (e.key === "Escape" && document.activeElement === searchEl) { searchEl.value = ""; query = ""; render(); searchEl.blur(); }
-  });
-
-  document.getElementById("revisionClear").addEventListener("click", () => {
-    writeBookmarks({});
-    renderRevision();
-  });
-
-  setupResume();
-  renderRevision();
-  render();
+  const dial = document.getElementById("dial");
+  const arena = document.getElementById("arena");
+  const coreVal = document.getElementById("coreVal");
+  const coreLbl = document.getElementById("coreLbl");
+  const coreMass = document.getElementById("coreMass");
+  const coreRing = document.getElementById("coreRing");
+  const gatewayCore = document.getElementById("gatewayCore");
+  const neuralMesh = document.getElementById("neuralMesh");
+  const ariaAnnouncer = document.getElementById("ariaAnnouncer");
+  const sharePalette = document.getElementById("sharePalette");
+  const searchPalette = document.getElementById("searchPalette");
+  const cmdInput = document.getElementById("cmdInput");
+  const cmdResults = document.getElementById("cmdResults");
+  const toastEl = document.getElementById("toastNotify");
+  const resumeBtn = document.getElementById("resumeBtn");
+  const resumeText = document.getElementById("resumeText");
+  const streakCount = document.getElementById("streakCount");
+  let isLocked = false, currentAngle = 0, targetAngle = 0, isDragging = false, velocity = 0, lastX = 0, lastTickIdx = -1, isLooping = false, currentDomain = "PSEB", currentSubject = "SCI", isPlaceholderView = false, toastTimer = null, audioCtx = null;
+  const syllabus = CHAPTERS.map(ch => ({ id: ch.n, en: ch.title, pa: punjabiTitles[ch.n] || ch.title, type: subjectType[ch.subject] || "chem", slides: ch.slides || 0, file: ch.file || "", math: !!ch.math, placeholder: !!ch.placeholder }));
+  const degreePerNode = syllabus.length ? 360 / syllabus.length : 360;
+  function readJson(key) { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; } }
+  function writeJson(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {} }
+  function readProgress() { return readJson(PROGRESS_KEY); }
+  function writeProgress(progress) { writeJson(PROGRESS_KEY, progress); }
+  function readBookmarks() { return readJson(BOOKMARK_KEY); }
+  function readStudy() { return readJson(STUDY_KEY); }
+  function dayKey(d) { const mo = d.getMonth() + 1; const da = d.getDate(); return d.getFullYear() + "-" + (mo < 10 ? "0" : "") + mo + "-" + (da < 10 ? "0" : "") + da; }
+  function computeStreak(days) { if (!days) return 0; const d = new Date(); if (!days[dayKey(d)]) { d.setDate(d.getDate() - 1); if (!days[dayKey(d)]) return 0; } let streak = 0; while (days[dayKey(d)]) { streak++; d.setDate(d.getDate() - 1); } return streak; }
+  function pctFor(ch) { if (ch.placeholder) return 0; const p = readProgress()[ch.id]; if (!p) return 0; if (p.done) return 100; if (typeof p.lastSlide === "number" && (p.total || ch.slides)) return Math.max(1, Math.min(99, Math.round(((p.lastSlide + 1) / (p.total || ch.slides)) * 100))); return p.visited ? 5 : 0; }
+  function statusFor(ch) { if (ch.placeholder) return "Coming soon"; const p = readProgress()[ch.id]; if (p && p.done) return "Completed"; if (p && typeof p.lastSlide === "number") return "Slide " + (p.lastSlide + 1) + " / " + (p.total || ch.slides); if (p && p.visited) return "Started"; return "Not started"; }
+  function isBookmarked(chapterId) { const b = readBookmarks(); return Array.isArray(b[chapterId]) && b[chapterId].length > 0; }
+  function setVisited(ch) { if (ch.placeholder) return; const progress = readProgress(); const p = progress[ch.id] || {}; p.visited = true; p.total = ch.slides; progress[ch.id] = p; writeProgress(progress); try { localStorage.setItem(LAST_KEY, String(ch.id)); } catch (e) {} }
+  function actionText(ch) { if (ch.placeholder) return "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ"; const pct = pctFor(ch); if (pct === 100) return "ਦੁਹਰਾਈ ਕਰੋ"; if (pct > 0) return "ਮੁੜ-ਸ਼ੁਰੂ ਕਰੋ " + pct + "%"; return "ਲੈਕਚਰ ਸ਼ੁਰੂ ਕਰੋ"; }
+  function initAudio() { try { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); if (audioCtx.state === "suspended") audioCtx.resume(); } catch (e) {} }
+  function playTick(vol, freq) { if (!audioCtx) return; try { const osc = audioCtx.createOscillator(); const gainNode = audioCtx.createGain(); osc.type = "sine"; osc.frequency.setValueAtTime(freq || 150, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1); gainNode.gain.setValueAtTime(vol || 0.15, audioCtx.currentTime); gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); osc.connect(gainNode); gainNode.connect(audioCtx.destination); osc.start(); osc.stop(audioCtx.currentTime + 0.1); } catch (e) {} }
+  function showToast(msg) { toastEl.textContent = msg; toastEl.classList.add("show"); ariaAnnouncer.textContent = msg; if (toastTimer) clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2600); }
+  function createBurst(x, y, color) { for (let i = 0; i < 12; i++) { const particle = document.createElement("div"); particle.className = "particle"; particle.style.background = color; particle.style.left = x + "px"; particle.style.top = y + "px"; document.body.appendChild(particle); const angle = Math.random() * Math.PI * 2; const speed = 20 + Math.random() * 40; const tx = Math.cos(angle) * speed; const ty = Math.sin(angle) * speed; particle.animate([{ transform: "translate(0, 0) scale(1.5)", opacity: 1 }, { transform: "translate(" + tx + "px, " + ty + "px) scale(0)", opacity: 0 }], { duration: 650 + Math.random() * 350, easing: "cubic-bezier(0.16, 1, 0.3, 1)" }); setTimeout(() => particle.remove(), 1050); } }
+  function toggleComplete(ch, sourceEvent) { if (ch.placeholder) { showToast("ਇਹ ਅਧਿਆਇ ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ। (Chapter coming soon)"); return; } const progress = readProgress(); const p = progress[ch.id] || {}; p.visited = true; p.total = ch.slides; p.done = !p.done; if (p.done) p.lastSlide = Math.max(0, ch.slides - 1); progress[ch.id] = p; writeProgress(progress); if (p.done && sourceEvent) createBurst(sourceEvent.clientX || window.innerWidth / 2, sourceEvent.clientY || window.innerHeight / 2, auras[ch.type]); syncProgressUI(ch); updateGlobalSync(); if (isLocked && syllabus[getActiveIndex()].id === ch.id) lockCore(getActiveIndex(), true); showToast(p.done ? "ਪੂਰਾ ਨਿਸ਼ਾਨ ਲੱਗ ਗਿਆ। (Marked complete)" : "ਪੂਰਾ ਨਿਸ਼ਾਨ ਹਟਾ ਦਿੱਤਾ। (Completion removed)"); }
+  function syncProgressUI(ch) { const pct = pctFor(ch); const container = document.getElementById("prog-" + ch.id); const fill = document.getElementById("fill-" + ch.id); const text = document.getElementById("text-" + ch.id); const status = document.getElementById("status-" + ch.id); const action = document.getElementById("action-" + ch.id); if (container) container.classList.toggle("done", pct === 100); if (fill) fill.style.strokeDashoffset = String(100 - pct); if (text) text.textContent = pct === 100 ? "✓" : pct + "%"; if (status) status.textContent = statusFor(ch); if (action) action.textContent = actionText(ch); }
+  function openLecture(ch, sourceEvent) { if (ch.placeholder || !ch.file) { showToast("ਇਹ ਲੈਕਚਰ ਜਲਦੀ ਜੋੜਿਆ ਜਾਵੇਗਾ। (Lecture coming soon)"); return; } setVisited(ch); gatewayCore.style.background = auras[ch.type]; document.body.classList.add("gateway-active"); playTick(0.5, 600); setTimeout(() => { window.location.href = ch.file; }, sourceEvent ? 520 : 0); }
+  function updateResume() { const lastN = parseInt(localStorage.getItem(LAST_KEY) || "", 10); const ch = syllabus.find(c => c.id === lastN && !c.placeholder); if (!ch) { resumeBtn.hidden = true; return; } resumeBtn.hidden = false; resumeText.textContent = "Ch " + ch.id; resumeBtn.onclick = () => openLecture(ch, null); }
+  function updateStudyHud() { const days = readStudy().days || {}; const streak = computeStreak(days); streakCount.textContent = streak + (streak === 1 ? " Day" : " Days"); }
+  function updateGlobalSync() { if (isPlaceholderView || !syllabus.length) return; const real = syllabus.filter(c => !c.placeholder); const total = real.reduce((sum, ch) => sum + pctFor(ch), 0); const overall = real.length ? Math.round(total / real.length) : 0; if (!isLocked) coreVal.textContent = overall + "%"; updateResume(); updateStudyHud(); }
+  function initDial() { dial.innerHTML = ""; let savedIdx = parseInt(localStorage.getItem("bolo_pseb_idx") || "0", 10); if (isNaN(savedIdx) || savedIdx >= syllabus.length) savedIdx = 0; syllabus.forEach((chap, index) => { const angle = index * degreePerNode; const color = auras[chap.type] || "#ffffff"; const pct = pctFor(chap); const isDone = pct === 100; const bookmarked = isBookmarked(chap.id); const anchor = document.createElement("article"); anchor.className = "node-anchor shard-anchor"; anchor.id = "shard-anchor-" + index; anchor.style.transform = "rotate(" + angle + "deg) translateY(calc(var(--radius) * -1))"; anchor.style.color = color; const shard = document.createElement("div"); shard.className = "shard"; shard.innerHTML = '<div class="s-head"><div class="s-titles" data-node-select="' + index + '"><div class="ch-icon">' + icons[chap.type] + '</div><div class="ch-num">' + String(chap.id).padStart(2, "0") + '</div><div class="title-group"><span class="pa-title">' + chap.pa + '</span><span class="en-title">' + chap.en + '</span></div></div><button class="svg-progress-container ' + (isDone ? "done " : "") + (chap.placeholder ? "locked" : "") + '" id="prog-' + chap.id + '" type="button" data-node-progress="' + chap.id + '" title="Mark complete" aria-label="Mark Chapter ' + chap.id + ' complete"><svg class="prog-ring" viewBox="0 0 36 36"><circle class="bg" cx="18" cy="18" r="16"></circle><circle class="fill" id="fill-' + chap.id + '" cx="18" cy="18" r="16" stroke-dashoffset="' + (100 - pct) + '"></circle></svg><span class="prog-text" id="text-' + chap.id + '">' + (isDone ? "✓" : pct + "%") + '</span></button></div><div class="s-expansion"><div class="s-expansion-inner"><div class="rune-row"><span class="rune">' + (chap.slides || 0) + ' Slides</span><span class="rune">' + subjectPunjabi[chap.type] + '</span>' + (chap.math ? '<span class="rune">MathJax</span>' : '') + (bookmarked ? '<span class="rune">Revision ★</span>' : '') + (chap.placeholder ? '<span class="rune soon">Coming soon</span>' : '') + '<span class="rune" id="status-' + chap.id + '">' + statusFor(chap) + '</span></div><div class="action-row"><button class="btn-prime" type="button" data-open-lecture="' + index + '" ' + (chap.placeholder ? 'aria-disabled="true"' : '') + '><span id="action-' + chap.id + '">' + actionText(chap) + '</span><span>▶</span></button><button class="btn-video" type="button" data-video-placeholder="' + index + '" title="Video lecture placeholder" aria-label="Video lecture placeholder">▣</button></div></div></div>'; anchor.appendChild(shard); const mirrorAnchor = document.createElement("article"); mirrorAnchor.className = "node-anchor mirror-anchor"; mirrorAnchor.id = "mirror-anchor-" + index; mirrorAnchor.style.transform = "rotate(" + angle + "deg) translateY(calc(var(--radius) * 1.05))"; mirrorAnchor.style.color = color; const mirror = document.createElement("div"); mirror.className = "lecture-mirror"; mirror.setAttribute("data-node-select", index); mirror.innerHTML = '<div class="mirror-icon"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div><div class="mirror-text-container"><span class="mirror-label">ਵੀਡੀਓ ਲੈਕਚਰ (Placeholder)</span><span class="mirror-title">' + chap.pa + '</span></div>'; mirrorAnchor.appendChild(mirror); dial.appendChild(anchor); dial.appendChild(mirrorAnchor); }); targetAngle = -savedIdx * degreePerNode; velocity = 0; resetCore(false); wakePhysicsLoop(); }
+  function setTrustTitle(title) { const el = document.getElementById("trustPrimary"); el.style.opacity = 0; setTimeout(() => { el.textContent = title; el.style.opacity = 1; }, 200); }
+  function setPlaceholderView(title, message) { isPlaceholderView = true; isLocked = false; dial.innerHTML = ""; coreRing.style.opacity = "0.02"; coreVal.textContent = "LOCK"; coreVal.style.color = "var(--text-dim)"; coreVal.style.textShadow = "none"; coreVal.style.transform = "scale(.88)"; coreLbl.textContent = "COMING SOON"; coreLbl.style.color = "var(--text-dim)"; coreMass.style.borderColor = "rgba(255,255,255,0.02)"; coreMass.style.boxShadow = "inset 0 2px 10px rgba(255,255,255,0.01), inset 0 -10px 40px rgba(0,0,0,0.8)"; setTrustTitle(title); showToast(message); }
+  function setView(domain, subject) { currentDomain = domain; if (subject) currentSubject = subject; document.querySelectorAll("[data-domain]").forEach(btn => btn.classList.toggle("active", btn.dataset.domain === currentDomain)); document.querySelectorAll("[data-subject]").forEach(btn => btn.classList.toggle("active", btn.dataset.subject === currentSubject)); document.getElementById("subjectRouter").style.display = currentDomain === "IM" ? "none" : "flex"; arena.classList.add("fade-out"); setTimeout(() => { if (currentDomain === "IM") setPlaceholderView("Internal Medicine", "Internal Medicine modules are placeholders for future content."); else if (currentSubject === "MATH") setPlaceholderView("PSEB 10th Math", "PSEB Math modules are placeholders for future content."); else { isPlaceholderView = false; setTrustTitle("PSEB 10th Science"); initDial(); } arena.classList.remove("fade-out"); }, 360); }
+  function getActiveIndex() { const normalized = ((targetAngle % 360) + 360) % 360; return (syllabus.length - Math.round(normalized / degreePerNode)) % syllabus.length; }
+  function wakePhysicsLoop() { if (!isLooping && !isPlaceholderView && syllabus.length) { isLooping = true; requestAnimationFrame(renderPhysics); } }
+  function renderPhysics() { if (isPlaceholderView || dial.innerHTML === "") { isLooping = false; return; } let needsMoreFrames = false; if (!isDragging) { targetAngle += velocity; velocity *= 0.92; if (Math.abs(velocity) < 0.005) velocity = 0; else needsMoreFrames = true; const closestSnap = Math.round(targetAngle / degreePerNode) * degreePerNode; const snapDiff = closestSnap - targetAngle; if (Math.abs(snapDiff) > 0.005) { targetAngle += snapDiff * 0.15; needsMoreFrames = true; } else if (velocity === 0) targetAngle = closestSnap; } else needsMoreFrames = true; const angleDiff = targetAngle - currentAngle; if (Math.abs(angleDiff) > 0.005) { currentAngle += angleDiff * 0.2; needsMoreFrames = true; } else currentAngle = targetAngle; dial.style.transform = "rotate(" + currentAngle + "deg)"; const tilt = Math.max(-10, Math.min(10, velocity * 1.2)); arena.style.transform = "rotateY(" + (-tilt) + "deg) rotateX(" + (Math.abs(tilt) / 4) + "deg)"; const activeIdx = getActiveIndex(); for (let i = 0; i < syllabus.length; i++) { const nodeAngle = i * degreePerNode; const counterRot = String(-(nodeAngle + currentAngle)) + "deg"; let distRaw = Math.abs(((nodeAngle + currentAngle) % 360 + 360) % 360); if (distRaw > 180) distRaw = 360 - distRaw; const easeDepth = Math.pow(Math.min(Math.max(0, distRaw - 15) / 75, 1), 1.4); const sAnchor = document.getElementById("shard-anchor-" + i); const mAnchor = document.getElementById("mirror-anchor-" + i); if (!sAnchor || !mAnchor) continue; const shard = sAnchor.querySelector(".shard"); const mirror = mAnchor.querySelector(".lecture-mirror"); shard.style.setProperty("--shard-rot", counterRot); mirror.style.setProperty("--node-rot", counterRot); if (!isLocked) { const scale = 1 - easeDepth * 0.4; const opacity = 1 - easeDepth * 0.9; const blur = easeDepth * 12; const zIndex = Math.round((1 - easeDepth) * 100); sAnchor.style.opacity = opacity; sAnchor.style.filter = "blur(" + blur + "px)"; sAnchor.style.zIndex = zIndex; shard.style.setProperty("--shard-scale", scale); mAnchor.style.opacity = opacity; mAnchor.style.filter = "blur(" + blur + "px)"; mAnchor.style.zIndex = zIndex; mirror.style.setProperty("--node-scale", scale); const dist = Math.min(Math.abs(i - activeIdx), syllabus.length - Math.abs(i - activeIdx)); [sAnchor, mAnchor].forEach(node => node.classList.toggle("is-targeted", dist === 0)); } } if (activeIdx !== lastTickIdx && !isLocked) { if (Math.abs(targetAngle - currentAngle) > 1.5 && lastTickIdx !== -1) playTick(0.08 + Math.abs(velocity) / 120, 170); lastTickIdx = activeIdx; try { localStorage.setItem("bolo_pseb_idx", String(activeIdx)); } catch (e) {} } if (needsMoreFrames || isDragging || isLocked) requestAnimationFrame(renderPhysics); else isLooping = false; }
+  function handleNodeAction(index) { if (isPlaceholderView || !syllabus[index]) return; const active = document.getElementById("shard-anchor-" + index); if (isLocked && active && active.classList.contains("is-active")) resetCore(true); else lockCore(index, false); }
+  function lockCore(index, silent) { isLocked = true; targetAngle = -index * degreePerNode; velocity = 0; const chap = syllabus[index]; const color = auras[chap.type] || "#ffffff"; const pct = pctFor(chap); arena.classList.replace("arena-idle", "arena-locked"); arena.style.transform = "rotateY(0deg) rotateX(0deg)"; document.querySelectorAll(".node-anchor").forEach(a => { a.classList.remove("is-active"); a.style.opacity = ""; a.style.filter = ""; }); document.getElementById("shard-anchor-" + index).classList.add("is-active"); document.getElementById("mirror-anchor-" + index).classList.add("is-active"); coreRing.style.background = "conic-gradient(from 0deg, transparent 50%, " + color + "40 80%, " + color + " 100%)"; coreRing.style.opacity = "1"; coreRing.style.animationDuration = "2s"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + color + "30 0%, var(--bg-void) 80%)"; coreMass.style.borderColor = color; coreMass.style.boxShadow = "0 0 100px " + color + "70, inset 0 2px 15px rgba(255,255,255,0.05), inset 0 -10px 40px rgba(0,0,0,0.9)"; coreVal.textContent = chap.placeholder ? "SOON" : pct + "%"; coreVal.style.color = color; coreVal.style.textShadow = "0 0 30px " + color; coreVal.style.transform = "scale(1.1)"; coreLbl.textContent = chap.placeholder ? "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ" : "ਲੈਕਚਰ ਚੁਣੋ"; coreLbl.style.color = color; ariaAnnouncer.textContent = "Chapter " + chap.id + ": " + chap.en; if (!silent) playTick(0.25, 300); wakePhysicsLoop(); }
+  function resetCore(makeSound) { isLocked = false; if (makeSound) playTick(0.1, 100); arena.classList.replace("arena-locked", "arena-idle"); document.querySelectorAll(".node-anchor.is-active").forEach(a => a.classList.remove("is-active")); coreRing.style.background = "conic-gradient(from 0deg, transparent 60%, rgba(255,255,255,0.05) 80%, rgba(255,255,255,0.6) 100%)"; coreRing.style.opacity = "0.08"; coreRing.style.animationDuration = "4s"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, transparent 0%, var(--bg-void) 65%)"; coreMass.style.borderColor = "rgba(255,255,255,0.06)"; coreMass.style.boxShadow = "0 0 50px rgba(0,0,0,0.9), inset 0 2px 10px rgba(255,255,255,0.03), inset 0 -10px 40px rgba(0,0,0,0.8)"; coreVal.style.color = "var(--text-bold)"; coreVal.style.textShadow = "0 0 20px rgba(255,255,255,0.1)"; coreVal.style.transform = "scale(1)"; coreLbl.textContent = "ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ"; coreLbl.style.color = "var(--text-dim)"; updateGlobalSync(); wakePhysicsLoop(); }
+  function openSearchPalette() { renderSearchResults(""); searchPalette.classList.add("is-open"); setTimeout(() => cmdInput.focus(), 40); }
+  function closePalettes() { sharePalette.classList.remove("is-open"); searchPalette.classList.remove("is-open"); cmdInput.blur(); }
+  function renderSearchResults(query) { const q = (query || "").trim().toLowerCase(); cmdResults.innerHTML = ""; const matches = syllabus.filter(ch => !q || ch.en.toLowerCase().includes(q) || ch.pa.includes(q) || String(ch.id) === q || ("chapter " + ch.id).includes(q)); matches.forEach(ch => { const btn = document.createElement("button"); btn.type = "button"; btn.className = "cmd-result"; btn.style.color = auras[ch.type]; btn.innerHTML = '<span class="cmd-result-title"><strong>' + ch.pa + '</strong><span>Chapter ' + ch.id + ' · ' + ch.en + '</span></span><span class="cmd-result-meta">' + (ch.placeholder ? 'Soon' : pctFor(ch) + '%') + '</span>'; btn.addEventListener("click", () => { closePalettes(); const idx = syllabus.findIndex(item => item.id === ch.id); targetAngle = -idx * degreePerNode; lockCore(idx, false); }); cmdResults.appendChild(btn); }); if (!matches.length) { const empty = document.createElement("div"); empty.className = "cmd-result"; empty.textContent = "No matching chapters."; cmdResults.appendChild(empty); } }
+  function executeShare(platform) { const appUrl = window.location.href.split("#")[0]; const shareText = "PSEB Class 10 Science lecture deck by BOLO.INSTINCT."; if (platform === "whatsapp") window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(shareText + "\n\n" + appUrl), "_blank"); else if (platform === "telegram") window.open("https://t.me/share/url?url=" + encodeURIComponent(appUrl) + "&text=" + encodeURIComponent(shareText), "_blank"); else if (platform === "email") window.open("mailto:?subject=" + encodeURIComponent("BOLO.INSTINCT PSEB Science") + "&body=" + encodeURIComponent(shareText + "\n\n" + appUrl), "_self"); else if (navigator.share) navigator.share({ title: "BOLO.INSTINCT", text: shareText, url: appUrl }).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(appUrl).then(() => showToast("ਸਿਲੇਬਸ ਲਿੰਕ ਕਾਪੀ ਹੋ ਗਿਆ ਹੈ! (Link copied)")); else showToast(appUrl); closePalettes(); }
+  function handleDragStart(x) { if (isLocked || isPlaceholderView) return; initAudio(); isDragging = true; lastX = x; velocity = 0; wakePhysicsLoop(); }
+  function handleDragMove(e) { if (!isDragging || isLocked || isPlaceholderView) return; const currentClientX = e.touches ? e.touches[0].clientX : e.clientX; const delta = currentClientX - lastX; const sensitivity = window.innerWidth < 768 ? 1.4 : 0.8; targetAngle += delta * 0.4 * sensitivity; velocity = delta * 0.7 * sensitivity; lastX = currentClientX; wakePhysicsLoop(); }
+  function handleDragEnd() { isDragging = false; wakePhysicsLoop(); }
+  document.body.addEventListener("click", e => { initAudio(); const actionBtn = e.target.closest("[data-action]"); if (actionBtn) { if (actionBtn.dataset.action === "open-share") sharePalette.classList.add("is-open"); if (actionBtn.dataset.action === "open-search") openSearchPalette(); return; } const domainSwitch = e.target.closest("[data-domain]"); if (domainSwitch) { setView(domainSwitch.dataset.domain, currentSubject); return; } const subjectSwitch = e.target.closest("[data-subject]"); if (subjectSwitch) { setView(currentDomain, subjectSwitch.dataset.subject); return; } const shareTile = e.target.closest("[data-share]"); if (shareTile) { executeShare(shareTile.dataset.share); return; } if (e.target === sharePalette || e.target === searchPalette) { closePalettes(); return; } const progressTarget = e.target.closest("[data-node-progress]"); if (progressTarget) { const ch = syllabus.find(item => item.id === parseInt(progressTarget.dataset.nodeProgress, 10)); if (ch) toggleComplete(ch, e); return; } const videoTarget = e.target.closest("[data-video-placeholder]"); if (videoTarget) { showToast("ਵੀਡੀਓ ਲੈਕਚਰ ਪਲੇਸਹੋਲਡਰ ਹੈ। (Video lecture placeholder)"); return; } const lectureTarget = e.target.closest("[data-open-lecture]"); if (lectureTarget) { const ch = syllabus[parseInt(lectureTarget.dataset.openLecture, 10)]; if (ch) openLecture(ch, e); return; } const nodeSelect = e.target.closest("[data-node-select]"); if (nodeSelect) { handleNodeAction(parseInt(nodeSelect.dataset.nodeSelect, 10)); return; } if (isLocked && e.target === arena && !isPlaceholderView) resetCore(true); });
+  document.getElementById("homeReset").addEventListener("click", () => resetCore(true));
+  document.getElementById("streakHud").addEventListener("click", () => showToast("Study streak updates from time spent inside chapter lectures."));
+  cmdInput.addEventListener("input", () => renderSearchResults(cmdInput.value));
+  cmdInput.addEventListener("keydown", e => { if (e.key === "Enter") { const first = cmdResults.querySelector(".cmd-result"); if (first) first.click(); } });
+  arena.addEventListener("mousedown", e => handleDragStart(e.clientX));
+  window.addEventListener("mousemove", e => { if (isDragging) { e.preventDefault(); handleDragMove(e); } });
+  window.addEventListener("mouseup", handleDragEnd);
+  arena.addEventListener("touchstart", e => handleDragStart(e.touches[0].clientX), { passive: false });
+  arena.addEventListener("touchmove", e => { if (isDragging) { e.preventDefault(); handleDragMove(e); } }, { passive: false });
+  window.addEventListener("touchend", handleDragEnd);
+  window.addEventListener("mousemove", e => { const x = (e.clientX / window.innerWidth - 0.5) * 20; const y = (e.clientY / window.innerHeight - 0.5) * 20; neuralMesh.style.transform = "translate(" + x + "px, " + y + "px)"; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") { closePalettes(); if (isLocked) resetCore(true); } if (e.key === "/" && !searchPalette.classList.contains("is-open")) { e.preventDefault(); openSearchPalette(); } if (e.target === cmdInput) return; if (!isLocked && !isPlaceholderView) { if (e.key === "ArrowRight") { initAudio(); targetAngle -= degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "ArrowLeft") { initAudio(); targetAngle += degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "Enter") handleNodeAction(getActiveIndex()); } });
+  window.addEventListener("resize", wakePhysicsLoop);
+  initDial();
+  updateResume();
+  updateStudyHud();
 </script>
 </body>
 </html>
