@@ -15,6 +15,29 @@
   var LAST_KEY = "pseb.last.v1";
   var BOOKMARK_KEY = "pseb.bookmarks.v1";
   var STUDY_KEY = "pseb.study.v1";
+  var FONTSCALE_KEY = "pseb.fontscale.v1";
+
+  var FS_MIN = 60, FS_MAX = 140, FS_STEP = 10, FS_DEFAULT = 100;
+
+  function clampScale(v) {
+    v = Math.round(v / FS_STEP) * FS_STEP;
+    if (v < FS_MIN) v = FS_MIN;
+    if (v > FS_MAX) v = FS_MAX;
+    return v;
+  }
+  function getScale() {
+    var v = parseInt(localStorage.getItem(FONTSCALE_KEY), 10);
+    if (isNaN(v)) return FS_DEFAULT;
+    return clampScale(v);
+  }
+  function applyRootScale(v) {
+    // Content typography is rem-based, so scaling the root font-size
+    // proportionally resizes all slide text (including mobile media queries),
+    // while enhancement chrome is pinned in px so controls stay fixed.
+    document.documentElement.style.fontSize = v === FS_DEFAULT ? "" : v + "%";
+  }
+  // Apply the saved scale as early as possible to avoid any flash of unscaled text.
+  applyRootScale(getScale());
 
   var m = /Chapter\s+(\d+)/i.exec(document.title || "");
   var CH = m ? parseInt(m[1], 10) : null;
@@ -177,8 +200,19 @@
     var style = document.createElement("style");
     style.textContent =
       ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:1200}" +
-      ".pseb-tools button{width:40px;height:40px;border:none;border-radius:8px;background:rgba(0,71,187,.85);color:#fff;font-size:1.2rem;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:background .2s,transform .15s}" +
+      ".pseb-tools button{width:40px;height:40px;border:none;border-radius:8px;background:rgba(0,71,187,.85);color:#fff;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:background .2s,transform .15s}" +
       ".pseb-tools button:hover{background:#FF5C00;transform:translateY(-2px)}" +
+      ".pseb-tools button#pseb-font{font-size:17px;font-weight:800;font-family:'Segoe UI',system-ui,sans-serif}" +
+      ".pseb-font-pop{position:fixed;top:64px;right:15px;z-index:1250;background:#fff;color:#1e293b;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.28);padding:12px;display:none;flex-direction:column;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;width:210px}" +
+      ".pseb-font-pop.show{display:flex}" +
+      ".pseb-font-pop .row{display:flex;align-items:center;gap:8px}" +
+      ".pseb-font-pop .step{flex:none;width:46px;height:46px;border:none;border-radius:10px;background:#0047BB;color:#fff;font-size:22px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:background .15s}" +
+      ".pseb-font-pop .step:hover{background:#FF5C00}" +
+      ".pseb-font-pop .step:disabled{opacity:.4;cursor:default;background:#94a3b8}" +
+      ".pseb-font-pop .val{flex:1;text-align:center;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}" +
+      ".pseb-font-pop .lbl{font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.5px;text-align:center}" +
+      ".pseb-font-pop .reset{border:none;background:#f1f5f9;color:#0047BB;font-weight:700;font-size:13px;padding:8px;border-radius:8px;cursor:pointer}" +
+      ".pseb-font-pop .reset:hover{background:#e0e7ff}" +
       ".pseb-help-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.6);display:none;align-items:center;justify-content:center;z-index:1300}" +
       ".pseb-help-backdrop.show{display:flex}" +
       ".pseb-help{background:#fff;color:#333;max-width:420px;width:90%;border-radius:12px;padding:28px 30px;box-shadow:0 20px 50px rgba(0,0,0,.35);font-family:'Segoe UI',system-ui,sans-serif}" +
@@ -208,12 +242,13 @@
       ".pseb-timer button:hover{background:rgba(255,255,255,.3)}" +
       ".pseb-tools button.pseb-bm-on{background:#FF5C00}" +
       ".pseb-outline-star{margin-left:auto;color:#FF5C00;font-size:1rem;flex:none}" +
-      ".pseb-toast{position:fixed;bottom:66px;left:50%;transform:translateX(-50%) translateY(10px);background:rgba(15,23,42,.95);color:#fff;padding:10px 18px;border-radius:10px;font-family:'Segoe UI',system-ui,sans-serif;font-size:.9rem;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:1400}" +
+      ".pseb-toast{position:fixed;bottom:66px;left:50%;transform:translateX(-50%) translateY(10px);background:rgba(15,23,42,.95);color:#fff;padding:10px 18px;border-radius:10px;font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:1400}" +
       ".pseb-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}" +
       ".pseb-recall-on .content-box{filter:blur(7px);cursor:pointer;transition:filter .2s;-webkit-user-select:none;user-select:none}" +
       ".pseb-recall-on .content-box.pseb-revealed{filter:none;-webkit-user-select:auto;user-select:auto}" +
-      ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:.8rem;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
-      ".pseb-recall-on .pseb-recall-hint{display:block}";
+      ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
+      ".pseb-recall-on .pseb-recall-hint{display:block}" +
+      "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}}";
     document.head.appendChild(style);
 
     var tools = document.createElement("div");
@@ -225,8 +260,57 @@
       '<button type="button" id="pseb-print" title="Print / save as PDF (P)" aria-label="Print or save as PDF">\u2399</button>' +
       '<button type="button" id="pseb-timer-btn" title="Presenter timer (T)" aria-label="Presenter timer">\u23F1</button>' +
       '<button type="button" id="pseb-fs" title="Fullscreen (F)" aria-label="Toggle fullscreen">\u26F6</button>' +
+      '<button type="button" id="pseb-font" title="Text size (\u2212 / +)" aria-label="Text size">A</button>' +
       '<button type="button" id="pseb-help-btn" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>';
     document.body.appendChild(tools);
+
+    var fontPop = document.createElement("div");
+    fontPop.className = "pseb-font-pop";
+    fontPop.setAttribute("role", "dialog");
+    fontPop.setAttribute("aria-label", "Text size");
+    fontPop.innerHTML =
+      '<div class="lbl">Text size</div>' +
+      '<div class="row">' +
+        '<button type="button" class="step" id="pseb-font-dec" aria-label="Smaller text">\u2212</button>' +
+        '<div class="val" id="pseb-font-val">100%</div>' +
+        '<button type="button" class="step" id="pseb-font-inc" aria-label="Larger text">+</button>' +
+      '</div>' +
+      '<button type="button" class="reset" id="pseb-font-reset">Reset to 100%</button>';
+    document.body.appendChild(fontPop);
+
+    var fontValEl = fontPop.querySelector("#pseb-font-val");
+    var fontDecEl = fontPop.querySelector("#pseb-font-dec");
+    var fontIncEl = fontPop.querySelector("#pseb-font-inc");
+
+    function refreshFontUI() {
+      var v = getScale();
+      if (fontValEl) fontValEl.textContent = v + "%";
+      if (fontDecEl) fontDecEl.disabled = v <= FS_MIN;
+      if (fontIncEl) fontIncEl.disabled = v >= FS_MAX;
+    }
+    function setScale(v, announce) {
+      v = clampScale(v);
+      try { localStorage.setItem(FONTSCALE_KEY, String(v)); } catch (e) {}
+      applyRootScale(v);
+      refreshFontUI();
+      if (announce) toast("Text size " + v + "%");
+    }
+    function showFontPop(v) {
+      var open = v == null ? !fontPop.classList.contains("show") : v;
+      fontPop.classList.toggle("show", open);
+      if (open) refreshFontUI();
+    }
+    window.__psebSetScale = setScale;
+    window.__psebRefreshFontUI = refreshFontUI;
+
+    document.getElementById("pseb-font").addEventListener("click", function (e) { e.stopPropagation(); showFontPop(); });
+    fontDecEl.addEventListener("click", function () { setScale(getScale() - FS_STEP, true); });
+    fontIncEl.addEventListener("click", function () { setScale(getScale() + FS_STEP, true); });
+    fontPop.querySelector("#pseb-font-reset").addEventListener("click", function () { setScale(FS_DEFAULT, true); });
+    fontPop.addEventListener("click", function (e) { e.stopPropagation(); });
+    document.addEventListener("click", function () { fontPop.classList.remove("show"); });
+    window.__psebFontPopClose = function () { fontPop.classList.remove("show"); };
+    refreshFontUI();
 
     var back = document.createElement("div");
     back.className = "pseb-help-backdrop";
@@ -245,6 +329,8 @@
           '<dt>P</dt><dd>Print / save as PDF</dd>' +
           '<dt>T</dt><dd>Presenter timer</dd>' +
           '<dt>F</dt><dd>Toggle fullscreen</dd>' +
+          '<dt>\u2212 / +</dt><dd>Smaller / larger text</dd>' +
+          '<dt>0</dt><dd>Reset text size</dd>' +
           '<dt>?</dt><dd>Show this help</dd>' +
           '<dt>Esc</dt><dd>Close dialogs</dd>' +
         '</dl>' +
@@ -458,8 +544,11 @@
       var tag = document.activeElement ? document.activeElement.tagName : "";
       if (tag === "INPUT" || tag === "TEXTAREA") return;
       if (e.key === "?" || (e.key === "/" && e.shiftKey)) { e.preventDefault(); if (window.__psebShowHelp) window.__psebShowHelp(true); }
-      else if (e.key === "Escape") { if (window.__psebShowHelp) window.__psebShowHelp(false); if (window.__psebOutlineShow) window.__psebOutlineShow(false); }
+      else if (e.key === "Escape") { if (window.__psebShowHelp) window.__psebShowHelp(false); if (window.__psebOutlineShow) window.__psebOutlineShow(false); if (window.__psebFontPopClose) window.__psebFontPopClose(); }
       else if (e.key === "o" || e.key === "O") { e.preventDefault(); if (window.__psebOpenOutline) window.__psebOpenOutline(); }
+      else if (e.key === "-" || e.key === "_") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(getScale() - FS_STEP, true); }
+      else if (e.key === "+" || e.key === "=") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(getScale() + FS_STEP, true); }
+      else if (e.key === "0") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(FS_DEFAULT, true); }
       else if (e.key === "p" || e.key === "P") { e.preventDefault(); window.print(); }
       else if (e.key === "t" || e.key === "T") { if (window.__psebTimerToggle) window.__psebTimerToggle(); }
       else if (e.key === "b" || e.key === "B") { doToggleBookmark(); }
