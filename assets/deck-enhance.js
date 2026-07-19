@@ -248,7 +248,11 @@
       ".pseb-recall-on .content-box.pseb-revealed{filter:none;-webkit-user-select:auto;user-select:auto}" +
       ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
       ".pseb-recall-on .pseb-recall-hint{display:block}" +
-      "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}}";
+      "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}" +
+      ".side-nav{top:auto!important;bottom:12px!important;transform:none!important;width:42px!important;height:42px!important;min-width:42px!important;padding:0!important;font-size:1.4rem!important;display:flex!important;align-items:center;justify-content:center;opacity:.4;z-index:140!important;background:rgba(0,71,187,.14)!important;color:var(--goku-primary,#0047BB)!important;border:none!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:opacity .2s!important}" +
+      ".side-nav:hover:not(:disabled),.side-nav:active:not(:disabled){transform:none!important;opacity:.85;background:rgba(0,71,187,.22)!important;color:var(--goku-primary,#0047BB)!important;box-shadow:none!important}" +
+      ".side-nav.pseb-nav-peek{opacity:.85}" +
+      ".left-nav{left:10px!important;right:auto!important}.right-nav{right:10px!important;left:auto!important}}";
     document.head.appendChild(style);
 
     var tools = document.createElement("div");
@@ -333,6 +337,7 @@
           '<dt>0</dt><dd>Reset text size</dd>' +
           '<dt>?</dt><dd>Show this help</dd>' +
           '<dt>Esc</dt><dd>Close dialogs</dd>' +
+          '<dt>Swipe</dt><dd>Swipe left / right to change slide (touch)</dd>' +
         '</dl>' +
         '<button type="button" class="close">Got it</button>' +
       '</div>';
@@ -557,6 +562,43 @@
       else if (e.key === "Home" && canNavigate()) { e.preventDefault(); jumpTo(0); }
       else if (e.key === "End" && canNavigate()) { e.preventDefault(); jumpTo(totalSlides() - 1); }
     });
+
+    // Swipe-to-navigate for touch devices, so the on-screen arrows aren't needed.
+    (function () {
+      var sx = 0, sy = 0, st = 0, tracking = false;
+      function navByDir(dir) {
+        if (typeof window.moveSlide === "function") { window.moveSlide(dir); return; }
+        if (canNavigate()) { var c = parseCounter(); if (c) jumpTo(c.cur + dir); }
+      }
+      function peek(dir) {
+        var btn = document.getElementById(dir < 0 ? "prevBtn" : "nextBtn");
+        if (!btn) return;
+        btn.classList.add("pseb-nav-peek");
+        setTimeout(function () { btn.classList.remove("pseb-nav-peek"); }, 500);
+      }
+      function skip(target) {
+        return !!(target && target.closest && target.closest(
+          "table, .table-container, .periodic-table, .pseb-tools, .pseb-font-pop, " +
+          ".pseb-help, .pseb-outline, .pseb-timer, input, textarea, select, [data-noswipe]"));
+      }
+      document.addEventListener("touchstart", function (e) {
+        if (e.touches.length !== 1 || skip(e.target)) { tracking = false; return; }
+        tracking = true;
+        sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
+      }, { passive: true });
+      document.addEventListener("touchend", function (e) {
+        if (!tracking) return;
+        tracking = false;
+        var t = e.changedTouches[0];
+        var dx = t.clientX - sx, dy = t.clientY - sy, dt = Date.now() - st;
+        if (dt > 700) return;
+        if (Math.abs(dx) < 55) return;
+        if (Math.abs(dx) < Math.abs(dy) * 1.6) return;
+        var dir = dx < 0 ? 1 : -1;
+        navByDir(dir);
+        peek(dir);
+      }, { passive: true });
+    })();
 
     var studyLast = Date.now();
     function flushStudy() {
