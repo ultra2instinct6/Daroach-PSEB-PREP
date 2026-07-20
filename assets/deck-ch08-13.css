@@ -46,7 +46,7 @@
         .phonetic { color: var(--goku-primary); font-size: 1em; font-weight: 600; display: block; margin-top: 6px; background: #E0E7FF; padding: 2px 8px; border-radius: 4px; display: inline-block;}
         
         .exam-keyword { background: #FEF08A; padding: 2px 8px; border-radius: 6px; font-weight: 700; color: #854D0E; border: 1px solid #FDE047; box-shadow: 0 2px 4px rgba(0,0,0,0.05); cursor: help;}
-        .board-badge { background: var(--badge-bg); color: var(--badge-text); font-size: 1.2rem; padding: 6px 14px; border-radius: 20px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #FCD34D; box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
+        .board-badge { background: var(--badge-bg); color: var(--badge-text); font-size: 1.2rem; padding: 7px 14px; border-radius: 20px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #FCD34D; box-shadow: 0 2px 6px rgba(0,0,0,0.05); line-height: 1.1; white-space: nowrap; flex-shrink: 0;}
         .pyq-tag { display: inline-block; background: #DC2626; color: white; font-size: 0.95rem; padding: 3px 8px; border-radius: 4px; font-weight: bold; vertical-align: middle; margin-left: 10px; box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3); letter-spacing: 0.5px;}
         
         /* The Ratta Box */
@@ -130,25 +130,25 @@
         /* ========================================= */
         /* INTERACTIVE: V3 CASCADING SEQUENCER       */
         /* ========================================= */
-        .sequencer-container { background: #F8FAFC; padding: 35px; border-radius: 16px; border: 2px solid var(--goku-primary); position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 20px;}
-        .seq-step { opacity: 0; transform: translateY(-30px) scale(0.95); display: none; margin-bottom: 25px; padding: 22px; background: white; border-left: 6px solid var(--goku-accent); border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); font-size: 1.4rem; position: relative; line-height: 1.6;}
+        .sequencer-container { background: #F8FAFC; padding: 35px; border-radius: 16px; border: 2px solid var(--goku-primary); position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 20px; overflow: hidden;}
+        .seq-step { opacity: 0; transform: translateY(-18px) scale(0.98); display: none; margin-bottom: 16px; padding: 20px 22px; background: var(--card-bg); color: #1E293B; border: 1px solid #CBD5E1; border-left: 6px solid var(--goku-accent); border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.06); font-size: 1.4rem; position: relative; line-height: 1.6;}
         .seq-step:first-child { opacity: 1; transform: translateY(0) scale(1); display: block; }
-        .seq-step:not(:last-child)::after { content: '↓'; position: absolute; bottom: -35px; left: 45px; font-size: 2.2rem; color: var(--goku-primary); font-weight: bold; opacity: 0; transition: opacity 0.3s; z-index: 10;}
+        .seq-step:not(:last-child)::after { content: '↓'; display: block; margin-top: 10px; margin-left: 4px; font-size: 1.65rem; line-height: 1; color: var(--goku-primary); font-weight: 800; opacity: 0; transition: opacity 0.24s;}
         .seq-step.arrow-visible::after { opacity: 1; }
-        @keyframes slideCascade { to { opacity: 1; transform: translateY(0) scale(1); } }
-        .seq-step.visible { display: block; animation: slideCascade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .seq-btn { background: var(--goku-primary); color: white; border: none; padding: 18px 30px; font-size: 1.5rem; border-radius: 12px; cursor: pointer; font-weight: 700; transition: all 0.2s; box-shadow: 0 6px 15px rgba(0,71,187,0.25); margin-top: 15px; width: 100%; text-transform: uppercase; letter-spacing: 1px; display: flex; justify-content: space-between; align-items: center;}
+        @keyframes slideCascade { from { opacity: 0; transform: translateY(-18px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .seq-step.visible { display: block; animation: slideCascade 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .seq-btn { background: var(--goku-primary); color: white; border: none; padding: 14px 18px; font-size: 1.12rem; border-radius: 12px; cursor: pointer; font-weight: 800; transition: all 0.2s; box-shadow: 0 6px 15px rgba(0,71,187,0.25); margin-top: 12px; width: 100%; text-transform: uppercase; letter-spacing: 0.03em; display: flex; justify-content: space-between; align-items: center; gap: 10px;}
         .seq-btn:hover { background: var(--goku-accent); box-shadow: 0 8px 20px rgba(255,92,0,0.35); transform: translateY(-3px);}
-        .seq-counter { background: rgba(0,0,0,0.2); padding: 4px 12px; border-radius: 20px; font-size: 1.2rem;}
+        .seq-counter { background: rgba(0,0,0,0.2); padding: 3px 10px; border-radius: 20px; font-size: 0.98em; font-weight: 800; line-height: 1;}
 
         /* ========================================= */
         /* INTERACTIVE: ACTIVE RECALL BLANKS         */
         /* ========================================= */
         .cloze-paragraph { background: #F8FAFC; padding: 30px; border-radius: 16px; border: 2px solid #E2E8F0; font-size: 1.5rem; line-height: 2; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); color: #334155; margin-top: 20px;}
-        .cloze-blank { background: var(--goku-primary); color: transparent; padding: 4px 18px; border-radius: 8px; cursor: pointer; user-select: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; font-weight: 700; margin: 0 6px; position: relative; box-shadow: 0 4px 8px rgba(0,71,187,0.3);}
-        .cloze-blank::after { content: 'Tap to Reveal'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.1rem; font-weight: 600; white-space: nowrap; letter-spacing: 0.5px;}
+        .cloze-blank { background: var(--goku-primary); color: transparent; padding: 7px 16px; border-radius: 8px; cursor: pointer; user-select: none; transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; margin: 3px 5px; position: relative; box-shadow: 0 4px 8px rgba(0,71,187,0.3); min-width: 9.2ch; min-height: 2.1em; vertical-align: middle;}
+        .cloze-blank::after { content: 'Tap'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: white; font-size: 0.95rem; font-weight: 700; white-space: nowrap; letter-spacing: 0.02em;}
         .cloze-blank:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 6px 12px rgba(0,71,187,0.4);}
-        .cloze-blank.revealed { background: #D1FAE5; color: #065F46; border: 2px solid #10B981; box-shadow: 0 0 15px rgba(16,185,129,0.2); transform: scale(1.02); padding: 2px 16px;}
+        .cloze-blank.revealed { background: #D1FAE5; color: #065F46; border: 2px solid #10B981; box-shadow: 0 0 15px rgba(16,185,129,0.2); transform: scale(1.02); min-width: 0;}
         .cloze-blank.revealed::after { display: none; }
 
         /* End-of-Chapter Assessment Suites */
@@ -212,6 +212,13 @@
             .board-trap { padding: 12px; font-size: 1.1rem;}
             .formula-display { font-size: 1.6rem; flex-wrap: wrap;}
             .piece-btn { font-size: 1.4rem; padding: 10px 15px;}
+            .cloze-paragraph { line-height: 1.9; }
+            .cloze-blank { min-width: 7.5ch; min-height: 2em; padding: 6px 12px; margin: 3px 4px; }
+            .cloze-blank::after { font-size: 0.82rem; }
+            .sequencer-container { padding: 20px; }
+            .seq-step { font-size: 1.12rem; padding: 14px 14px; margin-bottom: 12px; }
+            .seq-btn { font-size: 0.96rem; padding: 12px 12px; }
+            .seq-counter { padding: 2px 8px; font-size: 0.88em; }
         }
             /* --- Text-to-Speech Audio Controls (added) --- */
         .tts-btn { background: none; border: none; font-size: 1.05rem; cursor: pointer; border-radius: 50%; width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; margin-left: 6px; padding: 0; line-height: 1; }

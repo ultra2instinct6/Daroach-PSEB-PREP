@@ -30,7 +30,7 @@
 <div class="slider" id="slider">
 <div class="slide" id="slide-ch4"><div class="content-box chapter-divider"><h1>Chapter 4</h1><h2 style="border-bottom: 2px solid white;">Carbon and its Compounds</h2><span class="punjabi">ਕਾਰਬਨ ਅਤੇ ਉਸਦੇ ਯੋਗਿਕ</span></div></div>
 <div class="slide"><div class="content-box">
-    <h2>Reading Corner <span class="bi-tag">ਪੜ੍ਹੋ · Story Mode</span></h2>
+    <h2 class="bi-head">Reading Corner <span class="bi-tag">ਪੜ੍ਹੋ · Story Mode</span></h2>
     <div class="bi-reading">
         <div class="bi-read-top">
             <h3 class="bi-title">ਹੀਰਾ ਅਤੇ ਪੈਨਸਿਲ<span class="bi-title-en">The Diamond and the Pencil</span></h3>
@@ -45,7 +45,7 @@
     </div>
 </div></div>
 <div class="slide"><div class="content-box">
-    <h2>Reading Corner <span class="bi-tag">ਪੜ੍ਹੋ · Story Mode</span></h2>
+    <h2 class="bi-head">Reading Corner <span class="bi-tag">ਪੜ੍ਹੋ · Story Mode</span></h2>
     <div class="bi-reading">
         <div class="bi-read-top">
             <h3 class="bi-title">ਸੱਪ ਅਤੇ ਚੱਕਰ<span class="bi-title-en">The Serpent and the Ring</span></h3>
@@ -60,7 +60,7 @@
     </div>
 </div></div>
 <div class="slide"><div class="content-box">
-    <h2>Reading Corner <span class="bi-tag">ਪੜ੍ਹੋ · Story Mode</span></h2>
+    <h2 class="bi-head">Reading Corner <span class="bi-tag">ਪੜ੍ਹੋ · Story Mode</span></h2>
     <div class="bi-reading">
         <div class="bi-read-top">
             <h3 class="bi-title">ਸਾਬਣ ਦੀ ਰੱਸਾਕਸ਼ੀ<span class="bi-title-en">The Soap Tug-of-War</span></h3>
@@ -199,20 +199,20 @@ ss="punjabi">(ਕਾਰਬਨ ਦਾ ਬਹੁਮੁਖੀ ਸੁਭਾਅ)</spa
             <div class="content-box">
                 <h2>Interactive Simulator: Alkane Builder <span class="punjabi">(ਐਲਕੇਨ ਬਣਾਓ)</span></h2>
                 <p>Drag the slider to add Carbon atoms. Watch how the prefix, chemical formula ($C_nH_{2n+2}$), and molecular structure change!</p>
-                <div style="background:#F0F4F8; padding:30px; border-radius:12px; text-align:center; border: 2px solid var(--goku-orange);">
+                <div style="background:linear-gradient(180deg, rgba(7, 15, 30, 0.94), rgba(2, 8, 18, 0.98)); padding:30px; border-radius:18px; text-align:center; border: 2px solid var(--goku-orange); box-shadow: 0 18px 42px rgba(0,0,0,0.25);">
                     <input type="range" id="alkane-slider" class="alkane-slider" min="1" max="6" value="1" oninput="buildAlkane()">
                     <div style="display:flex; justify-content:space-around; align-items:center; margin-top:10px;">
                         <div>
-                            <span style="font-size:1.2rem; color:#666; text-transform:uppercase; font-weight:bold;">IUPAC Name</span>
+                            <span style="font-size:1.2rem; color:#9CA3AF; text-transform:uppercase; font-weight:bold; letter-spacing:0.08em;">IUPAC Name</span>
                             <h3 id="alkane-name" style="font-size:3rem; color:var(--goku-blue); margin:5px 0;">Methane</h3>
                         </div>
                         <div>
-                            <span style="font-size:1.2rem; color:#666; text-transform:uppercase; font-weight:bold;">Formula</span>
+                            <span style="font-size:1.2rem; color:#9CA3AF; text-transform:uppercase; font-weight:bold; letter-spacing:0.08em;">Formula</span>
                             <div class="equation" id="alkane-formula" style="font-size:2.5rem; margin:5px 0;">CH<sub>4</sub></div>
                         </div>
                     </div>
-                    <div style="background:white; padding:20px; border-radius:8px; border:1px dashed #ccc; margin-top:20px; overflow-x:auto;">
-                        <div id="alkane-structure" style="font-family:'Courier New', Courier, monospace; font-size:1.8rem; font-weight:bold; color:var(--text-main); white-space:pre; text-align:center;">
+                    <div style="background:rgba(255,255,255,0.02); padding:20px; border-radius:14px; border:1px dashed rgba(255,255,255,0.18); margin-top:20px; overflow-x:auto;">
+                        <div id="alkane-structure" style="font-family:'Courier New', Courier, monospace; font-size:2rem; font-weight:900; color:var(--deck-aura); white-space:pre; text-align:center; letter-spacing:0.02em;">
    H  
    |  
 H--C--H

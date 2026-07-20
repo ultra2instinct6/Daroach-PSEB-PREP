@@ -46,7 +46,7 @@
         .punjabi-block { color: var(--punjabi-text); font-weight: normal; font-size: 0.95em; display: block; margin-top: 4px; }
         .phonetic { color: #94A3B8; font-size: 0.85em; font-style: italic; display: block; margin-top: 4px;}
         .exam-keyword { background: #FEF08A; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: #854D0E; border: 1px solid #FDE047; }
-        .board-badge { background: var(--badge-bg); color: var(--badge-text); font-size: 1.1rem; padding: 6px 12px; border-radius: 20px; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #FCD34D;}
+        .board-badge { background: var(--badge-bg); color: var(--badge-text); font-size: 1.1rem; padding: 7px 12px; border-radius: 20px; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; border: 1px solid #FCD34D; line-height: 1.1; white-space: nowrap; flex-shrink: 0;}
         .pyq-tag { display: inline-block; background: #DC2626; color: white; font-size: 0.95rem; padding: 3px 8px; border-radius: 4px; font-weight: bold; vertical-align: middle; margin-left: 10px; box-shadow: 0 2px 4px rgba(220, 38, 38, 0.3); letter-spacing: 0.5px;}
         .ratta-box { background: #FDF4FF; border-left: 6px solid #C026D3; padding: 20px; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.02);}
         .ratta-box::before { content: '🧠 MEMORIZE THIS:'; font-weight: bold; color: #A21CAF; display: block; margin-bottom: 8px; letter-spacing: 1px;}
@@ -66,10 +66,10 @@
         /* INTERACTIVE: ACTIVE RECALL BLANKS         */
         /* ========================================= */
         .cloze-paragraph { background: #F8FAFC; padding: 30px; border-radius: 12px; border: 2px solid #E2E8F0; font-size: 1.4rem; line-height: 1.9; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02); }
-        .cloze-blank { background: var(--goku-primary); color: transparent; padding: 4px 16px; border-radius: 6px; cursor: pointer; user-select: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; font-weight: bold; margin: 0 5px; position: relative; box-shadow: 0 4px 6px rgba(0,71,187,0.3);}
-        .cloze-blank::after { content: '?'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: white; font-size: 1.2rem; }
+        .cloze-blank { background: var(--goku-primary); color: transparent; padding: 7px 16px; border-radius: 8px; cursor: pointer; user-select: none; transition: all 0.32s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; justify-content: center; font-weight: bold; margin: 3px 5px; position: relative; box-shadow: 0 4px 6px rgba(0,71,187,0.3); min-width: 9.2ch; min-height: 2.1em; vertical-align: middle;}
+        .cloze-blank::after { content: 'Tap'; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); color: white; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.02em; }
         .cloze-blank:hover { transform: translateY(-2px) scale(1.05); }
-        .cloze-blank.revealed { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; box-shadow: 0 0 15px rgba(16,185,129,0.3); transform: scale(1.02); }
+        .cloze-blank.revealed { background: #D1FAE5; color: #065F46; border: 1px solid #10B981; box-shadow: 0 0 15px rgba(16,185,129,0.3); transform: scale(1.02); min-width: 0; }
         .cloze-blank.revealed::after { display: none; }
 
         /* ========================================= */
@@ -86,15 +86,16 @@
         /* ========================================= */
         /* INTERACTIVE: CASCADING SEQUENCER          */
         /* ========================================= */
-        .sequencer-container { background: #F8FAFC; padding: 30px; border-radius: 16px; border: 2px solid var(--goku-primary); position: relative;}
-        .seq-step { opacity: 0; transform: translateY(-30px) scale(0.95); display: none; margin-bottom: 15px; padding: 20px; background: white; border-left: 6px solid var(--goku-accent); border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.3rem; position: relative;}
+        .sequencer-container { background: #F8FAFC; padding: 30px; border-radius: 16px; border: 2px solid var(--goku-primary); position: relative; margin-top: 18px; overflow: hidden;}
+        .seq-step { opacity: 0; transform: translateY(-18px) scale(0.98); display: none; margin-bottom: 14px; padding: 18px 20px; background: var(--card-bg); color: #1E293B; border: 1px solid #CBD5E1; border-left: 6px solid var(--goku-accent); border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); font-size: 1.3rem; position: relative; line-height: 1.55;}
         .seq-step:first-child { opacity: 1; transform: translateY(0) scale(1); display: block; }
-        .seq-step:not(:last-child)::after { content: '↓'; position: absolute; bottom: -25px; left: 40px; font-size: 2rem; color: var(--goku-primary); font-weight: bold; opacity: 0; transition: opacity 0.3s; z-index: 10;}
+        .seq-step:not(:last-child)::after { content: '↓'; display: block; margin-top: 8px; margin-left: 4px; font-size: 1.55rem; line-height: 1; color: var(--goku-primary); font-weight: 800; opacity: 0; transition: opacity 0.24s;}
         .seq-step.arrow-visible::after { opacity: 1; }
-        @keyframes slideCascade { to { opacity: 1; transform: translateY(0) scale(1); } }
-        .seq-step.visible { display: block; animation: slideCascade 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        .seq-btn { background: var(--goku-primary); color: white; border: none; padding: 16px 30px; font-size: 1.4rem; border-radius: 10px; cursor: pointer; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 10px rgba(0,71,187,0.2); margin-top: 20px; width: 100%;}
+        @keyframes slideCascade { from { opacity: 0; transform: translateY(-18px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .seq-step.visible { display: block; animation: slideCascade 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .seq-btn { background: var(--goku-primary); color: white; border: none; padding: 14px 18px; font-size: 1.12rem; border-radius: 10px; cursor: pointer; font-weight: 800; transition: all 0.2s; box-shadow: 0 4px 10px rgba(0,71,187,0.2); margin-top: 16px; width: 100%; text-transform: uppercase; letter-spacing: 0.03em; display: flex; align-items: center; justify-content: space-between; gap: 10px;}
         .seq-btn:hover { background: var(--goku-accent); box-shadow: 0 6px 15px rgba(255,92,0,0.3); transform: translateY(-2px);}
+        .seq-counter { display: inline-flex; align-items: center; justify-content: center; padding: 3px 10px; border-radius: 999px; background: rgba(0,0,0,0.2); font-size: 0.98em; font-weight: 800; line-height: 1; }
 
         /* ========================================= */
         /* INTERACTIVE: 3D CONCEPT FLIP-CARDS        */
@@ -156,6 +157,13 @@
             .vocab-grid { grid-template-columns: 1fr; }
             .match-grid { grid-template-columns: 1fr; }
             .flip-container { width: 100%; margin: 10px 0; height: 200px;}
+            .cloze-paragraph { line-height: 1.9; }
+            .cloze-blank { min-width: 7.5ch; min-height: 2em; padding: 6px 12px; margin: 3px 4px; }
+            .cloze-blank::after { font-size: 0.82rem; }
+            .sequencer-container { padding: 20px; }
+            .seq-step { font-size: 1.12rem; padding: 14px 14px; margin-bottom: 12px; }
+            .seq-btn { font-size: 0.96rem; padding: 12px 12px; }
+            .seq-counter { padding: 2px 8px; font-size: 0.88em; }
             .side-nav { width: 45px; height: 45px; font-size: 1.8rem; }
             .left-nav { left: 10px; }
             .right-nav { right: 10px; }

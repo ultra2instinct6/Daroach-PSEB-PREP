@@ -91,6 +91,9 @@ html[data-deck-theme="legacy"] {
 html,
 body {
   font-family: var(--deck-font-ui) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   background:
     radial-gradient(circle at 50% 45%, var(--deck-aura-soft) 0%, transparent 27%),
     radial-gradient(circle at 88% 12%, rgba(255, 255, 255, 0.045) 0%, transparent 24%),
@@ -228,6 +231,78 @@ th,
 .formula-display,
 .classifier-eq,
 .fg-formula { font-family: 'SFMono-Regular', 'Cascadia Code', 'Courier New', monospace !important; }
+
+.sub-slider-container {
+  padding: 18px !important;
+  min-height: 0 !important;
+}
+
+.sub-slide {
+  padding: 20px 18px !important;
+  border-radius: 22px !important;
+}
+
+.question-text {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem) !important;
+  line-height: 1.35 !important;
+  margin-bottom: 16px !important;
+}
+
+.sa-input {
+  min-height: 56px !important;
+  font-size: 1.1rem !important;
+  padding: 14px 16px !important;
+}
+
+.option-btn,
+.sa-submit-btn,
+.next-sub-btn {
+  min-height: 54px !important;
+  font-size: 1.05rem !important;
+  padding: 14px 18px !important;
+}
+
+.feedback {
+  font-size: 1.05rem !important;
+  min-height: 1.6em !important;
+}
+
+.sub-slider-container .punjabi-block,
+.sub-slider-container .punjabi {
+  font-size: 0.98em !important;
+  line-height: 1.55 !important;
+}
+
+@media (max-width: 820px) {
+  .sub-slider-container { padding: 14px !important; }
+  .sub-slide { padding: 18px 14px !important; }
+  .question-text { font-size: clamp(1.1rem, 4.7vw, 1.45rem) !important; }
+  .option-btn,
+  .sa-submit-btn,
+  .next-sub-btn { min-height: 50px !important; font-size: 1rem !important; }
+}
+
+#alkane-structure,
+.alkane-structure {
+  background: linear-gradient(180deg, rgba(8, 18, 34, 0.96), rgba(3, 10, 22, 0.98)) !important;
+  color: var(--deck-aura) !important;
+  border: 1px solid var(--deck-border-strong) !important;
+  border-radius: 14px !important;
+  text-shadow: 0 0 14px rgba(0, 229, 255, 0.35) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 18px 34px rgba(0, 0, 0, 0.28) !important;
+}
+
+#alkane-structure {
+  font-size: 2rem !important;
+  line-height: 1.05 !important;
+  letter-spacing: 0.02em !important;
+  font-weight: 900 !important;
+}
+
+#alkane-name {
+  color: var(--deck-aura) !important;
+  text-shadow: 0 0 18px var(--deck-aura-soft) !important;
+}
 
 .equation,
 .reading-box,
