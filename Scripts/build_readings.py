@@ -50,7 +50,7 @@ def is_reading(fragment):
 def reading_slide(pa_title, en_title, pa_text, en_text):
     return (
         '<div class="slide"><div class="content-box">\n'
-        '    <h2>Reading Corner <span class="bi-tag">\u0a2a\u0a5c\u0a4d\u0a39\u0a4b \u00b7 Story Mode</span></h2>\n'
+        '    <h2 class="bi-head">Reading Corner <span class="bi-tag">\u0a2a\u0a5c\u0a4d\u0a39\u0a4b \u00b7 Story Mode</span></h2>\n'
         '    <div class="bi-reading">\n'
         '        <div class="bi-read-top">\n'
         '            <h3 class="bi-title">' + pa_title +

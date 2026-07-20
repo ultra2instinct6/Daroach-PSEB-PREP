@@ -256,8 +256,3 @@
             .classifier-options { grid-template-columns: 1fr; }
             .classifier-eq { font-size: 1.5rem; }
         }
-
-        /* Phonetic pronunciation guide (ਉਚਾਰਨ:) in vocabulary cells — matches
-           the style used in the biology/physics decks. Colour/background are
-           supplied by deck-theme.css. */
-        .phonetic { font-size: 0.85em; font-style: italic; display: block; margin-top: 4px; }

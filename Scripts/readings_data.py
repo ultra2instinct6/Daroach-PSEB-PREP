@@ -27,7 +27,7 @@ READINGS = {}
 
 READINGS["1"] = [
  ("ਪੁੰਜ ਦੀ ਸੰਭਾਲ ਦਾ ਨਿਯਮ", "The Law of Conservation of Mass",
-  "18ਵੀਂ ਸਦੀ ਵਿੱਚ ਫ਼ਰਾਂਸੀਸੀ ਰਸਾਇਣ ਵਿਗਿਆਨੀ ਐਂਟੋਇਨ ਲੈਵੋਸ਼ੀਏ ਨੇ ਕਿਸੇ ਰਸਾਇਣਕ ਕਿਰਿਆ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ ਪਦਾਰਥਾਂ ਨੂੰ ਧਿਆਨ ਨਾਲ ਤੋਲਿਆ। ਉਸਨੇ ਵੇਖਿਆ ਕਿ ਬੰਦ ਬਰਤਨ ਦਾ ਕੁੱਲ ਪੁੰਜ ਕਦੇ ਨਹੀਂ ਬਦਲਦਾ। ਇਸੇ ਨੂੰ <span class=\"k\">ਪੁੰਜ ਦੀ ਸੰਭਾਲ ਦਾ ਨਿਯਮ</span> ਕਿਹਾ ਜਾਂਦਾ ਹੈ — ਰਸਾਇਣਕ ਕਿਰਿਆ ਵਿੱਚ ਪਦਾਰਥ ਨਾ ਬਣਦਾ ਹੈ ਨਾ ਨਸ਼ਟ ਹੁੰਦਾ ਹੈ। ਇਸੇ ਕਾਰਨ ਅਸੀਂ ਸਮੀਕਰਣਾਂ ਨੂੰ ਸੰਤੁਲਿਤ ਕਰਦੇ ਹਾਂ: ਹਰ ਪਰਮਾਣੂ ਜੋ ਅਭਿਕਾਰਕ ਵੱਲੋਂ ਆਉਂਦਾ ਹੈ, ਉਤਪਾਦ ਵਿੱਚ ਵੀ ਗਿਣਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
+  "18ਵੀਂ ਸਦੀ ਵਿੱਚ ਫ਼ਰਾਂਸੀਸੀ ਰਸਾਇਣ ਵਿਗਿਆਨੀ ਐਂਟੋਇਨ ਲੈਵੋਸ਼ੀਏ ਨੇ ਕਿਸੇ ਰਸਾਇਣਕ ਕਿਰਿਆ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ ਬਾਅਦ ਪਦਾਰਥਾਂ ਨੂੰ ਧਿਆਨ ਨਾਲ ਤੋਲਿਆ। ਉਸ ਨੇ ਵੇਖਿਆ ਕਿ ਬੰਦ ਬਰਤਨ ਦਾ ਕੁੱਲ ਪੁੰਜ ਕਦੇ ਨਹੀਂ ਬਦਲਦਾ। ਇਸੇ ਨੂੰ <span class=\"k\">ਪੁੰਜ ਦੀ ਸੰਭਾਲ ਦਾ ਨਿਯਮ</span> ਕਿਹਾ ਜਾਂਦਾ ਹੈ — ਰਸਾਇਣਕ ਕਿਰਿਆ ਵਿੱਚ ਪਦਾਰਥ ਨਾ ਬਣਦਾ ਹੈ ਨਾ ਨਸ਼ਟ ਹੁੰਦਾ ਹੈ। ਇਸੇ ਕਾਰਨ ਅਸੀਂ ਸਮੀਕਰਣਾਂ ਨੂੰ ਸੰਤੁਲਿਤ ਕਰਦੇ ਹਾਂ: ਹਰ ਪਰਮਾਣੂ ਜੋ ਅਭਿਕਾਰਕ ਵੱਲੋਂ ਆਉਂਦਾ ਹੈ, ਉਤਪਾਦ ਵਿੱਚ ਵੀ ਗਿਣਿਆ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
   "In the 18th century the French chemist Antoine Lavoisier carefully weighed substances before and after a reaction and found that the total mass of a sealed container never changed. This became the <span class=\"k\">Law of Conservation of Mass</span>: matter can neither be created nor destroyed in a chemical reaction. This is exactly why we balance equations \u2014 every atom that enters as a reactant must be accounted for in the products."),
 
  ("ਜੀਵਨ ਦੀ ਤਪਸ਼", "The Heat of Life",
@@ -55,7 +55,7 @@ READINGS["2"] = [
 
 READINGS["3"] = [
  ("ਐਲੂਮੀਨੀਅਮ ਦੀ ਢਾਲ", "The Anodising Shield",
-  "ਐਲੂਮੀਨੀਅਮ ਇੱਕ ਦਿਲਚਸਪ ਧਾਤ ਹੈ। ਰਸਾਇਣਕ ਤੌਰ 'ਤੇ ਇਹ ਬਹੁਤ ਕਿਰਿਆਸ਼ੀਲ ਹੈ ਤੇ ਜਲਦੀ ਖ਼ਰਾਬ ਹੋਣੀ ਚਾਹੀਦੀ, ਪਰ ਇਸ ਕੋਲ ਗੁਪਤ ਹਥਿਆਰ ਹੈ। ਹਵਾ ਦੇ ਸੰਪਰਕ ਵਿੱਚ ਆਉਂਦੇ ਹੀ ਇਸ ਉੱਤੇ <span class=\"k\">ਐਲੂਮੀਨੀਅਮ ਆਕਸਾਈਡ</span> ਦੀ ਪਾਰਦਰਸ਼ੀ, ਪਤਲੀ ਪਰਤ ਬਣ ਜਾਂਦੀ ਹੈ। ਲੋਹੇ ਦੀ ਜੰਗ ਵਾਂਗ ਇਹ ਝੜਦੀ ਨਹੀਂ, ਸਗੋਂ ਸਤ੍ਹਾ ਨਾਲ ਚਿਪਕੀ ਰਹਿ ਕੇ ਹੋਰ ਆਕਸੀਜਨ ਨੂੰ ਰੋਕਦੀ ਹੈ। ਇੰਜੀਨੀਅਰ ਬਿਜਲੀ ਨਾਲ ਇਸ ਪਰਤ ਨੂੰ ਹੋਰ ਮੋਟਾ ਬਣਾਉਂਦੇ ਹਨ — ਇਸ ਨੂੰ <span class=\"k\">ਐਨੋਡਾਈਜ਼ਿੰਗ</span> ਕਹਿੰਦੇ ਹਨ।",
+  "ਐਲੂਮੀਨੀਅਮ ਇੱਕ ਦਿਲਚਸਪ ਧਾਤ ਹੈ। ਰਸਾਇਣਕ ਤੌਰ 'ਤੇ ਇਹ ਬਹੁਤ ਕਿਰਿਆਸ਼ੀਲ ਹੈ ਤੇ ਇਸ ਨੂੰ ਜਲਦੀ ਖ਼ਰਾਬ ਹੋ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ, ਪਰ ਇਸ ਕੋਲ ਗੁਪਤ ਹਥਿਆਰ ਹੈ। ਹਵਾ ਦੇ ਸੰਪਰਕ ਵਿੱਚ ਆਉਂਦੇ ਹੀ ਇਸ ਉੱਤੇ <span class=\"k\">ਐਲੂਮੀਨੀਅਮ ਆਕਸਾਈਡ</span> ਦੀ ਪਾਰਦਰਸ਼ੀ, ਪਤਲੀ ਪਰਤ ਬਣ ਜਾਂਦੀ ਹੈ। ਲੋਹੇ ਦੀ ਜੰਗ ਵਾਂਗ ਇਹ ਝੜਦੀ ਨਹੀਂ, ਸਗੋਂ ਸਤ੍ਹਾ ਨਾਲ ਚਿਪਕੀ ਰਹਿ ਕੇ ਹੋਰ ਆਕਸੀਜਨ ਨੂੰ ਰੋਕਦੀ ਹੈ। ਇੰਜੀਨੀਅਰ ਬਿਜਲੀ ਨਾਲ ਇਸ ਪਰਤ ਨੂੰ ਹੋਰ ਮੋਟਾ ਬਣਾਉਂਦੇ ਹਨ — ਇਸ ਨੂੰ <span class=\"k\">ਐਨੋਡਾਈਜ਼ਿੰਗ</span> ਕਹਿੰਦੇ ਹਨ।",
   "Aluminium is fascinating. By logic it is very reactive and should corrode fast, but it has a secret weapon. The moment it meets air, a thin, transparent skin of <span class=\"k\">aluminium oxide</span> forms. Unlike iron rust, this skin does not flake off; it sticks tightly and blocks further oxygen. Engineers deliberately thicken this oxide layer using electricity, a process called <span class=\"k\">anodising</span>, making aluminium nearly weatherproof."),
 
  ("ਥਰਮਿਟ ਵੈਲਡਿੰਗ", "The Thermit Welding Process",
@@ -119,7 +119,7 @@ READINGS["6lp"] = [
   "Plants run the largest kitchen on Earth. The green pigment <span class=\"k\">chlorophyll</span> in their leaves traps sunlight. Using this energy the plant turns <span class=\"k\">carbon dioxide</span> and water into glucose and releases oxygen \u2014 a process called <span class=\"k\">photosynthesis</span>. Tiny pores called <span class=\"k\">stomata</span> open and close for gas exchange. Thanks to this green kitchen, almost every living thing on Earth gets its food and oxygen."),
 
  ("ਲਹੂ ਦੇ ਦੋ ਸਫ਼ਰ", "Two Journeys of Blood",
-  "ਮਨੁੱਖੀ ਦਿਲ ਇੱਕ ਦੋਹਰਾ ਪੰਪ ਹੈ। ਹਰ ਵਾਰ ਲਹੂ ਦਿਲ ਵਿੱਚੋਂ ਦੋ ਵਾਰ ਲੰਘਦਾ ਹੈ, ਜਿਸ ਨੂੰ <span class=\"k\">ਦੋਹਰਾ ਪਰਿਸੰਚਰਣ</span> ਕਹਿੰਦੇ ਹਨ। ਪਹਿਲੇ ਸਫ਼ਰ ਵਿੱਚ ਅਸ਼ੁੱਧ ਲਹੂ ਦਿਲ ਤੋਂ ਫੇਫੜਿਆਂ ਵੱਲ ਜਾਂਦਾ ਹੈ, ਜਿੱਥੇ ਇਹ ਆਕਸੀਜਨ ਲੈਂਦਾ ਹੈ। ਦੂਜੇ ਸਫ਼ਰ ਵਿੱਚ ਇਹ ਸ਼ੁੱਧ ਲਹੂ ਦਿਲ ਤੋਂ ਸਾਰੇ ਸਰੀਰ ਵੱਲ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ। ਦਿਲ ਦੇ ਚਾਰ ਖ਼ਾਨੇ ਤੇ ਵਾਲਵ ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦੇ ਹਨ ਕਿ ਸ਼ੁੱਧ ਤੇ ਅਸ਼ੁੱਧ ਲਹੂ ਰਲਦੇ ਨਾ, ਤਾਂ ਜੋ ਸਰੀਰ ਨੂੰ ਲਗਾਤਾਰ ਆਕਸੀਜਨ ਮਿਲਦੀ ਰਹੇ।",
+  "ਮਨੁੱਖੀ ਦਿਲ ਇੱਕ ਦੋਹਰਾ ਪੰਪ ਹੈ। ਹਰ ਵਾਰ ਲਹੂ ਦਿਲ ਵਿੱਚੋਂ ਦੋ ਵਾਰ ਲੰਘਦਾ ਹੈ, ਜਿਸ ਨੂੰ <span class=\"k\">ਦੋਹਰਾ ਪਰਿਸੰਚਰਣ</span> ਕਹਿੰਦੇ ਹਨ। ਪਹਿਲੇ ਸਫ਼ਰ ਵਿੱਚ ਅਸ਼ੁੱਧ ਲਹੂ ਦਿਲ ਤੋਂ ਫੇਫੜਿਆਂ ਵੱਲ ਜਾਂਦਾ ਹੈ, ਜਿੱਥੇ ਇਹ ਆਕਸੀਜਨ ਲੈਂਦਾ ਹੈ। ਦੂਜੇ ਸਫ਼ਰ ਵਿੱਚ ਇਹ ਸ਼ੁੱਧ ਲਹੂ ਦਿਲ ਤੋਂ ਸਾਰੇ ਸਰੀਰ ਵੱਲ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ। ਦਿਲ ਦੇ ਚਾਰ ਖ਼ਾਨੇ ਤੇ ਵਾਲਵ ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦੇ ਹਨ ਕਿ ਸ਼ੁੱਧ ਤੇ ਅਸ਼ੁੱਧ ਲਹੂ ਆਪਸ ਵਿੱਚ ਨਾ ਰਲਣ, ਤਾਂ ਜੋ ਸਰੀਰ ਨੂੰ ਲਗਾਤਾਰ ਆਕਸੀਜਨ ਮਿਲਦੀ ਰਹੇ।",
   "The human heart is a double pump. Each round, blood passes through the heart twice \u2014 called <span class=\"k\">double circulation</span>. On the first journey, deoxygenated blood goes from the heart to the lungs to pick up oxygen. On the second, oxygen-rich blood is pumped from the heart to the whole body. The heart's four chambers and valves keep oxygenated and deoxygenated blood from mixing, so the body gets a steady oxygen supply."),
 ]
 
@@ -128,7 +128,7 @@ READINGS["7"] = [
   "ਸਾਹ ਜਾਂ ਪਾਚਨ ਵਰਗੀਆਂ ਕਿਰਿਆਵਾਂ ਦੇ ਉਲਟ, <span class=\"k\">ਪ੍ਰਜਣਨ</span> ਕਿਸੇ ਇਕੱਲੇ ਜੀਵ ਨੂੰ ਜ਼ਿੰਦਾ ਰੱਖਣ ਲਈ ਜ਼ਰੂਰੀ ਨਹੀਂ। ਸਗੋਂ ਨਵਾਂ ਜੀਵ ਪੈਦਾ ਕਰਨ ਲਈ ਬਹੁਤ ਊਰਜਾ ਲੱਗਦੀ ਹੈ। ਫਿਰ ਜੀਵ ਇਹ ਊਰਜਾ ਕਿਉਂ ਖ਼ਰਚਦੇ ਹਨ? ਜਵਾਬ ਵਿਅਕਤੀ ਦੀ ਨਹੀਂ, ਸਗੋਂ <span class=\"k\">ਜਾਤੀ ਦੀ ਬਚਤ</span> ਵਿੱਚ ਲੁਕਿਆ ਹੈ। ਪ੍ਰਜਣਨ ਹੀ ਇੱਕੋ-ਇੱਕ ਤਰੀਕਾ ਹੈ ਜੋ ਕਿਸੇ ਜਾਤੀ ਨੂੰ ਲੁਪਤ ਹੋਣ ਤੋਂ ਬਚਾਉਂਦਾ ਹੈ ਤੇ ਉਸ ਦੇ ਵਿਲੱਖਣ <span class=\"k\">DNA ਨਕਸ਼ੇ</span> ਨੂੰ ਅਗਲੀ ਪੀੜ੍ਹੀ ਤੱਕ ਪਹੁੰਚਾਉਂਦਾ ਹੈ।",
   "Unlike respiration or digestion, <span class=\"k\">reproduction</span> is not needed to keep an individual alive. In fact, making a new individual costs a great deal of energy. So why spend it? The answer lies in the survival of the <span class=\"k\">species</span>, not the individual. Reproduction is the only way a species avoids extinction, passing its unique <span class=\"k\">DNA blueprint</span> forward through time."),
 
- ("ਬਚਾਅ ਦੀ ਚਾਸ਼ਨੀ", "The Spice of Survival",
+ ("ਬਚਾਅ ਦਾ ਮਸਾਲਾ", "The Spice of Survival",
   "ਪ੍ਰਜਣਨ ਦਾ ਮੂਲ ਕੰਮ ਸੈੱਲ ਦੇ ਨਿਊਕਲੀਅਸ ਵਿੱਚ <span class=\"k\">DNA ਦੀ ਨਕਲ</span> ਬਣਾਉਣਾ ਹੈ। ਪਰ ਕੋਈ ਵੀ ਜੈਵ-ਰਸਾਇਣਕ ਕਿਰਿਆ ਪੂਰੀ ਤਰ੍ਹਾਂ ਭਰੋਸੇਯੋਗ ਨਹੀਂ ਹੁੰਦੀ। ਇਸ ਲਈ ਬਣੀਆਂ ਨਕਲਾਂ ਮਿਲਦੀਆਂ-ਜੁਲਦੀਆਂ ਤਾਂ ਹੁੰਦੀਆਂ ਹਨ ਪਰ ਬਿਲਕੁਲ ਇੱਕੋ-ਜਿਹੀਆਂ ਨਹੀਂ। ਇਹ ਛੋਟੀਆਂ ਗ਼ਲਤੀਆਂ <span class=\"k\">ਵਿਭਿੰਨਤਾ (variation)</span> ਪੈਦਾ ਕਰਦੀਆਂ ਹਨ। ਹਲਕੀਆਂ ਵਿਭਿੰਨਤਾਵਾਂ ਜਾਤੀ ਨੂੰ ਬਦਲਦੇ ਵਾਤਾਵਰਨ — ਜਿਵੇਂ ਵਧਦੀ ਗਰਮੀ ਜਾਂ ਨਵੀਆਂ ਬਿਮਾਰੀਆਂ — ਨਾਲ ਢਲਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ।",
   "The core event of reproduction is copying the <span class=\"k\">DNA</span> inside the cell nucleus. But no biochemical reaction is perfectly reliable, so the copies are similar but rarely identical. These small copying errors create <span class=\"k\">variation</span>. While severe errors can kill a cell, slight variations are the 'spice of life', letting a species slowly adapt to changes like rising temperatures or new diseases."),
 
@@ -153,7 +153,7 @@ READINGS["8"] = [
 
 READINGS["9"] = [
  ("ਟੁੱਟਿਆ ਹੋਇਆ ਤੀਲਾ", "The Broken Straw",
-  "ਕੀ ਤੁਸੀਂ ਵੇਖਿਆ ਹੈ ਕਿ ਪਾਣੀ ਦੇ ਗਿਲਾਸ ਵਿੱਚ ਪਿਆ ਤੀਲਾ ਸਤ੍ਹਾ ਉੱਤੇ ਟੁੱਟਿਆ ਜਿਹਾ ਦਿਸਦਾ ਹੈ? ਅਸਲ ਵਿੱਚ ਤੀਲਾ ਨਹੀਂ ਮੁੜਦਾ, ਰੋਸ਼ਨੀ ਮੁੜਦੀ ਹੈ। ਜਦੋਂ ਰੋਸ਼ਨੀ ਹਵਾ ਤੋਂ ਪਾਣੀ ਜਾਂ ਕੱਚ ਵਿੱਚ ਜਾਂਦੀ ਹੈ ਤਾਂ ਹੌਲੀ ਹੋ ਕੇ ਦਿਸ਼ਾ ਬਦਲ ਲੈਂਦੀ ਹੈ; ਇਸ ਨੂੰ <span class=\"k\">ਅਪਵਰਤਨ (refraction)</span> ਕਹਿੰਦੇ ਹਨ। ਇਹੀ ਝੁਕਾਅ ਵੱਡਦਰਸ਼ੀ ਸ਼ੀਸ਼ੇ ਨੂੰ ਧੁੱਪ ਇੱਕ ਬਿੰਦੂ 'ਤੇ ਇਕੱਠੀ ਕਰਨ ਦਿੰਦਾ ਹੈ ਤੇ ਐਨਕ ਨੂੰ ਧੁੰਦਲੀ ਨਜ਼ਰ ਠੀਕ ਕਰਨ।",
+  "ਕੀ ਤੁਸੀਂ ਵੇਖਿਆ ਹੈ ਕਿ ਪਾਣੀ ਦੇ ਗਿਲਾਸ ਵਿੱਚ ਪਿਆ ਤੀਲਾ ਸਤ੍ਹਾ ਉੱਤੇ ਟੁੱਟਿਆ ਜਿਹਾ ਦਿਸਦਾ ਹੈ? ਅਸਲ ਵਿੱਚ ਤੀਲਾ ਨਹੀਂ ਮੁੜਦਾ, ਰੋਸ਼ਨੀ ਮੁੜਦੀ ਹੈ। ਜਦੋਂ ਰੋਸ਼ਨੀ ਹਵਾ ਤੋਂ ਪਾਣੀ ਜਾਂ ਕੱਚ ਵਿੱਚ ਜਾਂਦੀ ਹੈ ਤਾਂ ਹੌਲੀ ਹੋ ਕੇ ਦਿਸ਼ਾ ਬਦਲ ਲੈਂਦੀ ਹੈ; ਇਸ ਨੂੰ <span class=\"k\">ਅਪਵਰਤਨ (refraction)</span> ਕਹਿੰਦੇ ਹਨ। ਇਹੀ ਝੁਕਾਅ ਵੱਡਦਰਸ਼ੀ ਸ਼ੀਸ਼ੇ ਨੂੰ ਧੁੱਪ ਇੱਕ ਬਿੰਦੂ 'ਤੇ ਇਕੱਠੀ ਕਰਨ ਦਿੰਦਾ ਹੈ ਤੇ ਐਨਕ ਨੂੰ ਧੁੰਦਲੀ ਨਜ਼ਰ ਠੀਕ ਕਰਨ ਦਿੰਦਾ ਹੈ।",
   "Have you noticed that a straw in a glass of water looks broken at the surface? The straw is not really bending \u2014 the light is. When light passes from air into water or glass it slows down and changes direction, an effect called <span class=\"k\">refraction</span>. This same bending lets a magnifying glass gather sunlight to a point and a spectacle lens correct blurry vision."),
 
  ("ਸ਼ੀਸ਼ੇ ਅਤੇ ਪਰਾਵਰਤਨ", "Mirrors and Reflection",
@@ -161,7 +161,7 @@ READINGS["9"] = [
   "Mirrors work by <span class=\"k\">reflection</span> \u2014 they bounce light back so precisely that we see our own face. A plane mirror gives an upright image, but curved mirrors can enlarge or shrink it. A <span class=\"k\">concave</span> mirror gathers light, so it is used in torches and car headlights, while a <span class=\"k\">convex</span> mirror shows a wider view, which is why it is used as a vehicle's rear-view mirror."),
 
  ("ਰੋਸ਼ਨੀ ਨੂੰ ਕਾਬੂ ਕਰਨਾ", "Taming the Light",
-  "ਕੱਚ ਤੇ ਧਾਤ ਨੂੰ ਧਿਆਨ ਨਾਲ ਢਾਲ ਕੇ ਮਨੁੱਖ ਨੇ ਰੋਸ਼ਨੀ ਨੂੰ ਕਾਬੂ ਕਰਨਾ ਸਿੱਖਿਆ। ਲੈੱਨਜ਼ ਦੀ <span class=\"k\">ਸ਼ਕਤੀ</span> ਦੱਸਦੀ ਹੈ ਕਿ ਇਹ ਰੋਸ਼ਨੀ ਨੂੰ ਕਿੰਨਾ ਮੋੜਦਾ ਹੈ ਤੇ ਇਸ ਨੂੰ <span class=\"k\">ਡਾਇਓਪਟਰ</span> ਵਿੱਚ ਮਾਪਿਆ ਜਾਂਦਾ ਹੈ। ਦੋ ਲੈੱਨਜ਼ਾਂ ਨੂੰ ਜੋੜ ਕੇ ਵਿਗਿਆਨੀਆਂ ਨੇ <span class=\"k\">ਸੂਖ਼ਮਦਰਸ਼ੀ</span> ਬਣਾਈ, ਜਿਸ ਨਾਲ ਬਿਮਾਰੀ ਫੈਲਾਉਣ ਵਾਲੇ ਕੀਟਾਣੂ ਵੇਖੇ ਗਏ, ਤੇ <span class=\"k\">ਦੂਰਦਰਸ਼ੀ</span>, ਜਿਸ ਨਾਲ ਦੂਰ ਦੀਆਂ ਆਕਾਸ਼ਗੰਗਾਵਾਂ। ਇੰਜ ਰੋਸ਼ਨੀ ਦੇ ਸਧਾਰਨ ਨਿਯਮਾਂ ਨੇ ਵਿਗਿਆਨ ਦੀ ਦੁਨੀਆਂ ਖੋਲ੍ਹ ਦਿੱਤੀ।",
+  "ਕੱਚ ਤੇ ਧਾਤ ਨੂੰ ਧਿਆਨ ਨਾਲ ਢਾਲ ਕੇ ਮਨੁੱਖ ਨੇ ਰੋਸ਼ਨੀ ਨੂੰ ਕਾਬੂ ਕਰਨਾ ਸਿੱਖਿਆ। ਲੈੱਨਜ਼ ਦੀ <span class=\"k\">ਸ਼ਕਤੀ</span> ਦੱਸਦੀ ਹੈ ਕਿ ਇਹ ਰੋਸ਼ਨੀ ਨੂੰ ਕਿੰਨਾ ਮੋੜਦਾ ਹੈ ਤੇ ਇਸ ਨੂੰ <span class=\"k\">ਡਾਇਓਪਟਰ</span> ਵਿੱਚ ਮਾਪਿਆ ਜਾਂਦਾ ਹੈ। ਦੋ ਲੈੱਨਜ਼ਾਂ ਨੂੰ ਜੋੜ ਕੇ ਵਿਗਿਆਨੀਆਂ ਨੇ <span class=\"k\">ਸੂਖ਼ਮਦਰਸ਼ੀ</span> ਬਣਾਈ, ਜਿਸ ਨਾਲ ਬਿਮਾਰੀ ਫੈਲਾਉਣ ਵਾਲੇ ਕੀਟਾਣੂ ਵੇਖੇ ਗਏ, ਤੇ <span class=\"k\">ਦੂਰਦਰਸ਼ੀ</span> ਵੀ ਬਣਾਈ, ਜਿਸ ਨਾਲ ਦੂਰ ਦੀਆਂ ਆਕਾਸ਼ਗੰਗਾਵਾਂ ਵੇਖੀਆਂ ਗਈਆਂ। ਇੰਜ ਰੋਸ਼ਨੀ ਦੇ ਸਧਾਰਨ ਨਿਯਮਾਂ ਨੇ ਵਿਗਿਆਨ ਦੀ ਦੁਨੀਆਂ ਖੋਲ੍ਹ ਦਿੱਤੀ।",
   "By carefully shaping glass and metal, humans learned to tame light. The <span class=\"k\">power</span> of a lens tells how strongly it bends light and is measured in <span class=\"k\">dioptres</span>. By combining lenses, scientists built the <span class=\"k\">microscope</span> to see disease-causing germs and the <span class=\"k\">telescope</span> to see distant galaxies. Thus the simple rules of light opened up the world of science."),
 ]
 

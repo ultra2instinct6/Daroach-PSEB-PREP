@@ -7,9 +7,10 @@ This log records the full audit and rebuild of the **Reading Comprehension** sli
 - **Before:** 28 readings, all **English-only**, unevenly spread. Three chapters (Life Processes, Sources of Energy, Sustainable Management) had **no** reading at all; several had only one.
 - **After:** a standard **3 readings per chapter (48 total)**, each **Punjabi-first (Gurmukhi) with an English toggle** and text-to-speech, grouped into a "Reading Corner" right after each chapter cover.
 - Every old English-only reading was removed and replaced; key terms are highlighted and mirrored across both languages so a native-Punjabi learner can read first in Punjabi, then check English.
+- **Refinement pass:** slide titles were shrunk to a compact eyebrow label (freeing vertical space for the reading body), the language toggle + TTS were re-verified across both deck engines, and every Punjabi reading was proofread for grammar (fixes to Ch1, Ch3, Ch6 Life Processes, Ch7 title, and two incomplete sentences in Ch9).
 - The bilingual reading component (styling, language toggle, TTS) lives once in `assets/deck-enhance.js`; content lives in `Scripts/readings_data.py`; `Scripts/build_readings.py` regenerates the slides.
 
-## New reading plan (48 readings)
+## Reading plan (48 readings)
 
 | Ch | Chapter | # | ਪੰਜਾਬੀ ਸਿਰਲੇਖ (Punjabi title) | English title |
 |----|---------|---|------------------------------|---------------|
@@ -35,7 +36,7 @@ This log records the full audit and rebuild of the **Reading Comprehension** sli
 | 6cc | Control and Coordination | 2 | ਨਸਾਂ ਦੀ ਗਤੀ-ਸੀਮਾ | The Speed Limit of Nerves |
 | 6cc | Control and Coordination | 3 | ਹੌਲੀ, ਪਰ ਸਿਆਣੇ | Slower, But Smart |
 | 7 | How do Organisms Reproduce | 1 | ਪ੍ਰਜਣਨ ਦੀ ਊਰਜਾ ਕੀਮਤ | The Energy Cost of Reproduction |
-| 7 | How do Organisms Reproduce | 2 | ਬਚਾਅ ਦੀ ਚਾਸ਼ਨੀ | The Spice of Survival |
+| 7 | How do Organisms Reproduce | 2 | ਬਚਾਅ ਦਾ ਮਸਾਲਾ | The Spice of Survival |
 | 7 | How do Organisms Reproduce | 3 | ਪਰਿਪੱਕਤਾ ਵੱਲ ਮੋੜ | The Shift to Maturity |
 | 8 | Heredity and Evolution | 1 | ਵਿਰਾਸਤ ਦੇ ਲੁਕੇ ਕਾਰਕ | Heredity's Hidden Factors |
 | 8 | Heredity and Evolution | 2 | ਪ੍ਰਭਾਵੀ ਅਤੇ ਅਪ੍ਰਭਾਵੀ | Dominant and Recessive |
