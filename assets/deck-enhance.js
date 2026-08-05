@@ -613,7 +613,9 @@
   document.addEventListener("DOMContentLoaded", function () {
     buildOverlay();
     enhanceInteractives();
+    enhanceFlagshipLabs();
     initBiReadings();
+    installQuizEnhancements();
 
     var counter = document.getElementById("counter");
     if (counter && "MutationObserver" in window) {
@@ -711,6 +713,175 @@
       });
     } catch (e) {}
   }
+
+  // ---- Flagship concept labs shared across chapters ----
+  function enhanceFlagshipLabs() {
+    document.querySelectorAll(".flagship-lab").forEach(function (lab) {
+      lab.addEventListener("keydown", function (e) {
+        if ((e.key === "Enter" || e.key === " ") && e.target.matches("[role='button']")) {
+          e.preventDefault();
+          e.target.click();
+        }
+      });
+    });
+    if (document.getElementById("acid-lab")) window.psebAcidMix();
+    if (document.getElementById("optics-lab")) window.psebOpticsPosition("beyond");
+    if (document.getElementById("vision-lab")) window.psebVisionLoad(0);
+    if (document.getElementById("ohm-lab")) window.psebOhmUpdate();
+    if (document.getElementById("fleming-lab")) window.psebFlemingLoad(0);
+  }
+
+  window.psebAcidMix = function () {
+    var lab = document.getElementById("acid-lab");
+    if (!lab) return;
+    var acid = lab.querySelector("[data-acid]").value;
+    var partner = lab.querySelector("[data-partner]").value;
+    var cases = {
+      metal: {
+        title: "Acid + metal -> salt + hydrogen",
+        hcl: "Zn + 2HCl -> ZnCl2 + H2 upward arrow",
+        h2so4: "Zn + H2SO4 -> ZnSO4 + H2 upward arrow",
+        test: "A burning splint gives a pop sound: hydrogen gas.", fx: "bubbles"
+      },
+      carbonate: {
+        title: "Acid + carbonate -> salt + water + carbon dioxide",
+        hcl: "Na2CO3 + 2HCl -> 2NaCl + H2O + CO2 upward arrow",
+        h2so4: "Na2CO3 + H2SO4 -> Na2SO4 + H2O + CO2 upward arrow",
+        test: "Pass the gas through limewater: it turns milky.", fx: "foam"
+      },
+      base: {
+        title: "Neutralisation: acid + base -> salt + water",
+        hcl: "HCl + NaOH -> NaCl + H2O",
+        h2so4: "H2SO4 + 2NaOH -> Na2SO4 + 2H2O",
+        test: "No gas forms. The mixture warms because neutralisation is exothermic.", fx: "warm"
+      },
+      oxide: {
+        title: "Acid + metal oxide -> salt + water",
+        hcl: "CuO + 2HCl -> CuCl2 + H2O",
+        h2so4: "CuO + H2SO4 -> CuSO4 + H2O",
+        test: "The black copper oxide dissolves; a blue-green salt solution forms.", fx: "colour"
+      }
+    };
+    var item = cases[partner];
+    var vessel = lab.querySelector(".acid-vessel");
+    vessel.className = "acid-vessel " + item.fx;
+    lab.querySelector(".lab-result-title").textContent = item.title;
+    lab.querySelector(".lab-equation").textContent = item[acid];
+    lab.querySelector(".lab-explain").textContent = item.test;
+  };
+
+  window.psebOpticsPosition = function (pos) {
+    var lab = document.getElementById("optics-lab");
+    if (!lab) return;
+    var cases = {
+      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", left:"57%", height:"42%" },
+      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", left:"35%", height:"68%" },
+      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", left:"13%", height:"90%" },
+      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", left:"4%", height:"96%" },
+      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", left:"88%", height:"86%" }
+    };
+    var item = cases[pos];
+    lab.querySelectorAll("[data-optics-pos]").forEach(function (b) { b.classList.toggle("active", b.dataset.opticsPos === pos); });
+    var arrow = lab.querySelector(".optics-image-arrow");
+    arrow.style.left = item.left;
+    arrow.style.height = item.height;
+    arrow.classList.toggle("erect", pos === "inside");
+    lab.querySelector(".optics-object").textContent = item.object;
+    lab.querySelector(".optics-image").textContent = item.image;
+    lab.querySelector(".optics-nature").textContent = item.nature;
+    lab.querySelector(".optics-screen").textContent = pos === "inside" ? "Cannot be caught on a screen" : "Can be caught on a screen";
+  };
+
+  var visionCases = [
+    { defect:"Myopia", clue:"Distant writing is blurred; rays focus before the retina.", focus:"before", answer:"concave", why:"A concave lens diverges rays first, moving the focus backward onto the retina." },
+    { defect:"Hypermetropia", clue:"Nearby print is blurred; rays would focus behind the retina.", focus:"after", answer:"convex", why:"A convex lens converges rays first, pulling the focus forward onto the retina." },
+    { defect:"Presbyopia", clue:"An older eye struggles with both near and far focus.", focus:"mixed", answer:"bifocal", why:"A bifocal combines distance and reading corrections in one lens." },
+    { defect:"Cataract", clue:"The eye lens has become cloudy rather than focusing at the wrong point.", focus:"cloudy", answer:"surgery", why:"A cataract needs lens-replacement surgery; spectacles cannot clear an opaque lens." }
+  ];
+  var visionIndex = 0, visionScore = 0, visionAsked = 0, visionAnswered = false;
+  window.psebVisionLoad = function (index) {
+    var lab = document.getElementById("vision-lab");
+    if (!lab) return;
+    visionIndex = index % visionCases.length;
+    visionAnswered = false;
+    var item = visionCases[visionIndex];
+    lab.querySelector(".vision-case-name").textContent = item.defect;
+    lab.querySelector(".vision-clue").textContent = item.clue;
+    lab.querySelector(".vision-feedback").textContent = "Choose the correction that places a clear image on the retina.";
+    lab.querySelector(".vision-focus").className = "vision-focus " + item.focus;
+    lab.querySelectorAll("[data-lens]").forEach(function (b) { b.disabled = false; b.classList.remove("correct", "incorrect"); });
+  };
+  window.psebVisionChoose = function (btn) {
+    if (visionAnswered) return;
+    visionAnswered = true; visionAsked++;
+    var lab = document.getElementById("vision-lab"), item = visionCases[visionIndex];
+    lab.querySelectorAll("[data-lens]").forEach(function (b) {
+      b.disabled = true;
+      if (b.dataset.lens === item.answer) b.classList.add("correct");
+    });
+    if (btn.dataset.lens === item.answer) { visionScore++; btn.classList.add("correct"); }
+    else btn.classList.add("incorrect");
+    lab.querySelector(".vision-focus").className = "vision-focus retina";
+    lab.querySelector(".vision-feedback").innerHTML = "<strong>" + (btn.dataset.lens === item.answer ? "Correct. " : "Correction: " + item.answer + ". ") + "</strong>" + item.why;
+    lab.querySelector(".vision-score").textContent = "Score: " + visionScore + " / " + visionAsked;
+  };
+  window.psebVisionNext = function () { window.psebVisionLoad((visionIndex + 1) % visionCases.length); };
+
+  window.psebOhmUpdate = function () {
+    var lab = document.getElementById("ohm-lab");
+    if (!lab) return;
+    var voltage = Number(lab.querySelector("[data-voltage]").value);
+    var resistance = Number(lab.querySelector("[data-resistance]").value);
+    var current = voltage / resistance;
+    lab.querySelector(".ohm-v").textContent = voltage.toFixed(0) + " V";
+    lab.querySelector(".ohm-r").textContent = resistance.toFixed(0) + " ohm";
+    lab.querySelector(".ohm-i").textContent = current.toFixed(2) + " A";
+    lab.querySelector(".ohm-calc").textContent = "I = V / R = " + voltage + " / " + resistance + " = " + current.toFixed(2) + " A";
+    lab.querySelector(".ohm-needle").style.width = Math.min(100, current / 6 * 100) + "%";
+    lab.querySelector(".ohm-point").style.left = Math.min(96, voltage / 12 * 92 + 3) + "%";
+    lab.querySelector(".ohm-point").style.bottom = Math.min(92, current / 6 * 86 + 5) + "%";
+  };
+  window.psebOhmPreset = function (voltage, resistance) {
+    var lab = document.getElementById("ohm-lab");
+    if (!lab) return;
+    lab.querySelector("[data-voltage]").value = voltage;
+    lab.querySelector("[data-resistance]").value = resistance;
+    window.psebOhmUpdate();
+  };
+
+  var flemingCases = [
+    { field:"Right", current:"Up", answer:"Into page", why:"Field right and current up give force into the page." },
+    { field:"Right", current:"Down", answer:"Out of page", why:"Reversing current reverses the force." },
+    { field:"Left", current:"Up", answer:"Out of page", why:"Reversing the field reverses the force." },
+    { field:"Left", current:"Down", answer:"Into page", why:"Both directions reversed restore the original force direction." },
+    { field:"Into page", current:"Right", answer:"Up", why:"Forefinger into page and middle finger right make the thumb point up." },
+    { field:"Out of page", current:"Right", answer:"Down", why:"Reversing the field makes the force point down." }
+  ];
+  var flemingIndex = 0, flemingScore = 0, flemingAsked = 0, flemingAnswered = false;
+  window.psebFlemingLoad = function (index) {
+    var lab = document.getElementById("fleming-lab");
+    if (!lab) return;
+    flemingIndex = index % flemingCases.length; flemingAnswered = false;
+    var item = flemingCases[flemingIndex];
+    lab.querySelector(".fleming-field").textContent = item.field;
+    lab.querySelector(".fleming-current").textContent = item.current;
+    lab.querySelector(".fleming-feedback").textContent = "Use the left hand: forefinger = field, middle finger = current, thumb = force.";
+    lab.querySelectorAll("[data-force]").forEach(function (b) { b.disabled = false; b.classList.remove("correct", "incorrect"); });
+  };
+  window.psebFlemingChoose = function (btn) {
+    if (flemingAnswered) return;
+    flemingAnswered = true; flemingAsked++;
+    var lab = document.getElementById("fleming-lab"), item = flemingCases[flemingIndex];
+    lab.querySelectorAll("[data-force]").forEach(function (b) {
+      b.disabled = true;
+      if (b.dataset.force === item.answer) b.classList.add("correct");
+    });
+    if (btn.dataset.force === item.answer) { flemingScore++; btn.classList.add("correct"); }
+    else btn.classList.add("incorrect");
+    lab.querySelector(".fleming-feedback").innerHTML = "<strong>" + item.answer + ".</strong> " + item.why;
+    lab.querySelector(".fleming-score").textContent = "Score: " + flemingScore + " / " + flemingAsked;
+  };
+  window.psebFlemingNext = function () { window.psebFlemingLoad((flemingIndex + 1) % flemingCases.length); };
 
   // ---- Pick-and-drop labelling / sorting engine (click a chip, then click a target) ----
   window.psebPick = function (item) {
@@ -870,4 +1041,80 @@
     });
   }
   window.psebStopReading = biStop;
+
+  // ---- Unified quiz feedback + bilingual "why" explanations ----
+  // Overrides the per-chapter inline checkAnswer/checkSA (which load before this
+  // file) with a single consistent implementation shared by every chapter, so
+  // MCQ, True/False and Short-Answer all render the same bilingual feedback card
+  // and surface an optional explanation from data-explain / data-explain-pa.
+  function qfFindCorrectBtn(qDiv) {
+    var c = qDiv.querySelector('.option-btn[data-correct="true"]');
+    if (c) return c;
+    var btns = qDiv.querySelectorAll(".option-btn");
+    for (var i = 0; i < btns.length; i++) {
+      var oc = btns[i].getAttribute("onclick") || "";
+      if (/checkAnswer\(this,\s*true\s*,/.test(oc)) return btns[i];
+    }
+    return null;
+  }
+  function qfExplainHtml(qDiv) {
+    var en = qDiv.getAttribute("data-explain");
+    var pa = qDiv.getAttribute("data-explain-pa");
+    if (!en && !pa) return "";
+    var h = '<div class="qf-explain"><div class="qf-explain-label">Why &nbsp;\u00b7&nbsp; ਕਿਉਂ</div>';
+    if (en) h += '<div class="qf-explain-en">' + en + "</div>";
+    if (pa) h += '<div class="qf-explain-pa punjabi-block">' + pa + "</div>";
+    return h + "</div>";
+  }
+  function enhancedCheckAnswer(btn, isCorrect, isMCQ) {
+    var qDiv = btn.closest ? btn.closest(".sub-slide") : null;
+    if (!qDiv) return;
+    var feedback = qDiv.querySelector(".feedback");
+    var nextBtn = qDiv.querySelector(".next-sub-btn");
+    var buttons = qDiv.querySelectorAll(".option-btn");
+    for (var i = 0; i < buttons.length; i++) buttons[i].disabled = true;
+    var correctBtn = qfFindCorrectBtn(qDiv);
+    if (isCorrect) {
+      btn.classList.add("correct");
+    } else {
+      btn.classList.add("incorrect");
+      if (correctBtn) correctBtn.classList.add("correct");
+    }
+    var h = '<div class="quiz-feedback ' + (isCorrect ? "is-correct" : "is-incorrect") + '">';
+    h += '<div class="qf-status">' + (isCorrect
+      ? '\u2713 Correct <span class="qf-pa">(ਸਹੀ)</span>'
+      : '\u2717 Incorrect <span class="qf-pa">(ਗਲਤ)</span>') + "</div>";
+    if (!isCorrect && correctBtn) {
+      var ct = (correctBtn.textContent || "").trim();
+      h += '<div class="qf-answer">Correct answer <span class="qf-pa">(ਸਹੀ ਜਵਾਬ)</span>: <strong>' + ct + "</strong></div>";
+    }
+    h += qfExplainHtml(qDiv) + "</div>";
+    if (feedback) feedback.innerHTML = h;
+    if (nextBtn) nextBtn.style.display = "block";
+  }
+  function enhancedCheckSA(btn, expectedEn, expectedPa) {
+    var qDiv = btn.closest ? btn.closest(".sub-slide") : null;
+    if (!qDiv) return;
+    var input = qDiv.querySelector(".sa-input");
+    var feedback = qDiv.querySelector(".feedback");
+    var nextBtn = qDiv.querySelector(".next-sub-btn");
+    var userVal = (input && input.value ? input.value : "").trim().toLowerCase();
+    var ok = !!userVal && userVal === (expectedEn || "").toLowerCase();
+    if (input) input.disabled = true;
+    btn.disabled = true;
+    var h = '<div class="quiz-feedback ' + (ok ? "is-correct" : "is-incorrect") + '">';
+    h += '<div class="qf-status">' + (ok
+      ? '\u2713 Correct <span class="qf-pa">(ਸਹੀ)</span>'
+      : '\u2717 Not quite <span class="qf-pa">(ਲਗਭਗ)</span>') + "</div>";
+    h += '<div class="qf-answer">' + (ok ? "Answer" : "Expected answer") +
+      ' <span class="qf-pa">(ਜਵਾਬ)</span>: <strong>' + (expectedEn || "") + "</strong></div>";
+    if (expectedPa) h += '<div class="qf-answer-pa punjabi-block">' + expectedPa + "</div>";
+    h += qfExplainHtml(qDiv) + "</div>";
+    if (feedback) feedback.innerHTML = h;
+    if (nextBtn) nextBtn.style.display = "block";
+  }
+  function installQuizEnhancements() {
+    window.checkAnswer = enhancedCheckAnswer;
+    window.checkSA = enhancedCheckSA;
+  }
 })();

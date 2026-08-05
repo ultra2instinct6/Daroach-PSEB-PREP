@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLO.Engine - The Zig-Zag Line (Final)</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+
+  body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    background-color: #000000; 
+    color: #e5e5e5;
+    padding: 0; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars during scaling */
+  }
+
+  /* Presentation Wrapper for Scaling */
+  #scale-wrapper {
+    width: 1280px;
+    height: 720px;
+    transform-origin: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 1280x720 Presentation Standard */
+  .bolo-slide-container { 
+    background-color: #0a0a0a; 
+    width: 100%;
+    height: 100%;
+    border-radius: 16px; 
+    border: 1px solid #222222; 
+    border-left: 6px solid #facc15; 
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  }
+
+  .punjabi-text { font-size: 1.15em; font-weight: 500; }
+  .punjabi-sub { font-size: 0.85rem; font-weight: normal; color: #888; }
+
+  /* Header Section */
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .breadcrumb {
+    color: #888888;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .punjabi-title {
+    color: #888888;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+
+  /* Mode Toggle */
+  .mode-toggle-container {
+    background: #111;
+    border: 1px solid #333;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .mode-btn.active-mode {
+    background: #222;
+    color: #facc15;
+    border: 1px solid #444;
+  }
+
+  .gradient-line {
+    height: 3px;
+    background: linear-gradient(90deg, #38bdf8 0%, #facc15 50%, #f472b6 100%);
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 3px;
+  }
+
+  /* Main Layout Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 30px;
+    flex-grow: 1;
+  }
+
+  /* Left Column: Info & Tip */
+  .left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .intro-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #cccccc;
+    margin: 0;
+  }
+
+  .exam-tip {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    border-left: 4px solid #a855f7; 
+    padding: 15px;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1);
+  }
+
+  .exam-tip-header {
+    color: #a855f7;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .exam-tip p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #e5e5e5;
+    line-height: 1.5;
+  }
+
+  /* Quick Legend */
+  .quick-legend {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 5px;
+  }
+  .legend-title { color: #fff; font-weight: bold; margin-bottom: 8px; font-size: 1rem; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 0.9rem; color: #ccc; }
+  .legend-color { width: 14px; height: 14px; border-radius: 3px; }
+  .lc-metal { background: #0ea5e9; border: 1px solid #38bdf8; }
+  .lc-metalloid { background: #eab308; border: 1px solid #facc15; }
+  .lc-nonmetal { background: #ec4899; border: 1px solid #f472b6; }
+
+  /* Right Column: Interactive Area */
+  .interactive-panel {
+    background-color: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  }
+
+  .controls-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #222;
+    background: #111;
+  }
+
+  .control-btn {
+    background: transparent;
+    color: #777;
+    border: none;
+    border-bottom: 4px solid transparent;
+    border-right: 1px solid #222;
+    padding: 10px 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .control-btn:last-child { border-right: none; }
+
+  /* Active State Buttons */
+  .control-btn.active[onclick*="'metals'"] { color: #38bdf8; border-bottom-color: #38bdf8; background: #082f4940; }
+  .control-btn.active[onclick*="'line'"] { color: #ffffff; border-bottom-color: #ffffff; background: #33333340; }
+  .control-btn.active[onclick*="'metalloids'"] { color: #facc15; border-bottom-color: #facc15; background: #42200640; }
+  .control-btn.active[onclick*="'nonmetals'"] { color: #f472b6; border-bottom-color: #f472b6; background: #450a0a40; }
+
+  /* Visualizer Area (Periodic Table CSS Grid) */
+  .visual-stage {
+    height: 280px;
+    position: relative;
+    border-bottom: 1px solid #222;
+    background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .pt-grid {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    max-width: 680px;
+  }
+
+  .pt-cell {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 3px;
+    transition: all 0.4s ease-in-out;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: crosshair;
+    user-select: none;
+  }
+
+  .pt-cell.empty { background: transparent; border: none; cursor: default; }
+  .pt-cell:not(.empty):hover { transform: scale(1.15); z-index: 20; box-shadow: 0 5px 15px rgba(0,0,0,0.8); }
+
+  /* The Zig Zag Line Logic (Staircase) */
+  .zig-zag-left { border-left: 3px solid transparent; }
+  .zig-zag-bottom { border-bottom: 3px solid transparent; }
+
+  #engine-core.state-line .zig-zag-left { border-left: 3px solid #fff; box-shadow: -4px 0 10px rgba(255,255,255,0.5); }
+  #engine-core.state-line .zig-zag-bottom { border-bottom: 3px solid #fff; box-shadow: 0 4px 10px rgba(255,255,255,0.5); }
+  
+  #engine-core.state-line .pt-metalloid { background: rgba(255,255,255,0.15); border-color: #fff; z-index: 5; }
+  #engine-core.state-line .pt-cell:not(.pt-metalloid):not(.empty) { opacity: 0.3; color: #555; }
+
+  /* 1. Metals State */
+  #engine-core.state-metals .pt-metal { 
+    background: #0ea5e9; border-color: #38bdf8; color: #fff; box-shadow: 0 0 10px rgba(14, 165, 233, 0.7); 
+  }
+  #engine-core.state-metals .pt-cell:not(.pt-metal):not(.empty) { opacity: 0.2; color: #333; }
+
+  /* 3. Metalloids State */
+  #engine-core.state-metalloids .pt-metalloid { 
+    background: #eab308; border-color: #facc15; color: #000; box-shadow: 0 0 12px rgba(234, 179, 8, 0.9); transform: scale(1.05); z-index: 5;
+  }
+  #engine-core.state-metalloids .pt-cell:not(.pt-metalloid):not(.empty) { opacity: 0.2; color: #333; }
+
+  /* 4. Non-Metals State */
+  #engine-core.state-nonmetals .pt-nonmetal { 
+    background: #ec4899; border-color: #f472b6; color: #fff; box-shadow: 0 0 10px rgba(236, 72, 153, 0.7); 
+  }
+  #engine-core.state-nonmetals .pt-cell:not(.pt-nonmetal):not(.empty) { opacity: 0.2; color: #333; }
+
+  /* Data Display Area */
+  .data-stage { flex-grow: 1; position: relative; padding: 20px 25px; background: #0a0a0a; }
+
+  .concept-box {
+    text-align: center; font-size: 1.25rem; font-weight: bold; margin-bottom: 15px; padding: 10px;
+    background: #111; border-radius: 8px; border: 1px dashed #333; letter-spacing: 1px;
+    display: flex; align-items: center; justify-content: center; gap: 15px;
+  }
+
+  .explanation-box { background: #151515; padding: 18px; border-radius: 8px; border-left: 4px solid #444; font-size: 1rem; line-height: 1.5; }
+  .trait-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+  .trait-card { background: #1a1a1a; padding: 12px; border-radius: 6px; border-left: 3px solid #444; }
+  .trait-card strong { display: block; margin-bottom: 8px; font-size: 1.05rem; }
+  .trait-card ul { margin: 0; padding-left: 20px; color: #cbd5e1; font-size: 0.95rem; }
+  .trait-card li { margin-bottom: 4px; }
+
+  /* Cloze Deletion Logic */
+  .cloze-word { transition: all 0.2s ease; font-weight: bold; }
+  
+  body.quiz-active .cloze-word:not(.revealed) {
+    background-color: #333; color: transparent; cursor: pointer; border-radius: 4px; padding: 2px 8px;
+    border-bottom: 2px dashed #facc15; user-select: none; animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+  body.quiz-active .cloze-word:not(.revealed):hover { background-color: #444; }
+  body.quiz-active .cloze-word.revealed { background: rgba(255, 255, 255, 0.15); padding: 2px 6px; border-radius: 4px; border-bottom: none; }
+
+  #engine-core.state-metals body.quiz-active .cloze-word.revealed { color: #38bdf8; background: rgba(56, 189, 248, 0.15); }
+  #engine-core.state-metalloids body.quiz-active .cloze-word.revealed { color: #facc15; background: rgba(250, 204, 21, 0.15); }
+  #engine-core.state-nonmetals body.quiz-active .cloze-word.revealed { color: #f472b6; background: rgba(244, 114, 182, 0.15); }
+
+  /* Data View Toggling */
+  .data-view { display: none; }
+  #engine-core.state-metals .view-metals { display: block; }
+  #engine-core.state-line .view-line { display: block; }
+  #engine-core.state-metalloids .view-metalloids { display: block; }
+  #engine-core.state-nonmetals .view-nonmetals { display: block; }
+
+  /* Tooltip for Elements */
+  #element-tooltip {
+    position: absolute; background: rgba(15, 23, 42, 0.95); border: 1px solid #38bdf8;
+    padding: 12px 18px; border-radius: 8px; pointer-events: none; opacity: 0;
+    z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.7); transition: opacity 0.2s ease;
+    color: #fff; font-size: 0.9rem; min-width: 160px;
+  }
+  #element-tooltip h4 { margin: 0 0 8px 0; color: #facc15; font-size: 1.15rem; border-bottom: 1px solid #333; padding-bottom: 5px;}
+  #element-tooltip p { margin: 4px 0; color: #cbd5e1; }
+  #element-tooltip .valency { font-weight: bold; color: #38bdf8; }
+
+</style>
+</head>
+<body id="app-body">
+
+<!-- Hover Tooltip Element -->
+<div id="element-tooltip">
+  <h4 id="tt-name">Element</h4>
+  <p>Atomic No: <strong id="tt-z" style="color: #fff;"></strong></p>
+  <p>Valency: <span id="tt-val" class="valency"></span></p>
+  <p>Type: <span id="tt-type"></span></p>
+</div>
+
+<!-- Auto-Scaling Wrapper -->
+<div id="scale-wrapper">
+  <div class="bolo-slide-container">
+    
+    <div class="header-flex">
+      <div>
+        <span class="breadcrumb">PSEB Class 10 Science • Chapter 5</span>
+        <h1>Periodic Classification: The Zig-Zag Line <span class="punjabi-title punjabi-text">(ਆਵਰਤੀ ਵਰਗੀਕਰਨ)</span></h1>
+      </div>
+      
+      <div class="mode-toggle-container">
+        <button class="mode-btn active-mode" id="btn-learn" onclick="setMode('learn')"><i class="fa-solid fa-book-open"></i> Learn</button>
+        <button class="mode-btn" id="btn-quiz" onclick="setMode('quiz')"><i class="fa-solid fa-brain"></i> Quiz Mode</button>
+      </div>
+    </div>
+    
+    <div class="gradient-line"></div>
+
+    <div class="content-grid">
+      
+      <!-- Left Column -->
+      <div class="left-col">
+        <p class="intro-text">In the Modern Periodic Table, a distinct <span class="cloze-word">zig-zag line</span> acts as a physical boundary separating metals from non-metals. The elements on this line exhibit intermediate properties.</p>
+        
+        <div class="exam-tip">
+          <div class="exam-tip-header"><i class="fa-solid fa-lightbulb"></i> Board Exam Tip: Nature of Oxides</div>
+          <p>A highly tested concept: Metallic oxides are generally <span class="cloze-word">basic</span> in nature, whereas non-metallic oxides are <span class="cloze-word">acidic</span>. Metalloids often form <span class="cloze-word">amphoteric</span> oxides (behaving as both).
+          <br><br><span class="punjabi-text" style="color: #c084fc;">ਧਾਤਾਂ ਦੇ ਆਕਸਾਈਡ ਖਾਰੀ (basic) ਹੁੰਦੇ ਹਨ, ਅਤੇ ਗੈਰ-ਧਾਤਾਂ ਦੇ ਆਕਸਾਈਡ ਤੇਜ਼ਾਬੀ (acidic) ਹੁੰਦੇ ਹਨ।</span></p>
+        </div>
+
+        <div class="quick-legend">
+          <div class="legend-title"><i class="fa-solid fa-list-ul"></i> Quick Key</div>
+          <div class="legend-item"><div class="legend-color lc-metal"></div> Metals (Donors / ਧਾਤਾਂ)</div>
+          <div class="legend-item"><div class="legend-color lc-metalloid"></div> Metalloids (Borderline / ਉਪ-ਧਾਤਾਂ)</div>
+          <div class="legend-item"><div class="legend-color lc-nonmetal"></div> Non-Metals (Acceptors / ਗੈਰ-ਧਾਤਾਂ)</div>
+        </div>
+        
+        <div style="margin-top: 5px; font-size: 0.95rem; color: #38bdf8; background: rgba(56,189,248,0.1); padding: 10px; border-radius: 8px; border: 1px dashed #38bdf8;">
+          <i class="fa-solid fa-hand-pointer"></i> <strong>Hover over elements</strong> in the table to view their Atomic Number and Valency!
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Component -->
+      <div class="interactive-panel state-line" id="engine-core">
+        
+        <div class="controls-row">
+          <button class="control-btn" id="btn-metals" onclick="setState('metals')">
+            1. Metals <span class="punjabi-sub punjabi-text">ਧਾਤਾਂ</span>
+          </button>
+          <button class="control-btn active" id="btn-line" onclick="setState('line')">
+            2. The Boundary <span class="punjabi-sub punjabi-text">ਸਰਹੱਦ (ਜ਼ਿਗ-ਜ਼ੈਗ)</span>
+          </button>
+          <button class="control-btn" id="btn-metalloids" onclick="setState('metalloids')">
+            3. Metalloids <span class="punjabi-sub punjabi-text">ਉਪ-ਧਾਤਾਂ</span>
+          </button>
+          <button class="control-btn" id="btn-nonmetals" onclick="setState('nonmetals')">
+            4. Non-Metals <span class="punjabi-sub punjabi-text">ਗੈਰ-ਧਾਤਾਂ</span>
+          </button>
+        </div>
+
+        <!-- VISUAL STAGE: Dynamic CSS Periodic Table -->
+        <div class="visual-stage">
+          <div class="pt-grid" id="pt-container">
+            <!-- Populated by JavaScript below to keep HTML clean -->
+          </div>
+        </div>
+
+        <!-- DATA STAGE -->
+        <div class="data-stage">
+          
+          <!-- 1. METALS DATA -->
+          <div class="data-view view-metals">
+            <div class="concept-box" style="color: #38bdf8; border-color: #0c4a6e;">
+              <i class="fa-solid fa-cube"></i> Left Side of the Line
+            </div>
+            <div class="explanation-box" style="border-left-color: #38bdf8;">
+              <div class="trait-grid" style="margin-top: 0;">
+                <div class="trait-card" style="border-left-color: #38bdf8;">
+                  <strong>Chemical Properties</strong>
+                  <ul>
+                    <li>Highly <span class="cloze-word">electropositive</span> (form cations).</li>
+                    <li>Tendency to <span class="cloze-word">lose valence electrons</span>.</li>
+                    <li>Valency is typically 1, 2, or 3.</li>
+                    <li>Form <span class="cloze-word">Basic</span> Oxides.</li>
+                  </ul>
+                </div>
+                <div class="trait-card" style="border-left-color: #38bdf8;">
+                  <strong>Physical Properties</strong>
+                  <ul>
+                    <li>Malleable (sheets) and ductile (wires).</li>
+                    <li>Good conductors of <span class="cloze-word">heat and electricity</span>.</li>
+                    <li>Solid at room temperature (except Mercury).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. THE LINE DATA -->
+          <div class="data-view view-line">
+            <div class="concept-box" style="color: #ffffff; border-color: #333;">
+              <i class="fa-solid fa-bolt"></i> The Structural Division
+            </div>
+            <div class="explanation-box" style="border-left-color: #ffffff;">
+              <strong>The Zig-Zag Line (ਜ਼ਿਗ-ਜ਼ੈਗ ਲਾਈਨ):</strong> As we move from left to right across a period, the <span class="cloze-word">metallic character</span> strictly decreases while the <span class="cloze-word">non-metallic character</span> increases. 
+              <br><br>
+              This physical zig-zag border in the p-block visually represents the exact transition point where elements shift from being electron-donors (metals) to electron-acceptors (non-metals).
+            </div>
+          </div>
+
+          <!-- 3. METALLOIDS DATA -->
+          <div class="data-view view-metalloids">
+            <div class="concept-box" style="color: #facc15; border-color: #713f12;">
+              <i class="fa-solid fa-microchip"></i> Borderline Elements
+            </div>
+            <div class="explanation-box" style="border-left-color: #facc15;">
+              <div class="trait-grid" style="margin-top: 0;">
+                <div class="trait-card" style="border-left-color: #facc15;">
+                  <strong>The 7 Core Metalloids</strong>
+                  <ul>
+                    <li>Boron (B), Silicon (Si), Germanium (Ge)</li>
+                    <li>Arsenic (As), Antimony (Sb)</li>
+                    <li>Tellurium (Te), Polonium (Po)</li>
+                  </ul>
+                </div>
+                <div class="trait-card" style="border-left-color: #facc15;">
+                  <strong>Key Characteristics</strong>
+                  <ul>
+                    <li>Exhibit properties of both metals & non-metals.</li>
+                    <li>Act as vital <span class="cloze-word">semi-conductors</span>.</li>
+                    <li>Crucial for electronics (e.g., <span class="cloze-word">Silicon chips</span>).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. NON-METALS DATA -->
+          <div class="data-view view-nonmetals">
+            <div class="concept-box" style="color: #f472b6; border-color: #831843;">
+              <i class="fa-solid fa-cloud"></i> Right Side of the Line
+            </div>
+            <div class="explanation-box" style="border-left-color: #f472b6;">
+              <div class="trait-grid" style="margin-top: 0;">
+                <div class="trait-card" style="border-left-color: #f472b6;">
+                  <strong>Chemical Properties</strong>
+                  <ul>
+                    <li>Highly <span class="cloze-word">electronegative</span> (form anions).</li>
+                    <li>Tendency to <span class="cloze-word">gain electrons</span> to complete octet.</li>
+                    <li>Valency is typically 4, 5, 6, or 7.</li>
+                    <li>Form <span class="cloze-word">Acidic</span> Oxides.</li>
+                  </ul>
+                </div>
+                <div class="trait-card" style="border-left-color: #f472b6;">
+                  <strong>Physical Properties</strong>
+                  <ul>
+                    <li>Usually gases or brittle solids at room temp.</li>
+                    <li>Poor conductors (insulators).</li>
+                    <li>Non-lustrous and non-sonorous.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // --- Scale Layout to fit Window ---
+  function resizeLayout() {
+    const wrapper = document.getElementById('scale-wrapper');
+    const scaleX = window.innerWidth / 1280;
+    const scaleY = window.innerHeight / 720;
+    const scale = Math.min(scaleX, scaleY) * 0.95; // 95% to leave slight margin
+    wrapper.style.transform = `scale(${scale})`;
+  }
+  window.addEventListener('resize', resizeLayout);
+  resizeLayout(); // Initial call
+
+  // --- Generate Contextual Periodic Table Grid ---
+  function buildPeriodicTable() {
+    const container = document.getElementById('pt-container');
+    
+    // Expanded dataset for Class 10 Boards (1-20 + key elements)
+    // Format: [row, col, symbol, type, name, atomic_number, valency]
+    const elementsData = [
+      [1, 1, 'H', 'nm', 'Hydrogen', 1, '+1, -1'], [1, 18, 'He', 'nm', 'Helium', 2, '0 (Noble)'],
+      [2, 1, 'Li', 'm', 'Lithium', 3, '+1'], [2, 2, 'Be', 'm', 'Beryllium', 4, '+2'], 
+      [2, 13, 'B', 'md', 'Boron', 5, '+3'], [2, 14, 'C', 'nm', 'Carbon', 6, '±4'], 
+      [2, 15, 'N', 'nm', 'Nitrogen', 7, '-3'], [2, 16, 'O', 'nm', 'Oxygen', 8, '-2'], 
+      [2, 17, 'F', 'nm', 'Fluorine', 9, '-1'], [2, 18, 'Ne', 'nm', 'Neon', 10, '0 (Noble)'],
+      [3, 1, 'Na', 'm', 'Sodium', 11, '+1'], [3, 2, 'Mg', 'm', 'Magnesium', 12, '+2'], 
+      [3, 13, 'Al', 'm', 'Aluminum', 13, '+3'], [3, 14, 'Si', 'md', 'Silicon', 14, '±4'], 
+      [3, 15, 'P', 'nm', 'Phosphorus', 15, '-3, +5'], [3, 16, 'S', 'nm', 'Sulfur', 16, '-2'], 
+      [3, 17, 'Cl', 'nm', 'Chlorine', 17, '-1'], [3, 18, 'Ar', 'nm', 'Argon', 18, '0 (Noble)'],
+      [4, 1, 'K', 'm', 'Potassium', 19, '+1'], [4, 2, 'Ca', 'm', 'Calcium', 20, '+2'],
+      // Key transition metals for context
+      [4, 7, 'Mn', 'm', 'Manganese', 25, 'Var (+2 to +7)'], [4, 8, 'Fe', 'm', 'Iron', 26, '+2, +3'], 
+      [4, 11, 'Cu', 'm', 'Copper', 29, '+1, +2'], [4, 12, 'Zn', 'm', 'Zinc', 30, '+2'],
+      // Rest of row 4 p-block
+      [4, 13, 'Ga', 'm', 'Gallium', 31, '+3'], [4, 14, 'Ge', 'md', 'Germanium', 32, '+4'], 
+      [4, 15, 'As', 'md', 'Arsenic', 33, '-3, +5'], [4, 16, 'Se', 'nm', 'Selenium', 34, '-2'], 
+      [4, 17, 'Br', 'nm', 'Bromine', 35, '-1'], [4, 18, 'Kr', 'nm', 'Krypton', 36, '0 (Noble)'],
+      // Key metalloids & halogens from below
+      [5, 14, 'Sn', 'm', 'Tin', 50, '+2, +4'], [5, 15, 'Sb', 'md', 'Antimony', 51, '+3, +5'], 
+      [5, 16, 'Te', 'md', 'Tellurium', 52, '-2'], [5, 17, 'I', 'nm', 'Iodine', 53, '-1'],
+      [6, 14, 'Pb', 'm', 'Lead', 82, '+2, +4'], [6, 16, 'Po', 'md', 'Polonium', 84, '+2, +4'],
+      [6, 17, 'At', 'nm', 'Astatine', 85, '-1']
+    ];
+
+    // Identify the cells immediately left/bottom of the zig-zag to draw the staircase border
+    const zigZagBorders = [
+      { r: 2, c: 13, side: 'left' }, { r: 2, c: 13, side: 'bottom' }, // B
+      { r: 3, c: 14, side: 'left' }, { r: 3, c: 14, side: 'bottom' }, // Si
+      { r: 4, c: 15, side: 'left' }, { r: 4, c: 15, side: 'bottom' }, // As
+      { r: 5, c: 16, side: 'left' }, { r: 5, c: 16, side: 'bottom' }, // Te
+      { r: 6, c: 17, side: 'left' } // At
+    ];
+
+    for (let r = 1; r <= 7; r++) {
+      for (let c = 1; c <= 18; c++) {
+        const cell = document.createElement('div');
+        cell.classList.add('pt-cell');
+
+        // Check for empty gaps in the standard layout
+        if ((r === 1 && c > 1 && c < 18) || (r === 2 && c > 2 && c < 13) || (r === 3 && c > 2 && c < 13)) {
+          cell.classList.add('empty');
+        } else {
+          // Check if this cell holds specific element data
+          const elData = elementsData.find(e => e[0] === r && e[1] === c);
+          
+          if (elData) {
+            cell.innerText = elData[2]; // Set Symbol
+            
+            // Add data attributes for tooltip
+            cell.dataset.name = elData[4];
+            cell.dataset.z = elData[5];
+            cell.dataset.val = elData[6];
+            
+            if (elData[3] === 'md') {
+              cell.classList.add('pt-metalloid');
+              cell.dataset.type = 'Metalloid (ਉਪ-ਧਾਤ)';
+            } else if (elData[3] === 'nm') {
+              cell.classList.add('pt-nonmetal');
+              cell.dataset.type = 'Non-Metal (ਗੈਰ-ਧਾਤ)';
+            } else {
+              cell.classList.add('pt-metal');
+              cell.dataset.type = 'Metal (ਧਾਤ)';
+            }
+            
+            // Tooltip event listeners
+            cell.addEventListener('mouseenter', showTooltip);
+            cell.addEventListener('mouseleave', hideTooltip);
+            cell.addEventListener('mousemove', moveTooltip);
+            
+          } else {
+            // Fill remainder automatically based on region
+            if (c >= 13 && r >= 4) {
+               cell.classList.add('pt-metal'); // Simplification for unmarked heavy metals
+            } else {
+               cell.classList.add('pt-metal'); // Transition metals
+            }
+          }
+
+          // Apply staircase logic
+          zigZagBorders.forEach(border => {
+            if (border.r === r && border.c === c) {
+              cell.classList.add('zig-zag-' + border.side);
+            }
+          });
+        }
+        container.appendChild(cell);
+      }
+    }
+  }
+
+  // --- Tooltip Logic ---
+  const tooltip = document.getElementById('element-tooltip');
+  
+  function showTooltip(e) {
+    if(!e.target.dataset.name) return; // Ignore empty/unmarked cells
+    document.getElementById('tt-name').innerText = e.target.dataset.name + " (" + e.target.innerText + ")";
+    document.getElementById('tt-z').innerText = e.target.dataset.z;
+    document.getElementById('tt-val').innerText = e.target.dataset.val;
+    document.getElementById('tt-type').innerText = e.target.dataset.type;
+    tooltip.style.opacity = '1';
+  }
+  
+  function hideTooltip() { tooltip.style.opacity = '0'; }
+  
+  function moveTooltip(e) {
+    // Adjust position relative to mouse, taking CSS transform scale into account
+    const scale = parseFloat(document.getElementById('scale-wrapper').style.transform.replace(/[^0-9.]/g, '')) || 1;
+    const offsetX = 20 * scale;
+    const offsetY = 20 * scale;
+    tooltip.style.left = (e.pageX + offsetX) + 'px';
+    tooltip.style.top = (e.pageY + offsetY) + 'px';
+  }
+
+  // --- State Management ---
+  let currentMode = 'learn';
+  const engine = document.getElementById('engine-core');
+  const body = document.getElementById('app-body');
+
+  function setState(state) {
+    const btns = ['metals', 'line', 'metalloids', 'nonmetals'];
+    btns.forEach(id => document.getElementById('btn-' + id).classList.remove('active'));
+    document.getElementById('btn-' + state).classList.add('active');
+    engine.className = 'interactive-panel state-' + state;
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('btn-learn').classList.remove('active-mode');
+    document.getElementById('btn-quiz').classList.remove('active-mode');
+    document.getElementById('btn-' + mode).classList.add('active-mode');
+
+    if (mode === 'quiz') {
+      body.classList.add('quiz-active');
+      document.querySelectorAll('.cloze-word').forEach(el => el.classList.remove('revealed'));
+    } else {
+      body.classList.remove('quiz-active');
+    }
+  }
+
+  // Cloze click handler for Quiz mode
+  document.addEventListener('click', function(e) {
+    if (currentMode === 'quiz' && e.target.classList.contains('cloze-word')) {
+      e.target.classList.add('revealed');
+    }
+  });
+
+  // Initialize
+  window.onload = () => {
+    buildPeriodicTable();
+  };
+</script>
+
+</body>
+</html>

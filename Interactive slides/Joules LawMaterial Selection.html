@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Physics - Perfected SVG Diagrams</title>
+<style>
+  /* STRICT ZERO ANIMATION RULE */
+  * { 
+    transition: none !important; 
+    animation: none !important; 
+    box-sizing: border-box;
+  }
+
+  /* THEME TOKENS */
+  :root {
+    --zinc-950: #09090b; --zinc-900: #18181b; --zinc-800: #27272a; --zinc-700: #3f3f46;
+    --zinc-400: #a1a1aa; --zinc-100: #f4f4f5;
+    --bg-page: var(--zinc-950); --bg-card: var(--zinc-900); --bg-panel: #050505;
+    --border-main: var(--zinc-800); --border-light: var(--zinc-700);
+    --text-main: var(--zinc-100); --text-muted: var(--zinc-400);
+    
+    /* Topic Accents */
+    --theme-heat: #ef4444;   
+    --theme-metal: #f59e0b;  
+    --theme-gas: #06b6d4;    
+    --theme-success: #10b981; --theme-error: #f43f5e;
+    --current-accent: var(--theme-metal);
+  }
+
+  /* Dynamic Theme Cascade */
+  .interactive-card[data-theme="heat"] { --current-accent: var(--theme-heat); }
+  .interactive-card[data-theme="metal"] { --current-accent: var(--current-accent); }
+  .interactive-card[data-theme="gas"] { --current-accent: var(--theme-gas); }
+
+  body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    background-color: var(--bg-page); color: var(--text-main);
+    padding: clamp(1rem, 3vw, 2rem); margin: 0;
+    display: flex; justify-content: center; line-height: 1.6;
+  }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  :focus-visible { outline: 2px solid var(--current-accent); outline-offset: 3px; }
+
+  /* Main Layout */
+  .interactive-card { 
+    background-color: var(--bg-card); max-width: 900px; width: 100%;
+    border-radius: 12px; border: 1px solid var(--border-main); 
+    border-top: 4px solid var(--current-accent); 
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 10px 30px rgba(0,0,0,0.5);
+    padding: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  header h1 { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800; margin: 0 0 0.5rem 0; letter-spacing: -0.02em; }
+  header .subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.5rem 0; max-width: 65ch; }
+
+  .image-container {
+    width: 100%; aspect-ratio: 21 / 9; border-radius: 8px; overflow: hidden;
+    border: 1px solid var(--border-main); margin-bottom: 1.5rem; background: var(--bg-panel);
+  }
+  .reference-image { width: 100%; height: 100%; object-fit: cover; filter: grayscale(85%) contrast(1.1) brightness(0.8); }
+  .reference-image:hover { filter: none; }
+
+  /* Grid Architecture */
+  .interactive-grid {
+    display: grid; gap: 1rem; grid-template-columns: 1fr;
+    grid-template-areas: "progress" "controls" "display";
+  }
+  @media (min-width: 600px) {
+    .interactive-grid {
+      grid-template-columns: 180px 1fr;
+      grid-template-areas: "controls progress" "controls display";
+    }
+  }
+
+  .progress-wrapper { grid-area: progress; display: flex; justify-content: flex-end; align-items: center; gap: 6px; }
+  .progress-segment { height: 6px; width: 24px; background: var(--zinc-800); border-radius: 3px; }
+  .progress-segment.filled { background: var(--current-accent); }
+
+  .controls { grid-area: controls; display: flex; flex-direction: column; gap: 0.5rem; }
+  
+  .btn {
+    background: var(--bg-page); color: var(--text-muted); border: 1px solid var(--border-main);
+    padding: 1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9rem;
+    display: flex; align-items: center; gap: 12px; text-align: left;
+  }
+  .btn:hover { background: var(--zinc-800); color: var(--text-main); }
+  .btn:active { transform: scale(0.98); }
+  .btn[aria-pressed="true"] { 
+    background: var(--zinc-800); color: var(--text-main); border-color: var(--current-accent); 
+    box-shadow: inset 4px 0 0 var(--current-accent);
+  }
+  .btn svg { width: 1.25em; height: 1.25em; flex-shrink: 0; }
+
+  /* Display Viewport */
+  .micro-viewport {
+    grid-area: display; background: var(--bg-panel); border: 1px solid var(--border-main);
+    border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2rem 1.5rem; min-height: 280px; box-shadow: inset 0 0 40px rgba(0,0,0,0.8);
+  }
+
+  .component-info { text-align: center; max-width: 50ch; display: flex; flex-direction: column; align-items: center; }
+  .svg-display-wrapper { margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; }
+  
+  .component-header { font-size: 1.25rem; margin: 0 0 0.5rem 0; font-weight: 700; color: var(--current-accent); }
+  .rule-box { font-size: 0.95rem; color: var(--text-main); }
+  
+  /* Quiz Section */
+  .quiz-section { margin-top: 2rem; background: var(--bg-page); border-radius: 8px; padding: 1.5rem; border: 1px solid var(--border-main); }
+  .quiz-title { font-weight: 600; margin-bottom: 1rem; font-size: 1rem; }
+  .quiz-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  
+  .quiz-btn {
+    background: var(--zinc-800); color: var(--text-main); border: 1px solid var(--border-light);
+    padding: 12px 16px; border-radius: 6px; cursor: pointer; flex: 1; font-size: 0.95rem;
+    min-width: 200px; font-weight: 500; display: flex; justify-content: space-between; align-items: center;
+  }
+  .quiz-btn:hover:not(:disabled) { background: var(--zinc-700); }
+  .quiz-btn:disabled { opacity: 0.6; cursor: not-allowed; background: repeating-linear-gradient(45deg, var(--zinc-900), var(--zinc-900) 10px, var(--zinc-800) 10px, var(--zinc-800) 20px); }
+  .quiz-btn.correct { border-color: var(--theme-success); background: #064e3b; color: #fff; opacity: 1;}
+  .quiz-btn.wrong { border-color: var(--theme-error); background: #7f1d1d; color: #fff; }
+
+  .quiz-feedback { margin-top: 1rem; font-size: 0.95rem; font-weight: 600; min-height: 1.5rem; }
+  .quiz-feedback.correct-text { color: var(--theme-success); }
+  
+  .reset-link { display: none; margin-top: 0.5rem; color: var(--text-muted); background: none; border: none; cursor: pointer; text-decoration: underline; font-size: 0.85rem; padding: 0; }
+  .reset-link.visible { display: inline-block; }
+</style>
+</head>
+<body>
+
+<!-- GLOBAL SVG ASSETS & DEFS FOR HIGH-FIDELITY REUSE -->
+<svg style="display: none;" aria-hidden="true">
+  <defs>
+    <!-- Static Glow Filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Glow for Heat -->
+    <filter id="glow-heavy" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComponentTransfer in="blur" result="boost">
+        <feFuncA type="linear" slope="1.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="boost" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Gas Volume Gradient -->
+    <radialGradient id="gas-volume" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.4"/>
+      <stop offset="80%" stop-color="#082f49" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#082f49" stop-opacity="0.95"/>
+    </radialGradient>
+
+    <!-- Master Bulb Shape (Glass & Base) -->
+    <g id="master-bulb">
+      <!-- Glass Envelope (Bezier perfection) -->
+      <path d="M50,5 C25,5 20,35 35,55 C38,59 40,65 40,70 L60,70 C60,65 62,59 65,55 C80,35 75,5 50,5 Z" 
+            fill="transparent" stroke="var(--zinc-700)" stroke-width="2" />
+      <!-- Threaded Metal Base -->
+      <path d="M39,70 L61,70 L61,74 L39,74 Z" fill="var(--zinc-400)" />
+      <path d="M40,75 L60,75 L60,79 L40,79 Z" fill="var(--zinc-500)" />
+      <path d="M41,80 L59,80 L59,84 L41,84 Z" fill="var(--zinc-400)" />
+      <!-- Base Contact Point -->
+      <path d="M45,85 L55,85 L50,92 Z" fill="#000" stroke="var(--zinc-600)" stroke-width="1"/>
+      <!-- Glass Stem / Support Mounts -->
+      <path d="M45,70 L47,55 L53,55 L55,70" fill="none" stroke="var(--zinc-600)" stroke-width="2" stroke-linejoin="round"/>
+      <line x1="47" y1="55" x2="40" y2="40" stroke="var(--zinc-500)" stroke-width="1.5" />
+      <line x1="53" y1="55" x2="60" y2="40" stroke="var(--zinc-500)" stroke-width="1.5" />
+    </g>
+  </defs>
+</svg>
+
+<main class="interactive-card" id="main-card" data-theme="heat">
+  <header>
+    <h1>Joule's Law: Material Selection</h1>
+    <p class="subtitle">When current passes through a high-resistance wire, electrical energy converts to heat. Explore the anatomy of an incandescent bulb based on this principle.</p>
+  </header>
+  
+  <div class="image-container" aria-label="Reference image showing a lightbulb diagram. Hover to view in color.">
+    <img src="image_2ca013.jpg" alt="" class="reference-image" onerror="this.parentElement.style.display='none'">
+  </div>
+
+  <section class="interactive-grid" aria-label="Component Explorer">
+    <div class="progress-wrapper" id="progress-bar" aria-hidden="true"></div>
+    <nav class="controls" id="component-controls" aria-label="Component Selection"></nav>
+    <article class="micro-viewport" id="viewport-display" aria-live="polite"></article>
+  </section>
+
+  <section class="quiz-section" aria-labelledby="quiz-heading">
+    <div class="quiz-title" id="quiz-heading">Knowledge Check: What happens if the glass breaks while the bulb is on?</div>
+    <div class="quiz-options" id="quiz-controls">
+      <button class="quiz-btn" data-correct="false">It burns brighter <span class="icon-slot"></span></button>
+      <button class="quiz-btn" data-correct="true">The filament snaps <span class="icon-slot"></span></button>
+    </div>
+    <div id="quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
+    <button id="reset-quiz" class="reset-link">Reset Question</button>
+  </section>
+</main>
+
+<script>
+  "use strict";
+
+  // Control Nav Icons
+  const Icons = {
+    heat: `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 9v2m0 4v.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>`,
+    metal: `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>`,
+    gas: `<svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg>`,
+    check: `<svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>`,
+    cross: `<svg width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+  };
+
+  // High-Fidelity Data Layer
+  const slideData = [
+    {
+      id: 'equation',
+      theme: 'heat',
+      label: 'Joule Heating',
+      displaySvg: `
+        <svg width="180" height="120" viewBox="0 0 160 100" fill="none" aria-hidden="true">
+          <!-- Wires -->
+          <line x1="10" y1="50" x2="40" y2="50" stroke="var(--zinc-500)" stroke-width="6" stroke-linecap="round"/>
+          <line x1="120" y1="50" x2="150" y2="50" stroke="var(--zinc-500)" stroke-width="6" stroke-linecap="round"/>
+          <!-- Detailed Coiled Resistor with Heavy Glow -->
+          <path d="M40,50 Q45,20 50,50 T60,50 T70,50 T80,50 T90,50 T100,50 T110,50 T120,50" 
+                stroke="var(--theme-heat)" stroke-width="5" fill="none" stroke-linejoin="round" 
+                filter="url(#glow-heavy)" />
+          <!-- Radiating Heat Waves (Bezier curves) -->
+          <path d="M65,30 Q70,20 65,10" stroke="var(--theme-heat)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M80,25 Q85,15 80,5" stroke="var(--theme-heat)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M95,30 Q100,20 95,10" stroke="var(--theme-heat)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M80,75 Q75,85 80,95" stroke="var(--theme-heat)" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </svg>`,
+      header: 'The Principle',
+      body: `When current passes through a high-resistance wire, electrical energy converts to heat.<br><br><strong style="color:var(--theme-heat)">Formula: H = I&sup2;Rt</strong>`
+    },
+    {
+      id: 'tungsten',
+      theme: 'metal',
+      label: 'Tungsten Wire',
+      displaySvg: `
+        <svg width="100" height="150" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <use href="#master-bulb" />
+          <!-- Detailed Filament Coil with Soft Glow -->
+          <path d="M40,40 Q42,33 44,40 T48,40 T52,40 T56,40 T60,40" 
+                stroke="var(--theme-metal)" stroke-width="2.5" fill="none" stroke-linejoin="round"
+                filter="url(#glow)" />
+          <!-- Bright Core Highlight -->
+          <path d="M42,40 L58,40" stroke="#fff" stroke-width="1" stroke-linecap="round" filter="url(#glow)"/>
+        </svg>`,
+      header: 'Why Tungsten?',
+      body: `It is a very strong metal with an incredibly high melting point (approx. 3380&deg;C). It can get white-hot and emit intense light without melting.`
+    },
+    {
+      id: 'gas',
+      theme: 'gas',
+      label: 'Inert Gas',
+      displaySvg: `
+        <svg width="100" height="150" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <!-- Base Structure -->
+          <use href="#master-bulb" />
+          
+          <!-- Colored Interior Gas Volume -->
+          <path d="M50,5 C25,5 20,35 35,55 C38,59 40,65 40,70 L60,70 C60,65 62,59 65,55 C80,35 75,5 50,5 Z" 
+                fill="url(#gas-volume)" stroke="var(--theme-gas)" stroke-width="2" filter="url(#glow)"/>
+          
+          <!-- Volumetric Gas Molecules (Scattered & Glowing) -->
+          <g fill="var(--theme-gas)" filter="url(#glow)">
+            <circle cx="35" cy="25" r="1.5"/><circle cx="50" cy="18" r="2"/>
+            <circle cx="65" cy="28" r="1.5"/><circle cx="45" cy="35" r="1"/>
+            <circle cx="70" cy="45" r="2"/><circle cx="28" cy="45" r="2"/>
+            <circle cx="55" cy="28" r="1.5"/><circle cx="35" cy="50" r="1.5"/>
+            <circle cx="60" cy="52" r="1.5"/>
+          </g>
+          
+          <!-- Dormant Filament (No glow, protected) -->
+          <path d="M40,40 Q42,33 44,40 T48,40 T52,40 T56,40 T60,40" 
+                stroke="var(--zinc-900)" stroke-width="2" fill="none" />
+        </svg>`,
+      header: 'Why Filled With Gas?',
+      body: `In normal air, oxygen would instantly oxidize (burn) the hot wire. Inactive gases like Nitrogen act as a protective barrier, preventing combustion.`
+    }
+  ];
+
+  const DOM = {};
+  const state = { activeId: slideData[0].id, explored: new Set([slideData[0].id]), quizLocked: false };
+
+  function init() {
+    DOM.card = document.getElementById('main-card');
+    DOM.controls = document.getElementById('component-controls');
+    DOM.viewport = document.getElementById('viewport-display');
+    DOM.progress = document.getElementById('progress-bar');
+    DOM.quizArea = document.getElementById('quiz-controls');
+    DOM.quizFeed = document.getElementById('quiz-feedback');
+    DOM.quizReset = document.getElementById('reset-quiz');
+
+    DOM.controls.addEventListener('click', handleNavClick);
+    DOM.quizArea.addEventListener('click', handleQuizClick);
+    DOM.quizReset.addEventListener('click', resetQuiz);
+
+    renderControls(); renderViewport(); renderProgress();
+  }
+
+  function renderControls() {
+    DOM.controls.innerHTML = slideData.map(comp => `
+      <button class="btn" data-id="${comp.id}" aria-pressed="${state.activeId === comp.id}">
+        ${Icons[comp.theme]} ${comp.label}
+      </button>
+    `).join('');
+  }
+
+  function renderViewport() {
+    const activeData = slideData.find(c => c.id === state.activeId);
+    DOM.card.setAttribute('data-theme', activeData.theme);
+    DOM.viewport.innerHTML = `
+      <div class="component-info">
+        <div class="svg-display-wrapper">${activeData.displaySvg}</div>
+        <h2 class="component-header">${activeData.header}</h2>
+        <div class="rule-box">${activeData.body}</div>
+        <span class="sr-only">Viewing information for ${activeData.label}</span>
+      </div>
+    `;
+  }
+
+  function renderProgress() {
+    DOM.progress.innerHTML = slideData.map((comp, idx) => `
+      <div class="progress-segment ${state.explored.has(comp.id) ? 'filled' : ''}" title="Step ${idx + 1}"></div>
+    `).join('');
+  }
+
+  function handleNavClick(e) {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    const id = btn.getAttribute('data-id');
+    state.activeId = id; state.explored.add(id);
+    renderControls(); renderViewport(); renderProgress();
+  }
+
+  function handleQuizClick(e) {
+    if (state.quizLocked) return;
+    const btn = e.target.closest('.quiz-btn');
+    if (!btn) return;
+
+    const isCorrect = btn.getAttribute('data-correct') === 'true';
+    const iconSlot = btn.querySelector('.icon-slot');
+    
+    if (isCorrect) {
+      state.quizLocked = true; btn.classList.add('correct'); iconSlot.innerHTML = Icons.check;
+      Array.from(DOM.quizArea.children).forEach(b => { if (b !== btn) b.disabled = true; });
+      DOM.quizFeed.className = 'quiz-feedback correct-text';
+      DOM.quizFeed.textContent = "Correct! Oxygen would instantly destroy the hot filament.";
+      DOM.quizReset.classList.add('visible');
+    } else {
+      btn.classList.add('wrong'); iconSlot.innerHTML = Icons.cross; btn.disabled = true;
+    }
+  }
+
+  function resetQuiz() {
+    state.quizLocked = false; DOM.quizFeed.textContent = ''; DOM.quizReset.classList.remove('visible');
+    Array.from(DOM.quizArea.children).forEach(b => { b.disabled = false; b.className = 'quiz-btn'; b.querySelector('.icon-slot').innerHTML = ''; });
+  }
+
+  init();
+</script>
+</body>
+</html>

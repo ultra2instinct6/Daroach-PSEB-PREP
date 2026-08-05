@@ -155,10 +155,24 @@
         .mm-branch-droppers { width: 80%; display: flex; justify-content: space-between; }
         .mm-drop { width: 4px; height: 30px; background: var(--goku-orange); }
         .mm-nodes-row { display: flex; justify-content: space-between; width: 100%; gap: 15px; }
-        .mm-node { flex: 1; background: white; border: 3px solid var(--goku-orange); border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .mm-node:hover { transform: scale(1.05); background: #FFFBEB; }
+        .mm-node { flex: 1; background: white; border: 3px solid var(--goku-orange); border-radius: 10px; padding: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; position: relative; overflow: hidden; }
+        .mm-node:hover, .mm-node:focus-visible { transform: scale(1.05); background: #FFFBEB; }
         .mm-title { font-weight: bold; font-size: 1.3rem; color: var(--goku-blue); margin-bottom: 5px; }
         .mm-eq { font-family: monospace; font-size: 1.1rem; color: #555; background: #f4f4f4; padding: 4px; border-radius: 4px; display: inline-block;}
+        .mm-hover-example { position: absolute; inset: auto 10px 10px 10px; opacity: 0; transform: translateY(12px); transition: opacity 0.2s ease, transform 0.2s ease; background: rgba(11, 71, 187, 0.96); color: white; border-radius: 10px; padding: 12px; font-size: 0.95rem; line-height: 1.45; text-align: left; pointer-events: none; box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+        .mm-hover-example strong { display: block; color: #FFE08A; margin-bottom: 4px; }
+        .mm-hover-example span { display: block; font-size: 0.9rem; color: #E5E7EB; }
+        .mm-node:hover .mm-hover-example, .mm-node:focus-visible .mm-hover-example { opacity: 1; transform: translateY(0); }
+        .mm-node:hover .mm-eq, .mm-node:focus-visible .mm-eq { opacity: 0.15; }
+        .state-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 18px 0; }
+        .state-card { border-radius: 14px; padding: 16px; border: 2px solid transparent; color: var(--text-main); text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .state-icon { font-size: 2.2rem; line-height: 1; margin-bottom: 10px; }
+        .state-label { font-size: 1.2rem; font-weight: bold; margin-bottom: 8px; color: var(--goku-blue); }
+        .state-example { font-size: 1rem; line-height: 1.4; font-weight: 600; }
+        .state-solid { background: linear-gradient(180deg, #E5E7EB, #F8FAFC); border-color: #94A3B8; }
+        .state-liquid { background: linear-gradient(180deg, #DBEAFE, #EFF6FF); border-color: #60A5FA; }
+        .state-gas { background: linear-gradient(180deg, #E0F2FE, #F0FDFA); border-color: #38BDF8; }
+        .state-aq { background: linear-gradient(180deg, #FDE68A, #FEFCE8); border-color: #F59E0B; }
 
         .bohr-app { display: flex; gap: 20px; background: #F8F9FA; padding: 20px; border-radius: 12px; border: 2px solid #ccc; flex-wrap: wrap;}
         .bohr-grid { flex: 1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; min-width: 250px;}
@@ -253,6 +267,9 @@
             .mm-nodes-row { flex-wrap: wrap; }
             .mm-node { min-width: 40%; margin-bottom: 10px; }
             .mm-line-horizontal, .mm-branch-droppers { display: none; } 
+            .mm-hover-example { position: static; opacity: 1; transform: none; margin-top: 10px; pointer-events: auto; }
+            .mm-node:hover .mm-eq, .mm-node:focus-visible .mm-eq { opacity: 1; }
+            .state-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
             .classifier-options { grid-template-columns: 1fr; }
             .classifier-eq { font-size: 1.5rem; }
         }
@@ -261,3 +278,131 @@
            the style used in the biology/physics decks. Colour/background are
            supplied by deck-theme.css. */
         .phonetic { font-size: 0.85em; font-style: italic; display: block; margin-top: 4px; }
+
+        /* ---- Interactive upgrades: metals with water + electrolytic refining ---- */
+        .water-reaction-lab, .electrode-lab { padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; }
+        .water-reaction-lab *, .electrode-lab * { box-sizing: border-box; }
+        .water-reaction-lab__top, .water-reaction-lab__controls, .electrode-lab__controls, .electrode-lab__setup { display: flex; align-items: center; gap: 10px; }
+        .water-reaction-lab__top { justify-content: space-between; margin-bottom: 12px; }
+        .water-reaction-lab__top p { margin: 0; font-size: 1rem !important; color: var(--deck-muted) !important; }
+        .water-reaction-lab__top button, .water-reaction-lab__controls button, .electrode-lab__controls button, .electrode-lab__quiz button { color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); cursor: pointer; font-weight: 750; }
+        .water-reaction-lab__top button { flex: 0 0 auto; padding: 9px 13px; }
+        .water-reaction-lab__controls, .electrode-lab__controls { margin-bottom: 14px; }
+        .water-reaction-lab__controls button, .electrode-lab__controls button { flex: 1; min-height: 50px; padding: 8px 10px; }
+        .water-reaction-lab__controls small { display: block; margin-top: 2px; color: var(--deck-muted); }
+        .water-reaction-lab__controls button:hover, .water-reaction-lab__controls button.is-active, .electrode-lab__controls button:hover, .electrode-lab__controls button.is-active { color: #050507; background: var(--deck-aura); border-color: var(--deck-aura); }
+        .water-reaction-lab__controls button.is-active small { color: #17343a; }
+        .water-reaction-lab__body, .electrode-lab__grid { display: grid; grid-template-columns: minmax(210px, .75fr) minmax(0, 1.6fr); gap: 14px; }
+        .water-reaction-lab__visual, .water-reaction-lab__answer, .electrode-lab__visual, .electrode-lab__info { min-height: 235px; padding: 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: rgba(2,6,23,.82); }
+        .water-reaction-lab__visual { position: relative; display: grid; place-items: center; overflow: hidden; }
+        .water-reaction-lab__beaker { position: relative; width: 120px; height: 150px; border: 5px solid #94a3b8; border-top: 0; border-radius: 0 0 30px 30px; }
+        .water-reaction-lab__beaker span { position: absolute; inset: 55px 0 0; border-radius: 0 0 24px 24px; background: rgba(56,189,248,.45); }
+        .water-reaction-lab__beaker i { position: absolute; left: 48px; bottom: 25px; width: 22px; height: 12px; border-radius: 50%; background: #cbd5e1; transition: transform 300ms ease; }
+        .water-reaction-lab__beaker b { position: absolute; top: 35px; left: 44px; color: #f8fafc; font-size: .85rem; }
+        .water-reaction-lab__visual[data-state="cold"] .water-reaction-lab__beaker b { animation: waterBubble 800ms ease-in-out infinite; }
+        .water-reaction-lab__visual[data-state="hot"] .water-reaction-lab__beaker b, .water-reaction-lab__visual[data-state="steam"] .water-reaction-lab__beaker b { animation: waterBubble 1.4s ease-in-out infinite; }
+        .water-reaction-lab__visual[data-state="none"] .water-reaction-lab__beaker b { display: none; }
+        .water-reaction-lab__burner { position: absolute; bottom: 8px; width: 70px; height: 10px; border-radius: 50%; background: #475569; }
+        .water-reaction-lab__visual[data-state="steam"] .water-reaction-lab__burner::before, .water-reaction-lab__visual[data-state="hot"] .water-reaction-lab__burner::before { content: ""; position: absolute; left: 25px; bottom: 7px; width: 20px; height: 32px; border-radius: 50% 50% 40% 40%; background: #fb923c; filter: drop-shadow(0 0 9px #fb923c); }
+        .water-reaction-lab__temperature { position: absolute; top: 12px; right: 12px; color: #f8fafc; font-weight: 800; }
+        @keyframes waterBubble { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+        .water-reaction-lab__answer { display: grid; align-content: center; color: #f8fafc; }
+        .water-reaction-lab__equation { padding: 13px; border: 1px dashed var(--deck-warn); border-radius: 10px; color: #f8fafc; background: rgba(255,255,255,.05); text-align: center; font: 800 1.18rem 'SFMono-Regular','Cascadia Code',monospace; }
+        .water-reaction-lab__answer p { font-size: 1rem !important; line-height: 1.5 !important; }
+        .water-reaction-lab__answer aside, .electrode-lab__info aside { padding: 10px 12px; border-left: 4px solid var(--deck-warn); border-radius: 8px; background: rgba(255,170,0,.12); color: #f8fafc; font-size: .9rem; }
+        .water-reaction-lab__reveal { min-height: 54px; padding: 12px; color: #050507; background: var(--deck-warn); border: 0; cursor: pointer; font-weight: 800; }
+        .electrode-lab__setup { justify-content: space-between; margin-bottom: 12px; }
+        .electrode-lab__setup span { flex: 1; padding: 9px; text-align: center; border-radius: 10px; background: var(--deck-panel-soft); color: var(--deck-muted); font-size: .85rem; }
+        .electrode-lab__setup b { display: block; color: var(--deck-text); }
+        .electrode-lab__visual { position: relative; display: flex; align-items: stretch; justify-content: space-between; gap: 14px; overflow: hidden; }
+        .electrode-lab__plate { width: 62px; padding: 12px 6px; display: grid; place-items: center; position: relative; border: 3px solid #fb923c; border-radius: 8px; color: #f8fafc; background: #7c2d12; font-weight: 800; transition: transform 350ms ease; }
+        .electrode-lab__plate small { position: absolute; top: 5px; right: 6px; }
+        .electrode-lab__solution { flex: 1; position: relative; display: grid; place-items: center; align-content: center; gap: 12px; border-radius: 10px; background: rgba(56,189,248,.2); color: #f8fafc; }
+        .electrode-lab__solution span { padding: 5px 9px; border-radius: 999px; background: #075985; font-weight: 800; }
+        .electrode-lab__solution i { font-size: 2rem; color: var(--deck-warn); font-style: normal; }
+        .electrode-lab__visual[data-state="cathode"] .electrode-lab__solution i { transform: rotate(180deg); }
+        .electrode-lab__visual[data-state="anode"] .electrode-lab__plate--left { transform: scaleX(.88); }
+        .electrode-lab__visual[data-state="cathode"] .electrode-lab__plate--right { transform: scaleX(1.12); }
+        .electrode-lab__info { color: #f8fafc; }
+        .electrode-lab__info > strong { color: var(--deck-aura); font-size: 1.18rem; }
+        .electrode-lab__info p { font-size: .96rem !important; line-height: 1.5 !important; }
+        .electrode-lab__info > div { margin: 12px 0; padding: 12px; border: 1px dashed var(--deck-warn); border-radius: 10px; text-align: center; font: 800 1.1rem 'SFMono-Regular','Cascadia Code',monospace; }
+        .electrode-lab__quiz { margin-top: 14px; padding: 12px; border: 1px solid var(--deck-border); border-radius: 12px; }
+        .electrode-lab__quiz > div { display: flex; gap: 8px; margin-top: 8px; }
+        .electrode-lab__quiz button { flex: 1; min-height: 42px; }
+        .electrode-lab__quiz p { min-height: 22px; margin: 8px 0 0; font-size: .9rem !important; }
+        .electrode-lab__quiz p.is-correct { color: var(--deck-success) !important; }
+        .electrode-lab__quiz p.is-wrong { color: var(--deck-danger) !important; }
+        @media (max-width: 700px) {
+            .water-reaction-lab__top, .water-reaction-lab__controls, .electrode-lab__setup { flex-wrap: wrap; }
+            .water-reaction-lab__controls button { min-width: calc(50% - 8px); }
+            .water-reaction-lab__body, .electrode-lab__grid { grid-template-columns: 1fr; }
+            .water-reaction-lab__visual, .water-reaction-lab__answer, .electrode-lab__visual, .electrode-lab__info { min-height: 210px; }
+        }
+
+        /* ---- Interactive upgrade: Zig-Zag periodic table explorer (Ch5) ---- */
+        .zigzag-lab { padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; margin: 18px 0; }
+        .zigzag-lab * { box-sizing: border-box; }
+        .zigzag-lab__top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+        .zigzag-lab__top p { margin: 0; font-size: 1rem !important; color: var(--deck-muted) !important; }
+        .zigzag-lab__mode { flex: 0 0 auto; padding: 9px 13px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 8px; cursor: pointer; font-weight: 750; }
+        .zigzag-lab__mode[aria-pressed="true"] { color: #050507; background: var(--deck-aura); border-color: var(--deck-aura); }
+        .zigzag-lab__controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .zigzag-lab__controls button { flex: 1; min-width: calc(25% - 8px); min-height: 54px; padding: 8px 8px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 8px; cursor: pointer; font-weight: 750; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .zigzag-lab__controls small { display: block; color: var(--deck-muted); font-weight: 500; }
+        .zigzag-lab__controls button:hover, .zigzag-lab__controls button.is-active { color: #050507; background: var(--deck-aura); border-color: var(--deck-aura); }
+        .zigzag-lab__controls button.is-active small { color: #17343a; }
+        .zigzag-lab__body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(220px, 1fr); gap: 14px; }
+        .zigzag-lab__table-wrap { overflow-x: auto; padding: 12px; border: 1px solid var(--deck-border); border-radius: 14px; background: rgba(2,6,23,.82); }
+        .zigzag-lab__pt { display: grid; grid-template-columns: repeat(18, minmax(26px, 1fr)); grid-template-rows: repeat(7, 30px); gap: 2px; min-width: 560px; }
+        .zigzag-lab__cell { display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.14); border-radius: 3px; background: rgba(255,255,255,.05); color: #cbd5e1; font-size: .68rem; font-weight: 800; cursor: pointer; transition: transform .25s ease, opacity .25s ease, background .25s ease; user-select: none; }
+        .zigzag-lab__cell:hover { transform: scale(1.14); z-index: 2; }
+        .zigzag-lab__cell.is-empty { visibility: hidden; cursor: default; }
+        .zigzag-lab__cell.is-metal { background: rgba(14,165,233,.28); border-color: #38bdf8; color: #fff; }
+        .zigzag-lab__cell.is-metalloid { background: rgba(234,179,8,.32); border-color: #facc15; color: #1a1400; }
+        .zigzag-lab__cell.is-nonmetal { background: rgba(236,72,153,.28); border-color: #f472b6; color: #fff; }
+        .zigzag-lab__cell.zz-edge-left { border-left: 3px solid #fff; }
+        .zigzag-lab__cell.zz-edge-bottom { border-bottom: 3px solid #fff; }
+        .zigzag-lab__body[data-state="metals"] .zigzag-lab__cell:not(.is-metal):not(.is-empty) { opacity: .25; }
+        .zigzag-lab__body[data-state="metalloids"] .zigzag-lab__cell:not(.is-metalloid):not(.is-empty) { opacity: .25; }
+        .zigzag-lab__body[data-state="nonmetals"] .zigzag-lab__cell:not(.is-nonmetal):not(.is-empty) { opacity: .25; }
+        .zigzag-lab__body[data-state="line"] .zigzag-lab__cell.is-metalloid { box-shadow: 0 0 0 2px #fff; }
+        .zigzag-lab__info { padding: 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: rgba(2,6,23,.82); color: #f8fafc; display: flex; flex-direction: column; gap: 10px; }
+        .zigzag-lab__legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: .82rem; color: #cbd5e1; }
+        .zigzag-lab__legend span { display: inline-flex; align-items: center; gap: 6px; }
+        .zigzag-lab__swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+        .zigzag-lab__swatch--metal { background: #0ea5e9; }
+        .zigzag-lab__swatch--metalloid { background: #eab308; }
+        .zigzag-lab__swatch--nonmetal { background: #ec4899; }
+        .zigzag-lab__info > strong { color: var(--deck-aura); font-size: 1.05rem; }
+        .zigzag-lab__info > div[data-zz-body] { font-size: .95rem !important; line-height: 1.55 !important; }
+        .zigzag-lab__inspector { padding: 10px 12px; border-left: 4px solid var(--deck-warn); border-radius: 8px; background: rgba(255,170,0,.12); font-size: .88rem; min-height: 40px; }
+        .zigzag-lab .cloze-word { font-weight: 700; }
+        .zigzag-lab.is-quiz .cloze-word:not(.is-revealed) { background: rgba(255,255,255,.14); color: transparent; border-radius: 4px; padding: 1px 6px; cursor: pointer; border-bottom: 2px dashed var(--deck-warn); }
+        .zigzag-lab.is-quiz .cloze-word.is-revealed { background: rgba(0,229,255,.18); padding: 1px 6px; border-radius: 4px; }
+        @media (max-width: 760px) {
+            .zigzag-lab__controls button { min-width: calc(50% - 8px); }
+            .zigzag-lab__body { grid-template-columns: 1fr; }
+            .zigzag-lab__pt { min-width: 620px; }
+        }
+
+        .interactive-card {
+            box-shadow: 0 16px 40px rgba(2, 6, 23, 0.09);
+        }
+        .interactive-card :where(button, [role="tab"]) {
+            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+        }
+        .interactive-card :where(button, [role="tab"]):focus-visible {
+            outline: 2px solid var(--deck-aura);
+            outline-offset: 3px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .interactive-card *,
+            .interactive-card *::before,
+            .interactive-card *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }

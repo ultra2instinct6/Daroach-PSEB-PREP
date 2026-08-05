@@ -1,0 +1,33 @@
+{
+  "num-ch11-s1": {"en": "By Ohm's law, R = V/I = 12/3 = 4 Ω.", "pa": "ਓਹਮ ਦੇ ਨਿਯਮ ਅਨੁਸਾਰ, R = V/I = 12/3 = 4 Ω।"},
+  "num-ch11-s2": {"en": "Power P = I²R = (0.5)² × 100 = 0.25 × 100 = 25 W.", "pa": "ਸ਼ਕਤੀ P = I²R = (0.5)² × 100 = 0.25 × 100 = 25 W।"},
+  "num-ch11-s3": {"en": "Energy = power × time = 60 W × 5 h = 300 Wh = 0.3 kWh.", "pa": "ਊਰਜਾ = ਸ਼ਕਤੀ × ਸਮਾਂ = 60 W × 5 h = 300 Wh = 0.3 kWh।"},
+  "num-ch11-s4": {"en": "For equal resistors in parallel, R = value/number = 6/3 = 2 Ω.", "pa": "ਸਮਾਨ ਪ੍ਰਤੀਰੋਧਕਾਂ ਦੇ ਸਮਾਂਤਰ ਵਿੱਚ, R = ਮੁੱਲ/ਗਿਣਤੀ = 6/3 = 2 Ω।"},
+
+  "tf-ch11-s1": {"en": "In a V–I graph, the slope (V/I) equals the resistance of the conductor.", "pa": "V–I ਗ੍ਰਾਫ਼ ਵਿੱਚ, ਢਲਾਣ (V/I) ਚਾਲਕ ਦੇ ਪ੍ਰਤੀਰੋਧ ਦੇ ਬਰਾਬਰ ਹੁੰਦੀ ਹੈ।"},
+  "tf-ch11-s2": {"en": "In a series circuit the same current flows through every resistor.", "pa": "ਲੜੀਵਾਰ ਪਰਿਪਥ ਵਿੱਚ ਹਰ ਪ੍ਰਤੀਰੋਧਕ ਵਿੱਚੋਂ ਇੱਕੋ ਜਿਹੀ ਧਾਰਾ ਵਗਦੀ ਹੈ।"},
+  "tf-ch11-s3": {"en": "Ohm's law states that V = I × R.", "pa": "ਓਹਮ ਦਾ ਨਿਯਮ ਦੱਸਦਾ ਹੈ ਕਿ V = I × R।"},
+  "tf-ch11-s4": {"en": "Tungsten is used in bulb filaments because of its very high melting point.", "pa": "ਟੰਗਸਟਨ ਬਲਬ ਦੇ ਫ਼ਿਲਾਮੈਂਟ ਵਿੱਚ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿਉਂਕਿ ਇਸ ਦਾ ਪਿਘਲਣ ਬਿੰਦੂ ਬਹੁਤ ਉੱਚਾ ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch11-s5": {"en": "Nichrome is used in heaters because it has a high melting point and high resistivity, not a low one.", "pa": "ਨਿਕ੍ਰੋਮ ਹੀਟਰਾਂ ਵਿੱਚ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿਉਂਕਿ ਇਸ ਦਾ ਪਿਘਲਣ ਬਿੰਦੂ ਉੱਚਾ ਅਤੇ ਪ੍ਰਤੀਰੋਧਕਤਾ ਵੱਧ ਹੁੰਦੀ ਹੈ, ਘੱਟ ਨਹੀਂ।"},
+  "tf-ch11-s6": {"en": "Resistance is directly proportional to length, so a longer wire has more resistance.", "pa": "ਪ੍ਰਤੀਰੋਧ ਲੰਬਾਈ ਦੇ ਸਿੱਧੇ ਅਨੁਪਾਤ ਵਿੱਚ ਹੁੰਦਾ ਹੈ, ਇਸ ਲਈ ਲੰਬੇ ਤਾਰ ਦਾ ਪ੍ਰਤੀਰੋਧ ਵੱਧ ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch11-s7": {"en": "In a parallel circuit the total resistance is smaller than the smallest individual resistor.", "pa": "ਸਮਾਂਤਰ ਪਰਿਪਥ ਵਿੱਚ ਕੁੱਲ ਪ੍ਰਤੀਰੋਧ ਸਭ ਤੋਂ ਛੋਟੇ ਪ੍ਰਤੀਰੋਧਕ ਤੋਂ ਵੀ ਘੱਟ ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch11-s8": {"en": "A fuse is connected in series with the live wire so it breaks the circuit during an overload.", "pa": "ਫ਼ਿਊਜ਼ ਜੀਵੰਤ ਤਾਰ ਨਾਲ ਲੜੀਵਾਰ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ ਤਾਂ ਜੋ ਓਵਰਲੋਡ ਵੇਲੇ ਇਹ ਪਰਿਪਥ ਤੋੜ ਦੇਵੇ।"},
+
+  "sib-ch11-s1": {"en": "Components connected end-to-end (one after another) are in series.", "pa": "ਸਿਰੇ-ਤੋਂ-ਸਿਰੇ (ਇੱਕ ਤੋਂ ਬਾਅਦ ਇੱਕ) ਜੁੜੇ ਹੋਏ ਹਿੱਸੇ ਲੜੀਵਾਰ ਵਿੱਚ ਹੁੰਦੇ ਹਨ।"},
+  "sib-ch11-s2": {"en": "In a parallel circuit the current divides among the branches.", "pa": "ਸਮਾਂਤਰ ਪਰਿਪਥ ਵਿੱਚ ਧਾਰਾ ਸ਼ਾਖਾਵਾਂ ਵਿਚਕਾਰ ਵੰਡੀ ਜਾਂਦੀ ਹੈ।"},
+  "sib-ch11-s3": {"en": "Electric heater wires are made of nichrome (an alloy with high resistance).", "pa": "ਬਿਜਲੀ ਹੀਟਰ ਦੀਆਂ ਤਾਰਾਂ ਨਿਕ੍ਰੋਮ (ਉੱਚ ਪ੍ਰਤੀਰੋਧ ਵਾਲੀ ਮਿਸ਼ਰਧਾਤੂ) ਤੋਂ ਬਣੀਆਂ ਹੁੰਦੀਆਂ ਹਨ।"},
+  "sib-ch11-s4": {"en": "Bulbs are filled with an inactive gas such as nitrogen or argon.", "pa": "ਬਲਬ ਵਿੱਚ ਨਾਈਟ੍ਰੋਜਨ ਜਾਂ ਆਰਗਨ ਵਰਗੀ ਨਿਸ਼ਕਿਰਿਆ ਗੈਸ ਭਰੀ ਜਾਂਦੀ ਹੈ।"},
+  "sib-ch11-s5": {"en": "The commercial unit of electrical energy is the kilowatt-hour (kWh).", "pa": "ਬਿਜਲਈ ਊਰਜਾ ਦੀ ਵਪਾਰਕ ਇਕਾਈ ਕਿਲੋਵਾਟ-ਘੰਟਾ (kWh) ਹੈ।"},
+  "sib-ch11-s6": {"en": "The SI unit of electric current is the ampere.", "pa": "ਬਿਜਲਈ ਧਾਰਾ ਦੀ SI ਇਕਾਈ ਐਂਪੀਅਰ ਹੈ।"},
+  "sib-ch11-s7": {"en": "The SI unit of electric power is the watt.", "pa": "ਬਿਜਲਈ ਸ਼ਕਤੀ ਦੀ SI ਇਕਾਈ ਵਾਟ ਹੈ।"},
+  "sib-ch11-s8": {"en": "The commercial unit of electrical energy is the kilowatt-hour.", "pa": "ਬਿਜਲਈ ਊਰਜਾ ਦੀ ਵਪਾਰਕ ਇਕਾਈ ਕਿਲੋਵਾਟ-ਘੰਟਾ ਹੈ।"},
+
+  "mcq-ch11-s1": {"en": "In a parallel circuit the voltage across each resistor is the same while the current divides.", "pa": "ਸਮਾਂਤਰ ਪਰਿਪਥ ਵਿੱਚ ਹਰ ਪ੍ਰਤੀਰੋਧਕ ਦੇ ਆਰ-ਪਾਰ ਵੋਲਟੇਜ ਇੱਕੋ ਜਿਹਾ ਹੁੰਦਾ ਹੈ ਜਦਕਿ ਧਾਰਾ ਵੰਡੀ ਜਾਂਦੀ ਹੈ।"},
+  "mcq-ch11-s2": {"en": "Resistance is proportional to length, so doubling the length doubles the resistance.", "pa": "ਪ੍ਰਤੀਰੋਧ ਲੰਬਾਈ ਦੇ ਅਨੁਪਾਤੀ ਹੁੰਦਾ ਹੈ, ਇਸ ਲਈ ਲੰਬਾਈ ਦੁੱਗਣੀ ਕਰਨ ਨਾਲ ਪ੍ਰਤੀਰੋਧ ਦੁੱਗਣਾ ਹੋ ਜਾਂਦਾ ਹੈ।"},
+  "mcq-ch11-s3": {"en": "Electric power can be written as P = V²/R.", "pa": "ਬਿਜਲਈ ਸ਼ਕਤੀ ਨੂੰ P = V²/R ਵਜੋਂ ਲਿਖਿਆ ਜਾ ਸਕਦਾ ਹੈ।"},
+  "mcq-ch11-s4": {"en": "The inactive gas prevents the hot tungsten filament from oxidizing and burning out.", "pa": "ਨਿਸ਼ਕਿਰਿਆ ਗੈਸ ਗਰਮ ਟੰਗਸਟਨ ਫ਼ਿਲਾਮੈਂਟ ਨੂੰ ਆਕਸੀਕਰਨ ਅਤੇ ਸੜਨ ਤੋਂ ਰੋਕਦੀ ਹੈ।"},
+  "mcq-ch11-s5": {"en": "1 kilowatt-hour equals 3.6 × 10⁶ joules.", "pa": "1 ਕਿਲੋਵਾਟ-ਘੰਟਾ 3.6 × 10⁶ ਜੂਲ ਦੇ ਬਰਾਬਰ ਹੁੰਦਾ ਹੈ।"},
+  "mcq-ch11-s6": {"en": "The SI unit of electrical resistance is the ohm (Ω).", "pa": "ਬਿਜਲਈ ਪ੍ਰਤੀਰੋਧ ਦੀ SI ਇਕਾਈ ਓਹਮ (Ω) ਹੈ।"},
+  "mcq-ch11-s7": {"en": "The heating element of an electric heater is made of nichrome.", "pa": "ਬਿਜਲੀ ਹੀਟਰ ਦਾ ਗਰਮ ਹੋਣ ਵਾਲਾ ਤੱਤ ਨਿਕ੍ਰੋਮ ਤੋਂ ਬਣਿਆ ਹੁੰਦਾ ਹੈ।"},
+  "mcq-ch11-s8": {"en": "One kilowatt-hour (1 unit) equals 3.6 × 10⁶ joules.", "pa": "ਇੱਕ ਕਿਲੋਵਾਟ-ਘੰਟਾ (1 ਯੂਨਿਟ) 3.6 × 10⁶ ਜੂਲ ਦੇ ਬਰਾਬਰ ਹੁੰਦਾ ਹੈ।"}
+}

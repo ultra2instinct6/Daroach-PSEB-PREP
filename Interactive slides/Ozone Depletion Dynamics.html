@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLO.Engine - Ozone Depletion Dynamics</title>
+<style>
+  /* Base Reset & Fluid Typography */
+  * { box-sizing: border-box; }
+  body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    background-color: #000000; 
+    color: #e5e5e5;
+    padding: clamp(10px, 3vw, 20px); 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Better for mobile scrolling */
+    min-height: 100vh;
+  }
+
+  /* Phase 1: True Fluid Container (No fixed heights) */
+  .bolo-slide-container { 
+    background-color: #0a0a0a; 
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    border-radius: 12px; 
+    border: 1px solid #333333; /* Higher contrast border */
+    border-left: 6px solid #38bdf8; 
+    padding: clamp(20px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Phase 4: Bilingual Visual Hierarchy */
+  .punjabi-text { 
+    font-family: system-ui, sans-serif;
+    font-size: 1.1em; 
+    font-weight: 500; 
+    line-height: 1.4;
+  }
+  .punjabi-sub { 
+    font-size: 0.85em; 
+    font-weight: normal; 
+    color: #9ca3af; /* Softer gray */
+    opacity: 0.8;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* Header Section */
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .breadcrumb {
+    color: #a3a3a3;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .punjabi-title { color: #9ca3af; font-weight: 400; font-size: 0.65em; }
+
+  /* Toolbar & Touch Targets */
+  .toolbar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .mode-toggle-container {
+    background: #18181b; /* Phase 5: Higher contrast darks */
+    border: 1px solid #3f3f46;
+    padding: 4px;
+    border-radius: 8px;
+    display: flex;
+    gap: 4px;
+  }
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: #a3a3a3;
+    padding: 10px 16px; 
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .mode-btn.active-mode { background: #27272a; color: #38bdf8; border: 1px solid #52525b; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+  
+  .reset-btn {
+    background: #1e1b4b; border: 1px solid #4338ca; color: #a5b4fc;
+    padding: 10px 16px; border-radius: 8px; cursor: pointer;
+    font-weight: bold; transition: all 0.2s;
+  }
+  .reset-btn:hover { background: #312e81; color: #c7d2fe; }
+  .reset-btn:active { transform: scale(0.95); }
+
+  .gradient-line {
+    height: 3px;
+    background: linear-gradient(90deg, #38bdf8 0%, #a855f7 50%, #facc15 100%);
+    width: 100%;
+    margin-bottom: 25px;
+    flex-shrink: 0;
+  }
+
+  /* Responsive Grid Stacking */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    flex-grow: 1;
+  }
+  @media (min-width: 960px) {
+    .content-grid { grid-template-columns: 1fr 1.25fr; }
+  }
+
+  .left-col { display: flex; flex-direction: column; gap: 20px; }
+  .intro-text { font-size: 1.05rem; line-height: 1.6; color: #d4d4d8; margin: 0; }
+  
+  .exam-tip {
+    background-color: #18181b;
+    border-radius: 12px;
+    border-left: 4px solid #a855f7; 
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.05);
+    border: 1px solid #27272a;
+    border-left-width: 4px;
+  }
+  .exam-tip-header {
+    color: #c084fc; font-weight: bold; font-size: 1.15rem;
+    margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+  }
+  .exam-tip p { margin: 0; font-size: 1.05rem; color: #e5e5e5; line-height: 1.5; }
+
+  /* Accessible Tooltips */
+  .tooltip { position: relative; border-bottom: 1px dotted #888; cursor: help; color: #f4f4f5; }
+  .tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute; bottom: 120%; left: 50%; transform: translateX(-50%);
+    background: #27272a; color: #fff; padding: 10px 14px; border-radius: 6px;
+    font-size: 0.85rem; white-space: normal; width: max-content; max-width: 260px; z-index: 100;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    border: 1px solid #52525b; box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  }
+  .tooltip:hover::after { opacity: 1; }
+
+  /* Interactive Area */
+  .interactive-panel {
+    background-color: #121212; /* Lighter than body for contrast */
+    border: 1px solid #3f3f46;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .controls-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid #27272a;
+    background: #18181b;
+  }
+  @media (min-width: 600px) {
+    .controls-row { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .control-btn {
+    background: transparent; color: #a3a3a3; border: none;
+    border-bottom: 4px solid transparent; 
+    border-right: 1px solid #27272a;
+    border-bottom: 1px solid #27272a; /* For mobile stacking */
+    padding: 16px 8px; 
+    font-size: 0.95rem; font-weight: bold;
+    cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2px;
+    transition: all 0.2s ease; text-align: center;
+  }
+  @media (min-width: 600px) {
+    .control-btn { border-bottom: 4px solid transparent; }
+    .control-btn:last-child { border-right: none; }
+  }
+  .control-btn:active { transform: scale(0.97); }
+
+  /* Button Active Colors */
+  .control-btn.active[data-state="form"] { color: #38bdf8; border-bottom-color: #38bdf8; background: rgba(56, 189, 248, 0.1); }
+  .control-btn.active[data-state="cfc"] { color: #facc15; border-bottom-color: #facc15; background: rgba(250, 204, 21, 0.1); }
+  .control-btn.active[data-state="deplete"] { color: #f87171; border-bottom-color: #f87171; background: rgba(248, 113, 113, 0.1); }
+  .control-btn.active[data-state="impact"] { color: #c084fc; border-bottom-color: #a855f7; background: rgba(168, 85, 247, 0.1); }
+
+  /* Hardware-Accelerated Visual Stage */
+  .visual-stage {
+    height: 220px; position: relative; border-bottom: 1px solid #27272a;
+    background: linear-gradient(180deg, #020617 0%, #0f172a 40%, #1e293b 100%);
+    overflow: hidden; flex-shrink: 0;
+  }
+
+  .layer-label {
+    position: absolute; right: 15px; font-size: 0.75rem; color: #94a3b8;
+    opacity: 0.8; letter-spacing: 1px; text-transform: uppercase; z-index: 5;
+  }
+  .stratosphere-label { top: 40px; }
+  .troposphere-label { bottom: 35px; }
+
+  .du-meter {
+    position: absolute; top: 10px; left: 15px; background: rgba(0,0,0,0.7);
+    border: 1px solid #475569; padding: 6px 10px; border-radius: 6px;
+    font-size: 0.85rem; font-family: monospace; color: #38bdf8; z-index: 10;
+  }
+
+  .earth-surface {
+    position: absolute; bottom: 0; width: 100%; height: 30px;
+    background: #064e3b; border-top: 2px solid #047857; z-index: 10;
+  }
+  
+  .factory-icon {
+    position: absolute; bottom: 30px; left: 45%; width: 30px; height: 20px;
+    background: #475569; border-radius: 2px 2px 0 0; z-index: 15;
+  }
+  .factory-icon::before {
+    content: ''; position: absolute; top: -15px; left: 5px; width: 6px; height: 15px; background: #475569;
+  }
+  .factory-emission {
+    position: absolute; top: -25px; left: 6px; width: 4px; height: 10px;
+    background: #facc15; border-radius: 50%; opacity: 0; z-index: 14;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    will-change: transform, opacity;
+  }
+
+  .ozone-band {
+    position: absolute; top: 30px; width: 100%; height: 60px;
+    background: rgba(56, 189, 248, 0.15); border-top: 1px dashed rgba(56, 189, 248, 0.3);
+    border-bottom: 1px dashed rgba(56, 189, 248, 0.3); display: flex;
+    justify-content: space-evenly; align-items: center;
+    transition: opacity 1s ease-in-out; z-index: 4;
+  }
+
+  .chem-group { position: relative; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; }
+  
+  .o3-molecule {
+    position: absolute; color: #38bdf8; font-weight: bold; font-size: 1.2rem;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+    will-change: transform, opacity;
+  }
+  
+  .o2-molecule {
+    position: absolute; color: #94a3b8; font-weight: bold; font-size: 1rem;
+    opacity: 0; transform: scale(0.5);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+    will-change: transform, opacity;
+  }
+
+  .sun {
+    position: absolute; top: -25px; left: 50%; transform: translateX(-50%);
+    width: 70px; height: 70px; background: #fef08a; border-radius: 50%;
+    box-shadow: 0 0 50px #fbbf24; z-index: 1;
+  }
+
+  .uv-ray {
+    position: absolute; width: 4px; height: 50px; top: 10px; opacity: 0; border-radius: 2px;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease; z-index: 2;
+    will-change: transform, opacity;
+  }
+  .uv-c { left: 25%; color: #c084fc; box-shadow: 0 0 10px #c084fc; background: repeating-linear-gradient(0deg, currentColor 0, currentColor 6px, transparent 6px, transparent 10px); }
+  .uv-b { left: 75%; color: #facc15; box-shadow: 0 0 10px #facc15; background: repeating-linear-gradient(0deg, currentColor 0, currentColor 6px, transparent 6px, transparent 10px); }
+
+  .cfc-particle {
+    position: absolute; bottom: 35px; left: 47%; width: 10px; height: 10px;
+    background: #f87171; border-radius: 50%; opacity: 0;
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease;
+    z-index: 3; box-shadow: 0 0 8px #f87171;
+    will-change: transform, opacity;
+  }
+
+  .biological-impacts-visual {
+    position: absolute; bottom: 30px; width: 100%; display: flex;
+    justify-content: space-around; opacity: 0; transition: opacity 0.8s ease-in-out;
+    z-index: 20; pointer-events: none;
+  }
+  .bio-icon { font-size: 1.8rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8)); }
+
+  /* Visual State Logic */
+  #engine-core.state-form .uv-c { opacity: 0.9; transform: translateY(30px); } 
+  #engine-core.state-form .uv-b { opacity: 0.9; transform: translateY(30px); } 
+  #engine-core.state-form .ozone-band { opacity: 1; }
+  
+  #engine-core.state-cfc .uv-c { opacity: 0.9; transform: translateY(30px); }
+  #engine-core.state-cfc .uv-b { opacity: 0.9; transform: translateY(30px); }
+  #engine-core.state-cfc .cfc-particle { opacity: 1; transform: translateY(-130px) scale(1.5); } 
+  #engine-core.state-cfc .factory-emission { opacity: 1; transform: translateY(-10px) scale(1.5); }
+  
+  #engine-core.state-deplete .ozone-band { opacity: 0.15; } 
+  #engine-core.state-deplete .o3-molecule { transform: scale(0) rotate(180deg); opacity: 0; }
+  #engine-core.state-deplete .o2-molecule { transform: scale(1) rotate(0deg); opacity: 1; }
+  #engine-core.state-deplete .cfc-particle { opacity: 0; transform: translateY(-150px) scale(3); } 
+  #engine-core.state-deplete .uv-c { opacity: 0.9; transform: translateY(30px); }
+  #engine-core.state-deplete .uv-b { opacity: 0.95; transform: translateY(180px); color: #ef4444; box-shadow: 0 0 15px #ef4444; } 
+  
+  #engine-core.state-impact .ozone-band { opacity: 0.15; }
+  #engine-core.state-impact .o3-molecule { opacity: 0; }
+  #engine-core.state-impact .o2-molecule { opacity: 1; }
+  #engine-core.state-impact .uv-c { opacity: 0.9; transform: translateY(30px); }
+  #engine-core.state-impact .uv-b { opacity: 0.95; transform: translateY(180px); color: #ef4444; }
+  #engine-core.state-impact .biological-impacts-visual { opacity: 1; }
+
+  /* Locked-Height Data Grid */
+  .data-stage {
+    flex-grow: 1; position: relative; padding: clamp(15px, 3vw, 25px);
+    background: #18181b; display: grid; /* Darker than panel border for contrast */
+  }
+  .data-view {
+    grid-area: 1 / 1; opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease-in-out; z-index: 1;
+  }
+  .data-view.active-view { opacity: 1; pointer-events: auto; z-index: 2; }
+
+  .equation-box {
+    text-align: center; font-size: 1.15rem; font-family: monospace;
+    font-weight: bold; margin-bottom: 15px; padding: 12px;
+    background: #09090b; border-radius: 8px; border: 1px dashed #3f3f46; letter-spacing: 1px;
+    color: #e4e4e7;
+  }
+  
+  .explanation-box {
+    background: #27272a; padding: 20px; border-radius: 8px;
+    border-left: 4px solid #52525b; font-size: 1.05rem; line-height: 1.6;
+    min-height: 160px; /* Prevents UI jumping between states */
+    color: #f4f4f5;
+  }
+
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px; }
+  .impact-card { background: #18181b; padding: 15px; border-radius: 8px; border-left: 3px solid #a855f7; font-size: 0.95rem; }
+  .impact-card strong { display: block; margin-bottom: 6px; font-size: 1.05rem; color: #d8b4fe; }
+  .impact-card ul { margin: 0; padding-left: 1.2rem; }
+  .impact-card li { margin-bottom: 4px; }
+
+  /* Phase 3: Calmer, High-Contrast SRS Cloze Deletion */
+  .cloze-word { transition: background-color 0.2s ease, color 0.2s ease; position: relative; }
+  
+  body.quiz-active .cloze-word:not(.revealed) {
+    background-color: #27272a; 
+    color: transparent; 
+    cursor: pointer;
+    border-radius: 4px; 
+    padding: 2px 8px; 
+    border-bottom: 2px dashed #38bdf8; 
+    user-select: none;
+  }
+  body.quiz-active .cloze-word:not(.revealed):hover { background-color: #3f3f46; border-bottom-color: #7dd3fc; }
+  
+  body.quiz-active .cloze-word.revealed {
+    color: #000000; 
+    font-weight: bold;
+    background: #38bdf8; 
+    padding: 2px 6px; 
+    border-radius: 4px;
+    border-bottom: none;
+  }
+
+</style>
+</head>
+<body id="app-body">
+
+<div class="bolo-slide-container">
+  
+  <header class="header-flex">
+    <div>
+      <span class="breadcrumb"><span>PSEB Class 10 Science • Chapter 15 of 16</span></span>
+      <h1>Ozone Depletion Dynamics <span class="punjabi-title punjabi-text">(ਓਜ਼ੋਨ ਪਰਤ ਦਾ ਨੁਕਸਾਨ)</span></h1>
+    </div>
+    
+    <nav class="toolbar" aria-label="Slide Controls">
+      <button type="button" class="reset-btn" aria-label="Reset Animation" onclick="setState('form')">↻ Reset</button>
+      <div class="mode-toggle-container">
+        <button type="button" class="mode-btn active-mode" id="btn-learn" aria-label="Learn Mode" onclick="setMode('learn')">📖 Learn</button>
+        <button type="button" class="mode-btn" id="btn-quiz" aria-label="Quiz Mode" onclick="setMode('quiz')">🧠 Quiz</button>
+      </div>
+    </nav>
+  </header>
+  
+  <div class="gradient-line"></div>
+
+  <main class="content-grid">
+    
+    <div class="left-col">
+      <p class="intro-text">
+        The <span class="cloze-word tooltip" data-tooltip="Good ozone blocks UV. Ground-level ozone is a deadly poison." aria-label="Good ozone blocks UV. Ground-level ozone is a deadly poison.">Stratospheric Ozone</span> layer is a protective shield. However, synthetic catalysts break it down, allowing hazardous <span class="cloze-word tooltip" data-tooltip="Causes severe sunburns and DNA damage." aria-label="Causes severe sunburns and DNA damage.">UV-B</span> rays to reach the surface.
+      </p>
+      
+      <aside class="exam-tip">
+        <div class="exam-tip-header">🚨 Board Exam Tip</div>
+        <p>In <span class="cloze-word">1987</span>, the United Nations drafted the <span class="cloze-word">Montreal Protocol</span> to globally freeze the production of CFCs. 
+        <span class="punjabi-sub punjabi-text">੧੯੮੭ ਵਿੱਚ, UNEP ਨੇ ਸੀ.ਐਫ.ਸੀ. ਦੇ ਉਤਪਾਦਨ ਨੂੰ ਰੋਕਣ ਲਈ ਮਾਂਟਰੀਅਲ ਪ੍ਰੋਟੋਕੋਲ ਬਣਾਇਆ।</span></p>
+      </aside>
+    </div>
+
+    <section class="interactive-panel state-form" id="engine-core" aria-label="Interactive Ozone Animation">
+      
+      <nav class="controls-row" aria-label="Timeline Controls">
+        <button type="button" class="control-btn active" data-state="form" aria-label="Natural Balance" onclick="setState('form')">
+          1. Formation <span class="punjabi-sub punjabi-text">ਨਿਰਮਾਣ</span>
+        </button>
+        <button type="button" class="control-btn" data-state="cfc" aria-label="CFC Emission" onclick="setState('cfc')">
+          2. CFC Release <span class="punjabi-sub punjabi-text">ਸੀ.ਐਫ.ਸੀ. ਨਿਕਾਸ</span>
+        </button>
+        <button type="button" class="control-btn" data-state="deplete" aria-label="Depletion" onclick="setState('deplete')">
+          3. Depletion <span class="punjabi-sub punjabi-text">ਨੁਕਸਾਨ</span>
+        </button>
+        <button type="button" class="control-btn" data-state="impact" aria-label="Impact" onclick="setState('impact')">
+          4. Impact <span class="punjabi-sub punjabi-text">ਪ੍ਰਭਾਵ</span>
+        </button>
+      </nav>
+
+      <!-- VISUAL STAGE -->
+      <figure class="visual-stage" aria-hidden="true">
+        <div class="du-meter">Ozone: <span id="du-value">300</span> DU</div>
+        <div class="sun"></div>
+        
+        <div class="layer-label stratosphere-label">Stratosphere (15-30 km)</div>
+        <div class="layer-label troposphere-label">Troposphere</div>
+        
+        <div class="uv-ray uv-c"></div>
+        <div class="uv-ray uv-b"></div>
+
+        <div class="ozone-band">
+          <div class="chem-group"><span class="o3-molecule">O<sub>3</sub></span><span class="o2-molecule">O<sub>2</sub>+O</span></div>
+          <div class="chem-group"><span class="o3-molecule">O<sub>3</sub></span><span class="o2-molecule">O<sub>2</sub>+ClO</span></div>
+          <div class="chem-group"><span class="o3-molecule">O<sub>3</sub></span><span class="o2-molecule">O<sub>2</sub>+O</span></div>
+          <div class="chem-group"><span class="o3-molecule">O<sub>3</sub></span><span class="o2-molecule">O<sub>2</sub>+ClO</span></div>
+        </div>
+
+        <div class="earth-surface"></div>
+        <div class="factory-icon"><div class="factory-emission"></div></div>
+        
+        <div class="cfc-particle"></div>
+
+        <div class="biological-impacts-visual">
+          <span class="bio-icon">🌊</span>
+          <span class="bio-icon">🧬</span>
+          <span class="bio-icon">👁️</span>
+        </div>
+      </figure>
+
+      <!-- DATA STAGE -->
+      <div class="data-stage" aria-live="polite">
+        
+        <article class="data-view active-view" id="view-form">
+          <div class="equation-box" style="color: #38bdf8; border-color: #0284c7;">
+            O<sub>2</sub> <span style="font-size: 0.7em;">&rarr; (UV Light) &rarr;</span> O + O &nbsp;&nbsp;|&nbsp;&nbsp; O + O<sub>2</sub> &rarr; O<sub>3</sub>
+          </div>
+          <div class="explanation-box" style="border-left-color: #38bdf8;">
+            <strong>Natural Cycle:</strong> High-energy UV radiation splits molecular oxygen. The free atoms bond to form Ozone, which harmlessly absorbs the most dangerous <span class="cloze-word">UV-C</span> rays.
+          </div>
+        </article>
+
+        <article class="data-view" id="view-cfc">
+          <div class="equation-box" style="color: #facc15; border-color: #ca8a04;">
+            CCl<sub>2</sub>F<sub>2</sub> (CFCs) rise untouched
+          </div>
+          <div class="explanation-box" style="border-left-color: #facc15;">
+            <strong>The Pollutants:</strong> <span class="cloze-word tooltip" data-tooltip="Used in older ACs, aerosols, and refrigerators." aria-label="Used in older ACs, aerosols, and refrigerators.">Chlorofluorocarbons</span> are highly stable in the troposphere. They slowly drift up to the stratosphere over years without breaking down.
+          </div>
+        </article>
+
+        <article class="data-view" id="view-deplete">
+          <div class="equation-box" style="color: #f87171; border-color: #dc2626;">
+            Cl<sup>&bull;</sup> + O<sub>3</sub> &rarr; ClO + O<sub>2</sub>
+          </div>
+          <div class="explanation-box" style="border-left-color: #f87171;">
+            <strong>Catalysis:</strong> UV light strips a free <span class="cloze-word">Chlorine</span> radical from the CFC. One chlorine atom acts as a catalyst, destroying up to <span class="cloze-word">100,000</span> ozone molecules. 
+          </div>
+        </article>
+
+        <!-- Phase 2: Curriculum-Aligned Content Pruning -->
+        <article class="data-view" id="view-impact">
+          <div class="explanation-box" style="border-left-color: #a855f7; padding: 15px;">
+            <div class="impact-grid">
+              <div class="impact-card">
+                <strong>Human Health</strong>
+                <ul>
+                  <li><span class="cloze-word tooltip" data-tooltip="UV-B causes direct DNA damage." aria-label="UV-B causes direct DNA damage.">Skin Cancer</span> <span class="punjabi-sub punjabi-text">(ਚਮੜੀ ਦਾ ਕੈਂਸਰ)</span></li>
+                  <li><span class="cloze-word tooltip" data-tooltip="Clouding of the eye lens." aria-label="Clouding of the eye lens.">Cataracts</span> <span class="punjabi-sub punjabi-text">(ਮੋਤੀਆਬਿੰਦ)</span></li>
+                  <li>Weakened Immune System</li>
+                </ul>
+              </div>
+              <div class="impact-card">
+                <strong>Ecosystem Collapse</strong>
+                <ul>
+                  <li><span class="cloze-word">Crop Damage</span> <span class="punjabi-sub punjabi-text">(ਫ਼ਸਲਾਂ ਦਾ ਨੁਕਸਾਨ)</span></li>
+                  <li><span class="cloze-word tooltip" data-tooltip="Base of marine food web; produces global oxygen." aria-label="Reduces global oxygen production.">Phytoplankton</span> Death</li>
+                  <li>Disrupted Food Webs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  let currentMode = 'learn';
+  const engine = document.getElementById('engine-core');
+  const body = document.getElementById('app-body');
+  const duValue = document.getElementById('du-value');
+
+  function setState(state) {
+    document.querySelectorAll('.control-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-state') === state);
+    });
+    
+    engine.className = `interactive-panel state-${state}`;
+    
+    document.querySelectorAll('.data-view').forEach(view => {
+      view.classList.remove('active-view');
+    });
+    document.getElementById(`view-${state}`).classList.add('active-view');
+
+    if(state === 'form' || state === 'cfc') {
+      duValue.innerText = '300';
+      duValue.style.color = '#38bdf8';
+    } else {
+      duValue.innerText = '110';
+      duValue.style.color = '#ef4444';
+    }
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('btn-learn').classList.toggle('active-mode', mode === 'learn');
+    document.getElementById('btn-quiz').classList.toggle('active-mode', mode === 'quiz');
+
+    if (mode === 'quiz') {
+      body.classList.add('quiz-active');
+      document.querySelectorAll('.cloze-word').forEach(el => el.classList.remove('revealed'));
+    } else {
+      body.classList.remove('quiz-active');
+    }
+  }
+
+  document.addEventListener('click', function(e) {
+    if (currentMode === 'quiz' && e.target.classList.contains('cloze-word')) {
+      e.target.classList.add('revealed');
+    }
+  });
+</script>
+
+</body>
+</html>

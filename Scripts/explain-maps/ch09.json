@@ -1,0 +1,33 @@
+{
+  "num-ch9-s1": {"en": "Using 1/v = 1/f - 1/u with f=-10 cm and u=-15 cm gives 1/v = -1/30, so v = -30 cm (a real image 30 cm in front of the mirror).", "pa": "1/v = 1/f - 1/u ਵਰਤਦਿਆਂ, f=-10 cm ਅਤੇ u=-15 cm ਨਾਲ 1/v = -1/30 ਮਿਲਦਾ ਹੈ, ਇਸ ਲਈ v = -30 cm (ਦਰਪਣ ਦੇ ਸਾਹਮਣੇ 30 cm 'ਤੇ ਵਾਸਤਵਿਕ ਬਿੰਬ)।"},
+  "num-ch9-s2": {"en": "Magnification m = -v/u = -(-30)/(-15) = -2, so the image is real, inverted and twice the size of the object.", "pa": "ਵਿਸ਼ਾਲਨ m = -v/u = -(-30)/(-15) = -2, ਇਸ ਲਈ ਬਿੰਬ ਵਾਸਤਵਿਕ, ਉਲਟਾ ਅਤੇ ਵਸਤੂ ਤੋਂ ਦੁੱਗਣੇ ਆਕਾਰ ਦਾ ਹੈ।"},
+  "num-ch9-s3": {"en": "Using 1/v - 1/u = 1/f with f=+20 cm and u=-30 cm gives 1/v = 1/60, so v = +60 cm (a real image on the far side of the lens).", "pa": "1/v - 1/u = 1/f ਵਰਤਦਿਆਂ, f=+20 cm ਅਤੇ u=-30 cm ਨਾਲ 1/v = 1/60 ਮਿਲਦਾ ਹੈ, ਇਸ ਲਈ v = +60 cm (ਲੈਂਸ ਦੇ ਦੂਜੇ ਪਾਸੇ ਵਾਸਤਵਿਕ ਬਿੰਬ)।"},
+  "num-ch9-s4": {"en": "Power P = 1/f (in metres) = 1/0.25 = +4 D; it is positive because a 25 cm focal length here belongs to a convex lens.", "pa": "ਸ਼ਕਤੀ P = 1/f (ਮੀਟਰ ਵਿੱਚ) = 1/0.25 = +4 D; ਇਹ ਧਨਾਤਮਕ ਹੈ ਕਿਉਂਕਿ ਇੱਥੇ 25 cm ਫੋਕਸ ਦੂਰੀ ਇੱਕ ਉੱਤਲ ਲੈਂਸ ਦੀ ਹੈ।"},
+
+  "tf-ch9-s1": {"en": "A ray passing through the centre of curvature hits the mirror at 90° (along the normal) and reflects straight back along the same path.", "pa": "ਵਕਰਤਾ ਕੇਂਦਰ ਵਿੱਚੋਂ ਲੰਘਦੀ ਕਿਰਨ ਦਰਪਣ ਨੂੰ 90° (ਲੰਬ ਦੇ ਨਾਲ) 'ਤੇ ਟਕਰਾਉਂਦੀ ਹੈ ਅਤੇ ਉਸੇ ਰਸਤੇ ਵਾਪਸ ਪਰਾਵਰਤਿਤ ਹੁੰਦੀ ਹੈ।"},
+  "tf-ch9-s2": {"en": "By the sign convention, a concave (diverging) lens has a negative focal length.", "pa": "ਚਿੰਨ੍ਹ ਪਰੰਪਰਾ ਅਨੁਸਾਰ, ਅਵਤਲ (ਵਿਖੇਰਨ ਵਾਲੇ) ਲੈਂਸ ਦੀ ਫੋਕਸ ਦੂਰੀ ਰਿਣਾਤਮਕ ਹੁੰਦੀ ਹੈ।"},
+  "tf-ch9-s3": {"en": "A ray through the optical centre passes straight through with no bending or displacement.", "pa": "ਪ੍ਰਕਾਸ਼ੀ ਕੇਂਦਰ ਵਿੱਚੋਂ ਲੰਘਦੀ ਕਿਰਨ ਬਿਨਾਂ ਝੁਕਾਅ ਜਾਂ ਵਿਸਥਾਪਨ ਦੇ ਸਿੱਧੀ ਲੰਘ ਜਾਂਦੀ ਹੈ।"},
+  "tf-ch9-s4": {"en": "A plane mirror forms a laterally inverted image (left and right appear reversed).", "pa": "ਸਮਤਲ ਦਰਪਣ ਪਾਸੇ-ਤੋਂ-ਉਲਟਾ ਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ (ਖੱਬਾ ਅਤੇ ਸੱਜਾ ਉਲਟੇ ਦਿਖਦੇ ਹਨ)।"},
+  "tf-ch9-s5": {"en": "Negative magnification indicates that the image is real and inverted.", "pa": "ਰਿਣਾਤਮਕ ਵਿਸ਼ਾਲਨ ਦਰਸਾਉਂਦਾ ਹੈ ਕਿ ਬਿੰਬ ਵਾਸਤਵਿਕ ਅਤੇ ਉਲਟਾ ਹੈ।"},
+  "tf-ch9-s6": {"en": "For a spherical mirror the focal length is half the radius of curvature (f = R/2).", "pa": "ਗੋਲਾਕਾਰ ਦਰਪਣ ਲਈ ਫੋਕਸ ਦੂਰੀ ਵਕਰਤਾ ਅਰਧ-ਵਿਆਸ ਦੀ ਅੱਧੀ ਹੁੰਦੀ ਹੈ (f = R/2)।"},
+  "tf-ch9-s7": {"en": "A convex lens is a converging lens; the diverging lens is the concave lens.", "pa": "ਉੱਤਲ ਲੈਂਸ ਇੱਕ ਅਭਿਸਾਰੀ ਲੈਂਸ ਹੈ; ਵਿਖੇਰਨ ਵਾਲਾ ਲੈਂਸ ਅਵਤਲ ਲੈਂਸ ਹੈ।"},
+  "tf-ch9-s8": {"en": "The power of a lens is measured in dioptres (D).", "pa": "ਲੈਂਸ ਦੀ ਸ਼ਕਤੀ ਡਾਇਓਪਟਰ (D) ਵਿੱਚ ਮਾਪੀ ਜਾਂਦੀ ਹੈ।"},
+
+  "sib-ch9-s1": {"en": "A ray parallel to the principal axis passes through the focus after reflection or refraction.", "pa": "ਮੁੱਖ ਧੁਰੇ ਦੇ ਸਮਾਂਤਰ ਕਿਰਨ ਪਰਾਵਰਤਨ ਜਾਂ ਅਪਵਰਤਨ ਤੋਂ ਬਾਅਦ ਫੋਕਸ ਵਿੱਚੋਂ ਲੰਘਦੀ ਹੈ।"},
+  "sib-ch9-s2": {"en": "The unit of the power of a lens is the dioptre.", "pa": "ਲੈਂਸ ਦੀ ਸ਼ਕਤੀ ਦੀ ਇਕਾਈ ਡਾਇਓਪਟਰ ਹੈ।"},
+  "sib-ch9-s3": {"en": "Absolute refractive index n = c/v (speed of light in vacuum divided by its speed in the medium).", "pa": "ਪੂਰਨ ਅਪਵਰਤਕ ਸੂਚਕ n = c/v (ਖ਼ਲਾਅ ਵਿੱਚ ਪ੍ਰਕਾਸ਼ ਦੀ ਗਤੀ ਨੂੰ ਮਾਧਿਅਮ ਵਿੱਚ ਗਤੀ ਨਾਲ ਵੰਡਿਆ)।"},
+  "sib-ch9-s4": {"en": "A magnification of +2 is positive, so the image is erect (and virtual).", "pa": "+2 ਦਾ ਵਿਸ਼ਾਲਨ ਧਨਾਤਮਕ ਹੈ, ਇਸ ਲਈ ਬਿੰਬ ਸਿੱਧਾ (ਅਤੇ ਆਭਾਸੀ) ਹੈ।"},
+  "sib-ch9-s5": {"en": "The power of a concave (diverging) lens is negative.", "pa": "ਅਵਤਲ (ਵਿਖੇਰਨ ਵਾਲੇ) ਲੈਂਸ ਦੀ ਸ਼ਕਤੀ ਰਿਣਾਤਮਕ ਹੁੰਦੀ ਹੈ।"},
+  "sib-ch9-s6": {"en": "The radius of curvature is twice the focal length (R = 2f).", "pa": "ਵਕਰਤਾ ਅਰਧ-ਵਿਆਸ ਫੋਕਸ ਦੂਰੀ ਤੋਂ ਦੁੱਗਣਾ ਹੁੰਦਾ ਹੈ (R = 2f)।"},
+  "sib-ch9-s7": {"en": "A convex mirror always forms a virtual, erect and diminished image.", "pa": "ਉੱਤਲ ਦਰਪਣ ਹਮੇਸ਼ਾ ਆਭਾਸੀ, ਸਿੱਧਾ ਅਤੇ ਛੋਟਾ ਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ।"},
+  "sib-ch9-s8": {"en": "A convex mirror is used as a vehicle rear-view mirror because it gives a wide field of view.", "pa": "ਉੱਤਲ ਦਰਪਣ ਵਾਹਨ ਦੇ ਪਿੱਛੇ-ਵੇਖਣ ਵਾਲੇ ਦਰਪਣ ਵਜੋਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਕਿਉਂਕਿ ਇਹ ਵਿਸ਼ਾਲ ਦ੍ਰਿਸ਼ ਖੇਤਰ ਦਿੰਦਾ ਹੈ।"},
+
+  "mcq-ch9-s1": {"en": "A convex mirror provides a wider field of view, which is why it is used as a rear-view mirror.", "pa": "ਉੱਤਲ ਦਰਪਣ ਵਿਸ਼ਾਲ ਦ੍ਰਿਸ਼ ਖੇਤਰ ਦਿੰਦਾ ਹੈ, ਇਸੇ ਲਈ ਇਹ ਪਿੱਛੇ-ਵੇਖਣ ਵਾਲੇ ਦਰਪਣ ਵਜੋਂ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।"},
+  "mcq-ch9-s2": {"en": "A negative magnification means the image is real and inverted.", "pa": "ਰਿਣਾਤਮਕ ਵਿਸ਼ਾਲਨ ਦਾ ਅਰਥ ਹੈ ਕਿ ਬਿੰਬ ਵਾਸਤਵਿਕ ਅਤੇ ਉਲਟਾ ਹੈ।"},
+  "mcq-ch9-s3": {"en": "A high refractive index (2.42 for diamond) means light travels very slowly through the medium.", "pa": "ਉੱਚ ਅਪਵਰਤਕ ਸੂਚਕ (ਹੀਰੇ ਲਈ 2.42) ਦਾ ਅਰਥ ਹੈ ਕਿ ਪ੍ਰਕਾਸ਼ ਮਾਧਿਅਮ ਵਿੱਚੋਂ ਬਹੁਤ ਹੌਲੀ ਲੰਘਦਾ ਹੈ।"},
+  "mcq-ch9-s4": {"en": "Powers of lenses in contact add up: (+3 D) + (-1 D) = +2 D.", "pa": "ਸੰਪਰਕ ਵਿੱਚ ਲੈਂਸਾਂ ਦੀਆਂ ਸ਼ਕਤੀਆਂ ਜੁੜ ਜਾਂਦੀਆਂ ਹਨ: (+3 D) + (-1 D) = +2 D।"},
+  "mcq-ch9-s5": {"en": "A ray passing through the optical centre goes completely straight without deviating.", "pa": "ਪ੍ਰਕਾਸ਼ੀ ਕੇਂਦਰ ਵਿੱਚੋਂ ਲੰਘਦੀ ਕਿਰਨ ਬਿਨਾਂ ਵਿਚਲਨ ਦੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਸਿੱਧੀ ਜਾਂਦੀ ਹੈ।"},
+  "mcq-ch9-s6": {"en": "A plane mirror forms a virtual and erect image.", "pa": "ਸਮਤਲ ਦਰਪਣ ਆਭਾਸੀ ਅਤੇ ਸਿੱਧਾ ਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ।"},
+  "mcq-ch9-s7": {"en": "The principal focus of a concave mirror lies in front of the mirror (where reflected rays meet).", "pa": "ਅਵਤਲ ਦਰਪਣ ਦਾ ਮੁੱਖ ਫੋਕਸ ਦਰਪਣ ਦੇ ਸਾਹਮਣੇ ਹੁੰਦਾ ਹੈ (ਜਿੱਥੇ ਪਰਾਵਰਤਿਤ ਕਿਰਨਾਂ ਮਿਲਦੀਆਂ ਹਨ)।"},
+  "mcq-ch9-s8": {"en": "The SI unit of the power of a lens is the dioptre.", "pa": "ਲੈਂਸ ਦੀ ਸ਼ਕਤੀ ਦੀ SI ਇਕਾਈ ਡਾਇਓਪਟਰ ਹੈ।"}
+}

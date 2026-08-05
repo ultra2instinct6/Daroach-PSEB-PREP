@@ -6,7 +6,7 @@
     <title>Chapter 2: Acids, Bases and Salts | PSEB Class 10 Science</title>
     <script src="../assets/deck-theme-init.js"></script>
     <link rel="stylesheet" href="../assets/deck-ch01-05.css">
-    <link id="pseb-deck-theme-css" rel="stylesheet" href="../assets/deck-theme.css">
+    <link id="pseb-deck-theme-css" rel="stylesheet" href="../assets/deck-theme.css?v=20260801flagship">
 
     <!-- MathJax for LaTeX Rendering -->
     <script>
@@ -233,6 +233,19 @@
                 <p>When an acid reacts with a metal carbonate or metal hydrogencarbonate, it produces salt, water, and Carbon Dioxide gas.</p>
                 <div class="equation">Na₂CO₃(s) + 2HCl(aq) &rarr; 2NaCl(aq) + H₂O(l) + CO₂(g)</div>
                 <div class="equation">NaHCO₃(s) + HCl(aq) &rarr; NaCl(aq) + H₂O(l) + CO₂(g)</div>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Interactive Lab: Predict the Acid Reaction <span class="punjabi">(ਤੇਜ਼ਾਬੀ ਕਿਰਿਆ ਦੀ ਭਵਿੱਖਬਾਣੀ)</span></h2>
+                <p>Choose the reactants, predict what evidence you expect, then mix them. Connect the products to the laboratory test.</p>
+                <div class="flagship-lab" id="acid-lab">
+                    <div class="flagship-controls">
+                        <div class="flagship-control"><label for="acid-choice">1. Choose an acid</label><select id="acid-choice" data-acid onchange="psebAcidMix()"><option value="hcl">Hydrochloric acid (HCl)</option><option value="h2so4">Sulphuric acid (H₂SO₄)</option></select></div>
+                        <div class="flagship-control"><label for="acid-partner">2. Add a reactant</label><select id="acid-partner" data-partner onchange="psebAcidMix()"><option value="metal">Zinc metal</option><option value="carbonate">Sodium carbonate</option><option value="base">Sodium hydroxide</option><option value="oxide">Copper oxide</option></select></div>
+                        <button class="flagship-btn" onclick="psebAcidMix()">Mix reactants</button>
+                    </div>
+                    <div class="acid-stage" aria-hidden="true"><div class="acid-vessel"></div></div>
+                    <div class="lab-result" aria-live="polite"><div class="lab-result-title"></div><div class="lab-equation"></div><div class="lab-explain"></div></div>
+                </div>
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Metallic vs Non-Metallic Oxides</h2>
@@ -743,7 +756,7 @@ m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Sh
             // Don't swipe if the user is scrolling vertically
             if(Math.abs(touchEndY - touchStartY) > Math.abs(touchEndX - touchStartX)) return;
             
-            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.indicator-lab') || e.target.closest('.classifier-panel')) return;
+            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.indicator-lab') || e.target.closest('.classifier-panel') || e.target.closest('.flagship-lab')) return;
             
             if (touchEndX < touchStartX - 50) window.moveSlide(1); 
             if (touchEndX > touchStartX + 50) window.moveSlide(-1); 
@@ -884,6 +897,6 @@ m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Sh
         updateUI();
     });
     </script>
-<script src="../assets/deck-enhance.js"></script>
+<script src="../assets/deck-enhance.js?v=20260801flagship"></script>
 </body>
 </html>

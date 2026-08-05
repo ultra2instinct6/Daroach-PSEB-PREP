@@ -1,0 +1,28 @@
+{
+  "tf-ch8-s1": {"en": "Acquired traits affect only body (somatic) cells, so they do not change the DNA of germ cells and are not inherited.", "pa": "ਪ੍ਰਾਪਤ ਕੀਤੇ ਗੁਣ ਸਿਰਫ਼ ਸਰੀਰਕ (somatic) ਕੋਸ਼ਿਕਾਵਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੇ ਹਨ, ਇਸ ਲਈ ਉਹ ਜਨਨ ਕੋਸ਼ਿਕਾਵਾਂ ਦੇ DNA ਨੂੰ ਨਹੀਂ ਬਦਲਦੇ ਅਤੇ ਵਿਰਾਸਤ ਵਿੱਚ ਨਹੀਂ ਮਿਲਦੇ।"},
+  "tf-ch8-s2": {"en": "Mendel's F2 monohybrid cross gives a 3:1 phenotypic ratio (3 dominant : 1 recessive).", "pa": "ਮੈਂਡਲ ਦੇ F2 ਮੋਨੋਹਾਈਬ੍ਰਿਡ ਕ੍ਰਾਸ ਵਿੱਚ 3:1 ਦਾ ਲੱਛਣ ਅਨੁਪਾਤ ਮਿਲਦਾ ਹੈ (3 ਪ੍ਰਭਾਵੀ : 1 ਅਪ੍ਰਭਾਵੀ)।"},
+  "tf-ch8-s3": {"en": "The 9:3:3:1 dihybrid ratio shows that the two traits are inherited independently of each other.", "pa": "9:3:3:1 ਡਾਈਹਾਈਬ੍ਰਿਡ ਅਨੁਪਾਤ ਦਰਸਾਉਂਦਾ ਹੈ ਕਿ ਦੋਵੇਂ ਗੁਣ ਇੱਕ ਦੂਜੇ ਤੋਂ ਸੁਤੰਤਰ ਤੌਰ 'ਤੇ ਵਿਰਾਸਤ ਵਿੱਚ ਮਿਲਦੇ ਹਨ।"},
+  "tf-ch8-s4": {"en": "The father determines the sex of the child because he contributes either an X or a Y chromosome.", "pa": "ਬੱਚੇ ਦਾ ਲਿੰਗ ਪਿਤਾ ਤੈਅ ਕਰਦਾ ਹੈ ਕਿਉਂਕਿ ਉਹ X ਜਾਂ Y ਕ੍ਰੋਮੋਸੋਮ ਦਿੰਦਾ ਹੈ।"},
+  "tf-ch8-s5": {"en": "Human males have one X and one Y chromosome (XY).", "pa": "ਮਨੁੱਖੀ ਨਰਾਂ ਵਿੱਚ ਇੱਕ X ਅਤੇ ਇੱਕ Y ਕ੍ਰੋਮੋਸੋਮ (XY) ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch8-s6": {"en": "Alleles are the different versions (forms) of the same gene.", "pa": "ਐਲੀਲ ਇੱਕੋ ਜੀਨ ਦੇ ਵੱਖ-ਵੱਖ ਰੂਪ ਹੁੰਦੇ ਹਨ।"},
+  "tf-ch8-s7": {"en": "The 3:1 ratio appears in the F2 generation; the F1 offspring are all alike.", "pa": "3:1 ਅਨੁਪਾਤ F2 ਪੀੜ੍ਹੀ ਵਿੱਚ ਆਉਂਦਾ ਹੈ; F1 ਸੰਤਾਨ ਸਾਰੇ ਇੱਕੋ ਜਿਹੇ ਹੁੰਦੇ ਹਨ।"},
+  "tf-ch8-s8": {"en": "The father's sperm carries either an X or a Y chromosome, which decides the child's sex.", "pa": "ਪਿਤਾ ਦਾ ਸ਼ੁਕਰਾਣੂ X ਜਾਂ Y ਕ੍ਰੋਮੋਸੋਮ ਲੈ ਜਾਂਦਾ ਹੈ, ਜੋ ਬੱਚੇ ਦਾ ਲਿੰਗ ਤੈਅ ਕਰਦਾ ਹੈ।"},
+
+  "sib-ch8-s1": {"en": "Mendel used the pea plant (Pisum sativum) for his experiments.", "pa": "ਮੈਂਡਲ ਨੇ ਆਪਣੇ ਪ੍ਰਯੋਗਾਂ ਲਈ ਮਟਰ ਦੇ ਪੌਦੇ (Pisum sativum) ਦੀ ਵਰਤੋਂ ਕੀਤੀ।"},
+  "sib-ch8-s2": {"en": "Traits that affect only somatic cells and are not passed on are called acquired traits.", "pa": "ਉਹ ਗੁਣ ਜੋ ਸਿਰਫ਼ ਸਰੀਰਕ ਕੋਸ਼ਿਕਾਵਾਂ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੇ ਹਨ ਅਤੇ ਅੱਗੇ ਨਹੀਂ ਜਾਂਦੇ, ਪ੍ਰਾਪਤ ਗੁਣ ਕਹਾਉਂਦੇ ਹਨ।"},
+  "sib-ch8-s3": {"en": "The genetic makeup of an organism (e.g., Tt) is called its genotype.", "pa": "ਕਿਸੇ ਜੀਵ ਦੀ ਜੈਨੇਟਿਕ ਬਣਤਰ (ਜਿਵੇਂ Tt) ਨੂੰ ਉਸਦਾ ਜੀਨੋਟਾਈਪ ਕਿਹਾ ਜਾਂਦਾ ਹੈ।"},
+  "sib-ch8-s4": {"en": "The F2 phenotype ratio in a dihybrid cross is 9:3:3:1.", "pa": "ਡਾਈਹਾਈਬ੍ਰਿਡ ਕ੍ਰਾਸ ਵਿੱਚ F2 ਲੱਛਣ ਅਨੁਪਾਤ 9:3:3:1 ਹੁੰਦਾ ਹੈ।"},
+  "sib-ch8-s5": {"en": "A human male's sex chromosomes are represented by XY.", "pa": "ਮਨੁੱਖੀ ਨਰ ਦੇ ਲਿੰਗ ਕ੍ਰੋਮੋਸੋਮ XY ਨਾਲ ਦਰਸਾਏ ਜਾਂਦੇ ਹਨ।"},
+  "sib-ch8-s6": {"en": "The visible, physical expression of a gene (e.g., Tall) is the phenotype.", "pa": "ਜੀਨ ਦੀ ਦਿਖਾਈ ਦੇਣ ਵਾਲੀ, ਭੌਤਿਕ ਅਭਿਵਿਅਕਤੀ (ਜਿਵੇਂ ਲੰਬਾ) ਫੀਨੋਟਾਈਪ ਹੈ।"},
+  "sib-ch8-s7": {"en": "Different forms of the same gene are called alleles.", "pa": "ਇੱਕੋ ਜੀਨ ਦੇ ਵੱਖ-ਵੱਖ ਰੂਪ ਐਲੀਲ ਕਹਾਉਂਦੇ ਹਨ।"},
+  "sib-ch8-s8": {"en": "The grid used to predict the genotypes of offspring is the Punnett square.", "pa": "ਸੰਤਾਨ ਦੇ ਜੀਨੋਟਾਈਪ ਦੀ ਭਵਿੱਖਬਾਣੀ ਲਈ ਵਰਤੀ ਜਾਂਦੀ ਗ੍ਰਿਡ ਪੰਨੇਟ ਵਰਗ (Punnett square) ਹੈ।"},
+
+  "mcq-ch8-s1": {"en": "A homozygous genotype has two identical alleles, such as TT or tt.", "pa": "ਸਮਯੁਗਮਜੀ (homozygous) ਜੀਨੋਟਾਈਪ ਵਿੱਚ ਦੋ ਇੱਕੋ ਜਿਹੇ ਐਲੀਲ ਹੁੰਦੇ ਹਨ, ਜਿਵੇਂ TT ਜਾਂ tt।"},
+  "mcq-ch8-s2": {"en": "Crossing pure tall (TT) with pure short (tt) gives all Tt offspring, which are tall because tall is dominant.", "pa": "ਸ਼ੁੱਧ ਲੰਬੇ (TT) ਨੂੰ ਸ਼ੁੱਧ ਮਧਰੇ (tt) ਨਾਲ ਕ੍ਰਾਸ ਕਰਨ 'ਤੇ ਸਾਰੀ ਸੰਤਾਨ Tt ਹੁੰਦੀ ਹੈ, ਜੋ ਲੰਬੀ ਹੁੰਦੀ ਹੈ ਕਿਉਂਕਿ ਲੰਬਾ ਗੁਣ ਪ੍ਰਭਾਵੀ ਹੈ।"},
+  "mcq-ch8-s3": {"en": "The passing of traits from parents to offspring is called heredity.", "pa": "ਮਾਪਿਆਂ ਤੋਂ ਸੰਤਾਨ ਨੂੰ ਗੁਣਾਂ ਦਾ ਲੰਘਣਾ ਵਿਰਾਸਤ (heredity) ਕਹਾਉਂਦਾ ਹੈ।"},
+  "mcq-ch8-s4": {"en": "The recessive 't' gene makes a less efficient enzyme, so less growth hormone is produced and the plant stays short.", "pa": "ਅਪ੍ਰਭਾਵੀ 't' ਜੀਨ ਘੱਟ ਕਾਰਗਰ ਐਨਜ਼ਾਈਮ ਬਣਾਉਂਦਾ ਹੈ, ਇਸ ਲਈ ਘੱਟ ਵਾਧਾ ਹਾਰਮੋਨ ਬਣਦਾ ਹੈ ਅਤੇ ਪੌਦਾ ਮਧਰਾ ਰਹਿੰਦਾ ਹੈ।"},
+  "mcq-ch8-s5": {"en": "The father's sperm, carrying either an X or a Y chromosome, determines the child's sex.", "pa": "ਪਿਤਾ ਦਾ ਸ਼ੁਕਰਾਣੂ, ਜੋ X ਜਾਂ Y ਕ੍ਰੋਮੋਸੋਮ ਲੈ ਜਾਂਦਾ ਹੈ, ਬੱਚੇ ਦਾ ਲਿੰਗ ਤੈਅ ਕਰਦਾ ਹੈ।"},
+  "mcq-ch8-s6": {"en": "The F2 phenotypic ratio of a dihybrid cross is 9:3:3:1.", "pa": "ਡਾਈਹਾਈਬ੍ਰਿਡ ਕ੍ਰਾਸ ਦਾ F2 ਲੱਛਣ ਅਨੁਪਾਤ 9:3:3:1 ਹੁੰਦਾ ਹੈ।"},
+  "mcq-ch8-s7": {"en": "Different forms of the same gene are called alleles.", "pa": "ਇੱਕੋ ਜੀਨ ਦੇ ਵੱਖ-ਵੱਖ ਰੂਪ ਐਲੀਲ ਕਹਾਉਂਦੇ ਹਨ।"},
+  "mcq-ch8-s8": {"en": "A scar from an injury is an acquired trait — gained during life, not inherited.", "pa": "ਸੱਟ ਤੋਂ ਬਣਿਆ ਦਾਗ਼ ਇੱਕ ਪ੍ਰਾਪਤ ਗੁਣ ਹੈ — ਜੀਵਨ ਦੌਰਾਨ ਹਾਸਲ, ਵਿਰਾਸਤ ਵਿੱਚ ਨਹੀਂ ਮਿਲਿਆ।"}
+}

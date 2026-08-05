@@ -1,0 +1,28 @@
+{
+  "tf-ch13-s1": {"en": "Decomposers break down complex organic matter and return it to the soil as simple inorganic substances.", "pa": "ਵਿਘਟਕ ਗੁੰਝਲਦਾਰ ਜੈਵਿਕ ਪਦਾਰਥ ਨੂੰ ਤੋੜ ਕੇ ਸਧਾਰਨ ਅਜੈਵਿਕ ਪਦਾਰਥਾਂ ਵਜੋਂ ਮਿੱਟੀ ਵਿੱਚ ਵਾਪਸ ਕਰਦੇ ਹਨ।"},
+  "tf-ch13-s2": {"en": "Energy flow in a food chain is unidirectional — it moves only one way and is not returned.", "pa": "ਭੋਜਨ ਲੜੀ ਵਿੱਚ ਊਰਜਾ ਦਾ ਵਹਾਅ ਇੱਕ-ਦਿਸ਼ਾਈ ਹੁੰਦਾ ਹੈ — ਇਹ ਸਿਰਫ਼ ਇੱਕੋ ਪਾਸੇ ਜਾਂਦੀ ਹੈ ਅਤੇ ਵਾਪਸ ਨਹੀਂ ਆਉਂਦੀ।"},
+  "tf-ch13-s3": {"en": "Toxins concentrate more at each level, so biological magnification is highest in top carnivores.", "pa": "ਜ਼ਹਿਰ ਹਰ ਪੱਧਰ 'ਤੇ ਵੱਧ ਇਕੱਠਾ ਹੁੰਦਾ ਹੈ, ਇਸ ਲਈ ਜੈਵਿਕ ਵਿਸ਼ਾਲੀਕਰਨ ਸਿਖਰਲੇ ਮਾਸਾਹਾਰੀਆਂ ਵਿੱਚ ਸਭ ਤੋਂ ਵੱਧ ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch13-s4": {"en": "UV light splits O₂ into free oxygen atoms, which then combine with O₂ to form ozone (O₃).", "pa": "UV ਰੌਸ਼ਨੀ O₂ ਨੂੰ ਮੁਕਤ ਆਕਸੀਜਨ ਪਰਮਾਣੂਆਂ ਵਿੱਚ ਵੰਡਦੀ ਹੈ, ਜੋ ਫਿਰ O₂ ਨਾਲ ਮਿਲ ਕੇ ਓਜ਼ੋਨ (O₃) ਬਣਾਉਂਦੇ ਹਨ।"},
+  "tf-ch13-s5": {"en": "CFCs (chlorofluorocarbons) are the main cause of ozone layer depletion.", "pa": "CFC (ਕਲੋਰੋਫਲੋਰੋਕਾਰਬਨ) ਓਜ਼ੋਨ ਪਰਤ ਦੇ ਖ਼ਾਤਮੇ ਦਾ ਮੁੱਖ ਕਾਰਨ ਹਨ।"},
+  "tf-ch13-s6": {"en": "Grass makes its own food, so as a producer it occupies the first trophic level.", "pa": "ਘਾਹ ਆਪਣਾ ਭੋਜਨ ਖ਼ੁਦ ਬਣਾਉਂਦਾ ਹੈ, ਇਸ ਲਈ ਉਤਪਾਦਕ ਵਜੋਂ ਇਹ ਪਹਿਲੇ ਪੋਸ਼ਣ ਪੱਧਰ 'ਤੇ ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch13-s7": {"en": "Non-biodegradable substances cannot be broken down by decomposers, so they persist in the environment.", "pa": "ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ ਪਦਾਰਥ ਵਿਘਟਕਾਂ ਦੁਆਰਾ ਨਹੀਂ ਤੋੜੇ ਜਾ ਸਕਦੇ, ਇਸ ਲਈ ਉਹ ਵਾਤਾਵਰਨ ਵਿੱਚ ਬਣੇ ਰਹਿੰਦੇ ਹਨ।"},
+  "tf-ch13-s8": {"en": "The protective ozone layer lies in the upper atmosphere (the stratosphere).", "pa": "ਸੁਰੱਖਿਆ ਵਾਲੀ ਓਜ਼ੋਨ ਪਰਤ ਉੱਪਰਲੇ ਵਾਯੂਮੰਡਲ (ਸਟ੍ਰੈਟੋਸਫ਼ੀਅਰ) ਵਿੱਚ ਹੁੰਦੀ ਹੈ।"},
+
+  "sib-ch13-s1": {"en": "The chemical formula of ozone is O₃.", "pa": "ਓਜ਼ੋਨ ਦਾ ਰਸਾਇਣਿਕ ਫਾਰਮੂਲਾ O₃ ਹੈ।"},
+  "sib-ch13-s2": {"en": "Only about 10% of energy is transferred from one trophic level to the next.", "pa": "ਇੱਕ ਪੋਸ਼ਣ ਪੱਧਰ ਤੋਂ ਅਗਲੇ ਤੱਕ ਸਿਰਫ਼ ਲਗਭਗ 10% ਊਰਜਾ ਹੀ ਟ੍ਰਾਂਸਫ਼ਰ ਹੁੰਦੀ ਹੈ।"},
+  "sib-ch13-s3": {"en": "Chlorofluorocarbons (CFCs) caused the ozone hole.", "pa": "ਕਲੋਰੋਫਲੋਰੋਕਾਰਬਨ (CFC) ਨੇ ਓਜ਼ੋਨ ਛੇਕ ਪੈਦਾ ਕੀਤਾ।"},
+  "sib-ch13-s4": {"en": "The build-up of toxins along a food chain is called biological magnification.", "pa": "ਭੋਜਨ ਲੜੀ ਦੇ ਨਾਲ ਜ਼ਹਿਰਾਂ ਦਾ ਇਕੱਠਾ ਹੋਣਾ ਜੈਵਿਕ ਵਿਸ਼ਾਲੀਕਰਨ ਕਹਾਉਂਦਾ ਹੈ।"},
+  "sib-ch13-s5": {"en": "Waste that can be broken down naturally is called biodegradable.", "pa": "ਕੁਦਰਤੀ ਤੌਰ 'ਤੇ ਤੋੜਿਆ ਜਾ ਸਕਣ ਵਾਲਾ ਕੂੜਾ ਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ ਕਹਾਉਂਦਾ ਹੈ।"},
+  "sib-ch13-s6": {"en": "Organisms that make their own food are called producers.", "pa": "ਉਹ ਜੀਵ ਜੋ ਆਪਣਾ ਭੋਜਨ ਖ਼ੁਦ ਬਣਾਉਂਦੇ ਹਨ, ਉਤਪਾਦਕ ਕਹਾਉਂਦੇ ਹਨ।"},
+  "sib-ch13-s7": {"en": "Bacteria and fungi that break down dead matter are called decomposers.", "pa": "ਮਰੇ ਹੋਏ ਪਦਾਰਥ ਨੂੰ ਤੋੜਨ ਵਾਲੇ ਬੈਕਟੀਰੀਆ ਅਤੇ ਫ਼ਫ਼ੂੰਦ ਵਿਘਟਕ ਕਹਾਉਂਦੇ ਹਨ।"},
+  "sib-ch13-s8": {"en": "Waste that cannot be broken down naturally is called non-biodegradable.", "pa": "ਕੁਦਰਤੀ ਤੌਰ 'ਤੇ ਨਾ ਤੋੜਿਆ ਜਾ ਸਕਣ ਵਾਲਾ ਕੂੜਾ ਅਜੈਵ-ਵਿਘਟਨਸ਼ੀਲ ਕਹਾਉਂਦਾ ਹੈ।"},
+
+  "mcq-ch13-s1": {"en": "Energy flows through an ecosystem in one direction only — it is unidirectional.", "pa": "ਊਰਜਾ ਇੱਕ ਪਰਿਸਥਿਤਕ ਤੰਤਰ ਵਿੱਚੋਂ ਸਿਰਫ਼ ਇੱਕੋ ਦਿਸ਼ਾ ਵਿੱਚ ਵਗਦੀ ਹੈ — ਇਹ ਇੱਕ-ਦਿਸ਼ਾਈ ਹੈ।"},
+  "mcq-ch13-s2": {"en": "The depletion of the ozone layer is mainly due to chlorofluorocarbons (CFCs).", "pa": "ਓਜ਼ੋਨ ਪਰਤ ਦਾ ਖ਼ਾਤਮਾ ਮੁੱਖ ਤੌਰ 'ਤੇ ਕਲੋਰੋਫਲੋਰੋਕਾਰਬਨ (CFC) ਕਾਰਨ ਹੁੰਦਾ ਹੈ।"},
+  "mcq-ch13-s3": {"en": "The third trophic level in a food chain is occupied by carnivores (which eat herbivores).", "pa": "ਭੋਜਨ ਲੜੀ ਵਿੱਚ ਤੀਜਾ ਪੋਸ਼ਣ ਪੱਧਰ ਮਾਸਾਹਾਰੀਆਂ ਦੁਆਰਾ ਭਰਿਆ ਜਾਂਦਾ ਹੈ (ਜੋ ਸ਼ਾਕਾਹਾਰੀਆਂ ਨੂੰ ਖਾਂਦੇ ਹਨ)।"},
+  "mcq-ch13-s4": {"en": "The ozone layer protects us from the Sun's harmful ultraviolet (UV) rays.", "pa": "ਓਜ਼ੋਨ ਪਰਤ ਸਾਨੂੰ ਸੂਰਜ ਦੀਆਂ ਹਾਨੀਕਾਰਕ ਪਰਾਬੈਂਗਣੀ (UV) ਕਿਰਨਾਂ ਤੋਂ ਬਚਾਉਂਦੀ ਹੈ।"},
+  "mcq-ch13-s5": {"en": "Biological magnification gives the maximum toxin concentration in top carnivores such as humans.", "pa": "ਜੈਵਿਕ ਵਿਸ਼ਾਲੀਕਰਨ ਨਾਲ ਸਭ ਤੋਂ ਵੱਧ ਜ਼ਹਿਰ ਸਿਖਰਲੇ ਮਾਸਾਹਾਰੀਆਂ ਜਿਵੇਂ ਮਨੁੱਖਾਂ ਵਿੱਚ ਹੁੰਦਾ ਹੈ।"},
+  "mcq-ch13-s6": {"en": "Producers make their own food and form the base of every food chain.", "pa": "ਉਤਪਾਦਕ ਆਪਣਾ ਭੋਜਨ ਖ਼ੁਦ ਬਣਾਉਂਦੇ ਹਨ ਅਤੇ ਹਰ ਭੋਜਨ ਲੜੀ ਦਾ ਅਧਾਰ ਬਣਦੇ ਹਨ।"},
+  "mcq-ch13-s7": {"en": "The 3 R's of waste management are Reduce, Reuse and Recycle.", "pa": "ਕੂੜਾ ਪ੍ਰਬੰਧਨ ਦੇ 3 R ਹਨ: ਘਟਾਓ (Reduce), ਮੁੜ ਵਰਤੋ (Reuse) ਅਤੇ ਰੀਸਾਈਕਲ (Recycle)।"},
+  "mcq-ch13-s8": {"en": "Ozone (O₃) protects the Earth by absorbing harmful ultraviolet rays.", "pa": "ਓਜ਼ੋਨ (O₃) ਹਾਨੀਕਾਰਕ ਪਰਾਬੈਂਗਣੀ ਕਿਰਨਾਂ ਨੂੰ ਸੋਖ ਕੇ ਧਰਤੀ ਦੀ ਰੱਖਿਆ ਕਰਦਾ ਹੈ।"}
+}

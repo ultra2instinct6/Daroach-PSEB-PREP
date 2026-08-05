@@ -277,3 +277,162 @@
         .punnett-legend i { width: 16px; height: 16px; border-radius: 4px; display: inline-block; }
         .punnett-reset-btn { display: block; margin: 18px auto 0; background: none; border: 2px solid #cbd5e1; color: var(--punjabi-text); padding: 8px 20px; border-radius: 8px; cursor: pointer; font-size: 1.05rem; }
         .punnett-reset-btn:hover { border-color: var(--goku-accent); color: var(--goku-accent); }
+
+        /* ---- Interactive upgrade: vision defect mechanics (Ch10) ---- */
+        .vision-mech-lab { position: relative; padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; margin: 16px 0; }
+        .vision-mech-lab * { box-sizing: border-box; }
+        .vision-mech-lab__nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .vision-mech-lab__nav button { flex: 1; min-width: calc(20% - 8px); min-height: 52px; padding: 8px 6px; color: var(--deck-text); background: var(--deck-panel); border: 1px solid var(--deck-border-strong); border-radius: 8px; cursor: pointer; font-weight: 750; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .vision-mech-lab__nav small { color: var(--deck-muted); font-weight: 500; }
+        .vision-mech-lab__nav button:hover, .vision-mech-lab__nav button.is-active { border-color: var(--deck-aura); box-shadow: 0 0 0 2px var(--deck-aura-soft); }
+        .vision-mech-lab__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 1fr); gap: 14px; }
+        .vision-mech-lab__viewport { display: flex; align-items: center; justify-content: center; padding: 10px; min-height: 200px; border: 1px solid var(--deck-border); border-radius: 14px; background: rgba(2,6,23,.85); }
+        .vision-mech-lab__viewport svg { width: 100%; max-width: 300px; }
+        .vision-mech-lab__panel { padding: 14px 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: var(--deck-panel); display: flex; flex-direction: column; gap: 10px; }
+        .vision-mech-lab__clinical { font-family: 'SFMono-Regular','Cascadia Code',monospace; font-size: .82rem; color: var(--deck-aura); padding: 8px 10px; border: 1px solid var(--deck-border); border-radius: 8px; background: var(--deck-panel-soft); }
+        .vision-mech-lab__desc { font-size: .96rem !important; line-height: 1.55 !important; color: var(--deck-text) !important; }
+        .vm-eye-sclera { fill: #fafafa; stroke: #0f172a; stroke-width: 2; }
+        .vm-eye-nerve { fill: #0f172a; stroke: #64748b; stroke-width: 3; stroke-linejoin: round; }
+        .vm-eye-cornea { fill: none; stroke: #38bdf8; stroke-width: 3; }
+        .vm-ciliary { fill: #f472b6; }
+        .vm-eye-lens { fill: #93c5fd; stroke: #1d4ed8; stroke-width: 1.5; }
+        .vm-retina-line { stroke: #64748b; stroke-width: 4; }
+        @media (max-width: 760px) {
+            .vision-mech-lab__nav button { min-width: calc(50% - 8px); }
+            .vision-mech-lab__body { grid-template-columns: 1fr; }
+        }
+
+        /* ---- Interactive upgrade: atmospheric refraction explorer (Ch10) ---- */
+        .refraction-lab { padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; margin: 16px 0; }
+        .refraction-lab * { box-sizing: border-box; }
+        .refraction-lab__nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .refraction-lab__nav button { flex: 1; min-width: calc(25% - 8px); min-height: 52px; padding: 8px 6px; color: var(--deck-text); background: var(--deck-panel); border: 1px solid var(--deck-border-strong); border-radius: 8px; cursor: pointer; font-weight: 750; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+        .refraction-lab__nav small { color: var(--deck-muted); font-weight: 500; }
+        .refraction-lab__nav button:hover, .refraction-lab__nav button.is-active { border-color: var(--deck-aura); box-shadow: 0 0 0 2px var(--deck-aura-soft); }
+        .refraction-lab__body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(220px, 1fr); gap: 14px; }
+        .refraction-lab__stage { padding: 10px; border: 1px solid var(--deck-border); border-radius: 14px; background: rgba(2,6,23,.85); }
+        .refraction-lab__info { padding: 14px 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: var(--deck-panel); font-size: .96rem; line-height: 1.55; color: var(--deck-text); }
+        .refraction-lab__info strong { color: var(--deck-aura); }
+        .ar-atmosphere-layer { fill: none; stroke: #38bdf8; stroke-width: 2; opacity: .8; }
+        .ar-horizon-line { stroke: #64748b; stroke-width: 2; stroke-dasharray: 4 4; }
+        .ar-earth-surface { fill: #14532d; opacity: .55; }
+        .ar-sun-apparent { fill: #fbbf24; opacity: .85; }
+        .ar-sun-actual { fill: #f59e0b; }
+        .ar-path-apparent { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-dasharray: 5 4; }
+        .ar-path-refracted { fill: none; stroke: #ef4444; stroke-width: 2.5; }
+        .ar-observer-dot { fill: #0f172a; stroke: #f8fafc; stroke-width: 2; }
+        .ar-arrow-fill { fill: #ef4444; }
+        .ar-label { fill: #cbd5e1; font-size: 12px; }
+        .ar-label--blue { fill: #60a5fa; }
+        .ar-label--amber { fill: #fbbf24; }
+        .ar-label--red { fill: #ef4444; }
+        .ar-label--green { fill: #34d399; }
+        @media (max-width: 760px) {
+            .refraction-lab__nav button { min-width: calc(50% - 8px); }
+            .refraction-lab__body { grid-template-columns: 1fr; }
+        }
+
+        /* ---- Interactive upgrade: circuit symbols cross-linker (Ch11) ---- */
+        .circuit-symbols-lab { padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; margin: 16px 0; }
+        .circuit-symbols-lab * { box-sizing: border-box; }
+        .circuit-symbols-lab__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 16px; }
+        .circuit-symbols-lab__item { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 10px 8px; color: var(--deck-text); background: var(--deck-panel); border: 1px solid var(--deck-border-strong); border-radius: 12px; cursor: pointer; font: inherit; min-width: 0; }
+        .circuit-symbols-lab__item svg { width: 100%; max-width: 92px; height: 34px; stroke: currentColor; stroke-width: 3; fill: none; }
+        .circuit-symbols-lab__item span { font-size: .92rem; font-weight: 700; display: flex; flex-direction: column; align-items: center; min-width: 0; }
+        .circuit-symbols-lab__item small { color: var(--deck-muted); font-weight: 500; }
+        .circuit-symbols-lab__item:hover { border-color: var(--deck-aura); }
+        .circuit-symbols-lab__item.is-active { border-color: var(--deck-aura); background: var(--deck-panel-soft); box-shadow: 0 0 0 2px var(--deck-aura-soft); }
+        .circuit-symbols-lab__fill { fill: currentColor; }
+        .circuit-symbols-lab__table { width: 100%; }
+        .circuit-symbols-lab__row { cursor: pointer; }
+        .circuit-symbols-lab__row.is-active { background: var(--deck-aura-soft) !important; }
+        @media (max-width: 700px) {
+            .circuit-symbols-lab__grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* ---- Interactive upgrade: Joule's law material selection (Ch11) ---- */
+        .joule-material-lab { padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; margin: 16px 0; }
+        .joule-material-lab * { box-sizing: border-box; }
+        .joule-material-lab__nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .joule-material-lab__nav button { flex: 1; min-width: calc(33% - 8px); min-height: 52px; padding: 10px 8px; color: var(--deck-text); background: var(--deck-panel); border: 1px solid var(--deck-border-strong); border-radius: 8px; cursor: pointer; font-weight: 750; }
+        .joule-material-lab__nav button:hover, .joule-material-lab__nav button.is-active { border-color: var(--deck-aura); box-shadow: 0 0 0 2px var(--deck-aura-soft); }
+        .joule-material-lab__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 1.2fr); gap: 14px; margin-bottom: 16px; }
+        .joule-material-lab__viewport { display: flex; align-items: center; justify-content: center; padding: 10px; min-height: 190px; border: 1px solid var(--deck-border); border-radius: 14px; background: rgba(2,6,23,.85); }
+        .joule-material-lab__viewport svg { max-height: 190px; }
+        .joule-material-lab__panel { padding: 14px 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: var(--deck-panel); display: flex; flex-direction: column; gap: 8px; }
+        .joule-material-lab__panel strong { color: var(--deck-aura); font-size: 1.05rem; }
+        .joule-material-lab__panel div { font-size: .95rem !important; line-height: 1.55 !important; color: var(--deck-text) !important; }
+        .joule-material-lab__quiz { padding: 14px 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: var(--deck-panel); }
+        .joule-material-lab__quiz-title { font-weight: 750; margin-bottom: 10px; }
+        .joule-material-lab__quiz-options { display: flex; flex-wrap: wrap; gap: 8px; }
+        .joule-material-lab__quiz-btn { min-height: 46px; padding: 10px 14px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 10px; cursor: pointer; font-weight: 700; }
+        .joule-material-lab__quiz-btn:hover:not(:disabled) { border-color: var(--deck-aura); }
+        .joule-material-lab__quiz-btn:disabled { cursor: default; opacity: .82; }
+        .joule-material-lab__quiz-btn.is-correct { background: rgba(34,197,94,.2); border-color: var(--deck-success); }
+        .joule-material-lab__quiz-btn.is-wrong { background: rgba(239,68,68,.2); border-color: var(--deck-danger); }
+        .joule-material-lab__quiz-feedback { margin-top: 10px; font-weight: 700; min-height: 1.4rem; color: var(--deck-success); }
+        .jm-glass { stroke: #94a3b8; stroke-width: 2; }
+        .jm-base { fill: #94a3b8; }
+        .jm-base--2 { fill: #64748b; }
+        .jm-contact { fill: #0f172a; stroke: #64748b; stroke-width: 1; }
+        .jm-stem, .jm-mount { stroke: #64748b; stroke-width: 1.6; }
+        .jm-stem { stroke-width: 2; stroke-linejoin: round; }
+        @media (max-width: 760px) {
+            .joule-material-lab__nav button { min-width: calc(50% - 8px); }
+            .joule-material-lab__body { grid-template-columns: 1fr; }
+        }
+
+        /* ---- Interactive upgrade: ozone formation & depletion (Ch13) ---- */
+        .ozone-lab { padding: 18px; color: var(--deck-text); background: var(--deck-panel-soft); border: 1px solid var(--deck-border-strong); border-radius: 16px; margin: 16px 0; }
+        .ozone-lab * { box-sizing: border-box; }
+        .ozone-lab__nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .ozone-lab__nav button { flex: 1; min-width: calc(50% - 8px); min-height: 52px; padding: 8px 8px; color: var(--deck-text); background: var(--deck-panel); border: 1px solid var(--deck-border-strong); border-radius: 8px; cursor: pointer; font-weight: 750; }
+        .ozone-lab__nav small { display: block; color: var(--deck-muted); font-weight: 500; }
+        .ozone-lab__nav button:hover, .ozone-lab__nav button.is-active { border-color: var(--deck-aura); box-shadow: 0 0 0 2px var(--deck-aura-soft); }
+        .ozone-lab__body { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(220px, 1fr); gap: 14px; }
+        .ozone-lab__stage { position: relative; height: 220px; margin: 0; padding: 0; border: 1px solid var(--deck-border); border-radius: 14px; background: linear-gradient(#0b1220, #030712); overflow: hidden; }
+        .ozone-lab__du { position: absolute; top: 8px; left: 10px; font-family: 'SFMono-Regular','Cascadia Code',monospace; font-size: .82rem; color: #67e8f9; z-index: 3; }
+        .ozone-lab__sun { position: absolute; top: 12px; right: 16px; width: 26px; height: 26px; border-radius: 50%; background: #fbbf24; box-shadow: 0 0 22px #fbbf24; animation: ozSunPulse 2.4s ease-in-out infinite; }
+        @keyframes ozSunPulse { 50% { box-shadow: 0 0 34px #fbbf24; } }
+        .ozone-lab__ray { position: absolute; top: 38px; width: 2px; height: 60px; background: #7dd3fc; opacity: .6; transition: all .4s ease; }
+        .ozone-lab__ray--c { right: 30px; }
+        .ozone-lab__ray--b { right: 42px; }
+        .ozone-lab__band { position: absolute; left: 8%; right: 8%; top: 96px; display: flex; justify-content: space-around; padding: 8px 4px; border-top: 1px dashed rgba(125,211,252,.4); border-bottom: 1px dashed rgba(125,211,252,.4); }
+        .ozone-lab__o3 { font-weight: 800; color: #38bdf8; padding: 3px 8px; border-radius: 6px; background: rgba(56,189,248,.16); transition: all .4s ease; }
+        .ozone-lab__earth { position: absolute; left: 0; right: 0; bottom: 0; height: 34px; background: #14532d; }
+        .ozone-lab__factory { position: absolute; left: 12%; bottom: 34px; width: 18px; height: 22px; background: #475569; opacity: 0; transition: opacity .4s ease; }
+        .ozone-lab__factory::before { content: ""; position: absolute; left: 4px; top: -8px; width: 4px; height: 10px; background: #64748b; }
+        .ozone-lab__cfc { position: absolute; left: calc(12% + 8px); bottom: 56px; width: 8px; height: 8px; border-radius: 50%; background: #facc15; opacity: 0; transition: all .6s ease; }
+        .ozone-lab__data { padding: 14px 16px; border: 1px solid var(--deck-border); border-radius: 14px; background: var(--deck-panel); font-size: .95rem; line-height: 1.55; color: var(--deck-text); }
+        .ozone-lab__data strong { color: var(--deck-aura); }
+        .ozone-lab__data .ozone-lab__eq { display: block; margin-bottom: 10px; font: 700 1rem 'SFMono-Regular','Cascadia Code',monospace; color: #38bdf8; }
+        .ozone-lab[data-oz-state="deplete"] .ozone-lab__ray--b { background: #f87171; height: 168px; opacity: .9; box-shadow: 0 0 10px #f87171; }
+        .ozone-lab[data-oz-state="deplete"] .ozone-lab__o3 { opacity: .18; transform: scale(.55); background: rgba(148,163,184,.12); color: #94a3b8; }
+        .ozone-lab[data-oz-state="deplete"] .ozone-lab__factory { opacity: 1; }
+        .ozone-lab[data-oz-state="deplete"] .ozone-lab__cfc { opacity: 1; transform: translateY(-52px) scale(1.6); }
+        .ozone-lab[data-oz-state="deplete"] .ozone-lab__data .ozone-lab__eq { color: #f87171; }
+        @media (max-width: 760px) {
+            .ozone-lab__body { grid-template-columns: 1fr; }
+            .ozone-lab__stage { height: 190px; }
+        }
+
+        .interactive-card {
+            box-shadow: 0 16px 40px rgba(2, 6, 23, 0.09);
+        }
+        .interactive-card :where(button, [role="tab"]) {
+            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+        }
+        .interactive-card :where(button, [role="tab"]):focus-visible {
+            outline: 2px solid var(--deck-aura);
+            outline-offset: 3px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .interactive-card *,
+            .interactive-card *::before,
+            .interactive-card *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLO.Engine | Class 10 Science - Defects of Vision</title>
+<style>
+  /* Base Reset & Variables */
+  * { box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; transition: all 0.2s ease; }
+
+  :root {
+    --zinc-950: #09090b; --zinc-900: #18181b; --zinc-800: #27272a; --zinc-700: #3f3f46;
+    --zinc-400: #a1a1aa; --zinc-100: #f4f4f5;
+    
+    --bg-page: var(--zinc-950); --bg-card: var(--zinc-900); --bg-panel: #050505;
+    --border-main: var(--zinc-800);
+    
+    --theme-normal: #10b981;  
+    --theme-myopia: #a855f7;  
+    --theme-hyper: #3b82f6;   
+    --theme-presby: #f97316;  
+    --theme-cataract: #eab308; 
+    --current-accent: var(--theme-normal);
+  }
+
+  body { 
+    background-color: var(--bg-page); color: var(--zinc-100); 
+    padding: clamp(1rem, 3vw, 2rem); margin: 0; 
+    display: flex; justify-content: center; 
+  }
+
+  /* Accessibility & Focus Trapping */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  :focus-visible { outline: 2px solid var(--current-accent); outline-offset: 3px; }
+
+  /* App Container */
+  .interactive-app {
+    background: var(--bg-card); max-width: 1000px; width: 100%;
+    border-radius: 12px; border: 1px solid var(--border-main);
+    border-top: 4px solid var(--current-accent);
+    padding: clamp(1.5rem, 4vw, 2.5rem); box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  }
+
+  /* Header & Utility Actions */
+  header { 
+    display: flex; justify-content: space-between; align-items: flex-start; 
+    margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; 
+    border-bottom: 1px solid var(--border-main); padding-bottom: 1.5rem; 
+  }
+  .header-text h1 { 
+    font-size: clamp(1.4rem, 3vw, 1.8rem); margin: 0 0 0.25rem 0; 
+    font-weight: 800; display: flex; align-items: center; gap: 12px; 
+  }
+  .header-text .brand-tag { 
+    background: var(--zinc-800); color: var(--zinc-100); 
+    font-size: 0.8rem; padding: 4px 10px; border-radius: 20px; 
+    font-weight: 700; letter-spacing: 1px; 
+  }
+  .header-text p { color: var(--zinc-400); margin: 0; font-size: 0.95rem; font-weight: 500; }
+
+  .utility-btn {
+    background: #0ea5e9; color: #fff; border: none;
+    padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; 
+    font-size: 0.85rem; display: flex; align-items: center; gap: 8px; font-weight: 600;
+  }
+  .utility-btn:hover { background: #0284c7; transform: translateY(-1px); }
+  
+  /* Layout Architecture */
+  .app-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 850px) { .app-grid { grid-template-columns: 260px 1fr; } }
+
+  /* Navigation Sidebar */
+  .controls { display: flex; flex-direction: column; gap: 0.75rem; }
+  .btn-nav {
+    background: var(--bg-page); color: var(--zinc-400); border: 1px solid var(--border-main);
+    padding: 1rem; border-radius: 8px; cursor: pointer; text-align: left; 
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .btn-nav:hover { background: var(--zinc-800); color: var(--zinc-100); }
+  .btn-nav[aria-pressed="true"] {
+    background: var(--zinc-800); color: var(--zinc-100); border-color: var(--current-accent);
+    box-shadow: inset 4px 0 0 var(--current-accent);
+  }
+  .nav-text { display: flex; flex-direction: column; }
+  .nav-text strong { font-size: 0.95rem; color: inherit; }
+  .nav-text span { font-size: 0.75rem; opacity: 0.8; margin-top: 2px; }
+  .completion-mark { color: var(--theme-normal); font-weight: bold; opacity: 0; }
+  .completion-mark.visible { opacity: 1; }
+
+  /* Display Viewport */
+  .viewport {
+    background: var(--bg-panel); border: 1px solid var(--border-main); border-radius: 8px;
+    padding: 2.5rem 2rem; display: flex; flex-direction: column; align-items: center; 
+    min-height: 420px; position: relative;
+  }
+  .svg-container { width: 100%; max-width: 450px; margin-bottom: 2rem; }
+  .clinical-note {
+    background: rgba(255,255,255,0.05); padding: 0.5rem 1rem; border-radius: 4px; 
+    font-size: 0.8rem; color: var(--current-accent); font-family: monospace; 
+    margin-bottom: 1.5rem; border: 1px solid rgba(255,255,255,0.1); text-align: center;
+  }
+  .description { text-align: center; max-width: 65ch; font-size: 0.95rem; line-height: 1.6; color: var(--zinc-300); }
+  .description strong { color: var(--current-accent); }
+
+  /* Quiz Section */
+  .quiz-section {
+    margin-top: 2rem; padding: 1.5rem; background: var(--bg-page); 
+    border: 1px solid var(--border-main); border-radius: 8px;
+    opacity: 0.4; pointer-events: none; transition: opacity 0.4s ease;
+  }
+  .quiz-section.unlocked { opacity: 1; pointer-events: auto; border-color: var(--current-accent); }
+  .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px; }
+  .quiz-title { font-weight: 600; font-size: 1rem; color: var(--zinc-100); }
+  
+  .quiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .quiz-btn {
+    background: var(--zinc-800); color: var(--zinc-100); border: 1px solid var(--zinc-700);
+    padding: 1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500;
+  }
+  .quiz-btn:hover { background: var(--zinc-700); }
+  .quiz-btn.correct { background: #064e3b !important; border-color: #10b981 !important; opacity: 1 !important; color: #fff; }
+  .quiz-btn.wrong { background: #7f1d1d !important; border-color: #f43f5e !important; opacity: 0.5; }
+
+  /* SVG Globals */
+  svg { overflow: visible; }
+  .eye-sclera { fill: var(--zinc-900); stroke: var(--zinc-600); stroke-width: 3; }
+  .eye-cornea { fill: none; stroke: var(--zinc-300); stroke-width: 3; }
+  .eye-lens { fill: var(--zinc-600); stroke: var(--zinc-400); stroke-width: 2; }
+  .ciliary-muscle { fill: #b91c1c; }
+
+  /* Print Styles for Worksheets */
+  @media print {
+    body { background: #fff; color: #000; display: block; }
+    .interactive-app { box-shadow: none; border: none; padding: 0; }
+    .controls, .utility-btn, .quiz-section { display: none; }
+    .viewport { background: #fff; border: none; min-height: auto; }
+    .description { color: #000; }
+    .clinical-note { border: 1px solid #000; color: #000; }
+    svg { filter: grayscale(100%); }
+    .eye-sclera { fill: #fff; stroke: #000; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hidden Global SVG Assets -->
+<svg style="display: none;" aria-hidden="true">
+  <defs>
+    <g id="master-eye">
+      <path d="M 50,60 A 40,40 0 1,1 50,140 A 40,40 0 1,1 50,60 Z" class="eye-sclera"/>
+      <path d="M 88,90 L 110,85 L 110,115 L 88,110 Z" fill="var(--zinc-900)" stroke="var(--zinc-600)" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M 22,72 A 25,25 0 0,0 22,128" class="eye-cornea"/>
+      <path d="M 28,68 Q 32,80 32,85 Q 26,75 28,68 Z" class="ciliary-muscle"/>
+      <path d="M 28,132 Q 32,120 32,115 Q 26,125 28,132 Z" class="ciliary-muscle"/>
+      <ellipse cx="32" cy="100" rx="6" ry="16" class="eye-lens" id="crystalline-lens"/>
+      <path d="M 75,65 A 35,35 0 0,1 75,135" fill="none" stroke="var(--zinc-500)" stroke-width="4"/>
+    </g>
+    <filter id="cataract-cloud">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.8 0"/>
+    </filter>
+  </defs>
+</svg>
+
+<main class="interactive-app" id="app">
+  <header>
+    <div class="header-text">
+      <h1><span class="brand-tag">BOLO.Engine</span> Defects of Vision</h1>
+      <p>Class 10 Science • Chapter 11 of 16 • The Human Eye</p>
+    </div>
+    <button class="utility-btn" onclick="exportToAnki()" title="Copy Front/Back flashcard to clipboard">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+      Export for Anki
+    </button>
+  </header>
+
+  <div class="app-grid">
+    <!-- Dynamic Navigation Sidebar -->
+    <nav class="controls" id="nav-controls" role="tablist" aria-label="Select a Vision Defect"></nav>
+    
+    <div>
+      <!-- Dynamic SVG Viewport -->
+      <article class="viewport" id="viewport" aria-live="polite" aria-atomic="true"></article>
+      
+      <!-- Locked Active Recall Quiz -->
+      <section class="quiz-section" id="quiz-section">
+        <div class="quiz-header">
+          <span class="quiz-title">Knowledge Check (ਗਿਆਨ ਦੀ ਜਾਂਚ)</span>
+          <span style="font-size: 0.8rem; color: var(--zinc-400);" id="quiz-status">View all defects to unlock daily work</span>
+        </div>
+        <div class="quiz-grid" id="quiz-grid"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script>
+  // 1. Database (Ready for external JSON fetching)
+  const db = [
+    {
+      id: "normal", theme: "normal",
+      title: "Normal Vision", punjabi: "ਸਧਾਰਨ ਦ੍ਰਿਸ਼ਟੀ",
+      clinical: "Near point: 25 cm | Far point: Infinity",
+      ankiFront: "What are the near point and far point of a normal human eye?",
+      ankiBack: "Near point is 25 cm, and far point is infinity. Light focuses exactly on the retina.",
+      svg: `
+        <svg viewBox="-30 40 160 120" width="100%">
+          <path d="M -20,80 L 30,95 M -20,120 L 30,105 M -20,100 L 30,100" stroke="var(--theme-normal)" stroke-width="2"/>
+          <use href="#master-eye" />
+          <path d="M 32,95 L 89,100 M 32,105 L 89,100 M 32,100 L 89,100" stroke="var(--theme-normal)" stroke-width="2"/>
+          <circle cx="89" cy="100" r="4" fill="var(--theme-normal)"/>
+        </svg>`,
+      desc: `The crystalline lens perfectly refracts incoming light so it converges <strong>exactly on the retina</strong>. The ciliary muscles adjust the lens to see objects from 25 cm out to infinity.`
+    },
+    {
+      id: "myopia", theme: "myopia",
+      title: "Myopia", punjabi: "ਨਿਕਟ ਦ੍ਰਿਸ਼ਟੀ",
+      clinical: "Rx: Negative Diopters | Far point is closer than infinity",
+      ankiFront: "What causes Myopia, and how is it corrected?",
+      ankiBack: "Caused by an elongated eyeball or excessive corneal curvature. Light focuses IN FRONT of the retina. Corrected with a Concave Lens.",
+      svg: `
+        <svg viewBox="-30 40 160 120" width="100%">
+          <path d="M -5,70 Q 5,100 -5,130 L -10,130 Q 0,100 -10,70 Z" fill="var(--theme-myopia)" opacity="0.6"/>
+          <path d="M -30,80 L -8,80 L 30,70 M -30,120 L -8,120 L 30,130 M -30,100 L 30,100" stroke="var(--theme-myopia)" stroke-width="2"/>
+          <use href="#master-eye" />
+          <path d="M 32,70 L 65,100 M 32,130 L 65,100 M 32,100 L 65,100" stroke="var(--zinc-600)" stroke-width="1"/>
+          <path d="M 32,70 L 89,100 M 32,130 L 89,100 M 32,100 L 89,100" stroke="var(--theme-myopia)" stroke-width="2"/>
+          <circle cx="89" cy="100" r="4" fill="var(--theme-myopia)"/>
+        </svg>`,
+      desc: `The eyeball is too long or the lens is too curved, causing distant images to focus <strong>in front</strong> of the retina. A diverging <strong>Concave Lens</strong> spreads the rays to push the focal point back.`
+    },
+    {
+      id: "hyper", theme: "hyper",
+      title: "Hypermetropia", punjabi: "ਦੂਰ ਦ੍ਰਿਸ਼ਟੀ",
+      clinical: "Rx: Positive Diopters | Near point recedes beyond 25 cm",
+      ankiFront: "What causes Hypermetropia, and how is it corrected?",
+      ankiBack: "Caused by a shortened eyeball or a lens focal length that is too long. Light focuses BEHIND the retina. Corrected with a Convex Lens.",
+      svg: `
+        <svg viewBox="-30 40 160 120" width="100%">
+          <path d="M -10,65 Q 0,100 -10,135 Q -20,100 -10,65 Z" fill="var(--theme-hyper)" opacity="0.6"/>
+          <path d="M -30,75 L -10,75 L 30,90 M -30,125 L -10,125 L 30,110 M -30,100 L 30,100" stroke="var(--theme-hyper)" stroke-width="2"/>
+          <use href="#master-eye" />
+          <path d="M 32,90 L 89,100 M 32,110 L 89,100 M 32,100 L 89,100" stroke="var(--theme-hyper)" stroke-width="2"/>
+          <circle cx="89" cy="100" r="4" fill="var(--theme-hyper)"/>
+        </svg>`,
+      desc: `The eyeball is too short, causing nearby light rays to focus <strong>behind</strong> the retina. A converging <strong>Convex Lens</strong> pre-focuses the rays, pulling the focal point forward onto the retina.`
+    },
+    {
+      id: "presbyopia", theme: "presby",
+      title: "Presbyopia", punjabi: "ਬੁਢਾਪਾ ਦ੍ਰਿਸ਼ਟੀ",
+      clinical: "Loss of Accommodation | Rx: Often requires Bifocal Lenses",
+      ankiFront: "What causes Presbyopia, and how is it corrected if the patient also has Myopia?",
+      ankiBack: "Caused by aging ciliary muscles and loss of lens flexibility. If combined with myopia, it is corrected using Bifocal lenses (Concave upper, Convex lower).",
+      svg: `
+        <svg viewBox="-30 40 160 120" width="100%">
+          <path d="M -5,65 Q 5,82.5 -5,100 L -10,100 Q 0,82.5 -10,65 Z" fill="var(--theme-presby)" opacity="0.3"/> 
+          <path d="M -10,100 Q 0,117.5 -10,135 Q -20,117.5 -10,100 Z" fill="var(--theme-presby)" opacity="0.7"/> 
+          <line x1="-15" y1="100" x2="2" y2="100" stroke="var(--theme-presby)" stroke-width="1" stroke-dasharray="2,1"/>
+          
+          <path d="M -30,80 L -8,80 L 30,75" stroke="var(--theme-presby)" stroke-width="2" opacity="0.5"/>
+          <path d="M -30,120 L -10,120 L 30,110" stroke="var(--theme-presby)" stroke-width="2"/>
+          
+          <use href="#master-eye" />
+          
+          <path d="M 28,68 Q 32,80 32,85 Q 26,75 28,68 Z" fill="var(--theme-presby)"/>
+          <path d="M 28,132 Q 32,120 32,115 Q 26,125 28,132 Z" fill="var(--theme-presby)"/>
+          
+          <path d="M 32,75 L 89,100" stroke="var(--theme-presby)" stroke-width="2" opacity="0.5"/>
+          <path d="M 32,110 L 89,100" stroke="var(--theme-presby)" stroke-width="2"/>
+          <circle cx="89" cy="100" r="4" fill="var(--theme-presby)"/>
+        </svg>`,
+      desc: `Aging weakens the <strong>ciliary muscles</strong>, diminishing the eye's power of accommodation. Patients often require <strong>Bifocal Lenses</strong> (upper concave for distance, lower convex for reading).`
+    },
+    {
+      id: "cataract", theme: "cataract",
+      title: "Cataract", punjabi: "ਮੋਤੀਆਬਿੰਦ",
+      clinical: "Lens Opacity | Treatment: Intraocular Lens (IOL) Surgery",
+      ankiFront: "What is a Cataract and how is it treated?",
+      ankiBack: "A clouding of the crystalline lens that scatters light. Treated via surgical replacement with an artificial Intraocular Lens (IOL).",
+      svg: `
+        <svg viewBox="-30 40 160 120" width="100%">
+          <use href="#master-eye" />
+          <ellipse cx="32" cy="100" rx="8" ry="18" fill="var(--theme-cataract)" filter="url(#cataract-cloud)" opacity="0.85"/>
+          <path d="M -20,100 L 25,100 M 38,95 L 50,80 M 38,105 L 45,115 M 38,100 L 55,100" stroke="var(--theme-cataract)" stroke-width="2" stroke-dasharray="2,2"/>
+        </svg>`,
+      desc: `The crystalline lens becomes milky and cloudy due to protein buildup, scattering light. It requires surgical replacement with an artificial <strong>Intraocular Lens (IOL)</strong>.`
+    }
+  ];
+
+  const quizData = [
+    { text: "Presbyopia (ਬੁਢਾਪਾ ਦ੍ਰਿਸ਼ਟੀ)", correct: false },
+    { text: "Myopia (ਨਿਕਟ ਦ੍ਰਿਸ਼ਟੀ)", correct: true },
+    { text: "Hypermetropia (ਦੂਰ ਦ੍ਰਿਸ਼ਟੀ)", correct: false },
+    { text: "Cataract (ਮੋਤੀਆਬਿੰਦ)", correct: false }
+  ];
+
+  // 2. Application State & Storage hooks
+  const STORAGE_KEY = 'bolo_engine_ch11_vision';
+  const state = { 
+    activeId: db[0].id, 
+    viewed: new Set(JSON.parse(localStorage.getItem(STORAGE_KEY)) || [db[0].id]), 
+    quizUnlocked: false 
+  };
+
+  const DOM = {
+    app: document.getElementById('app'),
+    nav: document.getElementById('nav-controls'),
+    viewport: document.getElementById('viewport'),
+    quizSection: document.getElementById('quiz-section'),
+    quizGrid: document.getElementById('quiz-grid'),
+    quizStatus: document.getElementById('quiz-status')
+  };
+
+  // 3. Initialization
+  function init() {
+    renderNav();
+    renderView();
+    renderQuiz();
+    
+    // Check initial unlock state from cached local storage
+    if (state.viewed.size === db.length) {
+      unlockQuiz();
+    }
+  }
+
+  // 4. Rendering Functions
+  function renderNav() {
+    DOM.nav.innerHTML = db.map(item => {
+      const isViewed = state.viewed.has(item.id);
+      return `
+        <button class="btn-nav" onclick="navigate('${item.id}')" aria-pressed="${state.activeId === item.id}">
+          <div class="nav-text">
+            <strong>${item.title}</strong>
+            <span>${item.punjabi}</span>
+          </div>
+          <span class="completion-mark ${isViewed ? 'visible' : ''}">✓</span>
+        </button>
+      `;
+    }).join('');
+  }
+
+  function renderView() {
+    const data = db.find(d => d.id === state.activeId);
+    
+    // Update theme cascade
+    DOM.app.style.setProperty('--current-accent', `var(--theme-${data.theme})`);
+    
+    // Inject Content
+    DOM.viewport.innerHTML = `
+      <span class="sr-only">Now viewing: ${data.title}</span>
+      <div class="clinical-note">${data.clinical}</div>
+      <div class="svg-container" aria-hidden="true">${data.svg}</div>
+      <div class="description">${data.desc}</div>
+    `;
+
+    // Progressive Disclosure Logic
+    if (state.viewed.size === db.length && !state.quizUnlocked) {
+      unlockQuiz();
+    }
+  }
+
+  function renderQuiz() {
+    // Randomize quiz to prevent spatial memorization
+    const shuffled = [...quizData].sort(() => Math.random() - 0.5);
+    DOM.quizGrid.innerHTML = shuffled.map(q => `
+      <button class="quiz-btn" onclick="handleQuiz(this, ${q.correct})">${q.text}</button>
+    `).join('');
+  }
+
+  function unlockQuiz() {
+    state.quizUnlocked = true;
+    DOM.quizSection.classList.add('unlocked');
+    DOM.quizStatus.innerText = "Daily Work Unlocked!";
+    DOM.quizStatus.style.color = "var(--theme-normal)";
+    DOM.quizSection.querySelector('.quiz-title').innerText = "Knowledge Check: Which defect causes the far point to come closer than infinity?";
+  }
+
+  // 5. Interaction Handlers
+  window.navigate = (id) => {
+    state.activeId = id;
+    state.viewed.add(id);
+    
+    // Sync progress to browser
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(state.viewed)));
+    
+    renderNav();
+    renderView();
+  };
+
+  window.handleQuiz = (btn, isCorrect) => {
+    if (isCorrect) {
+      btn.classList.add('correct');
+      if(navigator.vibrate) navigator.vibrate(100);
+      
+      // Lock other buttons on success
+      Array.from(DOM.quizGrid.children).forEach(b => { 
+        if (b !== btn) { b.style.opacity = '0.3'; b.disabled = true; } 
+      });
+      
+      // Log timestamp for daily schedule tracking
+      console.log(`[BOLO.Engine] Quiz passed on: ${new Date().toISOString()}`);
+      
+    } else {
+      btn.classList.add('wrong');
+      if(navigator.vibrate) navigator.vibrate([50, 50, 50]);
+    }
+  };
+
+  window.exportToAnki = () => {
+    const data = db.find(d => d.id === state.activeId);
+    
+    // Clean formatting for easy cloze or front/back importing
+    const text = `Front: ${data.ankiFront}\nBack: ${data.ankiBack}\nTags: Class10, Science, Chapter11, PSEB, BOLO_Engine`;
+    
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.utility-btn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Copied to Clipboard!';
+      setTimeout(() => btn.innerHTML = originalText, 2500);
+    });
+  };
+
+  // Run app
+  init();
+</script>
+</body>
+</html>

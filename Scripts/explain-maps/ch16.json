@@ -1,0 +1,15 @@
+{
+  "tf-ch16-s1": {"en": "Sustainable development meets present needs without harming the ability of future generations to meet theirs.", "pa": "ਟਿਕਾਊ ਵਿਕਾਸ ਵਰਤਮਾਨ ਲੋੜਾਂ ਨੂੰ ਪੂਰਾ ਕਰਦਾ ਹੈ ਬਿਨਾਂ ਭਵਿੱਖ ਦੀਆਂ ਪੀੜ੍ਹੀਆਂ ਦੀਆਂ ਲੋੜਾਂ ਨੂੰ ਨੁਕਸਾਨ ਪਹੁੰਚਾਏ।"},
+  "tf-ch16-s2": {"en": "Reduce should come before Recycle — cutting down use is better than recycling waste.", "pa": "ਘਟਾਓ (Reduce) ਰੀਸਾਈਕਲ ਤੋਂ ਪਹਿਲਾਂ ਆਉਣਾ ਚਾਹੀਦਾ ਹੈ — ਵਰਤੋਂ ਘਟਾਉਣਾ ਕੂੜਾ ਰੀਸਾਈਕਲ ਕਰਨ ਤੋਂ ਬਿਹਤਰ ਹੈ।"},
+  "tf-ch16-s3": {"en": "The Chipko movement showed how community participation can protect forests.", "pa": "ਚਿਪਕੋ ਅੰਦੋਲਨ ਨੇ ਦਿਖਾਇਆ ਕਿ ਭਾਈਚਾਰਕ ਭਾਗੀਦਾਰੀ ਜੰਗਲਾਂ ਦੀ ਰੱਖਿਆ ਕਿਵੇਂ ਕਰ ਸਕਦੀ ਹੈ।"},
+  "tf-ch16-s4": {"en": "Coal and petroleum are limited, non-renewable resources that will eventually run out.", "pa": "ਕੋਲਾ ਅਤੇ ਪੈਟਰੋਲੀਅਮ ਸੀਮਤ, ਨਾ-ਨਵਿਆਉਣਯੋਗ ਸਰੋਤ ਹਨ ਜੋ ਅੰਤ ਵਿੱਚ ਖ਼ਤਮ ਹੋ ਜਾਣਗੇ।"},
+
+  "sib-ch16-s1": {"en": "Sustainable development means meeting present needs without compromising the needs of future generations.", "pa": "ਟਿਕਾਊ ਵਿਕਾਸ ਦਾ ਅਰਥ ਹੈ ਭਵਿੱਖ ਦੀਆਂ ਪੀੜ੍ਹੀਆਂ ਦੀਆਂ ਲੋੜਾਂ ਨਾਲ ਸਮਝੌਤਾ ਕੀਤੇ ਬਿਨਾਂ ਵਰਤਮਾਨ ਲੋੜਾਂ ਨੂੰ ਪੂਰਾ ਕਰਨਾ।"},
+  "sib-ch16-s2": {"en": "The 5 R's are Refuse, Reduce, Reuse, Repurpose and Recycle.", "pa": "5 R ਹਨ: ਇਨਕਾਰ (Refuse), ਘਟਾਓ (Reduce), ਮੁੜ ਵਰਤੋ (Reuse), ਮੁੜ ਉਦੇਸ਼ (Repurpose) ਅਤੇ ਰੀਸਾਈਕਲ (Recycle)।"},
+  "sib-ch16-s3": {"en": "The Chipko movement was about protecting trees from being cut down.", "pa": "ਚਿਪਕੋ ਅੰਦੋਲਨ ਰੁੱਖਾਂ ਨੂੰ ਕੱਟੇ ਜਾਣ ਤੋਂ ਬਚਾਉਣ ਬਾਰੇ ਸੀ।"},
+  "sib-ch16-s4": {"en": "A johad is a traditional water harvesting system that stores rainwater.", "pa": "ਜੋਹੜ ਇੱਕ ਰਵਾਇਤੀ ਜਲ ਸੰਭਾਲ ਪ੍ਰਣਾਲੀ ਹੈ ਜੋ ਬਾਰਸ਼ ਦਾ ਪਾਣੀ ਸਟੋਰ ਕਰਦੀ ਹੈ।"},
+
+  "mcq-ch16-s1": {"en": "Refusing unnecessary items is the best first step because it prevents waste from being created at all.", "pa": "ਬੇਲੋੜੀਆਂ ਚੀਜ਼ਾਂ ਤੋਂ ਇਨਕਾਰ ਕਰਨਾ ਸਭ ਤੋਂ ਵਧੀਆ ਪਹਿਲਾ ਕਦਮ ਹੈ ਕਿਉਂਕਿ ਇਹ ਕੂੜੇ ਨੂੰ ਪੈਦਾ ਹੋਣ ਤੋਂ ਹੀ ਰੋਕਦਾ ਹੈ।"},
+  "mcq-ch16-s2": {"en": "Petroleum is a fossil fuel, formed from the remains of ancient organisms.", "pa": "ਪੈਟਰੋਲੀਅਮ ਇੱਕ ਪਥਰਾਟ ਬਾਲਣ ਹੈ, ਜੋ ਪ੍ਰਾਚੀਨ ਜੀਵਾਂ ਦੀਆਂ ਰਹਿੰਦ-ਖੂੰਹਦ ਤੋਂ ਬਣਿਆ ਹੈ।"},
+  "mcq-ch16-s3": {"en": "Water harvesting mainly helps to recharge the groundwater.", "pa": "ਜਲ ਸੰਭਾਲ ਮੁੱਖ ਤੌਰ 'ਤੇ ਧਰਤੀ ਹੇਠਲੇ ਪਾਣੀ ਨੂੰ ਮੁੜ ਭਰਨ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ।"}
+}

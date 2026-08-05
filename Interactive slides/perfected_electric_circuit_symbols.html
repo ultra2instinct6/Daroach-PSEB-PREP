@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Circuit Symbols</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* STRICT ZERO ANIMATION */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: none !important;
+            animation: none !important;
+        }
+
+        body {
+            background-color: #f4f7f9; /* Subtle off-white/blue matching screenshot edge */
+            font-family: 'Inter', system-ui, sans-serif;
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            color: #1e293b;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 50px 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 6px solid #2563eb;
+            border-radius: 20px;
+        }
+
+        .header-section {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 15px;
+        }
+
+        .header-decor {
+            position: absolute;
+            right: 0;
+            top: 25px;
+            display: flex;
+        }
+
+        .header-decor .blue-line {
+            width: 60px;
+            height: 2px;
+            background-color: #3b82f6;
+        }
+
+        .header-decor .orange-line {
+            width: 40px;
+            height: 2px;
+            background-color: #f97316;
+        }
+
+        p.subtitle {
+            font-size: 18px;
+            color: #475569;
+        }
+
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            gap: 40px;
+        }
+
+        .symbols-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            padding: 30px;
+            width: 800px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .symbols-card h2 {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 30px;
+        }
+
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px 40px;
+            justify-items: center;
+        }
+
+        /* Center the 7th item in a 3-column grid */
+        .symbols-grid .symbol-item:nth-child(7) {
+            grid-column: 2 / 3;
+        }
+
+        .symbol-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            width: 160px;
+            border: 2px solid transparent;
+        }
+
+        .symbol-item svg {
+            width: 100px;
+            height: 45px;
+            stroke: #0f172a;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            margin-bottom: 12px;
+        }
+
+        .symbol-item span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .table-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 16px 24px;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #e2e8f0;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        td {
+            color: #334155;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr.table-row {
+            cursor: pointer;
+        }
+
+        /* Active Symbol Styling */
+        .symbol-item.active {
+            background-color: #eff6ff; /* Light blue background */
+            border-color: #bfdbfe;     /* Blue border */
+        }
+
+        .symbol-item.active svg {
+            stroke: #2563eb; /* Blue stroke */
+        }
+
+        /* Special fills for arrowheads and dots when active */
+        .symbol-item.active svg .fill-shape {
+            fill: #2563eb;
+            stroke: none;
+        }
+
+        .symbol-item svg .fill-shape {
+            fill: #0f172a;
+            stroke: none;
+        }
+
+        .symbol-item.active span {
+            color: #2563eb;
+        }
+
+        /* Active Table Row Styling */
+        tr.table-row.active td {
+            background-color: #eff6ff; /* Distinct blue highlight */
+        }
+        
+        tr.table-row.active td:first-child {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="slide-container">
+        <div class="header-section">
+            <h1>Electric Circuit & Symbols</h1>
+            <div class="header-decor">
+                <div class="blue-line"></div>
+                <div class="orange-line"></div>
+            </div>
+            <p class="subtitle">A circuit is a closed conducting path for current. Learn the standard component symbols.</p>
+        </div>
+
+        <div class="content-area">
+            <div class="symbols-card">
+                <h2>Standard Circuit Symbols</h2>
+                <div class="symbols-grid">
+                    
+                    <!-- 1. Cell -->
+                    <div class="symbol-item interactive-trigger" data-id="cell">
+                        <svg viewBox="0 0 100 40">
+                            <line x1="20" y1="20" x2="40" y2="20"></line>
+                            <line x1="40" y1="8" x2="40" y2="32"></line>
+                            <line x1="48" y1="13" x2="48" y2="27" stroke-width="5"></line>
+                            <line x1="48" y1="20" x2="68" y2="20"></line>
+                        </svg>
+                        <span>Cell</span>
+                    </div>
+
+                    <!-- 2. Battery -->
+                    <div class="symbol-item interactive-trigger" data-id="battery">
+                        <svg viewBox="0 0 100 40">
+                            <!-- Cell 1 -->
+                            <line x1="15" y1="20" x2="30" y2="20"></line>
+                            <line x1="30" y1="8" x2="30" y2="32"></line>
+                            <line x1="38" y1="13" x2="38" y2="27" stroke-width="5"></line>
+                            <!-- Dotted connection -->
+                            <line x1="41" y1="20" x2="49" y2="20" stroke-dasharray="2,3" stroke-width="2"></line>
+                            <!-- Cell 2 -->
+                            <line x1="52" y1="20" x2="60" y2="20"></line>
+                            <line x1="60" y1="8" x2="60" y2="32"></line>
+                            <line x1="68" y1="13" x2="68" y2="27" stroke-width="5"></line>
+                            <line x1="68" y1="20" x2="83" y2="20"></line>
+                        </svg>
+                        <span>Battery</span>
+                    </div>
+
+                    <!-- 3. Switch (open) -->
+                    <div class="symbol-item interactive-trigger" data-id="switch">
+                        <svg viewBox="0 0 100 40">
+                            <line x1="15" y1="25" x2="35" y2="25"></line>
+                            <circle cx="39" cy="25" r="3" class="fill-shape"></circle>
+                            <line x1="41" y1="21" x2="61" y2="10"></line>
+                            <circle cx="65" cy="25" r="3" class="fill-shape"></circle>
+                            <line x1="69" y1="25" x2="89" y2="25"></line>
+                        </svg>
+                        <span>Switch (open)</span>
+                    </div>
+
+                    <!-- 4. Resistor -->
+                    <div class="symbol-item interactive-trigger" data-id="resistor">
+                        <svg viewBox="0 0 100 40">
+                            <line x1="15" y1="20" x2="30" y2="20"></line>
+                            <rect x="30" y="12" width="40" height="16"></rect>
+                            <line x1="70" y1="20" x2="85" y2="20"></line>
+                        </svg>
+                        <span>Resistor</span>
+                    </div>
+
+                    <!-- 5. Rheostat -->
+                    <div class="symbol-item interactive-trigger" data-id="rheostat">
+                        <svg viewBox="0 0 100 40">
+                            <line x1="15" y1="20" x2="30" y2="20"></line>
+                            <rect x="30" y="12" width="40" height="16"></rect>
+                            <line x1="70" y1="20" x2="85" y2="20"></line>
+                            <!-- Diagonal Arrow -->
+                            <line x1="22" y1="35" x2="72" y2="5"></line>
+                            <polygon points="72,5 64,6 70,12" class="fill-shape"></polygon>
+                        </svg>
+                        <span>Rheostat</span>
+                    </div>
+
+                    <!-- 6. Ammeter -->
+                    <div class="symbol-item interactive-trigger" data-id="ammeter">
+                        <svg viewBox="0 0 100 40">
+                            <line x1="20" y1="20" x2="35" y2="20"></line>
+                            <circle cx="50" cy="20" r="15"></circle>
+                            <text x="50" y="25" font-family="Inter" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor" stroke="none">A</text>
+                            <line x1="65" y1="20" x2="80" y2="20"></line>
+                        </svg>
+                        <span>Ammeter</span>
+                    </div>
+
+                    <!-- 7. Voltmeter -->
+                    <div class="symbol-item interactive-trigger" data-id="voltmeter">
+                        <svg viewBox="0 0 100 40">
+                            <line x1="20" y1="20" x2="35" y2="20"></line>
+                            <circle cx="50" cy="20" r="15"></circle>
+                            <text x="50" y="25" font-family="Inter" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor" stroke="none">V</text>
+                            <line x1="65" y1="20" x2="80" y2="20"></line>
+                        </svg>
+                        <span>Voltmeter</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 35%;">Component</th>
+                            <th>Use / Rule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Both Cell and Battery map to this row -->
+                        <tr class="table-row interactive-trigger" data-id="battery">
+                            <td>Cell / Battery</td>
+                            <td>Provides the potential difference (voltage)</td>
+                        </tr>
+                        <tr class="table-row interactive-trigger" data-id="ammeter">
+                            <td>Ammeter (A)</td>
+                            <td>Measures current — connected in <strong>series</strong></td>
+                        </tr>
+                        <tr class="table-row interactive-trigger" data-id="voltmeter">
+                            <td>Voltmeter (V)</td>
+                            <td>Measures voltage — connected in <strong>parallel</strong></td>
+                        </tr>
+                        <tr class="table-row interactive-trigger" data-id="rheostat">
+                            <td>Rheostat</td>
+                            <td>Variable resistor — changes the current</td>
+                        </tr>
+                        <tr class="table-row interactive-trigger" data-id="resistor">
+                            <td>Resistor</td>
+                            <td>Provides a fixed resistance to the current flow</td>
+                        </tr>
+                        <tr class="table-row interactive-trigger" data-id="switch">
+                            <td>Switch / Key</td>
+                            <td>Opens or closes the circuit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // IIFE executes immediately after DOM elements above are parsed.
+        // No DOMContentLoaded required, ensuring it works perfectly in previews.
+        (function() {
+            const triggers = document.querySelectorAll('.interactive-trigger');
+
+            function handleInteraction(event) {
+                // Determine the data-id of the clicked element
+                let clickedElement = event.currentTarget;
+                let activeId = clickedElement.getAttribute('data-id');
+
+                // If "cell" is clicked, we also map it to the "battery" row for simplicity
+                const queryId = (activeId === 'cell') ? 'battery' : activeId;
+
+                // 1. Instantly wipe 'active' class from all elements
+                document.querySelectorAll('.active').forEach(el => {
+                    el.classList.remove('active');
+                });
+
+                // 2. Add 'active' to the exact items that match the ID
+                // Highlight the specific symbol clicked (or battery if cell is mapped)
+                const symbol = document.querySelector(`.symbol-item[data-id="${activeId}"]`);
+                if (symbol) symbol.classList.add('active');
+
+                // If Battery row is clicked, highlight both Cell and Battery symbols
+                if (activeId === 'battery') {
+                    const cellSymbol = document.querySelector('.symbol-item[data-id="cell"]');
+                    if (cellSymbol) cellSymbol.classList.add('active');
+                }
+
+                // Highlight the corresponding row in the table
+                const tableRow = document.querySelector(`tr[data-id="${queryId}"]`);
+                if (tableRow) tableRow.classList.add('active');
+            }
+
+            // Attach event listeners safely
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', handleInteraction);
+            });
+        })();
+    </script>
+</body>
+</html>

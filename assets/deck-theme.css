@@ -370,6 +370,100 @@ html[data-deck-theme="legacy"] .seq-step.visible { box-shadow: 0 6px 15px rgba(1
 }
 .tracker-header { border-bottom-color: var(--deck-border-strong) !important; }
 
+/* Flagship concept labs */
+.flagship-lab {
+  background: var(--deck-panel-soft);
+  border: 1px solid var(--deck-border-strong);
+  border-radius: 18px;
+  padding: 18px;
+  color: var(--deck-text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+.flagship-controls { display:flex; flex-wrap:wrap; gap:12px; align-items:end; justify-content:center; }
+.flagship-control { display:grid; gap:6px; min-width:180px; flex:1; }
+.flagship-control label { color:var(--deck-muted); font-size:.92rem; font-weight:700; }
+.flagship-control select,
+.flagship-control input[type="range"] { width:100%; }
+.flagship-control select {
+  min-height:48px; padding:8px 12px; border-radius:10px;
+  border:1px solid var(--deck-border-strong); background:var(--deck-panel); color:var(--deck-text);
+}
+.flagship-options { display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin:14px 0; }
+.flagship-btn {
+  min-height:46px; padding:10px 14px; border-radius:10px;
+  border:1px solid var(--deck-border-strong); background:var(--deck-panel); color:var(--deck-text);
+  font:inherit; font-weight:750; cursor:pointer;
+}
+.flagship-btn:hover,.flagship-btn.active { border-color:var(--deck-aura); box-shadow:0 0 0 2px var(--deck-aura-soft); }
+.flagship-btn.correct { background:rgba(34,197,94,.2); border-color:var(--deck-success); }
+.flagship-btn.incorrect { background:rgba(239,68,68,.2); border-color:var(--deck-danger); }
+.flagship-btn:disabled { cursor:default; opacity:.82; }
+.lab-result { margin-top:14px; padding:14px; border-radius:12px; border:1px solid var(--deck-border-strong); background:var(--deck-panel); }
+.lab-result-title { color:var(--deck-aura); font-weight:850; }
+.lab-equation { margin:8px 0; font:700 1.05rem 'SFMono-Regular','Cascadia Code',monospace; overflow-wrap:anywhere; }
+.lab-explain { color:var(--deck-muted); }
+
+.acid-stage { min-height:120px; display:grid; place-items:center; }
+.acid-vessel { position:relative; width:90px; height:94px; border:4px solid var(--deck-border-strong); border-top:0; border-radius:5px 5px 22px 22px; overflow:hidden; }
+.acid-vessel::before { content:""; position:absolute; inset:35% 5px 5px; border-radius:4px 4px 16px 16px; background:rgba(0,229,255,.28); transition:.35s; }
+.acid-vessel::after { content:""; position:absolute; width:12px; height:12px; border:2px solid var(--deck-aura); border-radius:50%; left:22px; top:40px; opacity:0; }
+.acid-vessel.bubbles::after,.acid-vessel.foam::after { opacity:1; box-shadow:26px -17px 0 -2px var(--deck-aura),12px -35px 0 -3px var(--deck-aura),38px -48px 0 -4px var(--deck-aura); animation:labBubble 1.1s infinite; }
+.acid-vessel.foam::before { background:rgba(226,232,240,.48); inset:22% 5px 5px; }
+.acid-vessel.warm::before { background:rgba(251,146,60,.42); }
+.acid-vessel.colour::before { background:rgba(14,165,233,.55); }
+@keyframes labBubble { 50% { transform:translateY(-10px); opacity:.55; } }
+
+.optics-stage { position:relative; height:190px; margin:14px 0; border:1px solid var(--deck-border-strong); border-radius:12px; background:var(--deck-panel); overflow:hidden; }
+.optics-axis { position:absolute; left:5%; right:5%; top:55%; border-top:2px solid var(--deck-muted); }
+.optics-mirror { position:absolute; right:12%; top:18%; width:14px; height:74%; border-left:5px solid var(--deck-aura); border-radius:50%; }
+.optics-mark { position:absolute; top:58%; transform:translateX(-50%); color:var(--deck-muted); font-weight:800; }
+.optics-mark.c { left:36%; }.optics-mark.f { left:62%; }.optics-mark.p { left:84%; }
+.optics-object-arrow,.optics-image-arrow { position:absolute; bottom:45%; width:5px; border-radius:4px; }
+.optics-object-arrow { left:18%; height:62%; background:var(--deck-warn); }
+.optics-image-arrow { background:var(--deck-danger); transform-origin:bottom; transform:rotate(180deg); transition:.35s; }
+.optics-object-arrow::before,.optics-image-arrow::before { content:""; position:absolute; left:-6px; top:-2px; border:8px solid transparent; border-bottom-color:inherit; transform:translateY(-75%); }
+.optics-image-arrow.erect { transform:none; bottom:45%; }
+.optics-readout { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.optics-readout div { padding:9px; background:var(--deck-panel); border-radius:9px; border:1px solid var(--deck-border-strong); }
+
+.vision-stage { position:relative; height:145px; margin:12px 0; border-radius:80px 16px 16px 80px; border:2px solid var(--deck-border-strong); background:var(--deck-panel); overflow:hidden; }
+.vision-stage::before { content:""; position:absolute; left:25%; top:12%; bottom:12%; width:30px; border:4px solid var(--deck-aura); border-radius:50%; }
+.vision-retina { position:absolute; right:9%; top:14%; bottom:14%; width:8px; background:var(--deck-warn); border-radius:50%; }
+.vision-ray { position:absolute; left:2%; width:70%; top:49%; border-top:2px solid var(--deck-aura); transform-origin:right; }
+.vision-ray.r1 { transform:rotate(8deg); }.vision-ray.r2 { transform:rotate(-8deg); }
+.vision-focus { position:absolute; top:44%; width:14px; height:14px; border-radius:50%; background:var(--deck-danger); box-shadow:0 0 18px var(--deck-danger); transition:.3s; }
+.vision-focus.before { right:23%; }.vision-focus.after { right:2%; }.vision-focus.mixed { right:17%; width:28px; }.vision-focus.cloudy { left:27%; width:36px; height:70px; top:25%; opacity:.45; }.vision-focus.retina { right:8%; background:var(--deck-success); box-shadow:0 0 18px var(--deck-success); }
+.vision-case-name { color:var(--deck-aura); font-size:1.35rem; font-weight:900; }
+.vision-feedback,.fleming-feedback { min-height:48px; padding:12px; border-radius:10px; background:var(--deck-panel); border:1px solid var(--deck-border-strong); }
+.vision-score,.fleming-score { color:var(--deck-muted); font-weight:800; }
+
+.ohm-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:14px; align-items:stretch; }
+.ohm-meter,.ohm-graph { padding:14px; background:var(--deck-panel); border:1px solid var(--deck-border-strong); border-radius:12px; }
+.ohm-values { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; text-align:center; margin:12px 0; }
+.ohm-values strong { display:block; color:var(--deck-aura); font-size:1.25rem; }
+.ohm-track { height:16px; background:rgba(148,163,184,.18); border-radius:10px; overflow:hidden; }
+.ohm-needle { height:100%; background:linear-gradient(90deg,var(--deck-success),var(--deck-warn),var(--deck-danger)); transition:.25s; }
+.ohm-plot { position:relative; height:160px; border-left:2px solid var(--deck-muted); border-bottom:2px solid var(--deck-muted); background:linear-gradient(rgba(148,163,184,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.08) 1px,transparent 1px); background-size:20% 20%; }
+.ohm-plot::after { content:"Ohmic conductor: straight V-I relationship"; position:absolute; left:12px; top:8px; color:var(--deck-muted); font-size:.82rem; }
+.ohm-line { position:absolute; left:0; bottom:0; width:96%; border-top:3px solid var(--deck-aura); transform:rotate(-38deg); transform-origin:left; }
+.ohm-point { position:absolute; width:13px; height:13px; margin:-6px; border-radius:50%; background:var(--deck-warn); box-shadow:0 0 14px var(--deck-warn); transition:.25s; }
+
+.fleming-scene { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:14px 0; }
+.fleming-vector { min-height:100px; display:grid; place-items:center; align-content:center; gap:5px; border-radius:12px; border:1px solid var(--deck-border-strong); background:var(--deck-panel); }
+.fleming-vector strong { color:var(--deck-aura); font-size:1.25rem; }
+.fleming-vector span { color:var(--deck-muted); }
+
+@media(max-width:768px) {
+  .flagship-lab { padding:12px; }
+  .flagship-control { min-width:140px; }
+  .flagship-btn { min-height:44px; padding:9px 11px; }
+  .optics-stage { height:155px; }
+  .optics-readout,.ohm-grid { grid-template-columns:1fr; }
+  .ohm-plot { height:125px; }
+  .fleming-scene { gap:6px; }
+  .fleming-vector { min-height:82px; font-size:.88rem; }
+}
+
 /* Board-trap / pitfall labels: chapter CSS paints the nested <strong> a very dark
    red (#7F1D1D) which is invisible on the dark panel. Use the bright danger red so
    the warning label reads in BOTH colorways. (Also fixes nested spans that inherit

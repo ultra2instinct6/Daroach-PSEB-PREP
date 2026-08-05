@@ -1,0 +1,28 @@
+{
+  "tf-ch10-s1": {"en": "The near point (closest distance of clear vision) of a normal human eye is about 25 cm.", "pa": "ਸਧਾਰਨ ਮਨੁੱਖੀ ਅੱਖ ਦਾ ਨਿਕਟ ਬਿੰਦੂ (ਸਪਸ਼ਟ ਦ੍ਰਿਸ਼ਟੀ ਦੀ ਸਭ ਤੋਂ ਨੇੜਲੀ ਦੂਰੀ) ਲਗਭਗ 25 cm ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch10-s2": {"en": "The upper part of a bifocal lens is concave (for distant vision); the lower part is convex (for reading).", "pa": "ਬਾਈਫੋਕਲ ਲੈਂਸ ਦਾ ਉੱਪਰਲਾ ਹਿੱਸਾ ਅਵਤਲ ਹੁੰਦਾ ਹੈ (ਦੂਰ ਦੀ ਦ੍ਰਿਸ਼ਟੀ ਲਈ); ਹੇਠਲਾ ਹਿੱਸਾ ਉੱਤਲ ਹੁੰਦਾ ਹੈ (ਪੜ੍ਹਨ ਲਈ)।"},
+  "tf-ch10-s3": {"en": "A rainbow always forms in the part of the sky opposite to the sun.", "pa": "ਸਤਰੰਗੀ ਪੀਂਘ ਹਮੇਸ਼ਾ ਸੂਰਜ ਦੇ ਉਲਟ ਦਿਸ਼ਾ ਵਾਲੇ ਅਸਮਾਨ ਵਿੱਚ ਬਣਦੀ ਹੈ।"},
+  "tf-ch10-s4": {"en": "Planets do not twinkle because they are nearer and act as extended sources, averaging out the flicker.", "pa": "ਗ੍ਰਹਿ ਟਿਮਟਿਮਾਉਂਦੇ ਨਹੀਂ ਕਿਉਂਕਿ ਉਹ ਨੇੜੇ ਹੁੰਦੇ ਹਨ ਅਤੇ ਫੈਲੇ ਹੋਏ ਸਰੋਤ ਵਾਂਗ ਕੰਮ ਕਰਦੇ ਹਨ, ਜਿਸ ਨਾਲ ਝਿਲਮਿਲਾਹਟ ਔਸਤ ਹੋ ਜਾਂਦੀ ਹੈ।"},
+  "tf-ch10-s5": {"en": "In space there is no atmosphere to scatter sunlight, so the sky appears dark.", "pa": "ਪੁਲਾੜ ਵਿੱਚ ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਨੂੰ ਖਿੰਡਾਉਣ ਲਈ ਕੋਈ ਵਾਯੂਮੰਡਲ ਨਹੀਂ ਹੁੰਦਾ, ਇਸ ਲਈ ਅਸਮਾਨ ਹਨੇਰਾ ਦਿਖਦਾ ਹੈ।"},
+  "tf-ch10-s6": {"en": "Myopia (short-sightedness) is corrected using a concave (diverging) lens.", "pa": "ਨਿਕਟ-ਦ੍ਰਿਸ਼ਟਤਾ (myopia) ਨੂੰ ਅਵਤਲ (ਵਿਖੇਰਨ ਵਾਲੇ) ਲੈਂਸ ਨਾਲ ਠੀਕ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"},
+  "tf-ch10-s7": {"en": "Violet light has the shortest wavelength, so it is deviated (bent) the most by a prism.", "pa": "ਬੈਂਗਣੀ ਪ੍ਰਕਾਸ਼ ਦੀ ਤਰੰਗ ਲੰਬਾਈ ਸਭ ਤੋਂ ਛੋਟੀ ਹੁੰਦੀ ਹੈ, ਇਸ ਲਈ ਪ੍ਰਿਜ਼ਮ ਦੁਆਰਾ ਇਹ ਸਭ ਤੋਂ ਵੱਧ ਵਿਚਲਿਤ (ਝੁਕਿਆ) ਹੁੰਦਾ ਹੈ।"},
+  "tf-ch10-s8": {"en": "The blind spot has no rods or cones, so no image can form there.", "pa": "ਅੰਧ ਬਿੰਦੂ (blind spot) ਵਿੱਚ ਕੋਈ ਰਾਡ ਜਾਂ ਕੋਨ ਨਹੀਂ ਹੁੰਦੇ, ਇਸ ਲਈ ਉੱਥੇ ਕੋਈ ਬਿੰਬ ਨਹੀਂ ਬਣ ਸਕਦਾ।"},
+
+  "sib-ch10-s1": {"en": "Cone cells in the retina detect colour.", "pa": "ਰੇਟੀਨਾ ਵਿੱਚ ਕੋਨ ਕੋਸ਼ਿਕਾਵਾਂ ਰੰਗ ਦਾ ਪਤਾ ਲਗਾਉਂਦੀਆਂ ਹਨ।"},
+  "sib-ch10-s2": {"en": "In hypermetropia the image is formed behind the retina.", "pa": "ਦੂਰ-ਦ੍ਰਿਸ਼ਟਤਾ (hypermetropia) ਵਿੱਚ ਬਿੰਬ ਰੇਟੀਨਾ ਦੇ ਪਿੱਛੇ ਬਣਦਾ ਹੈ।"},
+  "sib-ch10-s3": {"en": "Red light has the longest wavelength, so it bends the least in a prism.", "pa": "ਲਾਲ ਪ੍ਰਕਾਸ਼ ਦੀ ਤਰੰਗ ਲੰਬਾਈ ਸਭ ਤੋਂ ਵੱਡੀ ਹੁੰਦੀ ਹੈ, ਇਸ ਲਈ ਇਹ ਪ੍ਰਿਜ਼ਮ ਵਿੱਚ ਸਭ ਤੋਂ ਘੱਟ ਝੁਕਦਾ ਹੈ।"},
+  "sib-ch10-s4": {"en": "Scattering of light (mainly blue) by air molecules makes the sky look blue.", "pa": "ਹਵਾ ਦੇ ਅਣੂਆਂ ਦੁਆਰਾ ਪ੍ਰਕਾਸ਼ (ਮੁੱਖ ਤੌਰ 'ਤੇ ਨੀਲਾ) ਦਾ ਖਿੰਡਾਅ ਅਸਮਾਨ ਨੂੰ ਨੀਲਾ ਦਿਖਾਉਂਦਾ ਹੈ।"},
+  "sib-ch10-s5": {"en": "The near point distance for a normal eye is 25 cm.", "pa": "ਸਧਾਰਨ ਅੱਖ ਲਈ ਨਿਕਟ ਬਿੰਦੂ ਦੀ ਦੂਰੀ 25 cm ਹੈ।"},
+  "sib-ch10-s6": {"en": "A convex (converging) lens is used to correct hypermetropia.", "pa": "ਦੂਰ-ਦ੍ਰਿਸ਼ਟਤਾ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਉੱਤਲ (ਅਭਿਸਾਰੀ) ਲੈਂਸ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।"},
+  "sib-ch10-s7": {"en": "The image in the eye is formed on the retina.", "pa": "ਅੱਖ ਵਿੱਚ ਬਿੰਬ ਰੇਟੀਨਾ 'ਤੇ ਬਣਦਾ ਹੈ।"},
+  "sib-ch10-s8": {"en": "The splitting of white light into its seven colours is called dispersion.", "pa": "ਸਫ਼ੇਦ ਪ੍ਰਕਾਸ਼ ਦਾ ਆਪਣੇ ਸੱਤ ਰੰਗਾਂ ਵਿੱਚ ਵੰਡਣਾ ਵਿਖੇਪਣ (dispersion) ਕਹਾਉਂਦਾ ਹੈ।"},
+
+  "mcq-ch10-s1": {"en": "A concave lens diverges the light before it enters the eye, correcting myopia.", "pa": "ਅਵਤਲ ਲੈਂਸ ਪ੍ਰਕਾਸ਼ ਨੂੰ ਅੱਖ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਵਿਖੇਰ ਦਿੰਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਨਿਕਟ-ਦ੍ਰਿਸ਼ਟਤਾ ਠੀਕ ਹੁੰਦੀ ਹੈ।"},
+  "mcq-ch10-s2": {"en": "A person who cannot see distant objects clearly has myopia (short-sightedness).", "pa": "ਜੋ ਵਿਅਕਤੀ ਦੂਰ ਦੀਆਂ ਵਸਤਾਂ ਸਪਸ਼ਟ ਨਹੀਂ ਵੇਖ ਸਕਦਾ, ਉਸ ਨੂੰ ਨਿਕਟ-ਦ੍ਰਿਸ਼ਟਤਾ (myopia) ਹੁੰਦੀ ਹੈ।"},
+  "mcq-ch10-s3": {"en": "A rainbow forms by refraction, dispersion and total internal reflection — scattering is not involved.", "pa": "ਸਤਰੰਗੀ ਪੀਂਘ ਅਪਵਰਤਨ, ਵਿਖੇਪਣ ਅਤੇ ਪੂਰਨ ਅੰਦਰੂਨੀ ਪਰਾਵਰਤਨ ਦੁਆਰਾ ਬਣਦੀ ਹੈ — ਖਿੰਡਾਅ ਸ਼ਾਮਲ ਨਹੀਂ ਹੁੰਦਾ।"},
+  "mcq-ch10-s4": {"en": "At sunrise and sunset light passes through more air, so blue scatters away and the sun looks red.", "pa": "ਸੂਰਜ ਚੜ੍ਹਨ ਅਤੇ ਡੁੱਬਣ ਵੇਲੇ ਪ੍ਰਕਾਸ਼ ਵੱਧ ਹਵਾ ਵਿੱਚੋਂ ਲੰਘਦਾ ਹੈ, ਇਸ ਲਈ ਨੀਲਾ ਖਿੰਡ ਜਾਂਦਾ ਹੈ ਅਤੇ ਸੂਰਜ ਲਾਲ ਦਿਖਦਾ ਹੈ।"},
+  "mcq-ch10-s5": {"en": "Astronauts see a dark sky because there is no atmosphere to scatter sunlight.", "pa": "ਪੁਲਾੜ ਯਾਤਰੀ ਹਨੇਰਾ ਅਸਮਾਨ ਵੇਖਦੇ ਹਨ ਕਿਉਂਕਿ ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਖਿੰਡਾਉਣ ਲਈ ਕੋਈ ਵਾਯੂਮੰਡਲ ਨਹੀਂ ਹੁੰਦਾ।"},
+  "mcq-ch10-s6": {"en": "The iris controls the size of the pupil and thus the amount of light entering the eye.", "pa": "ਆਈਰਿਸ ਪੁਤਲੀ ਦੇ ਆਕਾਰ ਨੂੰ ਅਤੇ ਇਸ ਤਰ੍ਹਾਂ ਅੱਖ ਵਿੱਚ ਦਾਖ਼ਲ ਹੋਣ ਵਾਲੇ ਪ੍ਰਕਾਸ਼ ਦੀ ਮਾਤਰਾ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦੀ ਹੈ।"},
+  "mcq-ch10-s7": {"en": "Red light has the longest wavelength, so it is scattered the least by the atmosphere.", "pa": "ਲਾਲ ਪ੍ਰਕਾਸ਼ ਦੀ ਤਰੰਗ ਲੰਬਾਈ ਸਭ ਤੋਂ ਵੱਡੀ ਹੁੰਦੀ ਹੈ, ਇਸ ਲਈ ਵਾਯੂਮੰਡਲ ਦੁਆਰਾ ਇਹ ਸਭ ਤੋਂ ਘੱਟ ਖਿੰਡਦਾ ਹੈ।"},
+  "mcq-ch10-s8": {"en": "The least distance of distinct vision for a normal eye is 25 cm.", "pa": "ਸਧਾਰਨ ਅੱਖ ਲਈ ਸਪਸ਼ਟ ਦ੍ਰਿਸ਼ਟੀ ਦੀ ਘੱਟੋ-ਘੱਟ ਦੂਰੀ 25 cm ਹੈ।"}
+}

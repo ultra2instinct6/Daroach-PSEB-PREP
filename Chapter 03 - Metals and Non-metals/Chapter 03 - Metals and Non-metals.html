@@ -209,14 +209,34 @@
                 </div>
 </div></div>
 <div class="slide"><div class="content-box">
-                <h2>Metals Reacting with Water</h2>
-                <p>Metals react differently based on their reactivity.</p>
-                <ul>
-                    <li><strong>Cold Water <span class="punjabi">(ਠੰਡਾ ਪਾਣੀ)</span>:</strong> Sodium ($Na$) and Potassium ($K$) react violently. The reaction is so exothermic the evolved hydrogen catches fire! Calcium reacts less violently and floats.</li>
-                    <li><strong>Hot Water <span class="punjabi">(ਗਰਮ ਪਾਣੀ)</span>:</strong> Magnesium ($Mg$) reacts gently and floats.</li>
-                    <li><strong>Steam Only <span class="punjabi">(ਸਿਰਫ਼ ਭਾਫ਼)</span>:</strong> Aluminum ($Al$), Iron ($Fe$), and Zinc ($Zn$). They don't react with liquid water at all.</li>
-                    <li><strong>No Reaction:</strong> Lead, Copper, Silver, Gold.</li>
-                </ul>
+                <h2>Metals Reacting with Water <span class="punjabi">(ਧਾਤਾਂ ਦੀ ਪਾਣੀ ਨਾਲ ਪ੍ਰਤੀਕਿਰਿਆ)</span></h2>
+                <div class="water-reaction-lab interactive-card" id="water-reaction-lab">
+                    <div class="water-reaction-lab__top">
+                        <p>Compare how reactivity changes the required water temperature and products.</p>
+                        <button type="button" data-water-mode aria-pressed="false">🧠 Recall mode</button>
+                    </div>
+                    <div class="water-reaction-lab__controls" role="tablist" aria-label="Water reaction conditions">
+                        <button type="button" class="is-active" role="tab" aria-selected="true" data-water-state="cold">Cold water <small>ਠੰਡਾ ਪਾਣੀ</small></button>
+                        <button type="button" role="tab" aria-selected="false" data-water-state="hot">Hot water <small>ਗਰਮ ਪਾਣੀ</small></button>
+                        <button type="button" role="tab" aria-selected="false" data-water-state="steam">Steam only <small>ਸਿਰਫ਼ ਭਾਫ਼</small></button>
+                        <button type="button" role="tab" aria-selected="false" data-water-state="none">No reaction <small>ਕੋਈ ਕਿਰਿਆ ਨਹੀਂ</small></button>
+                    </div>
+                    <div class="water-reaction-lab__body">
+                        <div class="water-reaction-lab__visual" data-water-visual data-state="cold" role="img" aria-label="Cold water reacting vigorously with a highly reactive metal">
+                            <div class="water-reaction-lab__beaker"><span></span><i></i><b>H₂</b></div>
+                            <div class="water-reaction-lab__burner"></div>
+                            <span class="water-reaction-lab__temperature" data-water-temperature>20°C</span>
+                        </div>
+                        <div class="water-reaction-lab__answer" role="tabpanel" aria-live="polite">
+                            <button type="button" class="water-reaction-lab__reveal" data-water-reveal hidden>Reveal explanation &amp; equation</button>
+                            <div data-water-answer>
+                                <div class="water-reaction-lab__equation" data-water-equation>2Na + 2H₂O → 2NaOH + H₂ + heat</div>
+                                <p data-water-description><strong>Na and K</strong> react violently. Calcium reacts less violently and floats because hydrogen bubbles stick to its surface.</p>
+                                <aside>Exam tip: calcium and magnesium float because attached H₂ bubbles make them buoyant.</aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Metals Reacting with Acids <span class="punjabi">(ਤੇਜ਼ਾਬਾਂ ਨਾਲ ਧਾਤਾਂ ਦੀ ਕਿਰਿਆ)</span></h2>
@@ -345,14 +365,35 @@
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Electrolytic Refining of Metals <span class="punjabi">(ਬਿਜਲੀ-ਵਿਭਾਜਨ ਦੁਆਰਾ ਸ਼ੁੱਧੀਕਰਨ)</span></h2>
-                <p>The final purification step in metallurgy. Impure copper is purified using electrolysis:</p>
-                <ul>
-                    <li><strong>Anode (+):</strong> thick block of <em>impure</em> metal — it dissolves.</li>
-                    <li><strong>Cathode (−):</strong> thin strip of <em>pure</em> metal — pure metal deposits here.</li>
-                    <li><strong>Electrolyte:</strong> solution of a salt of the same metal (e.g. CuSO₄).</li>
-                    <li><strong>Anode mud:</strong> insoluble impurities (Ag, Au) settle below the anode — a valuable by-product!</li>
-                </ul>
-                <div class="pitfall-box"><h3>🚨 Exam Tip</h3><p>Pure metal always goes to the <strong>cathode</strong>. Remember "reduction at cathode" — the metal ion gains electrons.</p></div>
+                <div class="electrode-lab interactive-card" id="electrode-lab">
+                    <div class="electrode-lab__setup">
+                        <span><b>Anode (+)</b> Impure copper</span>
+                        <span><b>Electrolyte</b> CuSO₄ solution</span>
+                        <span><b>Cathode (−)</b> Pure copper</span>
+                    </div>
+                    <div class="electrode-lab__controls" role="tablist" aria-label="Electrode reaction">
+                        <button type="button" class="is-active" role="tab" aria-selected="true" data-electrode-state="anode">Anode · Oxidation</button>
+                        <button type="button" role="tab" aria-selected="false" data-electrode-state="cathode">Cathode · Reduction</button>
+                    </div>
+                    <div class="electrode-lab__grid">
+                        <div class="electrode-lab__visual" data-electrode-visual data-state="anode" role="img" aria-label="Copper leaving the anode and entering solution">
+                            <div class="electrode-lab__plate electrode-lab__plate--left">Cu(s)<small>+</small></div>
+                            <div class="electrode-lab__solution"><span>Cu²⁺</span><span>2e⁻</span><i>→</i></div>
+                            <div class="electrode-lab__plate electrode-lab__plate--right">Cu(s)<small>−</small></div>
+                        </div>
+                        <div class="electrode-lab__info" role="tabpanel" aria-live="polite">
+                            <strong data-electrode-title>Oxidation at the anode</strong>
+                            <p data-electrode-description>Impure copper loses electrons and dissolves into the electrolyte. Insoluble impurities settle as anode mud.</p>
+                            <div data-electrode-equation>Cu(s) → Cu²⁺(aq) + 2e⁻</div>
+                            <aside><b>OIL RIG:</b> Oxidation Is Loss; Reduction Is Gain.</aside>
+                        </div>
+                    </div>
+                    <section class="electrode-lab__quiz">
+                        <strong>Which electrode gets thicker during copper refining?</strong>
+                        <div><button type="button" data-electrode-answer="false">Anode (+)</button><button type="button" data-electrode-answer="true">Cathode (−)</button></div>
+                        <p data-electrode-feedback aria-live="polite"></p>
+                    </section>
+                </div>
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Preventing Corrosion <span class="punjabi">(ਖੋਰ ਤੋਂ ਬਚਾਅ)</span></h2>
@@ -748,7 +789,7 @@
             // Don't swipe if the user is scrolling vertically
             if(Math.abs(touchEndY - touchStartY) > Math.abs(touchEndX - touchStartX)) return;
             
-            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.classifier-panel')) return;
+            if(e.target.closest('.sub-slider-container') || e.target.closest('.balancer-panel') || e.target.closest('.ph-tool') || e.target.closest('.bohr-app') || e.target.closest('.reading-box') || e.target.closest('.classifier-panel') || e.target.closest('.water-reaction-lab') || e.target.closest('.electrode-lab')) return;
             
             if (touchEndX < touchStartX - 50) window.moveSlide(1); 
             if (touchEndX > touchStartX + 50) window.moveSlide(-1); 
@@ -861,6 +902,93 @@
         updateUI();
     });
     </script>
+<script>
+    (function () {
+        "use strict";
+
+        const waterRoot = document.getElementById("water-reaction-lab");
+        if (waterRoot) {
+            const waterData = {
+                cold: { temperature: "20°C", equation: "2Na + 2H₂O → 2NaOH + H₂ + heat", description: "<strong>Na and K</strong> react violently. Calcium reacts less violently and floats because hydrogen bubbles stick to its surface.", label: "Cold water reacting vigorously with a highly reactive metal" },
+                hot: { temperature: "80°C", equation: "Mg + 2H₂O → Mg(OH)₂ + H₂", description: "<strong>Magnesium</strong> does not react with cold water, but reacts gently with hot water and may float due to hydrogen bubbles.", label: "Hot water reacting gently with magnesium" },
+                steam: { temperature: "Steam", equation: "3Fe + 4H₂O(g) → Fe₃O₄ + 4H₂", description: "<strong>Al, Zn and Fe</strong> do not react with liquid water. With steam they form metal oxides and hydrogen gas.", label: "Steam reacting with iron to form an oxide and hydrogen" },
+                none: { temperature: "Any", equation: "Pb / Cu / Ag / Au + H₂O → no reaction", description: "<strong>Pb, Cu, Ag and Au</strong> are too unreactive to displace hydrogen from water under these conditions.", label: "No reaction between water and a low-reactivity metal" }
+            };
+            const tabs = Array.from(waterRoot.querySelectorAll("[data-water-state]"));
+            const visual = waterRoot.querySelector("[data-water-visual]");
+            const answer = waterRoot.querySelector("[data-water-answer]");
+            const reveal = waterRoot.querySelector("[data-water-reveal]");
+            const mode = waterRoot.querySelector("[data-water-mode]");
+            let current = "cold";
+            let recall = false;
+
+            function renderWater() {
+                const data = waterData[current];
+                tabs.forEach((tab) => {
+                    const active = tab.dataset.waterState === current;
+                    tab.classList.toggle("is-active", active);
+                    tab.setAttribute("aria-selected", String(active));
+                });
+                visual.dataset.state = current;
+                visual.setAttribute("aria-label", data.label);
+                waterRoot.querySelector("[data-water-temperature]").textContent = data.temperature;
+                waterRoot.querySelector("[data-water-equation]").textContent = data.equation;
+                waterRoot.querySelector("[data-water-description]").innerHTML = data.description;
+                answer.hidden = recall;
+                reveal.hidden = !recall;
+            }
+            tabs.forEach((tab) => tab.addEventListener("click", () => {
+                current = tab.dataset.waterState;
+                renderWater();
+            }));
+            mode.addEventListener("click", () => {
+                recall = !recall;
+                mode.setAttribute("aria-pressed", String(recall));
+                mode.textContent = recall ? "📖 Learn mode" : "🧠 Recall mode";
+                renderWater();
+            });
+            reveal.addEventListener("click", () => {
+                answer.hidden = false;
+                reveal.hidden = true;
+            });
+            renderWater();
+        }
+
+        const electrodeRoot = document.getElementById("electrode-lab");
+        if (electrodeRoot) {
+            const electrodeData = {
+                anode: { title: "Oxidation at the anode", description: "Impure copper loses electrons and dissolves into the electrolyte. Insoluble impurities settle as anode mud.", equation: "Cu(s) → Cu²⁺(aq) + 2e⁻", label: "Copper leaving the anode and entering solution" },
+                cathode: { title: "Reduction at the cathode", description: "Copper ions gain electrons and deposit as pure solid copper, so the cathode becomes thicker.", equation: "Cu²⁺(aq) + 2e⁻ → Cu(s)", label: "Copper ions depositing as pure copper on the cathode" }
+            };
+            const tabs = Array.from(electrodeRoot.querySelectorAll("[data-electrode-state]"));
+            const visual = electrodeRoot.querySelector("[data-electrode-visual]");
+            function renderElectrode(state) {
+                const data = electrodeData[state];
+                tabs.forEach((tab) => {
+                    const active = tab.dataset.electrodeState === state;
+                    tab.classList.toggle("is-active", active);
+                    tab.setAttribute("aria-selected", String(active));
+                });
+                visual.dataset.state = state;
+                visual.setAttribute("aria-label", data.label);
+                electrodeRoot.querySelector("[data-electrode-title]").textContent = data.title;
+                electrodeRoot.querySelector("[data-electrode-description]").textContent = data.description;
+                electrodeRoot.querySelector("[data-electrode-equation]").textContent = data.equation;
+                electrodeRoot.querySelector("[data-electrode-feedback]").textContent = "";
+            }
+            tabs.forEach((tab) => tab.addEventListener("click", () => renderElectrode(tab.dataset.electrodeState)));
+            electrodeRoot.querySelectorAll("[data-electrode-answer]").forEach((button) => {
+                button.addEventListener("click", () => {
+                    const correct = button.dataset.electrodeAnswer === "true";
+                    const feedback = electrodeRoot.querySelector("[data-electrode-feedback]");
+                    feedback.textContent = correct ? "Correct — copper ions gain electrons and deposit on the cathode." : "Try again — the impure anode dissolves and loses mass.";
+                    feedback.className = correct ? "is-correct" : "is-wrong";
+                });
+            });
+            renderElectrode("anode");
+        }
+    }());
+</script>
 <script src="../assets/deck-enhance.js"></script>
 </body>
 </html>

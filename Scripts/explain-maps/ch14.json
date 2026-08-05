@@ -1,0 +1,15 @@
+{
+  "tf-ch14-s1": {"en": "Fossil fuels take millions of years to form, so they are non-renewable on human time scales.", "pa": "ਪਥਰਾਟ ਬਾਲਣ ਬਣਨ ਵਿੱਚ ਲੱਖਾਂ ਸਾਲ ਲੱਗਦੇ ਹਨ, ਇਸ ਲਈ ਇਹ ਮਨੁੱਖੀ ਸਮੇਂ ਦੇ ਪੈਮਾਨੇ 'ਤੇ ਨਾ-ਨਵਿਆਉਣਯੋਗ ਹਨ।"},
+  "tf-ch14-s2": {"en": "Solar cells convert light energy directly into electricity.", "pa": "ਸੌਰ ਸੈੱਲ ਪ੍ਰਕਾਸ਼ ਊਰਜਾ ਨੂੰ ਸਿੱਧਾ ਬਿਜਲੀ ਵਿੱਚ ਬਦਲਦੇ ਹਨ।"},
+  "tf-ch14-s3": {"en": "Biogas is rich in methane, which makes it a good, clean fuel.", "pa": "ਬਾਇਓਗੈਸ ਵਿੱਚ ਮੀਥੇਨ ਭਰਪੂਰ ਹੁੰਦੀ ਹੈ, ਜੋ ਇਸ ਨੂੰ ਵਧੀਆ, ਸਾਫ਼ ਬਾਲਣ ਬਣਾਉਂਦੀ ਹੈ।"},
+  "tf-ch14-s4": {"en": "Large dams also cause problems such as displacement of people and ecological damage, not only advantages.", "pa": "ਵੱਡੇ ਡੈਮ ਸਿਰਫ਼ ਫ਼ਾਇਦੇ ਹੀ ਨਹੀਂ, ਸਗੋਂ ਲੋਕਾਂ ਦੇ ਉਜਾੜੇ ਅਤੇ ਵਾਤਾਵਰਨਕ ਨੁਕਸਾਨ ਵਰਗੀਆਂ ਸਮੱਸਿਆਵਾਂ ਵੀ ਪੈਦਾ ਕਰਦੇ ਹਨ।"},
+
+  "sib-ch14-s1": {"en": "Two common fossil fuels are coal and petroleum.", "pa": "ਦੋ ਆਮ ਪਥਰਾਟ ਬਾਲਣ ਕੋਲਾ ਅਤੇ ਪੈਟਰੋਲੀਅਮ ਹਨ।"},
+  "sib-ch14-s2": {"en": "The main gas in biogas is methane.", "pa": "ਬਾਇਓਗੈਸ ਵਿੱਚ ਮੁੱਖ ਗੈਸ ਮੀਥੇਨ ਹੈ।"},
+  "sib-ch14-s3": {"en": "A solar cell converts sunlight directly into electricity.", "pa": "ਇੱਕ ਸੌਰ ਸੈੱਲ ਸੂਰਜ ਦੀ ਰੌਸ਼ਨੀ ਨੂੰ ਸਿੱਧਾ ਬਿਜਲੀ ਵਿੱਚ ਬਦਲਦਾ ਹੈ।"},
+  "sib-ch14-s4": {"en": "One problem caused by large dams is the displacement of large numbers of people.", "pa": "ਵੱਡੇ ਡੈਮਾਂ ਕਾਰਨ ਇੱਕ ਸਮੱਸਿਆ ਬਹੁਤ ਸਾਰੇ ਲੋਕਾਂ ਦਾ ਉਜਾੜਾ ਹੈ।"},
+
+  "mcq-ch14-s1": {"en": "A good fuel has a high calorific value, so it releases a lot of heat per unit mass.", "pa": "ਵਧੀਆ ਬਾਲਣ ਦੀ ਕੈਲੋਰੀ ਮੁੱਲ ਉੱਚੀ ਹੁੰਦੀ ਹੈ, ਇਸ ਲਈ ਇਹ ਪ੍ਰਤੀ ਇਕਾਈ ਪੁੰਜ ਵੱਧ ਗਰਮੀ ਛੱਡਦਾ ਹੈ।"},
+  "mcq-ch14-s2": {"en": "Tidal energy needs suitable narrow bays where a dam can capture the rise and fall of tides.", "pa": "ਜਵਾਰੀ ਊਰਜਾ ਨੂੰ ਢੁਕਵੀਆਂ ਤੰਗ ਖਾੜੀਆਂ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ ਜਿੱਥੇ ਡੈਮ ਜਵਾਰ-ਭਾਟੇ ਨੂੰ ਫੜ ਸਕੇ।"},
+  "mcq-ch14-s3": {"en": "A solar cooker has a black surface (to absorb heat) and a glass cover (to trap it).", "pa": "ਸੌਰ ਕੁੱਕਰ ਵਿੱਚ ਕਾਲੀ ਸਤਹ (ਗਰਮੀ ਸੋਖਣ ਲਈ) ਅਤੇ ਸ਼ੀਸ਼ੇ ਦਾ ਢੱਕਣ (ਗਰਮੀ ਫੜਨ ਲਈ) ਹੁੰਦਾ ਹੈ।"}
+}

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLO.Engine - Electrode Reactions V1.3</title>
+<style>
+  /* STRICT ZERO ANIMATION RULE */
+  * { 
+    transition: none !important; 
+    animation: none !important; 
+    box-sizing: border-box;
+  }
+
+  body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    background-color: #000000; 
+    color: #e5e5e5;
+    padding: clamp(10px, 3vw, 20px); 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bolo-card { 
+    background-color: #111111; 
+    max-width: 800px; 
+    width: 100%;
+    border-radius: 16px; 
+    border: 1px solid #222222; 
+    border-left: 4px solid #00f0ff;
+    padding: clamp(15px, 4vw, 30px);
+  }
+
+  .breadcrumb {
+    color: #888888;
+    font-size: clamp(0.7rem, 2vw, 0.8rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+    display: block;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .punjabi-title {
+    color: #a3a3a3;
+    font-weight: 500;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+
+  .gradient-line {
+    height: 2px;
+    background: linear-gradient(90deg, #00f0ff 0%, #f59e0b 50%, transparent 100%);
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Interactive Grid Area */
+  .interactive-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    background-color: #0a0a0a;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    padding: clamp(10px, 3vw, 20px);
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    background: #1a1a1a;
+    color: #a3a3a3;
+    border: 1px solid #333333;
+    padding: 12px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn.active-anode { background: #451a03; color: #ffffff; border-color: #f59e0b; }
+  .btn.active-cathode { background: #082f49; color: #ffffff; border-color: #00f0ff; }
+
+  /* Symmetrical Microscopic Viewport */
+  .micro-viewport {
+    width: 100%;
+    height: 180px;
+    background: #000000;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+  }
+
+  .metal-solid {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 15px;
+    font-weight: bold;
+    color: #000;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    position: relative;
+  }
+  
+  .wire-container {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .terminal-badge {
+    background: #111;
+    color: #fff;
+    border: 1px solid #525252;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    margin-top: -10px;
+    z-index: 2;
+  }
+
+  .wire {
+    width: 8px;
+    height: 45px;
+    background: #a3a3a3;
+    border: 1px solid #525252;
+    border-top: none;
+  }
+
+  .solution-liquid {
+    height: 100%;
+    flex: 1;
+    background: #082f49;
+    position: relative;
+  }
+
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .ion {
+    width: 44px; height: 44px;
+    background: #0ea5e9; border: 2px solid #bae6fd;
+    color: #fff; font-size: 0.85rem;
+    top: 30%; left: 45%;
+  }
+  
+  .electron {
+    width: 28px; height: 28px;
+    background: #f59e0b; border: 2px solid #fde68a;
+    color: #000; font-size: 0.75rem;
+    top: 35%; left: 15%;
+  }
+
+  .direction-arrow {
+    position: absolute;
+    top: 38%; left: 30%;
+  }
+  
+  .direction-arrow svg {
+    width: 24px; height: 24px; color: #ffffff;
+  }
+
+  /* Dynamic State Visuals (Anchored Left) */
+  #viewport.state-anode .metal-solid { background: #78350f; border-right: 2px dashed #f59e0b; }
+  #viewport.state-anode .terminal-badge::after { content: "To Battery (+)"; }
+  #viewport.state-anode .direction-arrow { transform: scaleX(1); } /* Points Right */
+
+  #viewport.state-cathode .metal-solid { background: #d97706; border-right: 2px dashed #00f0ff; }
+  #viewport.state-cathode .terminal-badge::after { content: "From Battery (-)"; }
+  #viewport.state-cathode .direction-arrow { transform: scaleX(-1); } /* Points Left */
+
+  /* Reaction Info */
+  .reaction-info { display: none; }
+  .reaction-info.active { display: block; }
+  .reaction-header { font-size: clamp(1rem, 3vw, 1.15rem); color: #ffffff; margin-bottom: 5px; font-weight: bold; }
+  .punjabi-term { color: #888888; font-size: 0.9em; font-weight: normal; }
+  
+  .equation-box {
+    background: #1a1a1a; border: 1px solid #333333; padding: 15px;
+    border-radius: 8px; font-family: monospace; font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #ffffff; text-align: center; margin-top: 10px;
+    display: flex; justify-content: center; align-items: center; gap: 10px;
+  }
+
+  /* Active Recall Quiz Section */
+  .quiz-section {
+    margin-top: 25px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: clamp(15px, 4vw, 20px);
+    border-left: 4px solid #8b5cf6;
+  }
+  
+  .quiz-title { font-weight: bold; color: #c4b5fd; margin-bottom: 15px; font-size: clamp(0.9rem, 2.5vw, 1rem); }
+  .quiz-options { display: flex; gap: 10px; flex-wrap: wrap; }
+  
+  .quiz-btn {
+    background: #27272a; color: #e5e5e5; border: 1px solid #3f3f46;
+    padding: 12px; border-radius: 6px; cursor: pointer; flex: 1; font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    min-width: 140px; font-weight: 500;
+  }
+  
+  .quiz-btn:active { background: #3f3f46; }
+
+  .quiz-result { display: none; margin-top: 15px; font-size: clamp(0.85rem, 2.5vw, 0.95rem); font-weight: bold; align-items: flex-start; gap: 8px; }
+  .quiz-result.correct { display: flex; color: #34d399; }
+  .quiz-result.wrong { display: flex; color: #f87171; }
+
+  /* Mnemonic Tip */
+  .mnemonic {
+    margin-top: 20px;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    color: #a3a3a3;
+    padding: 15px;
+    background: #111111;
+    border-radius: 8px;
+    border: 1px dashed #333333;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .highlight-red { color: #f87171; font-weight: bold; }
+  .svg-icon { flex-shrink: 0; }
+
+</style>
+</head>
+<body>
+
+<div class="bolo-card">
+  <span class="breadcrumb">Chapter 3 of 16: Metals & Non-Metals</span>
+  
+  <h1>Electrode Reactions <span class="punjabi-title">(ਇਲੈਕਟ੍ਰੋਡ ਪ੍ਰਤੀਕਰਮ)</span></h1>
+  
+  <div class="gradient-line"></div>
+
+  <div class="interactive-grid">
+    <div class="controls">
+      <button class="btn active-anode" id="btn-anode" onclick="setState('anode')">
+        <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Anode View
+      </button>
+      <button class="btn" id="btn-cathode" onclick="setState('cathode')">
+        <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Cathode View
+      </button>
+    </div>
+
+    <!-- Symmetrical Viewport -->
+    <div id="viewport" class="micro-viewport state-anode">
+      <div class="metal-solid">
+        <div class="wire-container">
+          <div class="terminal-badge"></div>
+          <div class="wire"></div>
+        </div>
+        Solid Cu(s)
+      </div>
+      <div class="solution-liquid">
+        <div class="particle ion">Cu<sup>2+</sup></div>
+        <div class="particle electron">2e<sup>-</sup></div>
+        <div class="direction-arrow">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anode State Text -->
+    <div id="info-anode" class="reaction-info active">
+      <div class="reaction-header">Oxidation at Anode <span class="punjabi-term">(ਆਕਸੀਕਰਨ)</span></div>
+      <p style="color: #a3a3a3; font-size: clamp(0.85rem, 2.5vw, 0.95rem); margin: 0 0 10px 0;">Solid copper loses electrons up the wire and dissolves into the solution.</p>
+      <div class="equation-box">
+        Cu(s) 
+        <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> 
+        Cu<sup>2+</sup>(aq) + 2e<sup>-</sup>
+      </div>
+    </div>
+
+    <!-- Cathode State Text -->
+    <div id="info-cathode" class="reaction-info">
+      <div class="reaction-header">Reduction at Cathode <span class="punjabi-term">(ਲਘੂਕਰਨ)</span></div>
+      <p style="color: #a3a3a3; font-size: clamp(0.85rem, 2.5vw, 0.95rem); margin: 0 0 10px 0;">Copper ions gain electrons from the wire and turn into solid metal.</p>
+      <div class="equation-box">
+        Cu<sup>2+</sup>(aq) + 2e<sup>-</sup> 
+        <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        Cu(s)
+      </div>
+    </div>
+  </div>
+
+  <div class="mnemonic">
+    <svg class="svg-icon" aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+    <div>
+      <strong>Exam Tip:</strong> Remember <span class="highlight-red">OIL RIG</span>.<br>
+      <strong>O</strong>xidation <strong>I</strong>s <strong>L</strong>oss (of electrons at Anode).<br>
+      <strong>R</strong>eduction <strong>I</strong>s <strong>G</strong>ain (of electrons at Cathode).
+    </div>
+  </div>
+
+  <!-- Active Recall Check -->
+  <div class="quiz-section">
+    <div class="quiz-title">Knowledge Check: Which electrode gets thicker over time?</div>
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="checkAnswer(false)">The Anode (+)</button>
+      <button class="quiz-btn" onclick="checkAnswer(true)">The Cathode (-)</button>
+    </div>
+    <div id="quiz-feedback" class="quiz-result" aria-live="polite"></div>
+  </div>
+
+</div>
+
+<script>
+  function setState(state) {
+    // Reset Navigation
+    document.getElementById('btn-anode').className = 'btn';
+    document.getElementById('btn-cathode').className = 'btn';
+    document.getElementById('info-anode').classList.remove('active');
+    document.getElementById('info-cathode').classList.remove('active');
+    
+    // Set New Active State
+    document.getElementById('btn-' + state).classList.add('active-' + state);
+    document.getElementById('info-' + state).classList.add('active');
+    document.getElementById('viewport').className = 'micro-viewport state-' + state;
+
+    // Reset Quiz State on Toggle
+    const feedback = document.getElementById('quiz-feedback');
+    feedback.className = 'quiz-result';
+    feedback.innerHTML = '';
+  }
+
+  function checkAnswer(isCorrect) {
+    const feedback = document.getElementById('quiz-feedback');
+    feedback.className = 'quiz-result'; 
+    
+    if (isCorrect) {
+      feedback.classList.add('correct');
+      feedback.innerHTML = `
+        <svg class="svg-icon" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>Correct! Ions gain electrons and turn into solid metal on the Cathode.</span>
+      `;
+    } else {
+      feedback.classList.add('wrong');
+      feedback.innerHTML = `
+        <svg class="svg-icon" aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+        <span>Try again. The Anode dissolves into the solution (loses mass).</span>
+      `;
+    }
+  }
+</script>
+
+</body>
+</html>

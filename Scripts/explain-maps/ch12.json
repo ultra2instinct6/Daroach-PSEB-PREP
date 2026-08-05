@@ -1,0 +1,33 @@
+{
+  "num-ch12-s1": {"en": "Force F = BIL = 0.2 × 4 × 0.5 = 0.4 N.", "pa": "ਬਲ F = BIL = 0.2 × 4 × 0.5 = 0.4 N।"},
+  "num-ch12-s2": {"en": "Force is proportional to current, so doubling I doubles F: F = 0.2 × 8 × 0.5 = 0.8 N.", "pa": "ਬਲ ਧਾਰਾ ਦੇ ਅਨੁਪਾਤੀ ਹੁੰਦਾ ਹੈ, ਇਸ ਲਈ I ਦੁੱਗਣੀ ਕਰਨ ਨਾਲ F ਦੁੱਗਣਾ: F = 0.2 × 8 × 0.5 = 0.8 N।"},
+  "num-ch12-s3": {"en": "From F = BIL, I = F/(BL) = 0.6/(0.1 × 2) = 3 A.", "pa": "F = BIL ਤੋਂ, I = F/(BL) = 0.6/(0.1 × 2) = 3 A।"},
+  "num-ch12-s4": {"en": "Maximum power P = V × I = 220 × 5 = 1100 W.", "pa": "ਵੱਧ ਤੋਂ ਵੱਧ ਸ਼ਕਤੀ P = V × I = 220 × 5 = 1100 W।"},
+
+  "tf-ch12-s1": {"en": "The magnetic force on a conductor is greatest when it is perpendicular to the magnetic field.", "pa": "ਚਾਲਕ ਉੱਤੇ ਚੁੰਬਕੀ ਬਲ ਸਭ ਤੋਂ ਵੱਧ ਹੁੰਦਾ ਹੈ ਜਦੋਂ ਇਹ ਚੁੰਬਕੀ ਖੇਤਰ ਦੇ ਲੰਬ ਹੋਵੇ।"},
+  "tf-ch12-s2": {"en": "By the clock face rule, a face with clockwise current acts as a south pole.", "pa": "ਘੜੀ-ਮੁਖ ਨਿਯਮ ਅਨੁਸਾਰ, ਜਿਸ ਪਾਸੇ ਧਾਰਾ ਘੜੀ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਦਿਖੇ, ਉਹ ਦੱਖਣੀ ਧਰੁਵ ਵਾਂਗ ਕੰਮ ਕਰਦਾ ਹੈ।"},
+  "tf-ch12-s3": {"en": "The magnetic field inside a solenoid is uniform, shown by parallel field lines.", "pa": "ਸੋਲੇਨਾਇਡ ਦੇ ਅੰਦਰ ਚੁੰਬਕੀ ਖੇਤਰ ਇੱਕਸਾਰ ਹੁੰਦਾ ਹੈ, ਜੋ ਸਮਾਂਤਰ ਖੇਤਰ ਰੇਖਾਵਾਂ ਦੁਆਰਾ ਦਰਸਾਇਆ ਜਾਂਦਾ ਹੈ।"},
+  "tf-ch12-s4": {"en": "Live and neutral wires touching directly causes a short circuit; overloading is drawing too much current from one socket.", "pa": "ਜੀਵੰਤ ਅਤੇ ਨਿਊਟ੍ਰਲ ਤਾਰਾਂ ਦਾ ਸਿੱਧਾ ਛੂਹਣਾ ਸ਼ਾਰਟ ਸਰਕਟ ਬਣਾਉਂਦਾ ਹੈ; ਓਵਰਲੋਡਿੰਗ ਇੱਕ ਸਾਕਟ ਤੋਂ ਬਹੁਤ ਜ਼ਿਆਦਾ ਧਾਰਾ ਲੈਣਾ ਹੈ।"},
+  "tf-ch12-s5": {"en": "Magnetic field lines emerge from the north pole and enter the south pole outside a magnet.", "pa": "ਚੁੰਬਕ ਦੇ ਬਾਹਰ ਚੁੰਬਕੀ ਖੇਤਰ ਰੇਖਾਵਾਂ ਉੱਤਰੀ ਧਰੁਵ ਤੋਂ ਨਿਕਲਦੀਆਂ ਹਨ ਅਤੇ ਦੱਖਣੀ ਧਰੁਵ ਵਿੱਚ ਦਾਖ਼ਲ ਹੁੰਦੀਆਂ ਹਨ।"},
+  "tf-ch12-s6": {"en": "An electric motor converts electrical energy into mechanical energy.", "pa": "ਬਿਜਲਈ ਮੋਟਰ ਬਿਜਲਈ ਊਰਜਾ ਨੂੰ ਯਾਂਤਰਿਕ ਊਰਜਾ ਵਿੱਚ ਬਦਲਦੀ ਹੈ।"},
+  "tf-ch12-s7": {"en": "A DC generator uses a split-ring commutator; two slip rings are used in an AC generator.", "pa": "DC ਜਨਰੇਟਰ ਸਪਲਿਟ-ਰਿੰਗ ਕਮਿਊਟੇਟਰ ਵਰਤਦਾ ਹੈ; ਦੋ ਸਲਿੱਪ ਰਿੰਗ AC ਜਨਰੇਟਰ ਵਿੱਚ ਵਰਤੇ ਜਾਂਦੇ ਹਨ।"},
+  "tf-ch12-s8": {"en": "Earthing carries any leakage current safely to the ground, protecting the user from shocks.", "pa": "ਅਰਥਿੰਗ ਕਿਸੇ ਵੀ ਲੀਕ ਹੋਈ ਧਾਰਾ ਨੂੰ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਜ਼ਮੀਨ ਵਿੱਚ ਲੈ ਜਾਂਦੀ ਹੈ, ਵਰਤੋਂਕਾਰ ਨੂੰ ਝਟਕੇ ਤੋਂ ਬਚਾਉਂਦੀ ਹੈ।"},
+
+  "sib-ch12-s1": {"en": "Outside a magnet, field lines emerge from the north pole.", "pa": "ਚੁੰਬਕ ਦੇ ਬਾਹਰ, ਖੇਤਰ ਰੇਖਾਵਾਂ ਉੱਤਰੀ ਧਰੁਵ ਤੋਂ ਨਿਕਲਦੀਆਂ ਹਨ।"},
+  "sib-ch12-s2": {"en": "The right-hand thumb rule gives the direction of the magnetic field around a straight wire.", "pa": "ਸੱਜੇ-ਹੱਥ ਅੰਗੂਠੇ ਦਾ ਨਿਯਮ ਸਿੱਧੇ ਤਾਰ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਚੁੰਬਕੀ ਖੇਤਰ ਦੀ ਦਿਸ਼ਾ ਦੱਸਦਾ ਹੈ।"},
+  "sib-ch12-s3": {"en": "An electromagnet uses a soft iron core because it magnetizes and demagnetizes easily.", "pa": "ਇਲੈਕਟ੍ਰੋਮੈਗਨੈੱਟ ਨਰਮ ਲੋਹੇ ਦਾ ਕੋਰ ਵਰਤਦਾ ਹੈ ਕਿਉਂਕਿ ਇਹ ਸੌਖਿਆਂ ਹੀ ਚੁੰਬਕਿਤ ਅਤੇ ਵਿ-ਚੁੰਬਕਿਤ ਹੋ ਜਾਂਦਾ ਹੈ।"},
+  "sib-ch12-s4": {"en": "Fleming's left-hand rule gives the direction of the force on a current-carrying wire.", "pa": "ਫਲੈਮਿੰਗ ਦਾ ਖੱਬੇ-ਹੱਥ ਨਿਯਮ ਧਾਰਾ-ਵਾਹੀ ਤਾਰ ਉੱਤੇ ਬਲ ਦੀ ਦਿਸ਼ਾ ਦੱਸਦਾ ਹੈ।"},
+  "sib-ch12-s5": {"en": "When live and neutral wires touch directly, a short circuit occurs.", "pa": "ਜਦੋਂ ਜੀਵੰਤ ਅਤੇ ਨਿਊਟ੍ਰਲ ਤਾਰਾਂ ਸਿੱਧੀਆਂ ਛੂਹ ਜਾਂਦੀਆਂ ਹਨ, ਤਾਂ ਸ਼ਾਰਟ ਸਰਕਟ ਹੁੰਦਾ ਹੈ।"},
+  "sib-ch12-s6": {"en": "An electric motor converts electrical energy into mechanical energy.", "pa": "ਬਿਜਲਈ ਮੋਟਰ ਬਿਜਲਈ ਊਰਜਾ ਨੂੰ ਯਾਂਤਰਿਕ ਊਰਜਾ ਵਿੱਚ ਬਦਲਦੀ ਹੈ।"},
+  "sib-ch12-s7": {"en": "An electric generator converts mechanical energy into electrical energy.", "pa": "ਬਿਜਲਈ ਜਨਰੇਟਰ ਯਾਂਤਰਿਕ ਊਰਜਾ ਨੂੰ ਬਿਜਲਈ ਊਰਜਾ ਵਿੱਚ ਬਦਲਦਾ ਹੈ।"},
+  "sib-ch12-s8": {"en": "The earth wire in domestic wiring is green (or green-and-yellow).", "pa": "ਘਰੇਲੂ ਤਾਰਬੰਦੀ ਵਿੱਚ ਅਰਥ ਤਾਰ ਹਰੇ (ਜਾਂ ਹਰੇ-ਪੀਲੇ) ਰੰਗ ਦੀ ਹੁੰਦੀ ਹੈ।"},
+
+  "mcq-ch12-s1": {"en": "Parallel field lines inside a solenoid indicate a uniform magnetic field.", "pa": "ਸੋਲੇਨਾਇਡ ਦੇ ਅੰਦਰ ਸਮਾਂਤਰ ਖੇਤਰ ਰੇਖਾਵਾਂ ਇੱਕਸਾਰ ਚੁੰਬਕੀ ਖੇਤਰ ਦਰਸਾਉਂਦੀਆਂ ਹਨ।"},
+  "mcq-ch12-s2": {"en": "In Fleming's left-hand rule the forefinger points in the direction of the magnetic field.", "pa": "ਫਲੈਮਿੰਗ ਦੇ ਖੱਬੇ-ਹੱਥ ਨਿਯਮ ਵਿੱਚ ਅਗਲੀ ਉਂਗਲ ਚੁੰਬਕੀ ਖੇਤਰ ਦੀ ਦਿਸ਼ਾ ਵੱਲ ਇਸ਼ਾਰਾ ਕਰਦੀ ਹੈ।"},
+  "mcq-ch12-s3": {"en": "Magnetic field lines form closed, continuous loops.", "pa": "ਚੁੰਬਕੀ ਖੇਤਰ ਰੇਖਾਵਾਂ ਬੰਦ, ਨਿਰੰਤਰ ਲੂਪ ਬਣਾਉਂਦੀਆਂ ਹਨ।"},
+  "mcq-ch12-s4": {"en": "A sudden huge current caused by live and neutral wires touching is a short circuit.", "pa": "ਜੀਵੰਤ ਅਤੇ ਨਿਊਟ੍ਰਲ ਤਾਰਾਂ ਦੇ ਛੂਹਣ ਨਾਲ ਅਚਾਨਕ ਪੈਦਾ ਹੋਈ ਵੱਡੀ ਧਾਰਾ ਸ਼ਾਰਟ ਸਰਕਟ ਹੈ।"},
+  "mcq-ch12-s5": {"en": "The earth wire is used to prevent electric shock by safely diverting leakage current to the ground.", "pa": "ਅਰਥ ਤਾਰ ਲੀਕ ਧਾਰਾ ਨੂੰ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਜ਼ਮੀਨ ਵੱਲ ਮੋੜ ਕੇ ਬਿਜਲੀ ਦੇ ਝਟਕੇ ਨੂੰ ਰੋਕਣ ਲਈ ਵਰਤੀ ਜਾਂਦੀ ਹੈ।"},
+  "mcq-ch12-s6": {"en": "An electric generator works on the principle of electromagnetic induction.", "pa": "ਬਿਜਲਈ ਜਨਰੇਟਰ ਇਲੈਕਟ੍ਰੋਮੈਗਨੈਟਿਕ ਇੰਡਕਸ਼ਨ ਦੇ ਸਿਧਾਂਤ 'ਤੇ ਕੰਮ ਕਰਦਾ ਹੈ।"},
+  "mcq-ch12-s7": {"en": "In domestic wiring, the fuse is connected in the live wire.", "pa": "ਘਰੇਲੂ ਤਾਰਬੰਦੀ ਵਿੱਚ, ਫ਼ਿਊਜ਼ ਜੀਵੰਤ ਤਾਰ ਵਿੱਚ ਜੋੜਿਆ ਜਾਂਦਾ ਹੈ।"},
+  "mcq-ch12-s8": {"en": "A soft iron core inside a current-carrying solenoid makes an electromagnet.", "pa": "ਧਾਰਾ-ਵਾਹੀ ਸੋਲੇਨਾਇਡ ਦੇ ਅੰਦਰ ਨਰਮ ਲੋਹੇ ਦਾ ਕੋਰ ਇੱਕ ਇਲੈਕਟ੍ਰੋਮੈਗਨੈੱਟ ਬਣਾਉਂਦਾ ਹੈ।"}
+}

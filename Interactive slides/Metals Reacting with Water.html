@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOLO.Engine - Metals Reacting with Water</title>
+<style>
+  /* STRICT ZERO ANIMATION RULE */
+  * { 
+    transition: none !important; 
+    animation: none !important; 
+    box-sizing: border-box;
+  }
+
+  body { 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+    background-color: #000000; 
+    color: #e5e5e5;
+    padding: 0; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* 1280x720 Presentation Standard */
+  .bolo-slide-container { 
+    background-color: #0a0a0a; 
+    width: 1280px;
+    height: 720px;
+    border-radius: 16px; 
+    border: 1px solid #222222; 
+    border-left: 6px solid #00f0ff; 
+    padding: 35px 45px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Header Section */
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+
+  .breadcrumb {
+    color: #888888;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .punjabi-title {
+    color: #888888;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+
+  /* Mode Toggle */
+  .mode-toggle-container {
+    background: #111;
+    border: 1px solid #333;
+    padding: 6px;
+    border-radius: 8px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .mode-btn.active-mode {
+    background: #222;
+    color: #00f0ff;
+    border: 1px solid #444;
+  }
+
+  .gradient-line {
+    height: 3px;
+    background: linear-gradient(90deg, #00f0ff 0%, #f59e0b 50%, transparent 100%);
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  /* Main Layout Grid */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    flex-grow: 1;
+  }
+
+  /* Left Column: Info & Tip */
+  .left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #cccccc;
+    margin: 0;
+  }
+
+  .exam-tip {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    border-left: 4px solid #ef4444; 
+    padding: 20px;
+  }
+
+  .exam-tip-header {
+    color: #f59e0b;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .exam-tip p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #e5e5e5;
+    line-height: 1.5;
+  }
+
+  .metal-badge {
+    background-color: #222;
+    color: #00f0ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    border: 1px solid #444;
+  }
+
+  /* Right Column: Interactive Area */
+  .interactive-panel {
+    background-color: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .controls-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #222;
+    background: #111;
+  }
+
+  .control-btn {
+    background: transparent;
+    color: #777;
+    border: none;
+    border-bottom: 4px solid transparent;
+    border-right: 1px solid #222;
+    padding: 12px 5px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .control-btn:last-child { border-right: none; }
+  .control-btn .punjabi-sub { font-size: 0.8rem; font-weight: normal; }
+
+  /* Active State Buttons */
+  .control-btn.active[onclick*="'cold'"] { color: #38bdf8; border-bottom-color: #38bdf8; background: #082f4940; }
+  .control-btn.active[onclick*="'hot'"] { color: #fb923c; border-bottom-color: #fb923c; background: #451a0340; }
+  .control-btn.active[onclick*="'steam'"] { color: #a3a3a3; border-bottom-color: #a3a3a3; background: #26262640; }
+  .control-btn.active[onclick*="'none'"] { color: #ef4444; border-bottom-color: #ef4444; background: #450a0a40; }
+
+  /* Visualizer Area (Beaker & Thermometer) */
+  .visual-stage {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    border-bottom: 1px solid #222;
+    position: relative;
+  }
+
+  /* The Beaker Environment */
+  .beaker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .beaker {
+    width: 140px;
+    height: 100px;
+    border: 3px solid #555;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    background: #111;
+    overflow: hidden;
+  }
+
+  .water-level {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+  }
+
+  /* The Burner */
+  .burner-setup {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .flame {
+    width: 0; height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid transparent;
+    margin-bottom: 2px;
+  }
+  
+  .burner-base {
+    width: 40px; height: 8px;
+    background: #444;
+    border-radius: 2px;
+  }
+
+  /* The Thermometer */
+  .thermometer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .thermometer {
+    width: 18px;
+    height: 100px;
+    border: 2px solid #555;
+    border-radius: 10px;
+    background: #111;
+    position: relative;
+    padding: 2px;
+  }
+
+  .mercury {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    border-radius: 8px;
+    background: #333;
+  }
+
+  .temp-label {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: bold;
+    font-family: monospace;
+  }
+
+  /* Data Display Area (Targeted by Quiz) */
+  .data-stage {
+    flex-grow: 1;
+    position: relative;
+    padding: 20px;
+    background: #0a0a0a;
+  }
+
+  .quiz-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .reveal-btn {
+    background: #222;
+    color: #00f0ff;
+    border: 1px solid #00f0ff;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .equation-box {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: monospace;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #111;
+    border-radius: 8px;
+    border: 1px dashed #333;
+  }
+
+  .explanation-box {
+    background: #151515;
+    padding: 18px;
+    border-radius: 8px;
+    border-left: 4px solid #444;
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+
+  .highlight-word { background: #2a2a2a; color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+
+  /* State Logic - Visuals */
+  /* Cold */
+  #engine-core.state-cold .water-level { height: 70%; background: #082f49; border-top: 2px solid #38bdf8; }
+  #engine-core.state-cold .mercury { height: 25%; background: #38bdf8; }
+  #engine-core.state-cold .temp-label { color: #38bdf8; }
+  
+  /* Hot */
+  #engine-core.state-hot .water-level { height: 70%; background: #451a03; border-top: 2px solid #fb923c; }
+  #engine-core.state-hot .mercury { height: 65%; background: #fb923c; }
+  #engine-core.state-hot .flame { border-bottom-color: #fb923c; }
+  #engine-core.state-hot .temp-label { color: #fb923c; }
+
+  /* Steam */
+  #engine-core.state-steam .water-level { height: 100%; background: repeating-linear-gradient(0deg, transparent, transparent 10px, #262626 10px, #262626 12px); border-top: none; }
+  #engine-core.state-steam .mercury { height: 95%; background: #ef4444; }
+  #engine-core.state-steam .flame { border-bottom-color: #ef4444; border-bottom-width: 25px; margin-top: -10px; }
+  #engine-core.state-steam .temp-label { color: #ef4444; }
+
+  /* None */
+  #engine-core.state-none .water-level { height: 70%; background: #1c1917; border-top: 2px solid #57534e; }
+  #engine-core.state-none .mercury { height: 25%; background: #57534e; }
+  #engine-core.state-none .temp-label { color: #57534e; }
+
+  /* State Logic - Data */
+  .data-view { display: none; }
+  #engine-core.state-cold .view-cold { display: block; }
+  #engine-core.state-hot .view-hot { display: block; }
+  #engine-core.state-steam .view-steam { display: block; }
+  #engine-core.state-none .view-none { display: block; }
+  
+  #engine-core.quiz-active .quiz-hide { display: none; }
+  #engine-core:not(.quiz-active) .quiz-show { display: none; }
+
+</style>
+</head>
+<body>
+
+<div class="bolo-slide-container">
+  
+  <div class="header-flex">
+    <div>
+      <span class="breadcrumb">PSEB Class 10 Science • Chapter 3 of 16</span>
+      <h1>Metals Reacting with Water <span class="punjabi-title">(ਧਾਤਾਂ ਦੀ ਪਾਣੀ ਨਾਲ ਪ੍ਰਤੀਕਿਰਿਆ)</span></h1>
+    </div>
+    
+    <div class="mode-toggle-container">
+      <button class="mode-btn active-mode" id="btn-learn" onclick="setMode('learn')">📖 Learn</button>
+      <button class="mode-btn" id="btn-quiz" onclick="setMode('quiz')">🧠 Quiz</button>
+    </div>
+  </div>
+  
+  <div class="gradient-line"></div>
+
+  <div class="content-grid">
+    
+    <div class="left-col">
+      <p class="intro-text">Metals react differently based on their position in the reactivity series. The highly reactive metals react vigorously, while less reactive metals require heat or steam, and the least reactive do not react at all.</p>
+      
+      <div class="exam-tip">
+        <div class="exam-tip-header">🚨 Exam Tip: Floating Metals</div>
+        <p>Calcium (<span class="metal-badge">Ca</span>) and Magnesium (<span class="metal-badge">Mg</span>) float when reacting with water. Why? Because the bubbles of <strong>hydrogen gas</strong> formed stick to the surface of the metal, making it buoyant!</p>
+      </div>
+    </div>
+
+    <!-- Interactive Component -->
+    <div class="interactive-panel" id="engine-core" class="state-cold">
+      
+      <div class="controls-row">
+        <button class="control-btn active" id="btn-cold" onclick="setState('cold')">
+          Cold Water <span class="punjabi-sub">ਠੰਡਾ ਪਾਣੀ</span>
+        </button>
+        <button class="control-btn" id="btn-hot" onclick="setState('hot')">
+          Hot Water <span class="punjabi-sub">ਗਰਮ ਪਾਣੀ</span>
+        </button>
+        <button class="control-btn" id="btn-steam" onclick="setState('steam')">
+          Steam Only <span class="punjabi-sub">ਸਿਰਫ ਭਾਫ਼</span>
+        </button>
+        <button class="control-btn" id="btn-none" onclick="setState('none')">
+          No Reaction <span class="punjabi-sub">ਕੋਈ ਪ੍ਰਤੀਕਿਰਿਆ ਨਹੀਂ</span>
+        </button>
+      </div>
+
+      <!-- VISUAL STAGE (Always Visible) -->
+      <div class="visual-stage">
+        
+        <div class="beaker-container">
+          <div class="beaker">
+             <div class="water-level"></div>
+          </div>
+          <div class="burner-setup">
+             <div class="flame"></div>
+             <div class="burner-base"></div>
+          </div>
+        </div>
+
+        <div class="thermometer-container">
+          <div class="thermometer">
+            <div class="mercury"></div>
+          </div>
+          <div class="temp-label">Temp</div>
+        </div>
+
+      </div>
+
+      <!-- DATA STAGE (Targeted by Quiz Mode) -->
+      <div class="data-stage">
+        
+        <div class="quiz-overlay quiz-show" onclick="revealAnswer()">
+          <button class="reveal-btn">Reveal Explanation & Equation</button>
+        </div>
+
+        <div class="quiz-hide">
+          
+          <!-- COLD DATA -->
+          <div class="data-view view-cold">
+            <div class="equation-box" style="color: #38bdf8;">
+              2Na<sub>(s)</sub> + 2H<sub>2</sub>O<sub>(l)</sub> &rarr; 2NaOH<sub>(aq)</sub> + H<sub>2(g)</sub> + Heat
+            </div>
+            <div class="explanation-box" style="border-left-color: #38bdf8;">
+              <strong>Sodium (<span class="metal-badge">Na</span>) & Potassium (<span class="metal-badge">K</span>):</strong> React <span class="highlight-word">violently</span>. Exothermic reaction; hydrogen catches fire.<br><br>
+              <strong>Calcium (<span class="metal-badge">Ca</span>):</strong> Reacts less violently and <span class="highlight-word">floats</span> due to hydrogen bubbles.
+            </div>
+          </div>
+
+          <!-- HOT DATA -->
+          <div class="data-view view-hot">
+            <div class="equation-box" style="color: #fb923c;">
+              Mg<sub>(s)</sub> + 2H<sub>2</sub>O<sub>(l)</sub> &rarr; Mg(OH)<sub>2(aq)</sub> + H<sub>2(g)</sub>
+            </div>
+            <div class="explanation-box" style="border-left-color: #fb923c;">
+              <strong>Magnesium (<span class="metal-badge">Mg</span>):</strong> Does not react with cold water. It reacts <span class="highlight-word">gently</span> with hot water to form magnesium hydroxide and hydrogen gas. It also <span class="highlight-word">floats</span>.
+            </div>
+          </div>
+
+          <!-- STEAM DATA -->
+          <div class="data-view view-steam">
+            <div class="equation-box" style="color: #a3a3a3;">
+              3Fe<sub>(s)</sub> + 4H<sub>2</sub>O<sub>(g)</sub> &rarr; Fe<sub>3</sub>O<sub>4(s)</sub> + 4H<sub>2(g)</sub>
+            </div>
+            <div class="explanation-box" style="border-left-color: #a3a3a3;">
+              <strong>Al, Fe, Zn:</strong> They do <span class="highlight-word">not react</span> with liquid water at all. They only react when exposed to gaseous steam to form metal <em>oxides</em> (not hydroxides).
+            </div>
+          </div>
+
+          <!-- NONE DATA -->
+          <div class="data-view view-none">
+            <div class="equation-box" style="color: #ef4444;">
+              Metal<sub>(s)</sub> + H<sub>2</sub>O<sub>(l/g)</sub> &rarr; No Reaction
+            </div>
+            <div class="explanation-box" style="border-left-color: #ef4444;">
+              <strong>Lead (<span class="metal-badge">Pb</span>), Copper (<span class="metal-badge">Cu</span>), Silver (<span class="metal-badge">Ag</span>), Gold (<span class="metal-badge">Au</span>):</strong> These metals are at the bottom of the reactivity series. They exhibit <span class="highlight-word">zero reaction</span> with water under any condition.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentMode = 'learn';
+  const engine = document.getElementById('engine-core');
+
+  // Initialize Default State explicitly
+  engine.className = 'state-cold';
+
+  function setState(state) {
+    // Reset buttons
+    const btns = ['cold', 'hot', 'steam', 'none'];
+    btns.forEach(id => document.getElementById('btn-' + id).classList.remove('active'));
+    
+    // Set active button
+    document.getElementById('btn-' + state).classList.add('active');
+    
+    // Set visual state (preserve quiz-active class if present)
+    let newClass = 'state-' + state;
+    if (currentMode === 'quiz' && engine.classList.contains('quiz-active')) {
+      newClass += ' quiz-active';
+    } else if (currentMode === 'quiz') {
+       // If switching states while in quiz mode, re-hide the answer
+       newClass += ' quiz-active';
+    }
+    
+    engine.className = newClass;
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('btn-learn').classList.remove('active-mode');
+    document.getElementById('btn-quiz').classList.remove('active-mode');
+    document.getElementById('btn-' + mode).classList.add('active-mode');
+
+    if (mode === 'quiz') {
+      engine.classList.add('quiz-active');
+    } else {
+      engine.classList.remove('quiz-active');
+    }
+  }
+
+  function revealAnswer() {
+    engine.classList.remove('quiz-active');
+  }
+</script>
+
+</body>
+</html>

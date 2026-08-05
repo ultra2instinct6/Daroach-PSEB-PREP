@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 Science: Atmospheric Refraction</title>
+<style>
+  * { box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; transition: all 0.3s ease; }
+
+  :root {
+    --zinc-950: #09090b; --zinc-900: #18181b; --zinc-800: #27272a; --zinc-700: #3f3f46;
+    --zinc-400: #a1a1aa; --zinc-100: #f4f4f5;
+    
+    --bg-page: #0a0a0a; --bg-card: #121212; --bg-panel: #050505;
+    --border-main: #2a2a2a;
+    
+    /* Topic Accents */
+    --theme-concept: #3b82f6; /* Blue */
+    --theme-sunrise: #f59e0b; /* Amber */
+    --theme-position: #10b981; /* Emerald */
+    --theme-oval: #ec4899;    /* Pink */
+    --current-accent: var(--theme-concept);
+  }
+
+  body { 
+    background-color: var(--bg-page); 
+    color: var(--zinc-100); 
+    padding: clamp(1rem, 3vw, 2rem); 
+    margin: 0; 
+    display: flex; 
+    justify-content: center; 
+    min-height: 100vh;
+    align-items: center;
+  }
+
+  .interactive-app {
+    background: var(--bg-card); 
+    max-width: 1000px; 
+    width: 100%;
+    border-radius: 12px; 
+    border: 1px solid var(--border-main);
+    border-top: 4px solid var(--current-accent);
+    padding: clamp(1.5rem, 4vw, 2.5rem); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  }
+
+  header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+  .header-text h1 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 0 0 0.4rem 0; font-weight: 800; letter-spacing: -0.02em; }
+  .header-text p { color: var(--zinc-400); margin: 0; font-size: 0.95rem; }
+
+  .utility-btn {
+    background: var(--zinc-800); color: var(--zinc-100); border: 1px solid var(--border-main);
+    padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; font-weight: 600;
+  }
+  .utility-btn:hover { background: var(--zinc-700); }
+  
+  .app-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 850px) { .app-grid { grid-template-columns: 280px 1fr; } }
+
+  .controls { display: flex; flex-direction: column; gap: 0.75rem; }
+  .btn-nav {
+    background: var(--bg-page); color: var(--zinc-400); border: 1px solid var(--border-main);
+    padding: 1rem; border-radius: 8px; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 12px;
+    position: relative; overflow: hidden;
+  }
+  .btn-nav:hover { background: var(--zinc-800); color: var(--zinc-100); }
+  .btn-nav[aria-selected="true"] {
+    background: var(--zinc-800); color: var(--zinc-100); border-color: var(--current-accent);
+  }
+  .btn-nav[aria-selected="true"]::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--current-accent);
+  }
+  
+  .nav-text { display: flex; flex-direction: column; }
+  .nav-text strong { font-size: 0.95rem; }
+  .nav-text span { font-size: 0.75rem; opacity: 0.7; margin-top: 4px; }
+  .check-icon { margin-left: auto; color: var(--current-accent); font-weight: bold; opacity: 0; }
+  .btn-nav.viewed .check-icon { opacity: 1; }
+
+  .progress-wrapper { margin-bottom: 1rem; }
+  .progress-text { font-size: 0.8rem; color: var(--zinc-400); margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+  .progress-track { width: 100%; height: 6px; background: var(--bg-page); border: 1px solid var(--border-main); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--current-accent); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+  @keyframes pulse-hint {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); border-color: var(--theme-concept); }
+    70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); border-color: var(--border-main); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); border-color: var(--border-main); }
+  }
+  .btn-nav.pulse-hint { animation: pulse-hint 2s infinite; }
+
+  .viewport {
+    background: var(--bg-panel); border: 1px solid var(--border-main); border-radius: 8px;
+    padding: 2rem; display: flex; flex-direction: column; align-items: center; min-height: 420px; position: relative;
+    overflow: hidden;
+  }
+  
+  .svg-container { width: 100%; max-width: 600px; margin-bottom: 1.5rem; }
+  svg { width: 100%; height: auto; overflow: visible; }
+  
+  .earth-surface { fill: #064e3b; stroke: #10b981; stroke-width: 2; }
+  .atmosphere-layer { fill: none; stroke: #60a5fa; stroke-dasharray: 6,6; opacity: 0.4; }
+  .horizon-line { stroke: #a1a1aa; stroke-width: 1.5; stroke-dasharray: 4,4; }
+  
+  .sun-actual { fill: #f59e0b; }
+  .sun-apparent { fill: #fbbf24; opacity: 0.85; transition: ry 0.5s ease, cy 0.5s ease; }
+  
+  .path-refracted { fill: none; stroke: #ef4444; stroke-width: 2.5; }
+  .path-apparent { fill: none; stroke: #fbbf24; stroke-width: 2; stroke-dasharray: 4,4; opacity: 0; }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.8); }
+    75% { opacity: 0.8; transform: scale(1.1) rotate(15deg); }
+  }
+  
+  @keyframes dash-flow {
+    to { stroke-dashoffset: -20; }
+  }
+  
+  #refraction-diagram {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .path-apparent { 
+    fill: none; stroke: #fbbf24; stroke-width: 2; stroke-dasharray: 4,4; opacity: 0; 
+    animation: dash-flow 1s linear infinite backwards;
+  }
+  .path-refracted { 
+    fill: none; stroke: #ef4444; stroke-width: 2.5; stroke-dasharray: 8,4;
+    animation: dash-flow 1.5s linear infinite;
+  }
+
+  .star-apparent { fill: #fde047; opacity: 0; transform-origin: center; transition: opacity 0.5s ease; }
+  .star-apparent.active { animation: twinkle 1.5s infinite ease-in-out; opacity: 1; }
+  .star-actual { fill: #facc15; opacity: 0; transition: opacity 0.5s ease; }
+
+  .info-box { width: 100%; }
+  .bullet-note {
+    background: rgba(255,255,255,0.03); border-left: 3px solid var(--current-accent);
+    padding: 1rem 1.2rem; border-radius: 0 4px 4px 0; font-size: 1rem; line-height: 1.6; margin: 0;
+  }
+  .bullet-note strong { color: var(--current-accent); }
+
+  .glossary-term {
+    border-bottom: 1px dashed var(--current-accent);
+    cursor: help;
+    position: relative;
+    font-weight: 600;
+  }
+  .glossary-term:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%; left: 50%; transform: translateX(-50%);
+    background: var(--zinc-100); color: var(--bg-page);
+    padding: 0.5rem 0.75rem; border-radius: 6px; font-size: 0.75rem;
+    white-space: nowrap; z-index: 50; pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .quiz-section {
+    margin-top: 1.5rem; padding: 1.5rem; background: var(--bg-page); border: 1px solid var(--border-main); border-radius: 8px;
+    opacity: 0.4; pointer-events: none; transition: all 0.5s ease;
+  }
+  .quiz-section.unlocked { opacity: 1; pointer-events: auto; border-color: var(--current-accent); box-shadow: 0 0 15px rgba(255,255,255,0.05); }
+  .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+  .quiz-title { font-weight: 600; font-size: 1rem; }
+  
+  .quiz-stars { display: flex; gap: 4px; color: #fbbf24; margin-right: 1rem; font-size: 1.1rem; }
+  .quiz-stars span { transition: opacity 0.3s; }
+  .quiz-stars span.dim { opacity: 0.3; filter: grayscale(100%); }
+
+  .quiz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .quiz-btn {
+    background: var(--zinc-800); color: var(--zinc-100); border: 1px solid var(--zinc-700);
+    padding: 1rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500;
+  }
+  .quiz-btn:hover { background: var(--zinc-700); border-color: var(--zinc-400); }
+  .quiz-btn.correct { background: #064e3b; border-color: #10b981; color: white;}
+  .quiz-btn.wrong { background: #7f1d1d; border-color: #f43f5e; opacity: 0.5; }
+
+  #confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  @media print {
+    body { background: white !important; color: black !important; padding: 0; display: block; }
+    .utility-btn, .controls, .quiz-section, header p { display: none !important; }
+    .interactive-app { border: none; box-shadow: none; max-width: 100%; padding: 0; }
+    .app-grid { display: block; }
+    .viewport { background: white; border: none; min-height: auto; padding: 0; }
+    .bullet-note { border-left-color: #3b82f6 !important; color: black !important; page-break-inside: avoid; }
+    #refraction-diagram { max-height: 250px; }
+  }
+
+  body.light-mode {
+    --bg-page: #f8fafc; --bg-card: #ffffff; --bg-panel: #f1f5f9;
+    --border-main: #e2e8f0; --zinc-100: #0f172a; --zinc-400: #475569;
+    --zinc-800: #f1f5f9; --zinc-700: #e2e8f0;
+  }
+  body.light-mode .utility-btn { background: #ffffff; color: #0f172a; }
+  body.light-mode .utility-btn:hover { background: #f8fafc; }
+  body.light-mode .btn-nav { background: #ffffff; color: #475569; }
+  body.light-mode .btn-nav:hover { background: #f1f5f9; color: #0f172a; }
+  body.light-mode .btn-nav[aria-selected="true"] { background: #f1f5f9; color: #0f172a; }
+  body.light-mode .quiz-btn { background: #ffffff; color: #0f172a; border-color: #cbd5e1; }
+  body.light-mode .quiz-btn:hover { background: #f1f5f9; }
+</style>
+</head>
+<body>
+
+<svg style="display: none;">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#18181b" stroke="#ef4444" stroke-width="1.5" />
+    </marker>
+    <g id="star-shape">
+      <path d="M 0,-10 L 2.5,-3 L 10,-3 L 4,1.5 L 6,8.5 L 0,4 L -6,8.5 L -4,1.5 L -10,-3 L -2.5,-3 Z" />
+    </g>
+  </defs>
+</svg>
+
+<main class="interactive-app" id="app">
+  <header>
+    <div class="header-text">
+      <h1>Atmospheric Refraction (ਵਾਯੂਮੰਡਲੀ ਅਪਵਰਤਨ)</h1>
+      <p>Class 10 Science • Chapter 11 • The Human Eye and the Colourful World</p>
+    </div>
+    <div style="display: flex; gap: 0.5rem;">
+      <button class="utility-btn" onclick="window.print()">🖨️ Print Notes</button>
+      <button class="utility-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
+      <button class="utility-btn" onclick="exportToAnki()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+        Anki
+      </button>
+    </div>
+  </header>
+
+  <div class="app-grid">
+    <div>
+      <div class="progress-wrapper">
+        <div class="progress-text">
+          <span>Module Progress</span>
+          <span id="progress-percentage">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      <nav class="controls" id="nav-controls" role="tablist"></nav>
+    </div>
+    
+    <div>
+      <article class="viewport" id="viewport" role="tabpanel" aria-live="polite">
+        
+        <div class="svg-container">
+          <!-- Main Interactive SVG -->
+          <svg viewBox="0 0 600 300" id="refraction-diagram">
+            
+            <path d="M 50,130 Q 300,90 550,130" class="atmosphere-layer"/>
+            <path d="M 50,180 Q 300,150 550,180" class="atmosphere-layer" style="opacity: 0.6;"/>
+            <text x="300" y="80" fill="#60a5fa" font-size="12" text-anchor="middle">Denser lower atmosphere</text>
+            
+            <line x1="80" y1="240" x2="520" y2="240" class="horizon-line" />
+            <text x="110" y="232" fill="#a1a1aa" font-size="12" font-weight="500">Horizon</text>
+            
+            <g id="grp-apparent" style="opacity: 0; transition: opacity 0.5s ease;">
+              <ellipse id="sun-apparent-shape" cx="160" cy="190" rx="28" ry="28" class="sun-apparent"/>
+              <text x="160" y="150" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="600">Apparent Sun</text>
+              <path id="path-apparent" d="M 460,245 L 160,190" class="path-apparent" />
+            </g>
+
+            <g id="grp-actual">
+              <circle id="sun-actual-shape" cx="160" cy="265" r="28" class="sun-actual"/>
+              <use href="#star-shape" x="160" y="265" class="star-actual" id="star-actual-shape" />
+            </g>
+            
+            <path id="path-refracted" d="M 160,265 Q 350,210 460,245" class="path-refracted" marker-end="url(#arrowhead)"/>
+            <text x="300" y="225" fill="#ef4444" font-size="10" text-anchor="middle">Refracted light bends</text>
+
+            <path d="M 50,280 Q 300,220 550,280 L 550,320 L 50,320 Z" class="earth-surface"/>
+            
+            <circle cx="465" cy="246" r="6" fill="#18181b" stroke="#f4f4f5" stroke-width="2"/>
+            <text x="465" y="265" fill="#10b981" font-size="12" text-anchor="middle" font-weight="bold">Observer</text>
+
+            <g id="grp-star">
+              <use href="#star-shape" x="160" y="170" class="star-apparent" id="star-apparent-shape" />
+              <text id="star-text" x="160" y="145" fill="#fde047" font-size="12" text-anchor="middle" font-weight="600" style="opacity: 0;">Apparent Star</text>
+            </g>
+
+          </svg>
+        </div>
+
+        <div class="info-box" id="info-box">
+          <!-- Text content injected here dynamically -->
+        </div>
+
+      </article>
+      
+      <section class="quiz-section" id="quiz-section">
+        <div class="quiz-header">
+          <div style="display: flex; align-items: center;">
+            <div class="quiz-stars" id="quiz-stars">
+              <span>★</span><span>★</span><span>★</span>
+            </div>
+            <span class="quiz-title" id="quiz-title-text">Knowledge Check</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--zinc-400);" id="quiz-lock-text">Unlock by viewing all tabs</span>
+          <button class="utility-btn" id="next-q-btn" onclick="nextQuestion()" style="display: none; padding: 0.25rem 0.75rem;">Next Question ➔</button>
+        </div>
+        <div class="quiz-grid" id="quiz-grid"></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+  const db = [
+    {
+      id: "concept", theme: "concept",
+      title: "Core Concept", punjabi: "ਮੂਲ ਧਾਰਨਾ",
+      ankiFront: "What causes atmospheric refraction?",
+      ankiBack: "Light from the Sun and stars bends as it passes through layers of air of continuously changing density in Earth's atmosphere.",
+      desc: "Light from the Sun and stars <strong>bends</strong> as it passes through layers of air of continuously changing <span class='glossary-term' data-tooltip='Mass per unit volume. Colder air is denser than warmer air.'>density</span>. The lower atmosphere is <span class='glossary-term' data-tooltip='Causing light to bend more due to a higher refractive index.'>optically denser</span> than the upper atmosphere.",
+      svgState: { apparentOpacity: 0, apparentRy: 28, apparentCy: 190, mode: "sun", zoom: 1, origin: "center center" }
+    },
+    {
+      id: "sunrise", theme: "sunrise",
+      title: "Advance Sunrise", punjabi: "ਅਗਾਊਂ ਸੂਰਜ ਚੜ੍ਹਨਾ",
+      ankiFront: "What is the time difference between actual sunrise and apparent sunrise?",
+      ankiBack: "About 2 minutes, due to atmospheric refraction.",
+      desc: "<strong>Advance sunrise & delayed sunset:</strong> we see the Sun about <strong>2 minutes before actual sunrise</strong> and 2 minutes after actual sunset because of atmospheric <span class='glossary-term' data-tooltip='The bending of light as it passes from one transparent medium to another.'>refraction</span>.",
+      svgState: { apparentOpacity: 1, apparentRy: 28, apparentCy: 190, mode: "sun", zoom: 1.2, origin: "20% 70%" }
+    },
+    {
+      id: "position", theme: "position",
+      title: "Apparent Position", punjabi: "ਸਪੱਸ਼ਟ ਸਥਿਤੀ",
+      ankiFront: "How does the apparent position of the Sun compare to its true position?",
+      ankiBack: "The apparent position is slightly higher than its true position.",
+      desc: "Because the refracted light enters the observer's eye from a higher angle, the <strong>apparent position of the Sun is slightly higher</strong> than its true position.",
+      svgState: { apparentOpacity: 1, apparentRy: 28, apparentCy: 170, mode: "sun", zoom: 1.1, origin: "center center" } 
+    },
+    {
+      id: "oval", theme: "oval",
+      title: "Oval Sun Effect", punjabi: "ਅੰਡਾਕਾਰ ਸੂਰਜ",
+      ankiFront: "Why does the Sun appear oval (flattened) at sunrise and sunset?",
+      ankiBack: "Because the bottom edge of the Sun is refracted more than the top edge by the atmosphere.",
+      desc: "<strong>Oval Sun:</strong> the Sun appears <strong>flattened (oval)</strong> at sunrise and sunset. This happens because rays from the bottom edge are bent more than rays from the top edge.",
+      svgState: { apparentOpacity: 1, apparentRy: 20, apparentCy: 190, mode: "sun", zoom: 1.4, origin: "20% 70%" } 
+    },
+    {
+      id: "stars", theme: "sunrise",
+      title: "Twinkling of Stars", punjabi: "ਤਾਰਿਆਂ ਦਾ ਟਿਮਟਿਮਾਉਣਾ",
+      ankiFront: "Why do stars twinkle but planets do not?",
+      ankiBack: "Stars are point sources of light; physical changes in the atmosphere cause continuous changes in refraction, making their light flicker.",
+      desc: "<strong>Twinkling Stars:</strong> Stars are very distant and act as point sources of light. Physical conditions of the earth's atmosphere are not stationary, so the apparent position of the star fluctuates and the amount of light entering the eye flickers.",
+      svgState: { apparentOpacity: 0, apparentRy: 28, apparentCy: 170, mode: "star", zoom: 1, origin: "center center" } 
+    }
+  ];
+
+  const state = { 
+    activeId: db[0].id, 
+    viewed: new Set(JSON.parse(localStorage.getItem('bolo_refraction_viewed')) || [db[0].id]), 
+    quizUnlocked: localStorage.getItem('bolo_refraction_unlocked') === 'true'
+  };
+  
+  // DOM References
+  const appEl = document.getElementById('app');
+  const navEl = document.getElementById('nav-controls');
+  const infoBox = document.getElementById('info-box');
+  const quizSection = document.getElementById('quiz-section');
+  const quizGrid = document.getElementById('quiz-grid');
+  
+  // SVG Elements
+  const grpApparent = document.getElementById('grp-apparent');
+  const sunApparentShape = document.getElementById('sun-apparent-shape');
+  const sunActualShape = document.getElementById('sun-actual-shape');
+  const pathApparent = document.getElementById('path-apparent');
+  const starApparentShape = document.getElementById('star-apparent-shape');
+  const starActualShape = document.getElementById('star-actual-shape');
+  const starText = document.getElementById('star-text');
+  const svgCanvas = document.getElementById('refraction-diagram');
+
+  // Canvas context for Confetti
+  const confettiCanvas = document.getElementById('confetti-canvas');
+  const ctx = confettiCanvas.getContext('2d');
+
+  let idleTimer;
+  let currentQuestionAttempts = 0;
+
+  const quizPool = [
+    { question: "What causes atmospheric refraction?", options: [{text: "Changing air density", correct: true}, {text: "Water vapor", correct: false}, {text: "Earth's magnetic field", correct: false}, {text: "Dust scattering", correct: false}] },
+    { question: "How much earlier do we see the sun before actual sunrise?", options: [{text: "2 minutes", correct: true}, {text: "5 minutes", correct: false}, {text: "10 seconds", correct: false}, {text: "No time difference", correct: false}] },
+    { question: "Why does the Sun appear oval at sunrise?", options: [{text: "Unequal bending of top and bottom edges", correct: true}, {text: "Earth's rotation speed", correct: false}, {text: "The sun actually changes shape", correct: false}, {text: "Due to solar winds", correct: false}] },
+    { question: "Why do stars twinkle?", options: [{text: "Changing refractive index of atmosphere", correct: true}, {text: "They emit light intermittently", correct: false}, {text: "They are covered by clouds", correct: false}, {text: "Distance from the earth changes", correct: false}] }
+  ];
+  let currentQuizIndex = 0;
+
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  function playTone(freq, type, duration) {
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+    oscillator.type = type;
+    oscillator.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    oscillator.start();
+    oscillator.stop(audioCtx.currentTime + duration);
+  }
+
+  let confetti = [];
+  function fireConfetti() {
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+    for (let i = 0; i < 100; i++) {
+      confetti.push({
+        x: confettiCanvas.width / 2,
+        y: confettiCanvas.height / 2 + 100,
+        r: Math.random() * 6 + 2,
+        dx: Math.random() * 10 - 5,
+        dy: Math.random() * -10 - 5,
+        color: `hsl(${Math.random() * 360}, 100%, 50%)`
+      });
+    }
+    animateConfetti();
+  }
+
+  function animateConfetti() {
+    requestAnimationFrame(animateConfetti);
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    confetti.forEach((p, index) => {
+      p.x += p.dx;
+      p.y += p.dy;
+      p.dy += 0.2; 
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.color;
+      ctx.fill();
+      if (p.y > confettiCanvas.height) confetti.splice(index, 1);
+    });
+  }
+
+  function init() {
+    renderNav();
+    renderView();
+    setupQuiz();
+    setupKeyboardNav();
+    setupSwipeGestures();
+    resetIdleTimer();
+    
+    if (localStorage.getItem('bolo_refraction_theme') === 'light') {
+      window.toggleTheme(true);
+    }
+  }
+
+  function setupSwipeGestures() {
+    const viewport = document.getElementById('viewport');
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    viewport.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    viewport.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, {passive: true});
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const activeIdx = db.findIndex(d => d.id === state.activeId);
+      
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swiped Left -> Next
+        const nextIdx = (activeIdx + 1) % db.length;
+        navigate(db[nextIdx].id);
+      }
+      
+      if (touchEndX > touchStartX + swipeThreshold) {
+        // Swiped Right -> Previous
+        const prevIdx = (activeIdx - 1 + db.length) % db.length;
+        navigate(db[prevIdx].id);
+      }
+    }
+  }
+
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    document.querySelectorAll('.btn-nav').forEach(btn => btn.classList.remove('pulse-hint'));
+    
+    if (state.viewed.size < db.length) {
+      idleTimer = setTimeout(() => {
+        const unviewed = db.find(item => !state.viewed.has(item.id));
+        if (unviewed) {
+          const btn = document.querySelector(`.btn-nav[onclick="navigate('${unviewed.id}')"]`);
+          if (btn) btn.classList.add('pulse-hint');
+        }
+      }, 8000);
+    }
+  }
+
+  function setupKeyboardNav() {
+    navEl.addEventListener('keydown', (e) => {
+      const activeIdx = db.findIndex(d => d.id === state.activeId);
+      let nextIdx = activeIdx;
+      
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        nextIdx = (activeIdx + 1) % db.length;
+        e.preventDefault();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        nextIdx = (activeIdx - 1 + db.length) % db.length;
+        e.preventDefault();
+      }
+
+      if (nextIdx !== activeIdx) {
+        const nextId = db[nextIdx].id;
+        navigate(nextId);
+        document.querySelector(`.btn-nav[onclick="navigate('${nextId}')"]`).focus();
+      }
+    });
+  }
+
+  function renderNav() {
+    navEl.innerHTML = db.map(item => `
+      <button class="btn-nav ${state.viewed.has(item.id) ? 'viewed' : ''}" 
+              role="tab" 
+              aria-selected="${state.activeId === item.id}" 
+              id="tab-${item.id}"
+              aria-controls="viewport"
+              onclick="navigate('${item.id}')">
+        <div class="nav-text">
+          <strong>${item.title}</strong>
+          <span>${item.punjabi}</span>
+        </div>
+        <span class="check-icon">✓</span>
+      </button>
+    `).join('');
+
+    // Update Module Progress Bar
+    const progressPercent = Math.round((state.viewed.size / db.length) * 100);
+    document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+    document.getElementById('progress-percentage').innerText = `${progressPercent}%`;
+  }
+
+  function renderView() {
+    const data = db.find(d => d.id === state.activeId);
+    
+    appEl.style.setProperty('--current-accent', `var(--theme-${data.theme})`);
+    infoBox.innerHTML = `<p class="bullet-note">${data.desc}</p>`;
+
+    // Toggle Sun vs Star Mode Visibility
+    if (data.svgState.mode === "star") {
+      sunActualShape.style.opacity = 0;
+      starActualShape.style.opacity = 1;
+      starApparentShape.classList.add('active');
+      starText.style.opacity = 1;
+    } else {
+      sunActualShape.style.opacity = 1;
+      starActualShape.style.opacity = 0;
+      starApparentShape.classList.remove('active');
+      starText.style.opacity = 0;
+    }
+
+    // Animate Core SVG Properties
+    grpApparent.style.opacity = data.svgState.apparentOpacity;
+    pathApparent.style.opacity = data.svgState.apparentOpacity;
+    sunApparentShape.setAttribute('ry', data.svgState.apparentRy);
+    sunApparentShape.setAttribute('cy', data.svgState.apparentCy);
+    
+    if(data.svgState.apparentCy === 170) {
+        pathApparent.setAttribute('d', 'M 460,245 L 160,170');
+    } else {
+        pathApparent.setAttribute('d', 'M 460,245 L 160,190');
+    }
+
+    svgCanvas.style.transformOrigin = data.svgState.origin;
+    svgCanvas.style.transform = `scale(${data.svgState.zoom})`;
+
+    // Progression Logic unlocking Quiz
+    if (state.viewed.size === db.length && !state.quizUnlocked) {
+      state.quizUnlocked = true;
+      localStorage.setItem('bolo_refraction_unlocked', 'true');
+    }
+    
+    if(state.quizUnlocked) {
+      quizSection.classList.add('unlocked');
+      document.getElementById('quiz-lock-text').style.display = 'none';
+    }
+  }
+
+  function setupQuiz() {
+    const q = quizPool[currentQuizIndex];
+    document.getElementById('quiz-title-text').innerText = `${q.question}`;
+    document.getElementById('next-q-btn').style.display = 'none';
+    currentQuestionAttempts = 0;
+    updateStarsUI();
+    
+    const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+    
+    quizGrid.innerHTML = shuffledOptions.map((opt) => `
+      <button class="quiz-btn" onclick="handleQuiz(this, ${opt.correct})">${opt.text}</button>
+    `).join('');
+  }
+
+  window.nextQuestion = () => {
+    currentQuizIndex = (currentQuizIndex + 1) % quizPool.length;
+    setupQuiz();
+  };
+
+  window.toggleTheme = (isInit = false) => {
+    const body = document.body;
+    const btn = document.getElementById('theme-btn');
+    
+    if(!isInit) body.classList.toggle('light-mode');
+    else if(!body.classList.contains('light-mode')) body.classList.add('light-mode');
+    
+    if (body.classList.contains('light-mode')) {
+        btn.innerHTML = '🌙 Dark Mode';
+        localStorage.setItem('bolo_refraction_theme', 'light');
+    } else {
+        btn.innerHTML = '☀️ Light Mode';
+        localStorage.setItem('bolo_refraction_theme', 'dark');
+    }
+  };
+
+  window.navigate = (id) => {
+    state.activeId = id;
+    state.viewed.add(id);
+    localStorage.setItem('bolo_refraction_viewed', JSON.stringify(Array.from(state.viewed)));
+    renderNav();
+    renderView();
+    resetIdleTimer();
+  };
+
+  function updateStarsUI() {
+    const stars = document.getElementById('quiz-stars').querySelectorAll('span');
+    stars.forEach((star, index) => {
+      if (index >= 3 - currentQuestionAttempts) {
+        star.classList.add('dim');
+      } else {
+        star.classList.remove('dim');
+      }
+    });
+  }
+
+  window.handleQuiz = (btn, isCorrect) => {
+    if (isCorrect) {
+      btn.classList.add('correct');
+      if(navigator.vibrate) navigator.vibrate(100);
+      playTone(600, 'sine', 0.1);
+      setTimeout(() => playTone(800, 'sine', 0.2), 100);
+      
+      if (currentQuestionAttempts === 0) fireConfetti();
+      
+      Array.from(quizGrid.children).forEach(b => { 
+        if (b !== btn) {
+            b.style.opacity = '0.3'; 
+            b.style.pointerEvents = 'none'; 
+        }
+      });
+      document.getElementById('next-q-btn').style.display = 'inline-flex';
+    } else {
+      btn.classList.add('wrong');
+      btn.style.pointerEvents = 'none';
+      if(navigator.vibrate) navigator.vibrate([50, 50, 50]);
+      playTone(300, 'square', 0.2);
+      
+      if (currentQuestionAttempts < 3) {
+        currentQuestionAttempts++;
+        updateStarsUI();
+      }
+    }
+  };
+
+  window.exportToAnki = async () => {
+    const data = db.find(d => d.id === state.activeId);
+    const text = `Front: ${data.ankiFront}\nBack: ${data.ankiBack}\nTags: Class10, Science, Physics, PSEB`;
+    
+    try {
+      await navigator.clipboard.writeText(text);
+      alert(`Copied "${data.title}" flashcard to clipboard ready for Anki!`);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+      alert("Couldn't copy to clipboard. Please check your browser permissions.");
+    }
+  };
+
+  init();
+</script>
+</body>
+</html>

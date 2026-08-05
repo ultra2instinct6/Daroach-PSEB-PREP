@@ -1,0 +1,28 @@
+{
+  "tf-ch6-s1": {"en": "The tiny gap between two neurons across which signals pass is called a synapse.", "pa": "ਦੋ ਨਿਊਰਾਨਾਂ ਵਿਚਕਾਰਲੀ ਛੋਟੀ ਵਿੱਥ, ਜਿਸ ਰਾਹੀਂ ਸੰਕੇਤ ਲੰਘਦੇ ਹਨ, ਸਿਨੈਪਸ ਕਹਾਉਂਦੀ ਹੈ।"},
+  "tf-ch6-s2": {"en": "Reflex actions are controlled by the spinal cord for a quick response, not by the forebrain.", "pa": "ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆਵਾਂ ਤੇਜ਼ ਪ੍ਰਤੀਕਿਰਿਆ ਲਈ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ (ਸੁਖਮਨਾ) ਦੁਆਰਾ ਨਿਯੰਤਰਿਤ ਹੁੰਦੀਆਂ ਹਨ, ਅਗਲੇ ਦਿਮਾਗ ਦੁਆਰਾ ਨਹੀਂ।"},
+  "tf-ch6-s3": {"en": "Cytokinins are plant hormones that promote rapid cell division.", "pa": "ਸਾਈਟੋਕਾਈਨਿਨ ਪੌਦਿਆਂ ਦੇ ਹਾਰਮੋਨ ਹਨ ਜੋ ਤੇਜ਼ ਕੋਸ਼ਿਕਾ ਵੰਡ ਨੂੰ ਵਧਾਉਂਦੇ ਹਨ।"},
+  "tf-ch6-s4": {"en": "Nastic movements are non-directional — they do not depend on the direction of the stimulus.", "pa": "ਨੈਸਟਿਕ ਗਤੀਆਂ ਦਿਸ਼ਾ-ਰਹਿਤ ਹੁੰਦੀਆਂ ਹਨ — ਉਹ ਉਦੀਪਨ ਦੀ ਦਿਸ਼ਾ 'ਤੇ ਨਿਰਭਰ ਨਹੀਂ ਹੁੰਦੀਆਂ।"},
+  "tf-ch6-s5": {"en": "Iodine is essential for making the thyroid hormone thyroxine.", "pa": "ਆਇਓਡੀਨ ਥਾਇਰਾਇਡ ਹਾਰਮੋਨ ਥਾਇਰੋਕਸਿਨ ਬਣਾਉਣ ਲਈ ਜ਼ਰੂਰੀ ਹੈ।"},
+  "tf-ch6-s6": {"en": "The spinal cord controls reflex actions so the body reacts quickly.", "pa": "ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਪ੍ਰਤੀਵਰਤੀ ਕਿਰਿਆਵਾਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦੀ ਹੈ ਤਾਂ ਜੋ ਸਰੀਰ ਤੁਰੰਤ ਪ੍ਰਤੀਕਿਰਿਆ ਕਰੇ।"},
+  "tf-ch6-s7": {"en": "Adrenaline is secreted by the adrenal glands, not the pancreas.", "pa": "ਐਡ੍ਰੇਨਾਲਿਨ ਐਡ੍ਰੀਨਲ ਗ੍ਰੰਥੀਆਂ ਦੁਆਰਾ ਛੱਡਿਆ ਜਾਂਦਾ ਹੈ, ਪੈਨਕ੍ਰੀਆਸ ਦੁਆਰਾ ਨਹੀਂ।"},
+  "tf-ch6-s8": {"en": "The cerebellum controls balance and posture; thinking and memory are handled by the cerebrum.", "pa": "ਸੇਰੀਬੈਲਮ ਸੰਤੁਲਨ ਅਤੇ ਮੁਦਰਾ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦਾ ਹੈ; ਸੋਚਣਾ ਅਤੇ ਯਾਦਦਾਸ਼ਤ ਸੇਰੀਬ੍ਰਮ ਸੰਭਾਲਦਾ ਹੈ।"},
+
+  "sib-ch6-s1": {"en": "Chemicals called neurotransmitters carry the signal across the synapse.", "pa": "ਨਿਊਰੋਟ੍ਰਾਂਸਮੀਟਰ ਨਾਮੀ ਰਸਾਇਣ ਸਿਨੈਪਸ ਦੇ ਪਾਰ ਸੰਕੇਤ ਲੈ ਜਾਂਦੇ ਹਨ।"},
+  "sib-ch6-s2": {"en": "The cerebrum (forebrain) controls voluntary actions like thinking.", "pa": "ਸੇਰੀਬ੍ਰਮ (ਅਗਲਾ ਦਿਮਾਗ) ਸੋਚਣ ਵਰਗੀਆਂ ਇੱਛੁਕ ਕਿਰਿਆਵਾਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦਾ ਹੈ।"},
+  "sib-ch6-s3": {"en": "Auxin causes shoots to bend towards light.", "pa": "ਆਕਸਿਨ ਤਣਿਆਂ ਨੂੰ ਰੌਸ਼ਨੀ ਵੱਲ ਝੁਕਾਉਂਦਾ ਹੈ।"},
+  "sib-ch6-s4": {"en": "Abscisic acid inhibits growth and causes leaves to fall (it is a stress hormone).", "pa": "ਐਬਸਿਸਿਕ ਐਸਿਡ ਵਾਧੇ ਨੂੰ ਰੋਕਦਾ ਹੈ ਅਤੇ ਪੱਤਿਆਂ ਨੂੰ ਝੜਾਉਂਦਾ ਹੈ (ਇਹ ਤਣਾਅ ਹਾਰਮੋਨ ਹੈ)।"},
+  "sib-ch6-s5": {"en": "The cerebellum controls balance and posture.", "pa": "ਸੇਰੀਬੈਲਮ ਸੰਤੁਲਨ ਅਤੇ ਸਰੀਰ ਦੀ ਮੁਦਰਾ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦਾ ਹੈ।"},
+  "sib-ch6-s6": {"en": "The pancreas secretes the hormone insulin.", "pa": "ਪੈਨਕ੍ਰੀਆਸ ਹਾਰਮੋਨ ਇਨਸੁਲਿਨ ਛੱਡਦਾ ਹੈ।"},
+  "sib-ch6-s7": {"en": "Adrenaline prepares the body for a 'fight or flight' response.", "pa": "ਐਡ੍ਰੇਨਾਲਿਨ ਸਰੀਰ ਨੂੰ 'ਲੜੋ ਜਾਂ ਭੱਜੋ' ਪ੍ਰਤੀਕਿਰਿਆ ਲਈ ਤਿਆਰ ਕਰਦਾ ਹੈ।"},
+  "sib-ch6-s8": {"en": "Growth of a plant root towards gravity is called geotropism.", "pa": "ਪੌਦੇ ਦੀ ਜੜ੍ਹ ਦਾ ਗੁਰੂਤਾ ਵੱਲ ਵਾਧਾ ਭੂ-ਅਨੁਵਰਤਨ (geotropism) ਕਹਾਉਂਦਾ ਹੈ।"},
+
+  "mcq-ch6-s1": {"en": "The medulla controls involuntary actions like blood pressure and vomiting.", "pa": "ਮੈਡੁਲਾ ਖ਼ੂਨ ਦਾ ਦਬਾਅ ਅਤੇ ਉਲਟੀ ਵਰਗੀਆਂ ਅਣਇੱਛੁਕ ਕਿਰਿਆਵਾਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦਾ ਹੈ।"},
+  "mcq-ch6-s2": {"en": "Auxin moves to the shady side, making it grow faster so the shoot bends towards the light.", "pa": "ਆਕਸਿਨ ਛਾਂ ਵਾਲੇ ਪਾਸੇ ਜਾਂਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਉਹ ਪਾਸਾ ਤੇਜ਼ ਵਧਦਾ ਹੈ ਅਤੇ ਤਣਾ ਰੌਸ਼ਨੀ ਵੱਲ ਝੁਕ ਜਾਂਦਾ ਹੈ।"},
+  "mcq-ch6-s3": {"en": "Touch-me-not (Mimosa) leaves fold because of rapid changes in the turgor (water) pressure of cells.", "pa": "ਛੂਈ-ਮੂਈ (ਮਿਮੋਸਾ) ਦੇ ਪੱਤੇ ਕੋਸ਼ਿਕਾਵਾਂ ਦੇ ਟਰਗਰ (ਪਾਣੀ) ਦਬਾਅ ਵਿੱਚ ਤੇਜ਼ ਤਬਦੀਲੀ ਕਾਰਨ ਮੁੜ ਜਾਂਦੇ ਹਨ।"},
+  "mcq-ch6-s4": {"en": "A feedback mechanism controls the exact amount of hormone released into the blood.", "pa": "ਇੱਕ ਫੀਡਬੈਕ ਵਿਧੀ ਖ਼ੂਨ ਵਿੱਚ ਛੱਡੇ ਜਾਂਦੇ ਹਾਰਮੋਨ ਦੀ ਸਹੀ ਮਾਤਰਾ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦੀ ਹੈ।"},
+  "mcq-ch6-s5": {"en": "In a reflex arc, the sensory neuron carries the signal from the receptor to the spinal cord.", "pa": "ਪ੍ਰਤੀਵਰਤੀ ਚਾਪ ਵਿੱਚ, ਸੰਵੇਦੀ ਨਿਊਰਾਨ ਸੰਕੇਤ ਨੂੰ ਗ੍ਰਾਹੀ ਤੋਂ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਤੱਕ ਲੈ ਜਾਂਦਾ ਹੈ।"},
+  "mcq-ch6-s6": {"en": "The central nervous system is made up of the brain and the spinal cord.", "pa": "ਕੇਂਦਰੀ ਨਾੜੀ ਤੰਤਰ ਦਿਮਾਗ ਅਤੇ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਤੋਂ ਬਣਿਆ ਹੁੰਦਾ ਹੈ।"},
+  "mcq-ch6-s7": {"en": "A lack of iodine in the diet causes goitre (an enlarged thyroid gland).", "pa": "ਖ਼ੁਰਾਕ ਵਿੱਚ ਆਇਓਡੀਨ ਦੀ ਘਾਟ ਗਲਗੰਡ (goitre) ਦਾ ਕਾਰਨ ਬਣਦੀ ਹੈ।"},
+  "mcq-ch6-s8": {"en": "The folding of touch-me-not leaves is a fast, non-directional (nastic) movement.", "pa": "ਛੂਈ-ਮੂਈ ਦੇ ਪੱਤਿਆਂ ਦਾ ਮੁੜਨਾ ਇੱਕ ਤੇਜ਼, ਦਿਸ਼ਾ-ਰਹਿਤ (ਨੈਸਟਿਕ) ਗਤੀ ਹੈ।"}
+}
