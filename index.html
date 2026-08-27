@@ -47,18 +47,22 @@
     --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
     --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
   }
+  /* CLASSIC = light colorway matching the lecture decks (legacy palette):
+     predominant white with blue #0b56c5 / orange #f26a21 accents.
+     Orb vars (--aura-base, --core-reset-*) are NOT overridden — the energy
+     orb keeps the exact same glow in both themes. */
   body[data-theme="CLASSIC"] {
-    --text-dim: #a9b4c8;
-    --panel: rgba(16, 18, 24, 0.95);
-    --aura-chem: #4ec9ff;
-    --aura-bio: #7edbff;
-    --aura-phy: #f4f8ff;
-    --aura-env: #ff9f1c;
-    --aura-base: radial-gradient(circle at center, rgba(74, 170, 255, 0.2) 0%, rgba(255, 160, 40, 0.08) 42%, var(--bg-void) 70%);
-    --core-reset-ring: radial-gradient(circle at 50% 50%, rgba(84, 197, 255, 0.33) 0%, rgba(255, 159, 28, 0.18) 34%, rgba(255, 159, 28, 0) 74%);
-    --core-reset-shadow: 0 0 74px rgba(86, 189, 255, 0.42), 0 0 140px rgba(255, 154, 20, 0.2);
-    --hud-icon-color: #ff9f1c;
-    --hud-icon-glow: rgba(255, 159, 28, 0.7);
+    --bg-void: #f8fbff;
+    --text-bold: #182437;
+    --text-dim: #5c6f86;
+    --panel: rgba(255, 255, 255, 0.92);
+    --border: rgba(11, 74, 168, 0.14);
+    --aura-chem: #0b56c5;
+    --aura-bio: #179c65;
+    --aura-phy: #0946a0;
+    --aura-env: #f26a21;
+    --hud-icon-color: #f26a21;
+    --hud-icon-glow: rgba(242, 106, 33, 0.35);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -375,6 +379,61 @@
   .toast-notify.show { opacity: 1; transform: translateY(0); }
   .particle { position: absolute; z-index: 99; width: 4px; height: 4px; border-radius: 50%; pointer-events: none; opacity: 0; }
 
+  /* ---------- CLASSIC (light) colorway — matches lecture deck legacy palette ---------- */
+  html:has(body[data-theme="CLASSIC"]) { background: #f8fbff; }
+  body[data-theme="CLASSIC"] { background: linear-gradient(145deg, #f8fbff 0%, #eef4ff 100%); }
+  body[data-theme="CLASSIC"]::after { background: radial-gradient(circle at center, transparent 34%, rgba(11, 74, 168, 0.06) 100%); }
+  body[data-theme="CLASSIC"] .neural-mesh { background-image: radial-gradient(rgba(11, 86, 197, 0.9) 1px, transparent 1px); }
+  body[data-theme="CLASSIC"] .header-logo { background: linear-gradient(135deg, #182437 0%, #0b56c5 100%); -webkit-background-clip: text; background-clip: text; }
+  body[data-theme="CLASSIC"] .domain-router { background: rgba(255, 255, 255, 0.88); box-shadow: 0 10px 30px rgba(16, 42, 82, 0.12); }
+  body[data-theme="CLASSIC"] .domain-btn:hover, body[data-theme="CLASSIC"] .domain-btn:focus-visible { color: #0b56c5; }
+  body[data-theme="CLASSIC"] .domain-btn.active { background: rgba(11, 86, 197, 0.1); color: #0b56c5; box-shadow: none; }
+  body[data-theme="CLASSIC"] .header-divider { background: rgba(11, 74, 168, 0.2); }
+  body[data-theme="CLASSIC"] .trust-primary { color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .hud-pill { border-color: rgba(11, 74, 168, 0.16); background: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 20px rgba(16, 42, 82, 0.1); }
+  body[data-theme="CLASSIC"] .hud-pill:hover, body[data-theme="CLASSIC"] .hud-pill:focus-visible { background: #ffffff; border-color: rgba(11, 74, 168, 0.32); }
+  body[data-theme="CLASSIC"] .mode-placeholder { border-color: rgba(11, 74, 168, 0.14); background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(238, 244, 255, 0.97)); box-shadow: 0 22px 64px rgba(16, 42, 82, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.9); }
+  body[data-theme="CLASSIC"] .mode-placeholder-badge { text-shadow: none; }
+  body[data-theme="CLASSIC"] .mode-placeholder-status { color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .mode-placeholder-status::before { background: #f26a21; box-shadow: 0 0 10px rgba(242, 106, 33, 0.55); }
+  body[data-theme="CLASSIC"] .mode-placeholder-cta { color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .shard { border-color: rgba(11, 74, 168, 0.12); box-shadow: 0 22px 54px rgba(16, 42, 82, 0.14), inset 0 1px 1px rgba(255, 255, 255, 0.9); }
+  body[data-theme="CLASSIC"] .shard-anchor.is-targeted .shard { border-color: rgba(11, 74, 168, 0.22); border-top-color: currentColor; background: linear-gradient(180deg, #ffffff 0%, #eef4ff 100%); box-shadow: 0 26px 60px rgba(16, 42, 82, 0.2), 0 0 34px -16px currentColor, inset 0 1px 2px rgba(255, 255, 255, 1); }
+  body[data-theme="CLASSIC"] .shard-anchor.is-targeted .pa-title { text-shadow: none; }
+  body[data-theme="CLASSIC"] .shard-anchor.is-active .shard { background: linear-gradient(180deg, #ffffff 0%, #e8f0fe 100%); box-shadow: 0 30px 70px rgba(16, 42, 82, 0.24), inset 0 2px 4px rgba(255, 255, 255, 1); }
+  body[data-theme="CLASSIC"] .shard-anchor.is-active .pa-title { text-shadow: none; }
+  body[data-theme="CLASSIC"] .svg-progress-container:hover, body[data-theme="CLASSIC"] .svg-progress-container:focus-visible { background: rgba(11, 86, 197, 0.08); }
+  body[data-theme="CLASSIC"] .svg-progress-container.done .prog-text { text-shadow: none; }
+  body[data-theme="CLASSIC"] .prog-ring .bg { stroke: rgba(11, 74, 168, 0.12); }
+  body[data-theme="CLASSIC"] .rune { border-color: rgba(11, 74, 168, 0.1); background: rgba(11, 86, 197, 0.055); }
+  body[data-theme="CLASSIC"] .rune.soon { color: #c2551a; }
+  body[data-theme="CLASSIC"] .btn-prime { border-color: rgba(11, 74, 168, 0.18); background: rgba(11, 86, 197, 0.06); }
+  body[data-theme="CLASSIC"] .btn-prime:hover, body[data-theme="CLASSIC"] .btn-prime:focus-visible { background: rgba(11, 86, 197, 0.12); }
+  body[data-theme="CLASSIC"] .round-trigger { border-color: rgba(11, 74, 168, 0.16); background: rgba(255, 255, 255, 0.9); box-shadow: 0 10px 30px rgba(16, 42, 82, 0.14); }
+  body[data-theme="CLASSIC"] .round-trigger:hover, body[data-theme="CLASSIC"] .round-trigger:focus-visible { background: #ffffff; }
+  body[data-theme="CLASSIC"] .cmd-palette { background: rgba(238, 244, 255, 0.72); }
+  body[data-theme="CLASSIC"] .cmd-box { border-color: rgba(11, 74, 168, 0.16); background: #ffffff; box-shadow: 0 40px 100px rgba(16, 42, 82, 0.28); }
+  body[data-theme="CLASSIC"] .modal-title { border-bottom-color: rgba(11, 74, 168, 0.12); }
+  body[data-theme="CLASSIC"] .cmd-input { border-color: rgba(11, 74, 168, 0.2); background: rgba(11, 86, 197, 0.045); color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .cmd-input:focus { border-color: #0b56c5; }
+  body[data-theme="CLASSIC"] .cmd-input::placeholder { color: var(--text-dim); }
+  body[data-theme="CLASSIC"] .cmd-result { border-color: rgba(11, 74, 168, 0.12); background: rgba(11, 86, 197, 0.04); color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .share-tile { border-color: rgba(11, 74, 168, 0.14); background: rgba(11, 86, 197, 0.04); }
+  body[data-theme="CLASSIC"] .share-tile:hover, body[data-theme="CLASSIC"] .share-tile:focus-visible { background: rgba(11, 86, 197, 0.09); border-color: rgba(11, 74, 168, 0.3); }
+  body[data-theme="CLASSIC"] .share-tile[data-share="system"] { color: #0b56c5 !important; }
+  body[data-theme="CLASSIC"] .toast-notify { border-color: rgba(11, 74, 168, 0.2); background: #ffffff; box-shadow: 0 10px 30px rgba(16, 42, 82, 0.2); }
+  /* Orb gradients are unchanged; only the blend mode flips to normal so the
+     identical layers stay visible over the white background. */
+  body[data-theme="CLASSIC"] .core-ring,
+  body[data-theme="CLASSIC"] .orb-glow,
+  body[data-theme="CLASSIC"] .orb-body,
+  body[data-theme="CLASSIC"] .orb-plasma,
+  body[data-theme="CLASSIC"] .orb-plasma2,
+  body[data-theme="CLASSIC"] .orb-hot,
+  body[data-theme="CLASSIC"] .orb-flare,
+  body[data-theme="CLASSIC"] .core-val,
+  body[data-theme="CLASSIC"] .core-val::before { mix-blend-mode: normal; }
+
   @media (max-width: 1200px) {
     .web-utility-header { flex-direction: column; gap: 20px; }
     .header-left { flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -502,9 +561,9 @@
       modeAccents: { LECTURES: "#00e5ff", MCQ: "#00e5ff", FLASHCARDS: "#2ecc71", TYPING: "#b026ff" }
     },
     CLASSIC: {
-      label: "Blue/Orange",
-      auras: { chem: "#4ec9ff", bio: "#7edbff", phy: "#f4f8ff", env: "#ff9f1c" },
-      modeAccents: { LECTURES: "#4ec9ff", MCQ: "#4ec9ff", FLASHCARDS: "#ff9f1c", TYPING: "#f4f8ff" }
+      label: "Classic",
+      auras: { chem: "#0b56c5", bio: "#179c65", phy: "#083b85", env: "#f26a21" },
+      modeAccents: { LECTURES: "#0b56c5", MCQ: "#0b56c5", FLASHCARDS: "#f26a21", TYPING: "#179c65" }
     }
   };
   let auras = { ...THEMES.NEON.auras };
@@ -575,6 +634,8 @@
     refreshModeContent();
     setThemeLabel();
     writeJson(THEME_KEY, { theme: currentTheme });
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) themeColorMeta.setAttribute("content", currentTheme === "CLASSIC" ? "#f8fbff" : "#000000");
     if (announce) showToast("Theme: " + THEMES[currentTheme].label);
     if (currentMode === "LECTURES" && currentSubject === "SCIENCE") {
       isPlaceholderView = false;
