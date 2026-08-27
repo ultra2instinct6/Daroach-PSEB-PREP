@@ -19,6 +19,12 @@
     --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
     --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
   }
+  body[data-theme="CLASSIC"] {
+    --text-dim: #a9b4c8;
+    --panel: rgba(16, 18, 24, 0.95);
+    --green: #4ec9ff;
+    --amber: #ff9f1c;
+  }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html { background: var(--bg-void); }
@@ -146,6 +152,22 @@
     white-space: nowrap;
   }
   .score-pill strong { color: var(--accent); font-variant-numeric: tabular-nums; transition: color 0.4s; }
+  .theme-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .theme-pill:hover { color: #fff; border-color: color-mix(in srgb, var(--accent) 55%, transparent); transform: translateY(-1px); }
 
   /* ---------- Stage ---------- */
   .stage {
@@ -339,6 +361,7 @@
     .mcq-header { gap: 10px 12px; }
     .router-btn { padding: 7px 10px; font-size: 0.54rem; }
     .score-pill { padding: 7px 11px; font-size: 0.56rem; }
+    .theme-pill { padding: 7px 9px; font-size: 0.53rem; }
     .strike-btn { width: 36px; }
     .action-bar { flex-direction: column-reverse; align-items: stretch; }
     .btn-next { justify-content: center; }
@@ -360,6 +383,7 @@
     <button class="router-btn" type="button" data-subject="ENGLISH">English</button>
   </nav>
   <span class="header-spacer"></span>
+  <button class="theme-pill" type="button" data-toggle-theme id="themePill" aria-label="Switch color theme">Theme: Neon</button>
   <span class="score-pill">Score <strong id="scoreVal">0 / 0</strong></span>
 </header>
 
@@ -610,8 +634,20 @@
 
   /* ---------------- State ---------------- */
   const STORE_KEY = "bolo_mcq_v1";
+  const THEME_KEY = "bolo.theme.v1";
+  const THEMES = {
+    NEON: {
+      label: "Neon",
+      subjectAccents: { SCIENCE: "#00e5ff", MATH: "#2ecc71", ENGLISH: "#b026ff" }
+    },
+    CLASSIC: {
+      label: "Blue/Orange",
+      subjectAccents: { SCIENCE: "#4ec9ff", MATH: "#ff9f1c", ENGLISH: "#f4f8ff" }
+    }
+  };
   let subject = "SCIENCE";
   let lang = "pa";
+  let theme = "NEON";
   let qIndex = 0;
   let answers = {};   // { [qid]: pickedIndex }
   let struck = {};    // { [qid]: { [optIndex]: true } }
@@ -622,6 +658,10 @@
     if (saved.lang === "en" || saved.lang === "pa") lang = saved.lang;
     if (BANKS[saved.subject]) subject = saved.subject;
   } catch (e) {}
+  try {
+    const savedTheme = JSON.parse(localStorage.getItem(THEME_KEY)) || {};
+    if (THEMES[savedTheme.theme]) theme = savedTheme.theme;
+  } catch (e) {}
 
   const qCard = document.getElementById("qCard");
   const progressTrack = document.getElementById("progressTrack");
@@ -629,17 +669,34 @@
   const logoDot = document.getElementById("logoDot");
   const auraBleed = document.getElementById("auraBleed");
   const announcer = document.getElementById("ariaAnnouncer");
+  const themePill = document.getElementById("themePill");
 
   const bank = () => BANKS[subject];
   const questions = () => bank().questions;
   const q = () => questions()[qIndex];
   const primary = obj => obj[lang];
   const secondary = obj => obj[lang === "pa" ? "en" : "pa"];
+  const activeAccent = () => THEMES[theme].subjectAccents[subject] || "#00e5ff";
 
   function persist() { try { localStorage.setItem(STORE_KEY, JSON.stringify({ subject, lang })); } catch (e) {} }
+  function persistTheme() { try { localStorage.setItem(THEME_KEY, JSON.stringify({ theme })); } catch (e) {} }
+  function updateThemePill() {
+    if (!themePill) return;
+    const label = THEMES[theme].label;
+    themePill.textContent = "Theme: " + label;
+    themePill.setAttribute("aria-label", "Switch color theme. Current: " + label);
+  }
+  function applyTheme(themeName, announce) {
+    theme = THEMES[themeName] ? themeName : "NEON";
+    document.body.dataset.theme = theme;
+    updateThemePill();
+    persistTheme();
+    if (announce) announcer.textContent = "Theme " + THEMES[theme].label;
+    render();
+  }
 
   function applyAccent() {
-    const accent = bank().accent;
+    const accent = activeAccent();
     document.documentElement.style.setProperty("--accent", accent);
     auraBleed.style.background = "radial-gradient(ellipse at center, " + accent + "22 0%, " + accent + "0d 40%, transparent 72%)";
   }
@@ -777,6 +834,13 @@
   }
 
   document.body.addEventListener("click", e => {
+    const themeBtn = e.target.closest("[data-toggle-theme]");
+    if (themeBtn) {
+      const nextTheme = theme === "NEON" ? "CLASSIC" : "NEON";
+      applyTheme(nextTheme, true);
+      return;
+    }
+
     const subjBtn = e.target.closest("[data-subject]");
     if (subjBtn) { setSubject(subjBtn.dataset.subject); return; }
 
@@ -841,7 +905,7 @@
   });
 
   document.querySelectorAll("[data-subject]").forEach(b => b.classList.toggle("active", b.dataset.subject === subject));
-  render();
+  applyTheme(theme, false);
 })();
 </script>
 </body>

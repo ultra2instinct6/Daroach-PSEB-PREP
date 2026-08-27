@@ -37,10 +37,28 @@
     --aura-bio: #2ecc71;
     --aura-phy: #b026ff;
     --aura-env: #ffaa00;
+    --aura-base: radial-gradient(circle at center, rgba(0, 140, 255, 0.13) 0%, rgba(0, 110, 255, 0.05) 30%, var(--bg-void) 62%);
+    --core-reset-ring: radial-gradient(circle at 50% 50%, rgba(70, 205, 255, 0.30) 0%, rgba(0, 150, 255, 0.16) 30%, rgba(0, 115, 255, 0) 72%);
+    --core-reset-shadow: 0 0 70px rgba(0, 160, 255, 0.4), 0 0 130px rgba(0, 130, 255, 0.2);
+    --hud-icon-color: #ffaa00;
+    --hud-icon-glow: rgba(255, 170, 0, 0.7);
     --radius: clamp(160px, min(30vh, 34vw), 350px);
     --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
     --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
     --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
+  }
+  body[data-theme="CLASSIC"] {
+    --text-dim: #a9b4c8;
+    --panel: rgba(16, 18, 24, 0.95);
+    --aura-chem: #4ec9ff;
+    --aura-bio: #7edbff;
+    --aura-phy: #f4f8ff;
+    --aura-env: #ff9f1c;
+    --aura-base: radial-gradient(circle at center, rgba(74, 170, 255, 0.2) 0%, rgba(255, 160, 40, 0.08) 42%, var(--bg-void) 70%);
+    --core-reset-ring: radial-gradient(circle at 50% 50%, rgba(84, 197, 255, 0.33) 0%, rgba(255, 159, 28, 0.18) 34%, rgba(255, 159, 28, 0) 74%);
+    --core-reset-shadow: 0 0 74px rgba(86, 189, 255, 0.42), 0 0 140px rgba(255, 154, 20, 0.2);
+    --hud-icon-color: #ff9f1c;
+    --hud-icon-glow: rgba(255, 159, 28, 0.7);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -99,7 +117,7 @@
     width: 120vw;
     height: 120vh;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle at center, rgba(0, 140, 255, 0.13) 0%, rgba(0, 110, 255, 0.05) 30%, var(--bg-void) 62%);
+    background: var(--aura-base);
     transition: background 1s var(--fluid-curve);
     animation: auraBreathe 10s ease-in-out infinite;
     pointer-events: none;
@@ -202,7 +220,7 @@
     transition: background 0.35s var(--fluid-curve), transform 0.35s var(--fluid-curve), border-color 0.35s var(--fluid-curve);
   }
   .hud-pill:hover, .hud-pill:focus-visible { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15); transform: translateY(-2px); outline: none; }
-  .hud-icon { color: #ffaa00; text-shadow: 0 0 10px rgba(255, 170, 0, 0.7); }
+  .hud-icon { color: var(--hud-icon-color); text-shadow: 0 0 10px var(--hud-icon-glow); }
 
   .arena-wrapper { position: relative; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; perspective: 1500px; opacity: 0; animation: appIgnition 1.2s 0.18s var(--fluid-curve) forwards; }
   .arena { position: relative; width: 100%; height: 100%; box-sizing: border-box; padding-top: clamp(48px, 10vh, 112px); display: flex; align-items: center; justify-content: center; cursor: grab; transform-style: preserve-3d; backface-visibility: hidden; touch-action: none; will-change: transform; transition: opacity 0.5s ease; }
@@ -332,6 +350,8 @@
   .round-trigger { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50%; background: rgba(255, 255, 255, 0.03); color: var(--text-bold); cursor: pointer; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); backdrop-filter: blur(16px); transition: transform 0.3s var(--fluid-curve), background 0.3s var(--fluid-curve); }
   .round-trigger:hover, .round-trigger:focus-visible { transform: scale(1.05); background: rgba(255, 255, 255, 0.06); outline: none; }
   .round-trigger svg { width: 17px; height: 17px; stroke: currentColor; }
+  .round-trigger.theme-trigger { width: auto; min-width: 48px; border-radius: 999px; padding: 0 13px; gap: 7px; }
+  .theme-trigger-label { font-size: 0.55rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-dim); }
 
   .cmd-palette { position: fixed; inset: 0; z-index: 999; display: flex; align-items: flex-start; justify-content: center; padding-top: 15vh; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(30px); opacity: 0; pointer-events: none; transition: opacity 0.5s var(--fluid-curve); }
   .cmd-palette.is-open { opacity: 1; pointer-events: auto; }
@@ -384,6 +404,8 @@
     .en-title { font-size: 0.62rem; }
     .utility-hub { right: 16px; bottom: max(18px, env(safe-area-inset-bottom)); }
     .round-trigger { width: 42px; height: 42px; }
+    .round-trigger.theme-trigger { min-width: 42px; padding: 0 10px; }
+    .theme-trigger-label { display: none; }
     .toast-notify { right: 16px; bottom: max(74px, env(safe-area-inset-bottom)); }
   }
   @media (max-height: 700px) and (min-width: 769px) { :root { --radius: clamp(140px, 27vh, 220px); } .arena { padding-top: clamp(64px, 12vh, 96px); } .web-utility-header { padding-top: max(18px, env(safe-area-inset-top)); } }
@@ -425,6 +447,7 @@
 <div class="utility-hub" aria-label="Dashboard utilities">
   <button class="round-trigger" type="button" data-action="open-search" aria-label="Search chapters"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
   <button class="round-trigger" type="button" data-action="open-share" aria-label="Share platform"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button>
+  <button class="round-trigger theme-trigger" type="button" id="themeTrigger" data-action="toggle-theme" aria-label="Switch color theme"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.4-.9-.9-.9h-1.9a2.2 2.2 0 0 1-2.2-2.2c0-.8.4-1.5 1-1.9l1.5-1c.4-.3.6-.8.4-1.3A9 9 0 0 0 12 3z"></path><circle cx="7.5" cy="12.5" r="1"></circle><circle cx="10" cy="8.5" r="1"></circle></svg><span class="theme-trigger-label" id="themeTriggerLabel">Neon</span></button>
 </div>
 <div class="cmd-palette" id="sharePalette" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
   <div class="cmd-box">
@@ -468,10 +491,23 @@
   const LAST_KEY = "pseb.last.v1";
   const BOOKMARK_KEY = "pseb.bookmarks.v1";
   const STUDY_KEY = "pseb.study.v1";
+  const THEME_KEY = "bolo.theme.v1";
   const punjabiTitles = { 1: "ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ ਅਤੇ ਸਮੀਕਰਨ", 2: "ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", 3: "ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", 4: "ਕਾਰਬਨ ਅਤੇ ਇਸਦੇ ਯੋਗਿਕ", 5: "ਤੱਤਾਂ ਦਾ ਆਵਰਤੀ ਵਰਗੀਕਰਣ", 6: "ਜੀਵਨ ਪ੍ਰਕਿਰਿਆਵਾਂ", 7: "ਨਿਯੰਤਰਣ ਅਤੇ ਤਾਲਮੇਲ", 8: "ਜੀਵ ਕਿਵੇਂ ਪ੍ਰਜਨਨ ਕਰਦੇ ਹਨ?", 9: "ਅਨੁਵੰਸ਼ਿਕਤਾ ਅਤੇ ਵਿਕਾਸ", 10: "ਪ੍ਰਕਾਸ਼: ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ", 11: "ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", 12: "ਬਿਜਲੀ", 13: "ਬਿਜਲੀ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", 14: "ਊਰਜਾ ਦੇ ਸੋਮੇ", 15: "ਸਾਡਾ ਵਾਤਾਵਰਣ", 16: "ਕੁਦਰਤੀ ਸਾਧਨਾਂ ਦਾ ਟਿਕਾਊ ਪ੍ਰਬੰਧ" };
   const subjectType = { chemistry: "chem", biology: "bio", physics: "phy", environment: "env" };
   const subjectPunjabi = { chem: "ਰਸਾਇਣ", bio: "ਜੀਵ ਵਿਗਿਆਨ", phy: "ਭੌਤਿਕ", env: "ਵਾਤਾਵਰਣ" };
-  const auras = { chem: "#00e5ff", bio: "#2ecc71", phy: "#b026ff", env: "#ffaa00" };
+  const THEMES = {
+    NEON: {
+      label: "Neon",
+      auras: { chem: "#00e5ff", bio: "#2ecc71", phy: "#b026ff", env: "#ffaa00" },
+      modeAccents: { LECTURES: "#00e5ff", MCQ: "#00e5ff", FLASHCARDS: "#2ecc71", TYPING: "#b026ff" }
+    },
+    CLASSIC: {
+      label: "Blue/Orange",
+      auras: { chem: "#4ec9ff", bio: "#7edbff", phy: "#f4f8ff", env: "#ff9f1c" },
+      modeAccents: { LECTURES: "#4ec9ff", MCQ: "#4ec9ff", FLASHCARDS: "#ff9f1c", TYPING: "#f4f8ff" }
+    }
+  };
+  let auras = { ...THEMES.NEON.auras };
   const icons = {
     chem: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"></path><path d="M14 9.3V1.99"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><circle cx="12" cy="16" r="1"></circle></svg>',
     bio: '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-4-4-10 0-14 4 4 4 10 0 14z"></path><path d="M12 22V8"></path></svg>',
@@ -491,6 +527,8 @@
   const searchPalette = document.getElementById("searchPalette");
   const cmdInput = document.getElementById("cmdInput");
   const cmdResults = document.getElementById("cmdResults");
+  const themeTrigger = document.getElementById("themeTrigger");
+  const themeTriggerLabel = document.getElementById("themeTriggerLabel");
   const toastEl = document.getElementById("toastNotify");
   const resumeBtn = document.getElementById("resumeBtn");
   const resumeText = document.getElementById("resumeText");
@@ -507,17 +545,46 @@
     MATH: { name: "Math", courseTitle: "Math in Punjabi" },
     ENGLISH: { name: "English", courseTitle: "English in Punjabi" }
   };
-  const modeContent = {
-    LECTURES: { title: "Lectures", message: "Punjabi-first chapter lectures are being prepared.", accent: "#00e5ff" },
-    MCQ: { title: "MCQ Practice", message: "Bilingual Punjabi-English question engine with rationales, strike-outs and instant feedback across Science, Math and English.", accent: "#00e5ff", href: "mcq.html" },
-    FLASHCARDS: { title: "Flashcards", message: "Fast, focused flashcard revision for key concepts, terms and formulas across the syllabus.", accent: "#2ecc71" },
-    TYPING: { title: "Typing Practice", message: "Active-recall typing drills for terminology and written answers, built to work across subjects.", accent: "#b026ff" }
-  };
+  let modeContent = {};
+  let currentTheme = "NEON";
+  function refreshModeContent() {
+    const accents = THEMES[currentTheme].modeAccents;
+    modeContent = {
+      LECTURES: { title: "Lectures", message: "Punjabi-first chapter lectures are being prepared.", accent: accents.LECTURES },
+      MCQ: { title: "MCQ Practice", message: "Bilingual Punjabi-English question engine with rationales, strike-outs and instant feedback across Science, Math and English.", accent: accents.MCQ, href: "mcq.html" },
+      FLASHCARDS: { title: "Flashcards", message: "Fast, focused flashcard revision for key concepts, terms and formulas across the syllabus.", accent: accents.FLASHCARDS },
+      TYPING: { title: "Typing Practice", message: "Active-recall typing drills for terminology and written answers, built to work across subjects.", accent: accents.TYPING }
+    };
+  }
   const syllabus = CHAPTERS.map(ch => ({ id: ch.n, en: ch.title, pa: punjabiTitles[ch.n] || ch.title, type: subjectType[ch.subject] || "chem", slides: ch.slides || 0, file: ch.file || "", math: !!ch.math, placeholder: !!ch.placeholder }));
   const degreePerNode = syllabus.length ? 360 / syllabus.length : 360;
   function setCoreOrb(pct) { const clamped = Math.max(0, Math.min(100, Number.isFinite(pct) ? pct : 0)); coreMass.dataset.progress = String(clamped); coreMass.style.setProperty("--core-scale", (0.6 + clamped / 130).toFixed(3)); }
   function readJson(key) { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; } }
   function writeJson(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {} }
+  function setThemeLabel() {
+    if (!themeTriggerLabel || !themeTrigger) return;
+    const label = THEMES[currentTheme].label;
+    themeTriggerLabel.textContent = label;
+    themeTrigger.setAttribute("aria-label", "Switch color theme. Current: " + label);
+  }
+  function applyTheme(themeName, announce) {
+    const nextTheme = THEMES[themeName] ? themeName : "NEON";
+    currentTheme = nextTheme;
+    document.body.dataset.theme = currentTheme;
+    auras = { ...THEMES[currentTheme].auras };
+    refreshModeContent();
+    setThemeLabel();
+    writeJson(THEME_KEY, { theme: currentTheme });
+    if (announce) showToast("Theme: " + THEMES[currentTheme].label);
+    if (currentMode === "LECTURES" && currentSubject === "SCIENCE") {
+      isPlaceholderView = false;
+      modePlaceholder.hidden = true;
+      initDial();
+      resetCore(false);
+    } else {
+      setView(currentSubject, currentMode);
+    }
+  }
   function readProgress() { return readJson(PROGRESS_KEY); }
   function writeProgress(progress) { writeJson(PROGRESS_KEY, progress); }
   function readBookmarks() { return readJson(BOOKMARK_KEY); }
@@ -562,7 +629,7 @@
   function renderPhysics() { if (isPlaceholderView || dial.innerHTML === "") { isLooping = false; return; } let needsMoreFrames = false; if (!isDragging) { targetAngle += velocity; velocity *= 0.92; if (Math.abs(velocity) < 0.005) velocity = 0; else needsMoreFrames = true; const closestSnap = Math.round(targetAngle / degreePerNode) * degreePerNode; const snapDiff = closestSnap - targetAngle; if (Math.abs(snapDiff) > 0.005) { targetAngle += snapDiff * 0.15; needsMoreFrames = true; } else if (velocity === 0) targetAngle = closestSnap; } else needsMoreFrames = true; const angleDiff = targetAngle - currentAngle; if (Math.abs(angleDiff) > 0.005) { currentAngle += angleDiff * 0.2; needsMoreFrames = true; } else currentAngle = targetAngle; dial.style.transform = "rotate(" + currentAngle + "deg)"; const tilt = Math.max(-10, Math.min(10, velocity * 1.2)); arena.style.transform = "rotateY(" + (-tilt) + "deg) rotateX(" + (Math.abs(tilt) / 4) + "deg)"; const swayX = Math.sin(currentAngle / 34) * 6 + tilt * 0.32; const swayY = Math.cos(currentAngle / 48) * 3 - Math.abs(tilt) * 0.16; orbSpin += Math.abs(velocity) * 3.2 + 0.4; const orbCharge = Math.min(1, Math.abs(velocity) / 9); coreMass.style.setProperty("--core-shift-x", swayX.toFixed(2) + "px"); coreMass.style.setProperty("--core-shift-y", swayY.toFixed(2) + "px"); coreMass.style.setProperty("--orb-spin", orbSpin.toFixed(1) + "deg"); coreMass.style.setProperty("--orb-charge", orbCharge.toFixed(3)); coreRing.style.transform = "translate3d(" + (swayX * 0.3).toFixed(2) + "px," + (swayY * 0.3).toFixed(2) + "px,0)"; const activeIdx = getActiveIndex(); for (let i = 0; i < syllabus.length; i++) { const nodeAngle = i * degreePerNode; const counterRot = String(-(nodeAngle + currentAngle)) + "deg"; let distRaw = Math.abs(((nodeAngle + currentAngle) % 360 + 360) % 360); if (distRaw > 180) distRaw = 360 - distRaw; const easeDepth = Math.pow(Math.min(Math.max(0, distRaw - 15) / 75, 1), 1.4); const sAnchor = document.getElementById("shard-anchor-" + i); if (!sAnchor) continue; const shard = sAnchor.querySelector(".shard"); shard.style.setProperty("--shard-rot", counterRot); if (!isLocked) { const scale = 1 - easeDepth * 0.4; const opacity = 1 - easeDepth * 0.9; const blur = easeDepth * 12; const zIndex = Math.round((1 - easeDepth) * 100); sAnchor.style.opacity = opacity; sAnchor.style.filter = "blur(" + blur + "px)"; sAnchor.style.zIndex = zIndex; shard.style.setProperty("--shard-scale", scale); const dist = Math.min(Math.abs(i - activeIdx), syllabus.length - Math.abs(i - activeIdx)); sAnchor.classList.toggle("is-targeted", dist === 0); } } if (activeIdx !== lastTickIdx && !isLocked) { if (Math.abs(targetAngle - currentAngle) > 1.5 && lastTickIdx !== -1) soundDetent(velocity); lastTickIdx = activeIdx; try { localStorage.setItem("bolo_pseb_idx", String(activeIdx)); } catch (e) {} } if (needsMoreFrames || isDragging || isLocked) requestAnimationFrame(renderPhysics); else isLooping = false; }
   function handleNodeAction(index) { if (isPlaceholderView || !syllabus[index]) return; const active = document.getElementById("shard-anchor-" + index); if (isLocked && active && active.classList.contains("is-active")) resetCore(true); else lockCore(index, false); }
   function lockCore(index, silent) { isLocked = true; targetAngle = -index * degreePerNode; velocity = 0; const chap = syllabus[index]; const color = auras[chap.type] || "#00e5ff"; const pct = pctFor(chap); arena.classList.replace("arena-idle", "arena-locked"); arena.style.transform = "rotateY(0deg) rotateX(0deg)"; document.querySelectorAll(".node-anchor").forEach(a => { a.classList.remove("is-active"); a.style.opacity = ""; a.style.filter = ""; }); document.getElementById("shard-anchor-" + index).classList.add("is-active"); coreRing.style.background = "radial-gradient(circle at 50% 50%, " + color + "48 0%, " + color + "22 32%, " + color + "00 68%)"; coreRing.style.opacity = "1"; coreRing.style.animationDuration = "3s"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + color + "30 0%, var(--bg-void) 80%)"; coreMass.style.borderColor = color; coreMass.style.boxShadow = "0 0 95px " + color + "80, 0 0 160px " + color + "35"; coreVal.textContent = ""; coreLbl.textContent = chap.placeholder ? "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ" : "ਲੈਕਚਰ ਚੁਣੋ"; coreLbl.style.color = color; setCoreOrb(pct); ariaAnnouncer.textContent = "Chapter " + chap.id + ": " + chap.en; if (!silent) soundLock(); wakePhysicsLoop(); }
-  function resetCore(makeSound) { isLocked = false; if (makeSound) soundReset(); arena.classList.replace("arena-locked", "arena-idle"); document.querySelectorAll(".node-anchor.is-active").forEach(a => a.classList.remove("is-active")); coreRing.style.background = "radial-gradient(circle at 50% 50%, rgba(70, 205, 255, 0.30) 0%, rgba(0, 150, 255, 0.16) 30%, rgba(0, 115, 255, 0) 72%)"; coreRing.style.opacity = "0.85"; coreRing.style.animationDuration = "5s"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, rgba(0, 140, 255, 0.13) 0%, rgba(0, 110, 255, 0.05) 30%, var(--bg-void) 62%)"; coreMass.style.borderColor = "transparent"; coreMass.style.boxShadow = "0 0 70px rgba(0, 160, 255, 0.4), 0 0 130px rgba(0, 130, 255, 0.2)"; coreLbl.textContent = "ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ"; coreLbl.style.color = "var(--text-dim)"; setCoreOrb(0); updateGlobalSync(); wakePhysicsLoop(); }
+  function resetCore(makeSound) { isLocked = false; if (makeSound) soundReset(); arena.classList.replace("arena-locked", "arena-idle"); document.querySelectorAll(".node-anchor.is-active").forEach(a => a.classList.remove("is-active")); coreRing.style.background = "var(--core-reset-ring)"; coreRing.style.opacity = "0.85"; coreRing.style.animationDuration = "5s"; document.getElementById("auraBleed").style.background = "var(--aura-base)"; coreMass.style.borderColor = "transparent"; coreMass.style.boxShadow = "var(--core-reset-shadow)"; coreLbl.textContent = "ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ"; coreLbl.style.color = "var(--text-dim)"; setCoreOrb(0); updateGlobalSync(); wakePhysicsLoop(); }
   function openSearchPalette() { renderSearchResults(""); searchPalette.classList.add("is-open"); setTimeout(() => cmdInput.focus(), 40); }
   function closePalettes() { const wasOpen = sharePalette.classList.contains("is-open") || searchPalette.classList.contains("is-open"); sharePalette.classList.remove("is-open"); searchPalette.classList.remove("is-open"); cmdInput.blur(); if (wasOpen) soundClose(); }
   function renderSearchResults(query) { const q = (query || "").trim().toLowerCase(); cmdResults.innerHTML = ""; const matches = syllabus.filter(ch => !q || ch.en.toLowerCase().includes(q) || ch.pa.includes(q) || String(ch.id) === q || ("chapter " + ch.id).includes(q)); matches.forEach(ch => { const btn = document.createElement("button"); btn.type = "button"; btn.className = "cmd-result"; btn.style.color = auras[ch.type]; btn.innerHTML = '<span class="cmd-result-title"><strong>' + ch.pa + '</strong><span>Chapter ' + ch.id + ' · ' + ch.en + '</span></span><span class="cmd-result-meta">' + (ch.placeholder ? 'Soon' : pctFor(ch) + '%') + '</span>'; btn.addEventListener("click", () => { closePalettes(); const idx = syllabus.findIndex(item => item.id === ch.id); targetAngle = -idx * degreePerNode; lockCore(idx, false); }); cmdResults.appendChild(btn); }); if (!matches.length) { const empty = document.createElement("div"); empty.className = "cmd-result"; empty.textContent = "No matching chapters."; cmdResults.appendChild(empty); } }
@@ -570,7 +637,7 @@
   function handleDragStart(x) { if (isLocked || isPlaceholderView) return; initAudio(); isDragging = true; lastX = x; velocity = 0; wakePhysicsLoop(); }
   function handleDragMove(e) { if (!isDragging || isLocked || isPlaceholderView) return; const currentClientX = e.touches ? e.touches[0].clientX : e.clientX; const delta = currentClientX - lastX; const sensitivity = window.innerWidth < 768 ? 1.4 : 0.8; targetAngle += delta * 0.4 * sensitivity; velocity = delta * 0.7 * sensitivity; lastX = currentClientX; wakePhysicsLoop(); }
   function handleDragEnd() { isDragging = false; wakePhysicsLoop(); }
-  document.body.addEventListener("click", e => { initAudio(); const actionBtn = e.target.closest("[data-action]"); if (actionBtn) { if (actionBtn.dataset.action === "open-share") { sharePalette.classList.add("is-open"); soundOpen(); } if (actionBtn.dataset.action === "open-search") { openSearchPalette(); soundOpen(); } return; } const subjectSwitch = e.target.closest("[data-subject]"); if (subjectSwitch) { setView(subjectSwitch.dataset.subject, currentMode); return; } const modeSwitch = e.target.closest("[data-mode]"); if (modeSwitch) { setView(currentSubject, modeSwitch.dataset.mode); return; } const launchBtn = e.target.closest("[data-launch-href]"); if (launchBtn) { gatewayCore.style.background = launchBtn.dataset.launchAccent || "#00e5ff"; document.body.classList.add("gateway-active"); soundGateway(); setTimeout(() => { window.location.href = launchBtn.dataset.launchHref; }, 520); return; } const shareTile = e.target.closest("[data-share]"); if (shareTile) { executeShare(shareTile.dataset.share); return; } if (e.target === sharePalette || e.target === searchPalette) { closePalettes(); return; } const progressTarget = e.target.closest("[data-node-progress]"); if (progressTarget) { const ch = syllabus.find(item => item.id === parseInt(progressTarget.dataset.nodeProgress, 10)); if (ch) toggleComplete(ch, e); return; } const lectureTarget = e.target.closest("[data-open-lecture]"); if (lectureTarget) { const ch = syllabus[parseInt(lectureTarget.dataset.openLecture, 10)]; if (ch) openLecture(ch, e); return; } const nodeSelect = e.target.closest("[data-node-select]"); if (nodeSelect) { handleNodeAction(parseInt(nodeSelect.dataset.nodeSelect, 10)); return; } if (isLocked && e.target === arena && !isPlaceholderView) resetCore(true); });
+  document.body.addEventListener("click", e => { initAudio(); const actionBtn = e.target.closest("[data-action]"); if (actionBtn) { if (actionBtn.dataset.action === "open-share") { sharePalette.classList.add("is-open"); soundOpen(); } if (actionBtn.dataset.action === "open-search") { openSearchPalette(); soundOpen(); } if (actionBtn.dataset.action === "toggle-theme") { const nextTheme = currentTheme === "NEON" ? "CLASSIC" : "NEON"; applyTheme(nextTheme, true); soundOpen(); } return; } const subjectSwitch = e.target.closest("[data-subject]"); if (subjectSwitch) { setView(subjectSwitch.dataset.subject, currentMode); return; } const modeSwitch = e.target.closest("[data-mode]"); if (modeSwitch) { setView(currentSubject, modeSwitch.dataset.mode); return; } const launchBtn = e.target.closest("[data-launch-href]"); if (launchBtn) { gatewayCore.style.background = launchBtn.dataset.launchAccent || "#00e5ff"; document.body.classList.add("gateway-active"); soundGateway(); setTimeout(() => { window.location.href = launchBtn.dataset.launchHref; }, 520); return; } const shareTile = e.target.closest("[data-share]"); if (shareTile) { executeShare(shareTile.dataset.share); return; } if (e.target === sharePalette || e.target === searchPalette) { closePalettes(); return; } const progressTarget = e.target.closest("[data-node-progress]"); if (progressTarget) { const ch = syllabus.find(item => item.id === parseInt(progressTarget.dataset.nodeProgress, 10)); if (ch) toggleComplete(ch, e); return; } const lectureTarget = e.target.closest("[data-open-lecture]"); if (lectureTarget) { const ch = syllabus[parseInt(lectureTarget.dataset.openLecture, 10)]; if (ch) openLecture(ch, e); return; } const nodeSelect = e.target.closest("[data-node-select]"); if (nodeSelect) { handleNodeAction(parseInt(nodeSelect.dataset.nodeSelect, 10)); return; } if (isLocked && e.target === arena && !isPlaceholderView) resetCore(true); });
   document.getElementById("homeReset").addEventListener("click", () => { if (currentSubject !== "SCIENCE" || currentMode !== "LECTURES") setView("SCIENCE", "LECTURES"); else resetCore(true); });
   document.getElementById("streakHud").addEventListener("click", () => showToast("Study streak updates from time spent inside chapter lectures."));
   cmdInput.addEventListener("input", () => renderSearchResults(cmdInput.value));
@@ -599,9 +666,8 @@
   window.addEventListener("mousemove", e => { const x = (e.clientX / window.innerWidth - 0.5) * 20; const y = (e.clientY / window.innerHeight - 0.5) * 20; neuralMesh.style.transform = "translate(" + x + "px, " + y + "px)"; });
   document.addEventListener("keydown", e => { if (e.key === "Escape") { closePalettes(); if (isLocked) resetCore(true); } if (e.key === "/" && !searchPalette.classList.contains("is-open")) { e.preventDefault(); openSearchPalette(); } if (e.target === cmdInput) return; if (!isLocked && !isPlaceholderView) { if (e.key === "ArrowRight") { initAudio(); targetAngle -= degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "ArrowLeft") { initAudio(); targetAngle += degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "Enter") handleNodeAction(getActiveIndex()); } });
   window.addEventListener("resize", wakePhysicsLoop);
-  initDial();
-  updateResume();
-  updateStudyHud();
+  const storedTheme = readJson(THEME_KEY).theme;
+  applyTheme(storedTheme, false);
 </script>
 </body>
 </html>
