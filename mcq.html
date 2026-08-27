@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BOLO.MCQ — PSEB Class 10 Question Engine</title>
+<meta name="description" content="Bilingual Punjabi-English MCQ practice engine for PSEB Class 10 — Science, Math and English.">
+<style>
+  :root {
+    --bg-void: #000000;
+    --text-bold: #ffffff;
+    --text-dim: #8e9bb0;
+    --panel: rgba(18, 18, 22, 0.94);
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #00e5ff;
+    --green: #2ecc71;
+    --red: #ff4d6d;
+    --amber: #ffaa00;
+    --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
+    --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { background: var(--bg-void); }
+  body {
+    min-height: 100vh;
+    background: var(--bg-void);
+    color: var(--text-bold);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, var(--font-gurmukhi);
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -5%;
+    z-index: -3;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.035;
+  }
+  .aura-bleed {
+    position: fixed;
+    top: -20vh;
+    left: 50%;
+    z-index: -2;
+    width: 130vw;
+    height: 90vh;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, rgba(0, 140, 255, 0.14) 0%, rgba(0, 110, 255, 0.05) 40%, transparent 72%);
+    pointer-events: none;
+    transition: background 0.9s var(--fluid-curve);
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 10%, rgba(0, 0, 0, 0.94) 100%);
+  }
+
+  button { border: 0; font: inherit; color: inherit; background: none; cursor: pointer; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+  /* ---------- Header ---------- */
+  .mcq-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 22px;
+    padding: max(18px, env(safe-area-inset-top)) clamp(16px, 4vw, 44px) 16px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.78) 78%, transparent 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  .header-logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    color: var(--text-bold);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .header-logo .dot-mode { color: var(--accent); text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 60%, transparent); transition: color 0.5s var(--fluid-curve), text-shadow 0.5s var(--fluid-curve); }
+  .home-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .home-pill:hover { color: #fff; border-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+
+  .router {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .router-btn {
+    padding: 8px 14px;
+    border-radius: 999px;
+    color: var(--text-dim);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .router-btn:hover { color: #fff; }
+  .router-btn.active { background: rgba(255, 255, 255, 0.1); color: #fff; box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.12); }
+
+  .header-spacer { flex: 1; }
+  .score-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .score-pill strong { color: var(--accent); font-variant-numeric: tabular-nums; transition: color 0.4s; }
+
+  /* ---------- Stage ---------- */
+  .stage {
+    width: min(94vw, 860px);
+    margin: clamp(8px, 2vh, 26px) auto clamp(60px, 8vh, 90px);
+    animation: riseIn 0.7s var(--fluid-curve);
+  }
+  @keyframes riseIn { 0% { opacity: 0; transform: translateY(26px) scale(0.97); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+  .progress-track { display: flex; gap: 5px; margin-bottom: 20px; }
+  .progress-seg { flex: 1; height: 4px; border-radius: 99px; background: rgba(255, 255, 255, 0.08); transition: background 0.45s var(--fluid-curve), box-shadow 0.45s; }
+  .progress-seg.seen-correct { background: var(--green); box-shadow: 0 0 8px color-mix(in srgb, var(--green) 60%, transparent); }
+  .progress-seg.seen-wrong { background: var(--red); box-shadow: 0 0 8px color-mix(in srgb, var(--red) 55%, transparent); }
+  .progress-seg.current { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent); }
+
+  .q-card {
+    position: relative;
+    padding: clamp(20px, 4.5vw, 34px);
+    border: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 26px;
+    background: var(--panel);
+    box-shadow: 0 34px 80px rgba(0, 0, 0, 0.85), 0 0 60px -30px var(--accent), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+    transition: border-color 0.5s var(--fluid-curve), box-shadow 0.5s var(--fluid-curve);
+  }
+  .q-card.swap { animation: riseIn 0.5s var(--fluid-curve); }
+
+  .q-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 18px; }
+  .meta-rune {
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-dim);
+    font-family: var(--font-gurmukhi);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  .meta-rune.hot { border-color: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent); }
+  .lang-flip {
+    margin-left: auto;
+    padding: 7px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-dim);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .lang-flip:hover { color: #fff; border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+
+  .q-prompt {
+    font-family: var(--font-gurmukhi);
+    font-size: clamp(1.04rem, 3.4vw, 1.28rem);
+    font-weight: 700;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .q-prompt-sub {
+    color: var(--text-dim);
+    font-size: clamp(0.8rem, 2.6vw, 0.9rem);
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .option-row { display: flex; align-items: stretch; gap: 9px; margin-bottom: 10px; }
+  .strike-btn {
+    flex: none;
+    width: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 900;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .strike-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+  .strike-btn.active { border-color: color-mix(in srgb, var(--red) 40%, transparent); background: color-mix(in srgb, var(--red) 10%, transparent); color: var(--red); }
+
+  .option {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    min-height: 54px;
+    padding: 14px 17px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.025);
+    text-align: left;
+    transition: all 0.35s var(--fluid-curve);
+    overflow: hidden;
+  }
+  .option:hover:not(:disabled) { border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); transform: translateX(3px); }
+  .option:disabled { cursor: default; }
+  .opt-letter { flex: none; padding-top: 1px; color: var(--text-dim); font-size: 0.95rem; font-weight: 900; font-variant-numeric: tabular-nums; transition: color 0.4s; }
+  .opt-text { font-family: var(--font-gurmukhi); font-size: clamp(0.86rem, 2.8vw, 0.98rem); font-weight: 600; line-height: 1.55; }
+  .opt-sub { display: block; margin-top: 3px; color: var(--text-dim); font-size: 0.74rem; font-weight: 600; }
+
+  .option-row.struck .option { opacity: 0.3; }
+  .option-row.struck .opt-text { text-decoration: line-through; }
+
+  .option.correct { border-color: color-mix(in srgb, var(--green) 65%, transparent); background: color-mix(in srgb, var(--green) 9%, transparent); box-shadow: 0 0 26px -8px var(--green); }
+  .option.correct .opt-letter { color: var(--green); }
+  .option.incorrect { border-color: color-mix(in srgb, var(--red) 65%, transparent); background: color-mix(in srgb, var(--red) 9%, transparent); box-shadow: 0 0 26px -8px var(--red); animation: shake 0.4s var(--fluid-curve); }
+  .option.incorrect .opt-letter { color: var(--red); }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+
+  /* ---------- Feedback ---------- */
+  .feedback { margin-top: 22px; animation: riseIn 0.5s var(--fluid-curve); }
+  .verdict { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; font-family: var(--font-gurmukhi); font-size: 1rem; font-weight: 900; letter-spacing: 0.4px; }
+  .verdict.good { color: var(--green); text-shadow: 0 0 18px color-mix(in srgb, var(--green) 45%, transparent); }
+  .verdict.bad { color: var(--red); text-shadow: 0 0 18px color-mix(in srgb, var(--red) 45%, transparent); }
+
+  .rationale {
+    margin-bottom: 8px;
+    padding: 11px 15px;
+    border-left: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 11px 11px 0;
+    background: rgba(255, 255, 255, 0.02);
+    color: #cbd5e1;
+    font-family: var(--font-gurmukhi);
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.65;
+  }
+  .rationale strong { color: #fff; }
+  .rationale.good { border-left-color: var(--green); background: color-mix(in srgb, var(--green) 5%, transparent); }
+  .rationale.bad { border-left-color: var(--red); background: color-mix(in srgb, var(--red) 5%, transparent); }
+
+  .objective {
+    margin-top: 16px;
+    padding: 16px 18px;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 13px 13px 0;
+    background: color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+  .objective-title { margin-bottom: 6px; color: var(--accent); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; }
+  .objective-body { font-family: var(--font-gurmukhi); font-size: 0.86rem; font-weight: 600; line-height: 1.7; color: #e6edf5; }
+
+  .action-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+  .q-counter { color: var(--text-dim); font-size: 0.66rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+  .btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 12px 24px;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 13px;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    color: #fff;
+    font-family: var(--font-gurmukhi);
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .btn-next:hover { transform: translateY(-2px); box-shadow: 0 8px 26px -10px var(--accent); background: color-mix(in srgb, var(--accent) 18%, transparent); }
+  .btn-next:disabled { opacity: 0.3; cursor: default; transform: none; box-shadow: none; }
+
+  /* ---------- Summary ---------- */
+  .summary { text-align: center; padding: clamp(10px, 3vw, 24px) 0; }
+  .summary-orb {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    margin: 6px auto 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 42%, #ffffff 0%, #f2feff 12%, #b6f4ff 28%, #6fdcff 46%, rgba(40, 160, 250, 0.55) 68%, rgba(16, 110, 225, 0) 100%);
+    box-shadow: 0 0 48px rgba(90, 210, 255, 0.4), 0 0 110px rgba(0, 150, 255, 0.28);
+    animation: orbBreathe 3s ease-in-out infinite;
+  }
+  @keyframes orbBreathe { 0%, 100% { transform: scale(0.96); } 50% { transform: scale(1.05); filter: brightness(1.15); } }
+  .summary-score { display: flex; align-items: center; justify-content: center; position: absolute; inset: 0; color: #013; font-size: 1.7rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .summary h2 { font-family: var(--font-gurmukhi); font-size: clamp(1.4rem, 5vw, 2rem); font-weight: 900; margin-bottom: 8px; }
+  .summary p { color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.92rem; font-weight: 600; line-height: 1.7; max-width: 460px; margin: 0 auto 24px; }
+  .summary-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+  @media (max-width: 640px) {
+    .mcq-header { gap: 10px 12px; }
+    .router-btn { padding: 7px 10px; font-size: 0.54rem; }
+    .score-pill { padding: 7px 11px; font-size: 0.56rem; }
+    .strike-btn { width: 36px; }
+    .action-bar { flex-direction: column-reverse; align-items: stretch; }
+    .btn-next { justify-content: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="aura-bleed" id="auraBleed"></div>
+
+<header class="mcq-header">
+  <a class="header-logo" href="index.html">BOLO<span class="dot-mode" id="logoDot">.MCQ</span></a>
+  <a class="home-pill" href="index.html">◂ Menu</a>
+  <nav class="router" id="subjectRouter" aria-label="Subject selector">
+    <button class="router-btn active" type="button" data-subject="SCIENCE">Science</button>
+    <button class="router-btn" type="button" data-subject="MATH">Math</button>
+    <button class="router-btn" type="button" data-subject="ENGLISH">English</button>
+  </nav>
+  <span class="header-spacer"></span>
+  <span class="score-pill">Score <strong id="scoreVal">0 / 0</strong></span>
+</header>
+
+<main class="stage" id="stage" aria-live="polite">
+  <div class="progress-track" id="progressTrack"></div>
+  <section class="q-card" id="qCard"></section>
+</main>
+
+<div class="sr-only" role="status" aria-live="polite" id="ariaAnnouncer"></div>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ---------------- Question banks ----------------
+     Each question: ch (chapter tag), competency, prompt/options bilingual.
+     lang "pa" shows Punjabi first with English sub-line; "en" shows English first. */
+  const BANKS = {
+    SCIENCE: {
+      accent: "#00e5ff",
+      label: { pa: "ਵਿਗਿਆਨ", en: "Science" },
+      questions: [
+        {
+          id: "SCI-CH1-01", ch: "Ch 1 · ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ", competency: "Understanding",
+          prompt: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਰਿਬਨ ਨੂੰ ਹਵਾ ਵਿੱਚ ਸਾੜਨ 'ਤੇ ਕਿਹੜਾ ਯੋਗਿਕ ਬਣਦਾ ਹੈ?", en: "When a magnesium ribbon is burnt in air, which compound is formed?" },
+          options: [
+            { t: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਆਕਸਾਈਡ (MgO)", en: "Magnesium oxide (MgO)" }, correct: true,
+              r: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਹਵਾ ਦੀ ਆਕਸੀਜਨ ਨਾਲ ਮਿਲ ਕੇ ਚਿੱਟਾ MgO ਪਾਊਡਰ ਬਣਾਉਂਦਾ ਹੈ — ਇਹ ਇੱਕ ਸੰਯੋਜਨ ਪ੍ਰਤੀਕ੍ਰਿਆ ਹੈ।", en: "Magnesium combines with oxygen from air to form white MgO powder — a combination reaction." } },
+            { t: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਕਲੋਰਾਈਡ (MgCl₂)", en: "Magnesium chloride (MgCl₂)" }, correct: false,
+              r: { pa: "MgCl₂ ਬਣਾਉਣ ਲਈ ਕਲੋਰੀਨ ਚਾਹੀਦੀ ਹੈ, ਜੋ ਹਵਾ ਵਿੱਚ ਨਹੀਂ ਹੁੰਦੀ।", en: "MgCl₂ needs chlorine, which is not present in air." } },
+            { t: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਹਾਈਡ੍ਰੋਕਸਾਈਡ (Mg(OH)₂)", en: "Magnesium hydroxide (Mg(OH)₂)" }, correct: false,
+              r: { pa: "ਹਾਈਡ੍ਰੋਕਸਾਈਡ ਪਾਣੀ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਤੋਂ ਬਣਦਾ ਹੈ, ਸਾੜਨ ਤੋਂ ਨਹੀਂ।", en: "The hydroxide forms by reaction with water, not by burning." } },
+            { t: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਨਾਈਟ੍ਰੇਟ (Mg(NO₃)₂)", en: "Magnesium nitrate (Mg(NO₃)₂)" }, correct: false,
+              r: { pa: "ਨਾਈਟ੍ਰੇਟ ਨਾਈਟ੍ਰਿਕ ਐਸਿਡ ਨਾਲ ਬਣਦਾ ਹੈ; ਸਾੜਨ ਦੀ ਮੁੱਖ ਉਪਜ MgO ਹੈ।", en: "Nitrate forms with nitric acid; the main burning product is MgO." } }
+          ],
+          objective: { pa: "ਸੰਯੋਜਨ ਪ੍ਰਤੀਕ੍ਰਿਆ: ਧਾਤ + ਆਕਸੀਜਨ → ਧਾਤ ਆਕਸਾਈਡ। ਮੈਗਨੀਸ਼ੀਅਮ ਚਮਕਦਾਰ ਚਿੱਟੀ ਲਾਟ ਨਾਲ ਸੜ ਕੇ MgO ਦਿੰਦਾ ਹੈ।", en: "Combination reaction: metal + oxygen → metal oxide. Magnesium burns with a dazzling white flame to give MgO." }
+        },
+        {
+          id: "SCI-CH2-01", ch: "Ch 2 · ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", competency: "Application",
+          prompt: { pa: "ਮਧੂਮੱਖੀ ਦੇ ਡੰਗ ਵਾਲੀ ਥਾਂ 'ਤੇ ਬੇਕਿੰਗ ਸੋਡਾ ਲਗਾਉਣ ਨਾਲ ਆਰਾਮ ਕਿਉਂ ਮਿਲਦਾ ਹੈ?", en: "Why does applying baking soda give relief on a bee sting?" },
+          options: [
+            { t: { pa: "ਡੰਗ ਦਾ ਤੇਜ਼ਾਬ ਖਾਰ ਨਾਲ ਉਦਾਸੀਨ ਹੋ ਜਾਂਦਾ ਹੈ", en: "The acidic sting is neutralised by the base" }, correct: true,
+              r: { pa: "ਮਧੂਮੱਖੀ ਦੇ ਡੰਗ ਵਿੱਚ ਮੈਥੇਨੋਇਕ (ਫਾਰਮਿਕ) ਐਸਿਡ ਹੁੰਦਾ ਹੈ; ਬੇਕਿੰਗ ਸੋਡਾ ਹਲਕੀ ਖਾਰ ਹੋਣ ਕਰਕੇ ਇਸਨੂੰ ਉਦਾਸੀਨ ਕਰ ਦਿੰਦਾ ਹੈ।", en: "The sting injects methanoic (formic) acid; baking soda is a mild base that neutralises it." } },
+            { t: { pa: "ਬੇਕਿੰਗ ਸੋਡਾ ਚਮੜੀ ਨੂੰ ਠੰਢਾ ਕਰਦਾ ਹੈ", en: "Baking soda cools the skin" }, correct: false,
+              r: { pa: "ਠੰਢਕ ਮੁੱਖ ਕਾਰਨ ਨਹੀਂ — ਰਸਾਇਣਕ ਉਦਾਸੀਨੀਕਰਨ ਹੀ ਆਰਾਮ ਦਿੰਦਾ ਹੈ।", en: "Cooling is not the mechanism — chemical neutralisation gives the relief." } },
+            { t: { pa: "ਇਹ ਡੰਗ ਦੇ ਜ਼ਹਿਰ ਨੂੰ ਸੋਖ ਲੈਂਦਾ ਹੈ", en: "It absorbs the venom" }, correct: false,
+              r: { pa: "ਬੇਕਿੰਗ ਸੋਡਾ ਜ਼ਹਿਰ ਨਹੀਂ ਸੋਖਦਾ; ਇਹ ਐਸਿਡ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਦਾ ਹੈ।", en: "It doesn't absorb venom; it chemically reacts with the acid." } },
+            { t: { pa: "ਇਹ ਇੱਕ ਤੇਜ਼ਾਬ ਹੈ ਜੋ ਖਾਰ ਨੂੰ ਕੱਟਦਾ ਹੈ", en: "It is an acid that cancels the base" }, correct: false,
+              r: { pa: "ਉਲਟ ਗੱਲ — ਬੇਕਿੰਗ ਸੋਡਾ (NaHCO₃) ਖਾਰੀ ਹੈ, ਡੰਗ ਤੇਜ਼ਾਬੀ ਹੈ।", en: "It's the reverse — baking soda (NaHCO₃) is basic; the sting is acidic." } }
+          ],
+          objective: { pa: "ਉਦਾਸੀਨੀਕਰਨ: ਤੇਜ਼ਾਬ + ਖਾਰ → ਲੂਣ + ਪਾਣੀ। ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ ਇਸ ਦੀ ਵਰਤੋਂ ਡੰਗ ਅਤੇ ਤੇਜ਼ਾਬੀ ਬਦਹਜ਼ਮੀ ਦੇ ਇਲਾਜ ਲਈ ਹੁੰਦੀ ਹੈ।", en: "Neutralisation: acid + base → salt + water. Everyday uses include treating stings and acidity." }
+        },
+        {
+          id: "SCI-CH3-01", ch: "Ch 3 · ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", competency: "Analysis",
+          prompt: { pa: "ਸੋਡੀਅਮ ਧਾਤ ਨੂੰ ਮਿੱਟੀ ਦੇ ਤੇਲ (kerosene) ਵਿੱਚ ਕਿਉਂ ਰੱਖਿਆ ਜਾਂਦਾ ਹੈ?", en: "Why is sodium metal stored under kerosene?" },
+          options: [
+            { t: { pa: "ਇਹ ਹਵਾ ਅਤੇ ਨਮੀ ਨਾਲ ਬਹੁਤ ਤੇਜ਼ੀ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਦਾ ਹੈ", en: "It reacts violently with air and moisture" }, correct: true,
+              r: { pa: "ਸੋਡੀਅਮ ਇੰਨਾ ਕਿਰਿਆਸ਼ੀਲ ਹੈ ਕਿ ਖੁੱਲ੍ਹੇ ਵਿੱਚ ਅੱਗ ਫੜ ਸਕਦਾ ਹੈ; ਮਿੱਟੀ ਦਾ ਤੇਲ ਇਸਨੂੰ ਹਵਾ/ਪਾਣੀ ਤੋਂ ਵੱਖ ਰੱਖਦਾ ਹੈ।", en: "Sodium is so reactive it can catch fire in open air; kerosene isolates it from air and water." } },
+            { t: { pa: "ਮਿੱਟੀ ਦਾ ਤੇਲ ਇਸਨੂੰ ਚਮਕਦਾਰ ਰੱਖਦਾ ਹੈ", en: "Kerosene keeps it shiny" }, correct: false,
+              r: { pa: "ਚਮਕ ਦਾ ਮਕਸਦ ਨਹੀਂ — ਸੁਰੱਖਿਆ ਹੀ ਅਸਲ ਕਾਰਨ ਹੈ।", en: "Shine is not the purpose — safety from violent reaction is." } },
+            { t: { pa: "ਸੋਡੀਅਮ ਮਿੱਟੀ ਦੇ ਤੇਲ ਵਿੱਚ ਘੁਲ ਜਾਂਦਾ ਹੈ", en: "Sodium dissolves in kerosene" }, correct: false,
+              r: { pa: "ਸੋਡੀਅਮ ਮਿੱਟੀ ਦੇ ਤੇਲ ਵਿੱਚ ਘੁਲਦਾ ਨਹੀਂ — ਇਸੇ ਲਈ ਇਹ ਸੁਰੱਖਿਅਤ ਢੱਕਣ ਬਣਦਾ ਹੈ।", en: "Sodium does not dissolve in kerosene — that's why it works as a protective cover." } },
+            { t: { pa: "ਇਸ ਨਾਲ ਸੋਡੀਅਮ ਠੰਢਾ ਰਹਿੰਦਾ ਹੈ", en: "It keeps sodium cold" }, correct: false,
+              r: { pa: "ਤਾਪਮਾਨ ਨਹੀਂ, ਹਵਾ/ਨਮੀ ਤੋਂ ਬਚਾਅ ਮੁੱਖ ਗੱਲ ਹੈ।", en: "Temperature isn't the issue; isolation from air/moisture is." } }
+          ],
+          objective: { pa: "ਕਿਰਿਆਸ਼ੀਲਤਾ ਲੜੀ: K, Na ਸਭ ਤੋਂ ਵੱਧ ਕਿਰਿਆਸ਼ੀਲ ਧਾਤਾਂ ਹਨ ਅਤੇ ਹਵਾ/ਪਾਣੀ ਨਾਲ ਤੇਜ਼ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਕੇ ਅੱਗ ਫੜ ਸਕਦੀਆਂ ਹਨ।", en: "Reactivity series: K and Na are the most reactive metals and can ignite on contact with air/water, hence stored under kerosene." }
+        },
+        {
+          id: "SCI-CH6-01", ch: "Ch 6 · ਜੀਵਨ ਪ੍ਰਕਿਰਿਆਵਾਂ", competency: "Analysis",
+          prompt: { pa: "ਗਰਮ ਧੁੱਪ ਵਾਲੇ ਦਿਨ ਸਟੋਮੈਟਾ ਖੋਲ੍ਹਣ 'ਤੇ ਪੌਦੇ ਨੂੰ ਕਿਹੜਾ ਮੁੱਖ ਸਮਝੌਤਾ ਕਰਨਾ ਪੈਂਦਾ ਹੈ?", en: "What is the primary trade-off a plant faces when it opens its stomata on a hot, sunny day?" },
+          options: [
+            { t: { pa: "CO₂ ਸੋਖਦਾ ਹੈ ਪਰ ਵਾਸ਼ਪੀਕਰਨ ਰਾਹੀਂ ਪਾਣੀ ਗੁਆਉਂਦਾ ਹੈ", en: "It absorbs CO₂ but risks heavy water loss via transpiration" }, correct: true,
+              r: { pa: "ਪ੍ਰਕਾਸ਼ ਸੰਸ਼ਲੇਸ਼ਣ ਲਈ CO₂ ਦਾ ਦਾਖਲਾ ਜ਼ਰੂਰੀ ਹੈ, ਪਰ ਖੁੱਲ੍ਹੇ ਸਟੋਮੈਟਾ ਤੋਂ ਪਾਣੀ ਦੀ ਭਾਫ਼ ਨਿਕਲਦੀ ਰਹਿੰਦੀ ਹੈ।", en: "Stomata must open for CO₂ entry (photosynthesis), but open pores lose water vapour to dry air." } },
+            { t: { pa: "ਆਕਸੀਜਨ ਲੈਂਦਾ ਹੈ ਪਰ CO₂ ਛੱਡ ਨਹੀਂ ਸਕਦਾ", en: "It maximises O₂ intake but cannot release CO₂" }, correct: false,
+              r: { pa: "ਪ੍ਰਕਾਸ਼ ਸੰਸ਼ਲੇਸ਼ਣ ਵਿੱਚ ਪੌਦੇ CO₂ ਲੈਂਦੇ ਹਨ ਅਤੇ O₂ ਛੱਡਦੇ ਹਨ — ਉਲਟ ਨਹੀਂ।", en: "In photosynthesis plants take in CO₂ and release O₂ — not the reverse." } },
+            { t: { pa: "ਸਾਹ ਕਿਰਿਆ ਵਧਦੀ ਹੈ ਪਰ ਪ੍ਰਕਾਸ਼ ਸੰਸ਼ਲੇਸ਼ਣ ਰੁਕ ਜਾਂਦਾ ਹੈ", en: "Respiration rises but photosynthesis stops" }, correct: false,
+              r: { pa: "ਸਟੋਮੈਟਾ ਖੁੱਲ੍ਹਣ ਨਾਲ ਪ੍ਰਕਾਸ਼ ਸੰਸ਼ਲੇਸ਼ਣ ਵਿੱਚ ਮਦਦ ਮਿਲਦੀ ਹੈ, ਰੁਕਦਾ ਨਹੀਂ।", en: "Opening stomata helps photosynthesis; it does not stop it." } },
+            { t: { pa: "ਜੜ੍ਹਾਂ ਪਾਣੀ ਖਿੱਚਣਾ ਬੰਦ ਕਰ ਦਿੰਦੀਆਂ ਹਨ", en: "Roots stop absorbing water" }, correct: false,
+              r: { pa: "ਅਸਲ ਵਿੱਚ ਵਾਸ਼ਪੀਕਰਨ ਜੜ੍ਹਾਂ ਤੋਂ ਪਾਣੀ ਦੀ ਖਿੱਚ ਨੂੰ ਹੋਰ ਵਧਾਉਂਦਾ ਹੈ।", en: "Transpiration actually increases the suction pull of water from roots." } }
+          ],
+          objective: { pa: "ਵਾਸ਼ਪੀਕਰਨ-ਪ੍ਰਕਾਸ਼ ਸੰਸ਼ਲੇਸ਼ਣ ਸਮਝੌਤਾ: CO₂ ਲੈਣ ਲਈ ਸਟੋਮੈਟਾ ਖੋਲ੍ਹਣੇ ਪੈਂਦੇ ਹਨ, ਜਿਸ ਨਾਲ ਪਾਣੀ ਦਾ ਨੁਕਸਾਨ (ਵਾਸ਼ਪੀਕਰਨ) ਲਾਜ਼ਮੀ ਹੁੰਦਾ ਹੈ।", en: "Transpiration–photosynthesis compromise: stomata must open to acquire CO₂, inevitably causing water loss down the vapour-pressure gradient." }
+        },
+        {
+          id: "SCI-CH10-01", ch: "Ch 10 · ਪ੍ਰਕਾਸ਼", competency: "Application",
+          prompt: { pa: "ਵਾਹਨਾਂ ਵਿੱਚ ਪਿੱਛੇ ਦੇਖਣ ਵਾਲੇ ਸ਼ੀਸ਼ੇ (rear-view mirror) ਵਜੋਂ ਕਿਹੜਾ ਦਰਪਣ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਅਤੇ ਕਿਉਂ?", en: "Which mirror is used as a vehicle rear-view mirror, and why?" },
+          options: [
+            { t: { pa: "ਉੱਤਲ ਦਰਪਣ — ਸਿੱਧਾ, ਛੋਟਾ ਪ੍ਰਤੀਬਿੰਬ ਅਤੇ ਵੱਡਾ ਦ੍ਰਿਸ਼ ਖੇਤਰ", en: "Convex mirror — erect, diminished image and a wider field of view" }, correct: true,
+              r: { pa: "ਉੱਤਲ ਦਰਪਣ ਹਮੇਸ਼ਾ ਸਿੱਧਾ ਅਤੇ ਛੋਟਾ ਪ੍ਰਤੀਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਡਰਾਈਵਰ ਪਿੱਛੇ ਦਾ ਵੱਡਾ ਖੇਤਰ ਦੇਖ ਸਕਦਾ ਹੈ।", en: "A convex mirror always forms an erect, diminished image, letting the driver see a much wider area behind." } },
+            { t: { pa: "ਅਵਤਲ ਦਰਪਣ — ਵੱਡਾ ਪ੍ਰਤੀਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ", en: "Concave mirror — it magnifies the image" }, correct: false,
+              r: { pa: "ਅਵਤਲ ਦਰਪਣ ਦੂਰ ਦੀਆਂ ਵਸਤੂਆਂ ਦਾ ਉਲਟਾ ਪ੍ਰਤੀਬਿੰਬ ਬਣਾਉਂਦਾ ਹੈ — ਡਰਾਈਵਿੰਗ ਲਈ ਖ਼ਤਰਨਾਕ।", en: "A concave mirror forms inverted images of distant objects — dangerous for driving." } },
+            { t: { pa: "ਸਮਤਲ ਦਰਪਣ — ਅਸਲੀ ਆਕਾਰ ਦਿਖਾਉਂਦਾ ਹੈ", en: "Plane mirror — it shows true size" }, correct: false,
+              r: { pa: "ਸਮਤਲ ਦਰਪਣ ਦਾ ਦ੍ਰਿਸ਼ ਖੇਤਰ ਛੋਟਾ ਹੁੰਦਾ ਹੈ; ਪਿੱਛੇ ਦਾ ਪੂਰਾ ਟ੍ਰੈਫਿਕ ਨਹੀਂ ਦਿਸਦਾ।", en: "A plane mirror has a narrow field of view; it can't cover the traffic behind." } },
+            { t: { pa: "ਕੋਈ ਵੀ ਦਰਪਣ ਚੱਲੇਗਾ", en: "Any mirror works equally well" }, correct: false,
+              r: { pa: "ਦਰਪਣ ਦੀ ਕਿਸਮ ਪ੍ਰਤੀਬਿੰਬ ਦੀ ਪ੍ਰਕਿਰਤੀ ਬਦਲਦੀ ਹੈ — ਚੋਣ ਮਹੱਤਵਪੂਰਨ ਹੈ।", en: "Mirror type changes the image nature — the choice matters." } }
+          ],
+          objective: { pa: "ਉੱਤਲ ਦਰਪਣ ਦੀ ਵਰਤੋਂ: ਸਿੱਧਾ + ਛੋਟਾ ਪ੍ਰਤੀਬਿੰਬ = ਵੱਡਾ ਦ੍ਰਿਸ਼ ਖੇਤਰ। ਇਸੇ ਲਈ ਵਾਹਨਾਂ ਦੇ ਸਾਈਡ/ਰੀਅਰ-ਵਿਊ ਸ਼ੀਸ਼ੇ ਉੱਤਲ ਹੁੰਦੇ ਹਨ।", en: "Convex mirror use: erect + diminished image = wide field of view, which is why vehicle rear-view mirrors are convex." }
+        },
+        {
+          id: "SCI-CH12-01", ch: "Ch 12 · ਬਿਜਲੀ", competency: "Application",
+          prompt: { pa: "ਜੇ ਇੱਕ ਤਾਰ ਵਿੱਚੋਂ 2 A ਦੀ ਧਾਰਾ ਵਗਦੀ ਹੈ ਅਤੇ ਇਸਦਾ ਪ੍ਰਤੀਰੋਧ 5 Ω ਹੈ, ਤਾਂ ਤਾਰ ਦੇ ਸਿਰਿਆਂ ਵਿਚਕਾਰ ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ ਕਿੰਨਾ ਹੋਵੇਗਾ?", en: "A wire carries a current of 2 A and has a resistance of 5 Ω. What is the potential difference across its ends?" },
+          options: [
+            { t: { pa: "10 V", en: "10 V" }, correct: true,
+              r: { pa: "ਓਹਮ ਦਾ ਨਿਯਮ: V = IR = 2 × 5 = 10 V।", en: "Ohm's law: V = IR = 2 × 5 = 10 V." } },
+            { t: { pa: "2.5 V", en: "2.5 V" }, correct: false,
+              r: { pa: "2.5 = R ÷ I ਹੈ — ਇਹ ਗਲਤ ਫਾਰਮੂਲਾ ਹੈ; V = I × R ਵਰਤੋ।", en: "2.5 comes from R ÷ I — wrong formula; use V = I × R." } },
+            { t: { pa: "7 V", en: "7 V" }, correct: false,
+              r: { pa: "7 = I + R ਜੋੜ ਹੈ — ਮਾਤਰਾਵਾਂ ਜੋੜੀਆਂ ਨਹੀਂ ਜਾਂਦੀਆਂ, ਗੁਣਾ ਹੁੰਦੀਆਂ ਹਨ।", en: "7 is I + R — quantities multiply in Ohm's law, they don't add." } },
+            { t: { pa: "0.4 V", en: "0.4 V" }, correct: false,
+              r: { pa: "0.4 = I ÷ R ਹੈ — ਇਹ ਵੀ ਗਲਤ ਵਿਵਸਥਾ ਹੈ।", en: "0.4 is I ÷ R — also a wrong rearrangement." } }
+          ],
+          objective: { pa: "ਓਹਮ ਦਾ ਨਿਯਮ: V = IR। ਧਾਰਾ ਅਤੇ ਪ੍ਰਤੀਰੋਧ ਦਾ ਗੁਣਨਫਲ ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ ਦਿੰਦਾ ਹੈ। ਇਕਾਈਆਂ: A × Ω = V।", en: "Ohm's law: V = IR. Current × resistance gives potential difference. Units: A × Ω = V." }
+        }
+      ]
+    },
+    MATH: {
+      accent: "#2ecc71",
+      label: { pa: "ਗਣਿਤ", en: "Math" },
+      questions: [
+        {
+          id: "MAT-CH1-01", ch: "Ch 1 · ਵਾਸਤਵਿਕ ਸੰਖਿਆਵਾਂ", competency: "Understanding",
+          prompt: { pa: "HCF(306, 657) = 9 ਦਿੱਤਾ ਹੈ। LCM(306, 657) ਕੀ ਹੋਵੇਗਾ?", en: "Given HCF(306, 657) = 9, find LCM(306, 657)." },
+          options: [
+            { t: { pa: "22338", en: "22338" }, correct: true,
+              r: { pa: "HCF × LCM = ਦੋਹਾਂ ਸੰਖਿਆਵਾਂ ਦਾ ਗੁਣਨਫਲ। LCM = (306 × 657) ÷ 9 = 22338।", en: "HCF × LCM = product of the numbers. LCM = (306 × 657) ÷ 9 = 22338." } },
+            { t: { pa: "20106", en: "20106" }, correct: false,
+              r: { pa: "ਗੁਣਾ ਜਾਂ ਭਾਗ ਵਿੱਚ ਗਲਤੀ — ਸਹੀ ਗਣਨਾ (306 × 657) ÷ 9 ਹੈ।", en: "Arithmetic slip — the correct computation is (306 × 657) ÷ 9." } },
+            { t: { pa: "9", en: "9" }, correct: false,
+              r: { pa: "9 ਤਾਂ HCF ਹੈ — LCM ਹਮੇਸ਼ਾ ਦੋਹਾਂ ਸੰਖਿਆਵਾਂ ਤੋਂ ਵੱਡਾ ਜਾਂ ਬਰਾਬਰ ਹੁੰਦਾ ਹੈ।", en: "9 is the HCF — the LCM is always ≥ both numbers." } },
+            { t: { pa: "201042", en: "201042" }, correct: false,
+              r: { pa: "ਇਹ 306 × 657 ਹੈ, ਭਾਗ 9 ਨਾਲ ਕਰਨਾ ਭੁੱਲ ਗਏ।", en: "That's 306 × 657 — you forgot to divide by 9." } }
+          ],
+          objective: { pa: "ਮਹੱਤਵਪੂਰਨ ਸੰਬੰਧ: ਕਿਸੇ ਦੋ ਧਨਾਤਮਕ ਪੂਰਨ ਸੰਖਿਆਵਾਂ ਲਈ HCF × LCM = a × b। ਇੱਕ ਪਤਾ ਹੋਵੇ ਤਾਂ ਦੂਜਾ ਲੱਭਿਆ ਜਾ ਸਕਦਾ ਹੈ।", en: "Key relation: for any two positive integers, HCF × LCM = a × b. Knowing one lets you find the other." }
+        },
+        {
+          id: "MAT-CH4-01", ch: "Ch 4 · ਦੁਘਾਤੀ ਸਮੀਕਰਨ", competency: "Analysis",
+          prompt: { pa: "ਦੁਘਾਤੀ ਸਮੀਕਰਨ x² − 4x + 4 = 0 ਦੇ ਮੂਲਾਂ ਦੀ ਪ੍ਰਕਿਰਤੀ ਕੀ ਹੈ?", en: "What is the nature of the roots of the quadratic equation x² − 4x + 4 = 0?" },
+          options: [
+            { t: { pa: "ਵਾਸਤਵਿਕ ਅਤੇ ਬਰਾਬਰ ਮੂਲ", en: "Real and equal roots" }, correct: true,
+              r: { pa: "D = b² − 4ac = 16 − 16 = 0। D = 0 ਹੋਣ 'ਤੇ ਮੂਲ ਵਾਸਤਵਿਕ ਅਤੇ ਬਰਾਬਰ ਹੁੰਦੇ ਹਨ (x = 2, 2)।", en: "D = b² − 4ac = 16 − 16 = 0. When D = 0 the roots are real and equal (x = 2, 2)." } },
+            { t: { pa: "ਵਾਸਤਵਿਕ ਅਤੇ ਵੱਖ-ਵੱਖ ਮੂਲ", en: "Real and distinct roots" }, correct: false,
+              r: { pa: "ਵੱਖ-ਵੱਖ ਮੂਲਾਂ ਲਈ D > 0 ਚਾਹੀਦਾ ਹੈ; ਇੱਥੇ D = 0 ਹੈ।", en: "Distinct roots need D > 0; here D = 0." } },
+            { t: { pa: "ਕੋਈ ਵਾਸਤਵਿਕ ਮੂਲ ਨਹੀਂ", en: "No real roots" }, correct: false,
+              r: { pa: "ਕੋਈ ਵਾਸਤਵਿਕ ਮੂਲ ਨਾ ਹੋਣ ਲਈ D < 0 ਚਾਹੀਦਾ ਹੈ; ਇੱਥੇ D = 0 ਹੈ।", en: "No real roots requires D < 0; here D = 0." } },
+            { t: { pa: "ਸਿਰਫ਼ ਇੱਕ ਅਪਰਿਮੇਯ ਮੂਲ", en: "One irrational root only" }, correct: false,
+              r: { pa: "x = 2 ਪਰਿਮੇਯ ਹੈ; D = 0 'ਤੇ ਦੋਵੇਂ ਮੂਲ ਬਰਾਬਰ ਹੁੰਦੇ ਹਨ।", en: "x = 2 is rational; at D = 0 both roots coincide." } }
+          ],
+          objective: { pa: "ਵਿਵੇਚਕ (Discriminant) D = b² − 4ac: D > 0 → ਵਾਸਤਵਿਕ ਵੱਖ-ਵੱਖ; D = 0 → ਵਾਸਤਵਿਕ ਬਰਾਬਰ; D < 0 → ਕੋਈ ਵਾਸਤਵਿਕ ਮੂਲ ਨਹੀਂ।", en: "Discriminant D = b² − 4ac decides root nature: D > 0 → real distinct; D = 0 → real equal; D < 0 → no real roots." }
+        },
+        {
+          id: "MAT-CH8-01", ch: "Ch 8 · ਤਿਕੋਣਮਿਤੀ", competency: "Application",
+          prompt: { pa: "sin 30° + cos 60° ਦਾ ਮੁੱਲ ਕੀ ਹੈ?", en: "What is the value of sin 30° + cos 60°?" },
+          options: [
+            { t: { pa: "1", en: "1" }, correct: true,
+              r: { pa: "sin 30° = ½ ਅਤੇ cos 60° = ½; ½ + ½ = 1।", en: "sin 30° = ½ and cos 60° = ½; ½ + ½ = 1." } },
+            { t: { pa: "½", en: "½" }, correct: false,
+              r: { pa: "ਇਹ ਸਿਰਫ਼ ਇੱਕ ਪਦ ਦਾ ਮੁੱਲ ਹੈ — ਦੋਵੇਂ ਜੋੜਨੇ ਹਨ।", en: "That's only one term — you must add both." } },
+            { t: { pa: "√3⁄2", en: "√3⁄2" }, correct: false,
+              r: { pa: "√3⁄2 ਤਾਂ cos 30° (ਜਾਂ sin 60°) ਹੈ — ਕੋਣ ਧਿਆਨ ਨਾਲ ਪੜ੍ਹੋ।", en: "√3⁄2 is cos 30° (or sin 60°) — read the angles carefully." } },
+            { t: { pa: "2", en: "2" }, correct: false,
+              r: { pa: "ਹਰੇਕ ਪਦ ½ ਹੈ, 1 ਨਹੀਂ — ਜੋੜ 1 ਬਣਦਾ ਹੈ।", en: "Each term is ½, not 1 — the sum is 1." } }
+          ],
+          objective: { pa: "ਮਿਆਰੀ ਕੋਣਾਂ ਦੇ ਮੁੱਲ ਯਾਦ ਰੱਖੋ: sin 30° = cos 60° = ½। ਪੂਰਕ ਕੋਣ ਸੰਬੰਧ: sin θ = cos(90° − θ)।", en: "Memorise standard values: sin 30° = cos 60° = ½. Complementary relation: sin θ = cos(90° − θ)." }
+        },
+        {
+          id: "MAT-CH15-01", ch: "Ch 15 · ਸੰਭਾਵਨਾ", competency: "Application",
+          prompt: { pa: "ਇੱਕ ਸਿੱਕੇ ਨੂੰ ਦੋ ਵਾਰ ਉਛਾਲਿਆ ਜਾਂਦਾ ਹੈ। ਘੱਟੋ-ਘੱਟ ਇੱਕ ਚਿੱਤ (head) ਆਉਣ ਦੀ ਸੰਭਾਵਨਾ ਕੀ ਹੈ?", en: "A coin is tossed twice. What is the probability of getting at least one head?" },
+          options: [
+            { t: { pa: "3⁄4", en: "3⁄4" }, correct: true,
+              r: { pa: "ਕੁੱਲ ਨਤੀਜੇ: HH, HT, TH, TT। 'ਘੱਟੋ-ਘੱਟ ਇੱਕ ਚਿੱਤ' = 1 − P(ਕੋਈ ਚਿੱਤ ਨਹੀਂ) = 1 − ¼ = ¾।", en: "Sample space: HH, HT, TH, TT. P(at least one head) = 1 − P(no head) = 1 − ¼ = ¾." } },
+            { t: { pa: "½", en: "½" }, correct: false,
+              r: { pa: "½ ਇੱਕ ਉਛਾਲ ਵਿੱਚ ਚਿੱਤ ਦੀ ਸੰਭਾਵਨਾ ਹੈ — ਇੱਥੇ ਦੋ ਉਛਾਲ ਹਨ।", en: "½ is for a single toss — here we have two tosses." } },
+            { t: { pa: "¼", en: "¼" }, correct: false,
+              r: { pa: "¼ ਤਾਂ 'ਕੋਈ ਚਿੱਤ ਨਹੀਂ' (TT) ਦੀ ਸੰਭਾਵਨਾ ਹੈ — ਪੂਰਕ ਘਟਨਾ ਵਰਤੋ।", en: "¼ is P(no head) i.e. TT — use the complement rule." } },
+            { t: { pa: "1", en: "1" }, correct: false,
+              r: { pa: "TT ਵੀ ਸੰਭਵ ਹੈ, ਇਸ ਲਈ ਸੰਭਾਵਨਾ 1 ਨਹੀਂ ਹੋ ਸਕਦੀ।", en: "TT is possible, so the probability cannot be 1." } }
+          ],
+          objective: { pa: "ਪੂਰਕ ਘਟਨਾ ਨਿਯਮ: P(ਘੱਟੋ-ਘੱਟ ਇੱਕ) = 1 − P(ਕੋਈ ਨਹੀਂ)। ਗੁੰਝਲਦਾਰ ਘਟਨਾਵਾਂ ਲਈ ਇਹ ਤਰੀਕਾ ਤੇਜ਼ ਹੈ।", en: "Complement rule: P(at least one) = 1 − P(none). It's the fastest route for 'at least' problems." }
+        }
+      ]
+    },
+    ENGLISH: {
+      accent: "#b026ff",
+      label: { pa: "ਅੰਗਰੇਜ਼ੀ", en: "English" },
+      questions: [
+        {
+          id: "ENG-GR-01", ch: "Grammar · Tenses", competency: "Application",
+          prompt: { pa: "ਸਹੀ ਵਿਕਲਪ ਚੁਣੋ: \"She ______ to school every day.\"", en: "Choose the correct option: \"She ______ to school every day.\"" },
+          options: [
+            { t: { pa: "goes", en: "goes" }, correct: true,
+              r: { pa: "'Every day' ਆਦਤ ਦੱਸਦਾ ਹੈ → Simple Present। Third person singular (she) ਨਾਲ verb + s/es ਲੱਗਦਾ ਹੈ।", en: "'Every day' signals a habit → Simple Present. Third person singular (she) takes verb + s/es." } },
+            { t: { pa: "go", en: "go" }, correct: false,
+              r: { pa: "'She' ਨਾਲ 'go' ਨਹੀਂ — third person singular ਵਿੱਚ 's' ਜ਼ਰੂਰੀ ਹੈ।", en: "'She' cannot take bare 'go' — third person singular needs the 's'." } },
+            { t: { pa: "going", en: "going" }, correct: false,
+              r: { pa: "'Going' ਇਕੱਲਾ ਵਾਕ ਨਹੀਂ ਬਣਾਉਂਦਾ — ਇਸਨੂੰ helping verb (is/was) ਚਾਹੀਦੀ ਹੈ।", en: "'Going' alone can't form the sentence — it needs a helping verb (is/was)." } },
+            { t: { pa: "gone", en: "gone" }, correct: false,
+              r: { pa: "'Gone' past participle ਹੈ — ਇਹ has/have/had ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਵਰਤਿਆ ਜਾਂਦਾ।", en: "'Gone' is a past participle — it needs has/have/had before it." } }
+          ],
+          objective: { pa: "Simple Present Tense: ਆਦਤ/ਰੋਜ਼ਾਨਾ ਕੰਮ ਲਈ। ਪਛਾਣ-ਸ਼ਬਦ: every day, always, usually। He/She/It + verb-s।", en: "Simple Present: for habits and routines. Signal words: every day, always, usually. He/She/It + verb-s." }
+        },
+        {
+          id: "ENG-VOC-01", ch: "Vocabulary · Synonyms", competency: "Understanding",
+          prompt: { pa: "\"Enormous\" ਦਾ ਸਭ ਤੋਂ ਨੇੜਲਾ ਅਰਥ ਕਿਹੜਾ ਹੈ?", en: "Which word is closest in meaning to \"enormous\"?" },
+          options: [
+            { t: { pa: "Huge (ਬਹੁਤ ਵੱਡਾ)", en: "Huge" }, correct: true,
+              r: { pa: "Enormous = ਬਹੁਤ ਵੱਡਾ/ਵਿਸ਼ਾਲ — 'huge' ਇਸਦਾ ਸਿੱਧਾ ਸਮਾਨਾਰਥੀ ਹੈ।", en: "Enormous means extremely large — 'huge' is its direct synonym." } },
+            { t: { pa: "Tiny (ਬਹੁਤ ਛੋਟਾ)", en: "Tiny" }, correct: false,
+              r: { pa: "Tiny ਤਾਂ ਉਲਟ ਅਰਥ (antonym) ਹੈ — ਬਹੁਤ ਛੋਟਾ।", en: "Tiny is the antonym — extremely small." } },
+            { t: { pa: "Quick (ਤੇਜ਼)", en: "Quick" }, correct: false,
+              r: { pa: "Quick ਗਤੀ ਬਾਰੇ ਹੈ, ਆਕਾਰ ਬਾਰੇ ਨਹੀਂ।", en: "Quick describes speed, not size." } },
+            { t: { pa: "Heavy (ਭਾਰੀ)", en: "Heavy" }, correct: false,
+              r: { pa: "Heavy ਭਾਰ ਦੱਸਦਾ ਹੈ; ਵੱਡੀ ਚੀਜ਼ ਹਲਕੀ ਵੀ ਹੋ ਸਕਦੀ ਹੈ।", en: "Heavy is about weight; something enormous can still be light." } }
+          ],
+          objective: { pa: "ਸਮਾਨਾਰਥੀ ਸ਼ਬਦ ਸਿੱਖਣ ਦੀ ਜੁਗਤ: ਸ਼ਬਦ ਨੂੰ ਆਕਾਰ/ਗਤੀ/ਭਾਵ ਦੀ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਰੱਖੋ, ਫਿਰ ਉਸੇ ਸ਼੍ਰੇਣੀ ਦਾ ਵਿਕਲਪ ਲੱਭੋ।", en: "Synonym strategy: place the word in a category (size/speed/feeling), then match options within that category." }
+        },
+        {
+          id: "ENG-GR-02", ch: "Grammar · Voice", competency: "Analysis",
+          prompt: { pa: "\"The letter was written by Riya.\" — ਇਹ ਵਾਕ ਕਿਸ voice ਵਿੱਚ ਹੈ?", en: "\"The letter was written by Riya.\" — Which voice is this sentence in?" },
+          options: [
+            { t: { pa: "Passive Voice", en: "Passive Voice" }, correct: true,
+              r: { pa: "ਕਰਮ (the letter) ਵਾਕ ਦਾ subject ਬਣਿਆ ਹੈ ਅਤੇ ਬਣਤਰ 'was + written (V3) + by' ਹੈ — ਇਹ passive ਦੀ ਪਛਾਣ ਹੈ।", en: "The object (the letter) is the subject, with 'was + written (V3) + by' — the passive structure." } },
+            { t: { pa: "Active Voice", en: "Active Voice" }, correct: false,
+              r: { pa: "Active ਹੁੰਦਾ: \"Riya wrote the letter.\" — ਕਰਤਾ ਪਹਿਲਾਂ ਆਉਂਦਾ ਹੈ।", en: "Active would be: \"Riya wrote the letter.\" — the doer comes first." } },
+            { t: { pa: "Indirect Speech", en: "Indirect Speech" }, correct: false,
+              r: { pa: "Speech (direct/indirect) ਕਹੇ ਗਏ ਸ਼ਬਦਾਂ ਬਾਰੇ ਹੈ — ਇੱਥੇ ਕੋਈ ਕਥਨ ਨਹੀਂ।", en: "Speech (direct/indirect) is about quoting words — there's no quotation here." } },
+            { t: { pa: "Imperative Sentence", en: "Imperative Sentence" }, correct: false,
+              r: { pa: "Imperative ਹੁਕਮ/ਬੇਨਤੀ ਹੁੰਦਾ ਹੈ (\"Write the letter!\") — ਇਹ ਬਿਆਨ ਹੈ।", en: "An imperative gives a command (\"Write the letter!\") — this is a statement." } }
+          ],
+          objective: { pa: "Passive ਪਛਾਣ: object ਅੱਗੇ + be-verb + V3 (+ by ਕਰਤਾ)। ਬੋਰਡ ਪ੍ਰੀਖਿਆ ਵਿੱਚ voice ਬਦਲਣ ਦੇ ਪ੍ਰਸ਼ਨ ਆਮ ਹਨ।", en: "Passive test: object first + be-verb + V3 (+ by agent). Voice transformation is a frequent board exam task." }
+        },
+        {
+          id: "ENG-COM-01", ch: "Comprehension", competency: "Analysis",
+          prompt: { pa: "\"Although it was raining heavily, the farmers continued sowing.\" — ਵਾਕ ਦਾ ਭਾਵ ਕੀ ਹੈ?", en: "\"Although it was raining heavily, the farmers continued sowing.\" — What does the sentence imply?" },
+          options: [
+            { t: { pa: "ਮੀਂਹ ਦੇ ਬਾਵਜੂਦ ਕਿਸਾਨਾਂ ਨੇ ਬਿਜਾਈ ਜਾਰੀ ਰੱਖੀ", en: "Despite the rain, the farmers kept sowing" }, correct: true,
+              r: { pa: "'Although' ਵਿਰੋਧ ਦਿਖਾਉਂਦਾ ਹੈ — ਰੁਕਾਵਟ ਦੇ ਬਾਵਜੂਦ ਕੰਮ ਜਾਰੀ ਰਿਹਾ।", en: "'Although' signals contrast — the action continued despite the obstacle." } },
+            { t: { pa: "ਮੀਂਹ ਕਾਰਨ ਬਿਜਾਈ ਰੁਕ ਗਈ", en: "The rain stopped the sowing" }, correct: false,
+              r: { pa: "'Continued' ਸਾਫ਼ ਦੱਸਦਾ ਹੈ ਕਿ ਕੰਮ ਰੁਕਿਆ ਨਹੀਂ।", en: "'Continued' clearly says the work did not stop." } },
+            { t: { pa: "ਕਿਸਾਨਾਂ ਨੇ ਮੀਂਹ ਦੀ ਉਡੀਕ ਕੀਤੀ", en: "The farmers waited for rain" }, correct: false,
+              r: { pa: "ਮੀਂਹ ਪਹਿਲਾਂ ਹੀ ਪੈ ਰਿਹਾ ਸੀ — ਉਡੀਕ ਦੀ ਗੱਲ ਨਹੀਂ।", en: "It was already raining — no waiting involved." } },
+            { t: { pa: "ਮੀਂਹ ਹਲਕਾ ਸੀ", en: "The rain was light" }, correct: false,
+              r: { pa: "'Heavily' ਦਾ ਮਤਲਬ ਤੇਜ਼ ਮੀਂਹ ਹੈ, ਹਲਕਾ ਨਹੀਂ।", en: "'Heavily' means intense rain, not light." } }
+          ],
+          objective: { pa: "'Although/though/even though' = ਵਿਰੋਧ ਜੋੜਕ (contrast connector)। ਮੁੱਖ ਵਾਕ ਦੀ ਕਿਰਿਆ ਹੀ ਅਸਲ ਨਤੀਜਾ ਦੱਸਦੀ ਹੈ।", en: "'Although/though/even though' are contrast connectors. The main clause verb carries the actual outcome." }
+        }
+      ]
+    }
+  };
+
+  /* ---------------- State ---------------- */
+  const STORE_KEY = "bolo_mcq_v1";
+  let subject = "SCIENCE";
+  let lang = "pa";
+  let qIndex = 0;
+  let answers = {};   // { [qid]: pickedIndex }
+  let struck = {};    // { [qid]: { [optIndex]: true } }
+  let finished = false;
+
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+    if (saved.lang === "en" || saved.lang === "pa") lang = saved.lang;
+    if (BANKS[saved.subject]) subject = saved.subject;
+  } catch (e) {}
+
+  const qCard = document.getElementById("qCard");
+  const progressTrack = document.getElementById("progressTrack");
+  const scoreVal = document.getElementById("scoreVal");
+  const logoDot = document.getElementById("logoDot");
+  const auraBleed = document.getElementById("auraBleed");
+  const announcer = document.getElementById("ariaAnnouncer");
+
+  const bank = () => BANKS[subject];
+  const questions = () => bank().questions;
+  const q = () => questions()[qIndex];
+  const primary = obj => obj[lang];
+  const secondary = obj => obj[lang === "pa" ? "en" : "pa"];
+
+  function persist() { try { localStorage.setItem(STORE_KEY, JSON.stringify({ subject, lang })); } catch (e) {} }
+
+  function applyAccent() {
+    const accent = bank().accent;
+    document.documentElement.style.setProperty("--accent", accent);
+    auraBleed.style.background = "radial-gradient(ellipse at center, " + accent + "22 0%, " + accent + "0d 40%, transparent 72%)";
+  }
+
+  function scoreParts() {
+    let correct = 0, attempted = 0;
+    questions().forEach((qq, i) => {
+      const picked = answers[qq.id];
+      if (picked === undefined) return;
+      attempted++;
+      if (qq.options[picked].correct) correct++;
+    });
+    return { correct, attempted };
+  }
+
+  function renderScore() {
+    const s = scoreParts();
+    scoreVal.textContent = s.correct + " / " + s.attempted;
+  }
+
+  function renderProgress() {
+    progressTrack.innerHTML = "";
+    questions().forEach((qq, i) => {
+      const seg = document.createElement("span");
+      seg.className = "progress-seg";
+      const picked = answers[qq.id];
+      if (picked !== undefined) seg.classList.add(qq.options[picked].correct ? "seen-correct" : "seen-wrong");
+      if (i === qIndex && !finished) seg.classList.add("current");
+      progressTrack.appendChild(seg);
+    });
+  }
+
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+  function renderQuestion() {
+    const qq = q();
+    const picked = answers[qq.id];
+    const isAnswered = picked !== undefined;
+    const strikes = struck[qq.id] || {};
+    const langBtnLabel = lang === "pa" ? "EN ⇄ ਪੰਜਾਬੀ" : "ਪੰਜਾਬੀ ⇄ EN";
+
+    let html = '<div class="q-meta">' +
+      '<span class="meta-rune hot">' + esc(primary(bank().label)) + '</span>' +
+      '<span class="meta-rune">' + esc(qq.ch) + '</span>' +
+      '<span class="meta-rune">' + esc(qq.competency) + '</span>' +
+      '<button class="lang-flip" type="button" data-flip-lang>' + langBtnLabel + '</button>' +
+      '</div>' +
+      '<div class="q-prompt">' + primary(qq.prompt) + '</div>' +
+      '<div class="q-prompt-sub">' + secondary(qq.prompt) + '</div>';
+
+    const letters = ["A", "B", "C", "D", "E"];
+    qq.options.forEach((opt, i) => {
+      let optClass = "option";
+      let rowClass = "option-row";
+      let strikeClass = "strike-btn";
+      if (strikes[i] && !isAnswered) { rowClass += " struck"; strikeClass += " active"; }
+      if (isAnswered) {
+        if (opt.correct) optClass += " correct";
+        else if (picked === i) optClass += " incorrect";
+      }
+      const subT = secondary(opt.t) !== primary(opt.t) ? '<span class="opt-sub">' + secondary(opt.t) + '</span>' : '';
+      html += '<div class="' + rowClass + '">' +
+        '<button class="' + strikeClass + '" type="button" data-strike="' + i + '" aria-label="Rule out option ' + letters[i] + '" ' + (isAnswered ? "disabled" : "") + '>✕</button>' +
+        '<button class="' + optClass + '" type="button" data-pick="' + i + '" ' + (isAnswered ? "disabled" : "") + '>' +
+        '<span class="opt-letter">' + letters[i] + '.</span>' +
+        '<span class="opt-text">' + primary(opt.t) + subT + '</span>' +
+        '</button></div>';
+    });
+
+    if (isAnswered) {
+      const wasCorrect = qq.options[picked].correct;
+      html += '<div class="feedback">' +
+        '<div class="verdict ' + (wasCorrect ? "good" : "bad") + '">' +
+        (wasCorrect ? (lang === "pa" ? "✓ ਸਹੀ ਉੱਤਰ!" : "✓ Correct!") : (lang === "pa" ? "✕ ਗਲਤ ਉੱਤਰ" : "✕ Incorrect")) +
+        '</div>';
+      qq.options.forEach((opt, i) => {
+        let rClass = "rationale";
+        if (opt.correct) rClass += " good";
+        else if (picked === i) rClass += " bad";
+        html += '<div class="' + rClass + '"><strong>' + letters[i] + '.</strong> ' + primary(opt.r) + '</div>';
+      });
+      html += '<div class="objective"><div class="objective-title">' +
+        (lang === "pa" ? "ਵਿੱਦਿਅਕ ਉਦੇਸ਼ · Educational Objective" : "Educational Objective · ਵਿੱਦਿਅਕ ਉਦੇਸ਼") +
+        '</div><div class="objective-body">' + primary(qq.objective) + '</div></div></div>';
+    }
+
+    const isLast = qIndex === questions().length - 1;
+    const nextLabel = isLast ? (lang === "pa" ? "ਨਤੀਜਾ ਦੇਖੋ" : "See Results") : (lang === "pa" ? "ਅਗਲਾ ਪ੍ਰਸ਼ਨ" : "Next Question");
+    html += '<div class="action-bar">' +
+      '<span class="q-counter">' + (lang === "pa" ? "ਪ੍ਰਸ਼ਨ" : "Question") + " " + (qIndex + 1) + " / " + questions().length + '</span>' +
+      '<button class="btn-next" type="button" data-next ' + (isAnswered ? "" : "disabled") + '>' + nextLabel + ' <span>▶</span></button>' +
+      '</div>';
+
+    qCard.innerHTML = html;
+    qCard.classList.remove("swap");
+    void qCard.offsetWidth;
+    qCard.classList.add("swap");
+  }
+
+  function renderSummary() {
+    const s = scoreParts();
+    const total = questions().length;
+    const pct = total ? Math.round((s.correct / total) * 100) : 0;
+    const heading = pct >= 80 ? (lang === "pa" ? "ਸ਼ਾਨਦਾਰ ਪ੍ਰਦਰਸ਼ਨ!" : "Outstanding!") :
+      pct >= 50 ? (lang === "pa" ? "ਵਧੀਆ ਕੋਸ਼ਿਸ਼!" : "Good effort!") :
+      (lang === "pa" ? "ਦੁਬਾਰਾ ਅਭਿਆਸ ਕਰੋ" : "Keep practising");
+    const body = lang === "pa"
+      ? "ਤੁਸੀਂ " + total + " ਵਿੱਚੋਂ " + s.correct + " ਪ੍ਰਸ਼ਨ ਸਹੀ ਕੀਤੇ। ਹਰ ਵਿਆਖਿਆ ਨੂੰ ਦੁਬਾਰਾ ਪੜ੍ਹਨਾ ਸਭ ਤੋਂ ਤੇਜ਼ ਰੀਵੀਜ਼ਨ ਹੈ।"
+      : "You answered " + s.correct + " of " + total + " correctly. Re-reading each rationale is the fastest revision.";
+    qCard.innerHTML = '<div class="summary">' +
+      '<div class="summary-orb"><span class="summary-score">' + pct + '%</span></div>' +
+      '<h2>' + heading + '</h2><p>' + body + '</p>' +
+      '<div class="summary-actions">' +
+      '<button class="btn-next" type="button" data-restart>↻ ' + (lang === "pa" ? "ਦੁਬਾਰਾ ਅਭਿਆਸ" : "Practice Again") + '</button>' +
+      '<a class="btn-next" href="index.html" style="text-decoration:none;">◂ ' + (lang === "pa" ? "ਮੁੱਖ ਮੇਨੂ" : "Main Menu") + '</a>' +
+      '</div></div>';
+    announcer.textContent = heading + " " + pct + "%";
+  }
+
+  function render() {
+    applyAccent();
+    renderScore();
+    renderProgress();
+    if (finished) renderSummary(); else renderQuestion();
+  }
+
+  function setSubject(s) {
+    if (!BANKS[s] || s === subject) return;
+    subject = s;
+    qIndex = 0; answers = {}; struck = {}; finished = false;
+    document.querySelectorAll("[data-subject]").forEach(b => b.classList.toggle("active", b.dataset.subject === subject));
+    logoDot.textContent = ".MCQ";
+    persist();
+    render();
+  }
+
+  document.body.addEventListener("click", e => {
+    const subjBtn = e.target.closest("[data-subject]");
+    if (subjBtn) { setSubject(subjBtn.dataset.subject); return; }
+
+    const flip = e.target.closest("[data-flip-lang]");
+    if (flip) { lang = lang === "pa" ? "en" : "pa"; persist(); render(); return; }
+
+    const strikeBtn = e.target.closest("[data-strike]");
+    if (strikeBtn && !strikeBtn.disabled) {
+      const qq = q();
+      const i = parseInt(strikeBtn.dataset.strike, 10);
+      struck[qq.id] = struck[qq.id] || {};
+      struck[qq.id][i] = !struck[qq.id][i];
+      renderQuestion();
+      return;
+    }
+
+    const pickBtn = e.target.closest("[data-pick]");
+    if (pickBtn && !pickBtn.disabled) {
+      const qq = q();
+      const i = parseInt(pickBtn.dataset.pick, 10);
+      if ((struck[qq.id] || {})[i]) return; // struck options are ruled out
+      answers[qq.id] = i;
+      const wasCorrect = qq.options[i].correct;
+      announcer.textContent = wasCorrect ? "Correct" : "Incorrect";
+      render();
+      return;
+    }
+
+    const nextBtn = e.target.closest("[data-next]");
+    if (nextBtn && !nextBtn.disabled) {
+      if (qIndex < questions().length - 1) { qIndex++; render(); }
+      else { finished = true; render(); }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const restartBtn = e.target.closest("[data-restart]");
+    if (restartBtn) {
+      qIndex = 0; answers = {}; struck = {}; finished = false;
+      render();
+      return;
+    }
+  });
+
+  document.addEventListener("keydown", e => {
+    if (finished) return;
+    const letters = { a: 0, b: 1, c: 2, d: 3 };
+    const key = e.key.toLowerCase();
+    if (key in letters) {
+      const i = letters[key];
+      const qq = q();
+      if (answers[qq.id] === undefined && qq.options[i] && !(struck[qq.id] || {})[i]) {
+        answers[qq.id] = i; render();
+      }
+    } else if (key === "enter" || key === "arrowright") {
+      const qq = q();
+      if (answers[qq.id] !== undefined) {
+        if (qIndex < questions().length - 1) { qIndex++; render(); }
+        else { finished = true; render(); }
+      }
+    }
+  });
+
+  document.querySelectorAll("[data-subject]").forEach(b => b.classList.toggle("active", b.dataset.subject === subject));
+  render();
+})();
+</script>
+</body>
+</html>
