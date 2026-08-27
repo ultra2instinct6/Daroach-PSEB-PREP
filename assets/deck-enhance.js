@@ -741,25 +741,29 @@
         title: "Acid + metal -> salt + hydrogen",
         hcl: "Zn + 2HCl -> ZnCl2 + H2 upward arrow",
         h2so4: "Zn + H2SO4 -> ZnSO4 + H2 upward arrow",
-        test: "A burning splint gives a pop sound: hydrogen gas.", fx: "bubbles"
+        test: "A burning splint gives a pop sound: hydrogen gas.", fx: "bubbles",
+        product: "salt-h2", observation: "effervescence", gas: "pop"
       },
       carbonate: {
         title: "Acid + carbonate -> salt + water + carbon dioxide",
         hcl: "Na2CO3 + 2HCl -> 2NaCl + H2O + CO2 upward arrow",
         h2so4: "Na2CO3 + H2SO4 -> Na2SO4 + H2O + CO2 upward arrow",
-        test: "Pass the gas through limewater: it turns milky.", fx: "foam"
+        test: "Pass the gas through limewater: it turns milky.", fx: "foam",
+        product: "salt-water-co2", observation: "effervescence", gas: "lime"
       },
       base: {
         title: "Neutralisation: acid + base -> salt + water",
         hcl: "HCl + NaOH -> NaCl + H2O",
         h2so4: "H2SO4 + 2NaOH -> Na2SO4 + 2H2O",
-        test: "No gas forms. The mixture warms because neutralisation is exothermic.", fx: "warm"
+        test: "No gas forms. The mixture warms because neutralisation is exothermic.", fx: "warm",
+        product: "salt-water", observation: "warm", gas: "none"
       },
       oxide: {
         title: "Acid + metal oxide -> salt + water",
         hcl: "CuO + 2HCl -> CuCl2 + H2O",
         h2so4: "CuO + H2SO4 -> CuSO4 + H2O",
-        test: "The black copper oxide dissolves; a blue-green salt solution forms.", fx: "colour"
+        test: "The black copper oxide dissolves; a blue-green salt solution forms.", fx: "colour",
+        product: "salt-water", observation: "color", gas: "none"
       }
     };
     var item = cases[partner];
@@ -768,6 +772,37 @@
     lab.querySelector(".lab-result-title").textContent = item.title;
     lab.querySelector(".lab-equation").textContent = item[acid];
     lab.querySelector(".lab-explain").textContent = item.test;
+
+    // Verdict against user predictions (only render if any prediction was made)
+    var verdict = document.getElementById("predict-verdict");
+    if (!verdict) return;
+    var pProd = document.getElementById("predict-product");
+    var pObs = document.getElementById("predict-observation");
+    var pGas = document.getElementById("predict-gas");
+    if (!pProd || !pObs || !pGas) return;
+    if (!pProd.value && !pObs.value && !pGas.value) {
+      verdict.hidden = true;
+      return;
+    }
+    var productLabels = { "salt-h2": "Salt + Hydrogen", "salt-water-co2": "Salt + Water + CO2", "salt-water": "Salt + Water" };
+    var obsLabels = { "effervescence": "Effervescence", "warm": "Temperature rise", "color": "Colour shift", "none": "No visible change" };
+    var gasLabels = { "pop": "'Pop' sound (H2)", "lime": "Lime water milky (CO2)", "none": "No gas" };
+    function row(label, guess, actual) {
+      var ok = guess === actual;
+      var mark = guess === "" ? "—" : (ok ? "✅" : "❌");
+      return "<div class='verdict-row'><span class='vlabel'>" + label + ":</span> <span class='vguess'>" + mark + " You: " + (guess ? (label === "Product" ? productLabels[guess] : label === "Observation" ? obsLabels[guess] : gasLabels[guess]) : "no guess") + "</span> <span class='vactual'>Actual: " + (label === "Product" ? productLabels[actual] : label === "Observation" ? obsLabels[actual] : gasLabels[actual]) + "</span></div>";
+    }
+    var correct = 0, total = 0;
+    [ [pProd, item.product], [pObs, item.observation], [pGas, item.gas] ].forEach(function (pair) {
+      if (pair[0].value) { total++; if (pair[0].value === pair[1]) correct++; }
+    });
+    var score = total ? correct + "/" + total : "0/0";
+    verdict.hidden = false;
+    verdict.className = "predict-verdict" + (correct === total && total > 0 ? " all-correct" : (correct === 0 ? " none-correct" : " some-correct"));
+    verdict.innerHTML = "<div class='verdict-head'>Prediction score: <strong>" + score + "</strong></div>" +
+      row("Product", pProd.value, item.product) +
+      row("Observation", pObs.value, item.observation) +
+      row("Gas test", pGas.value, item.gas);
   };
 
   window.psebOpticsPosition = function (pos) {

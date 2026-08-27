@@ -406,3 +406,616 @@
                 scroll-behavior: auto !important;
             }
         }
+
+        /* ===== Chapter 2 upgrades — added by Stage 1 ===== */
+        .indicator-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95rem; background: #ffffff; color: #0f172a; border-radius: 8px; overflow: hidden; }
+        .indicator-table th, .indicator-table td { padding: 8px 12px; border: 1px solid rgba(15,23,42,0.12); text-align: left; color: #0f172a; }
+        .indicator-table th { background: #EEF2FF; color: var(--goku-blue); font-weight: 700; }
+        .indicator-table tr:nth-child(even) td { background: rgba(238,242,255,0.55); }
+        .indicator-table .punjabi { color: #475569; }
+
+        [data-section="sec-ph-digestion-soil"] .split-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 10px;
+        }
+        [data-section="sec-ph-digestion-soil"] .split-col {
+            background: #F8FAFF;
+            color: #0f172a;
+            border: 1px solid rgba(99,102,241,0.18);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        [data-section="sec-ph-digestion-soil"] .split-col,
+        [data-section="sec-ph-digestion-soil"] .split-col p,
+        [data-section="sec-ph-digestion-soil"] .split-col li,
+        [data-section="sec-ph-digestion-soil"] .split-col strong,
+        [data-section="sec-ph-digestion-soil"] .split-col em { color: #0f172a !important; }
+        [data-section="sec-ph-digestion-soil"] .split-col ul { text-align: left; padding-left: 22px; }
+        [data-section="sec-ph-digestion-soil"] .split-col .equation { display: block; margin-top: 8px; }
+        [data-section="sec-ph-digestion-soil"] .split-col h3 { margin-top: 0; color: var(--goku-blue); }
+        [data-section="sec-ph-digestion-soil"] #submodule-digestion { border-left: 6px solid #E11D48; }
+        [data-section="sec-ph-digestion-soil"] #submodule-soil { border-left: 6px solid #16A34A; }
+        @media (max-width: 760px) {
+            [data-section="sec-ph-digestion-soil"] .split-2 { grid-template-columns: 1fr; }
+        }
+
+        [data-section="sec-chlor-alkali-theory"] .electrode-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+        [data-section="sec-chlor-alkali-theory"] .electrode-card {
+            background: #F8FAFF;
+            color: #0f172a;
+            border: 1px solid rgba(15,23,42,0.12);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+        [data-section="sec-chlor-alkali-theory"] .electrode-card.anode { border-top: 6px solid #DC2626; }
+        [data-section="sec-chlor-alkali-theory"] .electrode-card.cathode { border-top: 6px solid #2563EB; }
+        [data-section="sec-chlor-alkali-theory"] .electrode-card.near-cathode { border-top: 6px solid #7C3AED; }
+        [data-section="sec-chlor-alkali-theory"] .electrode-tag { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: #64748B; }
+        [data-section="sec-chlor-alkali-theory"] .electrode-product { font-size: 1.4rem; font-weight: 700; margin: 4px 0; color: var(--goku-blue); }
+        [data-section="sec-chlor-alkali-theory"] .electrode-note { font-size: 0.9rem; color: #334155; }
+        @media (max-width: 760px) {
+            [data-section="sec-chlor-alkali-theory"] .electrode-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== Chapter 2 Stage 2 — pH slider + info panel ===== */
+        [data-section="sec-ph-scale-map"] .ph-slider-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 18px 0 8px;
+        }
+        [data-section="sec-ph-scale-map"] .ph-slider-label {
+            font-weight: 700;
+            color: var(--goku-blue);
+        }
+        [data-section="sec-ph-scale-map"] #ph-slider {
+            flex: 1;
+            accent-color: var(--goku-blue);
+            height: 6px;
+        }
+        [data-section="sec-ph-scale-map"] #ph-slider:focus-visible {
+            outline: 2px solid var(--deck-aura, #38bdf8);
+            outline-offset: 4px;
+        }
+        [data-section="sec-ph-scale-map"] #ph-slider-value {
+            min-width: 32px;
+            padding: 4px 10px;
+            background: var(--goku-blue);
+            color: #ffffff;
+            font-weight: 700;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        [data-section="sec-ph-scale-map"] .ph-info-panel {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid rgba(15,23,42,0.12);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-top: 8px;
+            display: grid;
+            gap: 8px;
+        }
+        [data-section="sec-ph-scale-map"] .ph-info-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        [data-section="sec-ph-scale-map"] .ph-info-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: #16A34A;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        [data-section="sec-ph-scale-map"] .ph-info-item {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--goku-blue);
+        }
+        [data-section="sec-ph-scale-map"] .ph-info-what {
+            font-size: 0.95rem;
+            color: #334155;
+        }
+        [data-section="sec-ph-scale-map"] .ph-info-row {
+            font-size: 0.95rem;
+            color: #1e293b;
+        }
+        [data-section="sec-ph-scale-map"] .ph-info-row strong { color: var(--goku-blue); }
+
+        /* ===== Chapter 2 Stage 3 — Dilution Safety Simulator ===== */
+        [data-section="sec-safety-dilution"] .dilution-sim {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid rgba(15,23,42,0.12);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 14px 0;
+        }
+        [data-section="sec-safety-dilution"] .dilution-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+        [data-section="sec-safety-dilution"] .dilution-mode-btn {
+            flex: 1;
+            min-width: 220px;
+            padding: 10px 14px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background: #F1F5F9;
+            color: #0f172a;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+        }
+        [data-section="sec-safety-dilution"] .dilution-mode-btn:hover { transform: translateY(-1px); }
+        [data-section="sec-safety-dilution"] .dilution-mode-btn[data-mode="A"].active { background: #ECFDF5; border-color: #16A34A; }
+        [data-section="sec-safety-dilution"] .dilution-mode-btn[data-mode="B"].active { background: #FEF2F2; border-color: #DC2626; }
+        [data-section="sec-safety-dilution"] .dilution-mode-btn:focus-visible { outline: 2px solid var(--deck-aura, #38bdf8); outline-offset: 2px; }
+
+        [data-section="sec-safety-dilution"] .dilution-stage {
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            gap: 10px;
+            align-items: end;
+            height: 200px;
+        }
+        [data-section="sec-safety-dilution"] .beaker {
+            position: relative;
+            height: 180px;
+            border: 3px solid #64748B;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            background: rgba(148,163,184,0.08);
+            overflow: hidden;
+        }
+        [data-section="sec-safety-dilution"] .beaker-label {
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 3px 12px;
+            background: rgba(15,23,42,0.85);
+            color: #f8fafc;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            z-index: 3;
+            white-space: nowrap;
+        }
+        [data-section="sec-safety-dilution"] .beaker-liquid {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            transition: background 300ms ease, height 300ms ease;
+        }
+        [data-section="sec-safety-dilution"] .source-beaker .src-liquid { height: 65%; background: #FBBF24; }
+        [data-section="sec-safety-dilution"] .target-beaker .tgt-liquid { height: 55%; background: #60A5FA; }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .source-beaker .src-liquid { background: #60A5FA; }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .target-beaker .tgt-liquid { background: #FBBF24; }
+
+        [data-section="sec-safety-dilution"] .drop-lane {
+            position: relative;
+            height: 100%;
+        }
+        [data-section="sec-safety-dilution"] .drop {
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            width: 14px;
+            height: 18px;
+            margin-left: -7px;
+            background: #FBBF24;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: dilutionDrop 2.4s ease-in infinite;
+        }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .drop { background: #60A5FA; }
+
+        [data-section="sec-safety-dilution"] .steam,
+        [data-section="sec-safety-dilution"] .splash { display: none; }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .steam {
+            display: block;
+            position: absolute;
+            left: 50%; bottom: 30%;
+            width: 60px; height: 60px;
+            margin-left: -30px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: dilutionSteam 1.4s ease-out infinite;
+        }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .splash {
+            display: block;
+            position: absolute;
+            left: 50%; bottom: 25%;
+            width: 8px; height: 8px;
+            margin-left: -4px;
+            background: #FBBF24;
+            border-radius: 50%;
+            box-shadow:
+                -14px -4px 0 #FBBF24,
+                14px -6px 0 #FBBF24,
+                -20px 6px 0 #FBBF24,
+                20px 4px 0 #FBBF24;
+            animation: dilutionSplash 1.2s ease-out infinite;
+        }
+
+        [data-section="sec-safety-dilution"] .dilution-gauge { margin-top: 18px; }
+        [data-section="sec-safety-dilution"] .gauge-label { font-weight: 600; color: #334155; margin-bottom: 4px; }
+        [data-section="sec-safety-dilution"] .gauge-track {
+            position: relative;
+            height: 14px;
+            border-radius: 7px;
+            background: linear-gradient(90deg, #16A34A 0%, #FBBF24 60%, #DC2626 100%);
+            overflow: hidden;
+        }
+        [data-section="sec-safety-dilution"] .gauge-fill {
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 22%;
+            background: rgba(15,23,42,0.15);
+            border-right: 3px solid #0f172a;
+            transition: width 300ms ease;
+            animation: gaugeSafe 3s ease-in-out infinite;
+        }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .gauge-fill {
+            animation: gaugeSpike 1.6s ease-in-out infinite;
+        }
+        [data-section="sec-safety-dilution"] .gauge-scale {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #475569;
+            margin-top: 4px;
+        }
+        [data-section="sec-safety-dilution"] .dilution-verdict {
+            margin-top: 14px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background: #ECFDF5;
+            color: #065F46;
+            border-left: 4px solid #16A34A;
+        }
+        [data-section="sec-safety-dilution"] .dilution-sim[data-mode="B"] .dilution-verdict {
+            background: #FEF2F2;
+            color: #7F1D1D;
+            border-left-color: #DC2626;
+        }
+
+        @keyframes dilutionDrop {
+            0% { transform: translateY(-20px); opacity: 0; }
+            15% { opacity: 1; }
+            85% { transform: translateY(110px); opacity: 1; }
+            100% { transform: translateY(120px); opacity: 0; }
+        }
+        @keyframes dilutionSteam {
+            0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
+            100% { transform: translateY(-80px) scale(1.4); opacity: 0; }
+        }
+        @keyframes dilutionSplash {
+            0% { transform: translateY(0) scale(0.4); opacity: 0; }
+            30% { opacity: 1; }
+            100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+        }
+        @keyframes gaugeSafe {
+            0%, 100% { width: 20%; }
+            50% { width: 28%; }
+        }
+        @keyframes gaugeSpike {
+            0%, 100% { width: 40%; }
+            50% { width: 92%; }
+        }
+
+        @media (max-width: 760px) {
+            [data-section="sec-safety-dilution"] .dilution-stage { grid-template-columns: 1fr 80px 1fr; height: 170px; }
+            [data-section="sec-safety-dilution"] .beaker { height: 150px; }
+        }
+
+        /* ===== Chapter 2 Stage 4 — Predict-the-reaction form + verdict ===== */
+        [data-section="sec-lab-predict-reaction"] .predict-form {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid rgba(15,23,42,0.12);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin: 12px 0;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-title {
+            font-weight: 700;
+            color: var(--goku-blue);
+            margin-bottom: 10px;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-grid label {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 0.9rem;
+            color: #334155;
+            font-weight: 600;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-grid select {
+            padding: 6px 8px !important;
+            border-radius: 6px !important;
+            border: 1px solid #cbd5e1 !important;
+            background: #f8fafc !important;
+            color: #0f172a !important;
+            font-size: 0.95rem;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-grid select option {
+            background: #ffffff;
+            color: #0f172a;
+        }
+        @media (max-width: 760px) {
+            [data-section="sec-lab-predict-reaction"] .predict-grid { grid-template-columns: 1fr; }
+        }
+
+        [data-section="sec-lab-predict-reaction"] .predict-verdict {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            background: #F1F5F9;
+            color: #0f172a;
+            border-left: 4px solid #64748B;
+            font-size: 0.95rem;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-verdict.all-correct { background: #ECFDF5; color: #065F46; border-left-color: #16A34A; }
+        [data-section="sec-lab-predict-reaction"] .predict-verdict.some-correct { background: #FEF3C7; color: #78350F; border-left-color: #F59E0B; }
+        [data-section="sec-lab-predict-reaction"] .predict-verdict.none-correct { background: #FEF2F2; color: #7F1D1D; border-left-color: #DC2626; }
+        [data-section="sec-lab-predict-reaction"] .verdict-head { font-weight: 700; margin-bottom: 6px; }
+        [data-section="sec-lab-predict-reaction"] .verdict-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 1fr;
+            gap: 8px;
+            padding: 4px 0;
+            font-size: 0.9rem;
+        }
+        [data-section="sec-lab-predict-reaction"] .verdict-row .vlabel { font-weight: 600; }
+        @media (max-width: 760px) {
+            [data-section="sec-lab-predict-reaction"] .verdict-row { grid-template-columns: 1fr; }
+        }
+
+        /* ===== Chapter 2 Stage 5 — Animated Chlor-Alkali Cell ===== */
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid rgba(15,23,42,0.12);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 14px 0;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-power { text-align: center; margin-bottom: 12px; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-power-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 18px;
+            border: 2px solid #64748B;
+            border-radius: 24px;
+            background: #F1F5F9;
+            color: #0f172a;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 200ms ease, border-color 200ms ease;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-power-btn:focus-visible { outline: 2px solid var(--deck-aura, #38bdf8); outline-offset: 3px; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-power-indicator {
+            width: 12px; height: 12px; border-radius: 50%;
+            background: #94a3b8;
+            box-shadow: 0 0 0 rgba(148,163,184,0);
+        }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-power-btn {
+            background: #ECFDF5; border-color: #16A34A;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-power-indicator {
+            background: #16A34A;
+            box-shadow: 0 0 12px rgba(22,163,74,0.6);
+        }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-cell {
+            position: relative;
+            height: 240px;
+            border: 3px solid #64748B;
+            border-top: 3px dashed #94a3b8;
+            border-radius: 0 0 14px 14px;
+            background: linear-gradient(180deg, rgba(96,165,250,0.10), rgba(96,165,250,0.28));
+            overflow: hidden;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-brine {
+            position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+            font-size: 0.8rem; color: #1e40af; font-weight: 600; letter-spacing: 0.04em;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-electrode {
+            position: absolute; top: 30px; bottom: 30px; width: 22px;
+            border-radius: 4px;
+            display: flex; align-items: flex-end; justify-content: center;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-anode { left: 20%; background: linear-gradient(180deg, #DC2626, #7F1D1D); }
+        [data-section="sec-chlor-alkali-interactive"] .ca-cathode { right: 20%; background: linear-gradient(180deg, #2563EB, #1E3A8A); }
+        [data-section="sec-chlor-alkali-interactive"] .ca-electrode-tag {
+            position: absolute; top: -22px; width: 90px; left: 50%; margin-left: -45px;
+            font-size: 0.75rem; font-weight: 700; text-align: center; color: #1e293b;
+        }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-output {
+            position: absolute; top: -6px;
+            font-size: 0.9rem; font-weight: 700;
+            opacity: 0; transition: opacity 300ms ease;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-out-cl { left: 20%; transform: translateX(-45%); color: #DC2626; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-out-h { right: 20%; transform: translateX(45%); color: #2563EB; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-out-naoh { bottom: 6px; top: auto; right: 12%; color: #7C3AED; }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-output { opacity: 1; }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-ion {
+            position: absolute;
+            top: 50%;
+            width: 30px; height: 24px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700;
+            border-radius: 12px;
+            opacity: 0;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-ion-cl { background: rgba(220,38,38,0.85); color: #fff; left: 55%; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-ion-h { background: rgba(37,99,235,0.85); color: #fff; left: 45%; }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-ion-cl {
+            animation: caIonCl 3s linear infinite;
+            animation-delay: calc(var(--i) * 1s);
+        }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-ion-h {
+            animation: caIonH 3s linear infinite;
+            animation-delay: calc(var(--i) * 1s);
+        }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-bubble {
+            position: absolute;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.85);
+            opacity: 0;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-bubble-cl { left: 20%; bottom: 40px; background: rgba(252,165,165,0.9); }
+        [data-section="sec-chlor-alkali-interactive"] .ca-bubble-h { right: 20%; bottom: 40px; background: rgba(147,197,253,0.9); }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-bubble-cl,
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-bubble-h {
+            animation: caBubble 2.4s linear infinite;
+            animation-delay: calc(var(--b) * 1.2s);
+        }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-naoh-pool {
+            position: absolute;
+            right: 8%; bottom: 0;
+            width: 26%; height: 0;
+            background: linear-gradient(180deg, rgba(124,58,237,0.35), rgba(124,58,237,0.65));
+            border-radius: 8px 8px 0 0;
+            transition: height 3s ease-out;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell[data-power="on"] .ca-naoh-pool { height: 40%; }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 14px;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product {
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background: #F1F5F9;
+            color: #0f172a;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: left;
+            display: flex; flex-direction: column; gap: 2px;
+            transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product:hover { transform: translateY(-2px); }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product:focus-visible { outline: 2px solid var(--deck-aura, #38bdf8); outline-offset: 2px; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product-cl { border-left: 6px solid #DC2626; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product-h { border-left: 6px solid #2563EB; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product-naoh { border-left: 6px solid #7C3AED; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product[aria-expanded="true"] { background: #EEF2FF; border-color: var(--goku-blue); }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product-title { font-size: 1rem; font-weight: 700; color: var(--goku-blue); }
+        [data-section="sec-chlor-alkali-interactive"] .ca-product-hint { font-size: 0.8rem; color: #64748B; }
+
+        [data-section="sec-chlor-alkali-interactive"] .ca-info-panel {
+            position: relative;
+            margin-top: 12px;
+            padding: 14px 40px 14px 16px;
+            background: #ffffff;
+            color: #0f172a;
+            border-left: 4px solid var(--goku-blue);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(15,23,42,0.08);
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-info-close {
+            position: absolute; top: 6px; right: 8px;
+            width: 28px; height: 28px; border-radius: 50%;
+            border: none; background: #F1F5F9; color: #0f172a;
+            font-size: 1.2rem; cursor: pointer;
+        }
+        [data-section="sec-chlor-alkali-interactive"] .ca-info-title { font-weight: 700; color: var(--goku-blue); margin-bottom: 6px; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-info-list { margin: 0; padding-left: 20px; }
+        [data-section="sec-chlor-alkali-interactive"] .ca-info-list li { color: #0f172a !important; padding: 2px 0; opacity: 1 !important; }
+
+        @keyframes caIonCl {
+            0% { left: 55%; opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { left: 22%; opacity: 0; }
+        }
+        @keyframes caIonH {
+            0% { left: 45%; opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { left: 76%; opacity: 0; }
+        }
+        @keyframes caBubble {
+            0% { transform: translateY(0); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-160px); opacity: 0; }
+        }
+
+        @media (max-width: 760px) {
+            [data-section="sec-chlor-alkali-interactive"] .ca-products { grid-template-columns: 1fr; }
+            [data-section="sec-chlor-alkali-interactive"] .ca-cell { height: 200px; }
+        }
+
+        /* ===== Chapter 2 Review Pass — compact spacing on dense equation slides ===== */
+        [data-section="sec-acid-reactions"] p,
+        [data-section="sec-acid-carbonates"] p { margin: 6px 0; }
+        [data-section="sec-acid-reactions"] .equation,
+        [data-section="sec-acid-carbonates"] .equation { margin: 6px 0; padding: 4px 12px; font-size: 1.05rem; }
+        [data-section="sec-acid-reactions"] .template-box,
+        [data-section="sec-acid-reactions"] .pitfall-box,
+        [data-section="sec-acid-carbonates"] .template-box { padding: 10px 14px; margin-top: 10px; }
+        [data-section="sec-acid-reactions"] .template-box h3,
+        [data-section="sec-acid-reactions"] .pitfall-box h3,
+        [data-section="sec-acid-carbonates"] .template-box h3 { margin: 0 0 4px 0; font-size: 1.05rem; }
+        [data-section="sec-acid-reactions"] .template-box p,
+        [data-section="sec-acid-reactions"] .pitfall-box p,
+        [data-section="sec-acid-carbonates"] .template-box p { font-size: 0.95rem; margin: 4px 0; }
+
+        /* Slide 10 pH-digestion-soil — tighter split-col spacing so antacid equation is visible */
+        [data-section="sec-ph-digestion-soil"] .split-col p { margin: 6px 0; }
+        [data-section="sec-ph-digestion-soil"] .split-col .equation { padding: 4px 10px; font-size: 0.95rem; margin-top: 6px; }
+
+        /* Slide 10 — .equation inside light split-col was invisible due to deck-theme .equation color */
+        [data-section="sec-ph-digestion-soil"] .split-col .equation {
+            background: #E8F0FE !important;
+            color: #1e40af !important;
+        }
+
+        [data-section="sec-lab-predict-reaction"] .predict-reset-btn {
+            padding: 6px 14px;
+            background: transparent;
+            color: #334155 !important;
+            border: 1px solid #94a3b8 !important;
+            border-radius: 999px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        [data-section="sec-lab-predict-reaction"] .predict-reset-btn:hover {
+            background: #f1f5f9;
+        }

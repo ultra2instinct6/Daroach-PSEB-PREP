@@ -3,7 +3,7 @@
    (fetch()/JSON modules are blocked on the file: scheme). */
 window.PSEB_CHAPTERS = [
   { n: 1,  title: "Chemical Reactions and Equations",           file: "Chapter 01 - Chemical Reactions/Chapter 01 - Chemical Reactions.html",                                     slides: 31, subject: "chemistry",   math: true },
-  { n: 2,  title: "Acids, Bases and Salts",                     file: "Chapter 02 - Acids, Bases and Salts/Chapter 02 - Acids, Bases and Salts.html",                             slides: 32, subject: "chemistry",   math: true },
+  { n: 2,  title: "Acids, Bases and Salts",                     file: "Chapter 02 - Acids, Bases and Salts/Chapter 02 - Acids, Bases and Salts.html",                             slides: 33, subject: "chemistry",   math: true },
   { n: 3,  title: "Metals and Non-metals",                      file: "Chapter 03 - Metals and Non-metals/Chapter 03 - Metals and Non-metals.html",                               slides: 31, subject: "chemistry",   math: true },
   { n: 4,  title: "Carbon and its Compounds",                   file: "Chapter 04 - Carbon Compounds/Chapter 04 - Carbon Compounds.html",                                         slides: 31, subject: "chemistry",   math: true },
   { n: 5,  title: "Periodic Classification of Elements",        file: "Chapter 05 - Periodic Table/Chapter 05 - Periodic Table.html",                                             slides: 31, subject: "chemistry",   math: true },

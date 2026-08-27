@@ -120,4 +120,36 @@
   @page {
     margin: 14mm;
   }
+
+  /* ===== Chapter 2 review-pass — interactive components print-friendly ===== */
+
+  /* pH slider — hide handle, keep the info panel visible */
+  [data-section="sec-ph-scale-map"] input[type="range"] { display: none !important; }
+  [data-section="sec-ph-scale-map"] .ph-pointer,
+  [data-section="sec-ph-scale-map"] .ph-scale-wrapper { break-inside: avoid; }
+  [data-section="sec-ph-scale-map"] .ph-info-panel { border: 1px solid #64748B !important; background: #F8FAFF !important; break-inside: avoid; }
+
+  /* Dilution safety simulator — hide toggle buttons, animated drop, splash & steam */
+  [data-section="sec-safety-dilution"] .dilution-mode-btn,
+  [data-section="sec-safety-dilution"] .drop,
+  [data-section="sec-safety-dilution"] .steam,
+  [data-section="sec-safety-dilution"] .splash-particle { display: none !important; }
+  [data-section="sec-safety-dilution"] .dilution-sim { break-inside: avoid; }
+  [data-section="sec-safety-dilution"] .beaker-label { background: #0f172a !important; color: #fff !important; }
+  [data-section="sec-safety-dilution"] .dilution-verdict { border: 1px solid #94a3b8 !important; }
+
+  /* Predict-the-reaction — hide the form (learners revise from the equations), keep verdict if visible */
+  [data-section="sec-lab-predict-reaction"] .predict-form,
+  [data-section="sec-lab-predict-reaction"] .predict-reset-btn { display: none !important; }
+
+  /* Chlor-alkali cell — hide power toggle, animated ions/bubbles; keep the cell diagram */
+  [data-section="sec-chlor-alkali-interactive"] .ca-power-btn,
+  [data-section="sec-chlor-alkali-interactive"] .ion,
+  [data-section="sec-chlor-alkali-interactive"] .bubble { display: none !important; }
+  [data-section="sec-chlor-alkali-interactive"] .chloralkali-cell { break-inside: avoid; border: 1px solid #94a3b8 !important; }
+  [data-section="sec-chlor-alkali-interactive"] .ca-info-panel { display: block !important; position: static !important; box-shadow: none !important; margin-top: 10px; border: 1px solid #64748B !important; }
+  [data-section="sec-chlor-alkali-interactive"] .ca-product { break-inside: avoid; }
+
+  /* Any info popover close buttons — no meaning on paper */
+  .ca-info-close, .predict-reset-btn { display: none !important; }
 }
