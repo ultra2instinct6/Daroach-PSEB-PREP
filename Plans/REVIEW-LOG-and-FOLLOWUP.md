@@ -31,6 +31,13 @@ gains left are **consistency polish** and optional **depth**, not fixes.
 | 9 | **Full-text bilingual slide search**: the outline (`O`) now searches all slide text in English *and* Gurmukhi, not just titles | assets | ✅ Done |
 | 10 | **Gurmukhi-aware TTS**: `speakWord()` is wrapped so any Gurmukhi text is spoken with a Punjabi (pa-IN) voice | assets | ✅ Done |
 
+### Pass of 2026-08-28 (quiz-bank expansion · interactive slides review)
+| # | Change | Chapters | Status |
+|---|--------|----------|--------|
+| 11 | **Quiz banks expanded +100–150%** (490 new bilingual questions): every TF/MCQ/Short-Answer bank roughly doubled or more — chem 12-16→22-28 per bank, bio/physics/env 8→18, Ch14/16 3-4→8-10. All new questions are Gurmukhi+English with bilingual "why" explanations, drawn from lecture content, dedup-checked against the existing banks, and answer-key audited. Content lives in `Scripts/quiz_expansion/*.py`; `Scripts/expand_quizzes.py` injected them, renumbered "N of M" counters, and rewired next-question chains | 1–16 | ✅ Done |
+| 12 | Fixed 7 dangling "Get Your Flashcards →" quiz exit buttons (left over from Anki removal) → "Finish →" | 6cc,7,8,9,10,11,12 | ✅ Done |
+| 13 | **Interactive slides modern review** (9 files): all load error-free and interactions verified in-browser. Removed the remaining Anki export buttons/functions/data from Defects of Vision, How Do Muscles Move, atmospheric_refraction. Fixed Mg(OH)₂ state (aq→s) in Metals Reacting with Water. Made circuit-symbols slide responsive (no more horizontal overflow at 390px) and bilingual (Punjabi labels). Joule's Law: removed dead image reference, real page title, Punjabi subtitle | Interactive slides | ✅ Done |
+
 > ⚠️ **Please verify** the 52 Gurmukhi transliterations in the chemistry vocab
 > tables. They are standard English-pronunciation spellings (e.g. Metal →
 > ਉਚਾਰਨ: ਮੈਟਲ), but a native check is worthwhile before final publish.

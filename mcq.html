@@ -362,6 +362,103 @@
   .summary p { color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.92rem; font-weight: 600; line-height: 1.7; max-width: 460px; margin: 0 auto 24px; }
   .summary-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
+  /* ---------- v1.1 — difficulty, flag, navigator, breakdowns ---------- */
+  .meta-rune.diff-easy { border-color: color-mix(in srgb, var(--green) 30%, transparent); color: var(--green); }
+  .meta-rune.diff-medium { border-color: color-mix(in srgb, var(--amber) 30%, transparent); color: var(--amber); }
+  .meta-rune.diff-hard { border-color: color-mix(in srgb, var(--red) 30%, transparent); color: var(--red); }
+
+  .flag-btn {
+    padding: 6px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .flag-btn:hover { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 45%, transparent); }
+  .flag-btn.active { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 60%, transparent); background: color-mix(in srgb, var(--amber) 10%, transparent); }
+
+  .progress-seg { border: 0; padding: 0; cursor: pointer; }
+  .progress-seg:hover { box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 55%, transparent); }
+  .progress-seg.flagged { outline: 1.5px solid var(--amber); outline-offset: 1.5px; }
+
+  .btn-prev {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 12px 18px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-family: var(--font-gurmukhi);
+    font-size: 0.78rem;
+    font-weight: 800;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .btn-prev:hover:not(:disabled) { color: var(--text-bold); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+  .btn-prev:disabled { opacity: 0.25; cursor: default; }
+  .results-link {
+    padding: 7px 13px;
+    border: 1px solid color-mix(in srgb, var(--amber) 40%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--amber) 8%, transparent);
+    color: var(--amber);
+    font-family: var(--font-gurmukhi);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .results-link:hover { background: color-mix(in srgb, var(--amber) 16%, transparent); transform: translateY(-1px); }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; max-width: 560px; margin: 0 auto 26px; }
+  .stat-box { padding: 14px 10px; border: 1px solid var(--border); border-radius: 14px; background: rgba(255, 255, 255, 0.02); text-align: center; }
+  .stat-num { display: block; color: var(--accent); font-size: 1.15rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .stat-label { display: block; margin-top: 4px; color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.56rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+
+  .break-section { max-width: 620px; margin: 26px auto 0; text-align: left; }
+  .break-title { margin-bottom: 12px; color: var(--accent); font-family: var(--font-gurmukhi); font-size: 0.62rem; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; }
+  .break-row { display: flex; align-items: center; gap: 12px; margin-bottom: 9px; }
+  .break-name { flex: 0 0 42%; overflow: hidden; color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.72rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+  .break-bar { flex: 1; height: 6px; border-radius: 99px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
+  .break-fill { height: 100%; border-radius: 99px; background: var(--green); transition: width 0.8s var(--fluid-curve); }
+  .break-fill.low { background: var(--red); }
+  .break-fill.mid { background: var(--amber); }
+  .break-score { flex: none; min-width: 44px; color: var(--text-dim); font-size: 0.68rem; font-weight: 800; font-variant-numeric: tabular-nums; text-align: right; }
+
+  .review-list { display: flex; flex-direction: column; gap: 6px; max-width: 620px; margin: 14px auto 0; text-align: left; }
+  .review-item {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    font-family: var(--font-gurmukhi);
+    text-align: left;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .review-item:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); background: rgba(255, 255, 255, 0.05); transform: translateX(3px); }
+  .rv-num { flex: none; color: var(--text-dim); font-size: 0.68rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .rv-verdict { flex: none; font-size: 0.85rem; font-weight: 900; }
+  .rv-verdict.rv-good { color: var(--green); }
+  .rv-verdict.rv-bad { color: var(--red); }
+  .rv-verdict.rv-skip { color: var(--text-dim); }
+  .rv-text { flex: 1; overflow: hidden; color: var(--text-bold); font-size: 0.76rem; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+  .rv-flag { flex: none; color: var(--amber); font-size: 0.8rem; }
+
+  body[data-theme="CLASSIC"] .flag-btn { border-color: rgba(11, 74, 168, 0.18); background: rgba(11, 86, 197, 0.05); }
+  body[data-theme="CLASSIC"] .btn-prev { border-color: rgba(11, 74, 168, 0.16); background: rgba(11, 86, 197, 0.04); }
+  body[data-theme="CLASSIC"] .stat-box, body[data-theme="CLASSIC"] .review-item { border-color: rgba(11, 74, 168, 0.14); background: rgba(11, 86, 197, 0.035); }
+  body[data-theme="CLASSIC"] .break-bar { background: rgba(11, 74, 168, 0.12); }
+  body[data-theme="CLASSIC"] .review-item:hover { background: rgba(11, 86, 197, 0.08); }
+
   /* ---------- CLASSIC (light) colorway — matches lecture deck legacy palette ---------- */
   html:has(body[data-theme="CLASSIC"]) { background: #f8fbff; }
   body[data-theme="CLASSIC"] { background: linear-gradient(145deg, #f8fbff 0%, #eef4ff 100%); }
@@ -441,7 +538,7 @@
       label: { pa: "ਵਿਗਿਆਨ", en: "Science" },
       questions: [
         {
-          id: "SCI-CH1-01", ch: "Ch 1 · ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ", competency: "Understanding",
+          id: "SCI-CH1-01", ch: "Ch 1 · ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ", competency: "Understanding", diff: "Easy",
           prompt: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਰਿਬਨ ਨੂੰ ਹਵਾ ਵਿੱਚ ਸਾੜਨ 'ਤੇ ਕਿਹੜਾ ਯੋਗਿਕ ਬਣਦਾ ਹੈ?", en: "When a magnesium ribbon is burnt in air, which compound is formed?" },
           options: [
             { t: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਆਕਸਾਈਡ (MgO)", en: "Magnesium oxide (MgO)" }, correct: true,
@@ -456,7 +553,22 @@
           objective: { pa: "ਸੰਯੋਜਨ ਪ੍ਰਤੀਕ੍ਰਿਆ: ਧਾਤ + ਆਕਸੀਜਨ → ਧਾਤ ਆਕਸਾਈਡ। ਮੈਗਨੀਸ਼ੀਅਮ ਚਮਕਦਾਰ ਚਿੱਟੀ ਲਾਟ ਨਾਲ ਸੜ ਕੇ MgO ਦਿੰਦਾ ਹੈ।", en: "Combination reaction: metal + oxygen → metal oxide. Magnesium burns with a dazzling white flame to give MgO." }
         },
         {
-          id: "SCI-CH2-01", ch: "Ch 2 · ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", competency: "Application",
+          id: "SCI-CH1-02", ch: "Ch 1 · ਰਸਾਇਣਕ ਪ੍ਰਤੀਕ੍ਰਿਆਵਾਂ", competency: "Analysis", diff: "Medium",
+          prompt: { pa: "Fe₂O₃ + 2Al → Al₂O₃ + 2Fe — ਇਹ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਿਸ ਕਿਸਮ ਦੀ ਹੈ?", en: "Fe₂O₃ + 2Al → Al₂O₃ + 2Fe — what type of reaction is this?" },
+          options: [
+            { t: { pa: "ਵਿਸਥਾਪਨ ਪ੍ਰਤੀਕ੍ਰਿਆ", en: "Displacement reaction" }, correct: true,
+              r: { pa: "ਐਲੂਮੀਨੀਅਮ, ਲੋਹੇ ਨਾਲੋਂ ਵੱਧ ਕਿਰਿਆਸ਼ੀਲ ਹੈ, ਇਸ ਲਈ ਇਹ Fe ਨੂੰ ਉਸਦੇ ਆਕਸਾਈਡ ਵਿੱਚੋਂ ਵਿਸਥਾਪਿਤ ਕਰ ਦਿੰਦਾ ਹੈ — ਇਹ ਥਰਮਿਟ ਪ੍ਰਤੀਕ੍ਰਿਆ ਹੈ ਜੋ ਰੇਲ ਪਟੜੀਆਂ ਜੋੜਨ ਲਈ ਵਰਤੀ ਜਾਂਦੀ ਹੈ।", en: "Aluminium is more reactive than iron, so it displaces Fe from its oxide — the thermit reaction used to weld railway tracks." } },
+            { t: { pa: "ਸੰਯੋਜਨ ਪ੍ਰਤੀਕ੍ਰਿਆ", en: "Combination reaction" }, correct: false,
+              r: { pa: "ਸੰਯੋਜਨ ਵਿੱਚ ਦੋ ਪਦਾਰਥ ਮਿਲ ਕੇ ਇੱਕ ਹੀ ਉਪਜ ਬਣਾਉਂਦੇ ਹਨ; ਇੱਥੇ ਦੋ ਉਪਜਾਂ ਹਨ।", en: "Combination gives a single product from two reactants; here two products form." } },
+            { t: { pa: "ਅਪਘਟਨ ਪ੍ਰਤੀਕ੍ਰਿਆ", en: "Decomposition reaction" }, correct: false,
+              r: { pa: "ਅਪਘਟਨ ਵਿੱਚ ਇੱਕ ਯੋਗਿਕ ਟੁੱਟਦਾ ਹੈ; ਇੱਥੇ ਦੋ ਪਦਾਰਥ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰ ਰਹੇ ਹਨ।", en: "Decomposition means one compound splitting apart; here two reactants combine and exchange." } },
+            { t: { pa: "ਦੂਹਰੀ ਵਿਸਥਾਪਨ ਪ੍ਰਤੀਕ੍ਰਿਆ", en: "Double displacement reaction" }, correct: false,
+              r: { pa: "ਦੂਹਰੀ ਵਿਸਥਾਪਨ ਵਿੱਚ ਦੋ ਯੋਗਿਕ ਆਪਸ ਵਿੱਚ ਆਇਨ ਵਟਾਉਂਦੇ ਹਨ (ਜਿਵੇਂ AgNO₃ + NaCl); ਇੱਥੇ ਸਿਰਫ਼ ਇੱਕ ਤੱਤ ਦੂਜੇ ਨੂੰ ਹਟਾਉਂਦਾ ਹੈ।", en: "Double displacement is an exchange of ions between two compounds (like AgNO₃ + NaCl); here a single element displaces another." } }
+          ],
+          objective: { pa: "ਵਿਸਥਾਪਨ: ਵੱਧ ਕਿਰਿਆਸ਼ੀਲ ਧਾਤ ਘੱਟ ਕਿਰਿਆਸ਼ੀਲ ਧਾਤ ਨੂੰ ਉਸਦੇ ਯੋਗਿਕ ਵਿੱਚੋਂ ਕੱਢ ਦਿੰਦੀ ਹੈ। ਥਰਮਿਟ ਪ੍ਰਤੀਕ੍ਰਿਆ (Fe₂O₃ + Al) ਬਹੁਤ ਤਾਪ ਛੱਡਦੀ ਹੈ — ਰੇਲ ਪਟੜੀਆਂ ਦੀ ਵੈਲਡਿੰਗ।", en: "Displacement: a more reactive metal pushes a less reactive one out of its compound. The highly exothermic thermit reaction (Fe₂O₃ + Al) welds railway tracks." }
+        },
+        {
+          id: "SCI-CH2-01", ch: "Ch 2 · ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", competency: "Application", diff: "Medium",
           prompt: { pa: "ਮਧੂਮੱਖੀ ਦੇ ਡੰਗ ਵਾਲੀ ਥਾਂ 'ਤੇ ਬੇਕਿੰਗ ਸੋਡਾ ਲਗਾਉਣ ਨਾਲ ਆਰਾਮ ਕਿਉਂ ਮਿਲਦਾ ਹੈ?", en: "Why does applying baking soda give relief on a bee sting?" },
           options: [
             { t: { pa: "ਡੰਗ ਦਾ ਤੇਜ਼ਾਬ ਖਾਰ ਨਾਲ ਉਦਾਸੀਨ ਹੋ ਜਾਂਦਾ ਹੈ", en: "The acidic sting is neutralised by the base" }, correct: true,
@@ -471,7 +583,22 @@
           objective: { pa: "ਉਦਾਸੀਨੀਕਰਨ: ਤੇਜ਼ਾਬ + ਖਾਰ → ਲੂਣ + ਪਾਣੀ। ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ ਇਸ ਦੀ ਵਰਤੋਂ ਡੰਗ ਅਤੇ ਤੇਜ਼ਾਬੀ ਬਦਹਜ਼ਮੀ ਦੇ ਇਲਾਜ ਲਈ ਹੁੰਦੀ ਹੈ।", en: "Neutralisation: acid + base → salt + water. Everyday uses include treating stings and acidity." }
         },
         {
-          id: "SCI-CH3-01", ch: "Ch 3 · ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", competency: "Analysis",
+          id: "SCI-CH2-02", ch: "Ch 2 · ਤੇਜ਼ਾਬ, ਖਾਰ ਅਤੇ ਲੂਣ", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਘੋਲ A ਦਾ pH 2 ਹੈ ਅਤੇ ਘੋਲ B ਦਾ pH 6 ਹੈ। ਕਿਹੜਾ ਕਥਨ ਸਹੀ ਹੈ?", en: "Solution A has pH 2 and solution B has pH 6. Which statement is correct?" },
+          options: [
+            { t: { pa: "A ਵਿੱਚ H⁺ ਆਇਨਾਂ ਦੀ ਸੰਘਣਤਾ B ਨਾਲੋਂ ਵੱਧ ਹੈ", en: "A has a higher H⁺ ion concentration than B" }, correct: true,
+              r: { pa: "pH ਜਿੰਨਾ ਘੱਟ, H⁺ ਆਇਨ ਓਨੇ ਵੱਧ — ਇਸ ਲਈ pH 2 ਵਾਲਾ ਘੋਲ ਵਧੇਰੇ ਤੇਜ਼ਾਬੀ ਹੈ।", en: "The lower the pH, the higher the H⁺ concentration — so the pH 2 solution is more strongly acidic." } },
+            { t: { pa: "B, A ਨਾਲੋਂ ਵੱਧ ਤੇਜ਼ਾਬੀ ਹੈ", en: "B is more acidic than A" }, correct: false,
+              r: { pa: "ਉਲਟ — pH ਘੱਟ ਹੋਣ ਦਾ ਮਤਲਬ ਵੱਧ ਤੇਜ਼ਾਬੀ; 2 < 6 ਇਸ ਲਈ A ਵੱਧ ਤੇਜ਼ਾਬੀ ਹੈ।", en: "The reverse — lower pH means more acidic; 2 < 6, so A is the stronger acid." } },
+            { t: { pa: "A ਇੱਕ ਖਾਰੀ ਘੋਲ ਹੈ", en: "A is a basic solution" }, correct: false,
+              r: { pa: "pH 7 ਤੋਂ ਘੱਟ ਤੇਜ਼ਾਬੀ ਹੁੰਦਾ ਹੈ; ਖਾਰੀ ਲਈ pH 7 ਤੋਂ ਵੱਧ ਚਾਹੀਦਾ ਹੈ।", en: "pH below 7 is acidic; a base needs pH above 7." } },
+            { t: { pa: "ਦੋਵੇਂ ਘੋਲ ਉਦਾਸੀਨ ਹਨ", en: "Both solutions are neutral" }, correct: false,
+              r: { pa: "ਉਦਾਸੀਨ ਸਿਰਫ਼ pH 7 'ਤੇ ਹੁੰਦਾ ਹੈ (ਜਿਵੇਂ ਸ਼ੁੱਧ ਪਾਣੀ); 2 ਅਤੇ 6 ਦੋਵੇਂ ਤੇਜ਼ਾਬੀ ਹਨ।", en: "Neutral is only pH 7 (like pure water); both 2 and 6 are on the acidic side." } }
+          ],
+          objective: { pa: "pH ਪੈਮਾਨਾ (0–14): pH ਘੱਟ → H⁺ ਵੱਧ → ਵੱਧ ਤੇਜ਼ਾਬੀ; pH 7 ਉਦਾਸੀਨ; pH 7 ਤੋਂ ਵੱਧ ਖਾਰੀ।", en: "pH scale (0–14): lower pH → more H⁺ → more acidic; 7 is neutral; above 7 is basic." }
+        },
+        {
+          id: "SCI-CH3-01", ch: "Ch 3 · ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", competency: "Analysis", diff: "Medium",
           prompt: { pa: "ਸੋਡੀਅਮ ਧਾਤ ਨੂੰ ਮਿੱਟੀ ਦੇ ਤੇਲ (kerosene) ਵਿੱਚ ਕਿਉਂ ਰੱਖਿਆ ਜਾਂਦਾ ਹੈ?", en: "Why is sodium metal stored under kerosene?" },
           options: [
             { t: { pa: "ਇਹ ਹਵਾ ਅਤੇ ਨਮੀ ਨਾਲ ਬਹੁਤ ਤੇਜ਼ੀ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਦਾ ਹੈ", en: "It reacts violently with air and moisture" }, correct: true,
@@ -486,7 +613,67 @@
           objective: { pa: "ਕਿਰਿਆਸ਼ੀਲਤਾ ਲੜੀ: K, Na ਸਭ ਤੋਂ ਵੱਧ ਕਿਰਿਆਸ਼ੀਲ ਧਾਤਾਂ ਹਨ ਅਤੇ ਹਵਾ/ਪਾਣੀ ਨਾਲ ਤੇਜ਼ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਕੇ ਅੱਗ ਫੜ ਸਕਦੀਆਂ ਹਨ।", en: "Reactivity series: K and Na are the most reactive metals and can ignite on contact with air/water, hence stored under kerosene." }
         },
         {
-          id: "SCI-CH6-01", ch: "Ch 6 · ਜੀਵਨ ਪ੍ਰਕਿਰਿਆਵਾਂ", competency: "Analysis",
+          id: "SCI-CH3-02", ch: "Ch 3 · ਧਾਤਾਂ ਅਤੇ ਅਧਾਤਾਂ", competency: "Analysis", diff: "Hard",
+          prompt: { pa: "ਕਿਹੜਾ ਆਕਸਾਈਡ ਤੇਜ਼ਾਬ ਅਤੇ ਖਾਰ ਦੋਹਾਂ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਦਾ ਹੈ (ਉਭੈਧਰਮੀ/amphoteric ਆਕਸਾਈਡ)?", en: "Which oxide reacts with both acids and bases (an amphoteric oxide)?" },
+          options: [
+            { t: { pa: "ਐਲੂਮੀਨੀਅਮ ਆਕਸਾਈਡ (Al₂O₃)", en: "Aluminium oxide (Al₂O₃)" }, correct: true,
+              r: { pa: "Al₂O₃ ਉਭੈਧਰਮੀ ਹੈ: HCl ਨਾਲ AlCl₃ ਬਣਾਉਂਦਾ ਹੈ ਅਤੇ NaOH ਨਾਲ ਸੋਡੀਅਮ ਐਲੂਮੀਨੇਟ (NaAlO₂) — ਦੋਹਾਂ ਨਾਲ ਲੂਣ + ਪਾਣੀ।", en: "Al₂O₃ is amphoteric: with HCl it gives AlCl₃; with NaOH it gives sodium aluminate (NaAlO₂) — salt + water both ways." } },
+            { t: { pa: "ਸੋਡੀਅਮ ਆਕਸਾਈਡ (Na₂O)", en: "Sodium oxide (Na₂O)" }, correct: false,
+              r: { pa: "Na₂O ਪੱਕਾ ਖਾਰੀ ਆਕਸਾਈਡ ਹੈ — ਇਹ ਸਿਰਫ਼ ਤੇਜ਼ਾਬਾਂ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਦਾ ਹੈ।", en: "Na₂O is a strongly basic oxide — it reacts with acids only." } },
+            { t: { pa: "ਕਾਰਬਨ ਡਾਈਆਕਸਾਈਡ (CO₂)", en: "Carbon dioxide (CO₂)" }, correct: false,
+              r: { pa: "CO₂ ਅਧਾਤ ਦਾ ਤੇਜ਼ਾਬੀ ਆਕਸਾਈਡ ਹੈ — ਇਹ ਸਿਰਫ਼ ਖਾਰਾਂ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਦਾ ਹੈ।", en: "CO₂ is an acidic non-metal oxide — it reacts with bases only." } },
+            { t: { pa: "ਮੈਗਨੀਸ਼ੀਅਮ ਆਕਸਾਈਡ (MgO)", en: "Magnesium oxide (MgO)" }, correct: false,
+              r: { pa: "MgO ਖਾਰੀ ਆਕਸਾਈਡ ਹੈ — ਖਾਰ ਨਾਲ ਕੋਈ ਪ੍ਰਤੀਕ੍ਰਿਆ ਨਹੀਂ ਕਰਦਾ।", en: "MgO is a basic oxide — it does not react with bases." } }
+          ],
+          objective: { pa: "ਉਭੈਧਰਮੀ ਆਕਸਾਈਡ (Al₂O₃, ZnO) ਤੇਜ਼ਾਬ ਅਤੇ ਖਾਰ ਦੋਹਾਂ ਨਾਲ ਪ੍ਰਤੀਕ੍ਰਿਆ ਕਰਕੇ ਲੂਣ + ਪਾਣੀ ਦਿੰਦੇ ਹਨ। ਬੋਰਡ ਵਿੱਚ ਇਹ ਦੋ ਉਦਾਹਰਣਾਂ ਯਾਦ ਰੱਖੋ।", en: "Amphoteric oxides (Al₂O₃, ZnO) react with both acids and bases to give salt + water. Memorise these two examples for the board exam." }
+        },
+        {
+          id: "SCI-CH4-01", ch: "Ch 4 · ਕਾਰਬਨ ਅਤੇ ਉਸਦੇ ਯੋਗਿਕ", competency: "Recall", diff: "Easy",
+          prompt: { pa: "ਈਥਾਨੌਲ (C₂H₅OH) ਵਿੱਚ ਕਿਹੜਾ ਕਿਰਿਆਸ਼ੀਲ ਸਮੂਹ (functional group) ਮੌਜੂਦ ਹੈ?", en: "Which functional group is present in ethanol (C₂H₅OH)?" },
+          options: [
+            { t: { pa: "—OH (ਅਲਕੋਹਲ ਸਮੂਹ)", en: "—OH (alcohol group)" }, correct: true,
+              r: { pa: "—OH ਸਮੂਹ ਅਲਕੋਹਲਾਂ ਦੀ ਪਛਾਣ ਹੈ; ਈਥਾਨੌਲ = ਈਥੇਨ ਦਾ ਢਾਂਚਾ + —OH।", en: "The —OH group defines alcohols; ethanol is an ethane skeleton carrying —OH." } },
+            { t: { pa: "—COOH (ਕਾਰਬੋਕਸਿਲਿਕ ਐਸਿਡ ਸਮੂਹ)", en: "—COOH (carboxylic acid group)" }, correct: false,
+              r: { pa: "—COOH ਈਥੇਨੋਇਕ ਐਸਿਡ (CH₃COOH, ਸਿਰਕਾ) ਵਿੱਚ ਹੁੰਦਾ ਹੈ, ਈਥਾਨੌਲ ਵਿੱਚ ਨਹੀਂ।", en: "—COOH belongs to ethanoic acid (CH₃COOH, vinegar), not ethanol." } },
+            { t: { pa: "—CHO (ਐਲਡੀਹਾਈਡ ਸਮੂਹ)", en: "—CHO (aldehyde group)" }, correct: false,
+              r: { pa: "—CHO ਐਲਡੀਹਾਈਡਾਂ ਦੀ ਪਛਾਣ ਹੈ (ਜਿਵੇਂ ਈਥੇਨਲ CH₃CHO)।", en: "—CHO marks aldehydes (like ethanal, CH₃CHO)." } },
+            { t: { pa: ">C=O (ਕੀਟੋਨ ਸਮੂਹ)", en: ">C=O (ketone group)" }, correct: false,
+              r: { pa: "ਕੀਟੋਨ ਸਮੂਹ ਪ੍ਰੋਪੇਨੋਨ (ਐਸੀਟੋਨ) ਵਰਗੇ ਯੋਗਿਕਾਂ ਵਿੱਚ ਹੁੰਦਾ ਹੈ।", en: "The ketone group appears in compounds like propanone (acetone)." } }
+          ],
+          objective: { pa: "ਕਿਰਿਆਸ਼ੀਲ ਸਮੂਹ ਯੋਗਿਕ ਦੇ ਗੁਣ ਤੈਅ ਕਰਦਾ ਹੈ: —OH ਅਲਕੋਹਲ, —COOH ਐਸਿਡ, —CHO ਐਲਡੀਹਾਈਡ, >C=O ਕੀਟੋਨ।", en: "The functional group decides a compound's chemistry: —OH alcohol, —COOH acid, —CHO aldehyde, >C=O ketone." }
+        },
+        {
+          id: "SCI-CH4-02", ch: "Ch 4 · ਕਾਰਬਨ ਅਤੇ ਉਸਦੇ ਯੋਗਿਕ", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਕਾਰਬਨ ਇੰਨੀ ਵੱਡੀ ਗਿਣਤੀ ਵਿੱਚ ਯੋਗਿਕ ਕਿਉਂ ਬਣਾਉਂਦਾ ਹੈ?", en: "Why does carbon form such an enormous number of compounds?" },
+          options: [
+            { t: { pa: "ਕੈਟੀਨੇਸ਼ਨ ਅਤੇ ਚਾਰ-ਸੰਯੋਜਕਤਾ ਕਾਰਨ", en: "Because of catenation and tetravalency" }, correct: true,
+              r: { pa: "ਕਾਰਬਨ ਆਪਣੇ ਹੀ ਪਰਮਾਣੂਆਂ ਨਾਲ ਲੰਬੀਆਂ ਲੜੀਆਂ/ਛੱਲੇ ਬਣਾਉਂਦਾ ਹੈ (ਕੈਟੀਨੇਸ਼ਨ) ਅਤੇ 4 ਮਜ਼ਬੂਤ ਸਹਿ-ਸੰਯੋਜਕ ਬੰਧਨ ਬਣਾ ਸਕਦਾ ਹੈ।", en: "Carbon bonds to itself in long chains and rings (catenation) and its 4 valence electrons form 4 strong covalent bonds." } },
+            { t: { pa: "ਇਹ ਬਹੁਤ ਕਿਰਿਆਸ਼ੀਲ ਧਾਤ ਹੈ", en: "It is a highly reactive metal" }, correct: false,
+              r: { pa: "ਕਾਰਬਨ ਅਧਾਤ ਹੈ, ਧਾਤ ਨਹੀਂ — ਅਤੇ ਯੋਗਿਕਾਂ ਦੀ ਵਿਭਿੰਨਤਾ ਦਾ ਕਾਰਨ ਕਿਰਿਆਸ਼ੀਲਤਾ ਨਹੀਂ।", en: "Carbon is a non-metal, and sheer reactivity isn't what creates compound diversity." } },
+            { t: { pa: "ਇਹ ਆਸਾਨੀ ਨਾਲ ਆਇਨ ਬਣਾਉਂਦਾ ਹੈ", en: "It easily forms ions" }, correct: false,
+              r: { pa: "C⁴⁺ ਜਾਂ C⁴⁻ ਬਣਾਉਣ ਲਈ ਬਹੁਤ ਜ਼ਿਆਦਾ ਊਰਜਾ ਚਾਹੀਦੀ ਹੈ — ਇਸ ਲਈ ਕਾਰਬਨ ਇਲੈਕਟ੍ਰਾਨ ਸਾਂਝੇ ਕਰਦਾ ਹੈ।", en: "Forming C⁴⁺ or C⁴⁻ needs far too much energy — carbon shares electrons instead." } },
+            { t: { pa: "ਇਸਦਾ ਪਰਮਾਣੂ ਪੁੰਜ ਘੱਟ ਹੈ", en: "Its atomic mass is low" }, correct: false,
+              r: { pa: "ਘੱਟ ਪੁੰਜ ਦਾ ਯੋਗਿਕਾਂ ਦੀ ਗਿਣਤੀ ਨਾਲ ਕੋਈ ਸੰਬੰਧ ਨਹੀਂ।", en: "Low mass has nothing to do with the variety of compounds." } }
+          ],
+          objective: { pa: "ਕੈਟੀਨੇਸ਼ਨ (C–C ਲੜੀਆਂ, ਛੱਲੇ) + ਚਾਰ-ਸੰਯੋਜਕਤਾ (4 ਸਹਿ-ਸੰਯੋਜਕ ਬੰਧਨ) = ਲੱਖਾਂ ਕਾਰਬਨਿਕ ਯੋਗਿਕ।", en: "Catenation (C–C chains, rings) + tetravalency (4 covalent bonds) = millions of organic compounds." }
+        },
+        {
+          id: "SCI-CH5-01", ch: "Ch 5 · ਤੱਤਾਂ ਦਾ ਆਵਰਤੀ ਵਰਗੀਕਰਨ", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਤੱਤ X ਦੀ ਪਰਮਾਣੂ ਸੰਖਿਆ 17 ਹੈ (ਇਲੈਕਟ੍ਰਾਨੀ ਤਰਤੀਬ 2, 8, 7)। ਆਧੁਨਿਕ ਆਵਰਤੀ ਸਾਰਣੀ ਵਿੱਚ ਇਸਦੀ ਸਥਿਤੀ ਕੀ ਹੈ?", en: "Element X has atomic number 17 (configuration 2, 8, 7). What is its position in the Modern Periodic Table?" },
+          options: [
+            { t: { pa: "ਗਰੁੱਪ 17, ਪੀਰੀਅਡ 3", en: "Group 17, Period 3" }, correct: true,
+              r: { pa: "3 ਸ਼ੈੱਲ → ਪੀਰੀਅਡ 3; 7 ਸੰਯੋਜਕ ਇਲੈਕਟ੍ਰਾਨ → ਗਰੁੱਪ 10 + 7 = 17। ਇਹ ਕਲੋਰੀਨ ਹੈ।", en: "3 shells → Period 3; 7 valence electrons → Group 10 + 7 = 17. The element is chlorine." } },
+            { t: { pa: "ਗਰੁੱਪ 7, ਪੀਰੀਅਡ 3", en: "Group 7, Period 3" }, correct: false,
+              r: { pa: "ਸੰਯੋਜਕ ਇਲੈਕਟ੍ਰਾਨ 3 ਤੋਂ ਵੱਧ ਹੋਣ 'ਤੇ ਗਰੁੱਪ = 10 + ਸੰਯੋਜਕ ਇਲੈਕਟ੍ਰਾਨ — ਇਸ ਲਈ 17, ਨਾ ਕਿ 7।", en: "With more than 3 valence electrons, group = 10 + valence electrons — so 17, not 7." } },
+            { t: { pa: "ਗਰੁੱਪ 17, ਪੀਰੀਅਡ 7", en: "Group 17, Period 7" }, correct: false,
+              r: { pa: "ਪੀਰੀਅਡ ਸ਼ੈੱਲਾਂ ਦੀ ਗਿਣਤੀ ਦੱਸਦਾ ਹੈ (3), ਸੰਯੋਜਕ ਇਲੈਕਟ੍ਰਾਨਾਂ ਦੀ ਨਹੀਂ।", en: "The period equals the number of shells (3), not the count of valence electrons." } },
+            { t: { pa: "ਗਰੁੱਪ 3, ਪੀਰੀਅਡ 17", en: "Group 3, Period 17" }, correct: false,
+              r: { pa: "ਉਲਟੀ ਸੋਚ — ਗਰੁੱਪ ਸੰਯੋਜਕ ਇਲੈਕਟ੍ਰਾਨਾਂ ਤੋਂ, ਪੀਰੀਅਡ ਸ਼ੈੱਲਾਂ ਤੋਂ ਮਿਲਦਾ ਹੈ; ਸਾਰਣੀ ਵਿੱਚ ਸਿਰਫ਼ 7 ਪੀਰੀਅਡ ਹਨ।", en: "Reversed logic — group comes from valence electrons, period from shells; the table has only 7 periods." } }
+          ],
+          objective: { pa: "ਆਧੁਨਿਕ ਸਾਰਣੀ ਵਿੱਚ ਸਥਿਤੀ: ਪੀਰੀਅਡ = ਸ਼ੈੱਲਾਂ ਦੀ ਗਿਣਤੀ; ਗਰੁੱਪ ਸੰਯੋਜਕ ਇਲੈਕਟ੍ਰਾਨਾਂ ਤੋਂ (1–2 ਲਈ ਸਿੱਧਾ, 3+ ਲਈ 10 ਜੋੜੋ)।", en: "Position in the modern table: period = number of shells; group from valence electrons (direct for 1–2; add 10 for 3 or more)." }
+        },
+        {
+          id: "SCI-CH6-01", ch: "Ch 6 · ਜੀਵਨ ਪ੍ਰਕਿਰਿਆਵਾਂ", competency: "Analysis", diff: "Hard",
           prompt: { pa: "ਗਰਮ ਧੁੱਪ ਵਾਲੇ ਦਿਨ ਸਟੋਮੈਟਾ ਖੋਲ੍ਹਣ 'ਤੇ ਪੌਦੇ ਨੂੰ ਕਿਹੜਾ ਮੁੱਖ ਸਮਝੌਤਾ ਕਰਨਾ ਪੈਂਦਾ ਹੈ?", en: "What is the primary trade-off a plant faces when it opens its stomata on a hot, sunny day?" },
           options: [
             { t: { pa: "CO₂ ਸੋਖਦਾ ਹੈ ਪਰ ਵਾਸ਼ਪੀਕਰਨ ਰਾਹੀਂ ਪਾਣੀ ਗੁਆਉਂਦਾ ਹੈ", en: "It absorbs CO₂ but risks heavy water loss via transpiration" }, correct: true,
@@ -501,7 +688,52 @@
           objective: { pa: "ਵਾਸ਼ਪੀਕਰਨ-ਪ੍ਰਕਾਸ਼ ਸੰਸ਼ਲੇਸ਼ਣ ਸਮਝੌਤਾ: CO₂ ਲੈਣ ਲਈ ਸਟੋਮੈਟਾ ਖੋਲ੍ਹਣੇ ਪੈਂਦੇ ਹਨ, ਜਿਸ ਨਾਲ ਪਾਣੀ ਦਾ ਨੁਕਸਾਨ (ਵਾਸ਼ਪੀਕਰਨ) ਲਾਜ਼ਮੀ ਹੁੰਦਾ ਹੈ।", en: "Transpiration–photosynthesis compromise: stomata must open to acquire CO₂, inevitably causing water loss down the vapour-pressure gradient." }
         },
         {
-          id: "SCI-CH10-01", ch: "Ch 10 · ਪ੍ਰਕਾਸ਼", competency: "Application",
+          id: "SCI-CH6B-01", ch: "Ch 6 · ਕੰਟਰੋਲ ਅਤੇ ਤਾਲਮੇਲ", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਰਿਫਲੈਕਸ ਕਿਰਿਆ (ਜਿਵੇਂ ਗਰਮ ਚੀਜ਼ ਤੋਂ ਹੱਥ ਹਟਾਉਣਾ) ਵਿੱਚ ਆਵੇਗ ਦਾ ਸਹੀ ਰਸਤਾ ਕਿਹੜਾ ਹੈ?", en: "In a reflex action (like pulling your hand from a hot object), what is the correct path of the impulse?" },
+          options: [
+            { t: { pa: "ਗ੍ਰਾਹੀ → ਸੰਵੇਦੀ ਨਿਊਰੋਨ → ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ → ਪ੍ਰੇਰਕ ਨਿਊਰੋਨ → ਪ੍ਰਭਾਵਕ", en: "Receptor → sensory neuron → spinal cord → motor neuron → effector" }, correct: true,
+              r: { pa: "ਇਹੀ ਰਿਫਲੈਕਸ ਆਰਕ ਹੈ — ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਸਿੱਧਾ ਜਵਾਬ ਦਿੰਦੀ ਹੈ, ਜਿਸ ਨਾਲ ਸਮਾਂ ਬਚਦਾ ਹੈ ਅਤੇ ਨੁਕਸਾਨ ਤੋਂ ਬਚਾਅ ਹੁੰਦਾ ਹੈ।", en: "This is the reflex arc — the spinal cord answers directly, saving time and preventing injury." } },
+            { t: { pa: "ਗ੍ਰਾਹੀ → ਪ੍ਰੇਰਕ ਨਿਊਰੋਨ → ਦਿਮਾਗ → ਸੰਵੇਦੀ ਨਿਊਰੋਨ → ਪ੍ਰਭਾਵਕ", en: "Receptor → motor neuron → brain → sensory neuron → effector" }, correct: false,
+              r: { pa: "ਦਿਸ਼ਾ ਉਲਟ ਹੈ — ਸੰਵੇਦੀ ਨਿਊਰੋਨ ਸੂਚਨਾ ਅੰਦਰ ਲਿਆਉਂਦਾ ਹੈ, ਪ੍ਰੇਰਕ ਨਿਊਰੋਨ ਹੁਕਮ ਬਾਹਰ ਲੈ ਜਾਂਦਾ ਹੈ।", en: "The order is inverted — sensory neurons carry signals in; motor neurons carry commands out." } },
+            { t: { pa: "ਪ੍ਰਭਾਵਕ → ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ → ਗ੍ਰਾਹੀ", en: "Effector → spinal cord → receptor" }, correct: false,
+              r: { pa: "ਪ੍ਰਭਾਵਕ (ਮਾਸਪੇਸ਼ੀ) ਰਸਤੇ ਦਾ ਅੰਤ ਹੈ, ਸ਼ੁਰੂਆਤ ਨਹੀਂ।", en: "The effector (muscle) is the destination of the impulse, not its source." } },
+            { t: { pa: "ਗ੍ਰਾਹੀ → ਵੱਡਾ ਦਿਮਾਗ (cerebrum) → ਪ੍ਰੇਰਕ ਨਿਊਰੋਨ → ਪ੍ਰਭਾਵਕ", en: "Receptor → cerebrum → motor neuron → effector" }, correct: false,
+              r: { pa: "ਸੋਚਣ ਵਾਲਾ ਦਿਮਾਗ ਬਹੁਤ ਹੌਲੀ ਹੈ — ਰਿਫਲੈਕਸ ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ ਰਾਹੀਂ ਹੁੰਦਾ ਹੈ ਤਾਂ ਜੋ ਜਵਾਬ ਤੁਰੰਤ ਮਿਲੇ।", en: "The thinking brain is too slow — reflexes route through the spinal cord for an instant response." } }
+          ],
+          objective: { pa: "ਰਿਫਲੈਕਸ ਆਰਕ: ਗ੍ਰਾਹੀ → ਸੰਵੇਦੀ → ਰੀੜ੍ਹ ਦੀ ਹੱਡੀ → ਪ੍ਰੇਰਕ → ਪ੍ਰਭਾਵਕ। ਦਿਮਾਗ ਨੂੰ ਬਾਈਪਾਸ ਕਰਕੇ ਤੇਜ਼ ਸੁਰੱਖਿਆ ਜਵਾਬ ਮਿਲਦਾ ਹੈ।", en: "Reflex arc: receptor → sensory → spinal cord → motor → effector. Bypassing the brain gives a fast protective response." }
+        },
+        {
+          id: "SCI-CH7-01", ch: "Ch 7 · ਜੀਵ ਪ੍ਰਜਣਨ ਕਿਵੇਂ ਕਰਦੇ ਹਨ", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਲਿੰਗੀ ਪ੍ਰਜਣਨ ਨਾਲ ਪੈਦਾ ਹੋਈ ਸੰਤਾਨ ਵਿੱਚ ਅਲਿੰਗੀ ਪ੍ਰਜਣਨ ਦੇ ਮੁਕਾਬਲੇ ਵੱਧ ਭਿੰਨਤਾ ਕਿਉਂ ਹੁੰਦੀ ਹੈ?", en: "Why do offspring from sexual reproduction show more variation than those from asexual reproduction?" },
+          options: [
+            { t: { pa: "ਦੋ ਮਾਪਿਆਂ ਦਾ DNA ਮਿਲ ਕੇ ਨਵੇਂ ਸੰਯੋਜਨ ਬਣਾਉਂਦਾ ਹੈ", en: "DNA from two parents combines, creating new gene combinations" }, correct: true,
+              r: { pa: "ਗੈਮੀਟਾਂ ਦੇ ਮੇਲ ਨਾਲ ਹਰ ਸੰਤਾਨ ਨੂੰ ਮਾਂ-ਬਾਪ ਦੋਹਾਂ ਤੋਂ ਵੱਖਰਾ ਮਿਸ਼ਰਣ ਮਿਲਦਾ ਹੈ — ਭਿੰਨਤਾ ਦਾ ਮੁੱਖ ਸਰੋਤ।", en: "Gamete fusion gives every offspring a unique mix from both parents — the main source of variation." } },
+            { t: { pa: "ਸੰਤਾਨ ਦੀ ਗਿਣਤੀ ਵੱਧ ਹੁੰਦੀ ਹੈ", en: "More offspring are produced" }, correct: false,
+              r: { pa: "ਅਲਿੰਗੀ ਪ੍ਰਜਣਨ ਅਕਸਰ ਵੱਧ ਅਤੇ ਤੇਜ਼ ਸੰਤਾਨ ਦਿੰਦਾ ਹੈ — ਗਿਣਤੀ ≠ ਭਿੰਨਤਾ।", en: "Asexual reproduction often makes more offspring faster — numbers are not variation." } },
+            { t: { pa: "ਲਿੰਗੀ ਪ੍ਰਜਣਨ ਤੇਜ਼ ਹੁੰਦਾ ਹੈ", en: "Sexual reproduction is faster" }, correct: false,
+              r: { pa: "ਇਹ ਆਮ ਤੌਰ 'ਤੇ ਹੌਲੀ ਹੁੰਦਾ ਹੈ; ਰਫ਼ਤਾਰ ਭਿੰਨਤਾ ਦਾ ਕਾਰਨ ਨਹੀਂ।", en: "It is usually slower; speed has nothing to do with variation." } },
+            { t: { pa: "ਇਸ ਵਿੱਚ DNA ਨਕਲ ਬਿਲਕੁਲ ਸਹੀ ਹੁੰਦੀ ਹੈ", en: "DNA copying in it is perfectly error-free" }, correct: false,
+              r: { pa: "ਨਕਲ ਦੀਆਂ ਗਲਤੀਆਂ ਦੋਹਾਂ ਵਿੱਚ ਹੁੰਦੀਆਂ ਹਨ ਅਤੇ ਇਹ ਭਿੰਨਤਾ ਵਧਾਉਂਦੀਆਂ ਹਨ — ਬਿਲਕੁਲ ਸਹੀ ਨਕਲ ਭਿੰਨਤਾ ਘਟਾਉਂਦੀ।", en: "Copying errors occur in both modes and add variation — perfect copying would reduce it." } }
+          ],
+          objective: { pa: "ਲਿੰਗੀ ਪ੍ਰਜਣਨ = ਗੈਮੀਟਾਂ ਦਾ ਮੇਲ → ਜੀਨਾਂ ਦੇ ਨਵੇਂ ਸੰਯੋਜਨ + ਨਕਲ ਦੀਆਂ ਭਿੰਨਤਾਵਾਂ → ਵਿਕਾਸ (evolution) ਦਾ ਕੱਚਾ ਮਾਲ।", en: "Sexual reproduction = gamete fusion → new gene combinations + copying variations → the raw material for evolution." }
+        },
+        {
+          id: "SCI-CH8-01", ch: "Ch 8 · ਅਨੁਵੰਸ਼ਿਕਤਾ", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਮਟਰ ਵਿੱਚ ਲੰਬਾਪਣ (T) ਬੌਣੇਪਣ (t) ਉੱਤੇ ਪ੍ਰਭਾਵੀ ਹੈ। Tt × Tt ਸੰਕਰਣ ਦੀ ਸੰਤਾਨ ਵਿੱਚ ਲੰਬੇ : ਬੌਣੇ ਪੌਦਿਆਂ ਦਾ ਅਨੁਪਾਤ ਕੀ ਹੋਵੇਗਾ?", en: "In pea plants, tallness (T) is dominant over dwarfness (t). What ratio of tall : dwarf plants results from a Tt × Tt cross?" },
+          options: [
+            { t: { pa: "3 : 1", en: "3 : 1" }, correct: true,
+              r: { pa: "ਸੰਯੋਜਨ: TT, Tt, Tt, tt। T ਪ੍ਰਭਾਵੀ ਹੋਣ ਕਰਕੇ TT ਅਤੇ Tt ਲੰਬੇ (3), ਸਿਰਫ਼ tt ਬੌਣਾ (1)।", en: "Combinations: TT, Tt, Tt, tt. Since T is dominant, TT and Tt are tall (3); only tt is dwarf (1)." } },
+            { t: { pa: "1 : 1", en: "1 : 1" }, correct: false,
+              r: { pa: "1 : 1 ਟੈਸਟ ਕਰਾਸ (Tt × tt) ਤੋਂ ਮਿਲਦਾ ਹੈ, Tt × Tt ਤੋਂ ਨਹੀਂ।", en: "1 : 1 comes from a test cross (Tt × tt), not Tt × Tt." } },
+            { t: { pa: "1 : 3", en: "1 : 3" }, correct: false,
+              r: { pa: "ਪ੍ਰਭਾਵੀ ਗੁਣ (ਲੰਬਾਪਣ) ਬਹੁਗਿਣਤੀ ਵਿੱਚ ਹੁੰਦਾ ਹੈ — ਅਨੁਪਾਤ ਉਲਟਾ ਲਿਖਿਆ ਗਿਆ ਹੈ।", en: "The dominant trait (tall) must be the majority — this ratio is written backwards." } },
+            { t: { pa: "ਸਾਰੇ ਲੰਬੇ (4 : 0)", en: "All tall (4 : 0)" }, correct: false,
+              r: { pa: "tt ਸੰਯੋਜਨ ¼ ਸੰਤਾਨ ਵਿੱਚ ਆਉਂਦਾ ਹੈ — ਸਾਰੇ ਲੰਬੇ ਸਿਰਫ਼ ਤਾਂ ਹੁੰਦੇ ਜੇ ਇੱਕ ਮਾਪਾ TT ਹੁੰਦਾ।", en: "The tt combination appears in ¼ of offspring — all tall would need a TT parent." } }
+          ],
+          objective: { pa: "ਮੈਂਡਲ ਦਾ ਇੱਕ-ਗੁਣੀ ਸੰਕਰਣ (F₂): ਦਿੱਖ ਅਨੁਪਾਤ 3 : 1, ਜੀਨੋਟਾਈਪ ਅਨੁਪਾਤ 1 : 2 : 1। ਪਨੇਟ ਵਰਗ ਬਣਾ ਕੇ ਜਾਂਚੋ।", en: "Mendel's monohybrid cross (F₂): phenotype ratio 3 : 1, genotype ratio 1 : 2 : 1. Verify with a Punnett square." }
+        },
+        {
+          id: "SCI-CH9-01", ch: "Ch 9 · ਪ੍ਰਕਾਸ਼ – ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ", competency: "Application", diff: "Medium",
           prompt: { pa: "ਵਾਹਨਾਂ ਵਿੱਚ ਪਿੱਛੇ ਦੇਖਣ ਵਾਲੇ ਸ਼ੀਸ਼ੇ (rear-view mirror) ਵਜੋਂ ਕਿਹੜਾ ਦਰਪਣ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ ਅਤੇ ਕਿਉਂ?", en: "Which mirror is used as a vehicle rear-view mirror, and why?" },
           options: [
             { t: { pa: "ਉੱਤਲ ਦਰਪਣ — ਸਿੱਧਾ, ਛੋਟਾ ਪ੍ਰਤੀਬਿੰਬ ਅਤੇ ਵੱਡਾ ਦ੍ਰਿਸ਼ ਖੇਤਰ", en: "Convex mirror — erect, diminished image and a wider field of view" }, correct: true,
@@ -516,7 +748,37 @@
           objective: { pa: "ਉੱਤਲ ਦਰਪਣ ਦੀ ਵਰਤੋਂ: ਸਿੱਧਾ + ਛੋਟਾ ਪ੍ਰਤੀਬਿੰਬ = ਵੱਡਾ ਦ੍ਰਿਸ਼ ਖੇਤਰ। ਇਸੇ ਲਈ ਵਾਹਨਾਂ ਦੇ ਸਾਈਡ/ਰੀਅਰ-ਵਿਊ ਸ਼ੀਸ਼ੇ ਉੱਤਲ ਹੁੰਦੇ ਹਨ।", en: "Convex mirror use: erect + diminished image = wide field of view, which is why vehicle rear-view mirrors are convex." }
         },
         {
-          id: "SCI-CH12-01", ch: "Ch 12 · ਬਿਜਲੀ", competency: "Application",
+          id: "SCI-CH9-02", ch: "Ch 9 · ਪ੍ਰਕਾਸ਼ – ਪਰਾਵਰਤਨ ਅਤੇ ਅਪਵਰਤਨ", competency: "Application", diff: "Hard",
+          prompt: { pa: "ਕੱਚ ਦਾ ਅਪਵਰਤਨ ਅੰਕ 1.5 ਹੈ। ਕੱਚ ਵਿੱਚ ਪ੍ਰਕਾਸ਼ ਦੀ ਚਾਲ ਕੀ ਹੋਵੇਗੀ? (ਹਵਾ/ਖਲਾਅ ਵਿੱਚ ਚਾਲ = 3 × 10⁸ m/s)", en: "The refractive index of glass is 1.5. What is the speed of light in glass? (speed in air/vacuum = 3 × 10⁸ m/s)" },
+          options: [
+            { t: { pa: "2 × 10⁸ m/s", en: "2 × 10⁸ m/s" }, correct: true,
+              r: { pa: "n = c/v ⇒ v = c/n = (3 × 10⁸) ÷ 1.5 = 2 × 10⁸ m/s।", en: "n = c/v ⇒ v = c/n = (3 × 10⁸) ÷ 1.5 = 2 × 10⁸ m/s." } },
+            { t: { pa: "4.5 × 10⁸ m/s", en: "4.5 × 10⁸ m/s" }, correct: false,
+              r: { pa: "ਇਹ c × n ਹੈ — ਸੰਘਣੇ ਮਾਧਿਅਮ ਵਿੱਚ ਪ੍ਰਕਾਸ਼ ਕਦੇ ਤੇਜ਼ ਨਹੀਂ ਹੁੰਦਾ; ਭਾਗ ਕਰੋ, ਗੁਣਾ ਨਹੀਂ।", en: "That's c × n — light never speeds up in a denser medium; divide, don't multiply." } },
+            { t: { pa: "1.5 × 10⁸ m/s", en: "1.5 × 10⁸ m/s" }, correct: false,
+              r: { pa: "ਇਹ c ÷ 2 ਹੈ — ਗਣਨਾ ਦੀ ਗਲਤੀ; 3 ÷ 1.5 = 2 ਹੁੰਦਾ ਹੈ।", en: "That's c ÷ 2 — an arithmetic slip; 3 ÷ 1.5 = 2." } },
+            { t: { pa: "3 × 10⁸ m/s", en: "3 × 10⁸ m/s" }, correct: false,
+              r: { pa: "ਚਾਲ ਓਹੀ ਸਿਰਫ਼ ਤਾਂ ਰਹਿੰਦੀ ਜੇ n = 1 ਹੁੰਦਾ; ਕੱਚ ਸੰਘਣਾ ਹੈ, ਪ੍ਰਕਾਸ਼ ਹੌਲੀ ਹੁੰਦਾ ਹੈ।", en: "Speed stays the same only if n = 1; glass is denser, so light slows down." } }
+          ],
+          objective: { pa: "ਅਪਵਰਤਨ ਅੰਕ n = c/v। ਸੰਘਣਾ ਮਾਧਿਅਮ → ਪ੍ਰਕਾਸ਼ ਹੌਲੀ → ਕਿਰਨ ਅਭਿਲੰਬ ਵੱਲ ਮੁੜਦੀ ਹੈ।", en: "Refractive index n = c/v. Denser medium → slower light → the ray bends toward the normal." }
+        },
+        {
+          id: "SCI-CH10-02", ch: "Ch 10 · ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਇੱਕ ਵਿਦਿਆਰਥੀ ਨੂੰ ਬਲੈਕਬੋਰਡ ਧੁੰਦਲਾ ਦਿਸਦਾ ਹੈ ਪਰ ਕਿਤਾਬ ਸਾਫ਼ ਪੜ੍ਹ ਲੈਂਦਾ ਹੈ। ਦ੍ਰਿਸ਼ਟੀ ਦੋਸ਼ ਅਤੇ ਉਸਦਾ ਇਲਾਜ ਕੀ ਹੈ?", en: "A student sees the blackboard blurred but reads a book clearly. What is the vision defect and its correction?" },
+          options: [
+            { t: { pa: "ਮਾਇਓਪੀਆ (ਨਿਕਟ ਦ੍ਰਿਸ਼ਟੀ) — ਅਵਤਲ ਲੈਂਜ਼", en: "Myopia (near-sightedness) — concave lens" }, correct: true,
+              r: { pa: "ਦੂਰ ਦੀ ਵਸਤੂ ਧੁੰਦਲੀ = ਪ੍ਰਤੀਬਿੰਬ ਰੈਟੀਨਾ ਤੋਂ ਪਹਿਲਾਂ ਬਣਦਾ ਹੈ; ਢੁਕਵੀਂ ਸ਼ਕਤੀ ਦਾ ਅਵਤਲ (ਅਪਸਾਰੀ) ਲੈਂਜ਼ ਇਸਨੂੰ ਰੈਟੀਨਾ 'ਤੇ ਲੈ ਆਉਂਦਾ ਹੈ।", en: "Blurred distant objects = image forms before the retina; a diverging (concave) lens of suitable power shifts it back onto the retina." } },
+            { t: { pa: "ਹਾਈਪਰਮੈਟ੍ਰੋਪੀਆ — ਉੱਤਲ ਲੈਂਜ਼", en: "Hypermetropia — convex lens" }, correct: false,
+              r: { pa: "ਹਾਈਪਰਮੈਟ੍ਰੋਪੀਆ ਵਿੱਚ ਨੇੜੇ ਦੀ ਚੀਜ਼ ਧੁੰਦਲੀ ਹੁੰਦੀ ਹੈ — ਇੱਥੇ ਨੇੜੇ ਦੀ ਨਜ਼ਰ ਠੀਕ ਹੈ।", en: "Hypermetropia blurs near objects — this student's near vision is fine." } },
+            { t: { pa: "ਮਾਇਓਪੀਆ — ਉੱਤਲ ਲੈਂਜ਼", en: "Myopia — convex lens" }, correct: false,
+              r: { pa: "ਦੋਸ਼ ਸਹੀ ਪਛਾਣਿਆ, ਪਰ ਉੱਤਲ ਲੈਂਜ਼ ਕਿਰਨਾਂ ਨੂੰ ਹੋਰ ਮਿਲਾ ਕੇ ਦੋਸ਼ ਵਧਾ ਦੇਵੇਗਾ — ਅਪਸਾਰੀ ਲੈਂਜ਼ ਚਾਹੀਦਾ ਹੈ।", en: "Right defect, wrong fix — a convex lens converges rays further and worsens myopia; a diverging lens is needed." } },
+            { t: { pa: "ਪ੍ਰੈਸਬਾਇਓਪੀਆ — ਦੋ-ਫੋਕਸੀ ਲੈਂਜ਼", en: "Presbyopia — bifocal lens" }, correct: false,
+              r: { pa: "ਪ੍ਰੈਸਬਾਇਓਪੀਆ ਵਧਦੀ ਉਮਰ ਨਾਲ ਨੇੜੇ ਦੀ ਨਜ਼ਰ ਵਿਗਾੜਦਾ ਹੈ — ਇਹ ਵਿਦਿਆਰਥੀ ਨੇੜੇ ਸਾਫ਼ ਦੇਖਦਾ ਹੈ।", en: "Presbyopia is age-related loss of near focus — this student reads clearly up close." } }
+          ],
+          objective: { pa: "ਮਾਇਓਪੀਆ: ਦੂਰ ਧੁੰਦਲਾ, ਪ੍ਰਤੀਬਿੰਬ ਰੈਟੀਨਾ ਤੋਂ ਅੱਗੇ; ਕਾਰਨ: ਲੰਬਾ ਅੱਖ-ਗੋਲਾ/ਵੱਧ ਵਕਰਤਾ; ਇਲਾਜ: ਅਵਤਲ ਲੈਂਜ਼। ਹਾਈਪਰਮੈਟ੍ਰੋਪੀਆ ਇਸਦਾ ਉਲਟ ਹੈ (ਉੱਤਲ ਲੈਂਜ਼)।", en: "Myopia: distance blurred, image before retina; causes: elongated eyeball/over-curved lens; fix: concave lens. Hypermetropia is the mirror case (convex lens)." }
+        },
+        {
+          id: "SCI-CH11-01", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Application", diff: "Easy",
           prompt: { pa: "ਜੇ ਇੱਕ ਤਾਰ ਵਿੱਚੋਂ 2 A ਦੀ ਧਾਰਾ ਵਗਦੀ ਹੈ ਅਤੇ ਇਸਦਾ ਪ੍ਰਤੀਰੋਧ 5 Ω ਹੈ, ਤਾਂ ਤਾਰ ਦੇ ਸਿਰਿਆਂ ਵਿਚਕਾਰ ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ ਕਿੰਨਾ ਹੋਵੇਗਾ?", en: "A wire carries a current of 2 A and has a resistance of 5 Ω. What is the potential difference across its ends?" },
           options: [
             { t: { pa: "10 V", en: "10 V" }, correct: true,
@@ -529,6 +791,51 @@
               r: { pa: "0.4 = I ÷ R ਹੈ — ਇਹ ਵੀ ਗਲਤ ਵਿਵਸਥਾ ਹੈ।", en: "0.4 is I ÷ R — also a wrong rearrangement." } }
           ],
           objective: { pa: "ਓਹਮ ਦਾ ਨਿਯਮ: V = IR। ਧਾਰਾ ਅਤੇ ਪ੍ਰਤੀਰੋਧ ਦਾ ਗੁਣਨਫਲ ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ ਦਿੰਦਾ ਹੈ। ਇਕਾਈਆਂ: A × Ω = V।", en: "Ohm's law: V = IR. Current × resistance gives potential difference. Units: A × Ω = V." }
+        },
+        {
+          id: "SCI-CH11-02", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Analysis", diff: "Hard",
+          prompt: { pa: "ਦੋ 4 Ω ਪ੍ਰਤੀਰੋਧਕਾਂ ਤੋਂ ਘੱਟੋ-ਘੱਟ ਕੁੱਲ ਪ੍ਰਤੀਰੋਧ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਉਹਨਾਂ ਨੂੰ ਕਿਵੇਂ ਜੋੜਿਆ ਜਾਵੇ, ਅਤੇ ਉਹ ਮੁੱਲ ਕੀ ਹੋਵੇਗਾ?", en: "How should two 4 Ω resistors be connected to obtain the minimum total resistance, and what is that value?" },
+          options: [
+            { t: { pa: "ਸਮਾਨਾਂਤਰ ਵਿੱਚ — 2 Ω", en: "In parallel — 2 Ω" }, correct: true,
+              r: { pa: "1/R = 1/4 + 1/4 = 1/2 ⇒ R = 2 Ω। ਸਮਾਨਾਂਤਰ ਜੋੜ ਹਮੇਸ਼ਾ ਸਭ ਤੋਂ ਛੋਟੇ ਪ੍ਰਤੀਰੋਧ ਤੋਂ ਵੀ ਘੱਟ ਦਿੰਦਾ ਹੈ।", en: "1/R = 1/4 + 1/4 = 1/2 ⇒ R = 2 Ω. A parallel combination is always less than the smallest branch." } },
+            { t: { pa: "ਲੜੀ ਵਿੱਚ — 8 Ω", en: "In series — 8 Ω" }, correct: false,
+              r: { pa: "ਲੜੀ ਜੋੜ ਪ੍ਰਤੀਰੋਧ ਜੋੜਦਾ ਹੈ (4 + 4 = 8) — ਇਹ ਵੱਧ ਤੋਂ ਵੱਧ ਹੈ, ਘੱਟੋ-ਘੱਟ ਨਹੀਂ।", en: "Series adds resistances (4 + 4 = 8) — that's the maximum, not the minimum." } },
+            { t: { pa: "ਸਮਾਨਾਂਤਰ ਵਿੱਚ — 8 Ω", en: "In parallel — 8 Ω" }, correct: false,
+              r: { pa: "8 Ω ਲੜੀ ਦਾ ਜਵਾਬ ਹੈ; ਸਮਾਨਾਂਤਰ ਲਈ ਉਲਟ-ਅੰਕਾਂ (reciprocals) ਦਾ ਜੋੜ ਵਰਤੋ।", en: "8 Ω is the series total; parallel uses the sum of reciprocals." } },
+            { t: { pa: "ਲੜੀ ਵਿੱਚ — 2 Ω", en: "In series — 2 Ω" }, correct: false,
+              r: { pa: "ਲੜੀ ਜੋੜ ਕਦੇ ਵੀ ਕਿਸੇ ਇੱਕ ਪ੍ਰਤੀਰੋਧਕ ਤੋਂ ਘੱਟ ਨਹੀਂ ਹੋ ਸਕਦਾ।", en: "A series combination can never be less than either individual resistor." } }
+          ],
+          objective: { pa: "ਲੜੀ: Rs = R₁ + R₂ (ਵੱਧ ਤੋਂ ਵੱਧ)। ਸਮਾਨਾਂਤਰ: 1/Rp = 1/R₁ + 1/R₂ (ਘੱਟੋ-ਘੱਟ — ਸਭ ਤੋਂ ਛੋਟੀ ਸ਼ਾਖਾ ਤੋਂ ਵੀ ਘੱਟ)।", en: "Series: Rs = R₁ + R₂ (maximum). Parallel: 1/Rp = 1/R₁ + 1/R₂ (minimum — smaller than the smallest branch)." }
+        },
+        {
+          id: "SCI-CH12-01", ch: "Ch 12 · ਬਿਜਲਈ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਸਿੱਧੇ ਧਾਰਾਵਾਹੀ ਚਾਲਕ ਦੇ ਆਲੇ-ਦੁਆਲੇ ਚੁੰਬਕੀ ਖੇਤਰ ਦੀ ਦਿਸ਼ਾ ਕਿਸ ਨਿਯਮ ਨਾਲ ਪਤਾ ਕੀਤੀ ਜਾਂਦੀ ਹੈ?", en: "Which rule gives the direction of the magnetic field around a straight current-carrying conductor?" },
+          options: [
+            { t: { pa: "ਸੱਜੇ ਹੱਥ ਦਾ ਅੰਗੂਠਾ ਨਿਯਮ", en: "Right-hand thumb rule" }, correct: true,
+              r: { pa: "ਅੰਗੂਠਾ ਧਾਰਾ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਰੱਖੋ — ਮੁੜੀਆਂ ਉਂਗਲਾਂ ਚੁੰਬਕੀ ਖੇਤਰ ਦੇ ਗੋਲ ਚੱਕਰਾਂ ਦੀ ਦਿਸ਼ਾ ਦੱਸਦੀਆਂ ਹਨ।", en: "Point the thumb along the current — the curled fingers give the circular field lines' direction." } },
+            { t: { pa: "ਫਲੇਮਿੰਗ ਦਾ ਖੱਬੇ ਹੱਥ ਦਾ ਨਿਯਮ", en: "Fleming's left-hand rule" }, correct: false,
+              r: { pa: "ਇਹ ਚੁੰਬਕੀ ਖੇਤਰ ਵਿੱਚ ਰੱਖੇ ਧਾਰਾਵਾਹੀ ਚਾਲਕ 'ਤੇ ਲੱਗਦੇ ਬਲ ਦੀ ਦਿਸ਼ਾ ਦੱਸਦਾ ਹੈ (ਬਿਜਲਈ ਮੋਟਰ)।", en: "That gives the force on a current-carrying conductor placed in a field (the electric motor)." } },
+            { t: { pa: "ਫਲੇਮਿੰਗ ਦਾ ਸੱਜੇ ਹੱਥ ਦਾ ਨਿਯਮ", en: "Fleming's right-hand rule" }, correct: false,
+              r: { pa: "ਇਹ ਪ੍ਰੇਰਿਤ ਧਾਰਾ ਦੀ ਦਿਸ਼ਾ ਦੱਸਦਾ ਹੈ (ਬਿਜਲਈ ਜਨਰੇਟਰ)।", en: "That gives the direction of induced current (the electric generator)." } },
+            { t: { pa: "ਓਹਮ ਦਾ ਨਿਯਮ", en: "Ohm's law" }, correct: false,
+              r: { pa: "ਓਹਮ ਦਾ ਨਿਯਮ V, I ਅਤੇ R ਦਾ ਸੰਬੰਧ ਹੈ — ਦਿਸ਼ਾਵਾਂ ਬਾਰੇ ਕੁਝ ਨਹੀਂ ਦੱਸਦਾ।", en: "Ohm's law relates V, I and R — it says nothing about directions." } }
+          ],
+          objective: { pa: "ਨਿਯਮ ਦਾ ਮਕਸਦ ਯਾਦ ਰੱਖੋ: ਸੱਜਾ ਅੰਗੂਠਾ → ਤਾਰ ਦੁਆਲੇ ਖੇਤਰ; ਫਲੇਮਿੰਗ ਖੱਬਾ → ਮੋਟਰ (ਬਲ); ਫਲੇਮਿੰਗ ਸੱਜਾ → ਜਨਰੇਟਰ (ਪ੍ਰੇਰਿਤ ਧਾਰਾ)।", en: "Match each rule to its job: right-hand thumb → field around a wire; Fleming's left → motor (force); Fleming's right → generator (induced current)." }
+        },
+        {
+          id: "SCI-CH13-01", ch: "Ch 13 · ਸਾਡਾ ਵਾਤਾਵਰਣ", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਜੇ ਉਤਪਾਦਕ ਪੱਧਰ 'ਤੇ 10,000 J ਊਰਜਾ ਹੈ, ਤਾਂ ਦੂਜੇ ਪੋਸ਼ਣ ਪੱਧਰ (ਸ਼ਾਕਾਹਾਰੀ) ਨੂੰ ਲਗਭਗ ਕਿੰਨੀ ਊਰਜਾ ਮਿਲੇਗੀ?", en: "If producers hold 10,000 J of energy, roughly how much reaches the second trophic level (herbivores)?" },
+          options: [
+            { t: { pa: "1,000 J", en: "1,000 J" }, correct: true,
+              r: { pa: "10% ਨਿਯਮ — ਅਗਲੇ ਪੋਸ਼ਣ ਪੱਧਰ ਤੱਕ ਸਿਰਫ਼ ਲਗਭਗ 10% ਊਰਜਾ ਪਹੁੰਚਦੀ ਹੈ: 10,000 ਦਾ 10% = 1,000 J।", en: "The 10% law — only about 10% of energy passes to the next trophic level: 10% of 10,000 = 1,000 J." } },
+            { t: { pa: "10,000 J", en: "10,000 J" }, correct: false,
+              r: { pa: "ਊਰਜਾ ਤਬਾਦਲਾ ਕਦੇ 100% ਨਹੀਂ ਹੁੰਦਾ — ਜ਼ਿਆਦਾਤਰ ਊਰਜਾ ਤਾਪ ਅਤੇ ਜੀਵਨ ਕਿਰਿਆਵਾਂ ਵਿੱਚ ਖਰਚ ਹੋ ਜਾਂਦੀ ਹੈ।", en: "Energy transfer is never 100% — most is lost as heat and in life processes." } },
+            { t: { pa: "100 J", en: "100 J" }, correct: false,
+              r: { pa: "100 J ਤੀਜੇ ਪੱਧਰ (ਮਾਸਾਹਾਰੀ) ਤੱਕ ਪਹੁੰਚੇਗੀ — 10% ਦਾ 10%।", en: "100 J is what the third level (carnivores) would get — 10% of 10%." } },
+            { t: { pa: "5,000 J", en: "5,000 J" }, correct: false,
+              r: { pa: "ਤਬਾਦਲਾ ਲਗਭਗ 10% ਹੁੰਦਾ ਹੈ, 50% ਨਹੀਂ।", en: "The transfer figure is about 10%, not 50%." } }
+          ],
+          objective: { pa: "10% ਨਿਯਮ (ਲਿੰਡਮਾਨ): ਹਰ ਪੋਸ਼ਣ ਪੱਧਰ 'ਤੇ ਸਿਰਫ਼ ~10% ਊਰਜਾ ਅੱਗੇ ਜਾਂਦੀ ਹੈ — ਇਸੇ ਲਈ ਭੋਜਨ ਲੜੀਆਂ ਆਮ ਤੌਰ 'ਤੇ 3–4 ਪੱਧਰਾਂ ਤੱਕ ਸੀਮਤ ਹੁੰਦੀਆਂ ਹਨ।", en: "The 10% law (Lindeman): only ~10% of energy moves up each trophic level — which is why food chains rarely exceed 3–4 levels." }
         }
       ]
     },
@@ -537,7 +844,7 @@
       label: { pa: "ਗਣਿਤ", en: "Math" },
       questions: [
         {
-          id: "MAT-CH1-01", ch: "Ch 1 · ਵਾਸਤਵਿਕ ਸੰਖਿਆਵਾਂ", competency: "Understanding",
+          id: "MAT-CH1-01", ch: "Ch 1 · ਵਾਸਤਵਿਕ ਸੰਖਿਆਵਾਂ", competency: "Understanding", diff: "Medium",
           prompt: { pa: "HCF(306, 657) = 9 ਦਿੱਤਾ ਹੈ। LCM(306, 657) ਕੀ ਹੋਵੇਗਾ?", en: "Given HCF(306, 657) = 9, find LCM(306, 657)." },
           options: [
             { t: { pa: "22338", en: "22338" }, correct: true,
@@ -552,7 +859,37 @@
           objective: { pa: "ਮਹੱਤਵਪੂਰਨ ਸੰਬੰਧ: ਕਿਸੇ ਦੋ ਧਨਾਤਮਕ ਪੂਰਨ ਸੰਖਿਆਵਾਂ ਲਈ HCF × LCM = a × b। ਇੱਕ ਪਤਾ ਹੋਵੇ ਤਾਂ ਦੂਜਾ ਲੱਭਿਆ ਜਾ ਸਕਦਾ ਹੈ।", en: "Key relation: for any two positive integers, HCF × LCM = a × b. Knowing one lets you find the other." }
         },
         {
-          id: "MAT-CH4-01", ch: "Ch 4 · ਦੁਘਾਤੀ ਸਮੀਕਰਨ", competency: "Analysis",
+          id: "MAT-CH2-01", ch: "Ch 2 · ਬਹੁਪਦ", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਬਹੁਪਦ p(x) = x² − 3x + 2 ਦੇ ਸਿਫ਼ਰ (zeroes) ਕਿਹੜੇ ਹਨ?", en: "What are the zeroes of the polynomial p(x) = x² − 3x + 2?" },
+          options: [
+            { t: { pa: "1 ਅਤੇ 2", en: "1 and 2" }, correct: true,
+              r: { pa: "x² − 3x + 2 = (x − 1)(x − 2)। ਜਾਂਚ: ਜੋੜ 1 + 2 = 3 = −b/a ✓, ਗੁਣਨਫਲ 1 × 2 = 2 = c/a ✓।", en: "x² − 3x + 2 = (x − 1)(x − 2). Check: sum 1 + 2 = 3 = −b/a ✓, product 1 × 2 = 2 = c/a ✓." } },
+            { t: { pa: "−1 ਅਤੇ −2", en: "−1 and −2" }, correct: false,
+              r: { pa: "(x + 1)(x + 2) = x² + 3x + 2 ਬਣਦਾ ਹੈ — ਵਿਚਕਾਰਲੇ ਪਦ ਦਾ ਚਿੰਨ੍ਹ ਗਲਤ।", en: "(x + 1)(x + 2) gives x² + 3x + 2 — the middle-term sign is wrong." } },
+            { t: { pa: "1 ਅਤੇ −2", en: "1 and −2" }, correct: false,
+              r: { pa: "ਇਹਨਾਂ ਦਾ ਗੁਣਨਫਲ −2 ਹੈ, ਪਰ c/a = +2 ਚਾਹੀਦਾ ਹੈ।", en: "Their product is −2, but c/a must equal +2." } },
+            { t: { pa: "2 ਅਤੇ 3", en: "2 and 3" }, correct: false,
+              r: { pa: "ਜੋੜ 5 ਹੈ, ਪਰ −b/a = 3 ਚਾਹੀਦਾ ਹੈ — ਜੋੜ/ਗੁਣਨਫਲ ਨਾਲ ਹਮੇਸ਼ਾ ਜਾਂਚ ਕਰੋ।", en: "Their sum is 5, but −b/a = 3 is required — always verify with sum/product." } }
+          ],
+          objective: { pa: "ax² + bx + c ਦੇ ਸਿਫ਼ਰ: ਗੁਣਨਖੰਡ ਕਰੋ, ਫਿਰ ਜਾਂਚੋ — ਸਿਫ਼ਰਾਂ ਦਾ ਜੋੜ = −b/a, ਗੁਣਨਫਲ = c/a।", en: "Zeroes of ax² + bx + c: factorise, then verify — sum of zeroes = −b/a, product = c/a." }
+        },
+        {
+          id: "MAT-CH3-01", ch: "Ch 3 · ਦੋ ਚਲਾਂ ਵਾਲੇ ਰੇਖੀ ਸਮੀਕਰਨ", competency: "Analysis", diff: "Hard",
+          prompt: { pa: "ਸਮੀਕਰਨ ਜੋੜੇ x + 2y = 4 ਅਤੇ 2x + 4y = 12 ਦੇ ਕਿੰਨੇ ਹੱਲ ਹਨ?", en: "How many solutions does the pair x + 2y = 4 and 2x + 4y = 12 have?" },
+          options: [
+            { t: { pa: "ਕੋਈ ਹੱਲ ਨਹੀਂ (ਅਸੰਗਤ ਜੋੜਾ)", en: "No solution (inconsistent pair)" }, correct: true,
+              r: { pa: "a₁/a₂ = 1/2, b₁/b₂ = 2/4 = 1/2, ਪਰ c₁/c₂ = 4/12 = 1/3। ਗੁਣਾਂਕ ਅਨੁਪਾਤ ਬਰਾਬਰ ਪਰ ਸਥਿਰ ਅੰਕ ਵੱਖ → ਸਮਾਨਾਂਤਰ ਰੇਖਾਵਾਂ।", en: "a₁/a₂ = 1/2, b₁/b₂ = 2/4 = 1/2, but c₁/c₂ = 4/12 = 1/3. Equal coefficient ratios with a different constant ratio → parallel lines." } },
+            { t: { pa: "ਇੱਕ ਵਿਲੱਖਣ ਹੱਲ", en: "A unique solution" }, correct: false,
+              r: { pa: "ਵਿਲੱਖਣ ਹੱਲ ਲਈ a₁/a₂ ≠ b₁/b₂ ਚਾਹੀਦਾ ਹੈ; ਇੱਥੇ ਦੋਵੇਂ 1/2 ਹਨ।", en: "A unique solution needs a₁/a₂ ≠ b₁/b₂; here both equal 1/2." } },
+            { t: { pa: "ਅਨੰਤ ਹੱਲ", en: "Infinitely many solutions" }, correct: false,
+              r: { pa: "ਅਨੰਤ ਹੱਲਾਂ ਲਈ ਤਿੰਨੇ ਅਨੁਪਾਤ ਬਰਾਬਰ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ; c ਵਾਲਾ ਅਨੁਪਾਤ (1/3) ਵੱਖਰਾ ਹੈ।", en: "Infinite solutions need all three ratios equal; the constant ratio (1/3) differs." } },
+            { t: { pa: "ਠੀਕ ਦੋ ਹੱਲ", en: "Exactly two solutions" }, correct: false,
+              r: { pa: "ਦੋ ਸਿੱਧੀਆਂ ਰੇਖਾਵਾਂ ਵੱਧ ਤੋਂ ਵੱਧ ਇੱਕ ਬਿੰਦੂ 'ਤੇ ਕੱਟ ਸਕਦੀਆਂ ਹਨ — ਦੋ ਹੱਲ ਅਸੰਭਵ ਹਨ।", en: "Two straight lines can intersect at most once — exactly two solutions is impossible." } }
+          ],
+          objective: { pa: "ਅਨੁਪਾਤ ਜਾਂਚ: a₁/a₂ ≠ b₁/b₂ → ਵਿਲੱਖਣ ਹੱਲ (ਕੱਟਦੀਆਂ); ਤਿੰਨੇ ਬਰਾਬਰ → ਅਨੰਤ (ਸੰਪਾਤੀ); a, b ਬਰਾਬਰ ਪਰ c ਵੱਖ → ਕੋਈ ਹੱਲ ਨਹੀਂ (ਸਮਾਨਾਂਤਰ)।", en: "Ratio test: a₁/a₂ ≠ b₁/b₂ → unique (intersecting); all three equal → infinite (coincident); a, b equal but c different → none (parallel)." }
+        },
+        {
+          id: "MAT-CH4-01", ch: "Ch 4 · ਦੁਘਾਤੀ ਸਮੀਕਰਨ", competency: "Analysis", diff: "Medium",
           prompt: { pa: "ਦੁਘਾਤੀ ਸਮੀਕਰਨ x² − 4x + 4 = 0 ਦੇ ਮੂਲਾਂ ਦੀ ਪ੍ਰਕਿਰਤੀ ਕੀ ਹੈ?", en: "What is the nature of the roots of the quadratic equation x² − 4x + 4 = 0?" },
           options: [
             { t: { pa: "ਵਾਸਤਵਿਕ ਅਤੇ ਬਰਾਬਰ ਮੂਲ", en: "Real and equal roots" }, correct: true,
@@ -567,7 +904,52 @@
           objective: { pa: "ਵਿਵੇਚਕ (Discriminant) D = b² − 4ac: D > 0 → ਵਾਸਤਵਿਕ ਵੱਖ-ਵੱਖ; D = 0 → ਵਾਸਤਵਿਕ ਬਰਾਬਰ; D < 0 → ਕੋਈ ਵਾਸਤਵਿਕ ਮੂਲ ਨਹੀਂ।", en: "Discriminant D = b² − 4ac decides root nature: D > 0 → real distinct; D = 0 → real equal; D < 0 → no real roots." }
         },
         {
-          id: "MAT-CH8-01", ch: "Ch 8 · ਤਿਕੋਣਮਿਤੀ", competency: "Application",
+          id: "MAT-CH5-01", ch: "Ch 5 · ਅੰਕਗਣਿਤਕ ਲੜੀ (AP)", competency: "Application", diff: "Medium",
+          prompt: { pa: "AP: 3, 7, 11, 15, … ਦਾ 10ਵਾਂ ਪਦ ਕੀ ਹੈ?", en: "What is the 10th term of the AP: 3, 7, 11, 15, …?" },
+          options: [
+            { t: { pa: "39", en: "39" }, correct: true,
+              r: { pa: "a = 3, d = 4। a₁₀ = a + (10 − 1)d = 3 + 9 × 4 = 39।", en: "a = 3, d = 4. a₁₀ = a + (10 − 1)d = 3 + 9 × 4 = 39." } },
+            { t: { pa: "43", en: "43" }, correct: false,
+              r: { pa: "ਇਹ a + 10d ਹੈ — ਫਾਰਮੂਲੇ ਵਿੱਚ (n − 1)d ਆਉਂਦਾ ਹੈ, nd ਨਹੀਂ।", en: "That's a + 10d — the formula uses (n − 1)d, not nd." } },
+            { t: { pa: "36", en: "36" }, correct: false,
+              r: { pa: "36 ਸਿਰਫ਼ 9d ਹੈ — ਪਹਿਲਾ ਪਦ a ਜੋੜਨਾ ਨਾ ਭੁੱਲੋ।", en: "36 is only 9d — don't forget to add the first term a." } },
+            { t: { pa: "30", en: "30" }, correct: false,
+              r: { pa: "3 × 10 = 30 ਗੁਣਾ ਸਾਰਣੀ ਵਾਲੀ ਸੋਚ ਹੈ — AP ਵਿੱਚ ਸਾਂਝਾ ਅੰਤਰ d ਜੁੜਦਾ ਹੈ।", en: "3 × 10 = 30 is times-table thinking — an AP grows by the common difference d." } }
+          ],
+          objective: { pa: "AP ਦਾ n-ਵਾਂ ਪਦ: aₙ = a + (n − 1)d। ਸਭ ਤੋਂ ਆਮ ਗਲਤੀ: (n − 1)d ਦੀ ਥਾਂ nd ਵਰਤਣਾ।", en: "nth term of an AP: aₙ = a + (n − 1)d. The most common error is using nd instead of (n − 1)d." }
+        },
+        {
+          id: "MAT-CH6-01", ch: "Ch 6 · ਤ੍ਰਿਭੁਜ", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਦੋ ਸਮਰੂਪ ਤ੍ਰਿਭੁਜਾਂ ਦੀਆਂ ਸੰਗਤ ਭੁਜਾਵਾਂ ਦਾ ਅਨੁਪਾਤ 2 : 3 ਹੈ। ਉਹਨਾਂ ਦੇ ਖੇਤਰਫਲਾਂ ਦਾ ਅਨੁਪਾਤ ਕੀ ਹੋਵੇਗਾ?", en: "Corresponding sides of two similar triangles are in the ratio 2 : 3. What is the ratio of their areas?" },
+          options: [
+            { t: { pa: "4 : 9", en: "4 : 9" }, correct: true,
+              r: { pa: "ਸਮਰੂਪ ਤ੍ਰਿਭੁਜਾਂ ਦੇ ਖੇਤਰਫਲਾਂ ਦਾ ਅਨੁਪਾਤ = ਸੰਗਤ ਭੁਜਾਵਾਂ ਦੇ ਅਨੁਪਾਤ ਦਾ ਵਰਗ = 2² : 3² = 4 : 9।", en: "For similar triangles, area ratio = square of the side ratio = 2² : 3² = 4 : 9." } },
+            { t: { pa: "2 : 3", en: "2 : 3" }, correct: false,
+              r: { pa: "ਇਹ ਭੁਜਾਵਾਂ ਦਾ ਅਨੁਪਾਤ ਹੈ — ਖੇਤਰਫਲ ਵਰਗ ਨਾਲ ਵਧਦਾ ਹੈ।", en: "That's the side ratio — areas scale with the square of it." } },
+            { t: { pa: "8 : 27", en: "8 : 27" }, correct: false,
+              r: { pa: "ਘਣ (cube) ਅਨੁਪਾਤ ਆਇਤਨ ਲਈ ਹੁੰਦਾ ਹੈ (3-D), ਖੇਤਰਫਲ ਲਈ ਨਹੀਂ।", en: "Cubes give volume ratios (3-D), not areas." } },
+            { t: { pa: "16 : 81", en: "16 : 81" }, correct: false,
+              r: { pa: "ਇਹ ਚੌਥੀ ਘਾਤ ਹੈ — ਵਰਗ ਸਿਰਫ਼ ਇੱਕ ਵਾਰ ਕਰਨਾ ਹੈ।", en: "That's the fourth power — you squared once too many times." } }
+          ],
+          objective: { pa: "ਸਮਰੂਪ ਤ੍ਰਿਭੁਜ ਪ੍ਰਮੇਯ: ਖੇਤਰਫਲਾਂ ਦਾ ਅਨੁਪਾਤ = (ਸੰਗਤ ਭੁਜਾਵਾਂ ਦਾ ਅਨੁਪਾਤ)²।", en: "Similar-triangle theorem: ratio of areas = (ratio of corresponding sides)²." }
+        },
+        {
+          id: "MAT-CH7-01", ch: "Ch 7 · ਨਿਰਦੇਸ਼ ਅੰਕ ਜਿਓਮੈਟਰੀ", competency: "Application", diff: "Easy",
+          prompt: { pa: "ਬਿੰਦੂਆਂ (0, 0) ਅਤੇ (3, 4) ਵਿਚਕਾਰ ਦੂਰੀ ਕਿੰਨੀ ਹੈ?", en: "What is the distance between the points (0, 0) and (3, 4)?" },
+          options: [
+            { t: { pa: "5", en: "5" }, correct: true,
+              r: { pa: "ਦੂਰੀ = √(3² + 4²) = √(9 + 16) = √25 = 5 — ਪ੍ਰਸਿੱਧ 3-4-5 ਤਿੱਕੜੀ।", en: "Distance = √(3² + 4²) = √(9 + 16) = √25 = 5 — the classic 3-4-5 triple." } },
+            { t: { pa: "7", en: "7" }, correct: false,
+              r: { pa: "3 + 4 = 7 — ਨਿਰਦੇਸ਼ ਅੰਕ ਸਿੱਧੇ ਨਹੀਂ ਜੁੜਦੇ; ਦੂਰੀ ਫਾਰਮੂਲਾ ਵਰਤੋ।", en: "3 + 4 = 7 — coordinates aren't simply added; use the distance formula." } },
+            { t: { pa: "√7", en: "√7" }, correct: false,
+              r: { pa: "√(3 + 4) ਗਲਤ ਹੈ — ਪਹਿਲਾਂ ਵਰਗ ਕਰੋ, ਫਿਰ ਜੋੜੋ: 9 + 16।", en: "√(3 + 4) is wrong — square first, then add: 9 + 16." } },
+            { t: { pa: "25", en: "25" }, correct: false,
+              r: { pa: "25 ਦੂਰੀ ਦਾ ਵਰਗ ਹੈ — ਵਰਗ ਮੂਲ ਲੈਣਾ ਬਾਕੀ ਹੈ।", en: "25 is the squared distance — you still need the square root." } }
+          ],
+          objective: { pa: "ਦੂਰੀ ਫਾਰਮੂਲਾ: √((x₂ − x₁)² + (y₂ − y₁)²)। 3-4-5 ਅਤੇ 6-8-10 ਤਿੱਕੜੀਆਂ ਯਾਦ ਰੱਖੋ — ਸਮਾਂ ਬਚਦਾ ਹੈ।", en: "Distance formula: √((x₂ − x₁)² + (y₂ − y₁)²). Memorise the 3-4-5 and 6-8-10 triples to save time." }
+        },
+        {
+          id: "MAT-CH8-01", ch: "Ch 8 · ਤਿਕੋਣਮਿਤੀ", competency: "Application", diff: "Easy",
           prompt: { pa: "sin 30° + cos 60° ਦਾ ਮੁੱਲ ਕੀ ਹੈ?", en: "What is the value of sin 30° + cos 60°?" },
           options: [
             { t: { pa: "1", en: "1" }, correct: true,
@@ -582,7 +964,52 @@
           objective: { pa: "ਮਿਆਰੀ ਕੋਣਾਂ ਦੇ ਮੁੱਲ ਯਾਦ ਰੱਖੋ: sin 30° = cos 60° = ½। ਪੂਰਕ ਕੋਣ ਸੰਬੰਧ: sin θ = cos(90° − θ)।", en: "Memorise standard values: sin 30° = cos 60° = ½. Complementary relation: sin θ = cos(90° − θ)." }
         },
         {
-          id: "MAT-CH15-01", ch: "Ch 15 · ਸੰਭਾਵਨਾ", competency: "Application",
+          id: "MAT-CH10-01", ch: "Ch 10 · ਚੱਕਰ", competency: "Recall", diff: "Easy",
+          prompt: { pa: "ਚੱਕਰ ਦੀ ਸਪਰਸ਼ ਰੇਖਾ (tangent) ਅਤੇ ਸਪਰਸ਼ ਬਿੰਦੂ ਤੋਂ ਲੰਘਦੇ ਅਰਧ ਵਿਆਸ ਵਿਚਕਾਰ ਕੋਣ ਕਿੰਨਾ ਹੁੰਦਾ ਹੈ?", en: "What is the angle between a tangent to a circle and the radius at the point of contact?" },
+          options: [
+            { t: { pa: "90°", en: "90°" }, correct: true,
+              r: { pa: "ਸਪਰਸ਼ ਰੇਖਾ ਸਪਰਸ਼ ਬਿੰਦੂ 'ਤੇ ਅਰਧ ਵਿਆਸ 'ਤੇ ਲੰਬ ਹੁੰਦੀ ਹੈ — ਚੱਕਰ ਦੇ ਲਗਭਗ ਹਰ ਸਵਾਲ ਦੀ ਨੀਂਹ ਇਹੀ ਪ੍ਰਮੇਯ ਹੈ।", en: "The tangent is perpendicular to the radius at the point of contact — the foundation theorem for nearly every tangent problem." } },
+            { t: { pa: "0°", en: "0°" }, correct: false,
+              r: { pa: "0° ਦਾ ਮਤਲਬ ਸਪਰਸ਼ ਰੇਖਾ ਅਰਧ ਵਿਆਸ ਦੇ ਨਾਲ-ਨਾਲ ਜਾਂਦੀ — ਫਿਰ ਉਹ ਚੱਕਰ ਨੂੰ ਕੱਟ ਦਿੰਦੀ।", en: "0° would put the tangent along the radius — it would then cut the circle." } },
+            { t: { pa: "45°", en: "45°" }, correct: false,
+              r: { pa: "45° ਦਾ ਕੋਈ ਸਥਿਰ ਨਿਯਮ ਨਹੀਂ — ਪ੍ਰਮੇਯ ਹਮੇਸ਼ਾ 90° ਦਿੰਦਾ ਹੈ।", en: "There is no fixed 45° relation — the theorem always gives 90°." } },
+            { t: { pa: "180°", en: "180°" }, correct: false,
+              r: { pa: "180° ਸਿੱਧੀ ਰੇਖਾ ਦਾ ਕੋਣ ਹੈ, ਲੰਬ ਦਾ ਨਹੀਂ।", en: "180° is a straight line, not a perpendicular." } }
+          ],
+          objective: { pa: "ਸਪਰਸ਼ ਰੇਖਾ ਪ੍ਰਮੇਯ: ਸਪਰਸ਼ ਰੇਖਾ ⊥ ਅਰਧ ਵਿਆਸ (ਸਪਰਸ਼ ਬਿੰਦੂ 'ਤੇ)। ਨਾਲ ਹੀ: ਬਾਹਰੀ ਬਿੰਦੂ ਤੋਂ ਖਿੱਚੀਆਂ ਦੋ ਸਪਰਸ਼ ਰੇਖਾਵਾਂ ਬਰਾਬਰ ਹੁੰਦੀਆਂ ਹਨ।", en: "Tangent theorems: tangent ⊥ radius at contact; and the two tangents from an external point are equal in length." }
+        },
+        {
+          id: "MAT-CH12-01", ch: "Ch 12 · ਚੱਕਰ ਨਾਲ ਸੰਬੰਧਿਤ ਖੇਤਰਫਲ", competency: "Application", diff: "Medium",
+          prompt: { pa: "7 cm ਅਰਧ ਵਿਆਸ ਵਾਲੇ ਚੱਕਰ ਦੇ ਚੌਥਾਈ ਹਿੱਸੇ (quadrant) ਦਾ ਖੇਤਰਫਲ ਕੀ ਹੈ? (π = 22/7 ਲਓ)", en: "What is the area of a quadrant of a circle of radius 7 cm? (Take π = 22/7)" },
+          options: [
+            { t: { pa: "38.5 cm²", en: "38.5 cm²" }, correct: true,
+              r: { pa: "ਚੌਥਾਈ ਦਾ ਖੇਤਰਫਲ = ¼ πr² = ¼ × (22/7) × 49 = 154 ÷ 4 = 38.5 cm²।", en: "Quadrant area = ¼ πr² = ¼ × (22/7) × 49 = 154 ÷ 4 = 38.5 cm²." } },
+            { t: { pa: "154 cm²", en: "154 cm²" }, correct: false,
+              r: { pa: "154 ਪੂਰੇ ਚੱਕਰ ਦਾ ਖੇਤਰਫਲ ਹੈ — ਚੌਥਾਈ ਲਈ 4 ਨਾਲ ਭਾਗ ਕਰੋ।", en: "154 is the full circle's area — divide by 4 for a quadrant." } },
+            { t: { pa: "77 cm²", en: "77 cm²" }, correct: false,
+              r: { pa: "77 ਅੱਧੇ ਚੱਕਰ (semicircle) ਦਾ ਖੇਤਰਫਲ ਹੈ, ਚੌਥਾਈ ਦਾ ਨਹੀਂ।", en: "77 is a semicircle's area, not a quadrant's." } },
+            { t: { pa: "11 cm²", en: "11 cm²" }, correct: false,
+              r: { pa: "11 ਘੇਰੇ ਦਾ ਚੌਥਾਈ ਹੈ (44 ÷ 4) — ਖੇਤਰਫਲ ਅਤੇ ਘੇਰਾ ਨਾ ਰਲਾਓ।", en: "11 is a quarter of the circumference (44 ÷ 4) — don't confuse area with perimeter." } }
+          ],
+          objective: { pa: "ਚੌਥਾਈ ਦਾ ਖੇਤਰਫਲ = ¼ πr²; ਸੈਕਟਰ ਦਾ ਖੇਤਰਫਲ = (θ/360°) × πr²। ਖੇਤਰਫਲ (cm²) ਬਨਾਮ ਲੰਬਾਈ (cm) — ਇਕਾਈਆਂ ਤੋਂ ਜਾਂਚ ਕਰੋ।", en: "Quadrant area = ¼ πr²; sector area = (θ/360°) × πr². Check units: area is cm², length is cm." }
+        },
+        {
+          id: "MAT-CH14-01", ch: "Ch 14 · ਅੰਕੜਾ ਵਿਗਿਆਨ", competency: "Application", diff: "Hard",
+          prompt: { pa: "ਕਿਸੇ ਵੰਡ ਦਾ ਮੱਧਮਾਨ (mean) 20 ਅਤੇ ਮੱਧਿਕਾ (median) 22 ਹੈ। ਅਨੁਭਵੀ ਸੰਬੰਧ ਵਰਤ ਕੇ ਬਹੁਲਕ (mode) ਪਤਾ ਕਰੋ।", en: "A distribution has mean 20 and median 22. Using the empirical relationship, find the mode." },
+          options: [
+            { t: { pa: "26", en: "26" }, correct: true,
+              r: { pa: "ਬਹੁਲਕ = 3(ਮੱਧਿਕਾ) − 2(ਮੱਧਮਾਨ) = 3 × 22 − 2 × 20 = 66 − 40 = 26।", en: "Mode = 3(Median) − 2(Mean) = 3 × 22 − 2 × 20 = 66 − 40 = 26." } },
+            { t: { pa: "16", en: "16" }, correct: false,
+              r: { pa: "16 ਫਾਰਮੂਲੇ ਵਿੱਚ ਮੱਧਮਾਨ ਅਤੇ ਮੱਧਿਕਾ ਦੀ ਥਾਂ ਬਦਲਣ ਨਾਲ ਆਉਂਦਾ ਹੈ (3 × 20 − 2 × 22)।", en: "16 comes from swapping mean and median in the formula (3 × 20 − 2 × 22)." } },
+            { t: { pa: "21", en: "21" }, correct: false,
+              r: { pa: "21 ਦੋਹਾਂ ਦਾ ਵਿਚਕਾਰਲਾ ਮੁੱਲ ਹੈ — ਸੰਬੰਧ ਔਸਤ ਨਹੀਂ, 3ਮੱਧਿਕਾ = ਬਹੁਲਕ + 2ਮੱਧਮਾਨ ਹੈ।", en: "21 is just their midpoint — the relation is 3Median = Mode + 2Mean, not an average." } },
+            { t: { pa: "42", en: "42" }, correct: false,
+              r: { pa: "42 = 20 + 22 ਸਿੱਧਾ ਜੋੜ ਹੈ — ਅਨੁਭਵੀ ਸੰਬੰਧ ਜੋੜ ਨਹੀਂ ਹੁੰਦਾ।", en: "42 = 20 + 22 is a plain sum — the empirical relation is not addition." } }
+          ],
+          objective: { pa: "ਅਨੁਭਵੀ ਸੰਬੰਧ: 3 ਮੱਧਿਕਾ = ਬਹੁਲਕ + 2 ਮੱਧਮਾਨ ⇒ ਬਹੁਲਕ = 3(ਮੱਧਿਕਾ) − 2(ਮੱਧਮਾਨ)। ਕੋਈ ਦੋ ਮੁੱਲ ਪਤਾ ਹੋਣ 'ਤੇ ਤੀਜਾ ਲੱਭੋ।", en: "Empirical relation: 3 Median = Mode + 2 Mean ⇒ Mode = 3(Median) − 2(Mean). Any two values give you the third." }
+        },
+        {
+          id: "MAT-CH15-01", ch: "Ch 15 · ਸੰਭਾਵਨਾ", competency: "Application", diff: "Medium",
           prompt: { pa: "ਇੱਕ ਸਿੱਕੇ ਨੂੰ ਦੋ ਵਾਰ ਉਛਾਲਿਆ ਜਾਂਦਾ ਹੈ। ਘੱਟੋ-ਘੱਟ ਇੱਕ ਚਿੱਤ (head) ਆਉਣ ਦੀ ਸੰਭਾਵਨਾ ਕੀ ਹੈ?", en: "A coin is tossed twice. What is the probability of getting at least one head?" },
           options: [
             { t: { pa: "3⁄4", en: "3⁄4" }, correct: true,
@@ -603,7 +1030,7 @@
       label: { pa: "ਅੰਗਰੇਜ਼ੀ", en: "English" },
       questions: [
         {
-          id: "ENG-GR-01", ch: "Grammar · Tenses", competency: "Application",
+          id: "ENG-GR-01", ch: "Grammar · Tenses", competency: "Application", diff: "Easy",
           prompt: { pa: "ਸਹੀ ਵਿਕਲਪ ਚੁਣੋ: \"She ______ to school every day.\"", en: "Choose the correct option: \"She ______ to school every day.\"" },
           options: [
             { t: { pa: "goes", en: "goes" }, correct: true,
@@ -618,7 +1045,7 @@
           objective: { pa: "Simple Present Tense: ਆਦਤ/ਰੋਜ਼ਾਨਾ ਕੰਮ ਲਈ। ਪਛਾਣ-ਸ਼ਬਦ: every day, always, usually। He/She/It + verb-s।", en: "Simple Present: for habits and routines. Signal words: every day, always, usually. He/She/It + verb-s." }
         },
         {
-          id: "ENG-VOC-01", ch: "Vocabulary · Synonyms", competency: "Understanding",
+          id: "ENG-VOC-01", ch: "Vocabulary · Synonyms", competency: "Understanding", diff: "Easy",
           prompt: { pa: "\"Enormous\" ਦਾ ਸਭ ਤੋਂ ਨੇੜਲਾ ਅਰਥ ਕਿਹੜਾ ਹੈ?", en: "Which word is closest in meaning to \"enormous\"?" },
           options: [
             { t: { pa: "Huge (ਬਹੁਤ ਵੱਡਾ)", en: "Huge" }, correct: true,
@@ -633,7 +1060,7 @@
           objective: { pa: "ਸਮਾਨਾਰਥੀ ਸ਼ਬਦ ਸਿੱਖਣ ਦੀ ਜੁਗਤ: ਸ਼ਬਦ ਨੂੰ ਆਕਾਰ/ਗਤੀ/ਭਾਵ ਦੀ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਰੱਖੋ, ਫਿਰ ਉਸੇ ਸ਼੍ਰੇਣੀ ਦਾ ਵਿਕਲਪ ਲੱਭੋ।", en: "Synonym strategy: place the word in a category (size/speed/feeling), then match options within that category." }
         },
         {
-          id: "ENG-GR-02", ch: "Grammar · Voice", competency: "Analysis",
+          id: "ENG-GR-02", ch: "Grammar · Voice", competency: "Analysis", diff: "Medium",
           prompt: { pa: "\"The letter was written by Riya.\" — ਇਹ ਵਾਕ ਕਿਸ voice ਵਿੱਚ ਹੈ?", en: "\"The letter was written by Riya.\" — Which voice is this sentence in?" },
           options: [
             { t: { pa: "Passive Voice", en: "Passive Voice" }, correct: true,
@@ -648,7 +1075,7 @@
           objective: { pa: "Passive ਪਛਾਣ: object ਅੱਗੇ + be-verb + V3 (+ by ਕਰਤਾ)। ਬੋਰਡ ਪ੍ਰੀਖਿਆ ਵਿੱਚ voice ਬਦਲਣ ਦੇ ਪ੍ਰਸ਼ਨ ਆਮ ਹਨ।", en: "Passive test: object first + be-verb + V3 (+ by agent). Voice transformation is a frequent board exam task." }
         },
         {
-          id: "ENG-COM-01", ch: "Comprehension", competency: "Analysis",
+          id: "ENG-COM-01", ch: "Comprehension", competency: "Analysis", diff: "Medium",
           prompt: { pa: "\"Although it was raining heavily, the farmers continued sowing.\" — ਵਾਕ ਦਾ ਭਾਵ ਕੀ ਹੈ?", en: "\"Although it was raining heavily, the farmers continued sowing.\" — What does the sentence imply?" },
           options: [
             { t: { pa: "ਮੀਂਹ ਦੇ ਬਾਵਜੂਦ ਕਿਸਾਨਾਂ ਨੇ ਬਿਜਾਈ ਜਾਰੀ ਰੱਖੀ", en: "Despite the rain, the farmers kept sowing" }, correct: true,

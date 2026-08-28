@@ -235,10 +235,6 @@
     <div style="display: flex; gap: 0.5rem;">
       <button class="utility-btn" onclick="window.print()">🖨️ Print Notes</button>
       <button class="utility-btn" onclick="toggleTheme()" id="theme-btn">☀️ Light Mode</button>
-      <button class="utility-btn" onclick="exportToAnki()">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
-        Anki
-      </button>
     </div>
   </header>
 
@@ -327,40 +323,30 @@
     {
       id: "concept", theme: "concept",
       title: "Core Concept", punjabi: "ਮੂਲ ਧਾਰਨਾ",
-      ankiFront: "What causes atmospheric refraction?",
-      ankiBack: "Light from the Sun and stars bends as it passes through layers of air of continuously changing density in Earth's atmosphere.",
       desc: "Light from the Sun and stars <strong>bends</strong> as it passes through layers of air of continuously changing <span class='glossary-term' data-tooltip='Mass per unit volume. Colder air is denser than warmer air.'>density</span>. The lower atmosphere is <span class='glossary-term' data-tooltip='Causing light to bend more due to a higher refractive index.'>optically denser</span> than the upper atmosphere.",
       svgState: { apparentOpacity: 0, apparentRy: 28, apparentCy: 190, mode: "sun", zoom: 1, origin: "center center" }
     },
     {
       id: "sunrise", theme: "sunrise",
       title: "Advance Sunrise", punjabi: "ਅਗਾਊਂ ਸੂਰਜ ਚੜ੍ਹਨਾ",
-      ankiFront: "What is the time difference between actual sunrise and apparent sunrise?",
-      ankiBack: "About 2 minutes, due to atmospheric refraction.",
       desc: "<strong>Advance sunrise & delayed sunset:</strong> we see the Sun about <strong>2 minutes before actual sunrise</strong> and 2 minutes after actual sunset because of atmospheric <span class='glossary-term' data-tooltip='The bending of light as it passes from one transparent medium to another.'>refraction</span>.",
       svgState: { apparentOpacity: 1, apparentRy: 28, apparentCy: 190, mode: "sun", zoom: 1.2, origin: "20% 70%" }
     },
     {
       id: "position", theme: "position",
       title: "Apparent Position", punjabi: "ਸਪੱਸ਼ਟ ਸਥਿਤੀ",
-      ankiFront: "How does the apparent position of the Sun compare to its true position?",
-      ankiBack: "The apparent position is slightly higher than its true position.",
       desc: "Because the refracted light enters the observer's eye from a higher angle, the <strong>apparent position of the Sun is slightly higher</strong> than its true position.",
       svgState: { apparentOpacity: 1, apparentRy: 28, apparentCy: 170, mode: "sun", zoom: 1.1, origin: "center center" } 
     },
     {
       id: "oval", theme: "oval",
       title: "Oval Sun Effect", punjabi: "ਅੰਡਾਕਾਰ ਸੂਰਜ",
-      ankiFront: "Why does the Sun appear oval (flattened) at sunrise and sunset?",
-      ankiBack: "Because the bottom edge of the Sun is refracted more than the top edge by the atmosphere.",
       desc: "<strong>Oval Sun:</strong> the Sun appears <strong>flattened (oval)</strong> at sunrise and sunset. This happens because rays from the bottom edge are bent more than rays from the top edge.",
       svgState: { apparentOpacity: 1, apparentRy: 20, apparentCy: 190, mode: "sun", zoom: 1.4, origin: "20% 70%" } 
     },
     {
       id: "stars", theme: "sunrise",
       title: "Twinkling of Stars", punjabi: "ਤਾਰਿਆਂ ਦਾ ਟਿਮਟਿਮਾਉਣਾ",
-      ankiFront: "Why do stars twinkle but planets do not?",
-      ankiBack: "Stars are point sources of light; physical changes in the atmosphere cause continuous changes in refraction, making their light flicker.",
       desc: "<strong>Twinkling Stars:</strong> Stars are very distant and act as point sources of light. Physical conditions of the earth's atmosphere are not stationary, so the apparent position of the star fluctuates and the amount of light entering the eye flickers.",
       svgState: { apparentOpacity: 0, apparentRy: 28, apparentCy: 170, mode: "star", zoom: 1, origin: "center center" } 
     }
@@ -684,20 +670,7 @@
     }
   };
 
-  window.exportToAnki = async () => {
-    const data = db.find(d => d.id === state.activeId);
-    const text = `Front: ${data.ankiFront}\nBack: ${data.ankiBack}\nTags: Class10, Science, Physics, PSEB`;
-    
-    try {
-      await navigator.clipboard.writeText(text);
-      alert(`Copied "${data.title}" flashcard to clipboard ready for Anki!`);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-      alert("Couldn't copy to clipboard. Please check your browser permissions.");
-    }
-  };
-
-  init();
+    init();
 </script>
 <script defer src="../assets/bmc-coffee.js"></script>
 </body>

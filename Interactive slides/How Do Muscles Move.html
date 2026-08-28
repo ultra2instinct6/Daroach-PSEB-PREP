@@ -266,16 +266,6 @@
           <path d="M3 3v5h5"></path>
         </svg>
       </button>
-      
-      <button class="btn-util" id="btn-anki" onclick="exportToAnki()" aria-label="Export to Clipboard">
-        <svg viewBox="0 0 24 24" id="anki-icon">
-          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-          <path d="M12 11v6"></path>
-          <path d="M9 14l3 3 3-3"></path>
-        </svg>
-        <span id="anki-text">Export Anki</span>
-      </button>
     </div>
   </header>
 
@@ -409,10 +399,10 @@
 
 <script>
   const slideData = [
-    { id: "resting", themeColor: "var(--accent-yellow)", title: "The Muscle Cell", punjabi: "ਮਾਸਪੇਸ਼ੀ ਸੈੱਲ", clinical: "Phase 1: Resting State", hud: {volt: "-70 mV", len: "100%", atp: "Low"}, ankiFront: "What contains the special proteins responsible for movement?", ankiBack: "Muscle cells.", showCallout: false, desc: `A nerve impulse alone is only a message — something must physically act on it. That job belongs to <strong>muscle cells</strong>.` },
-    { id: "impulse", themeColor: "var(--accent-blue)", title: "Nerve Impulse", punjabi: "ਨਸਾਂ ਦਾ ਸੰਕੇਤ", clinical: "Phase 2: Signal Arrival", hud: {volt: "+40 mV", len: "100%", atp: "Low"}, ankiFront: "What triggers the special proteins in muscle cells to change shape?", ankiBack: "The arrival of a nerve impulse.", showCallout: false, desc: `Muscle cells contain special proteins that can <strong>change their shape and arrangement</strong>. This process is initiated when a rapid electrical impulse arrives.` },
-    { id: "contracting", themeColor: "var(--accent-red)", title: "Protein Realignment", punjabi: "ਪ੍ਰੋਟੀਨ ਦੀ ਤਬਦੀਲੀ", clinical: "Phase 3: Microscopic Sliding", hud: {volt: "0 mV", len: "85%", atp: "Spiking"}, ankiFront: "What happens to the muscle cell when its proteins rearrange?", ankiBack: "The cell becomes shorter (it contracts).", showCallout: false, desc: `Zooming in, thin <strong>Actin</strong> and thick <strong>Myosin</strong> protein filaments lock together and slide past one another. The muscle fiber thickens and internally shortens.` },
-    { id: "pulling", themeColor: "var(--accent-pink)", title: "Pulling the Bone", punjabi: "ਹੱਡੀ ਨੂੰ ਖਿੱਚਣਾ", clinical: "Phase 4: Macroscopic Force", hud: {volt: "-70 mV", len: "70%", atp: "Depleted"}, ankiFront: "Can muscles push bones?", ankiBack: "No. Muscles can only PULL, so they work in pairs.", showCallout: true, desc: `Because the muscle is anchored via tendons, the shortened cell physically <strong>pulls the bone</strong>, generating the intense mechanical tension needed for joint movement.` }
+    { id: "resting", themeColor: "var(--accent-yellow)", title: "The Muscle Cell", punjabi: "ਮਾਸਪੇਸ਼ੀ ਸੈੱਲ", clinical: "Phase 1: Resting State", hud: {volt: "-70 mV", len: "100%", atp: "Low"}, showCallout: false, desc: `A nerve impulse alone is only a message — something must physically act on it. That job belongs to <strong>muscle cells</strong>.` },
+    { id: "impulse", themeColor: "var(--accent-blue)", title: "Nerve Impulse", punjabi: "ਨਸਾਂ ਦਾ ਸੰਕੇਤ", clinical: "Phase 2: Signal Arrival", hud: {volt: "+40 mV", len: "100%", atp: "Low"}, showCallout: false, desc: `Muscle cells contain special proteins that can <strong>change their shape and arrangement</strong>. This process is initiated when a rapid electrical impulse arrives.` },
+    { id: "contracting", themeColor: "var(--accent-red)", title: "Protein Realignment", punjabi: "ਪ੍ਰੋਟੀਨ ਦੀ ਤਬਦੀਲੀ", clinical: "Phase 3: Microscopic Sliding", hud: {volt: "0 mV", len: "85%", atp: "Spiking"}, showCallout: false, desc: `Zooming in, thin <strong>Actin</strong> and thick <strong>Myosin</strong> protein filaments lock together and slide past one another. The muscle fiber thickens and internally shortens.` },
+    { id: "pulling", themeColor: "var(--accent-pink)", title: "Pulling the Bone", punjabi: "ਹੱਡੀ ਨੂੰ ਖਿੱਚਣਾ", clinical: "Phase 4: Macroscopic Force", hud: {volt: "-70 mV", len: "70%", atp: "Depleted"}, showCallout: true, desc: `Because the muscle is anchored via tendons, the shortened cell physically <strong>pulls the bone</strong>, generating the intense mechanical tension needed for joint movement.` }
   ];
 
   const quizQuestions = [
@@ -565,29 +555,7 @@
     }
   }
 
-  // Modernized Anki Export UI
-  window.exportToAnki = () => {
-    const data = slideData.find(d => d.id === state.activeId);
-    const text = `Front: ${data.ankiFront}\nBack: ${data.ankiBack}\nTags: Class10, Biology, Muscles, BOLO`;
-    
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.getElementById('btn-anki'); 
-      const origIcon = btn.querySelector('svg').innerHTML;
-      const textSpan = btn.querySelector('span');
-      
-      btn.classList.add('active');
-      btn.querySelector('svg').innerHTML = `<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>`;
-      textSpan.innerText = 'Copied!';
-      
-      setTimeout(() => { 
-        btn.classList.remove('active');
-        btn.querySelector('svg').innerHTML = origIcon;
-        textSpan.innerText = 'Export Anki';
-      }, 2000);
-    });
-  };
-
-  init();
+    init();
 </script>
 <script defer src="../assets/bmc-coffee.js"></script>
 </body>

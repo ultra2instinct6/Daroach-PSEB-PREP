@@ -168,10 +168,6 @@
       <h1><span class="brand-tag">BOLO.Engine</span> Defects of Vision</h1>
       <p>Class 10 Science • Chapter 11 of 16 • The Human Eye</p>
     </div>
-    <button class="utility-btn" onclick="exportToAnki()" title="Copy Front/Back flashcard to clipboard">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
-      Export for Anki
-    </button>
   </header>
 
   <div class="app-grid">
@@ -201,8 +197,6 @@
       id: "normal", theme: "normal",
       title: "Normal Vision", punjabi: "ਸਧਾਰਨ ਦ੍ਰਿਸ਼ਟੀ",
       clinical: "Near point: 25 cm | Far point: Infinity",
-      ankiFront: "What are the near point and far point of a normal human eye?",
-      ankiBack: "Near point is 25 cm, and far point is infinity. Light focuses exactly on the retina.",
       svg: `
         <svg viewBox="-30 40 160 120" width="100%">
           <path d="M -20,80 L 30,95 M -20,120 L 30,105 M -20,100 L 30,100" stroke="var(--theme-normal)" stroke-width="2"/>
@@ -216,8 +210,6 @@
       id: "myopia", theme: "myopia",
       title: "Myopia", punjabi: "ਨਿਕਟ ਦ੍ਰਿਸ਼ਟੀ",
       clinical: "Rx: Negative Diopters | Far point is closer than infinity",
-      ankiFront: "What causes Myopia, and how is it corrected?",
-      ankiBack: "Caused by an elongated eyeball or excessive corneal curvature. Light focuses IN FRONT of the retina. Corrected with a Concave Lens.",
       svg: `
         <svg viewBox="-30 40 160 120" width="100%">
           <path d="M -5,70 Q 5,100 -5,130 L -10,130 Q 0,100 -10,70 Z" fill="var(--theme-myopia)" opacity="0.6"/>
@@ -233,8 +225,6 @@
       id: "hyper", theme: "hyper",
       title: "Hypermetropia", punjabi: "ਦੂਰ ਦ੍ਰਿਸ਼ਟੀ",
       clinical: "Rx: Positive Diopters | Near point recedes beyond 25 cm",
-      ankiFront: "What causes Hypermetropia, and how is it corrected?",
-      ankiBack: "Caused by a shortened eyeball or a lens focal length that is too long. Light focuses BEHIND the retina. Corrected with a Convex Lens.",
       svg: `
         <svg viewBox="-30 40 160 120" width="100%">
           <path d="M -10,65 Q 0,100 -10,135 Q -20,100 -10,65 Z" fill="var(--theme-hyper)" opacity="0.6"/>
@@ -249,8 +239,6 @@
       id: "presbyopia", theme: "presby",
       title: "Presbyopia", punjabi: "ਬੁਢਾਪਾ ਦ੍ਰਿਸ਼ਟੀ",
       clinical: "Loss of Accommodation | Rx: Often requires Bifocal Lenses",
-      ankiFront: "What causes Presbyopia, and how is it corrected if the patient also has Myopia?",
-      ankiBack: "Caused by aging ciliary muscles and loss of lens flexibility. If combined with myopia, it is corrected using Bifocal lenses (Concave upper, Convex lower).",
       svg: `
         <svg viewBox="-30 40 160 120" width="100%">
           <path d="M -5,65 Q 5,82.5 -5,100 L -10,100 Q 0,82.5 -10,65 Z" fill="var(--theme-presby)" opacity="0.3"/> 
@@ -275,8 +263,6 @@
       id: "cataract", theme: "cataract",
       title: "Cataract", punjabi: "ਮੋਤੀਆਬਿੰਦ",
       clinical: "Lens Opacity | Treatment: Intraocular Lens (IOL) Surgery",
-      ankiFront: "What is a Cataract and how is it treated?",
-      ankiBack: "A clouding of the crystalline lens that scatters light. Treated via surgical replacement with an artificial Intraocular Lens (IOL).",
       svg: `
         <svg viewBox="-30 40 160 120" width="100%">
           <use href="#master-eye" />
@@ -406,21 +392,7 @@
     }
   };
 
-  window.exportToAnki = () => {
-    const data = db.find(d => d.id === state.activeId);
-    
-    // Clean formatting for easy cloze or front/back importing
-    const text = `Front: ${data.ankiFront}\nBack: ${data.ankiBack}\nTags: Class10, Science, Chapter11, PSEB, BOLO_Engine`;
-    
-    navigator.clipboard.writeText(text).then(() => {
-      const btn = document.querySelector('.utility-btn');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = 'Copied to Clipboard!';
-      setTimeout(() => btn.innerHTML = originalText, 2500);
-    });
-  };
-
-  // Run app
+    // Run app
   init();
 </script>
 <script defer src="../assets/bmc-coffee.js"></script>

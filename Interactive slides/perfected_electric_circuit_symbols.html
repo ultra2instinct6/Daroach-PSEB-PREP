@@ -24,18 +24,28 @@
             display: grid;
             place-items: center;
             min-height: 100vh;
+            padding: 12px;
             color: #1e293b;
         }
 
+        @media (max-width: 760px) {
+            .symbols-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+            .symbols-grid .symbol-item:nth-child(7) { grid-column: auto; }
+            .symbol-item { width: auto; }
+            h1 { font-size: 26px; }
+            th, td { padding: 12px 14px; font-size: 14px; }
+        }
+
         .slide-container {
-            width: 1280px;
-            height: 720px;
+            width: min(1280px, 100%);
+            min-height: 720px;
+            height: auto;
             background-color: #ffffff;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            padding: 50px 80px;
+            padding: clamp(24px, 4vw, 50px) clamp(20px, 6vw, 80px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border-left: 6px solid #2563eb;
             border-radius: 20px;
@@ -92,7 +102,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             padding: 30px;
-            width: 800px;
+            width: min(800px, 100%);
             border: 1px solid #f1f5f9;
         }
 
@@ -143,10 +153,18 @@
             font-size: 14px;
             font-weight: 600;
             color: #475569;
+            text-align: center;
+        }
+
+        .pa-label {
+            font-family: 'Noto Sans Gurmukhi', 'Mukta Mahee', sans-serif;
+            font-weight: 500;
+            color: #64748b;
         }
 
         .table-container {
             width: 100%;
+            overflow-x: auto;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #e2e8f0;
@@ -228,7 +246,7 @@
                 <div class="blue-line"></div>
                 <div class="orange-line"></div>
             </div>
-            <p class="subtitle">A circuit is a closed conducting path for current. Learn the standard component symbols.</p>
+            <p class="subtitle">A circuit is a closed conducting path for current. Learn the standard component symbols. <span class="pa-label">(ਸਰਕਟ ਕਰੰਟ ਲਈ ਇੱਕ ਬੰਦ ਚਾਲਕ ਰਸਤਾ ਹੈ। ਹਰ ਪੁਰਜ਼ੇ ਦਾ ਮਿਆਰੀ ਚਿੰਨ੍ਹ ਸਿੱਖੋ — ਚਿੰਨ੍ਹ ਜਾਂ ਕਤਾਰ &#39;ਤੇ ਕਲਿੱਕ ਕਰੋ।)</span></p>
         </div>
 
         <div class="content-area">
@@ -244,7 +262,7 @@
                             <line x1="48" y1="13" x2="48" y2="27" stroke-width="5"></line>
                             <line x1="48" y1="20" x2="68" y2="20"></line>
                         </svg>
-                        <span>Cell</span>
+                        <span>Cell <span class="pa-label">(ਸੈੱਲ)</span></span>
                     </div>
 
                     <!-- 2. Battery -->
@@ -262,7 +280,7 @@
                             <line x1="68" y1="13" x2="68" y2="27" stroke-width="5"></line>
                             <line x1="68" y1="20" x2="83" y2="20"></line>
                         </svg>
-                        <span>Battery</span>
+                        <span>Battery <span class="pa-label">(ਬੈਟਰੀ)</span></span>
                     </div>
 
                     <!-- 3. Switch (open) -->
@@ -274,7 +292,7 @@
                             <circle cx="65" cy="25" r="3" class="fill-shape"></circle>
                             <line x1="69" y1="25" x2="89" y2="25"></line>
                         </svg>
-                        <span>Switch (open)</span>
+                        <span>Switch (open) <span class="pa-label">(ਸਵਿੱਚ)</span></span>
                     </div>
 
                     <!-- 4. Resistor -->
@@ -284,7 +302,7 @@
                             <rect x="30" y="12" width="40" height="16"></rect>
                             <line x1="70" y1="20" x2="85" y2="20"></line>
                         </svg>
-                        <span>Resistor</span>
+                        <span>Resistor <span class="pa-label">(ਪ੍ਰਤੀਰੋਧਕ)</span></span>
                     </div>
 
                     <!-- 5. Rheostat -->
@@ -297,7 +315,7 @@
                             <line x1="22" y1="35" x2="72" y2="5"></line>
                             <polygon points="72,5 64,6 70,12" class="fill-shape"></polygon>
                         </svg>
-                        <span>Rheostat</span>
+                        <span>Rheostat <span class="pa-label">(ਰੀਓਸਟੈਟ)</span></span>
                     </div>
 
                     <!-- 6. Ammeter -->
@@ -308,7 +326,7 @@
                             <text x="50" y="25" font-family="Inter" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor" stroke="none">A</text>
                             <line x1="65" y1="20" x2="80" y2="20"></line>
                         </svg>
-                        <span>Ammeter</span>
+                        <span>Ammeter <span class="pa-label">(ਐਮਮੀਟਰ)</span></span>
                     </div>
 
                     <!-- 7. Voltmeter -->
@@ -319,7 +337,7 @@
                             <text x="50" y="25" font-family="Inter" font-size="14" font-weight="bold" text-anchor="middle" fill="currentColor" stroke="none">V</text>
                             <line x1="65" y1="20" x2="80" y2="20"></line>
                         </svg>
-                        <span>Voltmeter</span>
+                        <span>Voltmeter <span class="pa-label">(ਵੋਲਟਮੀਟਰ)</span></span>
                     </div>
 
                 </div>
