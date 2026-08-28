@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BOLO.MCQ — PSEB Class 10 Question Engine</title>
-<meta name="description" content="Bilingual Punjabi-English MCQ practice engine for PSEB Class 10 — Science, Math and English.">
+<meta name="description" content="Bilingual Punjabi-English MCQ practice engine for PSEB Class 10 — 44 board-pattern questions across Science, Math and English with rationales, difficulty tags, flagging and performance analytics.">
 <style>
   :root {
     --bg-void: #000000;
@@ -1045,6 +1045,96 @@
           objective: { pa: "Simple Present Tense: ਆਦਤ/ਰੋਜ਼ਾਨਾ ਕੰਮ ਲਈ। ਪਛਾਣ-ਸ਼ਬਦ: every day, always, usually। He/She/It + verb-s।", en: "Simple Present: for habits and routines. Signal words: every day, always, usually. He/She/It + verb-s." }
         },
         {
+          id: "ENG-GR-03", ch: "Grammar · Narration", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਸਹੀ Indirect Speech ਚੁਣੋ: He said, \"I am busy now.\"", en: "Choose the correct indirect speech: He said, \"I am busy now.\"" },
+          options: [
+            { t: { pa: "He said that he was busy then.", en: "He said that he was busy then." }, correct: true,
+              r: { pa: "'said' (past) ਤੋਂ ਬਾਅਦ tense ਪਿੱਛੇ ਜਾਂਦਾ ਹੈ (am → was), I → he, ਅਤੇ now → then।", en: "After 'said' (past), the tense backshifts (am → was), I → he, and now → then." } },
+            { t: { pa: "He said that I am busy now.", en: "He said that I am busy now." }, correct: false,
+              r: { pa: "Pronoun ਅਤੇ tense ਬਦਲੇ ਨਹੀਂ — 'I' ਨੂੰ 'he' ਅਤੇ 'am' ਨੂੰ 'was' ਬਣਨਾ ਚਾਹੀਦਾ ਹੈ।", en: "Pronoun and tense are unchanged — 'I' must become 'he' and 'am' must become 'was'." } },
+            { t: { pa: "He said that he is busy now.", en: "He said that he is busy now." }, correct: false,
+              r: { pa: "Past reporting verb ਤੋਂ ਬਾਅਦ 'is' ਨੂੰ 'was' ਅਤੇ 'now' ਨੂੰ 'then' ਬਣਨਾ ਜ਼ਰੂਰੀ ਹੈ।", en: "After a past reporting verb, 'is' must backshift to 'was' and 'now' to 'then'." } },
+            { t: { pa: "He says that he was busy then.", en: "He says that he was busy then." }, correct: false,
+              r: { pa: "Reporting verb 'said' ਸੀ — ਇਸਨੂੰ 'says' ਵਿੱਚ ਬਦਲਣਾ ਗਲਤ ਹੈ।", en: "The reporting verb was 'said' — changing it to 'says' is incorrect." } }
+          ],
+          objective: { pa: "Indirect Speech (past reporting verb): tense ਪਿੱਛੇ ਕਰੋ, pronoun ਬਦਲੋ, ਨੇੜਤਾ-ਸ਼ਬਦ ਬਦਲੋ (now→then, here→there, today→that day)।", en: "Indirect speech after a past reporting verb: backshift the tense, switch pronouns, shift near-words (now→then, here→there, today→that day)." }
+        },
+        {
+          id: "ENG-GR-04", ch: "Grammar · Modals", competency: "Application", diff: "Easy",
+          prompt: { pa: "ਸਹੀ modal ਚੁਣੋ: \"You ______ wear a helmet while riding a bike — it is the law.\"", en: "Choose the correct modal: \"You ______ wear a helmet while riding a bike — it is the law.\"" },
+          options: [
+            { t: { pa: "must", en: "must" }, correct: true,
+              r: { pa: "ਕਾਨੂੰਨੀ ਲਾਜ਼ਮੀਅਤ (obligation/compulsion) ਲਈ 'must' ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ।", en: "'Must' expresses obligation or compulsion — exactly what a law demands." } },
+            { t: { pa: "might", en: "might" }, correct: false,
+              r: { pa: "'Might' ਕਮਜ਼ੋਰ ਸੰਭਾਵਨਾ ਦੱਸਦਾ ਹੈ — ਕਾਨੂੰਨ ਅੰਦਾਜ਼ਾ ਨਹੀਂ ਹੁੰਦਾ।", en: "'Might' shows weak possibility — a law is not a guess." } },
+            { t: { pa: "would", en: "would" }, correct: false,
+              r: { pa: "'Would' ਬੀਤੀ ਆਦਤ ਜਾਂ ਨਿਮਰ ਬੇਨਤੀ ਲਈ ਹੈ, ਲਾਜ਼ਮੀਅਤ ਲਈ ਨਹੀਂ।", en: "'Would' is for past habits or polite requests, not obligation." } },
+            { t: { pa: "can", en: "can" }, correct: false,
+              r: { pa: "'Can' ਯੋਗਤਾ/ਇਜਾਜ਼ਤ ਦੱਸਦਾ ਹੈ — ਕਾਨੂੰਨੀ ਮਜਬੂਰੀ ਤੋਂ ਕਮਜ਼ੋਰ।", en: "'Can' shows ability/permission — weaker than a legal requirement." } }
+          ],
+          objective: { pa: "Modals ਦਾ ਨਕਸ਼ਾ: must = ਲਾਜ਼ਮੀ; should = ਸਲਾਹ; may/might = ਸੰਭਾਵਨਾ; can = ਯੋਗਤਾ/ਇਜਾਜ਼ਤ।", en: "Modal map: must = obligation; should = advice; may/might = possibility; can = ability/permission." }
+        },
+        {
+          id: "ENG-GR-05", ch: "Grammar · Prepositions", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਸਹੀ preposition ਚੁਣੋ: \"She has been living in Ludhiana ______ 2015.\"", en: "Choose the correct preposition: \"She has been living in Ludhiana ______ 2015.\"" },
+          options: [
+            { t: { pa: "since", en: "since" }, correct: true,
+              r: { pa: "'Since' + ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ (2015) — perfect continuous tense ਨਾਲ ਇਹੀ ਜੋੜ ਬਣਦਾ ਹੈ।", en: "'Since' + a starting point (2015) — the natural pair with a perfect continuous tense." } },
+            { t: { pa: "for", en: "for" }, correct: false,
+              r: { pa: "'For' ਮਿਆਦ ਨਾਲ ਆਉਂਦਾ ਹੈ (for ten years), ਸ਼ੁਰੂਆਤੀ ਸਾਲ ਨਾਲ ਨਹੀਂ।", en: "'For' takes a duration (for ten years), not a starting year." } },
+            { t: { pa: "from", en: "from" }, correct: false,
+              r: { pa: "'From' ਆਮ ਤੌਰ 'ਤੇ 'to' ਨਾਲ ਜੋੜਾ ਬਣਾਉਂਦਾ ਹੈ (from 2015 to 2020); perfect tense ਨਾਲ 'since' ਸਹੀ ਹੈ।", en: "'From' pairs with 'to' (from 2015 to 2020); with perfect tenses, 'since' is correct." } },
+            { t: { pa: "at", en: "at" }, correct: false,
+              r: { pa: "'At' ਥਾਂ ਜਾਂ ਸਮੇਂ ਦੇ ਬਿੰਦੂ ਲਈ ਹੈ (at 5 pm), ਸ਼ੁਰੂਆਤੀ ਸਾਲ ਲਈ ਨਹੀਂ।", en: "'At' marks a point of place/time (at 5 pm), not a starting year." } }
+          ],
+          objective: { pa: "Since + ਸ਼ੁਰੂਆਤੀ ਬਿੰਦੂ (since 2015, since Monday); For + ਮਿਆਦ (for two hours) — ਦੋਵੇਂ perfect tenses ਨਾਲ।", en: "Since + starting point (since 2015, since Monday); for + duration (for two hours) — both used with perfect tenses." }
+        },
+        {
+          id: "ENG-GR-06", ch: "Grammar · Determiners", competency: "Application", diff: "Easy",
+          prompt: { pa: "ਸਹੀ article ਚੁਣੋ: \"He is ______ honest man.\"", en: "Choose the correct article: \"He is ______ honest man.\"" },
+          options: [
+            { t: { pa: "an", en: "an" }, correct: true,
+              r: { pa: "'Honest' ਵਿੱਚ 'h' ਚੁੱਪ ਹੈ — ਸ਼ਬਦ ਸਵਰ ਧੁਨੀ (o) ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ, ਇਸ ਲਈ 'an'।", en: "The 'h' in 'honest' is silent — the word starts with a vowel sound (o), so 'an'." } },
+            { t: { pa: "a", en: "a" }, correct: false,
+              r: { pa: "Article ਦੀ ਚੋਣ ਸਪੈਲਿੰਗ ਤੋਂ ਨਹੀਂ, ਧੁਨੀ ਤੋਂ ਹੁੰਦੀ ਹੈ — 'h' ਚੁੱਪ ਹੋਣ ਕਰਕੇ 'a' ਗਲਤ ਹੈ।", en: "The choice depends on sound, not spelling — the silent 'h' rules out 'a'." } },
+            { t: { pa: "the", en: "the" }, correct: false,
+              r: { pa: "'The' ਕਿਸੇ ਖ਼ਾਸ, ਜਾਣੇ-ਪਛਾਣੇ ਵਿਅਕਤੀ ਵੱਲ ਇਸ਼ਾਰਾ ਕਰਦਾ ਹੈ — ਇੱਥੇ ਕੋਈ ਵੀ ਇਮਾਨਦਾਰ ਆਦਮੀ ਹੈ।", en: "'The' points to a specific, known man — here it's any honest man." } },
+            { t: { pa: "ਕੋਈ article ਨਹੀਂ", en: "no article" }, correct: false,
+              r: { pa: "ਇਕਵਚਨ ਗਿਣਨਯੋਗ ਨਾਂਵ (man) ਤੋਂ ਪਹਿਲਾਂ article ਜ਼ਰੂਰੀ ਹੈ।", en: "A singular countable noun (man) needs an article before it." } }
+          ],
+          objective: { pa: "a/an ਦੀ ਚੋਣ ਪਹਿਲੀ ਧੁਨੀ ਤੋਂ: an hour, an honest man (ਚੁੱਪ h); ਪਰ a university, a one-eyed man (ਵਿਅੰਜਨ ਧੁਨੀ)।", en: "Choose a/an by the first sound: an hour, an honest man (silent h); but a university, a one-eyed man (consonant sound)." }
+        },
+        {
+          id: "ENG-GR-07", ch: "Grammar · Subject-Verb Agreement", competency: "Application", diff: "Medium",
+          prompt: { pa: "ਸਹੀ ਵਿਕਲਪ ਚੁਣੋ: \"Neither of the boys ______ present yesterday.\"", en: "Choose the correct option: \"Neither of the boys ______ present yesterday.\"" },
+          options: [
+            { t: { pa: "was", en: "was" }, correct: true,
+              r: { pa: "'Neither of' + ਬਹੁਵਚਨ ਨਾਂਵ ਨਾਲ ਇਕਵਚਨ ਕਿਰਿਆ ਆਉਂਦੀ ਹੈ; 'yesterday' ਕਰਕੇ past tense — was।", en: "'Neither of' + plural noun takes a singular verb; 'yesterday' demands past tense — was." } },
+            { t: { pa: "were", en: "were" }, correct: false,
+              r: { pa: "'Boys' ਦੇਖ ਕੇ ਧੋਖਾ ਨਾ ਖਾਓ — ਵਿਆਕਰਨਿਕ subject 'neither' ਹੈ, ਜੋ ਇਕਵਚਨ ਹੈ।", en: "Don't be fooled by 'boys' — the grammatical subject is 'neither', which is singular." } },
+            { t: { pa: "are", en: "are" }, correct: false,
+              r: { pa: "ਗਿਣਤੀ ਵੀ ਗਲਤ ਅਤੇ tense ਵੀ — 'yesterday' ਨੂੰ past ਚਾਹੀਦਾ ਹੈ।", en: "Wrong number and wrong tense — 'yesterday' needs the past." } },
+            { t: { pa: "have been", en: "have been" }, correct: false,
+              r: { pa: "'Yesterday' ਮੁੱਕ ਚੁੱਕਾ ਸਮਾਂ ਹੈ — simple past ਵਰਤੋ; ਨਾਲੇ subject ਇਕਵਚਨ ਹੈ।", en: "'Yesterday' is finished time — use the simple past; the subject is also singular." } }
+          ],
+          objective: { pa: "Neither/either/each/every + of + ਬਹੁਵਚਨ ਨਾਂਵ → ਇਕਵਚਨ ਕਿਰਿਆ। ਵਿਚਕਾਰਲੇ ਬਹੁਵਚਨ ਸ਼ਬਦ ਤੋਂ ਗੁੰਮਰਾਹ ਨਾ ਹੋਵੋ।", en: "Neither/either/each/every + of + plural noun → singular verb. Don't let the plural noun in between mislead you." }
+        },
+        {
+          id: "ENG-GR-08", ch: "Grammar · Conditionals", competency: "Analysis", diff: "Hard",
+          prompt: { pa: "ਸਹੀ ਵਿਕਲਪ ਚੁਣੋ: \"If she ______ harder, she would have passed the exam.\"", en: "Choose the correct option: \"If she ______ harder, she would have passed the exam.\"" },
+          options: [
+            { t: { pa: "had worked", en: "had worked" }, correct: true,
+              r: { pa: "ਤੀਜਾ conditional: If + past perfect, would have + V3 — ਬੀਤੇ ਦੀ ਅਧੂਰੀ/ਅਸੰਭਵ ਗੱਲ।", en: "Third conditional: If + past perfect, would have + V3 — an unreal situation in the past." } },
+            { t: { pa: "worked", en: "worked" }, correct: false,
+              r: { pa: "'Worked' ਦੂਜੇ conditional ਨਾਲ ਜਾਂਦਾ ਹੈ (would pass), 'would have passed' ਨਾਲ ਨਹੀਂ।", en: "'Worked' fits the second conditional (would pass), not 'would have passed'." } },
+            { t: { pa: "works", en: "works" }, correct: false,
+              r: { pa: "Present tense 'works' ਦਾ 'would have passed' (ਬੀਤੇ ਦੀ ਗੱਲ) ਨਾਲ ਮੇਲ ਨਹੀਂ ਬੈਠਦਾ।", en: "Present 'works' clashes with 'would have passed', which refers to the unreal past." } },
+            { t: { pa: "will work", en: "will work" }, correct: false,
+              r: { pa: "ਮਿਆਰੀ conditionals ਵਿੱਚ 'if' ਤੋਂ ਬਾਅਦ 'will' ਕਦੇ ਨਹੀਂ ਆਉਂਦਾ।", en: "In standard conditionals, 'will' never follows 'if'." } }
+          ],
+          objective: { pa: "Conditional ਜੋੜੇ: If + present → will; If + past → would; If + past perfect → would have + V3। ਮੁੱਖ ਵਾਕ ਦੇਖ ਕੇ if-clause ਦਾ tense ਚੁਣੋ।", en: "Conditional pairs: If + present → will; If + past → would; If + past perfect → would have + V3. Read the main clause to pick the if-clause tense." }
+        },
+        {
           id: "ENG-VOC-01", ch: "Vocabulary · Synonyms", competency: "Understanding", diff: "Easy",
           prompt: { pa: "\"Enormous\" ਦਾ ਸਭ ਤੋਂ ਨੇੜਲਾ ਅਰਥ ਕਿਹੜਾ ਹੈ?", en: "Which word is closest in meaning to \"enormous\"?" },
           options: [
@@ -1058,6 +1148,36 @@
               r: { pa: "Heavy ਭਾਰ ਦੱਸਦਾ ਹੈ; ਵੱਡੀ ਚੀਜ਼ ਹਲਕੀ ਵੀ ਹੋ ਸਕਦੀ ਹੈ।", en: "Heavy is about weight; something enormous can still be light." } }
           ],
           objective: { pa: "ਸਮਾਨਾਰਥੀ ਸ਼ਬਦ ਸਿੱਖਣ ਦੀ ਜੁਗਤ: ਸ਼ਬਦ ਨੂੰ ਆਕਾਰ/ਗਤੀ/ਭਾਵ ਦੀ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਰੱਖੋ, ਫਿਰ ਉਸੇ ਸ਼੍ਰੇਣੀ ਦਾ ਵਿਕਲਪ ਲੱਭੋ।", en: "Synonym strategy: place the word in a category (size/speed/feeling), then match options within that category." }
+        },
+        {
+          id: "ENG-VOC-02", ch: "Vocabulary · Antonyms", competency: "Understanding", diff: "Easy",
+          prompt: { pa: "\"Ancient\" ਦਾ ਉਲਟ ਅਰਥ (antonym) ਕਿਹੜਾ ਹੈ?", en: "Which word is opposite in meaning to \"ancient\"?" },
+          options: [
+            { t: { pa: "Modern (ਆਧੁਨਿਕ)", en: "Modern" }, correct: true,
+              r: { pa: "Ancient = ਬਹੁਤ ਪੁਰਾਣਾ; Modern = ਅਜੋਕੇ ਸਮੇਂ ਦਾ — ਸਿੱਧਾ ਉਲਟ।", en: "Ancient = very old; modern = of the present time — the direct opposite." } },
+            { t: { pa: "Old (ਪੁਰਾਣਾ)", en: "Old" }, correct: false,
+              r: { pa: "Old ਤਾਂ ਸਮਾਨਾਰਥੀ ਹੈ — ਪ੍ਰਸ਼ਨ ਉਲਟ ਅਰਥ ਮੰਗਦਾ ਹੈ।", en: "Old is a synonym — the question asks for the opposite." } },
+            { t: { pa: "Antique (ਪੁਰਾਤਨ ਵਸਤੂ)", en: "Antique" }, correct: false,
+              r: { pa: "Antique ਵੀ ਪੁਰਾਣੇ ਦੀ ਸ਼੍ਰੇਣੀ ਵਿੱਚ ਹੈ (ਕੀਮਤੀ ਪੁਰਾਣੀ ਚੀਜ਼)।", en: "Antique also belongs to the 'old' family (a valuable old object)." } },
+            { t: { pa: "Historic (ਇਤਿਹਾਸਕ)", en: "Historic" }, correct: false,
+              r: { pa: "Historic ਬੀਤੇ ਨਾਲ ਜੁੜਿਆ ਹੈ — ancient ਵਾਲੇ ਹੀ ਪਾਸੇ ਦਾ ਸ਼ਬਦ।", en: "Historic relates to the past — the same side as ancient." } }
+          ],
+          objective: { pa: "Antonym ਜਾਲ: ਵਿਕਲਪਾਂ ਵਿੱਚ ਅਕਸਰ ਸਮਾਨਾਰਥੀ ਲੁਕੇ ਹੁੰਦੇ ਹਨ। ਪਹਿਲਾਂ ਹਰ ਵਿਕਲਪ ਨੂੰ 'ਸਮਾਨ' ਜਾਂ 'ਉਲਟ' ਵਿੱਚ ਵੰਡੋ, ਫਿਰ ਚੁਣੋ।", en: "Antonym trap: options often hide synonyms. First sort each option into 'same' vs 'opposite', then pick." }
+        },
+        {
+          id: "ENG-VOC-03", ch: "Vocabulary · Idioms", competency: "Understanding", diff: "Medium",
+          prompt: { pa: "ਮੁਹਾਵਰੇ \"once in a blue moon\" ਦਾ ਕੀ ਅਰਥ ਹੈ?", en: "What does the idiom \"once in a blue moon\" mean?" },
+          options: [
+            { t: { pa: "ਬਹੁਤ ਘੱਟ ਵਾਰ (very rarely)", en: "Very rarely" }, correct: true,
+              r: { pa: "'Blue moon' ਇੱਕ ਦੁਰਲੱਭ ਘਟਨਾ ਹੈ — ਇਸ ਲਈ ਮੁਹਾਵਰੇ ਦਾ ਅਰਥ ਹੈ ਕਦੇ-ਕਦਾਈਂ।", en: "A 'blue moon' is a rare event — so the idiom means hardly ever." } },
+            { t: { pa: "ਹਰ ਰਾਤ (every night)", en: "Every night" }, correct: false,
+              r: { pa: "ਚੰਦ ਹਰ ਰਾਤ ਦਿਸਦਾ ਹੈ ਪਰ ਮੁਹਾਵਰਾ ਦੁਰਲੱਭਤਾ ਦੱਸਦਾ ਹੈ — ਸ਼ਾਬਦਿਕ ਅਰਥ ਦਾ ਜਾਲ।", en: "The moon appears nightly, but the idiom is about rarity — a literal-meaning trap." } },
+            { t: { pa: "ਮਹੀਨੇ ਵਿੱਚ ਇੱਕ ਨਿਸ਼ਚਿਤ ਵਾਰ", en: "At a fixed time every month" }, correct: false,
+              r: { pa: "ਮੁਹਾਵਰਾ ਕਿਸੇ ਸਮਾਂ-ਸਾਰਣੀ ਬਾਰੇ ਨਹੀਂ, ਦੁਰਲੱਭਤਾ ਬਾਰੇ ਹੈ।", en: "The idiom is not about a schedule; it is about rarity." } },
+            { t: { pa: "ਪੂਰਨਮਾਸ਼ੀ ਦੌਰਾਨ (during a full moon)", en: "During a full moon" }, correct: false,
+              r: { pa: "ਮੁਹਾਵਰੇ ਸ਼ਾਬਦਿਕ ਨਹੀਂ ਹੁੰਦੇ — ਚੰਦ ਸਿਰਫ਼ ਦੁਰਲੱਭਤਾ ਦਾ ਪ੍ਰਤੀਕ ਹੈ।", en: "Idioms are not literal — the moon here is only a symbol of rarity." } }
+          ],
+          objective: { pa: "ਮੁਹਾਵਰਿਆਂ ਦੇ ਅਰਥ ਗ਼ੈਰ-ਸ਼ਾਬਦਿਕ ਹੁੰਦੇ ਹਨ। ਬੋਰਡ ਦੇ ਪਸੰਦੀਦਾ: once in a blue moon (ਕਦੇ-ਕਦਾਈਂ), a piece of cake (ਬਹੁਤ ਸੌਖਾ), at the eleventh hour (ਆਖ਼ਰੀ ਮੌਕੇ)।", en: "Idioms carry non-literal meanings. Board favourites: once in a blue moon (rarely), a piece of cake (very easy), at the eleventh hour (at the last moment)." }
         },
         {
           id: "ENG-GR-02", ch: "Grammar · Voice", competency: "Analysis", diff: "Medium",
@@ -1112,6 +1232,11 @@
   let qIndex = 0;
   let answers = {};   // { [qid]: pickedIndex }
   let struck = {};    // { [qid]: { [optIndex]: true } }
+  let flags = {};     // { [qid]: true } — marked for review
+  let times = {};     // { [qid]: ms spent before answering }
+  let order = null;   // null = bank order; array of indices when shuffled
+  let optOrders = {}; // { [qid]: permutation } — options shuffled per run to kill position bias
+  let qShownAt = Date.now();
   let finished = false;
 
   try {
@@ -1133,8 +1258,23 @@
   const themePill = document.getElementById("themePill");
 
   const bank = () => BANKS[subject];
-  const questions = () => bank().questions;
+  const questions = () => {
+    const qs = bank().questions;
+    return order ? order.map(i => qs[i]) : qs;
+  };
   const q = () => questions()[qIndex];
+  function opts(qq) {
+    let ord = optOrders[qq.id];
+    if (!ord) {
+      ord = qq.options.map((_, i) => i);
+      for (let i = ord.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [ord[i], ord[j]] = [ord[j], ord[i]];
+      }
+      optOrders[qq.id] = ord;
+    }
+    return ord.map(i => qq.options[i]);
+  }
   const primary = obj => obj[lang];
   const secondary = obj => obj[lang === "pa" ? "en" : "pa"];
   const activeAccent = () => THEMES[theme].subjectAccents[subject] || "#00e5ff";
@@ -1168,7 +1308,7 @@
       const picked = answers[qq.id];
       if (picked === undefined) return;
       attempted++;
-      if (qq.options[picked].correct) correct++;
+      if (opts(qq)[picked].correct) correct++;
     });
     return { correct, attempted };
   }
@@ -1181,11 +1321,17 @@
   function renderProgress() {
     progressTrack.innerHTML = "";
     questions().forEach((qq, i) => {
-      const seg = document.createElement("span");
+      const seg = document.createElement("button");
+      seg.type = "button";
       seg.className = "progress-seg";
+      seg.dataset.jump = i;
       const picked = answers[qq.id];
-      if (picked !== undefined) seg.classList.add(qq.options[picked].correct ? "seen-correct" : "seen-wrong");
+      if (picked !== undefined) seg.classList.add(opts(qq)[picked].correct ? "seen-correct" : "seen-wrong");
+      if (flags[qq.id]) seg.classList.add("flagged");
       if (i === qIndex && !finished) seg.classList.add("current");
+      seg.setAttribute("aria-label", "Go to question " + (i + 1) +
+        (picked !== undefined ? (opts(qq)[picked].correct ? " (correct)" : " (incorrect)") : " (unanswered)") +
+        (flags[qq.id] ? ", flagged" : ""));
       progressTrack.appendChild(seg);
     });
   }
@@ -1203,13 +1349,16 @@
       '<span class="meta-rune hot">' + esc(primary(bank().label)) + '</span>' +
       '<span class="meta-rune">' + esc(qq.ch) + '</span>' +
       '<span class="meta-rune">' + esc(qq.competency) + '</span>' +
+      (qq.diff ? '<span class="meta-rune diff-' + qq.diff.toLowerCase() + '">' + esc(qq.diff) + '</span>' : '') +
+      '<button class="flag-btn' + (flags[qq.id] ? " active" : "") + '" type="button" data-flag aria-pressed="' + (flags[qq.id] ? "true" : "false") + '" aria-label="Flag question for review">' + (flags[qq.id] ? "⚑ Flagged" : "⚐ Flag") + '</button>' +
       '<button class="lang-flip" type="button" data-flip-lang>' + langBtnLabel + '</button>' +
       '</div>' +
       '<div class="q-prompt">' + primary(qq.prompt) + '</div>' +
       '<div class="q-prompt-sub">' + secondary(qq.prompt) + '</div>';
 
     const letters = ["A", "B", "C", "D", "E"];
-    qq.options.forEach((opt, i) => {
+    const shown = opts(qq);
+    shown.forEach((opt, i) => {
       let optClass = "option";
       let rowClass = "option-row";
       let strikeClass = "strike-btn";
@@ -1228,12 +1377,12 @@
     });
 
     if (isAnswered) {
-      const wasCorrect = qq.options[picked].correct;
+      const wasCorrect = shown[picked].correct;
       html += '<div class="feedback">' +
         '<div class="verdict ' + (wasCorrect ? "good" : "bad") + '">' +
         (wasCorrect ? (lang === "pa" ? "✓ ਸਹੀ ਉੱਤਰ!" : "✓ Correct!") : (lang === "pa" ? "✕ ਗਲਤ ਉੱਤਰ" : "✕ Incorrect")) +
         '</div>';
-      qq.options.forEach((opt, i) => {
+      shown.forEach((opt, i) => {
         let rClass = "rationale";
         if (opt.correct) rClass += " good";
         else if (picked === i) rClass += " bad";
@@ -1245,10 +1394,15 @@
     }
 
     const isLast = qIndex === questions().length - 1;
-    const nextLabel = isLast ? (lang === "pa" ? "ਨਤੀਜਾ ਦੇਖੋ" : "See Results") : (lang === "pa" ? "ਅਗਲਾ ਪ੍ਰਸ਼ਨ" : "Next Question");
+    const total = questions().length;
+    const answeredCount = questions().filter(x => answers[x.id] !== undefined).length;
+    const nextLabel = isLast ? (lang === "pa" ? "ਨਤੀਜਾ ਦੇਖੋ" : "See Results") : (
+      isAnswered ? (lang === "pa" ? "ਅਗਲਾ ਪ੍ਰਸ਼ਨ" : "Next Question") : (lang === "pa" ? "ਛੱਡੋ" : "Skip"));
     html += '<div class="action-bar">' +
-      '<span class="q-counter">' + (lang === "pa" ? "ਪ੍ਰਸ਼ਨ" : "Question") + " " + (qIndex + 1) + " / " + questions().length + '</span>' +
-      '<button class="btn-next" type="button" data-next ' + (isAnswered ? "" : "disabled") + '>' + nextLabel + ' <span>▶</span></button>' +
+      '<button class="btn-prev" type="button" data-prev ' + (qIndex === 0 ? "disabled" : "") + '>◀ ' + (lang === "pa" ? "ਪਿਛਲਾ" : "Prev") + '</button>' +
+      '<span class="q-counter">' + (lang === "pa" ? "ਪ੍ਰਸ਼ਨ" : "Question") + " " + (qIndex + 1) + " / " + total + '</span>' +
+      (answeredCount === total && !isLast ? '<button class="results-link" type="button" data-finish>' + (lang === "pa" ? "ਨਤੀਜਾ ਦੇਖੋ ▸" : "See Results ▸") + '</button>' : '') +
+      '<button class="btn-next" type="button" data-next>' + nextLabel + ' <span>▶</span></button>' +
       '</div>';
 
     qCard.innerHTML = html;
@@ -1257,23 +1411,104 @@
     qCard.classList.add("swap");
   }
 
+  function fmtTime(ms) {
+    const s = Math.round(ms / 1000);
+    return s < 60 ? s + "s" : Math.floor(s / 60) + "m " + (s % 60) + "s";
+  }
+
   function renderSummary() {
+    const qs = questions();
     const s = scoreParts();
-    const total = questions().length;
+    const total = qs.length;
+    const skipped = total - s.attempted;
+    const wrong = s.attempted - s.correct;
     const pct = total ? Math.round((s.correct / total) * 100) : 0;
+    const accuracy = s.attempted ? Math.round((s.correct / s.attempted) * 100) : 0;
+    const timedIds = qs.filter(x => times[x.id] !== undefined && answers[x.id] !== undefined);
+    const avgMs = timedIds.length ? timedIds.reduce((a, x) => a + times[x.id], 0) / timedIds.length : 0;
+
     const heading = pct >= 80 ? (lang === "pa" ? "ਸ਼ਾਨਦਾਰ ਪ੍ਰਦਰਸ਼ਨ!" : "Outstanding!") :
       pct >= 50 ? (lang === "pa" ? "ਵਧੀਆ ਕੋਸ਼ਿਸ਼!" : "Good effort!") :
       (lang === "pa" ? "ਦੁਬਾਰਾ ਅਭਿਆਸ ਕਰੋ" : "Keep practising");
     const body = lang === "pa"
       ? "ਤੁਸੀਂ " + total + " ਵਿੱਚੋਂ " + s.correct + " ਪ੍ਰਸ਼ਨ ਸਹੀ ਕੀਤੇ। ਹਰ ਵਿਆਖਿਆ ਨੂੰ ਦੁਬਾਰਾ ਪੜ੍ਹਨਾ ਸਭ ਤੋਂ ਤੇਜ਼ ਰੀਵੀਜ਼ਨ ਹੈ।"
       : "You answered " + s.correct + " of " + total + " correctly. Re-reading each rationale is the fastest revision.";
-    qCard.innerHTML = '<div class="summary">' +
+
+    let html = '<div class="summary">' +
       '<div class="summary-orb"><span class="summary-score">' + pct + '%</span></div>' +
       '<h2>' + heading + '</h2><p>' + body + '</p>' +
-      '<div class="summary-actions">' +
+      '<div class="stat-grid">' +
+      '<div class="stat-box"><span class="stat-num" style="color:var(--green)">' + s.correct + '</span><span class="stat-label">' + (lang === "pa" ? "ਸਹੀ" : "Correct") + '</span></div>' +
+      '<div class="stat-box"><span class="stat-num" style="color:var(--red)">' + wrong + '</span><span class="stat-label">' + (lang === "pa" ? "ਗਲਤ" : "Incorrect") + '</span></div>' +
+      '<div class="stat-box"><span class="stat-num">' + skipped + '</span><span class="stat-label">' + (lang === "pa" ? "ਛੱਡੇ" : "Skipped") + '</span></div>' +
+      '<div class="stat-box"><span class="stat-num">' + accuracy + '%</span><span class="stat-label">' + (lang === "pa" ? "ਸ਼ੁੱਧਤਾ" : "Accuracy") + '</span></div>' +
+      (avgMs ? '<div class="stat-box"><span class="stat-num">' + fmtTime(avgMs) + '</span><span class="stat-label">' + (lang === "pa" ? "ਔਸਤ ਸਮਾਂ/ਪ੍ਰਸ਼ਨ" : "Avg Time/Q") + '</span></div>' : '') +
+      '</div>';
+
+    // per-chapter breakdown
+    const byCh = {};
+    qs.forEach(x => {
+      const key = x.ch;
+      byCh[key] = byCh[key] || { total: 0, correct: 0 };
+      byCh[key].total++;
+      const p = answers[x.id];
+      if (p !== undefined && opts(x)[p].correct) byCh[key].correct++;
+    });
+    html += '<div class="break-section"><div class="break-title">' + (lang === "pa" ? "ਅਧਿਆਇ ਅਨੁਸਾਰ ਪ੍ਰਦਰਸ਼ਨ" : "Performance by Chapter") + '</div>';
+    Object.keys(byCh).forEach(key => {
+      const c = byCh[key];
+      const p = Math.round((c.correct / c.total) * 100);
+      const cls = p >= 70 ? "" : p >= 40 ? " mid" : " low";
+      html += '<div class="break-row"><span class="break-name">' + esc(key) + '</span>' +
+        '<span class="break-bar"><span class="break-fill' + cls + '" style="width:' + p + '%"></span></span>' +
+        '<span class="break-score">' + c.correct + '/' + c.total + '</span></div>';
+    });
+    html += '</div>';
+
+    // per-difficulty breakdown
+    const byDiff = {};
+    qs.forEach(x => {
+      const key = x.diff || "—";
+      byDiff[key] = byDiff[key] || { total: 0, correct: 0 };
+      byDiff[key].total++;
+      const p = answers[x.id];
+      if (p !== undefined && opts(x)[p].correct) byDiff[key].correct++;
+    });
+    const diffOrder = ["Easy", "Medium", "Hard", "—"].filter(k => byDiff[k]);
+    if (diffOrder.length > 1) {
+      html += '<div class="break-section"><div class="break-title">' + (lang === "pa" ? "ਮੁਸ਼ਕਲ ਪੱਧਰ ਅਨੁਸਾਰ" : "Performance by Difficulty") + '</div>';
+      diffOrder.forEach(key => {
+        const c = byDiff[key];
+        const p = Math.round((c.correct / c.total) * 100);
+        const cls = p >= 70 ? "" : p >= 40 ? " mid" : " low";
+        html += '<div class="break-row"><span class="break-name">' + esc(key) + '</span>' +
+          '<span class="break-bar"><span class="break-fill' + cls + '" style="width:' + p + '%"></span></span>' +
+          '<span class="break-score">' + c.correct + '/' + c.total + '</span></div>';
+      });
+      html += '</div>';
+    }
+
+    // review list — tap any question to revisit its rationale
+    html += '<div class="break-section"><div class="break-title">' + (lang === "pa" ? "ਪ੍ਰਸ਼ਨ ਸਮੀਖਿਆ — ਵਿਆਖਿਆ ਲਈ ਛੂਹੋ" : "Question Review — tap to revisit") + '</div><div class="review-list">';
+    qs.forEach((x, i) => {
+      const p = answers[x.id];
+      const v = p === undefined ? '<span class="rv-verdict rv-skip">—</span>' :
+        (opts(x)[p].correct ? '<span class="rv-verdict rv-good">✓</span>' : '<span class="rv-verdict rv-bad">✕</span>');
+      html += '<button class="review-item" type="button" data-review="' + i + '">' +
+        '<span class="rv-num">Q' + (i + 1) + '</span>' + v +
+        '<span class="rv-text">' + primary(x.prompt) + '</span>' +
+        (flags[x.id] ? '<span class="rv-flag">⚑</span>' : '') +
+        '</button>';
+    });
+    html += '</div></div>';
+
+    html += '<div class="summary-actions" style="margin-top:26px;">' +
       '<button class="btn-next" type="button" data-restart>↻ ' + (lang === "pa" ? "ਦੁਬਾਰਾ ਅਭਿਆਸ" : "Practice Again") + '</button>' +
+      '<button class="btn-next" type="button" data-shuffle>⤨ ' + (lang === "pa" ? "ਮਿਲਾ ਕੇ ਦੁਬਾਰਾ" : "Shuffle & Retry") + '</button>' +
       '<a class="btn-next" href="index.html" style="text-decoration:none;">◂ ' + (lang === "pa" ? "ਮੁੱਖ ਮੇਨੂ" : "Main Menu") + '</a>' +
       '</div></div>';
+
+    qCard.innerHTML = html;
     announcer.textContent = heading + " " + pct + "%";
   }
 
@@ -1284,14 +1519,38 @@
     if (finished) renderSummary(); else renderQuestion();
   }
 
+  function resetRun(shuffle) {
+    qIndex = 0; answers = {}; struck = {}; flags = {}; times = {}; optOrders = {}; finished = false;
+    if (shuffle) {
+      const n = bank().questions.length;
+      order = Array.from({ length: n }, (_, i) => i);
+      for (let i = n - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+    } else {
+      order = null;
+    }
+    qShownAt = Date.now();
+  }
+
   function setSubject(s) {
     if (!BANKS[s] || s === subject) return;
     subject = s;
-    qIndex = 0; answers = {}; struck = {}; finished = false;
+    resetRun(false);
     document.querySelectorAll("[data-subject]").forEach(b => b.classList.toggle("active", b.dataset.subject === subject));
     logoDot.textContent = ".MCQ";
     persist();
     render();
+  }
+
+  function goTo(i) {
+    if (i < 0 || i >= questions().length) return;
+    qIndex = i;
+    finished = false;
+    qShownAt = Date.now();
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   document.body.addEventListener("click", e => {
@@ -1307,6 +1566,27 @@
 
     const flip = e.target.closest("[data-flip-lang]");
     if (flip) { lang = lang === "pa" ? "en" : "pa"; persist(); render(); return; }
+
+    const flagBtn = e.target.closest("[data-flag]");
+    if (flagBtn) {
+      const qq = q();
+      flags[qq.id] = !flags[qq.id];
+      announcer.textContent = flags[qq.id] ? "Question flagged for review" : "Flag removed";
+      render();
+      return;
+    }
+
+    const jumpSeg = e.target.closest("[data-jump]");
+    if (jumpSeg) { goTo(parseInt(jumpSeg.dataset.jump, 10)); return; }
+
+    const reviewBtn = e.target.closest("[data-review]");
+    if (reviewBtn) { goTo(parseInt(reviewBtn.dataset.review, 10)); return; }
+
+    const finishBtn = e.target.closest("[data-finish]");
+    if (finishBtn) { finished = true; render(); window.scrollTo({ top: 0, behavior: "smooth" }); return; }
+
+    const prevBtn = e.target.closest("[data-prev]");
+    if (prevBtn && !prevBtn.disabled) { goTo(qIndex - 1); return; }
 
     const strikeBtn = e.target.closest("[data-strike]");
     if (strikeBtn && !strikeBtn.disabled) {
@@ -1324,7 +1604,8 @@
       const i = parseInt(pickBtn.dataset.pick, 10);
       if ((struck[qq.id] || {})[i]) return; // struck options are ruled out
       answers[qq.id] = i;
-      const wasCorrect = qq.options[i].correct;
+      times[qq.id] = (times[qq.id] || 0) + (Date.now() - qShownAt);
+      const wasCorrect = opts(qq)[i].correct;
       announcer.textContent = wasCorrect ? "Correct" : "Incorrect";
       render();
       return;
@@ -1332,16 +1613,25 @@
 
     const nextBtn = e.target.closest("[data-next]");
     if (nextBtn && !nextBtn.disabled) {
-      if (qIndex < questions().length - 1) { qIndex++; render(); }
+      if (qIndex < questions().length - 1) { qIndex++; qShownAt = Date.now(); render(); }
       else { finished = true; render(); }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    const shuffleBtn = e.target.closest("[data-shuffle]");
+    if (shuffleBtn) {
+      resetRun(true);
+      render();
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
     const restartBtn = e.target.closest("[data-restart]");
     if (restartBtn) {
-      qIndex = 0; answers = {}; struck = {}; finished = false;
+      resetRun(false);
       render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
   });
@@ -1353,15 +1643,20 @@
     if (key in letters) {
       const i = letters[key];
       const qq = q();
-      if (answers[qq.id] === undefined && qq.options[i] && !(struck[qq.id] || {})[i]) {
-        answers[qq.id] = i; render();
+      if (answers[qq.id] === undefined && opts(qq)[i] && !(struck[qq.id] || {})[i]) {
+        answers[qq.id] = i;
+        times[qq.id] = (times[qq.id] || 0) + (Date.now() - qShownAt);
+        render();
       }
-    } else if (key === "enter" || key === "arrowright") {
+    } else if (key === "f") {
       const qq = q();
-      if (answers[qq.id] !== undefined) {
-        if (qIndex < questions().length - 1) { qIndex++; render(); }
-        else { finished = true; render(); }
-      }
+      flags[qq.id] = !flags[qq.id];
+      render();
+    } else if (key === "arrowleft") {
+      if (qIndex > 0) goTo(qIndex - 1);
+    } else if (key === "enter" || key === "arrowright") {
+      if (qIndex < questions().length - 1) { qIndex++; qShownAt = Date.now(); render(); }
+      else if (answers[q().id] !== undefined) { finished = true; render(); }
     }
   });
 
