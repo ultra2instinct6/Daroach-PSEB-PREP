@@ -1191,24 +1191,7 @@ m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Sh
             });
         });
         
-        window.exportToAnki = function() {
-            let csvData = "";
-            const saCards = document.querySelectorAll('.short-answer');
-            saCards.forEach(card => {
-                const q = card.getAttribute('data-q').replace(/"/g, '""');
-                const a = card.getAttribute('data-a').replace(/"/g, '""');
-                csvData += `"${q}","${a}"\n`;
-            });
-            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement("a");
-            const url = URL.createObjectURL(blob);
-            link.setAttribute("href", url);
-            link.setAttribute("download", "Class10_Science_PSEB_Final_Deck.csv");
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+
 
         /* SIMULATOR: INDICATOR COLOUR LAB */
         var indData = {

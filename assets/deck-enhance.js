@@ -1,8 +1,11 @@
 /* PSEB deck enhancements — shared across all chapters.
    Progress persistence, resume-to-last-slide, searchable slide outline/jump
-   navigator, click-counter-to-jump, bookmarks for revision, active-recall
-   hide/reveal mode, study-time tracking, presenter timer, print/PDF handout,
-   keyboard help overlay, fullscreen, and #slide=N deep-linking.
+   navigator (full-text, bilingual), click-counter-to-jump, bookmarks for
+   revision, active-recall hide/reveal mode, study-time tracking, presenter
+   timer, print/PDF handout, keyboard help overlay, fullscreen, #slide=N
+   deep-linking, a site-wide persistent Punjabi/English reading-language
+   toggle, Gurmukhi-aware text-to-speech, quiz score tracking, and an
+   in-deck Quick Revision flashcard mode (no downloads).
    Loaded by each chapter via <script src="../assets/deck-enhance.js"></script>.
    Runs after the chapter's own inline script; navigation adapts to either
    window.goToSlide (ch 1-5) or window.moveSlide (ch 6-13). */
@@ -17,6 +20,8 @@
   var STUDY_KEY = "pseb.study.v1";
   var FONTSCALE_KEY = "pseb.fontscale.v1";
   var DECK_THEME_KEY = "pseb.decktheme.v1";
+  var LANG_KEY = "pseb.lang.v1";
+  var SCORE_KEY = "pseb.scores.v1";
 
   var FS_MIN = 60, FS_MAX = 140, FS_STEP = 10, FS_DEFAULT = 100;
   var THEME_ICONS = {
@@ -289,11 +294,13 @@
     var style = document.createElement("style");
     style.textContent =
       "html,body{overscroll-behavior-x:none!important}" +
-      ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:1200}" +
+      ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:1200;flex-wrap:wrap;justify-content:flex-end;max-width:calc(50vw - 110px)}" +
       ".pseb-tools button{width:40px;height:40px;border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));border-radius:10px;background:var(--deck-panel,rgba(14,14,18,.92));color:var(--deck-aura,#00e5ff);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.24);transition:background .2s,border-color .2s,color .2s,transform .15s}" +
       ".pseb-tools button:hover{background:var(--deck-aura-soft,rgba(0,229,255,.16));border-color:var(--deck-aura,#00e5ff);color:var(--deck-text,#f8fafc);transform:translateY(-2px)}" +
       ".pseb-tools button#pseb-theme{color:var(--deck-warn,#ffaa00)}" +
       ".pseb-tools button#pseb-font{font-size:17px;font-weight:800;font-family:'Segoe UI',system-ui,sans-serif}" +
+      ".pseb-tools button#pseb-lang{font-size:15px;font-weight:800;font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif)}" +
+      ".pseb-tools button#pseb-rev{color:var(--deck-warn,#ffaa00)}" +
       ".pseb-font-pop{position:fixed;top:64px;right:15px;z-index:1250;background:var(--deck-panel-strong,#141419);color:var(--deck-text,#f8fafc);border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.28);padding:12px;display:none;flex-direction:column;gap:10px;font-family:'Segoe UI',system-ui,sans-serif;width:210px}" +
       ".pseb-font-pop.show{display:flex}" +
       ".pseb-font-pop .row{display:flex;align-items:center;gap:8px}" +
@@ -353,6 +360,8 @@
     var tools = document.createElement("div");
     tools.className = "pseb-tools";
     tools.innerHTML =
+      '<button type="button" id="pseb-lang" title="Reading language \u00b7 \u0a2a\u0a5c\u0a4d\u0a39\u0a3e\u0a08 \u0a26\u0a40 \u0a2d\u0a3e\u0a38\u0a3c\u0a3e (L)" aria-label="Reading language">\u0a2a\u0a70</button>' +
+      '<button type="button" id="pseb-rev" title="Quick Revision flashcards (R)" aria-label="Quick Revision flashcards">\u26A1</button>' +
       '<button type="button" id="pseb-outline" title="Slide outline (O)" aria-label="Slide outline">\u2630</button>' +
       '<button type="button" id="pseb-bookmark" title="Bookmark this slide (B)" aria-label="Bookmark this slide">\u2606</button>' +
       '<button type="button" id="pseb-recall" title="Active recall: hide answers (H)" aria-label="Active recall mode">\u25C9</button>' +
@@ -426,6 +435,8 @@
           '<dt>Home</dt><dd>First slide</dd>' +
           '<dt>End</dt><dd>Last slide</dd>' +
           '<dt>O</dt><dd>Slide outline / search / jump</dd>' +
+          '<dt>L</dt><dd>Reading language \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 / English</dd>' +
+          '<dt>R</dt><dd>Quick Revision flashcards</dd>' +
           '<dt>B</dt><dd>Bookmark slide for revision</dd>' +
           '<dt>H</dt><dd>Active recall (hide / reveal)</dd>' +
           '<dt>P</dt><dd>Print / save as PDF</dd>' +
@@ -457,7 +468,7 @@
     oBack.innerHTML =
       '<div class="pseb-outline">' +
         '<h3>Slides</h3>' +
-        '<input type="search" class="pseb-outline-search" placeholder="Filter or type a slide number\u2026" aria-label="Filter slides">' +
+        '<input type="search" class="pseb-outline-search" placeholder="Search all slide text (English / \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40) or slide number\u2026" aria-label="Search slides">' +
         '<div class="pseb-outline-list"></div>' +
         '<div class="pseb-outline-empty">No matching slides.</div>' +
       '</div>';
@@ -476,7 +487,7 @@
       var shown = 0;
       oItems.forEach(function (it) {
         var num = String(it.index + 1);
-        var match = q === "" || num === q || num.indexOf(q) === 0 || it.title.toLowerCase().indexOf(q) !== -1;
+        var match = q === "" || num === q || num.indexOf(q) === 0 || it.title.toLowerCase().indexOf(q) !== -1 || it.text.indexOf(q) !== -1;
         it.btn.classList.toggle("hidden", !match);
         if (match) shown++;
       });
@@ -509,7 +520,7 @@
           outlineShow(false);
         });
         list.appendChild(b);
-        oItems.push({ btn: b, index: i, title: title });
+        oItems.push({ btn: b, index: i, title: title, text: (s.textContent || "").replace(/\s+/g, " ").toLowerCase() });
       });
       oSearch.value = "";
       outlineFilter();
@@ -602,6 +613,7 @@
 
     document.getElementById("pseb-bookmark").addEventListener("click", doToggleBookmark);
     document.getElementById("pseb-recall").addEventListener("click", toggleRecall);
+    document.getElementById("pseb-rev").addEventListener("click", function () { if (window.__psebRevToggle) window.__psebRevToggle(); });
     document.addEventListener("click", function (e) {
       if (!recallOn) return;
       var box = e.target && e.target.closest ? e.target.closest(".content-box") : null;
@@ -616,6 +628,7 @@
     enhanceFlagshipLabs();
     initBiReadings();
     installQuizEnhancements();
+    patchSpeakWord();
 
     var counter = document.getElementById("counter");
     if (counter && "MutationObserver" in window) {
@@ -650,8 +663,10 @@
       var tag = document.activeElement ? document.activeElement.tagName : "";
       if (tag === "INPUT" || tag === "TEXTAREA") return;
       if (e.key === "?" || (e.key === "/" && e.shiftKey)) { e.preventDefault(); if (window.__psebShowHelp) window.__psebShowHelp(true); }
-      else if (e.key === "Escape") { if (window.__psebShowHelp) window.__psebShowHelp(false); if (window.__psebOutlineShow) window.__psebOutlineShow(false); if (window.__psebFontPopClose) window.__psebFontPopClose(); }
+      else if (e.key === "Escape") { if (window.__psebShowHelp) window.__psebShowHelp(false); if (window.__psebOutlineShow) window.__psebOutlineShow(false); if (window.__psebFontPopClose) window.__psebFontPopClose(); if (window.__psebRevShow) window.__psebRevShow(false); }
       else if (e.key === "o" || e.key === "O") { e.preventDefault(); if (window.__psebOpenOutline) window.__psebOpenOutline(); }
+      else if (e.key === "l" || e.key === "L") { e.preventDefault(); if (window.__psebToggleLang) window.__psebToggleLang(); }
+      else if (e.key === "r" || e.key === "R") { e.preventDefault(); if (window.__psebRevToggle) window.__psebRevToggle(); }
       else if (e.key === "-" || e.key === "_") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(getScale() - FS_STEP, true); }
       else if (e.key === "+" || e.key === "=") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(getScale() + FS_STEP, true); }
       else if (e.key === "0") { e.preventDefault(); if (window.__psebSetScale) window.__psebSetScale(FS_DEFAULT, true); }
@@ -1052,6 +1067,12 @@
       window.speechSynthesis.onvoiceschanged = loadBiVoices;
     }
     loadBiVoices();
+    var langBtn = document.getElementById("pseb-lang");
+    if (langBtn && !langBtn.__psebWired) {
+      langBtn.__psebWired = true;
+      langBtn.addEventListener("click", toggleLang);
+    }
+    applyLang(getLangPref(), false);
     if (window.__psebBiWired) return;
     window.__psebBiWired = true;
     document.addEventListener("click", function (e) {
@@ -1060,14 +1081,9 @@
       var box = t.closest(".bi-reading");
       if (!box) return;
       if (t.classList.contains("bi-toggle")) {
-        biStop();
-        var toEn = !box.classList.contains("show-en");
-        box.classList.toggle("show-en", toEn);
-        var pa = box.querySelector(".bi-pa"), en = box.querySelector(".bi-en");
-        if (pa) pa.hidden = toEn;
-        if (en) en.hidden = !toEn;
-        t.textContent = toEn ? "ਪੰਜਾਬੀ" : "English";
-        t.setAttribute("aria-pressed", toEn ? "true" : "false");
+        // A single reading's toggle now drives the shared preference so every
+        // reading (in this deck and all others) stays in the chosen language.
+        applyLang(box.classList.contains("show-en") ? "pa" : "en", false);
       } else if (t.classList.contains("bi-listen")) {
         biSpeak(box, t);
       } else if (t.classList.contains("bi-stop")) {
@@ -1076,6 +1092,43 @@
     });
   }
   window.psebStopReading = biStop;
+
+  // ---- Site-wide persistent reading language (Punjabi Gurmukhi <-> English) ----
+  // One preference, stored in LANG_KEY, applied to every .bi-reading in every
+  // chapter. Toggling any reading (or the toolbar ਪੰ/EN button, or key L)
+  // switches ALL readings and is remembered across chapters and visits.
+  function getLangPref() {
+    var v = "";
+    try { v = localStorage.getItem(LANG_KEY) || ""; } catch (e) {}
+    return v === "en" ? "en" : "pa";
+  }
+  function applyLang(lang, announce) {
+    biStop();
+    var toEn = lang === "en";
+    var boxes = document.querySelectorAll(".bi-reading");
+    Array.prototype.forEach.call(boxes, function (box) {
+      box.classList.toggle("show-en", toEn);
+      var pa = box.querySelector(".bi-pa"), en = box.querySelector(".bi-en");
+      if (pa) pa.hidden = toEn;
+      if (en) en.hidden = !toEn;
+      var t = box.querySelector(".bi-toggle");
+      if (t) {
+        t.textContent = toEn ? "\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40" : "English";
+        t.setAttribute("aria-pressed", toEn ? "true" : "false");
+      }
+    });
+    try { localStorage.setItem(LANG_KEY, toEn ? "en" : "pa"); } catch (e) {}
+    var b = document.getElementById("pseb-lang");
+    if (b) {
+      b.textContent = toEn ? "EN" : "\u0a2a\u0a70";
+      b.title = toEn
+        ? "Readings: English \u2014 switch to \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 (L)"
+        : "Readings: \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 \u2014 switch to English (L)";
+    }
+    if (announce) toast(toEn ? "Readings in English" : "\u0a2a\u0a5c\u0a4d\u0a39\u0a3e\u0a08 \u0a39\u0a41\u0a23 \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 \u0a35\u0a3f\u0a71\u0a1a (Readings in Punjabi)");
+  }
+  function toggleLang() { applyLang(getLangPref() === "en" ? "pa" : "en", true); }
+  window.__psebToggleLang = toggleLang;
 
   // ---- Unified quiz feedback + bilingual "why" explanations ----
   // Overrides the per-chapter inline checkAnswer/checkSA (which load before this
@@ -1126,6 +1179,7 @@
     h += qfExplainHtml(qDiv) + "</div>";
     if (feedback) feedback.innerHTML = h;
     if (nextBtn) nextBtn.style.display = "block";
+    recordQuiz(qDiv, !!isCorrect, correctBtn ? (correctBtn.textContent || "").replace(/\s+/g, " ").trim() : "", "");
   }
   function enhancedCheckSA(btn, expectedEn, expectedPa) {
     var qDiv = btn.closest ? btn.closest(".sub-slide") : null;
@@ -1147,9 +1201,294 @@
     h += qfExplainHtml(qDiv) + "</div>";
     if (feedback) feedback.innerHTML = h;
     if (nextBtn) nextBtn.style.display = "block";
+    recordQuiz(qDiv, ok, expectedEn || "", expectedPa || "");
   }
   function installQuizEnhancements() {
     window.checkAnswer = enhancedCheckAnswer;
     window.checkSA = enhancedCheckSA;
+  }
+
+  // ==== Quiz score tracking =================================================
+  // Every MCQ / True-False / Short-Answer result is tallied per chapter in
+  // SCORE_KEY. Missed questions are remembered (and cleared once answered
+  // correctly) so Quick Revision can put them first. Finishing a quiz shows a
+  // score toast.
+  function readScores() {
+    try { return JSON.parse(localStorage.getItem(SCORE_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function writeScores(s) {
+    try { localStorage.setItem(SCORE_KEY, JSON.stringify(s)); } catch (e) {}
+  }
+  function qText(qDiv) {
+    var q = qDiv.getAttribute("data-q") || "";
+    if (!q) {
+      var el = qDiv.querySelector(".question-text");
+      if (el) {
+        var clone = el.cloneNode(true);
+        var subs = clone.querySelectorAll(".punjabi-block,.punjabi");
+        Array.prototype.forEach.call(subs, function (p) { p.parentNode.removeChild(p); });
+        q = (clone.textContent || "").replace(/\s+/g, " ").trim();
+      }
+    }
+    return q;
+  }
+  var quizRun = {};
+  function recordQuiz(qDiv, ok, answerEn, answerPa) {
+    try {
+      if (!qDiv) return;
+      var chKey = CH != null ? String(CH) : null;
+      if (chKey) {
+        var s = readScores();
+        var rec = s[chKey] || (s[chKey] = { right: 0, wrong: 0, missed: [] });
+        if (!rec.missed) rec.missed = [];
+        if (ok) rec.right = (rec.right || 0) + 1; else rec.wrong = (rec.wrong || 0) + 1;
+        var q = qText(qDiv);
+        if (q) {
+          rec.missed = rec.missed.filter(function (m) { return m.q !== q; });
+          if (!ok) {
+            rec.missed.push({
+              q: q,
+              a: answerEn || "",
+              pa: answerPa || "",
+              why: qDiv.getAttribute("data-explain") || "",
+              whyPa: qDiv.getAttribute("data-explain-pa") || ""
+            });
+            if (rec.missed.length > 40) rec.missed = rec.missed.slice(-40);
+          }
+        }
+        writeScores(s);
+      }
+      var c = qDiv.closest ? qDiv.closest(".sub-slider-container") : null;
+      if (c && c.id) {
+        var slides = c.querySelectorAll(".sub-slide");
+        var total = slides.length;
+        var st = quizRun[c.id];
+        if (!st || st.total !== total) st = quizRun[c.id] = { done: {}, right: 0, total: total };
+        var key = qDiv.id || String(Array.prototype.indexOf.call(slides, qDiv));
+        if (st.done[key]) st = quizRun[c.id] = { done: {}, right: 0, total: total }; // retake
+        st.done[key] = 1;
+        if (ok) st.right++;
+        if (Object.keys(st.done).length >= total) {
+          toast(st.right === total
+            ? "Quiz complete: " + st.right + "/" + total + " \u2014 \u0a36\u0a3e\u0a2c\u0a3e\u0a36! Perfect!"
+            : "Quiz complete: " + st.right + "/" + total + " \u2014 missed ones await in \u26A1 Quick Revision");
+          delete quizRun[c.id];
+        }
+      }
+    } catch (e) {}
+  }
+
+  // ==== Quick Revision: in-deck flashcards (no downloads) ===================
+  // Built live from this chapter's Say-It-Back cards (data-q / data-a / data-pa
+  // / data-explain). Previously missed quiz questions come first, tagged
+  // "Tricky". Again/Got-it queue mimics spaced recall inside the lecture.
+  function injectRevStyle() {
+    if (document.getElementById("pseb-rev-style")) return;
+    var s = document.createElement("style");
+    s.id = "pseb-rev-style";
+    s.textContent =
+      ".pseb-rev-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.65);display:none;align-items:center;justify-content:center;z-index:1300}" +
+      ".pseb-rev-backdrop.show{display:flex}" +
+      ".pseb-rev{background:#fff;color:#1e293b;max-width:600px;width:92%;max-height:86vh;border-radius:14px;padding:22px 24px;box-shadow:0 20px 50px rgba(0,0,0,.35);font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;gap:14px}" +
+      ".pseb-rev-top{display:flex;align-items:center;gap:10px}" +
+      ".pseb-rev-top h3{margin:0;font-size:1.2rem;color:#0047BB;flex:1}" +
+      ".pseb-rev-count{font-weight:700;color:#64748b;font-size:.95rem;font-variant-numeric:tabular-nums}" +
+      ".pseb-rev-close{border:none;background:#f1f5f9;color:#334155;width:32px;height:32px;border-radius:8px;font-size:18px;cursor:pointer}" +
+      ".pseb-rev-close:hover{background:#e2e8f0}" +
+      ".pseb-rev p,.pseb-rev li{color:#1e293b!important}" +
+      ".pseb-rev-card{overflow-y:auto;border:1px solid #e2e8f0;border-left:5px solid #FF5C00;border-radius:12px;padding:18px 20px;background:#f8fafc}" +
+      ".pseb-rev-tag{display:inline-block;background:#FF5C00;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:8px}" +
+      ".pseb-rev-q{font-size:1.25rem;font-weight:700;line-height:1.5;margin:0}" +
+      ".pseb-rev-a{margin-top:14px;padding-top:14px;border-top:1px dashed #cbd5e1}" +
+      ".pseb-rev-a[hidden]{display:none}" +
+      ".pseb-rev-a .ans{font-size:1.3rem;font-weight:800;color:#0047BB!important;margin:0}" +
+      ".pseb-rev-a .ans-pa{font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif);font-size:1.15rem;color:#475569!important;margin:4px 0 0}" +
+      ".pseb-rev-a .why{margin-top:10px;background:#eef2ff;border-radius:8px;padding:10px 12px;font-size:.98rem;line-height:1.55;color:#1e293b}" +
+      ".pseb-rev-a .why .why-pa{font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif);color:#475569;display:block;margin-top:4px}" +
+      ".pseb-rev-actions{display:flex;gap:10px}" +
+      ".pseb-rev-actions button{flex:1;padding:12px;border:none;border-radius:10px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;transition:transform .12s,background .15s}" +
+      ".pseb-rev-actions button:active{transform:scale(.97)}" +
+      ".pseb-rev-reveal{background:#0047BB;color:#fff}" +
+      ".pseb-rev-reveal:hover{background:#003a99}" +
+      ".pseb-rev-again{background:#fff7ed;color:#c2410c;border:2px solid #fdba74!important}" +
+      ".pseb-rev-again:hover{background:#ffedd5}" +
+      ".pseb-rev-got{background:#10B981;color:#fff}" +
+      ".pseb-rev-got:hover{background:#0e9f6e}" +
+      ".pseb-rev-summary{text-align:center;padding:26px 10px}" +
+      ".pseb-rev-summary .big{font-size:1.5rem;font-weight:800;color:#0047BB!important;margin:0 0 8px}" +
+      ".pseb-rev-summary p{margin:0;color:#475569!important}";
+    document.head.appendChild(s);
+  }
+  var revState = null;
+  var revEls = null;
+  function buildRev() {
+    if (revEls) return;
+    injectRevStyle();
+    var back = document.createElement("div");
+    back.className = "pseb-rev-backdrop";
+    back.setAttribute("role", "dialog");
+    back.setAttribute("aria-modal", "true");
+    back.setAttribute("aria-label", "Quick Revision flashcards");
+    back.innerHTML =
+      '<div class="pseb-rev">' +
+        '<div class="pseb-rev-top">' +
+          '<h3>\u26A1 Quick Revision \u00b7 \u0a24\u0a41\u0a30\u0a70\u0a24 \u0a26\u0a41\u0a39\u0a30\u0a3e\u0a08</h3>' +
+          '<span class="pseb-rev-count"></span>' +
+          '<button type="button" class="pseb-rev-close" aria-label="Close">\u00d7</button>' +
+        '</div>' +
+        '<div class="pseb-rev-card"></div>' +
+        '<div class="pseb-rev-actions"></div>' +
+      '</div>';
+    document.body.appendChild(back);
+    back.addEventListener("click", function (e) { if (e.target === back) revShow(false); });
+    back.querySelector(".pseb-rev-close").addEventListener("click", function () { revShow(false); });
+    revEls = {
+      back: back,
+      count: back.querySelector(".pseb-rev-count"),
+      card: back.querySelector(".pseb-rev-card"),
+      actions: back.querySelector(".pseb-rev-actions")
+    };
+  }
+  function esc(t) {
+    return String(t == null ? "" : t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function collectRevCards() {
+    var cards = [], seen = {};
+    var nodes = document.querySelectorAll(".sub-slide.short-answer[data-q]");
+    Array.prototype.forEach.call(nodes, function (n) {
+      var q = n.getAttribute("data-q"), a = n.getAttribute("data-a");
+      if (!q || !a || seen[q]) return;
+      seen[q] = 1;
+      cards.push({
+        q: q, a: a,
+        pa: n.getAttribute("data-pa") || "",
+        why: n.getAttribute("data-explain") || "",
+        whyPa: n.getAttribute("data-explain-pa") || "",
+        tricky: false
+      });
+    });
+    for (var i = cards.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+    }
+    var chKey = CH != null ? String(CH) : null;
+    if (chKey) {
+      var rec = readScores()[chKey];
+      if (rec && rec.missed && rec.missed.length) {
+        var missedByQ = {};
+        rec.missed.forEach(function (m) { if (m && m.q) missedByQ[m.q] = m; });
+        var tricky = [], rest = [];
+        cards.forEach(function (c) {
+          if (missedByQ[c.q]) { c.tricky = true; delete missedByQ[c.q]; tricky.push(c); }
+          else rest.push(c);
+        });
+        Object.keys(missedByQ).forEach(function (k) {
+          var m = missedByQ[k];
+          if (m.a) tricky.push({ q: m.q, a: m.a, pa: m.pa || "", why: m.why || "", whyPa: m.whyPa || "", tricky: true });
+        });
+        cards = tricky.concat(rest);
+      }
+    }
+    return cards;
+  }
+  function revRender() {
+    var st = revState;
+    if (!st || !revEls) return;
+    if (!st.queue.length) {
+      revEls.count.textContent = "";
+      revEls.card.innerHTML =
+        '<div class="pseb-rev-summary">' +
+          '<p class="big">\u0a36\u0a3e\u0a2c\u0a3e\u0a36! Round complete</p>' +
+          '<p>' + st.total + ' card' + (st.total === 1 ? "" : "s") + ' revised \u00b7 ' +
+          st.repeats + ' repeat' + (st.repeats === 1 ? "" : "s") + '</p>' +
+        '</div>';
+      revEls.actions.innerHTML =
+        '<button type="button" class="pseb-rev-again">Restart \u21ba</button>' +
+        '<button type="button" class="pseb-rev-got">Done \u2713</button>';
+      revEls.actions.querySelector(".pseb-rev-again").addEventListener("click", openRev);
+      revEls.actions.querySelector(".pseb-rev-got").addEventListener("click", function () { revShow(false); });
+      return;
+    }
+    var c = st.queue[0];
+    revEls.count.textContent = (st.total - st.queue.length + 1) + " / " + st.total +
+      (st.queue.length > 1 ? " \u00b7 " + (st.queue.length - 1) + " left" : "");
+    var h = "";
+    if (c.tricky) h += '<span class="pseb-rev-tag">Tricky \u00b7 \u0a14\u0a16\u0a3e</span>';
+    h += '<p class="pseb-rev-q">' + esc(c.q) + '</p>';
+    h += '<div class="pseb-rev-a" hidden>';
+    h += '<p class="ans">' + esc(c.a) + '</p>';
+    if (c.pa) h += '<p class="ans-pa">' + esc(c.pa) + '</p>';
+    if (c.why || c.whyPa) {
+      h += '<div class="why">' + esc(c.why) +
+        (c.whyPa ? '<span class="why-pa">' + esc(c.whyPa) + '</span>' : "") + '</div>';
+    }
+    h += '</div>';
+    revEls.card.innerHTML = h;
+    revEls.actions.innerHTML =
+      '<button type="button" class="pseb-rev-reveal">Show answer \u00b7 \u0a1c\u0a35\u0a3e\u0a2c</button>';
+    revEls.actions.querySelector(".pseb-rev-reveal").addEventListener("click", function () {
+      var a = revEls.card.querySelector(".pseb-rev-a");
+      if (a) a.hidden = false;
+      revEls.actions.innerHTML =
+        '<button type="button" class="pseb-rev-again">Again \u21ba \u00b7 \u0a2b\u0a3f\u0a30</button>' +
+        '<button type="button" class="pseb-rev-got">Got it \u2713 \u00b7 \u0a06 \u0a17\u0a3f\u0a06</button>';
+      revEls.actions.querySelector(".pseb-rev-again").addEventListener("click", function () {
+        st.repeats++;
+        var card = st.queue.shift();
+        card.tricky = true;
+        st.queue.push(card);
+        revRender();
+      });
+      revEls.actions.querySelector(".pseb-rev-got").addEventListener("click", function () {
+        st.queue.shift();
+        revRender();
+      });
+    });
+  }
+  function revShow(v) {
+    if (!revEls && v) buildRev();
+    if (revEls) revEls.back.classList.toggle("show", !!v);
+  }
+  window.__psebRevShow = revShow;
+  function openRev() {
+    buildRev();
+    var cards = collectRevCards();
+    if (!cards.length) { toast("No revision cards in this chapter"); return; }
+    revState = { queue: cards, total: cards.length, repeats: 0 };
+    revRender();
+    revShow(true);
+  }
+  function revToggle() {
+    if (revEls && revEls.back.classList.contains("show")) { revShow(false); return; }
+    openRev();
+  }
+  window.__psebRevToggle = revToggle;
+
+  // ==== Gurmukhi-aware text-to-speech =======================================
+  // The per-chapter speakWord() is English-only. Wrap it so any text that
+  // contains Gurmukhi script is spoken with a Punjabi (pa-IN) voice instead.
+  function patchSpeakWord() {
+    var orig = window.speakWord;
+    window.speakWord = function (text, btn) {
+      var t = String(text == null ? "" : text);
+      if (/[\u0A00-\u0A7F]/.test(t) && "speechSynthesis" in window) {
+        try {
+          window.speechSynthesis.cancel();
+          var u = new SpeechSynthesisUtterance(t);
+          u.lang = "pa-IN";
+          var v = pickVoice("pa");
+          if (v) u.voice = v;
+          u.rate = 0.85;
+          if (btn) {
+            btn.style.backgroundColor = "#D1FAE5";
+            u.onend = function () { btn.style.backgroundColor = ""; };
+            u.onerror = function () { btn.style.backgroundColor = ""; };
+          }
+          window.speechSynthesis.speak(u);
+          return;
+        } catch (e) {}
+      }
+      if (typeof orig === "function") orig(text, btn);
+    };
   }
 })();

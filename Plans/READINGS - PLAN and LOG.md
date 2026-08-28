@@ -9,6 +9,7 @@ This log records the full audit and rebuild of the **Reading Comprehension** sli
 - Every old English-only reading was removed and replaced; key terms are highlighted and mirrored across both languages so a native-Punjabi learner can read first in Punjabi, then check English.
 - **Refinement pass:** slide titles were shrunk to a compact eyebrow label (freeing vertical space for the reading body), the language toggle + TTS were re-verified across both deck engines, and every Punjabi reading was proofread for grammar (fixes to Ch1, Ch3, Ch6 Life Processes, Ch7 title, and two incomplete sentences in Ch9).
 - The bilingual reading component (styling, language toggle, TTS) lives once in `assets/deck-enhance.js`; content lives in `Scripts/readings_data.py`; `Scripts/build_readings.py` regenerates the slides.
+- **Language-system pass (2026-08-27):** the toggle was upgraded from per-reading to a **site-wide persistent preference** (`pseb.lang.v1`, Punjabi default). Toggling any reading, pressing the toolbar ਪੰ/EN button, or hitting `L` switches every reading in every chapter, and the choice is remembered across sessions. TTS still follows whichever language is showing.
 
 ## Reading plan (48 readings)
 

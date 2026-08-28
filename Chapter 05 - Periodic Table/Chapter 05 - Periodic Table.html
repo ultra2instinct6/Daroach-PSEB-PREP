@@ -401,26 +401,8 @@ alency <button class="tts-btn" onclick="speakWord('Valency', this)" title="Liste
                     <li>If you read something once, you will forget 70% of it within 24 hours.</li>
                     <li>If you review it the next day, then 3 days later, then a week later, it moves permanently into your <strong>long-term memory</strong>.</li>
                 </ul>
-                <p>This is called Spaced Repetition. The slide below will give you a tool that completely automates this process for your Class 10 Science board prep!</p>
+                <p>This is called Spaced Repetition. Use the ⚡ Quick Revision button (top-right) to re-test yourself now, and re-open this deck over the next days — that simple habit locks the chapter into long-term memory!</p>
 </div></div>
-<div class="slide">
-            <div class="content-box title-slide" style="border-top: 8px solid var(--goku-blue) !important; border-bottom: 8px solid var(--goku-orange) !important;">
-                <h2>What is Anki? <span
-
-class="punjabi">(ਅੰਕੀ ਕੀ ਹੈ?)</span></h2>
-                <p style="text-align: left;">Anki is a powerful digital flashcard app that uses "spaced repetition" to help you memorize facts forever. <span class="punjabi-block">(ਅੰਕੀ ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ਡਿਜੀਟਲ ਫਲੈਸ਼ਕਾਰਡ ਐਪ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਤੱਥਾਂ ਨੂੰ ਹਮੇਸ਼ਾ ਲਈ ਯਾਦ ਰੱਖਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀ ਹੈ।)</span></p>
-                
-                <h3 style="text-align: left; margin-top: 20px;">How to start studying:</h3>
-                <ol style="text-align: left;">
-                    <li><strong>Download</strong> the Anki app on your Phone (Android/iOS) or Computer.</li>
-                    <li><strong>Click</strong> the "Download Anki Flashcards" button below to save your study file (.csv).</li>
-                    <li><strong>Open</strong> Anki, click "Import File," and select the downloaded file.</li>
-                    <li><strong>Study</strong> your cards daily! Anki automatically tests you on the concepts you struggle with the most.</li>
-                </ol>
-                
-                <button class="export-btn" onclick="exportToAnki()">Download Anki Flashcards (CSV)</button>
-            </div>
-        </div>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -822,24 +804,7 @@ class="punjabi">(ਅੰਕੀ ਕੀ ਹੈ?)</span></h2>
             });
         });
         
-        window.exportToAnki = function() {
-            let csvData = "";
-            const saCards = document.querySelectorAll('.short-answer');
-            saCards.forEach(card => {
-                const q = card.getAttribute('data-q').replace(/"/g, '""');
-                const a = card.getAttribute('data-a').replace(/"/g, '""');
-                csvData += `"${q}","${a}"\n`;
-            });
-            const blob = new Blob(['\uFEFF' + csvData], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement("a");
-            const url = URL.createObjectURL(blob);
-            link.setAttribute("href", url);
-            link.setAttribute("download", "Class10_Science_PSEB_Final_Deck.csv");
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+
 
         /* SIMULATOR: PERIODIC TRENDS EXPLORER */
         var trendData = {

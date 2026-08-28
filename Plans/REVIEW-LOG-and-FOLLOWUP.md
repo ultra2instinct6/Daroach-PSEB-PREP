@@ -4,8 +4,8 @@ _A quality + consistency review across all 16 chapter decks._
 
 ## 1. Headline finding
 The platform is **content-complete and high quality**. All 16 chapters exist and
-are structurally whole (cover → vocabulary → concept slides → interactive
-quizzes/sub-sliders → recap → Anki export). An objective spell + doubled-word
+are structurally whole (cover → readings → vocabulary → concept slides →
+interactive quizzes/sub-sliders → recap). An objective spell + doubled-word
 sweep across every deck found **zero** real grammar/spelling errors, and a
 scientific-accuracy audit found **no** genuine factual errors — the flagged
 "errors" were all false positives (see §4).
@@ -20,6 +20,17 @@ gains left are **consistency polish** and optional **depth**, not fixes.
 | 2 | Added a `.phonetic` style rule to `assets/deck-ch01-05.css` (chemistry stylesheet lacked it) | assets | ✅ Done |
 | 3 | Clarified a vague definition: "Arrangement of elements" → "Arrangement of elements by increasing atomic number" | 5 | ✅ Done |
 
+### Pass of 2026-08-27 (Anki wipe · language system · lecture upgrades)
+| # | Change | Chapters | Status |
+|---|--------|----------|--------|
+| 4 | Fresh 4-agent scientific-accuracy audit (chem/bio/physics/env) — **zero genuine errors**; one flag (Ch14 biomass) verified as a false positive against NCERT (see §4) | 1–16 | ✅ Done |
+| 5 | **Removed every in-lecture Anki download**: "What is Anki?" / "Download Your Bilingual Flashcards" slides, all `Export to Anki` buttons, and all `exportToAnki()` functions (incl. dead ones in Ch1–4). `Scripts/remove_anki.py` documents the removal | 1–16 | ✅ Done |
+| 6 | **Site-wide persistent reading language**: the per-reading ਪੰਜਾਬੀ/English toggle now drives one shared preference (`pseb.lang.v1`) — new toolbar ਪੰ/EN button + `L` shortcut flip **all** readings at once and are remembered across chapters and visits | assets | ✅ Done |
+| 7 | **⚡ Quick Revision** in-deck flashcards (`R`): built live from each deck's Say-It-Back cards, Again/Got-it recall queue, bilingual answers + "why" — replaces the Anki value with zero downloads | assets | ✅ Done |
+| 8 | **Quiz score tracking**: every MCQ/TF/short-answer result tallied per chapter (`pseb.scores.v1`); finishing a quiz shows a score toast; missed questions are queued first in Quick Revision as "Tricky · ਔਖਾ" and cleared once re-answered correctly | assets | ✅ Done |
+| 9 | **Full-text bilingual slide search**: the outline (`O`) now searches all slide text in English *and* Gurmukhi, not just titles | assets | ✅ Done |
+| 10 | **Gurmukhi-aware TTS**: `speakWord()` is wrapped so any Gurmukhi text is spoken with a Punjabi (pa-IN) voice | assets | ✅ Done |
+
 > ⚠️ **Please verify** the 52 Gurmukhi transliterations in the chemistry vocab
 > tables. They are standard English-pronunciation spellings (e.g. Metal →
 > ਉਚਾਰਨ: ਮੈਟਲ), but a native check is worthwhile before final publish.
@@ -31,7 +42,7 @@ gains left are **consistency polish** and optional **depth**, not fixes.
 | Phonetic guides | ✅ *(added this pass)* | ✅ | ✅ | ✅ |
 | Interactive engine | classifier + sub-sliders | pd-game/flip/seq | pd-game/flip/seq | pd-game |
 | MCQ / True-False / Short-answer banks | ✅ | ✅ | ✅ | ✅ |
-| Recap + Anki export | ✅ | ✅ | ✅ | ✅ |
+| Recap + ⚡ Quick Revision | ✅ | ✅ | ✅ | ✅ |
 
 Chemistry uses a different (but equally rich) interactive vocabulary
 (`classifier-panel`, `lab-box`, `pitfall-box`, case studies) than the
@@ -50,6 +61,9 @@ These were flagged by automated review but are **correct as written**:
   correct NCERT chemistry.
 - **Ch09**: lens magnification `m = v/u` is correct (only mirrors use `-v/u`).
 - **Ch04**: saturated hydrocarbons burning with a clean **blue** flame is correct.
+- **Ch14**: biomass (and wind) listed under **conventional** sources is correct
+  per NCERT 14.1.4 ("improvements in technology for using conventional sources
+  of energy — bio-mass and wind"). Do not move biomass to non-conventional.
 
 ## 5. Open, optional improvements (low priority)
 1. **Ch14 & Ch16 have only 6 vocab terms** each vs 10–15 elsewhere. Could add
