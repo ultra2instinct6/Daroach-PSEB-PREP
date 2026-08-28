@@ -1,5 +1,5 @@
 /*
- * bolo.instinct — global "Buy Me a Coffee" support widget
+ * bolo.instinct — global support widget
  * Self-contained: injects its own CSS + HTML on any page it is loaded on.
  * Appears site-wide (main menu, chapter decks, interactive slides, MCQ).
  * Handle: https://buymeacoffee.com/bolo.instinct
@@ -84,17 +84,17 @@
       '<button class="bmc-close" type="button" aria-label="Close">&times;</button>' +
       '<div class="bmc-steam"><span></span><span></span><span></span></div>' +
       '<div class="bmc-emoji">\u2615\u2728</div>' +
-      '<h3 class="bmc-title">Fuel the Grind!</h3>' +
+      '<h3 class="bmc-title">Support BOLO</h3>' +
       '<p class="bmc-sub">These free bilingual PSEB decks are built on late nights &amp; a lot of chai. ' +
-      'If they helped you, buy me one back. ' +
+      'If they helped you, support the project so more lessons stay free. ' +
       '<span class="bmc-pa">(\u0a24\u0a41\u0a39\u0a3e\u0a21\u0a3e \u0a38\u0a3e\u0a25 \u0a39\u0a40 \u0a07\u0a39 \u0a15\u0a70\u0a2e \u0a1a\u0a71\u0a32\u0a26\u0a3e \u0a39\u0a48 \u2014 \u0a07\u0a71\u0a15 \u0a15\u0a4c\u0a2b\u0a3c\u0a40 \u0a28\u0a3e\u0a32 \u0a38\u0a3e\u0a25 \u0a26\u0a3f\u0a13\u0964)</span></p>' +
-      '<a class="bmc-cta" href="' + BMC_URL + '" target="_blank" rel="noopener noreferrer">\u2615 Buy me a coffee</a>' +
-      '<div class="bmc-perks">\ud83d\ude80 Keeps every chapter free \u00b7 \ud83d\udd25 Fuels the next one</div>' +
+      '<a class="bmc-cta" href="' + BMC_URL + '" target="_blank" rel="noopener noreferrer">\u2615 Support BOLO</a>' +
+      '<div class="bmc-perks">\ud83d\ude80 Keeps every chapter free \u00b7 \ud83d\udd25 Supports the next one</div>' +
     '</div>' +
-    '<button class="bmc-toggle" type="button" aria-expanded="false" title="Support bolo.instinct \u2615">' +
+    '<button class="bmc-toggle" type="button" aria-expanded="false" title="Support BOLO \u2615">' +
       '<span class="bmc-ping" aria-hidden="true"></span>' +
       '<span class="bmc-toggle-icon" aria-hidden="true">\u2615</span>' +
-      '<span class="bmc-toggle-label">Buy me a coffee</span>' +
+      '<span class="bmc-toggle-label">Support BOLO</span>' +
     '</button>';
 
   function init() {
