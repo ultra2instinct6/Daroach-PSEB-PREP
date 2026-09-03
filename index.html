@@ -256,7 +256,9 @@
   .mode-placeholder-cta:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: 0 10px 34px -8px var(--accent); }
   .mode-placeholder-cta[hidden] { display: none; }
   body.orb-pulse .gateway-core { opacity: 0.5; transform: translate(-50%, -50%) scale(52); filter: blur(8px); box-shadow: 0 0 60px 30px currentColor; }
-  @media (prefers-reduced-motion: reduce) { .mode-placeholder { animation: none; } body.orb-pulse .gateway-core { opacity: 0; } }
+  /* The orb's interaction pulse belongs to the orb, so it stays live under
+     reduced motion too; only the placeholder card's entrance is suppressed. */
+  @media (prefers-reduced-motion: reduce) { .mode-placeholder { animation: none; } .gateway-core { transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1), opacity 0.6s, box-shadow 0.8s !important; } }
   /* --orb-size drives every orb detail. --orb-u is a proportional unit (1 = the
      phone-sized orb), so sparks, embers, blurs and bloom keep the exact same
      energy-orb proportions at any breakpoint instead of flattening on desktop. */
@@ -312,35 +314,29 @@
   @keyframes orbWisp { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(-180deg) scale(1.06); } 100% { transform: rotate(-360deg) scale(1); } }
   @keyframes orbFlare { 0%, 68%, 100% { opacity: 0; } 80% { opacity: 0.6; } 88% { opacity: 0.18; } }
   @keyframes plasmaDrift1 { 0%, 100% { transform: rotate(0deg) translate(0, 0); } 50% { transform: rotate(180deg) translate(4%, -3%); } }
-  /* Reduce Motion should suppress large, vestibular-triggering movement — not
-     flatten the orb into a dead circle. Under `reduce` we drop every
-     translation (orbiting, rising embers, the float bob) and keep the orb
-     alive purely through opacity/brightness breathing, with the sparks parked
-     at their orbit positions so they read as an energy field rather than
-     stacking invisibly at the centre. Class specificity beats the global `*`
-     reduced-motion reset further down, so these win without ordering tricks. */
-  @keyframes calmBreathe { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.92; } }
-  @keyframes calmAura { 0%, 100% { opacity: 0.72; } 50% { opacity: 1; } }
-  @keyframes calmFade { 0%, 100% { opacity: 0.52; } 50% { opacity: 0.86; } }
-  @keyframes calmThrob { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.2); } }
-  @keyframes calmTwinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  /* The energy orb is the product's signature and is deliberately exempt from
+     the reduced-motion reset: it keeps its full, lively animation on every
+     device. These re-assert the base animations with !important so they
+     survive the global `*` reduced-motion reset further down (class
+     specificity also beats that `*` rule, so ordering is not relied on). */
   @media (prefers-reduced-motion: reduce) {
-    .core-system { animation: none !important; }
-    .core-ring { animation: calmAura 9s ease-in-out infinite !important; }
-    .orb-glow { animation: calmBreathe 10s ease-in-out infinite !important; }
-    .orb-body { animation: calmBreathe 13s ease-in-out infinite reverse !important; }
-    .orb-plasma { animation: calmFade 15s ease-in-out infinite !important; }
-    .orb-plasma2 { animation: calmFade 17s ease-in-out infinite reverse !important; }
-    .orb-hot, .core-val { animation: calmThrob 7s ease-in-out infinite !important; }
-    .core-val::before { animation: calmFade 11s ease-in-out infinite !important; }
-    .orb-flare, .orb-ember { animation: none !important; opacity: 0 !important; }
-    .orb-spark { animation: calmTwinkle 6.5s ease-in-out infinite !important; }
-    .orb-spark.s1 { transform: rotate(0deg) translateX(calc(var(--orb-u) * 46)); animation-delay: 0s !important; }
-    .orb-spark.s2 { transform: rotate(120deg) translateX(calc(var(--orb-u) * 58)); animation-delay: -1.1s !important; }
-    .orb-spark.s3 { transform: rotate(240deg) translateX(calc(var(--orb-u) * 50)); animation-delay: -2.2s !important; }
-    .orb-spark.s4 { transform: rotate(60deg) translateX(calc(var(--orb-u) * 54)); animation-delay: -3.3s !important; }
-    .orb-spark.s5 { transform: rotate(300deg) translateX(calc(var(--orb-u) * 44)); animation-delay: -4.4s !important; }
-    .orb-spark.s6 { transform: rotate(180deg) translateX(calc(var(--orb-u) * 60)); animation-delay: -5.5s !important; }
+    .core-system { animation: coreFloat 7s ease-in-out infinite !important; }
+    .core-ring { animation: auraPulse 6s ease-in-out infinite !important; }
+    .orb-glow { animation: orbBreathe 6.5s ease-in-out infinite !important; }
+    .orb-body { animation: orbBreathe 7.5s ease-in-out infinite reverse !important; }
+    .orb-plasma { animation: plasmaDrift1 9s ease-in-out infinite !important; }
+    .orb-hot, .core-val { animation: coreThrob 2.6s ease-in-out infinite !important; }
+    .core-val::before { animation: coreGlint 5s ease-in-out infinite !important; }
+    .orb-flare { animation: orbFlare 8s ease-in-out infinite !important; }
+    .orb-spark.s1 { animation: sparkOrbit1 3.1s linear infinite !important; }
+    .orb-spark.s2 { animation: sparkOrbit2 4.3s linear infinite !important; }
+    .orb-spark.s3 { animation: sparkOrbit3 2.4s linear infinite !important; }
+    .orb-spark.s4 { animation: sparkOrbit4 3.7s linear infinite !important; }
+    .orb-spark.s5 { animation: sparkOrbit5 2.9s linear infinite !important; }
+    .orb-spark.s6 { animation: sparkOrbit6 5.1s linear infinite !important; }
+    .orb-ember.e1 { animation: ember1 3.4s ease-out infinite !important; }
+    .orb-ember.e2 { animation: ember2 4.1s ease-out infinite !important; animation-delay: 1.2s !important; }
+    .orb-ember.e3 { animation: ember3 3.8s ease-out infinite !important; animation-delay: 2.1s !important; }
   }
 
   .shard { position: absolute; width: min(88vw, 330px); display: flex; flex-direction: column; overflow: hidden; padding: clamp(16px, 4vw, 24px); border: 1px solid rgba(255, 255, 255, 0.045); border-radius: 24px; background: var(--panel); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.95); cursor: pointer; --shard-rot: 0deg; --shard-scale: 1; --shard-pop: 1; transform: translate(-50%, -50%) rotate(var(--shard-rot)) scale(calc(var(--shard-scale) * var(--shard-pop))); backface-visibility: hidden; will-change: transform; transition: background 0.6s var(--fluid-curve), box-shadow 0.6s var(--fluid-curve), border-color 0.6s var(--fluid-curve), width 0.6s var(--fluid-curve), transform 0.6s var(--fluid-curve), opacity 0.3s; }
@@ -750,8 +746,8 @@
   function wakePhysicsLoop() { if (!isLooping && !isPlaceholderView && syllabus.length) { isLooping = true; requestAnimationFrame(renderPhysics); } }
   function renderPhysics() { if (isPlaceholderView || dial.innerHTML === "") { isLooping = false; return; } let needsMoreFrames = false; if (!isDragging) { targetAngle += velocity; velocity *= 0.92; if (Math.abs(velocity) < 0.005) velocity = 0; else needsMoreFrames = true; const closestSnap = Math.round(targetAngle / degreePerNode) * degreePerNode; const snapDiff = closestSnap - targetAngle; if (Math.abs(snapDiff) > 0.005) { targetAngle += snapDiff * 0.15; needsMoreFrames = true; } else if (velocity === 0) targetAngle = closestSnap; } else needsMoreFrames = true; const angleDiff = targetAngle - currentAngle; if (Math.abs(angleDiff) > 0.005) { currentAngle += angleDiff * 0.2; needsMoreFrames = true; } else currentAngle = targetAngle; dial.style.transform = "rotate(" + currentAngle + "deg)"; const tilt = Math.max(-10, Math.min(10, velocity * 1.2)); arena.style.transform = "rotateY(" + (-tilt) + "deg) rotateX(" + (Math.abs(tilt) / 4) + "deg)"; const swayX = (Math.sin(currentAngle / 34) * 6 + tilt * 0.32) * orbUnit; const swayY = (Math.cos(currentAngle / 48) * 3 - Math.abs(tilt) * 0.16) * orbUnit; orbSpin += Math.abs(velocity) * 3.2 + 0.4; const orbCharge = Math.min(1, Math.abs(velocity) / 9); coreMass.style.setProperty("--core-shift-x", swayX.toFixed(2) + "px"); coreMass.style.setProperty("--core-shift-y", swayY.toFixed(2) + "px"); coreMass.style.setProperty("--orb-spin", orbSpin.toFixed(1) + "deg"); coreMass.style.setProperty("--orb-charge", orbCharge.toFixed(3)); coreRing.style.transform = "translate3d(" + (swayX * 0.3).toFixed(2) + "px," + (swayY * 0.3).toFixed(2) + "px,0)"; const activeIdx = getActiveIndex(); for (let i = 0; i < syllabus.length; i++) { const nodeAngle = i * degreePerNode; const counterRot = String(-(nodeAngle + currentAngle)) + "deg"; let distRaw = Math.abs(((nodeAngle + currentAngle) % 360 + 360) % 360); if (distRaw > 180) distRaw = 360 - distRaw; const easeDepth = Math.pow(Math.min(Math.max(0, distRaw - 15) / 75, 1), 1.4); const sAnchor = document.getElementById("shard-anchor-" + i); if (!sAnchor) continue; const shard = sAnchor.querySelector(".shard"); shard.style.setProperty("--shard-rot", counterRot); if (!isLocked) { const scale = 1 - easeDepth * 0.4; const opacity = 1 - easeDepth * 0.9; const blur = easeDepth * 12; const zIndex = Math.round((1 - easeDepth) * 100); sAnchor.style.opacity = opacity; sAnchor.style.filter = "blur(" + blur + "px)"; sAnchor.style.zIndex = zIndex; shard.style.setProperty("--shard-scale", scale); const dist = Math.min(Math.abs(i - activeIdx), syllabus.length - Math.abs(i - activeIdx)); sAnchor.classList.toggle("is-targeted", dist === 0); } } if (activeIdx !== lastTickIdx && !isLocked) { if (Math.abs(targetAngle - currentAngle) > 1.5 && lastTickIdx !== -1) soundDetent(velocity); lastTickIdx = activeIdx; try { localStorage.setItem("bolo_pseb_idx", String(activeIdx)); } catch (e) {} } if (needsMoreFrames || isDragging || isLocked) requestAnimationFrame(renderPhysics); else isLooping = false; }
   function handleNodeAction(index) { if (isPlaceholderView || !syllabus[index]) return; const active = document.getElementById("shard-anchor-" + index); if (isLocked && active && active.classList.contains("is-active")) resetCore(true); else lockCore(index, false); }
-  function lockCore(index, silent) { const anchor = document.getElementById("shard-anchor-" + index); if (!anchor) return; isLocked = true; targetAngle = -index * degreePerNode; velocity = 0; const chap = syllabus[index]; const color = auras[chap.type] || "#00e5ff"; const pct = pctFor(chap); arena.classList.replace("arena-idle", "arena-locked"); arena.style.transform = "rotateY(0deg) rotateX(0deg)"; document.querySelectorAll(".node-anchor").forEach(a => { a.classList.remove("is-active"); a.style.opacity = ""; a.style.filter = ""; }); anchor.classList.add("is-active"); coreRing.style.background = "radial-gradient(circle at 50% 50%, " + color + "48 0%, " + color + "22 32%, " + color + "00 68%)"; coreRing.style.opacity = "1"; coreRing.style.animationDuration = "3s"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + color + "30 0%, var(--bg-void) 80%)"; coreMass.style.borderColor = color; coreMass.style.boxShadow = "0 0 calc(var(--orb-u) * 95) " + color + "80, 0 0 calc(var(--orb-u) * 160) " + color + "35"; coreVal.textContent = ""; coreLbl.textContent = chap.placeholder ? "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ" : "ਲੈਕਚਰ ਚੁਣੋ"; coreLbl.style.color = color; setCoreOrb(pct); ariaAnnouncer.textContent = "Chapter " + chap.id + ": " + chap.en; if (!silent) soundLock(); wakePhysicsLoop(); }
-  function resetCore(makeSound) { isLocked = false; if (makeSound) soundReset(); arena.classList.replace("arena-locked", "arena-idle"); document.querySelectorAll(".node-anchor.is-active").forEach(a => a.classList.remove("is-active")); coreRing.style.background = "var(--core-reset-ring)"; coreRing.style.opacity = "0.85"; coreRing.style.animationDuration = "5s"; document.getElementById("auraBleed").style.background = "var(--aura-base)"; coreMass.style.borderColor = "transparent"; coreMass.style.boxShadow = "var(--core-reset-shadow)"; coreLbl.textContent = "ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ"; coreLbl.style.color = "var(--text-dim)"; setCoreOrb(0); updateGlobalSync(); wakePhysicsLoop(); }
+  function lockCore(index, silent) { const anchor = document.getElementById("shard-anchor-" + index); if (!anchor) return; isLocked = true; targetAngle = -index * degreePerNode; velocity = 0; const chap = syllabus[index]; const color = auras[chap.type] || "#00e5ff"; const pct = pctFor(chap); arena.classList.replace("arena-idle", "arena-locked"); arena.style.transform = "rotateY(0deg) rotateX(0deg)"; document.querySelectorAll(".node-anchor").forEach(a => { a.classList.remove("is-active"); a.style.opacity = ""; a.style.filter = ""; }); anchor.classList.add("is-active"); coreRing.style.background = "radial-gradient(circle at 50% 50%, " + color + "48 0%, " + color + "22 32%, " + color + "00 68%)"; coreRing.style.opacity = "1"; coreRing.style.setProperty("animation-duration", "3s", "important"); document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + color + "30 0%, var(--bg-void) 80%)"; coreMass.style.borderColor = color; coreMass.style.boxShadow = "0 0 calc(var(--orb-u) * 95) " + color + "80, 0 0 calc(var(--orb-u) * 160) " + color + "35"; coreVal.textContent = ""; coreLbl.textContent = chap.placeholder ? "ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ" : "ਲੈਕਚਰ ਚੁਣੋ"; coreLbl.style.color = color; setCoreOrb(pct); ariaAnnouncer.textContent = "Chapter " + chap.id + ": " + chap.en; if (!silent) soundLock(); wakePhysicsLoop(); }
+  function resetCore(makeSound) { isLocked = false; if (makeSound) soundReset(); arena.classList.replace("arena-locked", "arena-idle"); document.querySelectorAll(".node-anchor.is-active").forEach(a => a.classList.remove("is-active")); coreRing.style.background = "var(--core-reset-ring)"; coreRing.style.opacity = "0.85"; coreRing.style.setProperty("animation-duration", "5s", "important"); document.getElementById("auraBleed").style.background = "var(--aura-base)"; coreMass.style.borderColor = "transparent"; coreMass.style.boxShadow = "var(--core-reset-shadow)"; coreLbl.textContent = "ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ"; coreLbl.style.color = "var(--text-dim)"; setCoreOrb(0); updateGlobalSync(); wakePhysicsLoop(); }
   function openSearchPalette() { renderSearchResults(""); searchPalette.classList.add("is-open"); setTimeout(() => cmdInput.focus(), 40); }
   function closePalettes() { const wasOpen = sharePalette.classList.contains("is-open") || searchPalette.classList.contains("is-open"); sharePalette.classList.remove("is-open"); searchPalette.classList.remove("is-open"); cmdInput.blur(); if (wasOpen) soundClose(); }
 
