@@ -312,7 +312,36 @@
   @keyframes orbWisp { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(-180deg) scale(1.06); } 100% { transform: rotate(-360deg) scale(1); } }
   @keyframes orbFlare { 0%, 68%, 100% { opacity: 0; } 80% { opacity: 0.6; } 88% { opacity: 0.18; } }
   @keyframes plasmaDrift1 { 0%, 100% { transform: rotate(0deg) translate(0, 0); } 50% { transform: rotate(180deg) translate(4%, -3%); } }
-  @media (prefers-reduced-motion: reduce) { .core-ring, .orb-glow, .orb-body, .orb-plasma, .orb-plasma2, .core-val, .core-val::before, .orb-hot, .orb-flare, .orb-spark, .orb-ember { animation: none !important; } }
+  /* Reduce Motion should suppress large, vestibular-triggering movement — not
+     flatten the orb into a dead circle. Under `reduce` we drop every
+     translation (orbiting, rising embers, the float bob) and keep the orb
+     alive purely through opacity/brightness breathing, with the sparks parked
+     at their orbit positions so they read as an energy field rather than
+     stacking invisibly at the centre. Class specificity beats the global `*`
+     reduced-motion reset further down, so these win without ordering tricks. */
+  @keyframes calmBreathe { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.92; } }
+  @keyframes calmAura { 0%, 100% { opacity: 0.72; } 50% { opacity: 1; } }
+  @keyframes calmFade { 0%, 100% { opacity: 0.52; } 50% { opacity: 0.86; } }
+  @keyframes calmThrob { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.2); } }
+  @keyframes calmTwinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .core-system { animation: none !important; }
+    .core-ring { animation: calmAura 9s ease-in-out infinite !important; }
+    .orb-glow { animation: calmBreathe 10s ease-in-out infinite !important; }
+    .orb-body { animation: calmBreathe 13s ease-in-out infinite reverse !important; }
+    .orb-plasma { animation: calmFade 15s ease-in-out infinite !important; }
+    .orb-plasma2 { animation: calmFade 17s ease-in-out infinite reverse !important; }
+    .orb-hot, .core-val { animation: calmThrob 7s ease-in-out infinite !important; }
+    .core-val::before { animation: calmFade 11s ease-in-out infinite !important; }
+    .orb-flare, .orb-ember { animation: none !important; opacity: 0 !important; }
+    .orb-spark { animation: calmTwinkle 6.5s ease-in-out infinite !important; }
+    .orb-spark.s1 { transform: rotate(0deg) translateX(calc(var(--orb-u) * 46)); animation-delay: 0s !important; }
+    .orb-spark.s2 { transform: rotate(120deg) translateX(calc(var(--orb-u) * 58)); animation-delay: -1.1s !important; }
+    .orb-spark.s3 { transform: rotate(240deg) translateX(calc(var(--orb-u) * 50)); animation-delay: -2.2s !important; }
+    .orb-spark.s4 { transform: rotate(60deg) translateX(calc(var(--orb-u) * 54)); animation-delay: -3.3s !important; }
+    .orb-spark.s5 { transform: rotate(300deg) translateX(calc(var(--orb-u) * 44)); animation-delay: -4.4s !important; }
+    .orb-spark.s6 { transform: rotate(180deg) translateX(calc(var(--orb-u) * 60)); animation-delay: -5.5s !important; }
+  }
 
   .shard { position: absolute; width: min(88vw, 330px); display: flex; flex-direction: column; overflow: hidden; padding: clamp(16px, 4vw, 24px); border: 1px solid rgba(255, 255, 255, 0.045); border-radius: 24px; background: var(--panel); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.95); cursor: pointer; --shard-rot: 0deg; --shard-scale: 1; --shard-pop: 1; transform: translate(-50%, -50%) rotate(var(--shard-rot)) scale(calc(var(--shard-scale) * var(--shard-pop))); backface-visibility: hidden; will-change: transform; transition: background 0.6s var(--fluid-curve), box-shadow 0.6s var(--fluid-curve), border-color 0.6s var(--fluid-curve), width 0.6s var(--fluid-curve), transform 0.6s var(--fluid-curve), opacity 0.3s; }
   .shard-anchor.is-targeted .shard { --shard-pop: 1.05; border-color: rgba(255, 255, 255, 0.12); border-top-color: currentColor; background: linear-gradient(180deg, rgba(17, 17, 21, 1) 0%, rgba(7, 7, 10, 1) 100%); box-shadow: 0 34px 70px rgba(0, 0, 0, 0.97), 0 0 42px -12px currentColor, inset 0 1px 2px rgba(255, 255, 255, 0.14); }
