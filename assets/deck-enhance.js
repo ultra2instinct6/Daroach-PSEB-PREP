@@ -830,11 +830,13 @@
     var lab = document.getElementById("optics-lab");
     if (!lab) return;
     var cases = {
-      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", left:"57%", height:"42%" },
-      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", left:"35%", height:"68%" },
-      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", left:"13%", height:"90%" },
-      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", left:"4%", height:"96%" },
-      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", left:"88%", height:"86%" }
+      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", screen:"Can be caught on a screen", left:"57%", height:"42%" },
+      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", screen:"Can be caught on a screen", left:"35%", height:"68%" },
+      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", screen:"Can be caught on a screen", left:"13%", height:"90%" },
+      /* At F the reflected rays leave parallel, so the image is real but forms
+         at infinity — there is no screen position that catches it. */
+      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", screen:"Real, but formed at infinity — no screen can catch it", left:"4%", height:"96%" },
+      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", screen:"Cannot be caught on a screen", left:"88%", height:"86%" }
     };
     var item = cases[pos];
     lab.querySelectorAll("[data-optics-pos]").forEach(function (b) { b.classList.toggle("active", b.dataset.opticsPos === pos); });
@@ -845,7 +847,7 @@
     lab.querySelector(".optics-object").textContent = item.object;
     lab.querySelector(".optics-image").textContent = item.image;
     lab.querySelector(".optics-nature").textContent = item.nature;
-    lab.querySelector(".optics-screen").textContent = pos === "inside" ? "Cannot be caught on a screen" : "Can be caught on a screen";
+    lab.querySelector(".optics-screen").textContent = item.screen;
   };
 
   var visionCases = [
