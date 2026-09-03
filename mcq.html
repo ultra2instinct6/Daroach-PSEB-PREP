@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BOLO.MCQ — PSEB Class 10 Question Engine</title>
 <meta name="description" content="Bilingual Punjabi-English MCQ practice engine for PSEB Class 10 — 44 board-pattern questions across Science, Math and English with rationales, difficulty tags, flagging and performance analytics.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#000000">
 <style>
   :root {
     --bg-void: #000000;
@@ -501,6 +505,8 @@
     *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   }
 </style>
+<!-- Gurmukhi diacritic-safe typography (loaded last so it wins on ties) -->
+<link rel="stylesheet" href="assets/gurmukhi-type.css">
 </head>
 <body>
 <div class="aura-bleed" id="auraBleed"></div>
@@ -1215,6 +1221,7 @@
 
   /* ---------------- State ---------------- */
   const STORE_KEY = "bolo_mcq_v1";
+  const ATTEMPTS_KEY = "bolo_mcq_attempts_v1";
   const THEME_KEY = "bolo.theme.v1";
   const THEMES = {
     NEON: {
@@ -1265,7 +1272,9 @@
   const q = () => questions()[qIndex];
   function opts(qq) {
     let ord = optOrders[qq.id];
-    if (!ord) {
+    /* Regenerate if absent or stale (e.g. a restored run whose question has
+       since gained or lost an option). */
+    if (!validPermutation(ord, qq.options.length)) {
       ord = qq.options.map((_, i) => i);
       for (let i = ord.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -1281,6 +1290,66 @@
 
   function persist() { try { localStorage.setItem(STORE_KEY, JSON.stringify({ subject, lang })); } catch (e) {} }
   function persistTheme() { try { localStorage.setItem(THEME_KEY, JSON.stringify({ theme })); } catch (e) {} }
+
+  /* ---------------- Offline attempt persistence ----------------
+     The whole run (picked answers, struck options, flags, per-question
+     timings, option shuffle and position) is stored per subject so a student
+     on patchy data can close the tab mid-test and resume exactly where they
+     left off. assets/pwa.js additionally mirrors this key into IndexedDB. */
+  let attempts = {};
+  try { attempts = JSON.parse(localStorage.getItem(ATTEMPTS_KEY)) || {}; } catch (e) { attempts = {}; }
+
+  function persistAttempt() {
+    attempts[subject] = { qIndex, answers, struck, flags, times, order, optOrders, finished, savedAt: Date.now() };
+    try { localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(attempts)); } catch (e) {}
+  }
+
+  /* A saved run holds positional indices (the shuffle order and the per-question
+     option permutation). Those go stale if the bank is edited in a later deploy,
+     so validate them on restore — everything else is keyed by question id and
+     survives untouched. */
+  function validPermutation(arr, length) {
+    if (!Array.isArray(arr) || arr.length !== length) return false;
+    const seen = new Set();
+    for (const v of arr) {
+      if (!Number.isInteger(v) || v < 0 || v >= length || seen.has(v)) return false;
+      seen.add(v);
+    }
+    return true;
+  }
+
+  function restoreAttempt() {
+    const a = attempts[subject];
+    if (!a || typeof a !== "object") return false;
+    answers = a.answers && typeof a.answers === "object" ? a.answers : {};
+    struck = a.struck && typeof a.struck === "object" ? a.struck : {};
+    flags = a.flags && typeof a.flags === "object" ? a.flags : {};
+    times = a.times && typeof a.times === "object" ? a.times : {};
+    order = validPermutation(a.order, bank().questions.length) ? a.order : null;
+    optOrders = {};
+    if (a.optOrders && typeof a.optOrders === "object") {
+      bank().questions.forEach(qq => {
+        if (validPermutation(a.optOrders[qq.id], qq.options.length)) optOrders[qq.id] = a.optOrders[qq.id];
+      });
+    }
+    finished = !!a.finished;
+    const total = questions().length;
+    qIndex = typeof a.qIndex === "number" && a.qIndex >= 0 && a.qIndex < total ? a.qIndex : 0;
+    /* Drop answers/strikes that point at options a since-edited question no
+       longer has, so scoring can never dereference undefined. */
+    bank().questions.forEach(qq => {
+      if (answers[qq.id] !== undefined &&
+        !(Number.isInteger(answers[qq.id]) && answers[qq.id] >= 0 && answers[qq.id] < qq.options.length)) {
+        delete answers[qq.id];
+      }
+    });
+    Object.keys(answers).forEach(id => {
+      if (!bank().questions.some(qq => qq.id === id)) delete answers[id];
+    });
+    qShownAt = Date.now();
+    return true;
+  }
+
   function updateThemePill() {
     if (!themePill) return;
     const label = THEMES[theme].label;
@@ -1517,6 +1586,7 @@
     renderScore();
     renderProgress();
     if (finished) renderSummary(); else renderQuestion();
+    persistAttempt();
   }
 
   function resetRun(shuffle) {
@@ -1536,8 +1606,10 @@
 
   function setSubject(s) {
     if (!BANKS[s] || s === subject) return;
+    persistAttempt();
     subject = s;
-    resetRun(false);
+    /* Resume this subject's saved run if one exists, otherwise start fresh. */
+    if (!restoreAttempt()) resetRun(false);
     document.querySelectorAll("[data-subject]").forEach(b => b.classList.toggle("active", b.dataset.subject === subject));
     logoDot.textContent = ".MCQ";
     persist();
@@ -1661,9 +1733,11 @@
   });
 
   document.querySelectorAll("[data-subject]").forEach(b => b.classList.toggle("active", b.dataset.subject === subject));
+  restoreAttempt();
   applyTheme(theme, false);
 })();
 </script>
+<script defer src="assets/pwa.js"></script>
 <script defer src="assets/bmc-coffee.js"></script>
 </body>
 </html>

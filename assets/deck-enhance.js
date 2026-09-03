@@ -654,6 +654,12 @@
         }
       }
     } catch (e) {}
+    /* Deep links arriving while the deck is already open (same-document hash
+       change) must still move the student to the requested slide. */
+    window.addEventListener("hashchange", function () {
+      var target = hashSlide();
+      if (target != null && canNavigate()) jumpTo(target);
+    });
     refreshBookmarkBtn();
 
     var ci = parseCounter();

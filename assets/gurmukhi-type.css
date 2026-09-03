@@ -1,0 +1,137 @@
+/* PSEB — Gurmukhi typography hardening.
+   Loaded on every page (menu, MCQ engine and all 16 lecture decks).
+
+   Purpose: Gurmukhi stacks glyphs well above and below the base line
+   (tippi ੰ, addak ੱ, bindi ਂ, sihari/bihari, and below-base aunkar ੁ,
+   dulainkar ੂ, pairin haha/rara). With the tight line-heights used for
+   dense slide layouts those marks were being sheared off by line boxes
+   and by ancestors that clip overflow. Everything below is additive —
+   it only touches vertical rhythm and font selection, never colour,
+   spacing between blocks, or the Neon/Classic palettes. */
+
+:root {
+  /* Standardised, de-duplicated Gurmukhi stack. Individual pages define
+     --font-gurmukhi too; this keeps a sane value if one is missing. */
+  --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN',
+    'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, sans-serif;
+  --gurmukhi-line-height: 1.75;
+  --gurmukhi-pad: 0.15em;
+}
+
+/* ---- 1. Font stack + rendering -------------------------------------
+   `html[lang="pa"]` / `body[lang="pa"]` are excluded on purpose: mcq.html
+   declares <html lang="pa">, and the page-level font must stay as-is. */
+:not(html):not(body)[lang="pa"],
+:not(html):not(body)[lang="pa-IN"],
+.gurmukhi,
+.punjabi,
+.punjabi-block,
+.bi-pa,
+.bi-title,
+.qf-pa,
+.qf-answer-pa,
+.sci-term-pa,
+.core-lbl {
+  font-family: var(--font-gurmukhi);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1, "mark" 1, "mkmk" 1;
+}
+
+/* ---- 2. Vertical breathing room so diacritics are never sheared ----
+   line-height grows the inline/line box (works for inline runs too), and
+   the em padding keeps upper marks on the first line and pairin marks on
+   the last line inside the painted area of block containers. */
+:not(html):not(body)[lang="pa"],
+:not(html):not(body)[lang="pa-IN"],
+.gurmukhi,
+.punjabi,
+.punjabi-block,
+.bi-pa,
+.bi-title,
+.qf-answer-pa,
+.sci-term-pa {
+  line-height: var(--gurmukhi-line-height);
+  padding-top: var(--gurmukhi-pad);
+  padding-bottom: var(--gurmukhi-pad);
+  overflow-wrap: break-word;
+}
+
+/* Headings authored entirely in Gurmukhi need the taller rhythm on the whole
+   line. Mixed Latin+Gurmukhi headings are already covered, because the inline
+   `.punjabi` / [lang="pa"] run below carries its own taller line-height and
+   therefore grows the shared line box on its own. */
+h1:lang(pa), h2:lang(pa), h3:lang(pa), h4:lang(pa) {
+  line-height: 1.55;
+  padding-bottom: 0.08em;
+}
+
+/* ---- 3. Stop ancestors from clipping the taller line boxes ---------- */
+.content-box .punjabi,
+.content-box .punjabi-block,
+.bi-reading,
+.bi-reading p,
+.bi-read-top,
+.bi-title,
+.cmd-result,
+.cmd-result-title,
+.node-label,
+.q-prompt,
+.opt-text {
+  overflow: visible;
+}
+
+/* ---- 4. Chapter divider hero line — largest Gurmukhi on screen, and
+   therefore the most at risk of shearing. */
+.chapter-divider .punjabi {
+  line-height: 1.6;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+/* ---- 5. MCQ engine (mcq.html) --------------------------------------
+   Its prompts, options, rationales and summary rows render Punjabi-primary
+   text without a per-node lang attribute, so they are named explicitly. */
+.q-prompt,
+.q-prompt-sub,
+.opt-text,
+.opt-sub,
+.rationale,
+.objective-title,
+.objective-body,
+.q-counter,
+.meta-rune,
+.summary-line {
+  line-height: var(--gurmukhi-line-height);
+  overflow: visible;
+}
+.q-prompt,
+.opt-text,
+.rationale,
+.objective-body {
+  padding-top: var(--gurmukhi-pad);
+  padding-bottom: var(--gurmukhi-pad);
+}
+
+/* ---- 6. Narrow phones (PSEB students are overwhelmingly on ~360px) -- */
+@media (max-width: 480px) {
+  :root {
+    --gurmukhi-line-height: 1.8;
+    --gurmukhi-pad: 0.18em;
+  }
+  :not(html):not(body)[lang="pa"],
+  .gurmukhi,
+  .punjabi,
+  .punjabi-block,
+  .bi-pa {
+    word-break: normal;
+    overflow-wrap: anywhere;
+    hyphens: none;
+  }
+}
+
+@media (max-width: 380px) {
+  :root { --gurmukhi-line-height: 1.85; }
+}

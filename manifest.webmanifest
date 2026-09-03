@@ -1,0 +1,35 @@
+{
+  "name": "BOLO.INSTINCT — PSEB Class 10 Science",
+  "short_name": "BOLO.INSTINCT",
+  "description": "Bilingual Punjabi-English PSEB Class 10 Science lectures, MCQ practice and revision tools that keep working offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "pa-IN",
+  "dir": "ltr",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "MCQ Practice",
+      "short_name": "MCQs",
+      "url": "./mcq.html"
+    }
+  ]
+}
