@@ -68,6 +68,29 @@ h1:lang(pa), h2:lang(pa), h3:lang(pa), h4:lang(pa) {
   padding-bottom: 0.08em;
 }
 
+/* ---- 2b. Headings: keep the rhythm on the heading, not the inline run ----
+   A heading is a single short line at 2-3rem, so the body line-height (1.75)
+   applied to an inline `.punjabi` run inflates the shared line box far beyond
+   the glyphs — leaving a visible gap between the title and its underline.
+   Headings are large enough that a 1.3 rhythm already clears every mark, so
+   the inline run inherits and the heading itself carries the breathing room. */
+h1 .punjabi, h2 .punjabi, h3 .punjabi, h4 .punjabi, h5 .punjabi,
+h1 .gurmukhi, h2 .gurmukhi, h3 .gurmukhi, h4 .gurmukhi, h5 .gurmukhi,
+h1 [lang="pa"], h2 [lang="pa"], h3 [lang="pa"], h4 [lang="pa"], h5 [lang="pa"] {
+  line-height: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+h1 .punjabi-block, h2 .punjabi-block, h3 .punjabi-block,
+h4 .punjabi-block, h5 .punjabi-block {
+  line-height: 1.3;
+  padding-top: 0;
+  padding-bottom: 0.06em;
+}
+/* Minimum rhythm so Gurmukhi marks in a heading are never sheared. Set on the
+   heading itself, so single-line titles stay tight against their underline. */
+h1, h2, h3, h4, h5 { line-height: 1.3; }
+
 /* ---- 3. Stop ancestors from clipping the taller line boxes ---------- */
 .content-box .punjabi,
 .content-box .punjabi-block,

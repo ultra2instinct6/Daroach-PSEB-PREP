@@ -234,7 +234,7 @@
                             <div data-water-answer>
                                 <div class="water-reaction-lab__equation" data-water-equation>2Na + 2H₂O → 2NaOH + H₂ + heat</div>
                                 <p data-water-description><strong>Na and K</strong> react violently. Calcium reacts less violently and floats because hydrogen bubbles stick to its surface.</p>
-                                <aside>Exam tip: calcium and magnesium float because attached H₂ bubbles make them buoyant.</aside>
+                                <aside data-water-tip>Exam tip: Na and K react so fast that the hydrogen catches fire — the metal hydroxide formed makes the solution alkaline.</aside>
                             </div>
                         </div>
                     </div>
@@ -370,7 +370,7 @@
                 <div class="electrode-lab interactive-card" id="electrode-lab">
                     <div class="electrode-lab__setup">
                         <span><b>Anode (+)</b> Impure copper</span>
-                        <span><b>Electrolyte</b> CuSO₄ solution</span>
+                        <span><b>Electrolyte</b> acidified CuSO₄ solution</span>
                         <span><b>Cathode (−)</b> Pure copper</span>
                     </div>
                     <div class="electrode-lab__controls" role="tablist" aria-label="Electrode reaction">
@@ -894,10 +894,10 @@
         const waterRoot = document.getElementById("water-reaction-lab");
         if (waterRoot) {
             const waterData = {
-                cold: { temperature: "20°C", equation: "2Na + 2H₂O → 2NaOH + H₂ + heat", description: "<strong>Na and K</strong> react violently. Calcium reacts less violently and floats because hydrogen bubbles stick to its surface.", label: "Cold water reacting vigorously with a highly reactive metal" },
-                hot: { temperature: "80°C", equation: "Mg + 2H₂O → Mg(OH)₂ + H₂", description: "<strong>Magnesium</strong> does not react with cold water, but reacts gently with hot water and may float due to hydrogen bubbles.", label: "Hot water reacting gently with magnesium" },
-                steam: { temperature: "Steam", equation: "3Fe + 4H₂O(g) → Fe₃O₄ + 4H₂", description: "<strong>Al, Zn and Fe</strong> do not react with liquid water. With steam they form metal oxides and hydrogen gas.", label: "Steam reacting with iron to form an oxide and hydrogen" },
-                none: { temperature: "Any", equation: "Pb / Cu / Ag / Au + H₂O → no reaction", description: "<strong>Pb, Cu, Ag and Au</strong> are too unreactive to displace hydrogen from water under these conditions.", label: "No reaction between water and a low-reactivity metal" }
+                cold: { temperature: "20°C", equation: "2Na + 2H₂O → 2NaOH + H₂ + heat", description: "<strong>Na and K</strong> react violently. Calcium reacts less violently and floats because hydrogen bubbles stick to its surface.", tip: "Na and K react so fast that the hydrogen catches fire — the metal hydroxide formed makes the solution alkaline.", label: "Cold water reacting vigorously with a highly reactive metal" },
+                hot: { temperature: "80°C", equation: "Mg + 2H₂O → Mg(OH)₂ + H₂", description: "<strong>Magnesium</strong> does not react with cold water, but reacts gently with hot water and may float due to hydrogen bubbles.", tip: "Calcium and magnesium float because attached H₂ bubbles make them buoyant.", label: "Hot water reacting gently with magnesium" },
+                steam: { temperature: "Steam", equation: "3Fe + 4H₂O(g) → Fe₃O₄ + 4H₂", description: "<strong>Al, Zn and Fe</strong> do not react with liquid water. With steam they form metal oxides and hydrogen gas.", tip: "With steam the product is the metal <em>oxide</em>, not the hydroxide — a favourite one-mark distinction.", label: "Steam reacting with iron to form an oxide and hydrogen" },
+                none: { temperature: "Any", equation: "Pb / Cu / Ag / Au + H₂O → no reaction", description: "<strong>Pb, Cu, Ag and Au</strong> are too unreactive to displace hydrogen from water under these conditions.", tip: "These metals sit below hydrogen in the reactivity series, so they cannot displace it from water or acids.", label: "No reaction between water and a low-reactivity metal" }
             };
             const tabs = Array.from(waterRoot.querySelectorAll("[data-water-state]"));
             const visual = waterRoot.querySelector("[data-water-visual]");
@@ -919,6 +919,8 @@
                 waterRoot.querySelector("[data-water-temperature]").textContent = data.temperature;
                 waterRoot.querySelector("[data-water-equation]").textContent = data.equation;
                 waterRoot.querySelector("[data-water-description]").innerHTML = data.description;
+                const tipEl = waterRoot.querySelector("[data-water-tip]");
+                if (tipEl && data.tip) tipEl.innerHTML = "Exam tip: " + data.tip;
                 answer.hidden = recall;
                 reveal.hidden = !recall;
             }

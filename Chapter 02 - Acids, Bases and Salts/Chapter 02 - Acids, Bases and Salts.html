@@ -432,9 +432,9 @@
                     </div>
 
                     <div class="dilution-gauge">
-                        <div class="gauge-label">Temperature <span class="punjabi">(ਤਾਪਮਾਨ)</span></div>
+                        <div class="gauge-label">Temperature <span class="punjabi">(ਤਾਪਮਾਨ)</span> <span class="gauge-readout safe" id="dilution-temp">≈ 35 °C</span></div>
                         <div class="gauge-track"><div class="gauge-fill" id="gauge-fill"></div></div>
-                        <div class="gauge-scale"><span>Safe</span><span>Warm</span><span>Danger</span></div>
+                        <div class="gauge-scale"><span>Safe · 25 °C</span><span>Warm · 60 °C</span><span>Danger · 100 °C</span></div>
                     </div>
 
                     <div class="dilution-verdict" id="dilution-verdict" aria-live="polite">
@@ -505,6 +505,8 @@
                         <div class="ca-ion ca-ion-h" style="--i:0">H⁺</div>
                         <div class="ca-ion ca-ion-h" style="--i:1">H⁺</div>
                         <div class="ca-ion ca-ion-h" style="--i:2">H⁺</div>
+                        <div class="ca-ion ca-ion-na" style="--i:0">Na⁺</div>
+                        <div class="ca-ion ca-ion-na" style="--i:1">Na⁺</div>
                         <div class="ca-bubble ca-bubble-cl" style="--b:0"></div>
                         <div class="ca-bubble ca-bubble-cl" style="--b:1"></div>
                         <div class="ca-bubble ca-bubble-h" style="--b:0"></div>
@@ -513,6 +515,23 @@
                         <div class="ca-output ca-out-cl">Cl₂ ↑</div>
                         <div class="ca-output ca-out-h">H₂ ↑</div>
                         <div class="ca-output ca-out-naoh">NaOH</div>
+                    </div>
+
+                    <!-- Board-exam core: the two half-reactions and the overall
+                         balanced equation, revealed once the current is flowing. -->
+                    <div class="ca-halfeqs">
+                        <div class="ca-halfeq ca-halfeq-anode">
+                            <span class="ca-halfeq-label">Anode (+) · oxidation <span class="punjabi">(ਆਕਸੀਕਰਨ)</span></span>
+                            <span class="ca-halfeq-eq">2Cl⁻ → Cl₂ + 2e⁻</span>
+                        </div>
+                        <div class="ca-halfeq ca-halfeq-cathode">
+                            <span class="ca-halfeq-label">Cathode (−) · reduction <span class="punjabi">(ਲਘੂਕਰਨ)</span></span>
+                            <span class="ca-halfeq-eq">2H₂O + 2e⁻ → H₂ + 2OH⁻</span>
+                        </div>
+                    </div>
+                    <div class="ca-overall">
+                        <span class="ca-overall-label">Overall</span>
+                        <span class="ca-overall-eq">2NaCl(aq) + 2H₂O(l) → 2NaOH(aq) + Cl₂(g) + H₂(g)</span>
                     </div>
 
                     <div class="ca-products" role="list">
@@ -1062,13 +1081,16 @@ m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Sh
             const srcLabel = document.getElementById('dilution-src-label');
             const tgtLabel = document.getElementById('dilution-tgt-label');
             const verdict = document.getElementById('dilution-verdict');
+            const temp = document.getElementById('dilution-temp');
             if (mode === 'A') {
                 srcLabel.textContent = 'Acid (ਤੇਜ਼ਾਬ)';
                 tgtLabel.textContent = 'Water (ਪਾਣੀ)';
+                if (temp) { temp.textContent = '≈ 35 °C'; temp.className = 'gauge-readout safe'; }
                 verdict.innerHTML = '<strong>Mode A ✅</strong> — Acid → Water. Heat disperses gradually into the large volume of water. Temperature stays in the safe zone.';
             } else {
                 srcLabel.textContent = 'Water (ਪਾਣੀ)';
                 tgtLabel.textContent = 'Acid (ਤੇਜ਼ਾਬ)';
+                if (temp) { temp.textContent = '≈ 100 °C — boils & spits!'; temp.className = 'gauge-readout danger'; }
                 verdict.innerHTML = '<strong>Mode B ⚠️</strong> — Water → Acid. Localised heat spike, steam release and splash of corrosive acid. Thermal shock can crack the glass.';
             }
             // Restart drop/steam animations

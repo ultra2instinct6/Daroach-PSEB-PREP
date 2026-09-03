@@ -122,8 +122,7 @@
                 </ul>
 </div></div>
 <div class="slide"><div class="content-box">
-                <h2>The Versatile Nature of Carbon <span cla
-ss="punjabi">(ਕਾਰਬਨ ਦਾ ਬਹੁਮੁਖੀ ਸੁਭਾਅ)</span></h2>
+                <h2>The Versatile Nature of Carbon <span class="punjabi">(ਕਾਰਬਨ ਦਾ ਬਹੁਮੁਖੀ ਸੁਭਾਅ)</span></h2>
                 <p>Why are there millions of carbon compounds?</p>
                 <ul>
                     <li><strong>Catenation <span class="punjabi">(ਲੜੀਬੰਧਨ)</span>:</strong> Carbon has the unique ability to form long chains, branched chains, and rings by bonding with other carbon atoms.</li>
@@ -201,25 +200,20 @@ ss="punjabi">(ਕਾਰਬਨ ਦਾ ਬਹੁਮੁਖੀ ਸੁਭਾਅ)</spa
             <div class="content-box">
                 <h2>Interactive Simulator: Alkane Builder <span class="punjabi">(ਐਲਕੇਨ ਬਣਾਓ)</span></h2>
                 <p>Drag the slider to add Carbon atoms. Watch how the prefix, chemical formula ($C_nH_{2n+2}$), and molecular structure change!</p>
-                <div style="background:linear-gradient(180deg, rgba(7, 15, 30, 0.94), rgba(2, 8, 18, 0.98)); padding:30px; border-radius:18px; text-align:center; border: 2px solid var(--goku-orange); box-shadow: 0 18px 42px rgba(0,0,0,0.25);">
-                    <input type="range" id="alkane-slider" class="alkane-slider" min="1" max="6" value="1" oninput="buildAlkane()">
+                <div style="background:linear-gradient(180deg, rgba(7, 15, 30, 0.94), rgba(2, 8, 18, 0.98)); padding:20px; border-radius:18px; text-align:center; border: 2px solid var(--goku-orange); box-shadow: 0 18px 42px rgba(0,0,0,0.25);">
+                    <input type="range" id="alkane-slider" class="alkane-slider" min="1" max="6" value="1" aria-label="Number of carbon atoms" oninput="buildAlkane()">
                     <div style="display:flex; justify-content:space-around; align-items:center; margin-top:10px;">
                         <div>
                             <span style="font-size:1.2rem; color:#9CA3AF; text-transform:uppercase; font-weight:bold; letter-spacing:0.08em;">IUPAC Name</span>
-                            <h3 id="alkane-name" style="font-size:3rem; color:var(--goku-blue); margin:5px 0;">Methane</h3>
+                            <h3 id="alkane-name" style="font-size:2.4rem; color:var(--goku-blue); margin:2px 0;">Methane</h3>
                         </div>
                         <div>
                             <span style="font-size:1.2rem; color:#9CA3AF; text-transform:uppercase; font-weight:bold; letter-spacing:0.08em;">Formula</span>
-                            <div class="equation" id="alkane-formula" style="font-size:2.5rem; margin:5px 0;">CH<sub>4</sub></div>
+                            <div class="equation" id="alkane-formula" style="font-size:2rem; margin:2px 0;">CH<sub>4</sub></div>
                         </div>
                     </div>
-                    <div style="background:rgba(255,255,255,0.02); padding:20px; border-radius:14px; border:1px dashed rgba(255,255,255,0.18); margin-top:20px; overflow-x:auto;">
-                        <div id="alkane-structure" style="font-family:'Courier New', Courier, monospace; font-size:2rem; font-weight:900; color:var(--deck-aura); white-space:pre; text-align:center; letter-spacing:0.02em;">
-   H  
-   |  
-H--C--H
-   |  
-   H  
+                    <div style="background:rgba(255,255,255,0.02); padding:12px; border-radius:14px; border:1px dashed rgba(255,255,255,0.18); margin-top:12px; overflow-x:auto;">
+                        <div id="alkane-structure" style="text-align:center;">
                         </div>
                     </div>
                 </div>
@@ -602,19 +596,53 @@ H--C--H
             const n = parseInt(document.getElementById('alkane-slider').value);
             document.getElementById('alkane-name').innerText = alkanes[n];
             const h = (2 * n) + 2;
-            
+
             // Format subscript for formula
             const subN = n > 1 ? `<sub>${n}</sub>` : '';
             const subH = `<sub>${h}</sub>`;
             document.getElementById('alkane-formula').innerHTML = `C${subN}H${subH}`;
-            
-            // Draw structure text
-            let tops = '   ' + ' H  '.repeat(n) + '\n   ' + ' |  '.repeat(n) + '\n';
-            let mid = 'H--' + 'C--'.repeat(n) + 'H\n';
-            let bots = '   ' + ' |  '.repeat(n) + '\n   ' + ' H  '.repeat(n);
-            
-            document.getElementById('alkane-structure').innerText = tops + mid + bots;
+
+            /* The structure is drawn as SVG rather than monospace ASCII art.
+               The old text version laid the hydrogen row out in 4-character
+               cells but the carbon chain in 3-character cells, so each H drifted
+               one more column away from its carbon — by hexane it was six
+               characters out. Explicit coordinates keep every bond vertical. */
+            const dx = 78;    // carbon-to-carbon spacing
+            const term = 58;  // terminal C–H bond length
+            const dy = 54;    // vertical C–H bond length
+            const pad = 18;
+            const gap = 15;   // clear space kept around each atom label
+            const width = pad * 2 + term * 2 + (n - 1) * dx;
+            const height = dy * 2 + 74;
+            const cy = height / 2;
+            const x0 = pad + term;
+
+            let bonds = '';
+            let atoms = '';
+            const bond = (x1, y1, x2, y2) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+            const atom = (x, y, t, cls) => `<text x="${x}" y="${y}" class="${cls}">${t}</text>`;
+
+            for (let i = 0; i < n; i++) {
+                const cx = x0 + i * dx;
+                bonds += bond(cx, cy - gap, cx, cy - dy + gap);
+                bonds += bond(cx, cy + gap, cx, cy + dy - gap);
+                if (i > 0) bonds += bond(cx - dx + gap, cy, cx - gap, cy);
+                atoms += atom(cx, cy, 'C', 'ab-c');
+                atoms += atom(cx, cy - dy, 'H', 'ab-h');
+                atoms += atom(cx, cy + dy, 'H', 'ab-h');
+            }
+            const lastX = x0 + (n - 1) * dx;
+            bonds += bond(x0 - gap, cy, x0 - term + gap, cy);
+            bonds += bond(lastX + gap, cy, lastX + term - gap, cy);
+            atoms += atom(x0 - term, cy, 'H', 'ab-h');
+            atoms += atom(lastX + term, cy, 'H', 'ab-h');
+
+            document.getElementById('alkane-structure').innerHTML =
+                `<svg class="alkane-svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" ` +
+                `aria-label="Structural formula of ${alkanes[n]}: a chain of ${n} carbon atoms, each carbon bonded to hydrogen atoms.">` +
+                `<g class="ab-bonds">${bonds}</g><g class="ab-atoms">${atoms}</g></svg>`;
         };
+        if (document.getElementById('alkane-slider')) window.buildAlkane();
 
         /* SIMULATOR 1: BALANCING */
         window.calcBalance = function() {

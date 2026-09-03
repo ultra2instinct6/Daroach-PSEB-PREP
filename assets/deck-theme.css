@@ -209,6 +209,7 @@ th,
 .reading-text,
 .ind-readout,
 .trend-reason,
+.trend-example,
 .fg-note,
 .pd-instruction,
 .punnett-instruction { color: var(--deck-text) !important; }
@@ -292,11 +293,10 @@ th,
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045), 0 18px 34px rgba(0, 0, 0, 0.28) !important;
 }
 
+/* Structural formula is SVG now — the old monospace-art sizing rules would
+   only shrink the wrapper, so keep it neutral and let .alkane-svg scale. */
 #alkane-structure {
-  font-size: 2rem !important;
-  line-height: 1.05 !important;
-  letter-spacing: 0.02em !important;
-  font-weight: 900 !important;
+  line-height: 0;
 }
 
 #alkane-name {

@@ -283,6 +283,7 @@ alency <button class="tts-btn" onclick="speakWord('Valency', this)" title="Liste
                         <div class="trend-arrow" id="trend-arrow">&#8599;</div>
                         <div class="trend-verdict" id="trend-verdict"></div>
                         <div class="trend-reason" id="trend-reason"></div>
+                        <div class="trend-example" id="trend-example"></div>
                     </div>
                 </div>
 </div></div>
@@ -718,7 +719,17 @@ alency <button class="tts-btn" onclick="speakWord('Valency', this)" title="Liste
             
             const el = elementsData[index];
             document.getElementById('bohr-name').innerText = `${el.sym} (Atomic No. ${el.n})`;
-            document.getElementById('bohr-conf').innerText = `Configuration: [${el.conf.join(', ')}]`;
+            /* Name the shells (K, L, M, N) rather than printing a raw array —
+               the slide intro promises shell names, and valence electrons are
+               what students actually get asked for. */
+            const shellNames = ['K', 'L', 'M', 'N'];
+            const conf = el.conf.map((e, i) => `${shellNames[i]}=${e}`).join('  ·  ');
+            const valence = el.conf[el.conf.length - 1];
+            const isNoble = (el.conf.length === 1 && valence === 2) || valence === 8;
+            document.getElementById('bohr-conf').innerHTML =
+                `Configuration: <strong>${conf}</strong>` +
+                `<br><span class="bohr-valence">Valence electrons: <strong>${valence}</strong>` +
+                (isNoble ? ' — stable octet/duplet, so it is unreactive.' : '') + '</span>';
             
             const svgCont = document.getElementById('bohr-svg-container');
             let svg = '<svg width="200" height="200" viewBox="0 0 200 200">';
@@ -811,16 +822,16 @@ alency <button class="tts-btn" onclick="speakWord('Valency', this)" title="Liste
         /* SIMULATOR: PERIODIC TRENDS EXPLORER */
         var trendData = {
             period: {
-                size:       {v:'Decreases',       r:'Nuclear charge rises while electrons fill the same shell, pulling them in closer.'},
-                metallic:   {v:'Decreases',       r:'Atoms hold their electrons more tightly, so the tendency to lose them falls.'},
-                valence:    {v:'Increases',       r:'Each step to the right adds one more electron to the outermost shell (1 → 8).'},
-                reactivity: {v:'Decreases',       r:'Metals lose electrons less easily as you move right towards the non-metals.'}
+                size:       {v:'Decreases',       r:'Nuclear charge rises while electrons fill the same shell, pulling them in closer.', e:'Na (186 pm) → Mg (160 pm) → Al (143 pm) → Si (118 pm)'},
+                metallic:   {v:'Decreases',       r:'Atoms hold their electrons more tightly, so the tendency to lose them falls.', e:'Na (metal) → Si (metalloid) → Cl (non-metal)'},
+                valence:    {v:'Increases',       r:'Each step to the right adds one more electron to the outermost shell (1 → 8).', e:'Na = 1, Mg = 2, Al = 3, Si = 4 … Ar = 8'},
+                reactivity: {v:'Decreases',       r:'Metals lose electrons less easily as you move right towards the non-metals.', e:'Na reacts violently with water; Mg needs steam; Al barely reacts'}
             },
             group: {
-                size:       {v:'Increases',       r:'A brand-new electron shell is added at every step down, so atoms grow larger.'},
-                metallic:   {v:'Increases',       r:'Outer electrons sit farther from the nucleus and are lost more easily.'},
-                valence:    {v:'Stays the same',  r:'All members of a group share the same number of valence electrons.'},
-                reactivity: {v:'Increases',       r:'Loosely held outer electrons make metals lose them more readily.'}
+                size:       {v:'Increases',       r:'A brand-new electron shell is added at every step down, so atoms grow larger.', e:'Li (152 pm) → Na (186 pm) → K (231 pm)'},
+                metallic:   {v:'Increases',       r:'Outer electrons sit farther from the nucleus and are lost more easily.', e:'C (non-metal) → Si (metalloid) → Sn, Pb (metals)'},
+                valence:    {v:'Stays the same',  r:'All members of a group share the same number of valence electrons.', e:'Li, Na, K all have exactly 1 valence electron'},
+                reactivity: {v:'Increases',       r:'Loosely held outer electrons make metals lose them more readily.', e:'Li fizzes in water, Na melts into a ball, K bursts into flame'}
             }
         };
         var curDir = 'period', curProp = 'size';
@@ -831,6 +842,8 @@ alency <button class="tts-btn" onclick="speakWord('Valency', this)" title="Liste
             var verdict = document.getElementById('trend-verdict');
             verdict.innerText = d.v;
             document.getElementById('trend-reason').innerText = d.r;
+            var ex = document.getElementById('trend-example');
+            if (ex) ex.innerText = d.e || '';
             if (d.v === 'Increases') { arrow.innerHTML = '&#8599;'; arrow.className = 'trend-arrow up'; verdict.className = 'trend-verdict up'; }
             else if (d.v === 'Decreases') { arrow.innerHTML = '&#8600;'; arrow.className = 'trend-arrow down'; verdict.className = 'trend-verdict down'; }
             else { arrow.innerHTML = '&#8594;'; arrow.className = 'trend-arrow flat'; verdict.className = 'trend-verdict flat'; }
