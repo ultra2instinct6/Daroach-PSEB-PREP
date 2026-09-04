@@ -419,10 +419,14 @@ html[data-deck-theme="legacy"] .seq-step.visible { box-shadow: 0 6px 15px rgba(1
 .optics-mark { position:absolute; top:58%; transform:translateX(-50%); color:var(--deck-muted); font-weight:800; }
 .optics-mark.c { left:36%; }.optics-mark.f { left:62%; }.optics-mark.p { left:84%; }
 .optics-object-arrow,.optics-image-arrow { position:absolute; bottom:45%; width:5px; border-radius:4px; }
-.optics-object-arrow { left:18%; height:62%; background:var(--deck-warn); }
-.optics-image-arrow { background:var(--deck-danger); transform-origin:bottom; transform:rotate(180deg); transition:.35s; }
+.optics-object-arrow { left:18%; height:62%; background:var(--deck-warn); transition:left .35s ease; }
+.optics-image-arrow { background:var(--deck-danger); transform-origin:bottom; transform:rotate(180deg); transition:left .35s ease, height .35s ease, opacity .35s ease; }
 .optics-object-arrow::before,.optics-image-arrow::before { content:""; position:absolute; left:-6px; top:-2px; border:8px solid transparent; border-bottom-color:inherit; transform:translateY(-75%); }
 .optics-image-arrow.erect { transform:none; bottom:45%; }
+/* Virtual image: translucent so students see it is not a real, catchable image. */
+.optics-image-arrow.virtual { opacity:.5; }
+/* Image at infinity: fades toward the stage edge — no finite position exists. */
+.optics-image-arrow.infinity { opacity:.35; }
 .optics-readout { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
 .optics-readout div { padding:9px; background:var(--deck-panel); border-radius:9px; border:1px solid var(--deck-border-strong); }
 

@@ -829,21 +829,28 @@
   window.psebOpticsPosition = function (pos) {
     var lab = document.getElementById("optics-lab");
     if (!lab) return;
+    /* Stage geometry (deck-theme.css): C mark 36%, F mark 62%, P/mirror ~84-88%.
+       objLeft walks the object arrow through the five exam positions;
+       the image arrow height is relative to the fixed 62% object height. */
     var cases = {
-      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", screen:"Can be caught on a screen", left:"57%", height:"42%" },
-      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", screen:"Can be caught on a screen", left:"35%", height:"68%" },
-      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", screen:"Can be caught on a screen", left:"13%", height:"90%" },
+      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", screen:"Can be caught on a screen", objLeft:"22%", left:"57%", height:"42%" },
+      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", screen:"Can be caught on a screen", objLeft:"36%", left:"35%", height:"62%" },
+      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", screen:"Can be caught on a screen", objLeft:"49%", left:"13%", height:"90%" },
       /* At F the reflected rays leave parallel, so the image is real but forms
          at infinity — there is no screen position that catches it. */
-      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", screen:"Real, but formed at infinity — no screen can catch it", left:"4%", height:"96%" },
-      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", screen:"Cannot be caught on a screen", left:"88%", height:"86%" }
+      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", screen:"Real, but formed at infinity — no screen can catch it", objLeft:"62%", left:"4%", height:"96%", infinity:true },
+      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", screen:"Cannot be caught on a screen", objLeft:"73%", left:"91%", height:"86%", virtual:true }
     };
     var item = cases[pos];
     lab.querySelectorAll("[data-optics-pos]").forEach(function (b) { b.classList.toggle("active", b.dataset.opticsPos === pos); });
+    var objArrow = lab.querySelector(".optics-object-arrow");
+    if (objArrow) objArrow.style.left = item.objLeft;
     var arrow = lab.querySelector(".optics-image-arrow");
     arrow.style.left = item.left;
     arrow.style.height = item.height;
     arrow.classList.toggle("erect", pos === "inside");
+    arrow.classList.toggle("virtual", !!item.virtual);
+    arrow.classList.toggle("infinity", !!item.infinity);
     lab.querySelector(".optics-object").textContent = item.object;
     lab.querySelector(".optics-image").textContent = item.image;
     lab.querySelector(".optics-nature").textContent = item.nature;
