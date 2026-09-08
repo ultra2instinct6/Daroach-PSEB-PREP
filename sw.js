@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v5";
+var CACHE_VERSION = "v6";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;
@@ -43,6 +43,7 @@ var SHELL_ASSETS = [
   "./assets/sci-term.js",
   "./assets/search-index.js",
   "./assets/pwa.js",
+  "./assets/analytics.js",
   "./assets/bmc-coffee.js",
   "./assets/deck-enhance.js",
   "./assets/lecture-videos.js",
