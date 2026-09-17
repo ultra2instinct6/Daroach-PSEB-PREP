@@ -21,6 +21,7 @@
     </script>
     <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
 
+    <link rel="preload" href="../assets/fonts/noto-sans-gurmukhi-var.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/gurmukhi-type.css">
     <link rel="manifest" href="../manifest.webmanifest">
 </head>
@@ -246,6 +247,34 @@
                         <div class="ph-info-row"><strong>Chemistry:</strong> <span id="ph-info-chem">[H⁺] = [OH⁻] = 10⁻⁷ M</span></div>
                     </div>
 
+                    <h3 style="margin-top:22px;text-align:center;">What each indicator shows at this pH
+                        <span class="punjabi" lang="pa">(ਸੂਚਕ ਦਾ ਰੰਗ)</span></h3>
+                    <div class="ph-indicators" id="ph-indicators">
+                        <div class="ph-ind">
+                            <div class="ph-ind-name">Litmus</div>
+                            <div class="ph-ind-name-pa" lang="pa">ਲਿਟਮਸ</div>
+                            <div class="ph-ind-swatch" id="ind-litmus-sw">&nbsp;</div>
+                            <div class="ph-ind-read" id="ind-litmus-rd">Purple &middot; neutral</div>
+                        </div>
+                        <div class="ph-ind">
+                            <div class="ph-ind-name">Phenolphthalein</div>
+                            <div class="ph-ind-name-pa" lang="pa">ਫਿਨੌਲਫਥੈਲੀਨ</div>
+                            <div class="ph-ind-swatch" id="ind-phth-sw">&nbsp;</div>
+                            <div class="ph-ind-read" id="ind-phth-rd">Colourless</div>
+                        </div>
+                        <div class="ph-ind">
+                            <div class="ph-ind-name">Methyl Orange</div>
+                            <div class="ph-ind-name-pa" lang="pa">ਮਿਥਾਈਲ ਔਰੇਂਜ</div>
+                            <div class="ph-ind-swatch" id="ind-mo-sw">&nbsp;</div>
+                            <div class="ph-ind-read" id="ind-mo-rd">Yellow</div>
+                        </div>
+                    </div>
+                    <p style="font-size:.95rem;margin-top:10px;opacity:.85;text-align:left;">
+                        <strong>Board tip:</strong> phenolphthalein stays <em>colourless in acid</em> and turns
+                        <em>pink only in base</em> — that is why it is the indicator of choice for titrating an
+                        acid against a base.
+                    </p>
+
                     <h3 style="margin-top: 24px; text-align:center;">Quick jump:</h3>
                     <div class="ph-btn-grid">
                         <button class="ph-item-btn" onclick="mapPh(1, 'Gastric Juice')">Gastric Juice (1)</button>
@@ -449,13 +478,50 @@
 <div class="slide"><div class="content-box">
                 <h2>Top "Give Reason" Questions <span class="pyq-tag">PSEB 2017, 2019, 2023</span></h2>
                 <ul>
-                    <li><strong>Why should curd not be kept in brass or copper vessels?</strong><br>
-                    Curd contains acid (Lactic acid). It reacts with metal to form poisonous salts.</li>
                     <li><strong>Why do acids not show acidic behavior without water?</strong><br>
                     Acids only release H⁺ ions when dissolved in water.</li>
                     <li><strong>Why does an aqueous solution of an acid conduct electricity?</strong><br>
                     Because acids ionize in water to produce charged ions (H⁺) which carry the current.</li>
                 </ul>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 2 Marks</span>
+                    <p class="board-alert-q">Why does distilled water not conduct electricity, whereas rain water does?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਕਸ਼ੀਦਿਤ ਪਾਣੀ ਬਿਜਲੀ ਦਾ ਸੰਚਾਲਨ ਕਿਉਂ ਨਹੀਂ ਕਰਦਾ, ਜਦਕਿ ਵਰਖਾ ਦਾ ਪਾਣੀ ਕਰਦਾ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        Conduction needs <strong>free ions</strong>. Distilled water is pure H₂O — it contains
+                        <strong>no dissolved salts or acids</strong>, so there are no ions to carry the current
+                        and it does not conduct. Rain water, while falling, <strong>dissolves gases such as CO₂
+                        and SO₂</strong> from the air and forms weak acids (carbonic acid). These acids ionise to
+                        give H⁺ ions, so rain water <strong>does</strong> conduct electricity.
+                    </div>
+                </div>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 2 Marks</span>
+                    <p class="board-alert-q">Why should curd and other sour substances not be kept in brass or copper vessels?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਦਹੀਂ ਅਤੇ ਖੱਟੇ ਪਦਾਰਥ ਪਿੱਤਲ ਜਾਂ ਤਾਂਬੇ ਦੇ ਭਾਂਡਿਆਂ ਵਿੱਚ ਕਿਉਂ ਨਹੀਂ ਰੱਖਣੇ ਚਾਹੀਦੇ?</p>
+                    <div class="board-alert-a">
+                        Curd and sour foods contain acids (curd contains <strong>lactic acid</strong>). These acids
+                        <strong>react with the copper and zinc</strong> of the vessel to form
+                        <strong>toxic metal salts</strong>, which spoil the food and can cause food poisoning.
+                        Such foods are therefore kept in glass, steel or earthen vessels.
+                    </div>
+                </div>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 3 Marks</span>
+                    <p class="board-alert-q">Why does tooth decay start when the pH of the mouth falls below 5.5? How can it be prevented?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਮੂੰਹ ਦਾ pH 5.5 ਤੋਂ ਘੱਟ ਹੋਣ 'ਤੇ ਦੰਦਾਂ ਦਾ ਸੜਨਾ ਕਿਉਂ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        Tooth enamel is made of <strong>calcium phosphate</strong> — the hardest substance in the
+                        body. It does not dissolve in water, but it <strong>does corrode when the pH in the mouth
+                        drops below 5.5</strong>. Bacteria in the mouth break down leftover sugar and food to
+                        produce acids, which lower the pH and eat into the enamel.<br>
+                        <strong>Prevention:</strong> clean the mouth after eating, and use a toothpaste — these are
+                        <strong>mildly basic</strong>, so they neutralise the excess acid and stop the decay.
+                    </div>
+                </div>
 </div></div>
 <!-- SECTION: sec-chlor-alkali-theory -->
 <div class="slide" id="sec-chlor-alkali-theory" data-section="sec-chlor-alkali-theory"><div class="content-box">
@@ -524,11 +590,11 @@
                     <div class="ca-halfeqs">
                         <div class="ca-halfeq ca-halfeq-anode">
                             <span class="ca-halfeq-label">Anode (+) · oxidation <span class="punjabi">(ਆਕਸੀਕਰਨ)</span></span>
-                            <span class="ca-halfeq-eq">2Cl⁻ → Cl₂ + 2e⁻</span>
+                            <span class="ca-halfeq-eq">2Cl⁻(aq) → Cl₂(g) ↑ + 2e⁻</span>
                         </div>
                         <div class="ca-halfeq ca-halfeq-cathode">
                             <span class="ca-halfeq-label">Cathode (−) · reduction <span class="punjabi">(ਲਘੂਕਰਨ)</span></span>
-                            <span class="ca-halfeq-eq">2H₂O + 2e⁻ → H₂ + 2OH⁻</span>
+                            <span class="ca-halfeq-eq">2H₂O(l) + 2e⁻ → H₂(g) ↑ + 2OH⁻(aq)</span>
                         </div>
                     </div>
                     <div class="ca-overall">
@@ -560,23 +626,92 @@
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Manufacturing Salts: Bleaching Powder & Baking Soda</h2>
-                <p><strong>1. Bleaching Powder ($CaOCl_2$):</strong> Produced by the action of chlorine on dry slaked lime.</p>
-                <div class="equation">Ca(OH)₂ + Cl₂ &rarr; CaOCl₂ + H₂O</div>
+                <p><strong>1. Bleaching Powder ($CaOCl_2$):</strong> Produced by the action of chlorine on <strong>dry slaked lime</strong>.</p>
+                <div class="equation">Ca(OH)₂(s) + Cl₂(g) &rarr; CaOCl₂(s) + H₂O(l)</div>
                 <p><em>Uses: Disinfecting drinking water, bleaching cotton.</em></p>
                 
                 <p><strong>2. Baking Soda ($NaHCO_3$):</strong> Produced using sodium chloride, water, $CO_2$, and ammonia.</p>
-                <div class="equation">NaCl + H₂O + CO₂ + NH₃ &rarr; NH₄Cl + NaHCO₃</div>
+                <div class="equation">NaCl(aq) + H₂O(l) + CO₂(g) + NH₃(g) &rarr; NH₄Cl(aq) + NaHCO₃(s) &darr;</div>
                 <p><em>Uses: Making baking powder (which makes cakes fluffy), antacid.</em></p>
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Manufacturing Salts: Washing Soda & Plaster of Paris</h2>
                 <p><strong>3. Washing Soda ($Na_2CO_3 \cdot 10H_2O$):</strong> Recrystallization of sodium carbonate gives washing soda.</p>
-                <div class="equation">Na₂CO₃ + 10H₂O &rarr; Na₂CO₃·10H₂O</div>
+                <div class="equation">Na₂CO₃(s) + 10H₂O(l) &rarr; Na₂CO₃·10H₂O(s)</div>
                 <p><em>Uses: Glass/soap/paper industries, removing permanent hardness of water.</em></p>
                 
                 <p><strong>4. Plaster of Paris ($CaSO_4 \cdot \frac{1}{2}H_2O$):</strong> Heating Gypsum at exactly 373K.</p>
-                <div class="equation">CaSO₄·2H₂O + Heat(373K) &rarr; CaSO₄·&frac12;H₂O + 1&frac12;H₂O</div>
+                <div class="equation">CaSO₄·2H₂O(s) &nbsp;--373K&rarr;&nbsp; CaSO₄·&frac12;H₂O(s) + 1&frac12;H₂O(l)</div>
                 <p><em>Uses: Doctors use it to support fractured bones.</em></p>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Salt Family: Board Revision Cards <span class="punjabi">(ਲੂਣ ਪਰਿਵਾਰ — ਦੁਹਰਾਈ)</span></h2>
+                <p>Every one of these five is a guaranteed PSEB question. Learn the <strong>formula</strong>,
+                   the <strong>preparation equation</strong> and <strong>two uses</strong> for each.</p>
+                <div class="salt-grid">
+
+                    <div class="salt-card" style="--salt-accent:#0EA5E9">
+                        <h4>1. Bleaching Powder</h4>
+                        <span class="salt-pa" lang="pa">ਵਿਰੰਜਕ ਚੂਰਨ</span>
+                        <span class="salt-formula">CaOCl₂</span>
+                        <div class="salt-row"><b>Made from:</b> chlorine passed over <strong>dry slaked lime</strong>.</div>
+                        <div class="salt-eq">Ca(OH)₂(s) + Cl₂(g) → CaOCl₂(s) + H₂O(l)</div>
+                        <div class="salt-row"><b>Use 1:</b> disinfecting drinking water.</div>
+                        <div class="salt-row"><b>Use 2:</b> bleaching cotton and linen in the textile industry.</div>
+                    </div>
+
+                    <div class="salt-card" style="--salt-accent:#10B981">
+                        <h4>2. Baking Soda</h4>
+                        <span class="salt-pa" lang="pa">ਖਾਣ ਵਾਲਾ ਸੋਡਾ</span>
+                        <span class="salt-formula">NaHCO₃</span>
+                        <div class="salt-row"><b>Made from:</b> brine, water, carbon dioxide and ammonia.</div>
+                        <div class="salt-eq">NaCl(aq) + H₂O(l) + CO₂(g) + NH₃(g) → NH₄Cl(aq) + NaHCO₃(s) ↓</div>
+                        <div class="salt-row"><b>Use 1 — antacid:</b> it is a <em>mild, non-corrosive base</em>, so it
+                            neutralises excess stomach acid and relieves acidity.</div>
+                        <div class="salt-row"><b>Use 2 — baking powder:</b> baking soda + a mild edible acid
+                            (tartaric acid). On heating it releases CO₂, which makes cake and bread
+                            <strong>soft and spongy</strong>.</div>
+                        <div class="salt-eq">2NaHCO₃(s) --Heat→ Na₂CO₃(s) + H₂O(l) + CO₂(g) ↑</div>
+                        <p style="font-size:.92rem;margin:6px 0 0;opacity:.85;">Tartaric acid is added so the
+                           Na₂CO₃ left behind does not make the cake taste bitter.</p>
+                    </div>
+
+                    <div class="salt-card" style="--salt-accent:#8B5CF6">
+                        <h4>3. Washing Soda</h4>
+                        <span class="salt-pa" lang="pa">ਧੋਣ ਵਾਲਾ ਸੋਡਾ</span>
+                        <span class="salt-formula">Na₂CO₃·10H₂O</span>
+                        <div class="salt-row"><b>Note the 10:</b> it carries <strong>ten</strong> molecules of
+                            water of crystallisation — a very common one-mark question.</div>
+                        <div class="salt-eq">Na₂CO₃(s) + 10H₂O(l) → Na₂CO₃·10H₂O(s)</div>
+                        <div class="salt-row"><b>Use 1:</b> glass, soap and paper industries.</div>
+                        <div class="salt-row"><b>Use 2:</b> removing the <strong>permanent hardness</strong> of water.</div>
+                    </div>
+
+                    <div class="salt-card" style="--salt-accent:#F59E0B">
+                        <h4>4. Plaster of Paris &amp; Gypsum</h4>
+                        <span class="salt-pa" lang="pa">ਪਲਾਸਟਰ ਆਫ਼ ਪੈਰਿਸ ਅਤੇ ਜਿਪਸਮ</span>
+                        <span class="salt-formula">CaSO₄·&frac12;H₂O &nbsp;⇌&nbsp; CaSO₄·2H₂O</span>
+                        <div class="salt-row"><b>Forward — heating gypsum at exactly 373 K (100 °C):</b></div>
+                        <div class="salt-eq">CaSO₄·2H₂O(s) --373K→ CaSO₄·&frac12;H₂O(s) + 1&frac12;H₂O(l)</div>
+                        <div class="salt-row"><b>Reverse — setting, on adding water:</b></div>
+                        <div class="salt-eq">CaSO₄·&frac12;H₂O(s) + 1&frac12;H₂O(l) → CaSO₄·2H₂O(s)</div>
+                        <div class="salt-row"><b>Use 1:</b> plaster casts to support fractured bones.</div>
+                        <div class="salt-row"><b>Use 2:</b> making toys, decorative material and smooth surfaces.</div>
+                    </div>
+
+                </div>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 2 Marks</span>
+                    <p class="board-alert-q">Why must Plaster of Paris be stored in a moisture-proof container?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਪਲਾਸਟਰ ਆਫ਼ ਪੈਰਿਸ ਨੂੰ ਨਮੀ-ਰਹਿਤ ਡੱਬੇ ਵਿੱਚ ਕਿਉਂ ਰੱਖਿਆ ਜਾਂਦਾ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        Plaster of Paris <strong>reacts with moisture</strong> from the air. It takes up water,
+                        changes back into hard <strong>gypsum (CaSO₄·2H₂O)</strong> and <strong>sets into a solid
+                        mass</strong>, after which it is useless for casting. A damp-proof container keeps water
+                        vapour away and preserves it.
+                    </div>
+                </div>
 </div></div>
 <div class="slide">
             <div class="content-box">
@@ -954,6 +1089,43 @@ m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Sh
             return '#7C3AED';
         }
 
+        /* ---- Indicator colour swatches -------------------------------------
+           Ranges follow the PSEB/NCERT Class 10 treatment. Phenolphthalein and
+           methyl orange actually change over a narrow transition band rather
+           than at a single integer, so the band is reported honestly instead of
+           being rounded to a hard switch. */
+        function indicatorLitmus(v) {
+            if (v <= 6) return { c: '#E23B3B', t: '#fff', label: 'Red', note: 'acidic' };
+            if (v === 7) return { c: '#8B5CF6', t: '#fff', label: 'Purple', note: 'neutral' };
+            return { c: '#2563EB', t: '#fff', label: 'Blue', note: 'basic' };
+        }
+        function indicatorPhth(v) {
+            /* Transition band is 8.2-10; below it the solution stays colourless. */
+            if (v <= 8) return { c: '#F1F5F9', t: '#0F172A', label: 'Colourless', note: 'no change below 8.2' };
+            return { c: '#EC4899', t: '#fff', label: 'Pink', note: 'base detected' };
+        }
+        function indicatorMO(v) {
+            if (v <= 3) return { c: '#DC2626', t: '#fff', label: 'Red', note: 'strongly acidic' };
+            if (v === 4) return { c: '#F97316', t: '#fff', label: 'Orange', note: 'transition 3.1–4.4' };
+            return { c: '#FACC15', t: '#0F172A', label: 'Yellow', note: 'neutral / basic' };
+        }
+        function paintIndicator(idBase, res) {
+            const sw = document.getElementById(idBase + '-sw');
+            const rd = document.getElementById(idBase + '-rd');
+            if (sw) {
+                sw.style.setProperty('--swatch', res.c);
+                sw.style.setProperty('--swatch-text', res.t);
+                sw.textContent = res.label;
+            }
+            if (rd) rd.textContent = res.label + ' · ' + res.note;
+        }
+        function updateIndicators(v) {
+            if (!document.getElementById('ph-indicators')) return;
+            paintIndicator('ind-litmus', indicatorLitmus(v));
+            paintIndicator('ind-phth', indicatorPhth(v));
+            paintIndicator('ind-mo', indicatorMO(v));
+        }
+
         function updatePhInfoPanel(val, overrideName) {
             const v = Math.round(Number(val));
             const data = PH_MAP[v] || PH_MAP[7];
@@ -964,6 +1136,7 @@ m to 373K produces what?" data-a="Plaster of Paris"><div class="sub-progress">Sh
             setTxt('ph-info-what', data.what);
             setTxt('ph-info-importance', data.importance);
             setTxt('ph-info-chem', data.chem);
+            updateIndicators(v);
             const output = document.getElementById('ph-slider-value');
             if (output) output.textContent = v;
         }

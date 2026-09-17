@@ -158,7 +158,8 @@
     "pseb.decktheme.v1",
     "bolo.theme.v1",
     "bolo_mcq_v1",        // MCQ subject/language preference
-    "bolo_mcq_attempts_v1" // MCQ attempts: answers, flags, timings, score
+    "bolo_mcq_attempts_v1", // MCQ attempts: answers, flags, timings, score
+    "bolo_mcq_history_v1" // MCQ lifetime history: seen/incorrect/flagged + accuracy
   ];
 
   function openDb() {
@@ -247,13 +248,19 @@
   /* Mirror forward: whatever the existing synchronous code path writes to
      localStorage is copied into IndexedDB without changing any call sites. */
   function installMirror() {
-    if (!("indexedDB" in window) || !window.localStorage) return;
+    if (!("indexedDB" in window)) return;
+    /* Merely *reading* window.localStorage throws a SecurityError when the
+       browser blocks storage (Safari Private Browsing, "block all cookies"),
+       so the access itself has to be guarded, not just the write. */
+    var ls = null;
+    try { ls = window.localStorage; } catch (e) { return; }
+    if (!ls) return;
     var proto = window.Storage && window.Storage.prototype;
     if (!proto || proto.__psebMirrored) return;
     var nativeSetItem = proto.setItem;
     proto.setItem = function (key, value) {
       nativeSetItem.call(this, key, value);
-      if (this === window.localStorage && MIRRORED_KEYS.indexOf(key) !== -1) {
+      if (this === ls && MIRRORED_KEYS.indexOf(key) !== -1) {
         idbSet(key, String(value))["catch"](function () {});
       }
     };

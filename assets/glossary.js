@@ -65,7 +65,7 @@
     { en: "Ore", pa: "ਕੱਚੀ ਧਾਤ", ph: "OR", ch: [3] },
     { en: "Gangue", pa: "ਮਲੜ", ph: "GANG", ch: [3] },
     { en: "Roasting", pa: "ਭੁੰਨਣਾ", ph: "ROHS-ting", ch: [3] },
-    { en: "Calcination", pa: "ਨਿਖੇਪਣ", ph: "kal-si-NAY-shun", ch: [3] },
+    { en: "Calcination", pa: "ਨਿਸਤਾਪਨ", ph: "kal-si-NAY-shun", ch: [3] },
     { en: "Galvanisation", pa: "ਜਸਤੀਕਰਨ", ph: "gal-vuh-nie-ZAY-shun", ch: [3], alt: ["Galvanization"] },
     { en: "Thermit Reaction", pa: "ਥਰਮਿਟ ਕਿਰਿਆ", ph: "THUR-mit ree-AK-shun", ch: [3] },
     { en: "Aqua Regia", pa: "ਐਕਵਾ ਰੀਜੀਆ", ph: "AH-kwuh REE-jee-uh", ch: [3] },
@@ -282,6 +282,144 @@
     { en: "Ganga Action Plan", pa: "ਗੰਗਾ ਕਾਰਜ ਯੋਜਨਾ", ph: "GUN-guh AK-shun PLAN", ch: [16] }
   ];
 
+  /* ---- Roman phonetic -> Gurmukhi phonetic -----------------------------
+     A Punjabi-medium student can read `ree-AK-shun` only if they already
+     read Latin script confidently, which is exactly the gap this glossary
+     exists to close. Rather than hand-authoring a second transliteration for
+     every one of the 200+ entries (which would drift out of sync the moment
+     a `ph` string is edited), the Gurmukhi respelling is derived from the
+     Roman one, syllable by syllable.
+
+     Each syllable is split into onset / nucleus / coda. The nucleus picks a
+     matra when the syllable opens with a consonant and an independent vowel
+     when it does not. Onset clusters are joined with a halant. An ALL-CAPS
+     syllable marks lexical stress; unstressed vowels before a final `r`
+     reduce to schwa, which is what an English speaker actually says
+     (WAW-ter -> ਵਾਟਰ, not ਵਾਟੌਰ). */
+
+  /* Longest-first so digraphs win over their first letter. */
+  var ONSETS = [
+    ["shr", "ਸ਼੍ਰ"], ["sch", "ਸਕ"], ["chh", "ਛ"], ["tch", "ਚ"],
+    ["ch", "ਚ"], ["sh", "ਸ਼"], ["zh", "ਜ਼"], ["th", "ਥ"], ["ph", "ਫ਼"],
+    ["kh", "ਖ"], ["gh", "ਘ"], ["bh", "ਭ"], ["dh", "ਧ"], ["jh", "ਝ"],
+    ["wh", "ਵ"], ["qu", "ਕ੍ਵ"],
+    ["b", "ਬ"], ["c", "ਕ"], ["d", "ਡ"], ["f", "ਫ਼"], ["g", "ਗ"], ["h", "ਹ"],
+    ["j", "ਜ"], ["k", "ਕ"], ["l", "ਲ"], ["m", "ਮ"], ["n", "ਨ"], ["p", "ਪ"],
+    ["q", "ਕ"], ["r", "ਰ"], ["s", "ਸ"], ["t", "ਟ"], ["v", "ਵ"], ["w", "ਵ"],
+    ["x", "ਕਸ"], ["y", "ਯ"], ["z", "ਜ਼"]
+  ];
+  /* [matra after a consonant, independent form at syllable start] */
+  var NUCLEI = [
+    ["eye", ["ਾਈ", "ਆਈ"]],
+    ["aw", ["ਾ", "ਆ"]], ["aa", ["ਾ", "ਆ"]], ["ah", ["ਾ", "ਆ"]],
+    ["ai", ["ੈ", "ਐ"]], ["ay", ["ੇ", "ਏ"]],
+    ["ee", ["ੀ", "ਈ"]], ["ea", ["ੀ", "ਈ"]], ["oo", ["ੂ", "ਊ"]], ["oh", ["ੋ", "ਓ"]],
+    ["ew", ["ਯੂ", "ਯੂ"]], ["ow", ["ਾਉ", "ਆਉ"]], ["ou", ["ਾਉ", "ਆਉ"]],
+    ["oy", ["ੌਇ", "ਔਇ"]], ["oi", ["ੌਇ", "ਔਇ"]], ["ie", ["ਾਈ", "ਆਈ"]],
+    ["uh", ["", "ਅ"]],
+    ["a", ["ੈ", "ਐ"]], ["e", ["ੈ", "ਐ"]], ["i", ["ਿ", "ਇ"]],
+    ["o", ["ੌ", "ਔ"]], ["u", ["", "ਅ"]], ["y", ["ਾਈ", "ਆਈ"]]
+  ];
+  /* A silent final `e` lengthens the vowel before it: side -> ਸਾਈਡ. */
+  var MAGIC_E = {
+    a: ["ੇ", "ਏ"], e: ["ੀ", "ਈ"], i: ["ਾਈ", "ਆਈ"], o: ["ੋ", "ਓ"], u: ["ਯੂ", "ਯੂ"]
+  };
+  /* Only these second members form a written conjunct in everyday Punjabi.
+     `st`/`sk` are spelled out plainly (ਸਕੇਲ, not ਸ੍ਕੇਲ), and so is a `y`
+     glide (ਨਯੂ, matching how the glossary's own Punjabi spells ਨਿਊਕਲੀ). */
+  var CONJUNCT_2ND = { "ਰ": 1, "ਲ": 1, "ਵ": 1 };
+  var HALANT = "\u0A4D";
+  var SCHWA = ["", "ਅ"];
+
+  function matchList(list, s, at) {
+    for (var i = 0; i < list.length; i++) {
+      if (s.substr(at, list[i][0].length) === list[i][0]) return list[i];
+    }
+    return null;
+  }
+
+  function consonantLetters(s) {
+    var out = [], at = 0;
+    while (at < s.length) {
+      var m = matchList(ONSETS, s, at);
+      if (!m) { at++; continue; }
+      /* Collapse doubled letters: MASS -> ਮੈਸ, not ਮੈਸਸ. */
+      if (!out.length || out[out.length - 1] !== m[1]) out.push(m[1]);
+      at += m[0].length;
+    }
+    return out;
+  }
+
+  function onsetToGurmukhi(s) {
+    var out = consonantLetters(s);
+    /* Join only the final pair, and only when the second member is one that
+       everyday Punjabi actually writes as a conjunct: skr -> ਸਕ੍ਰ. */
+    if (out.length > 1 && CONJUNCT_2ND[out[out.length - 1]]) {
+      var last = out.pop();
+      return out.join("") + HALANT + last;
+    }
+    return out.join("");
+  }
+  function codaToGurmukhi(s) {
+    /* Plain letters read more naturally in a coda: ਅਨਸ, not ਅਨ੍ਸ. */
+    return consonantLetters(s).join("");
+  }
+
+  /* Gurmukhi writes a nasal as a tippi over a bare/short-vowel letter but as
+     a bindi over the long matras: ਟਿੰਗ, yet ਗੈਂਗ. */
+  var BINDI_AFTER = { "\u0A3E": 1, "\u0A40": 1, "\u0A47": 1, "\u0A48": 1, "\u0A4B": 1, "\u0A4C": 1 };
+  function nasalMark(vowel) {
+    var lastChar = vowel.charAt(vowel.length - 1);
+    return BINDI_AFTER[lastChar] ? "\u0A02" : "\u0A70";
+  }
+
+  function syllableToGurmukhi(raw) {
+    var stressed = raw === raw.toUpperCase() && /[A-Z]/.test(raw);
+    var s = raw.toLowerCase().replace(/[^a-z]/g, "");
+    if (!s) return "";
+
+    /* Nucleus = the first vowel group at or after position 0. */
+    var at = 0, nucleus = null, split = 0;
+    while (at < s.length) {
+      var m = matchList(NUCLEI, s, at);
+      /* `y` is only a vowel when nothing vocalic follows it: ZY-lem is ਜ਼ਾਈ,
+         but the `y` in kyoo is the glide ਯ. */
+      if (m && m[0] === "y" && /^[aeiou]/.test(s.slice(at + 1))) m = null;
+      if (m) { nucleus = m; split = at; break; }
+      at++;
+    }
+    if (!nucleus) return onsetToGurmukhi(s);
+
+    var onset = s.slice(0, split);
+    var coda = s.slice(split + nucleus[0].length);
+    var pair = nucleus[1];
+
+    /* Silent final `e` after a single consonant: side -> ਸਾਈਡ, not ਸਿਡ.
+       A plural/3rd-person `s`/`z` may follow it: lines -> ਲਾਈਨਜ਼. */
+    var magic = /^([bcdfgklmnprstvz])e([sz]?)$/.exec(coda);
+    if (nucleus[0].length === 1 && MAGIC_E[nucleus[0]] && magic) {
+      pair = MAGIC_E[nucleus[0]];
+      coda = magic[1] + magic[2];
+    } else if (!stressed && coda === "r" && nucleus[0].length === 1) {
+      /* Unstressed -er/-ur/-or/-ar is a schwa in speech, which is what an
+         English speaker actually says: WAW-ter -> ਵਾਟਰ, not ਵਾਟੌਰ. */
+      pair = SCHWA;
+    }
+    var vowel = onset ? pair[0] : pair[1];
+    var tail = /^ng/.test(coda)
+      ? nasalMark(vowel) + "ਗ" + codaToGurmukhi(coda.slice(2))
+      : codaToGurmukhi(coda);
+    return onsetToGurmukhi(onset) + vowel + tail;
+  }
+
+  /* "kon-ser-VAY-shun uv MASS" -> "ਕੌਨ-ਸਰ-ਵੇ-ਸ਼ਨ ਅਵ ਮੈਸ" */
+  function toGurmukhiPhonetic(ph) {
+    if (!ph) return "";
+    return String(ph).split(/\s+/).map(function (word) {
+      return word.split("-").map(syllableToGurmukhi).filter(Boolean).join("-");
+    }).filter(Boolean).join(" ");
+  }
+
   /* Lookup map: every English spelling (canonical + alt) -> entry. */
   var byEn = Object.create(null);
   for (var i = 0; i < TERMS.length; i++) {
@@ -300,6 +438,8 @@
   window.PSEB_GLOSSARY = {
     terms: TERMS,
     lookup: lookup,
+    /* Gurmukhi respelling of a Roman phonetic string, derived on demand. */
+    gurmukhiPhonetic: toGurmukhiPhonetic,
     /* All matchable English spellings, longest first so "Displacement Reaction"
        wins over "Displacement" when auto-tagging slide text. */
     spellings: Object.keys(byEn).sort(function (a, b) { return b.length - a.length; })

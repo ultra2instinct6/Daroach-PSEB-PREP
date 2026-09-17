@@ -30,6 +30,11 @@
       "name": "MCQ Practice",
       "short_name": "MCQs",
       "url": "./mcq.html"
+    },
+    {
+      "name": "Flashcards",
+      "short_name": "Flash",
+      "url": "./flashcards.html"
     }
   ]
 }

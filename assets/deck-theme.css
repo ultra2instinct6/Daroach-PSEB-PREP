@@ -103,6 +103,37 @@ body {
 
 html { scroll-behavior: smooth; }
 
+/* ── Page transition veil ─────────────────────────────────────────────────
+   The menu fades its own veil in before navigating here; this one is already
+   opaque on the very first paint and then melts away, so opening a lecture
+   reads as one continuous dissolve instead of a hard cut (and there is no
+   flash of unstyled deck). deck-theme-init.js re-shows it on the way out. */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  background: var(--deck-bg, #0b0f17);
+  opacity: 1;
+  animation: deckVeilOut 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes deckVeilOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+@keyframes deckVeilIn { from { opacity: 0; visibility: visible; } to { opacity: 1; visibility: visible; } }
+
+/* Safety net: deck-theme-init.js adds .deck-entered shortly after load, so the
+   veil can never stay up if the arrival animation never got to run (e.g. the
+   deck was opened in a background tab). */
+body.deck-entered::after { animation: none; opacity: 0; visibility: hidden; }
+
+body.deck-leaving::after { animation: deckVeilIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 1; visibility: visible; }
+
+@media (prefers-reduced-motion: reduce) {
+  body::after { animation-duration: 160ms; }
+  body.deck-leaving::after { animation-duration: 140ms; }
+}
+
 * { box-sizing: border-box; }
 
 :focus-visible {
@@ -226,6 +257,7 @@ th,
 .accent-blue,
 .vocab-en,
 .fg-key,
+.balancer-eq,
 .trend-verdict.flat { color: var(--deck-aura) !important; }
 .equation,
 .mm-eq,
@@ -419,14 +451,10 @@ html[data-deck-theme="legacy"] .seq-step.visible { box-shadow: 0 6px 15px rgba(1
 .optics-mark { position:absolute; top:58%; transform:translateX(-50%); color:var(--deck-muted); font-weight:800; }
 .optics-mark.c { left:36%; }.optics-mark.f { left:62%; }.optics-mark.p { left:84%; }
 .optics-object-arrow,.optics-image-arrow { position:absolute; bottom:45%; width:5px; border-radius:4px; }
-.optics-object-arrow { left:18%; height:62%; background:var(--deck-warn); transition:left .35s ease; }
-.optics-image-arrow { background:var(--deck-danger); transform-origin:bottom; transform:rotate(180deg); transition:left .35s ease, height .35s ease, opacity .35s ease; }
+.optics-object-arrow { left:18%; height:62%; background:var(--deck-warn); }
+.optics-image-arrow { background:var(--deck-danger); transform-origin:bottom; transform:rotate(180deg); transition:.35s; }
 .optics-object-arrow::before,.optics-image-arrow::before { content:""; position:absolute; left:-6px; top:-2px; border:8px solid transparent; border-bottom-color:inherit; transform:translateY(-75%); }
 .optics-image-arrow.erect { transform:none; bottom:45%; }
-/* Virtual image: translucent so students see it is not a real, catchable image. */
-.optics-image-arrow.virtual { opacity:.5; }
-/* Image at infinity: fades toward the stage edge — no finite position exists. */
-.optics-image-arrow.infinity { opacity:.35; }
 .optics-readout { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
 .optics-readout div { padding:9px; background:var(--deck-panel); border-radius:9px; border:1px solid var(--deck-border-strong); }
 
@@ -922,6 +950,162 @@ html[data-deck-theme="legacy"] .punnett-cell.pun-short { color: #8a4b12 !importa
   color: var(--deck-aura) !important;
 }
 .tts-btn:hover { background: var(--deck-aura-soft) !important; }
+
+/* Never paint an empty chip. A gloss whose text failed to render (or a
+   template that emitted the label but no value) used to leave a narrow
+   coloured pill holding nothing but its separating colon. */
+.phonetic:empty,
+.punjabi:empty,
+.punjabi-block:empty,
+.vocab-pa:empty,
+.bi-tag:empty { display: none !important; }
+
+/* ---- Equation balancer chrome -------------------------------------------
+   The chapter CSS pins light surfaces (#fff steppers, #EEF2FF accordion,
+   #F8FAFC step cards) which disappear on the dark Instinct colorway. Remap
+   onto theme tokens; the legacy colorway resolves back to light values. */
+.coef-step {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-warn) !important;
+}
+.coef-step:hover:not(:disabled) {
+  background: var(--deck-aura-soft) !important;
+  border-color: var(--deck-aura) !important;
+  color: var(--deck-text) !important;
+}
+.bal-walk-toggle {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-aura) !important;
+}
+.bal-walk-toggle:hover { background: var(--deck-aura-soft) !important; }
+.bal-step {
+  background: var(--deck-panel-soft) !important;
+  border-left-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.bal-step.is-current {
+  background: rgba(255, 170, 0, 0.12) !important;
+  border-left-color: var(--deck-warn) !important;
+}
+.bal-step.is-done {
+  background: rgba(46, 204, 113, 0.12) !important;
+  border-left-color: var(--deck-success) !important;
+}
+.bal-step b { color: var(--deck-aura) !important; }
+.bal-step.is-done b { color: var(--deck-success) !important; }
+.bal-step-n { background: var(--deck-border-strong) !important; color: var(--deck-text) !important; }
+.bal-step.is-current .bal-step-n { background: var(--deck-warn) !important; color: #080808 !important; }
+.bal-step.is-done .bal-step-n { background: var(--deck-success) !important; color: #052e1c !important; }
+.bal-walk-reveal {
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-aura) !important;
+}
+.bal-walk-reveal:hover { background: var(--deck-aura-soft) !important; }
+.atom-row.atom-ok { color: var(--deck-success) !important; }
+.atom-row.atom-off { color: var(--deck-danger) !important; }
+.balancer-panel.is-solved { border-color: var(--deck-success) !important; }
+
+/* ---- PSEB board-exam components (Ch 1-3) --------------------------------
+   These are authored light in deck-ch01-05.css; remap the surfaces onto theme
+   tokens so they stay legible on the dark Instinct colorway. */
+.board-alert {
+  background: rgba(255, 170, 0, 0.10) !important;
+  border-color: var(--deck-warn) !important;
+  color: var(--deck-text) !important;
+}
+.board-alert-tag { background: var(--deck-warn) !important; color: #221500 !important; }
+.board-alert-q { color: var(--deck-text) !important; }
+.board-alert-q-pa { color: var(--deck-warn) !important; }
+.board-alert-a {
+  background: var(--deck-panel-soft) !important;
+  border-left-color: var(--deck-warn) !important;
+  color: var(--deck-text) !important;
+}
+.board-alert-a strong { color: var(--deck-warn) !important; }
+
+.obs-badge {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.obs-badge-lbl { color: var(--deck-muted) !important; }
+.obs-state {
+  background: var(--deck-panel) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.obs-arrow { color: var(--deck-warn) !important; }
+
+.ph-ind {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.ph-ind-name { color: var(--deck-text) !important; }
+.ph-ind-name-pa { color: var(--deck-muted) !important; }
+.ph-ind-read { color: var(--deck-text) !important; }
+/* The swatch colour IS the content, so it is never re-toned — only its
+   border is adapted so the chip still reads against a dark panel. */
+.ph-ind-swatch { border-color: rgba(255, 255, 255, 0.35) !important; }
+
+.salt-card {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  border-top-color: var(--salt-accent, var(--deck-aura)) !important;
+  color: var(--deck-text) !important;
+}
+.salt-card h4 { color: var(--deck-text) !important; }
+.salt-card .salt-pa { color: var(--deck-muted) !important; }
+.salt-formula, .salt-eq {
+  background: var(--deck-panel) !important;
+  color: var(--deck-text) !important;
+}
+
+.react-tier { background: var(--deck-panel-soft) !important; }
+.react-metal {
+  background: var(--deck-panel) !important;
+  color: var(--deck-text) !important;
+}
+.react-metal:hover { background: var(--deck-aura-soft) !important; }
+/* The tier colours are mid-dark saturated reds/ambers/greens, so the selected
+   chip needs white text, not the near-black used elsewhere on bright accents. */
+.react-metal.is-active { background: var(--tier-color) !important; color: #fff !important; }
+.react-readout {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-text) !important;
+}
+.react-readout h4 { color: var(--deck-text) !important; }
+.react-readout .r-pa { color: var(--deck-muted) !important; }
+.react-mnemonic {
+  background: var(--deck-panel-soft) !important;
+  border-left-color: var(--deck-aura) !important;
+  color: var(--deck-text) !important;
+}
+
+.lewis-tab {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+  color: var(--deck-aura) !important;
+}
+.lewis-tab.is-active { background: var(--deck-aura) !important; color: #050507 !important; }
+.lewis-stage {
+  background: var(--deck-panel-soft) !important;
+  border-color: var(--deck-border-strong) !important;
+}
+.lewis-step-label { color: var(--deck-muted) !important; }
+.lewis-step-title, .lewis-label { color: var(--deck-text) !important; }
+.lewis-note {
+  background: var(--deck-panel) !important;
+  border-left-color: var(--deck-aura) !important;
+  color: var(--deck-text) !important;
+}
+.lewis-note .n-pa { color: var(--deck-muted) !important; }
+.lewis-nav button { background: var(--deck-aura) !important; color: #050507 !important; }
+.lewis-op { color: var(--deck-warn) !important; }
+.lewis-pip.is-on { background: var(--deck-warn) !important; }
 
 /* Inline light-background boxes authored in the chapter HTML
    (style="background:#F8FAFC" / #E8F0FE / #F5F3FF / #F0F4F8 / white).

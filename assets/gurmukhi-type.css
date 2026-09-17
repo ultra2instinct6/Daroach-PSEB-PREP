@@ -9,6 +9,30 @@
    it only touches vertical rhythm and font selection, never colour,
    spacing between blocks, or the Neon/Classic palettes. */
 
+/* ---- 0. The webfont itself -----------------------------------------
+   Every stack below asks for 'Noto Sans Gurmukhi' first, but Windows and
+   most Android builds ship no Gurmukhi face at all, so the whole stack
+   fell through and every Punjabi run rendered as tofu (☒☒☒☒). That made
+   vocabulary columns look empty and turned the "ਉਚਾਰਨ: …" pronunciation
+   chips into bare floating colons.
+
+   The face is self-hosted rather than pulled from fonts.gstatic.com: the
+   service worker only caches same-origin responses, so a CDN link would
+   leave offline students back on tofu. This is the Gurmukhi subset of the
+   upstream variable font (33 KB, wght 100-900). */
+@font-face {
+  font-family: 'Noto Sans Gurmukhi';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/noto-sans-gurmukhi-var.woff2') format('woff2');
+  /* Gurmukhi block + the Indic marks, digits and currency it shares. Latin
+     stays on the page's own body font so headings keep their character. */
+  unicode-range: U+0951-0952, U+0964-0965, U+0A01-0A76, U+200C-200D, U+20B9,
+    U+25CC, U+262C, U+A830-A839;
+}
+
 :root {
   /* Standardised, de-duplicated Gurmukhi stack. Individual pages define
      --font-gurmukhi too; this keeps a sane value if one is missing. */

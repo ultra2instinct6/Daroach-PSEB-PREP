@@ -21,6 +21,7 @@
     </script>
     <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
 
+    <link rel="preload" href="../assets/fonts/noto-sans-gurmukhi-var.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/gurmukhi-type.css">
     <link rel="manifest" href="../manifest.webmanifest">
 </head>
@@ -154,6 +155,44 @@
                 </ul>
 </div></div>
 <div class="slide"><div class="content-box">
+                <h2>Electron Dot Structures: Step by Step <span class="punjabi">(ਇਲੈਕਟ੍ਰੌਨ ਬਿੰਦੂ ਬਣਤਰ)</span></h2>
+                <p>Drawing the Lewis dot structure is a guaranteed <strong>3-mark</strong> question. Follow the
+                   same three steps every time. Only the <strong>outermost (valence)</strong> electrons are drawn.</p>
+
+                <div class="lewis-viewer" id="lewis-viewer">
+                    <div class="lewis-tabs">
+                        <button class="lewis-tab is-active" data-cmp="NaCl">NaCl</button>
+                        <button class="lewis-tab" data-cmp="MgCl2">MgCl₂</button>
+                    </div>
+                    <div class="lewis-stage">
+                        <div class="lewis-step-label" id="lewis-step-label">Step 1 of 3</div>
+                        <div class="lewis-step-title" id="lewis-step-title"></div>
+                        <div class="lewis-atoms" id="lewis-atoms"></div>
+                        <div class="lewis-note" id="lewis-note"></div>
+                    </div>
+                    <div class="lewis-nav">
+                        <button type="button" id="lewis-prev">&larr; Back</button>
+                        <div class="lewis-dots" id="lewis-dots"></div>
+                        <button type="button" id="lewis-next">Next &rarr;</button>
+                    </div>
+                </div>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 3 Marks</span>
+                    <p class="board-alert-q">Give reasons why aluminium is used for making cooking utensils even though it is a highly reactive metal.</p>
+                    <p class="board-alert-q-pa" lang="pa">ਅਲਮੀਨੀਅਮ ਬਹੁਤ ਕਿਰਿਆਸ਼ੀਲ ਧਾਤ ਹੋਣ ਦੇ ਬਾਵਜੂਦ ਖਾਣਾ ਬਣਾਉਣ ਵਾਲੇ ਭਾਂਡਿਆਂ ਲਈ ਕਿਉਂ ਵਰਤੀ ਜਾਂਦੀ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        <strong>1. It is protected by its own oxide layer.</strong> In air, aluminium instantly forms
+                        a thin, hard, <strong>impervious layer of Al₂O₃</strong> on its surface. This layer sticks
+                        firmly and stops air, water and food from reaching the metal underneath, so the utensil
+                        does not corrode.<br>
+                        <strong>2. It is an excellent conductor of heat</strong>, so food cooks quickly and evenly.<br>
+                        <strong>3. It has a high melting point</strong> (933 K) and is <strong>light and cheap</strong>,
+                        which makes the utensils easy to handle and affordable.
+                    </div>
+                </div>
+</div></div>
+<div class="slide"><div class="content-box">
                 <h2>The Reactivity Series Mnemonic <span class="punjabi">(ਕਿਰਿਆਸ਼ੀਲਤਾ ਲੜੀ)</span></h2>
                 <p>Memorize this to solve Displacement Reaction questions easily!</p>
                 <table>
@@ -173,6 +212,83 @@
                     <tr><td><strong>S</strong>aves</td><td>Silver</td><td>Ag</td></tr>
                     <tr><td><strong>G</strong>old</td><td>Gold (Least Reactive)</td><td>Au</td></tr>
                 </table>
+</div></div>
+<div class="slide"><div class="content-box">
+                <h2>Reactivity Series Ladder <span class="punjabi">(ਕਿਰਿਆਸ਼ੀਲਤਾ ਲੜੀ ਦੀ ਪੌੜੀ)</span></h2>
+                <p>Tap any metal to see how it behaves — and, most importantly, <strong>how it must be
+                   extracted</strong>. The extraction method is decided entirely by the metal's position here.</p>
+
+                <div class="react-ladder" id="react-ladder">
+                    <div class="react-tier" style="--tier-color:#DC2626;--tier-bg:#FEF2F2">
+                        <div class="react-tier-head">
+                            <span>🔥 High reactivity</span>
+                            <span class="tier-method">Extracted by <strong>electrolytic reduction</strong> — their
+                                oxides are too stable for carbon to reduce.</span>
+                        </div>
+                        <div class="react-metals">
+                            <button class="react-metal" data-m="K">K</button>
+                            <button class="react-metal" data-m="Na">Na</button>
+                            <button class="react-metal" data-m="Ca">Ca</button>
+                            <button class="react-metal" data-m="Mg">Mg</button>
+                            <button class="react-metal" data-m="Al">Al</button>
+                        </div>
+                    </div>
+                    <div class="react-tier" style="--tier-color:#D97706;--tier-bg:#FFFBEB">
+                        <div class="react-tier-head">
+                            <span>⚙️ Medium reactivity</span>
+                            <span class="tier-method">Found as sulphides/carbonates → converted to the oxide, then
+                                <strong>reduced by carbon</strong>.</span>
+                        </div>
+                        <div class="react-metals">
+                            <button class="react-metal" data-m="Zn">Zn</button>
+                            <button class="react-metal" data-m="Fe">Fe</button>
+                            <button class="react-metal" data-m="Pb">Pb</button>
+                            <button class="react-metal is-ref" data-m="H">[H]</button>
+                        </div>
+                    </div>
+                    <div class="react-tier" style="--tier-color:#059669;--tier-bg:#ECFDF5">
+                        <div class="react-tier-head">
+                            <span>💎 Low reactivity</span>
+                            <span class="tier-method">Found <strong>native</strong> (free) or obtained by simply
+                                <strong>heating the ore</strong> in air.</span>
+                        </div>
+                        <div class="react-metals">
+                            <button class="react-metal" data-m="Cu">Cu</button>
+                            <button class="react-metal" data-m="Hg">Hg</button>
+                            <button class="react-metal" data-m="Ag">Ag</button>
+                            <button class="react-metal" data-m="Au">Au</button>
+                        </div>
+                    </div>
+
+                    <div class="react-readout" id="react-readout" aria-live="polite">
+                        <h4>Tap a metal above</h4>
+                        <div class="r-pa" lang="pa">ਉੱਪਰ ਕਿਸੇ ਧਾਤ ਨੂੰ ਦਬਾਓ</div>
+                        <div class="r-row">The higher a metal sits, the more easily it loses electrons — so the
+                            harder it is to pull out of its ore.</div>
+                    </div>
+                </div>
+
+                <div class="react-mnemonic">
+                    <strong>Memory hook (English):</strong>
+                    <em>“Please Stop Calling Me A Zebra, I Like Her Company, Sir Aunty Gold.”</em>
+                    <span class="m-pa" lang="pa"><strong>ਯਾਦ ਰੱਖਣ ਲਈ:</strong>
+                    ਕਿਰਪਾ (K) ਕਰਕੇ (Na) ਕੈਲਸ਼ੀਅਮ (Ca) ਮੈਗਨੀਸ਼ੀਅਮ (Mg) ਅਲਮੀਨੀਅਮ (Al) ਜ਼ਿੰਕ (Zn)
+                    ਲੋਹਾ (Fe) ਸਿੱਕਾ (Pb) — ਹਾਈਡ੍ਰੋਜਨ (H) — ਤਾਂਬਾ (Cu) ਪਾਰਾ (Hg) ਚਾਂਦੀ (Ag) ਸੋਨਾ (Au)</span>
+                </div>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 2 Marks</span>
+                    <p class="board-alert-q">Why are sodium and potassium stored immersed in kerosene oil?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਸੋਡੀਅਮ ਅਤੇ ਪੋਟਾਸ਼ੀਅਮ ਨੂੰ ਮਿੱਟੀ ਦੇ ਤੇਲ ਵਿੱਚ ਡੁਬੋ ਕੇ ਕਿਉਂ ਰੱਖਿਆ ਜਾਂਦਾ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        Sodium and potassium are <strong>so reactive</strong> that they react
+                        <strong>vigorously with the oxygen and moisture of the air at room temperature</strong>.
+                        The reaction is strongly exothermic and the hydrogen released
+                        <strong>catches fire immediately</strong>. Kerosene does not react with them and keeps
+                        air and water away, so storing them under kerosene prevents accidental fires.
+                        <div class="equation" style="margin-top:8px;">2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g) ↑ + heat</div>
+                    </div>
+                </div>
 </div></div>
 <div class="slide">
             <div class="content-box">
@@ -234,7 +350,7 @@
                         <div class="water-reaction-lab__answer" role="tabpanel" aria-live="polite">
                             <button type="button" class="water-reaction-lab__reveal" data-water-reveal hidden>Reveal explanation &amp; equation</button>
                             <div data-water-answer>
-                                <div class="water-reaction-lab__equation" data-water-equation>2Na + 2H₂O → 2NaOH + H₂ + heat</div>
+                                <div class="water-reaction-lab__equation" data-water-equation>2Na(s) + 2H₂O(l) → 2NaOH(aq) + H₂(g) ↑ + heat</div>
                                 <p data-water-description><strong>Na and K</strong> react violently. Calcium reacts less violently and floats because hydrogen bubbles stick to its surface.</p>
                                 <aside data-water-tip>Exam tip: Na and K react so fast that the hydrogen catches fire — the metal hydroxide formed makes the solution alkaline.</aside>
                             </div>
@@ -266,7 +382,7 @@
                 <h2>Extraction Based on Reactivity</h2>
                 <ul>
                     <li><strong>Low Reactivity (e.g., Mercury, Copper):</strong> Can be reduced to metals by heating alone in air.<br>
-                    <span class="equation">2HgS + 3O₂ &rarr; 2HgO + 2SO₂</span> (then heat HgO to get Hg)</li>
+                    <span class="equation">2HgS(s) + 3O₂(g) &rarr; 2HgO(s) + 2SO₂(g) &uarr;</span> (then heat HgO to get Hg)</li>
                     <li><strong>Medium Reactivity (e.g., Zinc, Iron):</strong> First converted to oxides (by roasting/calcination), then reduced using Carbon (coke).</li>
                     <li><strong>High Reactivity (e.g., Sodium, Aluminum):</strong> Cannot be reduced by carbon. They are extracted by <strong>Electrolytic Reduction</strong> (electricity passed through molten ore).</li>
                 </ul>
@@ -276,7 +392,7 @@
                 <table>
                     <tr>
                         <th>Roasting <span class="punjabi">(ਭੁੰਨਣਾ)</span></th>
-                        <th>Calcination <span class="punjabi">(ਕੈਲਸੀਨੇਸ਼ਨ)</span></th>
+                        <th>Calcination <span class="punjabi">(ਨਿਸਤਾਪਨ)</span></th>
                     </tr>
                     <tr>
                         <td>Heating the ore strongly in the <strong>presence of excess air</strong>.</td>
@@ -287,16 +403,32 @@
                         <td>Used for <strong>Carbonate</strong> ores (e.g., ZnCO₃).</td>
                     </tr>
                     <tr>
-                        <td>Releases SO₂ gas.<br><span class="equation">2ZnS + 3O₂ &rarr; 2ZnO + 2SO₂</span></td>
-                        <td>Releases CO₂ gas.<br><span class="equation">ZnCO₃ &rarr; ZnO + CO₂</span></td>
+                        <td>Releases SO₂ gas.<br><span class="equation">2ZnS(s) + 3O₂(g) &rarr; 2ZnO(s) + 2SO₂(g) &uarr;</span></td>
+                        <td>Releases CO₂ gas.<br><span class="equation">ZnCO₃(s) &rarr; ZnO(s) + CO₂(g) &uarr;</span></td>
                     </tr>
                 </table>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 3 Marks</span>
+                    <p class="board-alert-q">Differentiate between Roasting and Calcination. Write one equation for each.</p>
+                    <p class="board-alert-q-pa" lang="pa">ਭੁੰਨਣਾ ਅਤੇ ਨਿਸਤਾਪਨ ਵਿੱਚ ਅੰਤਰ ਦੱਸੋ।</p>
+                    <div class="board-alert-a">
+                        <strong>Roasting</strong> is heating a <strong>sulphide</strong> ore strongly in the
+                        <strong>presence of excess air</strong> to convert it into the oxide; SO₂ is released.<br>
+                        <strong>Calcination</strong> is heating a <strong>carbonate</strong> ore strongly in the
+                        <strong>absence or limited supply of air</strong> to convert it into the oxide; CO₂ is released.<br>
+                        <em>Both are done because it is far easier to reduce a metal oxide than a sulphide or
+                        carbonate.</em>
+                        <div class="equation" style="margin-top:8px;">Roasting: 2ZnS(s) + 3O₂(g) &rarr; 2ZnO(s) + 2SO₂(g) &uarr;</div>
+                        <div class="equation">Calcination: ZnCO₃(s) &rarr; ZnO(s) + CO₂(g) &uarr;</div>
+                    </div>
+                </div>
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Extraction Deep Dive</h2>
                 <h3>The Thermit Reaction <span class="punjabi">(ਥਰਮਿਟ ਕਿਰਿਆ)</span></h3>
                 <p>Highly exothermic displacement reaction. Iron(III) oxide + Aluminum makes molten iron. Used to join railway tracks!</p>
-                <div class="equation">Fe₂O₃ + 2Al &rarr; 2Fe(liquid) + Al₂O₃ + Heat</div>
+                <div class="equation">Fe₂O₃(s) + 2Al(s) &rarr; 2Fe(l) + Al₂O₃(s) + Heat</div>
                 <h3>Electrolytic Refining <span class="punjabi">(ਬਿਜਲਈ ਸੋਧਣ)</span></h3>
                 <ul>
                     <li><strong>Anode (+):</strong> Impure copper block.</li>
@@ -649,6 +781,220 @@
 
         /* SIMULATOR 5: DISPLACEMENT PREDICTOR */
         const reactivity = { 'K': 14, 'Na': 13, 'Ca': 12, 'Mg': 11, 'Al': 10, 'Zn': 9, 'Fe': 8, 'Pb': 7, 'H': 6, 'Cu': 5, 'Ag': 4, 'Au': 3 };
+
+        /* ---- Reactivity series ladder -------------------------------------
+           Each entry carries the three facts PSEB actually asks for: what the
+           metal does with water/acid, how it occurs in nature, and therefore
+           which extraction route applies. */
+        const LADDER = {
+            K:  { en:'Potassium', pa:'ਪੋਟਾਸ਼ੀਅਮ', tier:'High',
+                  react:'Reacts violently with cold water; must be stored under kerosene.',
+                  occur:'Always found as compounds (chlorides, carbonates).',
+                  extract:'Electrolytic reduction of the molten chloride.' },
+            Na: { en:'Sodium', pa:'ਸੋਡੀਅਮ', tier:'High',
+                  react:'Reacts vigorously with cold water; the H₂ released catches fire.',
+                  occur:'Always as compounds — chiefly rock salt, NaCl.',
+                  extract:'Electrolysis of molten NaCl (Down\u2019s process).' },
+            Ca: { en:'Calcium', pa:'ਕੈਲਸ਼ੀਅਮ', tier:'High',
+                  react:'Reacts with cold water, but less violently — the bubbles stick to it and it floats.',
+                  occur:'As limestone, CaCO₃, and gypsum.',
+                  extract:'Electrolytic reduction of molten CaCl₂.' },
+            Mg: { en:'Magnesium', pa:'ਮੈਗਨੀਸ਼ੀਅਮ', tier:'High',
+                  react:'No reaction with cold water; reacts with hot water and burns in air with a dazzling white flame.',
+                  occur:'As carbonate and chloride ores.',
+                  extract:'Electrolytic reduction of molten MgCl₂.' },
+            Al: { en:'Aluminium', pa:'ਅਲਮੀਨੀਅਮ', tier:'High',
+                  react:'Reacts with steam. Forms a thin, tough oxide layer that protects the metal underneath.',
+                  occur:'As bauxite, Al₂O₃·2H₂O.',
+                  extract:'Electrolytic reduction of molten alumina (Hall–Héroult).' },
+            Zn: { en:'Zinc', pa:'ਜ਼ਿੰਕ', tier:'Medium',
+                  react:'Reacts with steam and with dilute acids, releasing H₂.',
+                  occur:'As zinc blende (ZnS) and calamine (ZnCO₃).',
+                  extract:'Roast or calcine to ZnO, then reduce with carbon.' },
+            Fe: { en:'Iron', pa:'ਲੋਹਾ', tier:'Medium',
+                  react:'Reacts only with steam; rusts slowly in moist air.',
+                  occur:'As haematite, Fe₂O₃.',
+                  extract:'Reduction of the oxide with carbon (coke) in a blast furnace.' },
+            Pb: { en:'Lead', pa:'ਸਿੱਕਾ', tier:'Medium',
+                  react:'No reaction with water; reacts very slowly with dilute acids.',
+                  occur:'As galena, PbS.',
+                  extract:'Roast to PbO, then reduce with carbon.' },
+            H:  { en:'Hydrogen (reference)', pa:'ਹਾਈਡ੍ਰੋਜਨ (ਹਵਾਲਾ)', tier:'Reference',
+                  react:'Not a metal — it is the dividing line of the series.',
+                  occur:'Metals ABOVE hydrogen displace H₂ from dilute acids; metals BELOW it cannot.',
+                  extract:'This is why copper, silver and gold do not react with dilute HCl.' },
+            Cu: { en:'Copper', pa:'ਤਾਂਬਾ', tier:'Low',
+                  react:'No reaction with water or dilute acids. Tarnishes green in moist air.',
+                  occur:'Found native and as copper glance, Cu₂S.',
+                  extract:'Roast the sulphide ore — heating alone gives the metal.' },
+            Hg: { en:'Mercury', pa:'ਪਾਰਾ', tier:'Low',
+                  react:'Unreactive; the only metal that is liquid at room temperature.',
+                  occur:'As cinnabar, HgS.',
+                  extract:'Roast HgS to HgO, then heat further — HgO decomposes to the metal on its own.' },
+            Ag: { en:'Silver', pa:'ਚਾਂਦੀ', tier:'Low',
+                  react:'Very unreactive; turns black in air because of H₂S (tarnishing).',
+                  occur:'Found native and as argentite, Ag₂S.',
+                  extract:'Obtained by simply heating the ore.' },
+            Au: { en:'Gold', pa:'ਸੋਨਾ', tier:'Low',
+                  react:'The least reactive — it does not corrode at all, which is why it is used in jewellery.',
+                  occur:'Found in the free (native) state.',
+                  extract:'No reduction needed; it occurs as the metal itself.' }
+        };
+
+        window.showLadderMetal = function(sym, btn) {
+            const d = LADDER[sym];
+            const out = document.getElementById('react-readout');
+            if (!d || !out) return;
+            document.querySelectorAll('.react-metal.is-active').forEach(b => b.classList.remove('is-active'));
+            if (btn) btn.classList.add('is-active');
+            out.innerHTML =
+                '<h4>' + d.en + ' (' + (sym === 'H' ? 'H' : sym) + ') · ' + d.tier + '</h4>' +
+                '<div class="r-pa" lang="pa">' + d.pa + '</div>' +
+                '<div class="r-row"><strong>Behaviour:</strong> ' + d.react + '</div>' +
+                '<div class="r-row"><strong>Occurrence:</strong> ' + d.occur + '</div>' +
+                '<div class="r-row"><strong>Extraction:</strong> ' + d.extract + '</div>';
+        };
+
+        document.addEventListener('click', function (e) {
+            const btn = e.target.closest ? e.target.closest('.react-metal') : null;
+            if (btn) window.showLadderMetal(btn.getAttribute('data-m'), btn);
+        });
+
+        /* ---- Lewis electron-dot step viewer -------------------------------
+           Dots are placed on a circle by angle, so an atom is described purely
+           by its valence count and no artwork is needed. `moved` marks the
+           electron(s) that transfer, which is the whole point of the diagram. */
+        const LEWIS = {
+            NaCl: {
+                title: 'Sodium chloride (NaCl)',
+                steps: [
+                    { t: 'Step 1 — Write the electronic configuration',
+                      atoms: [
+                        { sym: 'Na', sub: '2, 8, 1', v: 1, color: '#8B5CF6', label: 'Sodium', note: 'Metal · 1 valence electron' },
+                        { op: '+' },
+                        { sym: 'Cl', sub: '2, 8, 7', v: 7, color: '#10B981', label: 'Chlorine', note: 'Non-metal · 7 valence electrons' }
+                      ],
+                      note: 'Sodium has <strong>1</strong> electron in its outermost shell; chlorine has <strong>7</strong>. Sodium finds it easier to <em>lose</em> 1 than to gain 7, and chlorine needs just <strong>1</strong> more to complete its octet.',
+                      notePa: 'ਸੋਡੀਅਮ ਕੋਲ ਬਾਹਰੀ ਖੋਲ ਵਿੱਚ 1 ਇਲੈਕਟ੍ਰੌਨ ਹੈ ਅਤੇ ਕਲੋਰੀਨ ਕੋਲ 7।' },
+                    { t: 'Step 2 — Transfer the electron',
+                      atoms: [
+                        { sym: 'Na', sub: '2, 8, 1', v: 1, color: '#8B5CF6', moved: [0], label: 'Sodium', note: 'Loses 1 electron' },
+                        { op: '→' },
+                        { sym: 'Cl', sub: '2, 8, 7', v: 7, color: '#10B981', gained: 1, label: 'Chlorine', note: 'Gains 1 electron' }
+                      ],
+                      note: 'The single valence electron of sodium is <strong>transferred</strong> to chlorine. Nothing is shared — in an ionic bond the electron changes owner completely.',
+                      notePa: 'ਸੋਡੀਅਮ ਦਾ ਇਲੈਕਟ੍ਰੌਨ ਕਲੋਰੀਨ ਨੂੰ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ।' },
+                    { t: 'Step 3 — Ions attract and form the bond',
+                      atoms: [
+                        { sym: 'Na⁺', sub: '2, 8', v: 0, color: '#8B5CF6', label: 'Sodium ion', note: 'Cation · octet complete' },
+                        { op: '⟷' },
+                        { sym: 'Cl⁻', sub: '2, 8, 8', v: 8, color: '#10B981', label: 'Chloride ion', note: 'Anion · octet complete' }
+                      ],
+                      note: 'Both ions now have a <strong>stable octet</strong>. The oppositely charged Na⁺ and Cl⁻ are held together by strong <strong>electrostatic force of attraction</strong> — this is the ionic bond. Formula: <strong>NaCl</strong>.',
+                      notePa: 'ਦੋਵੇਂ ਆਇਨ ਸਥਿਰ ਹੋ ਜਾਂਦੇ ਹਨ ਅਤੇ ਸਥਿਰ-ਬਿਜਲਈ ਖਿੱਚ ਨਾਲ ਜੁੜੇ ਰਹਿੰਦੇ ਹਨ।' }
+                ]
+            },
+            MgCl2: {
+                title: 'Magnesium chloride (MgCl₂)',
+                steps: [
+                    { t: 'Step 1 — Write the electronic configuration',
+                      atoms: [
+                        { sym: 'Cl', sub: '2, 8, 7', v: 7, color: '#10B981', label: 'Chlorine', note: 'Needs 1 electron' },
+                        { op: '+' },
+                        { sym: 'Mg', sub: '2, 8, 2', v: 2, color: '#F59E0B', label: 'Magnesium', note: 'Metal · 2 valence electrons' },
+                        { op: '+' },
+                        { sym: 'Cl', sub: '2, 8, 7', v: 7, color: '#10B981', label: 'Chlorine', note: 'Needs 1 electron' }
+                      ],
+                      note: 'Magnesium has <strong>2</strong> valence electrons to give away, but each chlorine atom can only accept <strong>1</strong>. So <strong>two</strong> chlorine atoms are needed — this is why the formula is MgCl<sub>2</sub>.',
+                      notePa: 'ਮੈਗਨੀਸ਼ੀਅਮ ਕੋਲ 2 ਇਲੈਕਟ੍ਰੌਨ ਹਨ, ਪਰ ਹਰ ਕਲੋਰੀਨ ਸਿਰਫ਼ 1 ਲੈ ਸਕਦੀ ਹੈ।' },
+                    { t: 'Step 2 — Transfer one electron to each chlorine',
+                      atoms: [
+                        { sym: 'Cl', sub: '2, 8, 7', v: 7, color: '#10B981', gained: 1, label: 'Chlorine', note: 'Gains 1' },
+                        { op: '←' },
+                        { sym: 'Mg', sub: '2, 8, 2', v: 2, color: '#F59E0B', moved: [0, 1], label: 'Magnesium', note: 'Loses both' },
+                        { op: '→' },
+                        { sym: 'Cl', sub: '2, 8, 7', v: 7, color: '#10B981', gained: 1, label: 'Chlorine', note: 'Gains 1' }
+                      ],
+                      note: 'Magnesium transfers <strong>one electron to each</strong> chlorine atom. Both of its valence electrons are given away.',
+                      notePa: 'ਮੈਗਨੀਸ਼ੀਅਮ ਹਰ ਕਲੋਰੀਨ ਨੂੰ ਇੱਕ-ਇੱਕ ਇਲੈਕਟ੍ਰੌਨ ਦਿੰਦਾ ਹੈ।' },
+                    { t: 'Step 3 — Ions attract and form the bond',
+                      atoms: [
+                        { sym: 'Cl⁻', sub: '2, 8, 8', v: 8, color: '#10B981', label: 'Chloride ion', note: 'Octet complete' },
+                        { op: '⟷' },
+                        { sym: 'Mg²⁺', sub: '2, 8', v: 0, color: '#F59E0B', label: 'Magnesium ion', note: 'Cation · 2+ charge' },
+                        { op: '⟷' },
+                        { sym: 'Cl⁻', sub: '2, 8, 8', v: 8, color: '#10B981', label: 'Chloride ion', note: 'Octet complete' }
+                      ],
+                      note: 'One Mg<sup>2+</sup> ion is held between two Cl<sup>−</sup> ions by electrostatic attraction. The charges balance (2+ and 2 × 1−), giving the neutral compound <strong>MgCl<sub>2</sub></strong>.',
+                      notePa: 'ਇੱਕ Mg²⁺ ਆਇਨ ਦੋ Cl⁻ ਆਇਨਾਂ ਨਾਲ ਜੁੜਦਾ ਹੈ।' }
+                ]
+            }
+        };
+        let lewisCmp = 'NaCl', lewisStep = 0;
+
+        function lewisAtomHTML(a) {
+            if (a.op) return '<div class="lewis-op">' + a.op + '</div>';
+            var dots = '';
+            for (var i = 0; i < a.v; i++) {
+                /* Start at the top and go clockwise so pairs read naturally. */
+                var ang = (-90 + (360 / Math.max(a.v, 1)) * i) * Math.PI / 180;
+                var x = 50 + 50 * Math.cos(ang), y = 50 + 50 * Math.sin(ang);
+                var cls = 'lewis-dot';
+                if (a.moved && a.moved.indexOf(i) !== -1) cls += ' is-transferred';
+                if (a.gained && i >= a.v - a.gained) cls += ' is-gained';
+                dots += '<span class="' + cls + '" style="left:' + x + '%;top:' + y + '%"></span>';
+            }
+            return '<div class="lewis-atom" style="--atom-accent:' + a.color + '">' +
+                     '<div class="lewis-shell"><div class="lewis-core">' + a.sym +
+                       '<small>' + a.sub + '</small></div>' + dots + '</div>' +
+                     '<div class="lewis-label">' + a.label + '<small>' + a.note + '</small></div>' +
+                   '</div>';
+        }
+
+        window.renderLewis = function() {
+            var data = LEWIS[lewisCmp];
+            if (!data || !document.getElementById('lewis-atoms')) return;
+            var st = data.steps[lewisStep];
+            document.getElementById('lewis-step-label').textContent =
+                'Step ' + (lewisStep + 1) + ' of ' + data.steps.length + ' · ' + data.title;
+            document.getElementById('lewis-step-title').textContent = st.t;
+            document.getElementById('lewis-atoms').innerHTML = st.atoms.map(lewisAtomHTML).join('');
+            document.getElementById('lewis-note').innerHTML =
+                st.note + (st.notePa ? '<span class="n-pa" lang="pa">' + st.notePa + '</span>' : '');
+            var pips = '';
+            for (var i = 0; i < data.steps.length; i++) {
+                pips += '<span class="lewis-pip' + (i <= lewisStep ? ' is-on' : '') + '"></span>';
+            }
+            document.getElementById('lewis-dots').innerHTML = pips;
+            document.getElementById('lewis-prev').disabled = lewisStep === 0;
+            document.getElementById('lewis-next').disabled = lewisStep === data.steps.length - 1;
+            document.querySelectorAll('.lewis-tab').forEach(function (t) {
+                t.classList.toggle('is-active', t.getAttribute('data-cmp') === lewisCmp);
+            });
+        };
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest) return;
+            var tab = e.target.closest('.lewis-tab');
+            if (tab) { lewisCmp = tab.getAttribute('data-cmp'); lewisStep = 0; window.renderLewis(); return; }
+            if (e.target.id === 'lewis-next') {
+                if (lewisStep < LEWIS[lewisCmp].steps.length - 1) { lewisStep++; window.renderLewis(); }
+            } else if (e.target.id === 'lewis-prev') {
+                if (lewisStep > 0) { lewisStep--; window.renderLewis(); }
+            }
+        });
+
+        /* Render the first frame of the board widgets. Declared after their
+           definitions so the call order cannot matter. */
+        function initBoardWidgets() {
+            if (document.getElementById('lewis-viewer')) window.renderLewis();
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBoardWidgets);
+        } else {
+            initBoardWidgets();
+        }
+
         window.predictDisplacement = function() {
             const m1 = document.getElementById('solid-metal').value;
             const m2 = document.getElementById('aqueous-salt').value;

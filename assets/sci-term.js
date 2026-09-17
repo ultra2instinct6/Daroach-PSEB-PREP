@@ -76,9 +76,17 @@
       "body[data-theme=\"CLASSIC\"] .sci-pop-pa,",
       "html[data-deck-theme=\"legacy\"] .sci-pop-pa{color:#0b56c5;}",
       ".sci-pop-ph{",
-      "  font-size:12.5px;letter-spacing:.4px;margin:0 0 9px;opacity:.85;",
+      "  font-size:12.5px;letter-spacing:.4px;margin:0 0 3px;opacity:.85;",
       "  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;word-break:break-word;",
       "}",
+      /* Gurmukhi respelling of the same pronunciation, so a Punjabi-medium
+         student can say the English term without reading Latin script. */
+      ".sci-pop-phpa{",
+      "  font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif);",
+      "  font-size:13.5px;line-height:1.75;padding:.1em 0;margin:0 0 9px;opacity:.9;word-break:break-word;",
+      "}",
+      ".sci-pop-ph:empty,.sci-pop-phpa:empty,.sci-pop-pa:empty{display:none;}",
+      ".sci-pop-ph-label{opacity:.6;font-weight:600;}",
       ".sci-pop-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}",
       ".sci-pop-listen{",
       "  display:inline-flex;align-items:center;gap:6px;",
@@ -111,7 +119,12 @@
     (document.head || document.documentElement).appendChild(s);
   }
 
-  /* ---------------- pronunciation engine ---------------- */
+  /* ---------------- pronunciation engine ----------------
+     Voices load asynchronously in every browser and are simply absent in
+     some (older Android WebView, Firefox without speech-dispatcher, iOS in
+     a background tab). Every path below therefore reports whether speech
+     was actually dispatched, so the caller can fall back to the written
+     phonetics instead of leaving a dead button. */
   var voices = [];
   function loadVoices() {
     if (!SPEECH_OK) return;
@@ -122,29 +135,42 @@
     try { window.speechSynthesis.onvoiceschanged = loadVoices; } catch (e) {}
   }
 
-  function pickEnglishVoice() {
+  function pickVoice(prefs) {
     if (!voices.length) loadVoices();
-    var prefs = ["en-in", "en-gb", "en-us", "en-"];
     for (var p = 0; p < prefs.length; p++) {
       for (var i = 0; i < voices.length; i++) {
-        if ((voices[i].lang || "").toLowerCase().indexOf(prefs[p]) === 0) return voices[i];
+        if ((voices[i].lang || "").toLowerCase().replace("_", "-").indexOf(prefs[p]) === 0) return voices[i];
       }
     }
     return null;
   }
+  function pickEnglishVoice() { return pickVoice(["en-in", "en-gb", "en-us", "en-"]); }
+  function pickPunjabiVoice() { return pickVoice(["pa-in", "pa-", "pa"]); }
 
-  /* Returns true when speech was actually dispatched. */
-  function speak(text, onDone) {
+  /* Returns true when speech was actually dispatched.
+     `lang` is "pa" for Gurmukhi text, anything else for English. */
+  function speak(text, onDone, lang) {
     if (!SPEECH_OK || !text) return false;
+    var wantPa = lang === "pa";
+    var v = wantPa ? pickPunjabiVoice() : pickEnglishVoice();
+    /* A pa-IN utterance sent to an English-only engine is either silent or
+       spelled out letter by letter, which teaches the wrong pronunciation.
+       Better to say nothing and let the caller explain why. */
+    if (wantPa && !v) return false;
     try {
       window.speechSynthesis.cancel();
       var u = new SpeechSynthesisUtterance(text);
-      var v = pickEnglishVoice();
       if (v) u.voice = v;
-      u.lang = v && v.lang ? v.lang : "en-IN";
+      u.lang = v && v.lang ? v.lang : (wantPa ? "pa-IN" : "en-IN");
       u.rate = 0.85;
       u.pitch = 1;
-      if (onDone) { u.onend = onDone; u.onerror = onDone; }
+      var done = false;
+      var finish = function () { if (done) return; done = true; if (onDone) onDone(); };
+      u.onend = finish;
+      u.onerror = finish;
+      /* Some engines never fire onend for short strings; release the button
+         anyway so it cannot get stuck on "Speaking…". */
+      setTimeout(finish, Math.min(12000, 1600 + text.length * 120));
       window.speechSynthesis.speak(u);
       return true;
     } catch (e) {
@@ -153,7 +179,7 @@
   }
 
   /* ---------------- popover ---------------- */
-  var pop = null, popEn, popPa, popPh, popCh, popNote, popListen, activeTrigger = null;
+  var pop = null, popEn, popPa, popPh, popPhPa, popCh, popNote, popListen, activeTrigger = null;
 
   function buildPop() {
     if (pop) return pop;
@@ -166,6 +192,7 @@
       '<p class="sci-pop-en"></p>' +
       '<p class="sci-pop-pa" lang="pa"></p>' +
       '<p class="sci-pop-ph"></p>' +
+      '<p class="sci-pop-phpa" lang="pa"></p>' +
       '<div class="sci-pop-row">' +
       '<button type="button" class="sci-pop-listen">\uD83D\uDD0A Listen</button>' +
       '<span class="sci-pop-ch"></span>' +
@@ -175,6 +202,7 @@
     popEn = pop.querySelector(".sci-pop-en");
     popPa = pop.querySelector(".sci-pop-pa");
     popPh = pop.querySelector(".sci-pop-ph");
+    popPhPa = pop.querySelector(".sci-pop-phpa");
     popCh = pop.querySelector(".sci-pop-ch");
     popNote = pop.querySelector(".sci-pop-note");
     popListen = pop.querySelector(".sci-pop-listen");
@@ -183,14 +211,27 @@
     popListen.addEventListener("click", function () {
       var term = popListen.dataset.term || "";
       popListen.textContent = "\uD83D\uDD0A Speaking\u2026";
-      var ok = speak(term, function () { popListen.textContent = "\uD83D\uDD0A Listen"; });
+      var ok = speak(term, function () { popListen.textContent = "\uD83D\uDD0A Listen"; }, "en");
       if (!ok) {
         popListen.textContent = "\uD83D\uDD0A Listen";
-        showNote("Audio is unavailable on this browser \u2014 use the phonetic guide above.");
+        showNote(NO_AUDIO_NOTE);
       }
     });
     pop.addEventListener("click", function (e) { e.stopPropagation(); });
     return pop;
+  }
+
+  var NO_AUDIO_NOTE = "Audio is unavailable on this browser \u2014 use the phonetic guides above.";
+
+  function escapeHtml(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  /* glossary.js derives this; guard so an older cached copy of that file
+     cannot break the popover entirely. */
+  function gurmukhiPh(ph) {
+    if (!ph || typeof G.gurmukhiPhonetic !== "function") return "";
+    try { return G.gurmukhiPhonetic(ph); } catch (e) { return ""; }
   }
 
   function showNote(msg) {
@@ -225,8 +266,14 @@
     activeTrigger = trigger;
     trigger.setAttribute("aria-expanded", "true");
     popEn.textContent = entry.en;
-    popPa.textContent = entry.pa;
-    popPh.textContent = entry.ph;
+    popPa.textContent = entry.pa || "";
+    /* Both respellings of the same sound: Roman for students comfortable
+       with Latin script, Gurmukhi for everyone else. */
+    popPh.innerHTML = entry.ph
+      ? '<span class="sci-pop-ph-label">Roman:</span> ' + escapeHtml(entry.ph)
+      : "";
+    var phPa = gurmukhiPh(entry.ph);
+    popPhPa.textContent = phPa ? "\u0a09\u0a1a\u0a3e\u0a30\u0a28: " + phPa : "";
     popCh.textContent = entry.ch && entry.ch.length
       ? "Chapter " + entry.ch.join(", ")
       : "";
@@ -234,7 +281,7 @@
     popListen.dataset.term = entry.en;
     popListen.textContent = "\uD83D\uDD0A Listen";
     popListen.disabled = !SPEECH_OK;
-    if (!SPEECH_OK) showNote("Audio is unavailable on this browser \u2014 use the phonetic guide above.");
+    if (!SPEECH_OK) showNote(NO_AUDIO_NOTE);
 
     pop.classList.add("is-open");
     position(trigger);
@@ -266,9 +313,10 @@
     el.setAttribute("tabindex", "0");
     el.setAttribute("aria-expanded", "false");
     el.setAttribute("aria-haspopup", "dialog");
-    el.setAttribute("title", entry.pa + " \u00b7 " + entry.ph);
+    var phPa = gurmukhiPh(entry.ph);
+    el.setAttribute("title", entry.pa + " \u00b7 " + entry.ph + (phPa ? " \u00b7 " + phPa : ""));
     el.setAttribute("aria-label", entry.en + ". Punjabi: " + entry.pa +
-      ". Pronounced " + entry.ph.replace(/-/g, " ") + ". Activate to hear it.");
+      ". Pronounced " + String(entry.ph || "").replace(/-/g, " ") + ". Activate to hear it.");
   }
 
   function prepareAll(root) {

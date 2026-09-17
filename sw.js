@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v6";
+var CACHE_VERSION = "v10";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;
@@ -38,6 +38,7 @@ var SHELL_ASSETS = [
   "./",
   "./index.html",
   "./mcq.html",
+  "./flashcards.html",
   "./assets/chapters.js",
   "./assets/glossary.js",
   "./assets/sci-term.js",
@@ -53,6 +54,7 @@ var SHELL_ASSETS = [
   "./assets/deck-ch06-07.css",
   "./assets/deck-ch08-13.css",
   "./assets/gurmukhi-type.css",
+  "./assets/fonts/noto-sans-gurmukhi-var.woff2",
   "./assets/print.css",
   "./assets/favicon.svg",
   "./assets/mathjax/tex-mml-svg.js",

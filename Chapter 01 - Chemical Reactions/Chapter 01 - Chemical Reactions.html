@@ -21,6 +21,7 @@
     </script>
     <script id="MathJax-script" async src="../assets/mathjax/tex-mml-svg.js"></script>
 
+    <link rel="preload" href="../assets/fonts/noto-sans-gurmukhi-var.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../assets/gurmukhi-type.css">
     <link rel="manifest" href="../manifest.webmanifest">
 </head>
@@ -102,8 +103,8 @@
                 </table>
                 <div class="etymology-box">
                     <h3>💡 Word Origins (Etymology)</h3>
-                    <p><strong>Exothermic:</strong> <em>Exo</em> (Exit/ਬਾਹਰ) + <em>Thermic</em> (Heat/ਤਾਪ). Heat exits the reaction!</p>
-                    <p><strong>Endothermic:</strong> <em>Endo</em> (Enter/ਅੰਦਰ) + <em>Thermic</em> (Heat/ਤਾਪ). Heat enters the reaction!</p>
+                    <p><strong>Exothermic:</strong> <em>Exo</em> (Exit&nbsp;/&nbsp;<span lang="pa">ਬਾਹਰ</span>) + <em>Thermic</em> (Heat&nbsp;/&nbsp;<span lang="pa">ਤਾਪ</span>). Heat exits the reaction!</p>
+                    <p><strong>Endothermic:</strong> <em>Endo</em> (Enter&nbsp;/&nbsp;<span lang="pa">ਅੰਦਰ</span>) + <em>Thermic</em> (Heat&nbsp;/&nbsp;<span lang="pa">ਤਾਪ</span>). Heat enters the reaction!</p>
                 </div>
 </div></div>
 <div class="slide"><div class="content-box">
@@ -129,7 +130,7 @@
                         <em>Example: Magnesium + Oxygen &rarr; Magnesium oxide</em>
                     </li>
                     <li><strong>Skeletal Equation <span class="punjabi">(ਢਾਂਚਾ ਸਮੀਕਰਣ)</span>:</strong> Uses chemical formulas, but is NOT balanced yet.<br>
-                        <em>Example: Mg + O₂ &rarr; MgO</em>
+                        <em>Example: Mg(s) + O₂(g) &rarr; MgO(s)</em>  &nbsp;<span style="opacity:.75">(not balanced yet)</span>
                     </li>
                 </ul>
 </div></div>
@@ -150,15 +151,21 @@
 <div class="slide">
             <div class="content-box">
                 <h2>Interactive Simulator: Balancing Equations <span class="punjabi">(ਸਮੀਕਰਣ ਸੰਤੁਲਿਤ ਕਰੋ)</span></h2>
-                <p>Adjust the coefficients (the big numbers) until the atoms on the Left Hand Side (Reactants) equal the Right Hand Side (Products). Solve one equation, then tap <strong>Try Another Equation</strong> to keep moving through a longer practice set.</p>
-                
+                <p>Adjust the coefficients (the big numbers) until the atoms on the Left Hand Side (Reactants) equal the Right Hand Side (Products). Tap <strong>+</strong> or <strong>&minus;</strong> to change a number without opening your keyboard. Stuck? Open the <strong>Walkthrough</strong> for one hint at a time, then tap <strong>Try Another Equation</strong> to keep moving through a longer practice set.</p>
+
                 <div class="balancer-panel">
                     <div id="bal-name" style="font-size:1.3rem;font-weight:bold;margin-bottom:12px;color:var(--goku-orange);"></div>
                     <div class="balancer-eq" id="bal-eq"></div>
                     <div class="atom-tracker" id="bal-tracker"></div>
-                    <div id="balance-status" class="balance-status status-unbalanced">Equation is UNBALANCED ❌</div>
+                    <div id="balance-status" class="balance-status status-unbalanced" role="status" aria-live="polite">Equation is UNBALANCED ❌</div>
+                    <div class="bal-walk" id="bal-walk">
+                        <button type="button" class="bal-walk-toggle" id="bal-walk-toggle" aria-expanded="false" aria-controls="bal-walk-body" onclick="toggleBalanceWalk()">
+                            <span>🧭 Walkthrough <span class="punjabi" lang="pa">(ਕਦਮ-ਦਰ-ਕਦਮ)</span></span>
+                            <span class="bal-walk-caret" aria-hidden="true">&#10095;</span>
+                        </button>
+                        <div class="bal-walk-body" id="bal-walk-body"></div>
+                    </div>
                     <div style="display:flex;justify-content:center;gap:14px;margin-top:16px;flex-wrap:wrap;">
-                        <button class="rtc-next" id="bal-hint" onclick="showBalanceHint()" style="display:inline-block;">💡 Show Answer</button>
                         <button class="rtc-next" id="bal-next" onclick="nextBalance()" style="display:inline-block;">Try Another Equation &rarr;</button>
                     </div>
                 </div>
@@ -180,7 +187,7 @@
                             <span class="punjabi-block" style="margin-bottom:8px;">ਸੰਜੋਜਨ</span>
                             <div class="mm-eq">A + B &rarr; AB</div>
                 <div class="mm-hover-example">
-                    <strong>Example:</strong> 2Mg + O₂ &rarr; 2MgO
+                    <strong>Example:</strong> 2Mg(s) + O₂(g) &rarr; 2MgO(s)
                     <span>Two reactants join to form one product.</span>
                 </div>
             </div>
@@ -189,7 +196,7 @@
                 <span class="punjabi-block" style="margin-bottom:8px;">ਅਪਘਟਨ</span>
                 <div class="mm-eq">AB &rarr; A + B</div>
                 <div class="mm-hover-example">
-                    <strong>Example:</strong> 2AgCl &rarr; 2Ag + Cl₂
+                    <strong>Example:</strong> 2AgCl(s) &rarr; 2Ag(s) + Cl₂(g) &uarr;
                     <span>One compound breaks into simpler substances.</span>
                 </div>
             </div>
@@ -198,7 +205,7 @@
                 <span class="punjabi-block" style="margin-bottom:8px;">ਵਿਸਥਾਪਨ</span>
                 <div class="mm-eq">A + BC &rarr; AC + B</div>
                 <div class="mm-hover-example">
-                    <strong>Example:</strong> Zn + CuSO₄ &rarr; ZnSO₄ + Cu
+                    <strong>Example:</strong> Zn(s) + CuSO₄(aq) &rarr; ZnSO₄(aq) + Cu(s)
                     <span>A more reactive element pushes out a less reactive one.</span>
                 </div>
             </div>
@@ -207,7 +214,7 @@
                 <span class="punjabi-block" style="margin-bottom:8px;">ਦੋਹਰਾ ਵਿਸਥਾਪਨ</span>
                 <div class="mm-eq">AB + CD &rarr; AD + CB</div>
                 <div class="mm-hover-example">
-                    <strong>Example:</strong> Na₂SO₄ + BaCl₂ &rarr; BaSO₄↓ + 2NaCl
+                    <strong>Example:</strong> Na₂SO₄(aq) + BaCl₂(aq) &rarr; BaSO₄(s) &darr; + 2NaCl(aq)
                     <span>Ions swap partners and a precipitate may form.</span>
                 </div>
             </div>
@@ -291,6 +298,67 @@
                 </div>
 </div></div>
 <div class="slide"><div class="content-box">
+                <h2>What You Actually See <span class="punjabi">(ਪ੍ਰਯੋਗ ਵਿੱਚ ਨਿਰੀਖਣ)</span></h2>
+                <p>PSEB regularly asks <em>"state the colour change observed"</em>. Writing the equation alone
+                   will not earn the full mark — you must describe the <strong>colour, gas and smell</strong> too.</p>
+
+                <h3>1. Heating ferrous sulphate crystals <span class="punjabi">(ਹਰੇ ਕੱਚ)</span></h3>
+                <div class="equation">2FeSO₄·7H₂O(s) &nbsp;--Heat&rarr;&nbsp; Fe₂O₃(s) + SO₂(g) &uarr; + SO₃(g) &uarr;</div>
+                <div class="obs-badge">
+                    <span class="obs-badge-lbl">Observation <span class="punjabi" lang="pa">(ਨਿਰੀਖਣ)</span></span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#4FA96B"></span>Green crystals</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#F8FAFC"></span>White (water lost)</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#8B3A1E"></span>Reddish-brown Fe₂O₃</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#E2E8F0"></span>Pungent burning-sulphur smell (SO₂ + SO₃)</span>
+                </div>
+
+                <h3>2. Heating lead nitrate <span class="punjabi">(ਲੈੱਡ ਨਾਈਟ੍ਰੇਟ ਨੂੰ ਗਰਮ ਕਰਨਾ)</span></h3>
+                <div class="equation">2Pb(NO₃)₂(s) &nbsp;--Heat&rarr;&nbsp; 2PbO(s) + 4NO₂(g) &uarr; + O₂(g) &uarr;</div>
+                <div class="obs-badge">
+                    <span class="obs-badge-lbl">Observation <span class="punjabi" lang="pa">(ਨਿਰੀਖਣ)</span></span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#F8FAFC"></span>White powder</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#EAB308"></span>Yellow PbO residue</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#A0522D"></span>Dense brown fumes of NO₂</span>
+                </div>
+
+                <h3>3. Iron nail dipped in copper sulphate <span class="punjabi">(ਵਿਸਥਾਪਨ)</span></h3>
+                <div class="equation">Fe(s) + CuSO₄(aq) &rarr; FeSO₄(aq) + Cu(s)</div>
+                <div class="obs-badge">
+                    <span class="obs-badge-lbl">Observation <span class="punjabi" lang="pa">(ਨਿਰੀਖਣ)</span></span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#1E6FD9"></span>Blue solution</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#A7D8A9"></span>Pale green FeSO₄</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#B87333"></span>Brown copper coating on the nail</span>
+                </div>
+
+                <h3>4. Lead nitrate + potassium iodide <span class="punjabi">(ਦੂਹਰਾ ਵਿਸਥਾਪਨ)</span></h3>
+                <div class="equation">Pb(NO₃)₂(aq) + 2KI(aq) &rarr; PbI₂(s) &darr; + 2KNO₃(aq)</div>
+                <div class="obs-badge">
+                    <span class="obs-badge-lbl">Observation <span class="punjabi" lang="pa">(ਨਿਰੀਖਣ)</span></span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#F1F5F9"></span>Two clear solutions</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#FACC15"></span>Brilliant yellow PbI₂ precipitate</span>
+                </div>
+                <p><em>This is the classic <strong>"yellow precipitate"</strong> question — PbI₂ is insoluble, so it settles out of the solution.</em></p>
+
+                <h3>5. The lime-water test for CO₂ <span class="punjabi">(ਚੂਨੇ ਦੇ ਪਾਣੀ ਦੀ ਜਾਂਚ)</span></h3>
+                <div class="equation">Ca(OH)₂(aq) + CO₂(g) &rarr; CaCO₃(s) &darr; + H₂O(l)</div>
+                <div class="equation">CaCO₃(s) + H₂O(l) + CO₂(g) &nbsp;(excess)&nbsp; &rarr; Ca(HCO₃)₂(aq)</div>
+                <div class="obs-badge">
+                    <span class="obs-badge-lbl">Observation <span class="punjabi" lang="pa">(ਨਿਰੀਖਣ)</span></span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#F1F5F9"></span>Colourless lime water</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#FFFFFF"></span>Turns milky (CaCO₃)</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#F1F5F9"></span>Clear again in excess CO₂</span>
+                </div>
+                <p><em>The milkiness <strong>disappears</strong> when excess CO₂ is passed through, because the
+                   insoluble CaCO₃ turns into soluble calcium hydrogencarbonate.</em></p>
+</div></div>
+<div class="slide"><div class="content-box">
                 <h2>Oxidation & Reduction <span class="punjabi">(ਆਕਸੀਕਰਨ ਅਤੇ ਲਘੂਕਰਨ)</span></h2>
                 <p>These reactions happen together (Redox reactions).</p>
                 <table>
@@ -311,7 +379,14 @@
 <div class="slide"><div class="content-box">
                 <h2>Oxidation Tracking (Example)</h2>
                 <p>Identify the oxidized/reduced substances and agents in:</p>
-                <div class="equation">CuO + H₂ &rarr; Cu + H₂O</div>
+                <div class="equation">CuO(s) + H₂(g) &rarr; Cu(s) + H₂O(l)</div>
+                <div class="obs-badge">
+                    <span class="obs-badge-lbl">What you observe <span class="punjabi" lang="pa">(ਨਿਰੀਖਣ)</span></span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#1F2937"></span>Black CuO powder</span>
+                    <span class="obs-arrow">&rarr;</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#B87333"></span>Reddish-brown Cu</span>
+                    <span class="obs-state"><span class="obs-dot" style="--obs-color:#CBD5E1"></span>Water droplets on tube</span>
+                </div>
                 <ul>
                     <li><strong>CuO</strong> loses oxygen to become Cu. It is <strong>Reduced</strong>. Therefore, CuO is the <em>Oxidizing Agent</em>.</li>
                     <li><strong>H₂</strong> gains oxygen to become H₂O. It is <strong>Oxidized</strong>. Therefore, H₂ is the <em>Reducing Agent</em>.</li>
@@ -334,6 +409,20 @@
                         <td>Absorbs sunlight energy to create glucose.</td>
                     </tr>
                 </table>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 2–3 Marks</span>
+                    <p class="board-alert-q">Why is respiration called an exothermic reaction?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਸਾਹ ਕਿਰਿਆ ਨੂੰ ਤਾਪ-ਨਿਕਾਸੀ ਕਿਰਿਆ ਕਿਉਂ ਕਿਹਾ ਜਾਂਦਾ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        We need energy to stay alive. That energy comes from the food we eat.
+                        During digestion, food is broken down into simple <strong>glucose</strong>,
+                        which then reacts with the <strong>oxygen</strong> we breathe in.
+                        Because this reaction <strong>releases heat energy</strong> to the surroundings,
+                        respiration is classified as an exothermic reaction.
+                        <div class="equation" style="margin-top:8px;">C₆H₁₂O₆(aq) + 6O₂(g) &rarr; 6CO₂(g) + 6H₂O(l) + Energy</div>
+                    </div>
+                </div>
 </div></div>
 <div class="slide"><div class="content-box">
                 <h2>Oxidation in Everyday Life <span class="punjabi">(ਰੋਜ਼ਾਨਾ ਜੀਵਨ ਵਿੱਚ ਆਕਸੀਕਰਨ)</span></h2>
@@ -348,6 +437,19 @@
                 <ul>
                     <li><strong>Prevention:</strong> Flushing bags with <span class="accent-blue">Nitrogen gas</span>, using refrigeration, or storing in vacuum/airtight containers.</li>
                 </ul>
+
+                <div class="board-alert">
+                    <span class="board-alert-tag">★ PSEB Board Favorite &middot; 2 Marks</span>
+                    <p class="board-alert-q">Why do we apply paint on iron articles to prevent rusting?</p>
+                    <p class="board-alert-q-pa" lang="pa">ਲੋਹੇ ਦੀਆਂ ਵਸਤੂਆਂ ਉੱਤੇ ਪੇਂਟ ਕਿਉਂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ?</p>
+                    <div class="board-alert-a">
+                        Iron rusts only when it is in contact with <strong>both air (oxygen) and
+                        moisture</strong> at the same time. A coat of paint forms a continuous
+                        <strong>protective barrier</strong> that keeps oxygen and water away from the
+                        iron surface, so the oxidation reaction cannot begin. This prevents the loss
+                        of the metal and extends the life of gates, railings, bridges and vehicle bodies.
+                    </div>
+                </div>
 </div></div>
 <div class="slide">
             <div class="content-box">
@@ -399,10 +501,10 @@
                 <p>Use this consolidation grid to revise all five reaction types with a real example and the clue that gives each one away.</p>
                 <table>
                     <tr><th>Type</th><th>General Form</th><th>Example</th><th>Give-away Clue</th></tr>
-                    <tr><td>Combination</td><td>A + B &rarr; AB</td><td class="equation">CaO + H₂O &rarr; Ca(OH)₂</td><td>Two reactants, one product</td></tr>
-                    <tr><td>Decomposition</td><td>AB &rarr; A + B</td><td class="equation">2FeSO₄ &rarr; Fe₂O₃ + SO₂ + SO₃</td><td>One reactant + heat/light/electricity</td></tr>
-                    <tr><td>Displacement</td><td>A + BC &rarr; AC + B</td><td class="equation">Fe + CuSO₄ &rarr; FeSO₄ + Cu</td><td>One element kicks out another</td></tr>
-                    <tr><td>Double Displacement</td><td>AB + CD &rarr; AD + CB</td><td class="equation">Na₂SO₄ + BaCl₂ &rarr; BaSO₄↓ + 2NaCl</td><td>Ions swap; often a precipitate</td></tr>
+                    <tr><td>Combination</td><td>A + B &rarr; AB</td><td class="equation">CaO(s) + H₂O(l) &rarr; Ca(OH)₂(aq)</td><td>Two reactants, one product</td></tr>
+                    <tr><td>Decomposition</td><td>AB &rarr; A + B</td><td class="equation">2FeSO₄(s) &rarr; Fe₂O₃(s) + SO₂(g) + SO₃(g)</td><td>One reactant + heat/light/electricity</td></tr>
+                    <tr><td>Displacement</td><td>A + BC &rarr; AC + B</td><td class="equation">Fe(s) + CuSO₄(aq) &rarr; FeSO₄(aq) + Cu(s)</td><td>One element kicks out another</td></tr>
+                    <tr><td>Double Displacement</td><td>AB + CD &rarr; AD + CB</td><td class="equation">Na₂SO₄(aq) + BaCl₂(aq) &rarr; BaSO₄(s) &darr; + 2NaCl(aq)</td><td>Ions swap; often a precipitate</td></tr>
                 </table>
 </div></div>
 <div class="slide"><div class="content-box">
@@ -423,7 +525,7 @@
                     <tr><th>Exothermic <span class="punjabi">(ਤਾਪ-ਨਿਕਾਸੀ)</span></th><th>Endothermic <span class="punjabi">(ਤਾਪ-ਸ਼ੋਸ਼ੀ)</span></th></tr>
                     <tr><td>Energy is <strong>released</strong> (surroundings warm up)</td><td>Energy is <strong>absorbed</strong> (surroundings cool down)</td></tr>
                     <tr><td>Respiration, burning of fuels, quicklime + water</td><td>Photosynthesis, decomposition of CaCO₃, cooking</td></tr>
-                    <tr><td class="equation">C₆H₁₂O₆ + 6O₂ &rarr; 6CO₂ + 6H₂O + Energy</td><td class="equation">CaCO₃ + Heat &rarr; CaO + CO₂</td></tr>
+                    <tr><td class="equation">C₆H₁₂O₆(aq) + 6O₂(g) &rarr; 6CO₂(g) + 6H₂O(l) + Energy</td><td class="equation">CaCO₃(s) &nbsp;--Heat&rarr;&nbsp; CaO(s) + CO₂(g) &uarr;</td></tr>
                 </table>
                 <div class="pitfall-box"><h3>🚨 Exam Tip</h3><p>Respiration is a <strong>slow, exothermic, oxidation</strong> reaction &mdash; a favourite one-mark trap. Write all three words for full marks.</p></div>
 </div></div>
@@ -701,38 +803,110 @@
             document.getElementById('alkane-structure').innerText = tops + mid + bots;
         };
 
-        /* SIMULATOR 1: BALANCING (multi-equation, data-driven) */
+        /* SIMULATOR 1: BALANCING (multi-equation, data-driven)
+           `walk` is the teaching order a PSEB examiner expects: the element
+           that appears in exactly one species on each side first, hydrogen and
+           oxygen last, because they are usually spread across several species. */
         const balanceSet = [
             { name:'Iron reacting with steam',
               L:[{f:'Fe',a:{Fe:1}},{f:'H₂O',a:{H:2,O:1}}],
-              R:[{f:'Fe₃O₄',a:{Fe:3,O:4}},{f:'H₂',a:{H:2}}], sol:[3,4,1,4] },
+              R:[{f:'Fe₃O₄',a:{Fe:3,O:4}},{f:'H₂',a:{H:2}}], sol:[3,4,1,4],
+              walk:[
+                'Balance <b>iron (Fe)</b> first — it sits in just one species on each side. Fe₃O₄ locks 3 Fe on the right, so put <b>3</b> in front of Fe.',
+                'Balance <b>oxygen (O)</b> next by adjusting H₂O. Fe₃O₄ needs 4 O, and each H₂O carries one, so put <b>4</b> in front of H₂O.',
+                'Balance <b>hydrogen (H)</b> last. 4H₂O now brings 8 H, so put <b>4</b> in front of H₂ to send all 8 back out.'
+              ] },
             { name:'Formation of water',
               L:[{f:'H₂',a:{H:2}},{f:'O₂',a:{O:2}}],
-              R:[{f:'H₂O',a:{H:2,O:1}}], sol:[2,1,2] },
+              R:[{f:'H₂O',a:{H:2,O:1}}], sol:[2,1,2],
+              walk:[
+                'Start with <b>oxygen (O)</b>. O₂ delivers 2 atoms, but one H₂O only holds 1, so put <b>2</b> in front of H₂O.',
+                'Now count <b>hydrogen (H)</b>. 2H₂O needs 4 H, so put <b>2</b> in front of H₂.',
+                'Re-check O: 1 × O₂ = 2 on the left, 2 × H₂O = 2 on the right. Balanced.'
+              ] },
             { name:'Burning magnesium',
               L:[{f:'Mg',a:{Mg:1}},{f:'O₂',a:{O:2}}],
-              R:[{f:'MgO',a:{Mg:1,O:1}}], sol:[2,1,2] },
+              R:[{f:'MgO',a:{Mg:1,O:1}}], sol:[2,1,2],
+              walk:[
+                'Begin with <b>oxygen (O)</b>, the element locked inside O₂. Two atoms arrive, so you need <b>2</b> MgO.',
+                'That puts 2 Mg on the right, so put <b>2</b> in front of Mg on the left.',
+                'Leave O₂ at <b>1</b> — every atom is now accounted for on both sides.'
+              ] },
             { name:'Making ammonia (Haber process)',
               L:[{f:'N₂',a:{N:2}},{f:'H₂',a:{H:2}}],
-              R:[{f:'NH₃',a:{N:1,H:3}}], sol:[1,3,2] },
+              R:[{f:'NH₃',a:{N:1,H:3}}], sol:[1,3,2],
+              walk:[
+                'Balance <b>nitrogen (N)</b>. N₂ supplies 2 atoms, so you need <b>2</b> NH₃.',
+                '2NH₃ demands 6 <b>hydrogen (H)</b> atoms; each H₂ carries 2, so put <b>3</b> in front of H₂.',
+                'N₂ stays at <b>1</b>. 2 N and 6 H on each side — balanced.'
+              ] },
             { name:'Burning aluminium in oxygen',
               L:[{f:'Al',a:{Al:1}},{f:'O₂',a:{O:2}}],
-              R:[{f:'Al₂O₃',a:{Al:2,O:3}}], sol:[4,3,2] },
+              R:[{f:'Al₂O₃',a:{Al:2,O:3}}], sol:[4,3,2],
+              walk:[
+                'Look at <b>oxygen (O)</b>: the left gives even numbers (2, 4, 6…) and Al₂O₃ gives multiples of 3. The first number both can reach is 6, so take <b>2</b> Al₂O₃ and <b>3</b> O₂.',
+                '2Al₂O₃ contains 4 <b>aluminium (Al)</b> atoms, so put <b>4</b> in front of Al.',
+                'Check: 4 Al and 6 O on each side — balanced.'
+              ] },
             { name:'Zinc + hydrochloric acid',
               L:[{f:'Zn',a:{Zn:1}},{f:'HCl',a:{H:1,Cl:1}}],
-              R:[{f:'ZnCl₂',a:{Zn:1,Cl:2}},{f:'H₂',a:{H:2}}], sol:[1,2,1,1] },
+              R:[{f:'ZnCl₂',a:{Zn:1,Cl:2}},{f:'H₂',a:{H:2}}], sol:[1,2,1,1],
+              walk:[
+                '<b>Zinc (Zn)</b> is already 1 on each side — leave both coefficients at <b>1</b>.',
+                'ZnCl₂ needs 2 <b>chlorine (Cl)</b> atoms and each HCl carries one, so put <b>2</b> in front of HCl.',
+                '2HCl also brings 2 <b>hydrogen (H)</b> atoms, which is exactly one H₂. Balanced.'
+              ] },
             { name:'Sodium reacting with water',
               L:[{f:'Na',a:{Na:1}},{f:'H₂O',a:{H:2,O:1}}],
-              R:[{f:'NaOH',a:{Na:1,O:1,H:1}},{f:'H₂',a:{H:2}}], sol:[2,2,2,1] },
+              R:[{f:'NaOH',a:{Na:1,O:1,H:1}},{f:'H₂',a:{H:2}}], sol:[2,2,2,1],
+              walk:[
+                'The spare <b>hydrogen (H)</b> leaves as H₂, so you need an even count. Take <b>2</b> H₂O to start.',
+                '2 H₂O carries 2 <b>oxygen (O)</b> atoms, so put <b>2</b> in front of NaOH — which also fixes <b>sodium (Na)</b> at <b>2</b>.',
+                'Count H: 4 in, and 2NaOH holds 2, so the last 2 leave as <b>1</b> H₂. Balanced.'
+              ] },
             { name:'Neutralisation',
               L:[{f:'HCl',a:{H:1,Cl:1}},{f:'NaOH',a:{Na:1,O:1,H:1}}],
-              R:[{f:'NaCl',a:{Na:1,Cl:1}},{f:'H₂O',a:{H:2,O:1}}], sol:[1,1,1,1] },
+              R:[{f:'NaCl',a:{Na:1,Cl:1}},{f:'H₂O',a:{H:2,O:1}}], sol:[1,1,1,1],
+              walk:[
+                'Count <b>sodium (Na)</b> and <b>chlorine (Cl)</b>: one of each on both sides already.',
+                '<b>Hydrogen (H)</b>: HCl and NaOH give one each, and H₂O takes exactly 2.',
+                'Every coefficient stays at <b>1</b> — some skeletal equations are balanced as written.'
+              ] },
             { name:'Combustion of propane (LPG)',
               L:[{f:'C₃H₈',a:{C:3,H:8}},{f:'O₂',a:{O:2}}],
-              R:[{f:'CO₂',a:{C:1,O:2}},{f:'H₂O',a:{H:2,O:1}}], sol:[1,5,3,4] }
+              R:[{f:'CO₂',a:{C:1,O:2}},{f:'H₂O',a:{H:2,O:1}}], sol:[1,5,3,4],
+              walk:[
+                'Hold the fuel at <b>1</b> C₃H₈ and balance <b>carbon (C)</b>: 3 atoms, so put <b>3</b> in front of CO₂.',
+                'Balance <b>hydrogen (H)</b>: 8 atoms, and each H₂O holds 2, so put <b>4</b> in front of H₂O.',
+                'Count <b>oxygen (O)</b> on the right last: 3CO₂ (6) + 4H₂O (4) = 10, and each O₂ gives 2, so put <b>5</b> in front of O₂.'
+              ] }
         ];
-        const balElNames = {Fe:'Iron (Fe)', H:'Hydrogen (H)', O:'Oxygen (O)', N:'Nitrogen (N)', Al:'Aluminium (Al)', Na:'Sodium (Na)', C:'Carbon (C)'};
+        const balElNames = {Fe:'Iron (Fe)', H:'Hydrogen (H)', O:'Oxygen (O)', N:'Nitrogen (N)', Al:'Aluminium (Al)', Na:'Sodium (Na)', C:'Carbon (C)', Mg:'Magnesium (Mg)', Zn:'Zinc (Zn)', Cl:'Chlorine (Cl)'};
+        /* CPK convention, the colouring students meet again in molecular models. */
+        const balElColors = {H:'#e8eef7', O:'#e2483d', C:'#3b3f46', N:'#3b57d6', Cl:'#4cc76a', Fe:'#b0722b', Mg:'#1fa05a', Na:'#8f4fd1', Al:'#9aa5b1', Zn:'#7c8b9c'};
+        const BAL_MIN = 1, BAL_MAX = 9;
         let balIndex = 0;
+        let balWalkStep = 0;
+
+        function balInput(i) { return document.getElementById('bal-in-' + i); }
+        function balCount() {
+            const item = balanceSet[balIndex];
+            return item.L.length + item.R.length;
+        }
+
+        function balTermHTML(t, idx) {
+            /* The stepper is what mobile students actually use; the field stays
+               for keyboard/desktop entry and for screen readers. */
+            return '<span class="coef-stepper">' +
+                '<button type="button" class="coef-step" data-bal-step="up" data-bal-idx="' + idx + '" ' +
+                    'aria-label="Increase coefficient for ' + t.f + '">+</button>' +
+                '<input type="number" inputmode="numeric" class="coef-input" id="bal-in-' + idx + '" ' +
+                    'value="1" min="' + BAL_MIN + '" max="' + BAL_MAX + '" ' +
+                    'aria-label="Coefficient for ' + t.f + '" onchange="calcBalance()" oninput="calcBalance()">' +
+                '<button type="button" class="coef-step" data-bal-step="down" data-bal-idx="' + idx + '" ' +
+                    'aria-label="Decrease coefficient for ' + t.f + '">&minus;</button>' +
+                '</span> ' + t.f;
+        }
 
         function renderBalance() {
             const nameEl = document.getElementById('bal-name');
@@ -742,17 +916,53 @@
             let html = '', idx = 0;
             item.L.forEach((t, i) => {
                 if (i > 0) html += '<span>+</span>';
-                html += '<input type="number" class="coef-input" id="bal-in-' + idx + '" value="1" min="1" max="9" onchange="calcBalance()" oninput="calcBalance()"> ' + t.f;
+                html += balTermHTML(t, idx);
                 idx++;
             });
             html += '<span>&rarr;</span>';
             item.R.forEach((t, i) => {
                 if (i > 0) html += '<span>+</span>';
-                html += '<input type="number" class="coef-input" id="bal-in-' + idx + '" value="1" min="1" max="9" onchange="calcBalance()" oninput="calcBalance()"> ' + t.f;
+                html += balTermHTML(t, idx);
                 idx++;
             });
             document.getElementById('bal-eq').innerHTML = html;
+            balWalkStep = 0;
+            renderWalkthrough();
             calcBalance();
+        }
+
+        /* Delegated so it survives every re-render of the equation. */
+        document.addEventListener('click', function (e) {
+            const btn = e.target.closest ? e.target.closest('[data-bal-step]') : null;
+            if (!btn) return;
+            e.preventDefault();
+            const input = balInput(parseInt(btn.getAttribute('data-bal-idx'), 10));
+            if (!input) return;
+            const delta = btn.getAttribute('data-bal-step') === 'up' ? 1 : -1;
+            const next = (parseInt(input.value, 10) || BAL_MIN) + delta;
+            input.value = Math.max(BAL_MIN, Math.min(BAL_MAX, next));
+            calcBalance();
+        });
+
+        function refreshStepperLimits() {
+            document.querySelectorAll('[data-bal-step]').forEach(function (btn) {
+                const input = balInput(parseInt(btn.getAttribute('data-bal-idx'), 10));
+                if (!input) return;
+                const v = parseInt(input.value, 10) || BAL_MIN;
+                btn.disabled = btn.getAttribute('data-bal-step') === 'up' ? v >= BAL_MAX : v <= BAL_MIN;
+            });
+        }
+
+        function atomRowHTML(el, mine, other) {
+            const ok = mine === other;
+            return '<div class="atom-row ' + (ok ? 'atom-ok' : 'atom-off') + '">' +
+                '<span class="atom-el">' +
+                    '<span class="atom-dot" style="--atom-color:' + (balElColors[el] || '#94a3b8') + '"></span>' +
+                    (balElNames[el] || el) +
+                '</span>' +
+                '<span><span class="atom-count">' + mine + '</span> ' +
+                    '<span class="atom-flag" aria-hidden="true">' + (ok ? '✅' : '⚠️') + '</span></span>' +
+                '</div>';
         }
 
         window.calcBalance = function() {
@@ -760,12 +970,12 @@
             const lhs = {}, rhs = {};
             let idx = 0;
             item.L.forEach(t => {
-                const c = parseInt(document.getElementById('bal-in-' + idx).value) || 0;
+                const c = parseInt(balInput(idx).value) || 0;
                 for (const el in t.a) lhs[el] = (lhs[el] || 0) + c * t.a[el];
                 idx++;
             });
             item.R.forEach(t => {
-                const c = parseInt(document.getElementById('bal-in-' + idx).value) || 0;
+                const c = parseInt(balInput(idx).value) || 0;
                 for (const el in t.a) rhs[el] = (rhs[el] || 0) + c * t.a[el];
                 idx++;
             });
@@ -774,26 +984,107 @@
             els.forEach(el => {
                 const lv = lhs[el] || 0, rv = rhs[el] || 0;
                 if (lv !== rv) balanced = false;
-                const col = lv === rv ? 'inherit' : '#DC2626';
-                lRows += '<div class="atom-row"><span>' + (balElNames[el] || el) + ':</span> <span style="font-weight:bold;color:' + col + '">' + lv + '</span></div>';
-                rRows += '<div class="atom-row"><span>' + (balElNames[el] || el) + ':</span> <span style="font-weight:bold;color:' + col + '">' + rv + '</span></div>';
+                lRows += atomRowHTML(el, lv, rv);
+                rRows += atomRowHTML(el, rv, lv);
             });
             document.getElementById('bal-tracker').innerHTML =
                 '<div class="tracker-col"><div class="tracker-header">Reactants (LHS)</div>' + lRows + '</div>' +
                 '<div class="tracker-col" style="border-left:2px dashed #ccc;"><div class="tracker-header">Products (RHS)</div>' + rRows + '</div>';
             const status = document.getElementById('balance-status');
+            const panel = status ? status.closest('.balancer-panel') : null;
             if (balanced) {
+                /* Only fire the celebration on the transition into balance, so
+                   it does not replay on every keystroke once already solved. */
+                const wasBalanced = status.classList.contains('status-balanced');
                 status.className = 'balance-status status-balanced';
-                status.innerText = 'Equation is BALANCED! ✅';
+                status.innerHTML = 'Equation is BALANCED! <span class="bal-check">✅</span>';
+                if (panel && !wasBalanced) {
+                    panel.classList.remove('is-solved');
+                    void panel.offsetWidth;
+                    panel.classList.add('is-solved');
+                }
             } else {
                 status.className = 'balance-status status-unbalanced';
                 status.innerText = 'Equation is UNBALANCED ❌';
+                if (panel) panel.classList.remove('is-solved');
             }
+            refreshStepperLimits();
+            markWalkProgress();
+        };
+
+        /* ---- Guided walkthrough ------------------------------------------
+           "Show Answer" used to dump the final coefficients, which skips the
+           reasoning the exam actually tests. The steps are revealed one at a
+           time, and the answer stays available as a deliberate last resort. */
+        function renderWalkthrough() {
+            const body = document.getElementById('bal-walk-body');
+            if (!body) return;
+            const steps = balanceSet[balIndex].walk || [];
+            let html = '';
+            steps.forEach(function (text, i) {
+                const shown = i < balWalkStep;
+                html += '<div class="bal-step" data-walk-step="' + i + '"' + (shown ? '' : ' hidden') + '>' +
+                    '<span class="bal-step-n">' + (i + 1) + '</span><div>' + text + '</div></div>';
+            });
+            html += '<button type="button" class="bal-walk-reveal" id="bal-walk-more"></button>';
+            body.innerHTML = html;
+            body.querySelector('#bal-walk-more').addEventListener('click', function () {
+                if (balWalkStep < steps.length) {
+                    balWalkStep++;
+                    const next = body.querySelector('[data-walk-step="' + (balWalkStep - 1) + '"]');
+                    if (next) next.hidden = false;
+                    updateWalkButton();
+                    markWalkProgress();
+                } else {
+                    showBalanceHint();
+                }
+            });
+            updateWalkButton();
+            markWalkProgress();
+        }
+
+        function updateWalkButton() {
+            const btn = document.getElementById('bal-walk-more');
+            if (!btn) return;
+            const total = (balanceSet[balIndex].walk || []).length;
+            if (balWalkStep === 0) btn.textContent = 'Show me step 1 →';
+            else if (balWalkStep < total) btn.textContent = 'Next hint (step ' + (balWalkStep + 1) + ' of ' + total + ') →';
+            else btn.textContent = '💡 Just show the final answer';
+        }
+
+        /* Highlight how far the student's own coefficients have got, so the
+           walkthrough tracks their work instead of only their clicks. */
+        function markWalkProgress() {
+            const item = balanceSet[balIndex];
+            const body = document.getElementById('bal-walk-body');
+            if (!body || !item.walk) return;
+            let solvedPrefix = 0;
+            for (let i = 0; i < item.sol.length; i++) {
+                const input = balInput(i);
+                if (!input || (parseInt(input.value, 10) || 0) !== item.sol[i]) break;
+                solvedPrefix++;
+            }
+            body.querySelectorAll('.bal-step').forEach(function (step, i) {
+                step.classList.toggle('is-done', i < solvedPrefix);
+                step.classList.toggle('is-current', i === solvedPrefix && !step.hidden);
+            });
+        }
+
+        window.toggleBalanceWalk = function() {
+            const wrap = document.getElementById('bal-walk');
+            const btn = document.getElementById('bal-walk-toggle');
+            if (!wrap) return;
+            const open = wrap.classList.toggle('is-open');
+            if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         };
 
         window.showBalanceHint = function() {
             const item = balanceSet[balIndex];
-            item.sol.forEach((v, i) => { const el = document.getElementById('bal-in-' + i); if (el) el.value = v; });
+            item.sol.forEach((v, i) => { const el = balInput(i); if (el) el.value = v; });
+            balWalkStep = (item.walk || []).length;
+            renderWalkthrough();
+            const wrap = document.getElementById('bal-walk');
+            if (wrap && !wrap.classList.contains('is-open')) toggleBalanceWalk();
             calcBalance();
         };
 

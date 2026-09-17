@@ -24,6 +24,29 @@
   var SCORE_KEY = "pseb.scores.v1";
 
   var FS_MIN = 60, FS_MAX = 140, FS_STEP = 10, FS_DEFAULT = 100;
+
+  /* localStorage throws — not just returns null — when storage is blocked
+     (Safari Private Browsing, "block all cookies", some Android WebViews) and
+     when the origin is over quota. These wrappers keep one unavailable key
+     from taking down the whole enhancement layer, so bookmarks, theme and
+     language degrade to session-only instead of breaking the deck. */
+  function lsGet(key) {
+    try { return window.localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function lsSet(key, value) {
+    try { window.localStorage.setItem(key, value); return true; } catch (e) { return false; }
+  }
+  function lsGetJSON(key) {
+    var raw = lsGet(key);
+    if (!raw) return {};
+    try {
+      var parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (e) { return {}; }
+  }
+  function lsSetJSON(key, value) {
+    try { return lsSet(key, JSON.stringify(value)); } catch (e) { return false; }
+  }
   var THEME_ICONS = {
     instinct: {
       outline: "\u2637",
@@ -58,7 +81,7 @@
     return v;
   }
   function getScale() {
-    var v = parseInt(localStorage.getItem(FONTSCALE_KEY), 10);
+    var v = parseInt(lsGet(FONTSCALE_KEY), 10);
     if (isNaN(v)) return FS_DEFAULT;
     return clampScale(v);
   }
@@ -90,15 +113,14 @@
     return "env";
   }
   function getDeckTheme() {
-    var v = "";
-    try { v = localStorage.getItem(DECK_THEME_KEY) || ""; } catch (e) {}
+    var v = lsGet(DECK_THEME_KEY) || "";
     return v === "legacy" ? "legacy" : "instinct";
   }
   function applyDeckTheme(v) {
     v = v === "legacy" ? "legacy" : "instinct";
     document.documentElement.setAttribute("data-deck-theme", v);
     document.documentElement.setAttribute("data-subject-tone", chapterTone());
-    try { localStorage.setItem(DECK_THEME_KEY, v); } catch (e) {}
+    lsSet(DECK_THEME_KEY, v);
     refreshDeckChrome();
   }
   function toggleDeckTheme() {
@@ -136,7 +158,7 @@
   injectDeckThemeCss();
 
   function readProgress() {
-    try { return JSON.parse(localStorage.getItem(PROGRESS_KEY)) || {}; } catch (e) { return {}; }
+    return lsGetJSON(PROGRESS_KEY);
   }
   function parseCounter() {
     var el = document.getElementById("counter");
@@ -147,17 +169,15 @@
   }
   function saveSlide(cur, total) {
     if (CH == null) return;
-    try {
-      var all = readProgress();
-      var p = all[CH] || {};
-      p.visited = true;
-      if (total) p.total = total;
-      p.lastSlide = cur;
-      if (total && cur >= total - 1) p.done = true;
-      all[CH] = p;
-      localStorage.setItem(PROGRESS_KEY, JSON.stringify(all));
-      localStorage.setItem(LAST_KEY, String(CH));
-    } catch (e) {}
+    var all = readProgress();
+    var p = all[CH] || {};
+    p.visited = true;
+    if (total) p.total = total;
+    p.lastSlide = cur;
+    if (total && cur >= total - 1) p.done = true;
+    all[CH] = p;
+    lsSetJSON(PROGRESS_KEY, all);
+    lsSet(LAST_KEY, String(CH));
   }
   function toggleFullscreen() {
     try {
@@ -193,10 +213,10 @@
     return t || ("Slide " + (i + 1));
   }
   function readBookmarks() {
-    try { return JSON.parse(localStorage.getItem(BOOKMARK_KEY)) || {}; } catch (e) { return {}; }
+    return lsGetJSON(BOOKMARK_KEY);
   }
   function writeBookmarks(b) {
-    try { localStorage.setItem(BOOKMARK_KEY, JSON.stringify(b)); } catch (e) {}
+    return lsSetJSON(BOOKMARK_KEY, b);
   }
   function isBookmarked(i) {
     if (CH == null) return false;
@@ -221,14 +241,12 @@
   }
   function addStudySeconds(sec) {
     if (!sec || sec <= 0) return;
-    try {
-      var s = JSON.parse(localStorage.getItem(STUDY_KEY)) || {};
-      if (!s.days) s.days = {};
-      var k = todayKey();
-      s.days[k] = (s.days[k] || 0) + sec;
-      s.lastDay = k;
-      localStorage.setItem(STUDY_KEY, JSON.stringify(s));
-    } catch (e) {}
+    var s = lsGetJSON(STUDY_KEY);
+    if (!s.days) s.days = {};
+    var k = todayKey();
+    s.days[k] = (s.days[k] || 0) + sec;
+    s.lastDay = k;
+    lsSetJSON(STUDY_KEY, s);
   }
   function hashSlide() {
     var mm = /(?:slide|s)=(\d+)/i.exec(location.hash || "");
@@ -263,23 +281,133 @@
     refreshBookmarkBtn();
     toast(added ? "Bookmarked slide " + (i + 1) : "Bookmark removed");
   }
+  /* ==== Active recall: interactive cloze deletion ==========================
+     Masks the key terms on the current slide as tappable [ ??? ] blanks and
+     leaves the surrounding sentence intact, so the student has to retrieve
+     the term from context rather than stare at a blurred slab. Tapping one
+     blank reveals only that term. */
   var recallOn = false;
+  var CLOZE_MASK = "[ ??? ]";
+  /* Elements whose text is the answer itself, or is too structural to mask. */
+  var CLOZE_TARGETS = "strong, b, .accent, .accent-blue, .k, .key-term, .vocab-en";
+  var CLOZE_SKIP = /(^|\s)(pseb-|bi-actions|sci-pop|option-btn|sa-input|coef-|bal-|atom-|tracker-)/;
+
+  function clozeEligible(el) {
+    if (!el || el.__psebCloze) return false;
+    /* Widget scaffolding is instruction, not recall material. Masking a
+       walkthrough hint's key words ("balance iron (Fe) first") destroys the
+       very hint the student opened it for. */
+    if (el.closest(".pseb-tools, .pseb-rev, .pseb-outline, .sci-pop, .bal-walk, " +
+                   ".balancer-eq, .atom-tracker, button, input, textarea, select")) return false;
+    var cls = el.getAttribute("class");
+    if (cls && CLOZE_SKIP.test(cls)) return false;
+    var text = (el.textContent || "").trim();
+    /* One-word to short-phrase answers only: masking a whole sentence would
+       remove the very context the student needs. */
+    if (!text || text.length > 48) return false;
+    if (text.split(/\s+/).length > 5) return false;
+    /* These decks also use bold for run-in labels ("Raw materials:", "The
+       Slope Formula:"). Hiding the label removes the question rather than the
+       answer, so anything ending in a colon is left visible. */
+    if (/[:：]$/.test(text)) return false;
+    /* A heading is the slide's topic, not something to retrieve. */
+    if (/^H[1-6]$/.test(el.parentNode && el.parentNode.tagName || "")) return false;
+    /* Anything containing its own interactive markup is left alone. */
+    if (el.querySelector("button, input, sci-term, .sci-term, img, svg")) return false;
+    return true;
+  }
+
+  function maskSlide(root) {
+    if (!root) return 0;
+    var made = 0;
+    Array.prototype.forEach.call(root.querySelectorAll(CLOZE_TARGETS), function (el) {
+      if (!clozeEligible(el)) return;
+      el.__psebCloze = true;
+      /* Keep the original markup so reveal is lossless, and freeze the box so
+         the layout does not reflow when the mask swaps for the answer. */
+      el.setAttribute("data-cloze-html", el.innerHTML);
+      el.classList.add("pseb-cloze");
+      el.setAttribute("role", "button");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("aria-label", "Hidden term, activate to reveal");
+      el.textContent = CLOZE_MASK;
+      made++;
+    });
+    return made;
+  }
+
+  function revealCloze(el) {
+    if (!el || !el.hasAttribute("data-cloze-html")) return;
+    el.innerHTML = el.getAttribute("data-cloze-html");
+    el.classList.add("is-open");
+    el.removeAttribute("role");
+    el.removeAttribute("tabindex");
+    el.setAttribute("aria-label", "Revealed");
+  }
+
+  function unmaskAll() {
+    Array.prototype.forEach.call(document.querySelectorAll(".pseb-cloze"), function (el) {
+      if (el.hasAttribute("data-cloze-html")) el.innerHTML = el.getAttribute("data-cloze-html");
+      el.removeAttribute("data-cloze-html");
+      el.removeAttribute("role");
+      el.removeAttribute("tabindex");
+      el.removeAttribute("aria-label");
+      el.classList.remove("pseb-cloze", "is-open");
+      el.__psebCloze = false;
+    });
+  }
+
+  function currentSlideRoot() {
+    /* Decks differ: some mark the live slide, others translate a rail. Fall
+       back to the slide nearest the middle of the viewport. */
+    var active = document.querySelector(".slide.active, .slide.current");
+    if (active) return active;
+    var slides = document.querySelectorAll(".slide");
+    var mid = window.innerWidth / 2, best = null, bestDist = Infinity;
+    Array.prototype.forEach.call(slides, function (s) {
+      var r = s.getBoundingClientRect();
+      if (r.width === 0) return;
+      var d = Math.abs(r.left + r.width / 2 - mid);
+      if (d < bestDist) { bestDist = d; best = s; }
+    });
+    return best;
+  }
+
+  function applyRecallToCurrentSlide() {
+    if (!recallOn) return;
+    maskSlide(currentSlideRoot());
+  }
+
+  /* A printed handout must contain the actual content, not a page of blanks,
+     so masking is lifted for the print render and restored afterwards. */
+  window.addEventListener("beforeprint", function () {
+    if (recallOn) unmaskAll();
+  });
+  window.addEventListener("afterprint", function () {
+    if (recallOn) applyRecallToCurrentSlide();
+  });
+
   function setRecall(v) {
     recallOn = v;
     document.body.classList.toggle("pseb-recall-on", v);
-    if (!v) {
-      var rv = document.querySelectorAll(".content-box.pseb-revealed");
-      Array.prototype.forEach.call(rv, function (b) { b.classList.remove("pseb-revealed"); });
-    }
     var btn = document.getElementById("pseb-recall");
     if (btn) btn.classList.toggle("pseb-bm-on", v);
-    toast(v ? "Active recall: tap a box to reveal" : "Active recall off");
+    if (v) {
+      var n = maskSlide(currentSlideRoot());
+      toast(n ? "Active recall: tap a blank to reveal it" : "No key terms to hide on this slide");
+      if (!n) { recallOn = false; document.body.classList.remove("pseb-recall-on"); if (btn) btn.classList.remove("pseb-bm-on"); }
+    } else {
+      unmaskAll();
+      toast("Active recall off");
+    }
   }
   function toggleRecall() { setRecall(!recallOn); }
+  /* Leaving a slide resets its blanks, so returning to it re-tests rather
+     than re-showing the answers. */
   function clearRecallReveals() {
     if (!recallOn) return;
-    var rv = document.querySelectorAll(".content-box.pseb-revealed");
-    Array.prototype.forEach.call(rv, function (b) { b.classList.remove("pseb-revealed"); });
+    unmaskAll();
+    applyRecallToCurrentSlide();
   }
   function injectPrintCss() {
     if (document.getElementById("pseb-print-css")) return;
@@ -342,8 +470,22 @@
       ".pseb-outline-star{margin-left:auto;color:#FF5C00;font-size:1rem;flex:none}" +
       ".pseb-toast{position:fixed;bottom:66px;left:50%;transform:translateX(-50%) translateY(10px);background:rgba(15,23,42,.95);color:#fff;padding:10px 18px;border-radius:10px;font-family:'Segoe UI',system-ui,sans-serif;font-size:14px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:1400}" +
       ".pseb-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}" +
-      ".pseb-recall-on .content-box{filter:blur(7px);cursor:pointer;transition:filter .2s;-webkit-user-select:none;user-select:none}" +
-      ".pseb-recall-on .content-box.pseb-revealed{filter:none;-webkit-user-select:auto;user-select:auto}" +
+      /* ---- Active recall: cloze deletion --------------------------------
+         Blurring the whole slide hid the context too, so the student had
+         nothing to reason from and just switched it off again. Instead each
+         key term becomes an individually tappable blank, and the sentence
+         around it stays perfectly readable. */
+      ".pseb-cloze{display:inline-block;cursor:pointer;border-radius:6px;padding:0 .35em;" +
+        "background:var(--deck-aura-soft,rgba(0,229,255,.16));border-bottom:2px dashed var(--deck-aura,#00e5ff);" +
+        "color:var(--deck-aura,#00e5ff);font-weight:700;font-family:inherit;font-size:inherit;line-height:inherit;" +
+        "-webkit-tap-highlight-color:transparent;transition:background .18s,color .18s}" +
+      ".pseb-cloze:hover{background:var(--deck-warn,#ffaa00);color:#080808}" +
+      ".pseb-cloze:focus-visible{outline:2px solid var(--deck-warn,#ffaa00);outline-offset:2px}" +
+      /* Revealed: fade the real term back in, in place. */
+      ".pseb-cloze.is-open{background:transparent;border-bottom-color:transparent;color:inherit;" +
+        "font-weight:inherit;padding:0;cursor:default;animation:psebClozeIn .28s ease-out}" +
+      "@keyframes psebClozeIn{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:none}}" +
+      "@media (prefers-reduced-motion:reduce){.pseb-cloze.is-open{animation:none}}" +
       ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
       ".pseb-recall-on .pseb-recall-hint{display:block}" +
       "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}" +
@@ -400,7 +542,7 @@
     }
     function setScale(v, announce) {
       v = clampScale(v);
-      try { localStorage.setItem(FONTSCALE_KEY, String(v)); } catch (e) {}
+      lsSet(FONTSCALE_KEY, String(v));
       applyRootScale(v);
       refreshFontUI();
       if (announce) toast("Text size " + v + "%");
@@ -608,7 +750,7 @@
 
     var recallHint = document.createElement("div");
     recallHint.className = "pseb-recall-hint";
-    recallHint.textContent = "Active recall \u2014 tap a box to reveal";
+    recallHint.textContent = "Active recall \u2014 tap a blank to reveal it \u00b7 H to reset";
     document.body.appendChild(recallHint);
 
     document.getElementById("pseb-bookmark").addEventListener("click", doToggleBookmark);
@@ -616,8 +758,22 @@
     document.getElementById("pseb-rev").addEventListener("click", function () { if (window.__psebRevToggle) window.__psebRevToggle(); });
     document.addEventListener("click", function (e) {
       if (!recallOn) return;
-      var box = e.target && e.target.closest ? e.target.closest(".content-box") : null;
-      if (box && !box.classList.contains("pseb-revealed")) box.classList.add("pseb-revealed");
+      var blank = e.target && e.target.closest ? e.target.closest(".pseb-cloze") : null;
+      if (!blank || blank.classList.contains("is-open")) return;
+      /* Revealing a blank must not also trigger whatever sits underneath. */
+      e.preventDefault();
+      e.stopPropagation();
+      revealCloze(blank);
+    }, true);
+    document.addEventListener("keydown", function (e) {
+      if (!recallOn) return;
+      if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+      var blank = document.activeElement && document.activeElement.closest
+        ? document.activeElement.closest(".pseb-cloze")
+        : null;
+      if (!blank || blank.classList.contains("is-open")) return;
+      e.preventDefault();
+      revealCloze(blank);
     });
     refreshBookmarkBtn();
   }
@@ -829,28 +985,21 @@
   window.psebOpticsPosition = function (pos) {
     var lab = document.getElementById("optics-lab");
     if (!lab) return;
-    /* Stage geometry (deck-theme.css): C mark 36%, F mark 62%, P/mirror ~84-88%.
-       objLeft walks the object arrow through the five exam positions;
-       the image arrow height is relative to the fixed 62% object height. */
     var cases = {
-      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", screen:"Can be caught on a screen", objLeft:"22%", left:"57%", height:"42%" },
-      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", screen:"Can be caught on a screen", objLeft:"36%", left:"35%", height:"62%" },
-      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", screen:"Can be caught on a screen", objLeft:"49%", left:"13%", height:"90%" },
+      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", screen:"Can be caught on a screen", left:"57%", height:"42%" },
+      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", screen:"Can be caught on a screen", left:"35%", height:"68%" },
+      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", screen:"Can be caught on a screen", left:"13%", height:"90%" },
       /* At F the reflected rays leave parallel, so the image is real but forms
          at infinity — there is no screen position that catches it. */
-      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", screen:"Real, but formed at infinity — no screen can catch it", objLeft:"62%", left:"4%", height:"96%", infinity:true },
-      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", screen:"Cannot be caught on a screen", objLeft:"73%", left:"91%", height:"86%", virtual:true }
+      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", screen:"Real, but formed at infinity — no screen can catch it", left:"4%", height:"96%" },
+      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", screen:"Cannot be caught on a screen", left:"88%", height:"86%" }
     };
     var item = cases[pos];
     lab.querySelectorAll("[data-optics-pos]").forEach(function (b) { b.classList.toggle("active", b.dataset.opticsPos === pos); });
-    var objArrow = lab.querySelector(".optics-object-arrow");
-    if (objArrow) objArrow.style.left = item.objLeft;
     var arrow = lab.querySelector(".optics-image-arrow");
     arrow.style.left = item.left;
     arrow.style.height = item.height;
     arrow.classList.toggle("erect", pos === "inside");
-    arrow.classList.toggle("virtual", !!item.virtual);
-    arrow.classList.toggle("infinity", !!item.infinity);
     lab.querySelector(".optics-object").textContent = item.object;
     lab.querySelector(".optics-image").textContent = item.image;
     lab.querySelector(".optics-nature").textContent = item.nature;
@@ -1029,16 +1178,22 @@
   function loadBiVoices() {
     try { biVoices = window.speechSynthesis ? window.speechSynthesis.getVoices() : []; } catch (e) { biVoices = []; }
   }
+  /* Voice lists populate asynchronously and are empty in some browsers.
+     Match on the language prefix only — a substring match would happily
+     return an unrelated locale. */
   function pickVoice(lang) {
     if (!biVoices.length) loadBiVoices();
-    var pref = lang === "pa" ? ["pa-in", "pa-", "hi-in", "hi-"] : ["en-in", "en-gb", "en-us", "en-"];
+    var pref = lang === "pa" ? ["pa-in", "pa_in", "pa-", "pa"] : ["en-in", "en-gb", "en-us", "en-", "en"];
     for (var p = 0; p < pref.length; p++) {
       for (var i = 0; i < biVoices.length; i++) {
-        var vl = (biVoices[i].lang || "").toLowerCase();
-        if (vl.indexOf(pref[p]) === 0 || vl.indexOf(pref[p]) !== -1) return biVoices[i];
+        var vl = (biVoices[i].lang || "").toLowerCase().replace("_", "-");
+        if (vl === pref[p] || vl.indexOf(pref[p] + "-") === 0 || vl.indexOf(pref[p]) === 0) return biVoices[i];
       }
     }
     return null;
+  }
+  function speechReady() {
+    return "speechSynthesis" in window && typeof window.SpeechSynthesisUtterance !== "undefined";
   }
   function biStop() {
     try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {}
@@ -1048,7 +1203,7 @@
     });
   }
   function biSpeak(box, btn) {
-    if (!("speechSynthesis" in window)) { alert("Text-to-speech is not supported in this browser."); return; }
+    if (!speechReady()) { toast("Text-to-speech is not available in this browser"); return; }
     biStop();
     var enShown = box.classList.contains("show-en");
     var el = box.querySelector(enShown ? ".bi-en" : ".bi-pa");
@@ -1056,9 +1211,19 @@
     var lang = enShown ? "en" : "pa";
     var text = (el.innerText || el.textContent || "").trim();
     if (!text) return;
-    window.speechSynthesis.cancel();
-    try { window.speechSynthesis.resume(); } catch (e) {}
     var voice = pickVoice(lang);
+    /* No Punjabi voice installed (common on desktop and older Android):
+       handing Gurmukhi text to an English engine produces silence or
+       spelled-out nonsense, and often never fires onend — which is what
+       used to leave the button stuck on "speaking". Stop before that. */
+    if (lang === "pa" && !voice) {
+      toast("No Punjabi voice on this device \u2014 switch to English to listen");
+      return;
+    }
+    try {
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.resume();
+    } catch (e) {}
     var sentences = (text.match(/[^.!?।]+[.!?।]*/g) || [text]).map(function (s) { return s.trim(); }).filter(Boolean);
     var i = 0;
     if (!btn.getAttribute("data-idle")) btn.setAttribute("data-idle", btn.textContent);
@@ -1066,13 +1231,22 @@
     btn.textContent = "🔊 …";
     function next() {
       if (i >= sentences.length) { biStop(); return; }
-      var u = new SpeechSynthesisUtterance(sentences[i]);
-      u.lang = enShown ? "en-IN" : "pa-IN";
-      if (voice) u.voice = voice;
-      u.rate = 0.9;
-      u.onend = function () { i++; next(); };
-      u.onerror = function () { i++; next(); };
-      window.speechSynthesis.speak(u);
+      var advanced = false;
+      function step() { if (advanced) return; advanced = true; i++; next(); }
+      try {
+        var u = new SpeechSynthesisUtterance(sentences[i]);
+        u.lang = voice && voice.lang ? voice.lang : (enShown ? "en-IN" : "pa-IN");
+        if (voice) u.voice = voice;
+        u.rate = 0.9;
+        u.onend = step;
+        u.onerror = step;
+        /* Watchdog: a sentence that never reports back must not strand the
+           reader on the current sentence forever. */
+        setTimeout(step, Math.min(30000, 3000 + sentences[i].length * 130));
+        window.speechSynthesis.speak(u);
+      } catch (e) {
+        biStop();
+      }
     }
     next();
   }
@@ -1113,8 +1287,7 @@
   // chapter. Toggling any reading (or the toolbar ਪੰ/EN button, or key L)
   // switches ALL readings and is remembered across chapters and visits.
   function getLangPref() {
-    var v = "";
-    try { v = localStorage.getItem(LANG_KEY) || ""; } catch (e) {}
+    var v = lsGet(LANG_KEY) || "";
     return v === "en" ? "en" : "pa";
   }
   function applyLang(lang, announce) {
@@ -1132,7 +1305,7 @@
         t.setAttribute("aria-pressed", toEn ? "true" : "false");
       }
     });
-    try { localStorage.setItem(LANG_KEY, toEn ? "en" : "pa"); } catch (e) {}
+    lsSet(LANG_KEY, toEn ? "en" : "pa");
     var b = document.getElementById("pseb-lang");
     if (b) {
       b.textContent = toEn ? "EN" : "\u0a2a\u0a70";
@@ -1229,10 +1402,10 @@
   // correctly) so Quick Revision can put them first. Finishing a quiz shows a
   // score toast.
   function readScores() {
-    try { return JSON.parse(localStorage.getItem(SCORE_KEY)) || {}; } catch (e) { return {}; }
+    return lsGetJSON(SCORE_KEY);
   }
   function writeScores(s) {
-    try { localStorage.setItem(SCORE_KEY, JSON.stringify(s)); } catch (e) {}
+    return lsSetJSON(SCORE_KEY, s);
   }
   function qText(qDiv) {
     var q = qDiv.getAttribute("data-q") || "";
@@ -1311,10 +1484,31 @@
       ".pseb-rev-close{border:none;background:#f1f5f9;color:#334155;width:32px;height:32px;border-radius:8px;font-size:18px;cursor:pointer}" +
       ".pseb-rev-close:hover{background:#e2e8f0}" +
       ".pseb-rev p,.pseb-rev li{color:#1e293b!important}" +
-      ".pseb-rev-card{overflow-y:auto;border:1px solid #e2e8f0;border-left:5px solid #FF5C00;border-radius:12px;padding:18px 20px;background:#f8fafc}" +
+      /* Progress: mastered vs. total for the session. */
+      ".pseb-rev-progress{display:flex;flex-direction:column;gap:5px}" +
+      ".pseb-rev-progress-labels{display:flex;justify-content:space-between;font-size:.82rem;font-weight:700;color:#475569;letter-spacing:.02em}" +
+      ".pseb-rev-progress-bar{height:8px;border-radius:99px;background:#e2e8f0;overflow:hidden}" +
+      ".pseb-rev-progress-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#10B981,#34d399);transition:width .35s cubic-bezier(.4,0,.2,1)}" +
+      /* 3D flip. The scene owns the perspective; the inner element is what
+         actually rotates, so both faces stay in the same box and the card
+         never "jumps" between question and answer. Nothing between the
+         perspective and the rotating element sets `overflow`, which would
+         flatten the 3D context in WebKit. */
+      ".pseb-rev-scene{perspective:1400px;flex:1;min-height:0;display:flex}" +
+      ".pseb-rev-flip{position:relative;flex:1;transition:transform .45s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}" +
+      ".pseb-rev-scene.is-flipped .pseb-rev-flip{transform:rotateY(180deg)}" +
+      ".pseb-rev-face{backface-visibility:hidden;-webkit-backface-visibility:hidden;box-sizing:border-box;border:1px solid #e2e8f0;border-left:5px solid #FF5C00;border-radius:12px;padding:18px 20px;background:#f8fafc;overflow-y:auto}" +
+      ".pseb-rev-front{max-height:56vh}" +
+      ".pseb-rev-back{position:absolute;inset:0;transform:rotateY(180deg);border-left-color:#0047BB}" +
+      /* Keep the face turned away from the student un-clickable. */
+      ".pseb-rev-scene:not(.is-flipped) .pseb-rev-back{pointer-events:none}" +
+      ".pseb-rev-scene.is-flipped .pseb-rev-front{pointer-events:none}" +
       ".pseb-rev-tag{display:inline-block;background:#FF5C00;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:8px}" +
+      ".pseb-rev-tag.tag-hint{background:#64748b}" +
       ".pseb-rev-q{font-size:1.25rem;font-weight:700;line-height:1.5;margin:0}" +
-      ".pseb-rev-a{margin-top:14px;padding-top:14px;border-top:1px dashed #cbd5e1}" +
+      /* The answer is now the whole back face, so the divider that used to
+         separate it from the question underneath is no longer meaningful. */
+      ".pseb-rev-a{margin:0;padding:0}" +
       ".pseb-rev-a[hidden]{display:none}" +
       ".pseb-rev-a .ans{font-size:1.3rem;font-weight:800;color:#0047BB!important;margin:0}" +
       ".pseb-rev-a .ans-pa{font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Mukta Mahee',sans-serif);font-size:1.15rem;color:#475569!important;margin:4px 0 0}" +
@@ -1331,7 +1525,17 @@
       ".pseb-rev-got:hover{background:#0e9f6e}" +
       ".pseb-rev-summary{text-align:center;padding:26px 10px}" +
       ".pseb-rev-summary .big{font-size:1.5rem;font-weight:800;color:#0047BB!important;margin:0 0 8px}" +
-      ".pseb-rev-summary p{margin:0;color:#475569!important}";
+      ".pseb-rev-summary p{margin:0;color:#475569!important}" +
+      ".pseb-rev-summary .tally{margin-top:12px;font-size:1.05rem;font-weight:700;color:#10B981!important}" +
+      "@media (prefers-reduced-motion:reduce){.pseb-rev-flip{transition:none}.pseb-rev-progress-fill{transition:none}}" +
+      /* Flipping needs real 3D; if the browser cannot do it, fall back to a
+         plain show/hide so the answer is still reachable. */
+      "@supports not (transform-style:preserve-3d){" +
+        ".pseb-rev-flip{transform:none!important}" +
+        ".pseb-rev-back{position:static;transform:none;margin-top:12px}" +
+        ".pseb-rev-scene:not(.is-flipped) .pseb-rev-back{display:none}" +
+        ".pseb-rev-scene.is-flipped .pseb-rev-front{display:none}" +
+      "}";
     document.head.appendChild(s);
   }
   var revState = null;
@@ -1351,7 +1555,19 @@
           '<span class="pseb-rev-count"></span>' +
           '<button type="button" class="pseb-rev-close" aria-label="Close">\u00d7</button>' +
         '</div>' +
-        '<div class="pseb-rev-card"></div>' +
+        '<div class="pseb-rev-progress">' +
+          '<div class="pseb-rev-progress-labels">' +
+            '<span class="pseb-rev-mastered"></span>' +
+            '<span class="pseb-rev-total"></span>' +
+          '</div>' +
+          '<div class="pseb-rev-progress-bar" role="progressbar" aria-label="Cards mastered" aria-valuemin="0" aria-valuenow="0" aria-valuemax="0">' +
+            '<div class="pseb-rev-progress-fill"></div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="pseb-rev-scene"><div class="pseb-rev-flip">' +
+          '<div class="pseb-rev-face pseb-rev-front"></div>' +
+          '<div class="pseb-rev-face pseb-rev-back"></div>' +
+        '</div></div>' +
         '<div class="pseb-rev-actions"></div>' +
       '</div>';
     document.body.appendChild(back);
@@ -1360,7 +1576,15 @@
     revEls = {
       back: back,
       count: back.querySelector(".pseb-rev-count"),
-      card: back.querySelector(".pseb-rev-card"),
+      scene: back.querySelector(".pseb-rev-scene"),
+      flip: back.querySelector(".pseb-rev-flip"),
+      front: back.querySelector(".pseb-rev-front"),
+      face: back.querySelector(".pseb-rev-back"),
+      progress: back.querySelector(".pseb-rev-progress"),
+      progressBar: back.querySelector(".pseb-rev-progress-bar"),
+      fill: back.querySelector(".pseb-rev-progress-fill"),
+      mastered: back.querySelector(".pseb-rev-mastered"),
+      total: back.querySelector(".pseb-rev-total"),
       actions: back.querySelector(".pseb-rev-actions")
     };
   }
@@ -1406,17 +1630,50 @@
     }
     return cards;
   }
+  /* Mini-Leitner: "Review again" re-queues the card a few positions later so
+     it comes back inside the same session but not immediately, which is the
+     whole point of spaced recall. "Mastered" retires it and moves the bar. */
+  var REV_REQUEUE_GAP = 5;
+  function revProgress() {
+    var st = revState;
+    if (!st || !revEls) return;
+    var pct = st.total ? Math.round((st.mastered / st.total) * 100) : 0;
+    revEls.fill.style.width = pct + "%";
+    revEls.mastered.textContent = "Mastered: " + st.mastered + " / " + st.total;
+    revEls.total.textContent = st.queue.length
+      ? st.queue.length + " in queue"
+      : "\u0a38\u0a3e\u0a30\u0a47 \u0a39\u0a4b \u0a17\u0a0f \u00b7 all done";
+    revEls.progressBar.setAttribute("aria-valuenow", String(st.mastered));
+    revEls.progressBar.setAttribute("aria-valuemax", String(st.total));
+  }
+  function revFlip(v) {
+    if (!revEls) return;
+    revEls.scene.classList.toggle("is-flipped", !!v);
+    /* Keep the hidden face out of the tab order and the a11y tree. */
+    revEls.front.setAttribute("aria-hidden", v ? "true" : "false");
+    revEls.face.setAttribute("aria-hidden", v ? "false" : "true");
+  }
+  function sizeFlip() {
+    if (!revEls) return;
+    var cap = Math.round(window.innerHeight * 0.56);
+    var want = Math.max(revEls.front.scrollHeight, revEls.face.scrollHeight);
+    revEls.flip.style.minHeight = Math.min(want, cap) + "px";
+  }
   function revRender() {
     var st = revState;
     if (!st || !revEls) return;
     if (!st.queue.length) {
+      revFlip(false);
       revEls.count.textContent = "";
-      revEls.card.innerHTML =
+      revEls.front.innerHTML =
         '<div class="pseb-rev-summary">' +
           '<p class="big">\u0a36\u0a3e\u0a2c\u0a3e\u0a36! Round complete</p>' +
           '<p>' + st.total + ' card' + (st.total === 1 ? "" : "s") + ' revised \u00b7 ' +
           st.repeats + ' repeat' + (st.repeats === 1 ? "" : "s") + '</p>' +
+          '<p class="tally">\u2705 Mastered ' + st.mastered + ' / ' + st.total + '</p>' +
         '</div>';
+      revEls.face.innerHTML = "";
+      revProgress();
       revEls.actions.innerHTML =
         '<button type="button" class="pseb-rev-again">Restart \u21ba</button>' +
         '<button type="button" class="pseb-rev-got">Done \u2713</button>';
@@ -1425,37 +1682,55 @@
       return;
     }
     var c = st.queue[0];
-    revEls.count.textContent = (st.total - st.queue.length + 1) + " / " + st.total +
+    revFlip(false);
+    revEls.count.textContent = Math.min(st.mastered + 1, st.total) + " / " + st.total +
       (st.queue.length > 1 ? " \u00b7 " + (st.queue.length - 1) + " left" : "");
-    var h = "";
-    if (c.tricky) h += '<span class="pseb-rev-tag">Tricky \u00b7 \u0a14\u0a16\u0a3e</span>';
-    h += '<p class="pseb-rev-q">' + esc(c.q) + '</p>';
-    h += '<div class="pseb-rev-a" hidden>';
-    h += '<p class="ans">' + esc(c.a) + '</p>';
-    if (c.pa) h += '<p class="ans-pa">' + esc(c.pa) + '</p>';
+
+    var front = "";
+    if (c.tricky) front += '<span class="pseb-rev-tag">Tricky \u00b7 \u0a14\u0a16\u0a3e</span>';
+    else if (c.repeats) front += '<span class="pseb-rev-tag tag-hint">Second look \u00b7 \u0a26\u0a4b\u0a2c\u0a3e\u0a30\u0a3e</span>';
+    front += '<p class="pseb-rev-q">' + esc(c.q) + '</p>';
+    revEls.front.innerHTML = front;
+
+    var back = '<div class="pseb-rev-a">';
+    back += '<p class="ans">' + esc(c.a) + '</p>';
+    if (c.pa) back += '<p class="ans-pa">' + esc(c.pa) + '</p>';
     if (c.why || c.whyPa) {
-      h += '<div class="why">' + esc(c.why) +
+      back += '<div class="why">' + esc(c.why) +
         (c.whyPa ? '<span class="why-pa">' + esc(c.whyPa) + '</span>' : "") + '</div>';
     }
-    h += '</div>';
-    revEls.card.innerHTML = h;
+    back += '</div>';
+    revEls.face.innerHTML = back;
+    /* The back face is absolutely positioned, so the rotating box has to
+       reserve the taller of the two faces or a long answer would be clipped
+       mid-flip — capped so the modal itself never outgrows the viewport. */
+    revEls.flip.style.minHeight = "";
+    sizeFlip();
+
+    revProgress();
     revEls.actions.innerHTML =
       '<button type="button" class="pseb-rev-reveal">Show answer \u00b7 \u0a1c\u0a35\u0a3e\u0a2c</button>';
     revEls.actions.querySelector(".pseb-rev-reveal").addEventListener("click", function () {
-      var a = revEls.card.querySelector(".pseb-rev-a");
-      if (a) a.hidden = false;
+      revFlip(true);
+      sizeFlip();
       revEls.actions.innerHTML =
-        '<button type="button" class="pseb-rev-again">Again \u21ba \u00b7 \u0a2b\u0a3f\u0a30</button>' +
-        '<button type="button" class="pseb-rev-got">Got it \u2713 \u00b7 \u0a06 \u0a17\u0a3f\u0a06</button>';
+        '<button type="button" class="pseb-rev-again">\uD83D\uDD01 Review again \u00b7 \u0a2b\u0a3f\u0a30</button>' +
+        '<button type="button" class="pseb-rev-got">\u2705 Mastered \u00b7 \u0a06 \u0a17\u0a3f\u0a06</button>';
       revEls.actions.querySelector(".pseb-rev-again").addEventListener("click", function () {
         st.repeats++;
+        st.seen++;
         var card = st.queue.shift();
-        card.tricky = true;
-        st.queue.push(card);
+        card.repeats = (card.repeats || 0) + 1;
+        /* Splice it back a few cards in, not at the very end, so a short
+           deck still re-tests it before the round closes. */
+        var at = Math.min(REV_REQUEUE_GAP, st.queue.length);
+        st.queue.splice(at, 0, card);
         revRender();
       });
       revEls.actions.querySelector(".pseb-rev-got").addEventListener("click", function () {
         st.queue.shift();
+        st.seen++;
+        st.mastered++;
         revRender();
       });
     });
@@ -1469,7 +1744,7 @@
     buildRev();
     var cards = collectRevCards();
     if (!cards.length) { toast("No revision cards in this chapter"); return; }
-    revState = { queue: cards, total: cards.length, repeats: 0 };
+    revState = { queue: cards, total: cards.length, repeats: 0, mastered: 0, seen: 0 };
     revRender();
     revShow(true);
   }
@@ -1481,27 +1756,36 @@
 
   // ==== Gurmukhi-aware text-to-speech =======================================
   // The per-chapter speakWord() is English-only. Wrap it so any text that
-  // contains Gurmukhi script is spoken with a Punjabi (pa-IN) voice instead.
+  // contains Gurmukhi script is spoken with a Punjabi (pa-IN) voice instead —
+  // and, when the device has no Punjabi voice at all, say so rather than
+  // handing Gurmukhi to an English engine and leaving the button highlighted.
   function patchSpeakWord() {
     var orig = window.speakWord;
     window.speakWord = function (text, btn) {
       var t = String(text == null ? "" : text);
-      if (/[\u0A00-\u0A7F]/.test(t) && "speechSynthesis" in window) {
+      if (/[\u0A00-\u0A7F]/.test(t)) {
+        if (!speechReady()) { toast("Text-to-speech is not available in this browser"); return; }
+        var v = pickVoice("pa");
+        if (!v) { toast("No Punjabi voice on this device"); return; }
         try {
           window.speechSynthesis.cancel();
           var u = new SpeechSynthesisUtterance(t);
-          u.lang = "pa-IN";
-          var v = pickVoice("pa");
-          if (v) u.voice = v;
+          u.voice = v;
+          u.lang = v.lang || "pa-IN";
           u.rate = 0.85;
           if (btn) {
             btn.style.backgroundColor = "#D1FAE5";
-            u.onend = function () { btn.style.backgroundColor = ""; };
-            u.onerror = function () { btn.style.backgroundColor = ""; };
+            var clear = function () { btn.style.backgroundColor = ""; };
+            u.onend = clear;
+            u.onerror = clear;
+            setTimeout(clear, Math.min(12000, 1600 + t.length * 120));
           }
           window.speechSynthesis.speak(u);
           return;
-        } catch (e) {}
+        } catch (e) {
+          if (btn) btn.style.backgroundColor = "";
+          return;
+        }
       }
       if (typeof orig === "function") orig(text, btn);
     };

@@ -1,7 +1,14 @@
 /*
- * bolo.instinct — global support widget
+ * bolo.instinct — support prompt
  * Self-contained: injects its own CSS + HTML on any page it is loaded on.
- * Appears site-wide (main menu, chapter decks, interactive slides, MCQ).
+ *
+ * Two presentations, chosen by the host page:
+ *   • Main menu only (body[data-support="widget"]): the full yellow floating
+ *     "Support BOLO" button with its pop-out card.
+ *   • Everywhere else (lectures, interactive slides, MCQ): a quiet
+ *     "Buy me a coffee" text link, so nothing floats over the lesson or
+ *     competes with the deck controls while a student is studying.
+ *
  * Handle: https://buymeacoffee.com/bolo.instinct
  */
 (function () {
@@ -79,6 +86,22 @@
     '.bmc-widget.bmc-raise{bottom:92px;}' +
     '@media (max-width:520px){.bmc-widget.bmc-raise{bottom:84px;}}';
 
+  // Lecture / slide / quiz pages: an unobtrusive text link, no float, no
+  // animation, no auto-opening card. It inherits the deck palette so it works
+  // in both the dark instinct theme and the light legacy theme.
+  var LINK_CSS =
+    '.bmc-link{position:fixed;right:14px;bottom:12px;z-index:1150;display:inline-flex;' +
+    'align-items:center;gap:6px;padding:6px 10px;border-radius:999px;' +
+    'font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:0.76rem;' +
+    'font-weight:600;letter-spacing:0.2px;text-decoration:none;' +
+    'color:var(--deck-text,inherit);background:transparent;border:1px solid transparent;' +
+    'opacity:0.5;transition:opacity .2s ease,color .2s ease,border-color .2s ease;}' +
+    '.bmc-link:hover,.bmc-link:focus-visible{opacity:1;color:#FBB034;' +
+    'border-color:rgba(251,176,52,0.45);outline:none;}' +
+    '.bmc-link-icon{font-size:0.95rem;line-height:1;}' +
+    '@media (max-width:520px){.bmc-link{right:10px;bottom:8px;font-size:0.7rem;padding:5px 8px;}}' +
+    '@media print{.bmc-link{display:none;}}';
+
   var HTML =
     '<div class="bmc-card" role="dialog" aria-label="Support bolo.instinct" aria-hidden="true">' +
       '<button class="bmc-close" type="button" aria-label="Close">&times;</button>' +
@@ -97,7 +120,34 @@
       '<span class="bmc-toggle-label">Support BOLO</span>' +
     '</button>';
 
+  // Only the main menu asks for support with the big yellow button.
+  function isMainMenu() {
+    var body = document.body;
+    return !!(body && body.getAttribute("data-support") === "widget");
+  }
+
+  function initLink() {
+    if (document.getElementById("bmc-link")) return;
+
+    var style = document.createElement("style");
+    style.id = "bmc-coffee-style";
+    style.textContent = LINK_CSS;
+    document.head.appendChild(style);
+
+    var link = document.createElement("a");
+    link.id = "bmc-link";
+    link.className = "bmc-link";
+    link.href = BMC_URL;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.title = "Buy me a coffee — support BOLO.INSTINCT";
+    link.innerHTML = '<span class="bmc-link-icon" aria-hidden="true">\u2615</span>' +
+      '<span>Buy me a coffee</span>';
+    document.body.appendChild(link);
+  }
+
   function init() {
+    if (!isMainMenu()) { initLink(); return; }
     if (document.getElementById("bmc-widget")) return;
 
     var style = document.createElement("style");
