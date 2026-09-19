@@ -114,6 +114,7 @@
     background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px);
     background-size: 32px 32px;
     animation: deltaWave 8s infinite ease-in-out;
+    contain: paint;
     will-change: transform;
   }
 
@@ -128,8 +129,13 @@
     background: var(--aura-base);
     transition: background 1s var(--fluid-curve);
     animation: auraBreathe 10s ease-in-out infinite;
+    contain: paint;
+    will-change: transform, opacity;
     pointer-events: none;
   }
+
+  body.ambience-paused .neural-mesh,
+  body.ambience-paused .aura-bleed { animation-play-state: paused; }
 
   /* Page hand-off veil. Earlier builds grew a hard-edged white circle out of
      the centre, which flashed white in CLASSIC and felt abrupt in NEON. This
@@ -145,7 +151,7 @@
     pointer-events: none;
     background: transparent;
     color: var(--aura-chem);
-    transition: opacity 0.34s var(--fluid-curve);
+    transition: opacity 0.19s var(--fluid-curve);
     will-change: opacity;
   }
   .gateway-core::before { content: ''; position: absolute; inset: 0; background: var(--bg-void); opacity: var(--veil-solid); }
@@ -157,7 +163,7 @@
   @keyframes veilFadeOut { from { opacity: 1; } to { opacity: 0; } }
   /* Arrival half of the same dissolve: the veil is already opaque on the very
      first paint, then melts away to reveal the menu. */
-  body.page-enter .gateway-core { animation: veilFadeOut 0.52s var(--fluid-curve) forwards; }
+  body.page-enter .gateway-core { animation: veilFadeOut 0.32s var(--fluid-curve) forwards; }
 
   .web-utility-header {
     position: fixed;
@@ -549,9 +555,17 @@
     .round-trigger.theme-trigger { min-width: 42px; padding: 0 10px; }
     .theme-trigger-label { display: none; }
     .toast-notify { right: 16px; bottom: max(74px, env(safe-area-inset-bottom)); }
+    .neural-mesh, .aura-bleed { animation: none; }
+    .neural-mesh { opacity: 0.035; }
+    .aura-bleed { opacity: 0.72; }
+  }
+  @media (pointer: coarse) and (min-width: 769px) {
+    .neural-mesh, .aura-bleed { animation: none; }
+    .neural-mesh { opacity: 0.035; }
+    .aura-bleed { opacity: 0.72; }
   }
   @media (max-height: 700px) and (min-width: 769px) { :root { --radius: clamp(140px, 27vh, 220px); } .arena { padding-top: clamp(64px, 12vh, 96px); } .web-utility-header { padding-top: max(18px, env(safe-area-inset-top)); } }
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } .neural-mesh, .aura-bleed { animation: none !important; } }
 </style>
 <!-- Gurmukhi diacritic-safe typography (loaded last so it wins on ties) -->
 <link rel="preload" href="assets/fonts/noto-sans-gurmukhi-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -727,6 +741,14 @@
      so the desktop orb reacts as energetically as the mobile one. */
   function measureOrbUnit() { orbUnit = (coreMass.offsetWidth || 86) / 86; }
   function reducedMotion() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+  function syncAmbience() { document.body.classList.toggle("ambience-paused", document.hidden); }
+  document.addEventListener("visibilitychange", syncAmbience);
+  syncAmbience();
+  function pageHandoffDuration() {
+    if (reducedMotion()) return 80;
+    try { if (window.matchMedia("(pointer: coarse)").matches) return 160; } catch (e) {}
+    return 190;
+  }
   const subjectContent = {
     SCIENCE: { name: "Science", courseTitle: "Science in Punjabi" },
     MATH: { name: "Math", courseTitle: "Math in Punjabi" },
@@ -841,7 +863,7 @@
   /* Single hand-off used by every outbound navigation: fade the veil in, then
      leave. The deck fades its own matching veil out on arrival, so the two
      pages read as one continuous transition instead of a hard cut. */
-  function navigateWithVeil(href, accent) { gatewayCore.style.color = accent || "#00e5ff"; document.body.classList.add("gateway-active"); soundGateway(); const delay = reducedMotion() ? 120 : 330; setTimeout(() => { window.location.href = href; }, delay); }
+  function navigateWithVeil(href, accent) { gatewayCore.style.color = accent || "#00e5ff"; document.body.classList.add("gateway-active"); soundGateway(); setTimeout(() => { window.location.href = href; }, pageHandoffDuration()); }
   function openLecture(ch, sourceEvent, slideIndex) { if (ch.placeholder || !ch.file) { showToast("ਇਹ ਲੈਕਚਰ ਜਲਦੀ ਜੋੜਿਆ ਜਾਵੇਗਾ। (Lecture coming soon)"); return; } setVisited(ch); /* deck-enhance.js reads a 1-based #slide=N, our index is 0-based. */ const href = typeof slideIndex === "number" && slideIndex >= 0 ? ch.file + "#slide=" + (slideIndex + 1) : ch.file; navigateWithVeil(href, auras[ch.type]); }
   function updateResume() { const lastN = parseInt(localStorage.getItem(LAST_KEY) || "", 10); const ch = syllabus.find(c => c.id === lastN && !c.placeholder); if (!ch) { resumeBtn.hidden = true; return; } resumeBtn.hidden = false; resumeText.textContent = "Ch " + ch.id; resumeBtn.onclick = () => openLecture(ch, null); }
   function updateStudyHud() { const days = readStudy().days || {}; const streak = computeStreak(days); streakCount.textContent = streak + (streak === 1 ? " Day" : " Days"); }
