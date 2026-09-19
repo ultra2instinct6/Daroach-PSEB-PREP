@@ -749,6 +749,7 @@
 <script src="assets/chapters.js"></script>
 <script src="assets/glossary.js"></script>
 <script src="assets/flash-data.js"></script>
+<script src="assets/flash-extra-concepts.js"></script>
 <script>
 (function () {
   "use strict";
@@ -766,6 +767,7 @@
   const GLOSSARY = (window.PSEB_GLOSSARY && window.PSEB_GLOSSARY.terms) || [];
   const toGurPh = (window.PSEB_GLOSSARY && window.PSEB_GLOSSARY.gurmukhiPhonetic) || function () { return ""; };
   const FD = window.PSEB_FLASH_DATA || { roots: {}, split: {}, terms: {} };
+  const EXTRA_CONCEPTS = window.PSEB_FLASH_EXTRA_CONCEPTS || { overrides: {}, cards: [] };
 
   const SUBJECT_VAR = { chemistry: "--chem", biology: "--bio", physics: "--phy", environment: "--env" };
   const SUBJECT_PA = { chemistry: "ਰਸਾਇਣ", biology: "ਜੀਵ ਵਿਗਿਆਨ", physics: "ਭੌਤਿਕ", environment: "ਵਾਤਾਵਰਣ" };
@@ -902,19 +904,32 @@
     const nodes = doc.querySelectorAll("[data-q][data-a]");
     const cards = [];
     nodes.forEach((el, i) => {
-      const q = el.getAttribute("data-q") || "";
-      const a = el.getAttribute("data-a") || "";
+      const sourceQ = el.getAttribute("data-q") || "";
+      const upgrade = EXTRA_CONCEPTS.overrides[sourceQ] || {};
+      const q = upgrade.q || sourceQ;
+      const a = upgrade.a || el.getAttribute("data-a") || "";
       if (!q || !a) return;
       const hit = enrichFor(a, q);
       cards.push({
         id: "c:" + chNum + ":" + (el.id || i), kind: "C", ch: chNum,
         q: q, a: a,
-        pa: el.getAttribute("data-pa") || "",
-        ex: el.getAttribute("data-explain") || "",
-        exPa: el.getAttribute("data-explain-pa") || "",
+        pa: upgrade.pa || el.getAttribute("data-pa") || "",
+        ex: upgrade.ex || el.getAttribute("data-explain") || "",
+        exPa: upgrade.exPa || el.getAttribute("data-explain-pa") || "",
         term: hit ? hit.key : "",
         extra: hit ? hit.data : null,
         vvip: !!(hit && hit.data.vvip)
+      });
+    });
+    EXTRA_CONCEPTS.cards.filter(card => card.ch === chNum).forEach((card, i) => {
+      const hit = enrichFor(card.a, card.q);
+      cards.push({
+        id: "c:" + chNum + ":extra-" + (i + 1), kind: "C", ch: chNum,
+        q: card.q, a: card.a, pa: card.pa || "",
+        ex: card.ex || "", exPa: card.exPa || "",
+        term: hit ? hit.key : "",
+        extra: hit ? hit.data : null,
+        vvip: !!card.vvip || !!(hit && hit.data.vvip)
       });
     });
     return cards;
@@ -1082,12 +1097,15 @@
     if (!("speechSynthesis" in window) || !text) return "";
     return '<button class="tts-btn" type="button" data-tts="' + esc(text) + '" aria-label="Speak">🔊</button>';
   }
-  function faceTop(card, kicker) {
+  /* `spokenText` must always be text that is *already visible on this exact
+     face*, so the speaker button can never say the answer before the card is
+     flipped — never pass an answer-only field in here for a front face. */
+  function faceTop(card, kicker, spokenText) {
     const ch = CH_BY_N[card.ch];
     return '<div class="face-top"><span class="card-tag" title="' + esc(ch ? ch.title : "") + '">' + esc(chapterLabel(card)) + '</span>' +
       '<span class="card-kicker">' + kicker + '</span>' +
       (card.vvip ? '<span class="vvip-tag">★ VVIP</span>' : "") +
-      ttsButton(card.kind === "V" ? card.en : card.a) + '</div>';
+      ttsButton(spokenText) + '</div>';
   }
   function rootsStrip(termEn) {
     const parts = rootsFor(termEn);
@@ -1129,7 +1147,7 @@
       const frontText = enFront ? card.en : card.pa;
       const backText = enFront ? card.pa : card.en;
       front =
-        faceTop(card, "ਸ਼ਬਦ · Term") +
+        faceTop(card, "ਸ਼ਬਦ · Term", frontText) +
         '<div class="card-body custom-scroll">' +
           '<div class="card-main' + (enFront ? "" : " gurmukhi") + '">' + esc(frontText) + '</div>' +
           (enFront && card.ph ? '<div class="card-phonetic">' + esc(card.ph) + '</div>' : "") +
@@ -1138,7 +1156,7 @@
         '<div class="face-foot">Tap / Space ਉਲਟਾਓ</div>';
       const gurPh = card.ph ? toGurPh(card.ph) : "";
       back =
-        faceTop(card, "ਜਵਾਬ · Answer") +
+        faceTop(card, "ਜਵਾਬ · Answer", card.en) +
         '<div class="card-body custom-scroll">' +
           '<div class="answer-head">' +
             '<div class="card-answer' + (enFront ? " gurmukhi" : "") + '">' + esc(backText) + '</div>' +
@@ -1150,11 +1168,11 @@
         '<div class="face-foot">✕ Again · ◑ Hard · ✓ Mastered</div>';
     } else if (enFront) {
       front =
-        faceTop(card, "ਪ੍ਰਸ਼ਨ · Question") +
+        faceTop(card, "ਪ੍ਰਸ਼ਨ · Question", card.q) +
         '<div class="card-body custom-scroll"><div class="card-main">' + esc(card.q) + '</div></div>' +
         '<div class="face-foot">Tap / Space ਉਲਟਾਓ</div>';
       back =
-        faceTop(card, "ਜਵਾਬ · Answer") +
+        faceTop(card, "ਜਵਾਬ · Answer", card.a) +
         '<div class="card-body custom-scroll">' +
           '<div class="answer-head">' +
             '<div class="card-answer">' + esc(card.a) + '</div>' +
@@ -1170,14 +1188,14 @@
          student has to produce the English scientific term. */
       const paPrompt = paPromptFor(card);
       front =
-        faceTop(card, "ਸੰਕਲਪ · Concept") +
+        faceTop(card, "ਸੰਕਲਪ · Concept", paPrompt) +
         '<div class="card-body custom-scroll">' +
           '<div class="card-main gurmukhi">' + esc(paPrompt) + '</div>' +
           '<div class="prompt-line">ਇਸ ਦਾ ਅੰਗਰੇਜ਼ੀ ਵਿਗਿਆਨਕ ਸ਼ਬਦ?</div>' +
         '</div>' +
         '<div class="face-foot">Tap / Space ਉਲਟਾਓ</div>';
       back =
-        faceTop(card, "ਜਵਾਬ · Answer") +
+        faceTop(card, "ਜਵਾਬ · Answer", card.a) +
         '<div class="card-body custom-scroll">' +
           '<div class="answer-head">' +
             '<div class="card-answer">' + esc(card.a) + '</div>' +
@@ -1601,7 +1619,7 @@
       if (!synth) return;
       synth.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = "en-IN";
+      u.lang = GURMUKHI_RE.test(text) ? "pa-IN" : "en-IN";
       u.rate = 0.92;
       synth.speak(u);
     } catch (e) {}
