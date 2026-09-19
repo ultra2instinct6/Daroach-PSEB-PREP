@@ -296,9 +296,16 @@
     if (!el || el.__psebCloze) return false;
     /* Widget scaffolding is instruction, not recall material. Masking a
        walkthrough hint's key words ("balance iron (Fe) first") destroys the
-       very hint the student opened it for. */
+       very hint the student opened it for. Callout headings and progress
+       chrome are likewise signposts, not answers. */
     if (el.closest(".pseb-tools, .pseb-rev, .pseb-outline, .sci-pop, .bal-walk, " +
-                   ".balancer-eq, .atom-tracker, button, input, textarea, select")) return false;
+                   ".balancer-eq, .atom-tracker, .pseb-numerical, .pseb-diagram-practice, " +
+                   ".board-trap, .pitfall-box, .board-badge, .pyq-tag, .seq-counter, " +
+                   ".sub-progress, .rune-row, .bi-actions, .formula-target, " +
+                   "button, input, textarea, select")) return false;
+    /* Authors can opt a run of prose out explicitly — used on the instruction
+       line that introduces an interactive widget. */
+    if (el.closest("[data-no-cloze]")) return false;
     var cls = el.getAttribute("class");
     if (cls && CLOZE_SKIP.test(cls)) return false;
     var text = (el.textContent || "").trim();
@@ -310,10 +317,23 @@
        Slope Formula:"). Hiding the label removes the question rather than the
        answer, so anything ending in a colon is left visible. */
     if (/[:：]$/.test(text)) return false;
+    /* Bare symbols and operators are UI, not vocabulary: the balancer's
+       "Tap + or - to change a number" was being masked into nonsense.
+       Require real word content before hiding anything. */
+    var letters = text.replace(/[^A-Za-z\u0A00-\u0A7F]/g, "");
+    if (letters.length < 2) return false;
+    /* An emoji-led run is a callout heading ("\u26A0\uFE0F Board Trap",
+       "\uD83D\uDCA1 Word Origins"), never an answer. */
+    if (/^[^\w\u0A00-\u0A7F(]/.test(text)) return false;
     /* A heading is the slide's topic, not something to retrieve. */
     if (/^H[1-6]$/.test(el.parentNode && el.parentNode.tagName || "")) return false;
-    /* Anything containing its own interactive markup is left alone. */
-    if (el.querySelector("button, input, sci-term, .sci-term, img, svg")) return false;
+    /* Genuinely interactive or graphical children are left alone. <sci-term>
+       is deliberately NOT in this list: sci-term.js binds by delegation on
+       document, and the original innerHTML (attributes included) is restored
+       on reveal, so the glossary popover keeps working. Excluding it suppressed
+       exactly the key terms worth masking — the better a chapter's glossary
+       coverage, the more recall it was losing. */
+    if (el.querySelector("button, input, textarea, select, img, svg")) return false;
     return true;
   }
 
@@ -373,9 +393,23 @@
     return best;
   }
 
+  function clearBlur() {
+    Array.prototype.forEach.call(document.querySelectorAll(".content-box.pseb-blur"), function (b) {
+      b.classList.remove("pseb-blur", "pseb-revealed");
+    });
+  }
+  /* Mask the slide's key terms; if it has none, fall back to blurring the
+     whole box so the H key is never a no-op. Returns how many blanks were
+     made, so the caller can word the toast correctly. */
   function applyRecallToCurrentSlide() {
-    if (!recallOn) return;
-    maskSlide(currentSlideRoot());
+    if (!recallOn) return 0;
+    var root = currentSlideRoot();
+    var made = maskSlide(root);
+    if (!made && root) {
+      var box = root.querySelector(".content-box");
+      if (box) box.classList.add("pseb-blur");
+    }
+    return made;
   }
 
   /* A printed handout must contain the actual content, not a page of blanks,
@@ -393,11 +427,12 @@
     var btn = document.getElementById("pseb-recall");
     if (btn) btn.classList.toggle("pseb-bm-on", v);
     if (v) {
-      var n = maskSlide(currentSlideRoot());
-      toast(n ? "Active recall: tap a blank to reveal it" : "No key terms to hide on this slide");
-      if (!n) { recallOn = false; document.body.classList.remove("pseb-recall-on"); if (btn) btn.classList.remove("pseb-bm-on"); }
+      var n = applyRecallToCurrentSlide();
+      toast(n ? "Active recall: tap a blank to reveal it"
+              : "Active recall: tap the slide to reveal it");
     } else {
       unmaskAll();
+      clearBlur();
       toast("Active recall off");
     }
   }
@@ -407,6 +442,7 @@
   function clearRecallReveals() {
     if (!recallOn) return;
     unmaskAll();
+    clearBlur();
     applyRecallToCurrentSlide();
   }
   function injectPrintCss() {
@@ -486,6 +522,13 @@
         "font-weight:inherit;padding:0;cursor:default;animation:psebClozeIn .28s ease-out}" +
       "@keyframes psebClozeIn{from{opacity:0;filter:blur(3px)}to{opacity:1;filter:none}}" +
       "@media (prefers-reduced-motion:reduce){.pseb-cloze.is-open{animation:none}}" +
+      /* Fallback for slides with no maskable key terms. Before cloze deletion
+         existed, active recall simply blurred the whole box; decks that mark
+         up few bold terms (Ch 6, 14, 16) would otherwise get nothing at all
+         from the H key, which is a loss of capability. Cloze when we can,
+         blur when we cannot — H always does something. */
+      ".pseb-recall-on .content-box.pseb-blur{filter:blur(7px);cursor:pointer;transition:filter .2s;-webkit-user-select:none;user-select:none}" +
+      ".pseb-recall-on .content-box.pseb-blur.pseb-revealed{filter:none;-webkit-user-select:auto;user-select:auto}" +
       ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
       ".pseb-recall-on .pseb-recall-hint{display:block}" +
       "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}" +
@@ -758,6 +801,11 @@
     document.getElementById("pseb-rev").addEventListener("click", function () { if (window.__psebRevToggle) window.__psebRevToggle(); });
     document.addEventListener("click", function (e) {
       if (!recallOn) return;
+      var blurred = e.target && e.target.closest ? e.target.closest(".content-box.pseb-blur") : null;
+      if (blurred && !blurred.classList.contains("pseb-revealed")) {
+        blurred.classList.add("pseb-revealed");
+        return;
+      }
       var blank = e.target && e.target.closest ? e.target.closest(".pseb-cloze") : null;
       if (!blank || blank.classList.contains("is-open")) return;
       /* Revealing a blank must not also trigger whatever sits underneath. */

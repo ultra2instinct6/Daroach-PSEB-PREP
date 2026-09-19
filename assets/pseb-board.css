@@ -1,0 +1,469 @@
+/* PSEB board-exam component library — presentation layer.
+   Pairs with assets/pseb-board.js. Loaded by the Chapter 10-16 decks.
+
+   Everything here is authored against the deck theme tokens
+   (--deck-*, --font-gurmukhi) that assets/deck-theme.css already defines, so
+   both the Instinct (dark) and Classic (light) colorways work with no extra
+   overrides and no layout shift when the ਪੰ/EN toggle flips. */
+
+/* ============================================================
+   1. Blueprint metadata badges  (pseb_marks / pyq_tag / bloom)
+   ============================================================ */
+.pseb-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px;
+  /* Badges are chrome, not prose: pin them in px so the A+/A- text-size
+     control never reflows a slide's layout around them. */
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+  font-size: 11px;
+  line-height: 1;
+}
+.pseb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.pseb-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex: 0 0 6px;
+}
+/* Mark weighting — the single most useful signal for triage, so it carries
+   the strongest colour. Ramped cool→warm as the mark value rises. */
+.pseb-badge[data-marks="1M_OBJECTIVE"] {
+  background: rgba(56, 189, 248, 0.14); color: #38bdf8; border-color: rgba(56, 189, 248, 0.42);
+}
+.pseb-badge[data-marks="2M_SHORT"] {
+  background: rgba(46, 204, 113, 0.14); color: #2ecc71; border-color: rgba(46, 204, 113, 0.42);
+}
+.pseb-badge[data-marks="3M_NUMERICAL_OR_DIAGRAM"] {
+  background: rgba(255, 170, 0, 0.16); color: #ffaa00; border-color: rgba(255, 170, 0, 0.45);
+}
+.pseb-badge[data-marks="5M_LONG_DERIVATION"] {
+  background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.45);
+}
+/* A real previous-year tag is the strongest "this will be asked" signal we
+   have, so it gets the filled treatment rather than a tint. */
+.pseb-badge[data-pyq] {
+  background: var(--deck-warn, #ffaa00);
+  color: #221500;
+  border-color: transparent;
+}
+.pseb-badge[data-pyq]::before { background: rgba(0, 0, 0, 0.45); }
+.pseb-badge[data-bloom] {
+  background: var(--deck-panel-soft, rgba(255, 255, 255, 0.05));
+  color: var(--deck-muted, #9aa7ba);
+  border-color: var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+}
+/* Classic (light) colorway: the tints above sit on a white panel, so only the
+   two that rely on a light-on-dark assumption need re-toning. */
+html[data-deck-theme="legacy"] .pseb-badge[data-marks="1M_OBJECTIVE"] { color: #0369a1; }
+html[data-deck-theme="legacy"] .pseb-badge[data-marks="2M_SHORT"] { color: #11613e; }
+html[data-deck-theme="legacy"] .pseb-badge[data-marks="3M_NUMERICAL_OR_DIAGRAM"] { color: #92400e; }
+html[data-deck-theme="legacy"] .pseb-badge[data-marks="5M_LONG_DERIVATION"] { color: #b91c1c; }
+
+/* ============================================================
+   2. NumericalScaffold — 4-step progressive reveal
+   ============================================================ */
+.pseb-num {
+  border: 2px solid var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+  border-radius: 14px;
+  background: var(--deck-panel-soft, rgba(255, 255, 255, 0.045));
+  padding: 16px 18px;
+  margin: 18px 0;
+  text-align: left;
+}
+.pseb-num-head { margin-bottom: 12px; }
+.pseb-num-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--deck-text, #f8fafc);
+  margin: 0;
+}
+/* Gurmukhi needs the taller rhythm; assets/gurmukhi-type.css supplies it via
+   [lang="pa"], this only sets the colour relationship. */
+.pseb-num-title-pa {
+  font-family: var(--font-gurmukhi);
+  font-size: 0.98rem;
+  color: var(--deck-muted, #9aa7ba);
+  margin: 2px 0 0;
+}
+
+/* --- Sign-convention pre-check -------------------------------------------
+   Deliberately sits BEFORE the working: the commonest lost mark in Ch10 is a
+   sign error carried from line one, so the student commits to the signs
+   first and only then sees the substitution. */
+.pseb-sign {
+  border: 1px dashed var(--deck-warn, #ffaa00);
+  border-radius: 10px;
+  padding: 11px 13px;
+  margin-bottom: 14px;
+  background: rgba(255, 170, 0, 0.07);
+}
+.pseb-sign-q {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0 0 9px;
+  color: var(--deck-text, #f8fafc);
+}
+.pseb-sign-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.pseb-sign-opt {
+  flex: 1 1 auto;
+  min-width: 96px;
+  min-height: 44px;              /* touch target floor */
+  padding: 9px 14px;
+  border-radius: 9px;
+  border: 2px solid var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+  background: var(--deck-panel, rgba(14, 14, 18, 0.92));
+  color: var(--deck-text, #f8fafc);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.18s, border-color 0.18s, transform 0.1s;
+}
+.pseb-sign-opt:hover:not(:disabled) { border-color: var(--deck-aura, #00e5ff); }
+.pseb-sign-opt:active:not(:disabled) { transform: scale(0.96); }
+.pseb-sign-opt.is-right {
+  background: rgba(46, 204, 113, 0.18);
+  border-color: var(--deck-success, #2ecc71);
+  color: var(--deck-success, #2ecc71);
+}
+.pseb-sign-opt.is-wrong {
+  background: rgba(239, 68, 68, 0.16);
+  border-color: var(--deck-danger, #ef4444);
+  color: var(--deck-danger, #ef4444);
+}
+/* Both script halves always sit on their own line: running them together
+   ("...CONCAVE mirror?ਬਦਲਣ ਤੋਂ...") is unreadable in either language. */
+.pseb-sign-q .pa,
+.pseb-sign-why .pa {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-gurmukhi);
+  color: var(--deck-muted, #9aa7ba);
+}
+.pseb-sign-why {
+  margin-top: 9px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--deck-text, #f8fafc);
+}
+.pseb-sign-why[hidden] { display: none; }
+
+/* --- The four steps ------------------------------------------------------ */
+.pseb-step {
+  border-left: 4px solid var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+  border-radius: 0 10px 10px 0;
+  background: var(--deck-panel, rgba(14, 14, 18, 0.55));
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.pseb-step[hidden] { display: none; }
+.pseb-step-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--deck-aura, #00e5ff);
+  margin-bottom: 6px;
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+}
+/* The Gurmukhi half of the step name is always shown next to the English one.
+   Both are always in the DOM, so switching reading language never reflows. */
+.pseb-step-label .pa {
+  font-family: var(--font-gurmukhi);
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.85;
+}
+.pseb-step-body { font-size: 1.02rem; line-height: 1.6; color: var(--deck-text, #f8fafc); }
+
+/* Given / To-Find variable chips. */
+.pseb-vars { display: flex; flex-wrap: wrap; gap: 8px; }
+.pseb-var {
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--deck-panel-soft, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--deck-border, rgba(255, 255, 255, 0.08));
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+/* A negative quantity is the thing students drop, so the sign is coloured and
+   never allowed to wrap away from its number. */
+.pseb-var.is-neg { border-color: rgba(239, 68, 68, 0.5); }
+.pseb-var.is-neg .pseb-var-val { color: var(--deck-danger, #f87171); }
+.pseb-var-sym { color: var(--deck-aura, #00e5ff); }
+.pseb-var-val { white-space: nowrap; }
+.pseb-var-note {
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+/* Formula + working lines. */
+.pseb-formula,
+.pseb-work {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.pseb-work-line { padding: 2px 0; }
+.pseb-work-note {
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  padding-left: 10px;
+}
+/* Final answer: the unit is part of the mark, so it is visually bound to the
+   number and can never be mistaken for commentary. */
+.pseb-answer {
+  margin-top: 10px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: rgba(46, 204, 113, 0.14);
+  border: 2px solid var(--deck-success, #2ecc71);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--deck-success, #2ecc71);
+  font-family: 'Courier New', Courier, monospace;
+}
+.pseb-answer-mean {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--deck-text, #f8fafc);
+}
+.pseb-answer-mean .pa { font-family: var(--font-gurmukhi); display: block; opacity: 0.85; }
+html[data-deck-theme="legacy"] .pseb-answer { color: #11613e; }
+
+.pseb-num-nav { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.pseb-num-btn {
+  min-height: 44px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--deck-aura, #00e5ff);
+  color: #050507;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.pseb-num-btn:disabled { opacity: 0.4; cursor: default; }
+.pseb-num-btn.ghost {
+  background: transparent;
+  color: var(--deck-aura, #00e5ff);
+  border: 2px solid var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+}
+.pseb-num-pips { display: flex; gap: 6px; margin-left: auto; }
+.pseb-pip { width: 9px; height: 9px; border-radius: 50%; background: var(--deck-border-strong, rgba(255, 255, 255, 0.16)); }
+.pseb-pip.is-on { background: var(--deck-warn, #ffaa00); }
+
+/* ============================================================
+   3. DiagramLabelPractice — mask & reveal
+   ============================================================ */
+.pseb-diagram { margin: 18px 0; }
+.pseb-dia-stage {
+  position: relative;
+  border: 2px solid var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+  border-radius: 14px;
+  background: var(--deck-panel-soft, rgba(255, 255, 255, 0.045));
+  padding: 10px;
+  overflow: hidden;
+}
+/* The SVG is the coordinate space the hotspots are positioned against, so it
+   must keep its aspect ratio at every width. */
+.pseb-dia-stage svg { display: block; width: 100%; height: auto; }
+/* Hotspots are positioned in percent of the figure, so the figure box must
+   coincide exactly with the SVG box — the stage's padding would otherwise
+   shift every marker off its feature. */
+.pseb-dia-fig { position: relative; display: block; }
+.pseb-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--deck-warn, #ffaa00);
+  background: var(--deck-panel, rgba(14, 14, 18, 0.95));
+  color: var(--deck-warn, #ffaa00);
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.12s;
+  z-index: 2;
+  /* The dot must stay readable over ink of any colour underneath it. */
+  box-shadow: 0 0 0 2px var(--deck-bg, #000);
+}
+.pseb-hotspot:hover { background: var(--deck-warn, #ffaa00); color: #221500; }
+.pseb-hotspot:active { transform: translate(-50%, -50%) scale(0.9); }
+.pseb-hotspot:focus-visible { outline: 3px solid var(--deck-aura, #00e5ff); outline-offset: 2px; }
+/* Found: the marker only changes colour, so the figure is never obscured —
+   the label itself is published to the legend below. */
+.pseb-hotspot.is-open {
+  border-color: var(--deck-success, #2ecc71);
+  background: var(--deck-success, #2ecc71);
+  color: #04180e;
+}
+
+/* --- Legend: where the revealed bilingual labels actually live ---------- */
+.pseb-legend {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.pseb-leg {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 9px 11px;
+  border-radius: 10px;
+  border: 1px solid var(--deck-border, rgba(255, 255, 255, 0.08));
+  background: var(--deck-panel, rgba(14, 14, 18, 0.55));
+  cursor: pointer;
+  /* Unrevealed rows keep their exact height, so revealing never reflows the
+     grid and the student's eye does not lose its place. */
+  min-height: 46px;
+}
+.pseb-leg-n {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--deck-border-strong, rgba(255, 255, 255, 0.16));
+  color: var(--deck-text, #f8fafc);
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+}
+.pseb-leg.is-open .pseb-leg-n { background: var(--deck-success, #2ecc71); color: #04180e; }
+.pseb-leg-txt { min-width: 0; font-size: 0.95rem; line-height: 1.5; }
+.pseb-leg-en { display: block; color: var(--deck-text, #f8fafc); }
+.pseb-leg-pa { display: block; font-family: var(--font-gurmukhi); color: var(--deck-aura, #00e5ff); font-size: 0.92rem; }
+.pseb-leg-note { display: block; margin-top: 4px; font-size: 0.86rem; color: var(--deck-muted, #9aa7ba); }
+/* Masked until revealed: the text stays in the DOM (so the box never
+   resizes) but is blurred out and unreadable. */
+.pseb-leg:not(.is-open) .pseb-leg-txt {
+  filter: blur(5px);
+  opacity: 0.55;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.pseb-leg:not(.is-open) .pseb-leg-note { display: none; }
+
+.pseb-dia-note {
+  margin-top: 10px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  border-left: 4px solid var(--deck-aura, #00e5ff);
+  background: var(--deck-panel, rgba(14, 14, 18, 0.55));
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--deck-text, #f8fafc);
+}
+.pseb-dia-note[hidden] { display: none; }
+.pseb-dia-note .pa { font-family: var(--font-gurmukhi); display: block; margin-top: 4px; color: var(--deck-muted, #9aa7ba); }
+.pseb-dia-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 11px; }
+.pseb-dia-score {
+  margin-left: auto;
+  font-family: var(--deck-font-ui, 'Segoe UI', system-ui, sans-serif);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--deck-muted, #9aa7ba);
+  font-variant-numeric: tabular-nums;
+}
+
+/* SVG ink follows the theme so the diagrams read on both colorways. */
+.pseb-dia-stage .ink { stroke: var(--deck-text, #f8fafc); fill: none; stroke-width: 2; }
+.pseb-dia-stage .ink-soft { stroke: var(--deck-muted, #9aa7ba); fill: none; stroke-width: 1.5; }
+.pseb-dia-stage .ink-axis { stroke: var(--deck-muted, #9aa7ba); fill: none; stroke-width: 1.5; stroke-dasharray: 6 5; }
+.pseb-dia-stage .ray { stroke: var(--deck-warn, #ffaa00); fill: none; stroke-width: 2.5; }
+.pseb-dia-stage .ray-2 { stroke: var(--deck-aura, #00e5ff); fill: none; stroke-width: 2.5; }
+.pseb-dia-stage .glass { fill: rgba(0, 229, 255, 0.16); stroke: var(--deck-aura, #00e5ff); stroke-width: 2; }
+.pseb-dia-stage .txt { fill: var(--deck-text, #f8fafc); font-size: 13px; font-weight: 700; font-family: 'Segoe UI', system-ui, sans-serif; }
+.pseb-dia-stage .txt-soft { fill: var(--deck-muted, #9aa7ba); font-size: 11px; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+/* ============================================================
+   4. Narrow phones — PSEB students are overwhelmingly on ~360px
+   ============================================================ */
+@media (max-width: 768px) {
+  .pseb-num { padding: 13px 12px; }
+  .pseb-num-title { font-size: 1.02rem; }
+  .pseb-step { padding: 11px 11px; }
+  .pseb-step-body { font-size: 0.97rem; }
+  .pseb-formula, .pseb-work { font-size: 0.98rem; }
+  .pseb-var { font-size: 0.97rem; padding: 6px 10px; }
+  .pseb-answer { font-size: 1.04rem; }
+  /* Two options side by side at 360px left ~118px each, which shredded
+     labels like "f is negative (−)". One per row instead. */
+  .pseb-sign-opt { min-width: 0; flex-basis: 100%; }
+  /* The note belongs under the value, not wrapped into a narrow column. */
+  .pseb-var { width: 100%; }
+  .pseb-var-note { flex-basis: 100%; }
+  /* A long mark label is wider than a 360px card, so let it wrap rather
+     than be clipped by the content box. */
+  .pseb-badge { white-space: normal; line-height: 1.35; text-align: left; }
+  .pseb-num-btn { padding: 10px 15px; font-size: 0.95rem; }
+  .pseb-badges { font-size: 10px; }
+  .pseb-badge { padding: 4px 8px; }
+  /* A revealed label may cover a neighbouring hotspot on a small screen, so
+     it is allowed to grow wider but is nudged back inside the frame. */
+  .pseb-hotspot { width: 27px; height: 27px; font-size: 12px; }
+  .pseb-legend { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pseb-sign-opt, .pseb-hotspot, .pseb-num-btn { transition: none; }
+}
+
+/* Printed handout: reveal everything, drop the interactive chrome. */
+@media print {
+  .pseb-step[hidden] { display: block !important; }
+  .pseb-num-nav, .pseb-dia-bar { display: none !important; }
+  .pseb-leg:not(.is-open) .pseb-leg-txt { filter: none !important; opacity: 1 !important; }
+  .pseb-leg-note { display: block !important; }
+}

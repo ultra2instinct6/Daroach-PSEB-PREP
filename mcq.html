@@ -398,6 +398,15 @@
   .meta-rune.diff-easy { border-color: color-mix(in srgb, var(--green) 30%, transparent); color: var(--green); }
   .meta-rune.diff-medium { border-color: color-mix(in srgb, var(--amber) 30%, transparent); color: var(--amber); }
   .meta-rune.diff-hard { border-color: color-mix(in srgb, var(--red) 30%, transparent); color: var(--red); }
+  /* PSEB blueprint chips — same rune shape, mark weighting drives the hue. */
+  .meta-rune.pseb-mark[data-marks="1M_OBJECTIVE"] { border-color: color-mix(in srgb, var(--blue, #38bdf8) 34%, transparent); color: var(--blue, #38bdf8); }
+  .meta-rune.pseb-mark[data-marks="2M_SHORT"] { border-color: color-mix(in srgb, var(--green) 34%, transparent); color: var(--green); }
+  .meta-rune.pseb-mark[data-marks="3M_NUMERICAL_OR_DIAGRAM"] { border-color: color-mix(in srgb, var(--amber) 38%, transparent); color: var(--amber); }
+  .meta-rune.pseb-mark[data-marks="5M_LONG_DERIVATION"] { border-color: color-mix(in srgb, var(--red) 38%, transparent); color: var(--red); }
+  /* A real previous-year tag is the strongest signal on the card, so it is
+     the only rune that gets a filled treatment. */
+  .meta-rune.pseb-pyq { background: var(--amber); border-color: transparent; color: #221500; font-weight: 900; }
+  .meta-rune.pseb-bloom { opacity: 0.85; }
 
   .flag-btn {
     padding: 6px 11px;
@@ -1320,7 +1329,7 @@
           objective: { pa: "ਅਪਵਰਤਨ ਅੰਕ n = c/v। ਸੰਘਣਾ ਮਾਧਿਅਮ → ਪ੍ਰਕਾਸ਼ ਹੌਲੀ → ਕਿਰਨ ਅਭਿਲੰਬ ਵੱਲ ਮੁੜਦੀ ਹੈ।", en: "Refractive index n = c/v. Denser medium → slower light → the ray bends toward the normal." }
         },
         {
-          id: "SCI-CH10-02", ch: "Ch 10 · ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", competency: "Application", diff: "Medium",
+          id: "SCI-CH10-02", ch: "Ch 10 · ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", competency: "Application", diff: "Medium", pseb_marks: "3M_NUMERICAL_OR_DIAGRAM", pyq_tag: "PSEB 2024", bloom_taxonomy: "Application",
           hint: { pa: "ਦੂਰ ਦੀਆਂ ਚੀਜ਼ਾਂ ਧੁੰਦਲੀਆਂ, ਨੇੜੇ ਦੀਆਂ ਸਾਫ਼ — ਪਹਿਲਾਂ ਤੈਅ ਕਰੋ ਕਿ ਪ੍ਰਤਿਬਿੰਬ ਰੈਟਿਨਾ ਦੇ ਅੱਗੇ ਬਣ ਰਿਹਾ ਹੈ ਜਾਂ ਪਿੱਛੇ।", en: "Far things blur, near things stay sharp — first decide whether the image is forming in front of the retina or behind it." },
           trap: { pa: "ਸਭ ਤੋਂ ਵੱਡਾ ਫੰਦਾ ਹੈ ਰੋਗ ਸਹੀ ਪਛਾਣ ਕੇ ਲੈੱਨਜ਼ ਗਲਤ ਚੁਣ ਲੈਣਾ ('ਮਾਇਓਪੀਆ — ਉੱਤਲ ਲੈੱਨਜ਼')। ਮਾਇਓਪੀਆ ਵਿੱਚ ਪ੍ਰਤਿਬਿੰਬ ਅੱਗੇ ਬਣਦਾ ਹੈ, ਇਸ ਲਈ ਅਪਸਾਰੀ (ਅਵਤਲ) ਲੈੱਨਜ਼ ਚਾਹੀਦਾ ਹੈ।", en: "The big trap is naming the defect correctly but pairing it with the wrong lens ('Myopia — convex lens'). In myopia the image lands in front of the retina, so it needs a diverging (concave) lens." },
           table: {
@@ -1346,7 +1355,7 @@
           objective: { pa: "ਮਾਇਓਪੀਆ: ਦੂਰ ਧੁੰਦਲਾ, ਪ੍ਰਤੀਬਿੰਬ ਰੈਟੀਨਾ ਤੋਂ ਅੱਗੇ; ਕਾਰਨ: ਲੰਬਾ ਅੱਖ-ਗੋਲਾ/ਵੱਧ ਵਕਰਤਾ; ਇਲਾਜ: ਅਵਤਲ ਲੈਂਜ਼। ਹਾਈਪਰਮੈਟ੍ਰੋਪੀਆ ਇਸਦਾ ਉਲਟ ਹੈ (ਉੱਤਲ ਲੈਂਜ਼)।", en: "Myopia: distance blurred, image before retina; causes: elongated eyeball/over-curved lens; fix: concave lens. Hypermetropia is the mirror case (convex lens)." }
         },
         {
-          id: "SCI-CH11-01", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Application", diff: "Easy",
+          id: "SCI-CH11-01", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Application", diff: "Easy", pseb_marks: "2M_SHORT", pyq_tag: "PSEB 2022", bloom_taxonomy: "Application",
           hint: { pa: "ਓਮ ਦਾ ਨਿਯਮ: V = I × R। ਇਕਾਈਆਂ ਦੀ ਜਾਂਚ ਕਰੋ — ਐਂਪੀਅਰ × ਓਹਮ = ਵੋਲਟ।", en: "Ohm's law: V = I × R. Check the units — ampere × ohm = volt." },
           trap: { pa: "2.5 V ਅਤੇ 0.4 V ਦੋਵੇਂ ਭਾਗ ਕਰਨ ਨਾਲ ਆਉਂਦੇ ਹਨ (R ÷ I ਜਾਂ I ÷ R)। ਜਦੋਂ ਪ੍ਰਸ਼ਨ V ਮੰਗੇ ਤਾਂ ਹਮੇਸ਼ਾ ਗੁਣਾ ਕਰੋ।", en: "Both 2.5 V and 0.4 V come from dividing (R ÷ I or I ÷ R). When the question asks for V, you always multiply." },
           table: {
@@ -1372,7 +1381,7 @@
           objective: { pa: "ਓਹਮ ਦਾ ਨਿਯਮ: V = IR। ਧਾਰਾ ਅਤੇ ਪ੍ਰਤੀਰੋਧ ਦਾ ਗੁਣਨਫਲ ਪੁਟੈਂਸ਼ਲ ਅੰਤਰ ਦਿੰਦਾ ਹੈ। ਇਕਾਈਆਂ: A × Ω = V।", en: "Ohm's law: V = IR. Current × resistance gives potential difference. Units: A × Ω = V." }
         },
         {
-          id: "SCI-CH11-02", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Analysis", diff: "Hard",
+          id: "SCI-CH11-02", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Analysis", diff: "Hard", pseb_marks: "2M_SHORT", pyq_tag: "PSEB 2023 Set A", bloom_taxonomy: "Analysis",
           hint: { pa: "ਇੱਕ ਸੰਯੋਜਨ ਕੁੱਲ ਪ੍ਰਤੀਰੋਧ ਹਮੇਸ਼ਾ ਵਧਾਉਂਦਾ ਹੈ; ਦੂਜਾ ਇਸਨੂੰ ਸਭ ਤੋਂ ਛੋਟੇ ਪ੍ਰਤੀਰੋਧਕ ਤੋਂ ਵੀ ਹੇਠਾਂ ਲੈ ਜਾਂਦਾ ਹੈ।", en: "One arrangement always raises the total resistance; the other always drags it below even the smallest resistor." },
           trap: { pa: "'ਸਮਾਨਾਂਤਰ — 8 Ω' ਅਤੇ 'ਲੜੀ — 2 Ω' ਸਹੀ ਸ਼ਬਦ ਨਾਲ ਗਲਤ ਅੰਕ ਜੋੜ ਦਿੰਦੇ ਹਨ। ਦੋ ਬਰਾਬਰ R ਸਮਾਨਾਂਤਰ ਵਿੱਚ ਹਮੇਸ਼ਾ R/2 ਦਿੰਦੇ ਹਨ।", en: "'Parallel — 8 Ω' and 'Series — 2 Ω' pair the right word with the wrong number. Two equal resistors in parallel always give R/2." },
           table: {
@@ -1399,7 +1408,7 @@
           objective: { pa: "ਲੜੀ: Rs = R₁ + R₂ (ਵੱਧ ਤੋਂ ਵੱਧ)। ਸਮਾਨਾਂਤਰ: 1/Rp = 1/R₁ + 1/R₂ (ਘੱਟੋ-ਘੱਟ — ਸਭ ਤੋਂ ਛੋਟੀ ਸ਼ਾਖਾ ਤੋਂ ਵੀ ਘੱਟ)।", en: "Series: Rs = R₁ + R₂ (maximum). Parallel: 1/Rp = 1/R₁ + 1/R₂ (minimum — smaller than the smallest branch)." }
         },
         {
-          id: "SCI-CH12-01", ch: "Ch 12 · ਬਿਜਲਈ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", competency: "Understanding", diff: "Medium",
+          id: "SCI-CH12-01", ch: "Ch 12 · ਬਿਜਲਈ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", competency: "Understanding", diff: "Medium", pseb_marks: "1M_OBJECTIVE", pyq_tag: "PSEB 2023", bloom_taxonomy: "Knowledge",
           hint: { pa: "ਤੁਹਾਨੂੰ ਉਹ ਨਿਯਮ ਚਾਹੀਦਾ ਹੈ ਜੋ ਧਾਰਾ ਦੀ ਦਿਸ਼ਾ ਨੂੰ ਗੋਲ ਚੁੰਬਕੀ ਖੇਤਰ ਨਾਲ ਜੋੜਦਾ ਹੈ — ਬਲ ਜਾਂ ਪ੍ਰੇਰਿਤ ਧਾਰਾ ਨਾਲ ਨਹੀਂ।", en: "You need the rule that links current direction to a circular field — not the ones about force or induced current." },
           trap: { pa: "ਫਲੈਮਿੰਗ ਦੇ ਦੋਵੇਂ ਨਿਯਮ ਜਾਣੇ-ਪਛਾਣੇ ਲੱਗਦੇ ਹਨ, ਪਰ ਉਹ ਬਲ (ਖੱਬਾ ਹੱਥ — ਮੋਟਰ) ਅਤੇ ਪ੍ਰੇਰਿਤ ਧਾਰਾ (ਸੱਜਾ ਹੱਥ — ਜਨਰੇਟਰ) ਲਈ ਹਨ, ਖੇਤਰ ਦੀ ਦਿਸ਼ਾ ਲਈ ਨਹੀਂ।", en: "Both Fleming rules feel familiar, but they give force (left hand — motor) and induced current (right hand — generator), not the direction of the field itself." },
           table: {
@@ -1425,7 +1434,7 @@
           objective: { pa: "ਨਿਯਮ ਦਾ ਮਕਸਦ ਯਾਦ ਰੱਖੋ: ਸੱਜਾ ਅੰਗੂਠਾ → ਤਾਰ ਦੁਆਲੇ ਖੇਤਰ; ਫਲੇਮਿੰਗ ਖੱਬਾ → ਮੋਟਰ (ਬਲ); ਫਲੇਮਿੰਗ ਸੱਜਾ → ਜਨਰੇਟਰ (ਪ੍ਰੇਰਿਤ ਧਾਰਾ)।", en: "Match each rule to its job: right-hand thumb → field around a wire; Fleming's left → motor (force); Fleming's right → generator (induced current)." }
         },
         {
-          id: "SCI-CH13-01", ch: "Ch 13 · ਸਾਡਾ ਵਾਤਾਵਰਣ", competency: "Application", diff: "Medium",
+          id: "SCI-CH13-01", ch: "Ch 13 · ਸਾਡਾ ਵਾਤਾਵਰਣ", competency: "Application", diff: "Medium", pseb_marks: "2M_SHORT", pyq_tag: "PSEB 2022", bloom_taxonomy: "Application",
           hint: { pa: "10% ਨਿਯਮ: ਹਰ ਪੋਸ਼ਣ ਪੱਧਰ ਅਗਲੇ ਨੂੰ ਮਿਲੀ ਊਰਜਾ ਦਾ ਸਿਰਫ਼ ਦਸਵਾਂ ਹਿੱਸਾ ਦਿੰਦਾ ਹੈ।", en: "The 10% law: each trophic level passes on only a tenth of the energy it received." },
           trap: { pa: "100 J ਦੋ ਵਾਰ 10% ਲਗਾਉਣ ਨਾਲ ਆਉਂਦਾ ਹੈ — ਪਰ ਸ਼ਾਕਾਹਾਰੀ ਦੂਜਾ ਪੱਧਰ ਹਨ, ਤੀਜਾ ਨਹੀਂ। ਪਹਿਲਾਂ ਪੱਧਰ ਗਿਣੋ, ਫਿਰ 10% ਲਗਾਓ।", en: "100 J comes from applying 10% twice — but herbivores are the *second* trophic level, not the third. Count the levels before you divide." },
           prompt: { pa: "ਜੇ ਉਤਪਾਦਕ ਪੱਧਰ 'ਤੇ 10,000 J ਊਰਜਾ ਹੈ, ਤਾਂ ਦੂਜੇ ਪੋਸ਼ਣ ਪੱਧਰ (ਸ਼ਾਕਾਹਾਰੀ) ਨੂੰ ਲਗਭਗ ਕਿੰਨੀ ਊਰਜਾ ਮਿਲੇਗੀ?", en: "If producers hold 10,000 J of energy, roughly how much reaches the second trophic level (herbivores)?" },
@@ -1747,7 +1756,7 @@
           objective: { pa: "ਲੈੱਨਜ਼ ਦੀ ਸਮਰੱਥਾ P = 1/f (f ਮੀਟਰ ਵਿੱਚ), ਇਕਾਈ ਡਾਇਆਪਟਰ (D)। ਉੱਤਲ ਲੈੱਨਜ਼ → ਧਨਾਤਮਕ P; ਅਵਤਲ ਲੈੱਨਜ਼ → ਰਿਣਾਤਮਕ P। ਸੰਪਰਕ ਵਿੱਚ ਰੱਖੇ ਲੈੱਨਜ਼ਾਂ ਦੀ ਕੁੱਲ ਸਮਰੱਥਾ ਜੁੜ ਜਾਂਦੀ ਹੈ।", en: "Power of a lens P = 1/f with f in metres, measured in dioptres (D). Convex lens → positive P; concave lens → negative P. Powers of lenses in contact simply add." }
         },
         {
-          id: "SCI-CH10-03", ch: "Ch 10 · ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", competency: "Analysis", diff: "Medium",
+          id: "SCI-CH10-03", ch: "Ch 10 · ਮਨੁੱਖੀ ਅੱਖ ਅਤੇ ਰੰਗੀਨ ਸੰਸਾਰ", competency: "Analysis", diff: "Medium", pseb_marks: "2M_SHORT", pyq_tag: "PSEB 2023", bloom_taxonomy: "Analysis",
           prompt: { pa: "ਖ਼ਤਰੇ ਦੇ ਸੰਕੇਤ (ਜਿਵੇਂ ਲਾਲ ਬੱਤੀ ਤੇ ਰੁਕਣ ਦਾ ਸਿਗਨਲ) ਲਾਲ ਰੰਗ ਦੇ ਹੀ ਕਿਉਂ ਹੁੰਦੇ ਹਨ?", en: "Why are danger signals (such as stop lights) made red rather than any other colour?" },
           hint: { pa: "ਯਾਦ ਕਰੋ ਕਿ ਅਸਮਾਨ ਨੀਲਾ ਕਿਉਂ ਦਿਖਦਾ ਹੈ — ਫਿਰ ਉਹੀ ਨਿਯਮ ਉਲਟੇ ਸਿਰੇ ਵਾਲੇ ਰੰਗ 'ਤੇ ਲਗਾਓ।", en: "Recall why the sky looks blue — then apply the same rule to the colour at the opposite end of the spectrum." },
           trap: { pa: "'ਸਭ ਤੋਂ ਘੱਟ ਤਰੰਗ-ਲੰਬਾਈ' ਵਾਲਾ ਵਿਕਲਪ ਖ਼ਾਸ ਤੌਰ 'ਤੇ ਖ਼ਤਰਨਾਕ ਹੈ ਕਿਉਂਕਿ ਇਸ ਵਿੱਚ ਸਹੀ ਸ਼ਬਦ (ਤਰੰਗ-ਲੰਬਾਈ) ਵਰਤਿਆ ਗਿਆ ਹੈ ਪਰ ਦਿਸ਼ਾ ਉਲਟੀ ਹੈ। VIBGYOR ਯਾਦ ਰੱਖੋ: ਬੈਂਗਣੀ ਸਭ ਤੋਂ ਛੋਟੀ λ, ਲਾਲ ਸਭ ਤੋਂ ਵੱਡੀ।", en: "The 'shortest wavelength' option is especially dangerous because it uses the right technical word but reverses the direction. Remember VIBGYOR: violet shortest λ, red longest." },
@@ -1764,7 +1773,7 @@
           objective: { pa: "ਪ੍ਰਕਾਸ਼ ਦਾ ਖਿੰਡਾਅ (ਰੇਲੇ ਪ੍ਰਕੀਰਣਨ): ਖਿੰਡਾਅ ∝ 1/λ⁴। ਇਸੇ ਲਈ ਅਸਮਾਨ ਨੀਲਾ ਦਿਖਦਾ ਹੈ (ਨੀਲਾ ਵੱਧ ਖਿੰਡਦਾ ਹੈ), ਸੂਰਜ ਚੜ੍ਹਨ-ਲਹਿਣ ਵੇਲੇ ਲਾਲ ਦਿਖਦਾ ਹੈ, ਅਤੇ ਖ਼ਤਰੇ ਦੇ ਸੰਕੇਤ ਲਾਲ ਰੱਖੇ ਜਾਂਦੇ ਹਨ (ਲਾਲ ਸਭ ਤੋਂ ਘੱਟ ਖਿੰਡਦਾ ਹੈ)।", en: "Scattering of light (Rayleigh): scattering ∝ 1/λ⁴. This is why the sky looks blue (blue scatters most), why the sun looks red at sunrise and sunset, and why danger signals are red (red scatters least)." }
         },
         {
-          id: "SCI-CH11-03", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Application", diff: "Hard",
+          id: "SCI-CH11-03", ch: "Ch 11 · ਬਿਜਲੀ", competency: "Application", diff: "Hard", pseb_marks: "2M_SHORT", bloom_taxonomy: "Application",
           prompt: { pa: "220 V 'ਤੇ ਚੱਲਣ ਵਾਲੇ 100 W ਦੇ ਬਲਬ ਦਾ ਪ੍ਰਤੀਰੋਧ ਕਿੰਨਾ ਹੈ?", en: "What is the resistance of a 100 W bulb designed to work on a 220 V supply?" },
           hint: { pa: "ਤਿੰਨ ਸ਼ਕਤੀ ਸੂਤਰਾਂ ਵਿੱਚੋਂ ਉਹ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਸਿਰਫ਼ ਉਹੀ ਦੋ ਰਾਸ਼ੀਆਂ ਹੋਣ ਜੋ ਤੁਹਾਨੂੰ ਦਿੱਤੀਆਂ ਗਈਆਂ ਹਨ — V ਤੇ P।", en: "Pick the one power formula that contains only the two quantities you were given — V and P." },
           trap: { pa: "2.2 Ω ਸਭ ਤੋਂ ਆਮ ਗਲਤੀ ਹੈ: V ਨੂੰ ਵਰਗ ਕਰਨਾ ਭੁੱਲ ਜਾਣਾ। ਪਰਖ ਦਾ ਤਰੀਕਾ — ਘਰੇਲੂ ਬਲਬ ਬਹੁਤ ਘੱਟ ਧਾਰਾ ਲੈਂਦਾ ਹੈ, ਇਸ ਲਈ ਉਸਦਾ ਪ੍ਰਤੀਰੋਧ ਸੈਂਕੜਿਆਂ ਵਿੱਚ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ, 2 Ω ਵਰਗਾ ਨਹੀਂ।", en: "2.2 Ω is the classic error: forgetting to square V. Sanity check — a household bulb draws a very small current, so its resistance must be in the hundreds of ohms, not around 2 Ω." },
@@ -1781,7 +1790,7 @@
           objective: { pa: "ਬਿਜਲਈ ਸ਼ਕਤੀ: P = VI = I²R = V²/R। ਬਲਬ 'ਤੇ ਲਿਖੇ ਦੋ ਅੰਕ (ਜਿਵੇਂ 100 W, 220 V) ਉਸਦੇ ਪ੍ਰਤੀਰੋਧ ਅਤੇ ਕਾਰਜਕਾਰੀ ਧਾਰਾ ਦੋਵੇਂ ਕੱਢਣ ਲਈ ਕਾਫ਼ੀ ਹਨ।", en: "Electric power: P = VI = I²R = V²/R. The two numbers printed on a bulb (say 100 W, 220 V) are enough to find both its resistance and its working current." }
         },
         {
-          id: "SCI-CH12-02", ch: "Ch 12 · ਬਿਜਲਈ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", competency: "Understanding", diff: "Medium",
+          id: "SCI-CH12-02", ch: "Ch 12 · ਬਿਜਲਈ ਧਾਰਾ ਦੇ ਚੁੰਬਕੀ ਪ੍ਰਭਾਵ", competency: "Understanding", diff: "Medium", pseb_marks: "2M_SHORT", pyq_tag: "PSEB 2024", bloom_taxonomy: "Knowledge",
           prompt: { pa: "ਘਰੇਲੂ ਬਿਜਲਈ ਸਰਕਟ ਵਿੱਚ ਅਰਥ ਤਾਰ (earth wire) ਦਾ ਮੁੱਖ ਕੰਮ ਕੀ ਹੈ?", en: "What is the main purpose of the earth wire in a domestic electric circuit?" },
           hint: { pa: "ਪੁੱਛੋ ਕਿ ਜਦੋਂ ਕਿਸੇ ਧਾਤ ਦੇ ਉਪਕਰਨ ਦੀ ਬਾਡੀ 'ਤੇ ਧਾਰਾ ਆ ਜਾਵੇ ਤਾਂ ਉਹ ਕਿਸ ਰਸਤੇ ਜਾਵੇਗੀ — ਸਭ ਤੋਂ ਘੱਟ ਪ੍ਰਤੀਰੋਧ ਵਾਲੇ ਰਸਤੇ ਜਾਂ ਤੁਹਾਡੇ ਸਰੀਰ ਰਾਹੀਂ?", en: "Ask where current will go if it reaches the metal body of an appliance — along the path of least resistance, or through your body?" },
           trap: { pa: "'ਪਿਘਲ ਕੇ ਸਰਕਟ ਤੋੜ ਦਿੰਦੀ ਹੈ' ਇਸ ਲਈ ਖਿੱਚਦਾ ਹੈ ਕਿਉਂਕਿ ਫ਼ਿਊਜ਼ ਤੇ ਅਰਥ ਦੋਵੇਂ ਸੁਰੱਖਿਆ ਲਈ ਹਨ ਅਤੇ ਇਕੱਠੇ ਪੜ੍ਹਾਏ ਜਾਂਦੇ ਹਨ। ਫ਼ਰਕ: ਫ਼ਿਊਜ਼ ਵੱਧ ਧਾਰਾ ਤੋਂ ਸਰਕਟ ਨੂੰ ਬਚਾਉਂਦਾ ਹੈ, ਅਰਥ ਤਾਰ ਝਟਕੇ ਤੋਂ ਮਨੁੱਖ ਨੂੰ ਬਚਾਉਂਦੀ ਹੈ।", en: "'It melts and breaks the circuit' tempts because fuse and earth are both safety devices taught together. The distinction: a fuse protects the circuit from excess current, while the earth wire protects the person from shock." },
@@ -1798,7 +1807,7 @@
           objective: { pa: "ਘਰੇਲੂ ਸਰਕਟ: ਲਾਈਵ ਤਾਰ ਧਾਰਾ ਲਿਆਉਂਦੀ ਹੈ, ਨਿਊਟਰਲ ਵਾਪਸ ਲੈ ਜਾਂਦੀ ਹੈ, ਅਤੇ ਅਰਥ ਤਾਰ ਧਾਤ ਦੀਆਂ ਬਾਡੀਆਂ ਨੂੰ ਧਰਤੀ ਨਾਲ ਜੋੜ ਕੇ ਸੁਰੱਖਿਆ ਦਿੰਦੀ ਹੈ। ਫ਼ਿਊਜ਼ ਲਾਈਵ ਤਾਰ ਵਿੱਚ ਲੜੀ ਵਿੱਚ ਲੱਗਦਾ ਹੈ ਤੇ ਵੱਧ ਧਾਰਾ 'ਤੇ ਪਿਘਲ ਜਾਂਦਾ ਹੈ।", en: "Domestic circuit: the live wire brings current in, the neutral carries it back, and the earth wire connects metal bodies to the ground for safety. The fuse sits in series with the live wire and melts on excess current." }
         },
         {
-          id: "SCI-CH13-02", ch: "Ch 13 · ਸਾਡਾ ਵਾਤਾਵਰਣ", competency: "Understanding", diff: "Medium",
+          id: "SCI-CH13-02", ch: "Ch 13 · ਸਾਡਾ ਵਾਤਾਵਰਣ", competency: "Understanding", diff: "Medium", pseb_marks: "2M_SHORT", pyq_tag: "Model Test Paper", bloom_taxonomy: "Knowledge",
           prompt: { pa: "ਵਾਯੂਮੰਡਲ ਵਿੱਚ ਓਜ਼ੋਨ ਪਰਤ ਦਾ ਕੀ ਮਹੱਤਵ ਹੈ ਅਤੇ ਕਿਹੜੇ ਰਸਾਇਣ ਇਸਨੂੰ ਨੁਕਸਾਨ ਪਹੁੰਚਾਉਂਦੇ ਹਨ?", en: "What is the importance of the ozone layer, and which chemicals damage it?" },
           hint: { pa: "ਯਾਦ ਕਰੋ ਕਿ ਓਜ਼ੋਨ ਪਰਤ ਸਾਨੂੰ ਸੂਰਜ ਦੀ ਕਿਸ ਕਿਸਮ ਦੀ ਕਿਰਨ ਤੋਂ ਬਚਾਉਂਦੀ ਹੈ — ਗਰਮੀ ਤੋਂ ਜਾਂ ਪਰਾਬੈਂਗਣੀ ਤੋਂ?", en: "Recall which kind of solar radiation the ozone layer shields us from — heat, or ultraviolet?" },
           trap: { pa: "ਸਭ ਤੋਂ ਵੱਡਾ ਫੰਦਾ ਓਜ਼ੋਨ ਦੇ ਖੋਰੇ ਨੂੰ ਵਿਸ਼ਵ ਤਪਸ਼ ਨਾਲ ਰਲਾ ਦੇਣਾ ਹੈ। ਓਜ਼ੋਨ ਪਰਤ UV ਰੋਕਦੀ ਹੈ (CFC ਨੁਕਸਾਨ ਕਰਦੇ ਹਨ); ਹਰਿਤ-ਗ੍ਰਹਿ ਪ੍ਰਭਾਵ ਗਰਮੀ ਰੋਕਦਾ ਹੈ (CO₂ ਵਧਾਉਂਦੀ ਹੈ)। ਦੋਵੇਂ ਵੱਖਰੇ ਹਨ।", en: "The biggest trap is merging ozone depletion with global warming. The ozone layer blocks UV (CFCs damage it); the greenhouse effect traps heat (CO₂ intensifies it). They are separate." },
@@ -1815,7 +1824,7 @@
           objective: { pa: "ਓਜ਼ੋਨ ਪਰਤ ਸਮਤਾਪ-ਮੰਡਲ ਵਿੱਚ ਹੈ ਅਤੇ ਹਾਨੀਕਾਰਕ UV ਕਿਰਨਾਂ ਸੋਖਦੀ ਹੈ। CFC ਇਸਨੂੰ ਪਤਲਾ ਕਰਦੇ ਹਨ (ਓਜ਼ੋਨ ਛੇਕ)। ਧਿਆਨ ਰੱਖੋ: ਓਜ਼ੋਨ ਦਾ ਖੋਰਾ ਅਤੇ ਵਿਸ਼ਵ ਤਪਸ਼ (global warming) ਦੋ ਵੱਖਰੀਆਂ ਸਮੱਸਿਆਵਾਂ ਹਨ।", en: "The ozone layer lies in the stratosphere and absorbs harmful UV radiation. CFCs thin it (the ozone hole). Note carefully: ozone depletion and global warming are two distinct problems." }
         },
         {
-          id: "SCI-CH14-01", ch: "Ch 14 · ਊਰਜਾ ਦੇ ਸ੍ਰੋਤ", competency: "Understanding", diff: "Easy",
+          id: "SCI-CH14-01", ch: "Ch 14 · ਊਰਜਾ ਦੇ ਸ੍ਰੋਤ", competency: "Understanding", diff: "Easy", pseb_marks: "2M_SHORT", pyq_tag: "PSEB 2023", bloom_taxonomy: "Knowledge",
           prompt: { pa: "ਬਾਇਓਗੈਸ (ਗੋਬਰ ਗੈਸ) ਦਾ ਮੁੱਖ ਘਟਕ ਕਿਹੜਾ ਹੈ ਅਤੇ ਇਹ ਚੰਗਾ ਬਾਲਣ ਕਿਉਂ ਹੈ?", en: "What is the main constituent of biogas, and why does it make a good fuel?" },
           hint: { pa: "ਬਾਲਣ ਵਾਲਾ ਘਟਕ ਉਹੀ ਹੋ ਸਕਦਾ ਹੈ ਜੋ ਖ਼ੁਦ ਸੜਦਾ ਹੋਵੇ। ਸੂਚੀ ਵਿੱਚੋਂ ਉਹ ਗੈਸਾਂ ਹਟਾ ਦਿਓ ਜੋ ਸੜਦੀਆਂ ਹੀ ਨਹੀਂ।", en: "The fuel component must be something that actually burns. Eliminate the gases in the list that do not burn at all." },
           trap: { pa: "ਕਾਰਬਨ ਡਾਈਆਕਸਾਈਡ ਸਭ ਤੋਂ ਵੱਧ ਚੁਣੀ ਜਾਂਦੀ ਹੈ ਕਿਉਂਕਿ ਇਹ ਸੱਚਮੁੱਚ ਬਾਇਓਗੈਸ ਵਿੱਚ ਮੌਜੂਦ ਹੁੰਦੀ ਹੈ। ਪਰ 'ਮੌਜੂਦ ਹੋਣਾ' ਅਤੇ 'ਮੁੱਖ ਬਾਲਣ ਹੋਣਾ' ਵੱਖਰੀਆਂ ਗੱਲਾਂ ਹਨ — CO₂ ਤਾਂ ਅੱਗ ਬੁਝਾਉਂਦੀ ਹੈ।", en: "Carbon dioxide is the most-chosen answer because it genuinely is present in biogas. But 'being present' and 'being the fuel' are different things — CO₂ extinguishes fires." },
@@ -1842,7 +1851,7 @@
           objective: { pa: "ਬਾਇਓਗੈਸ: ਗੋਬਰ ਤੇ ਜੈਵਿਕ ਕੂੜੇ ਦੇ ਆਕਸੀਜਨ-ਰਹਿਤ ਅਪਘਟਨ ਤੋਂ ਬਣਦੀ ਹੈ; ਲਗਭਗ 75% ਮੀਥੇਨ। ਇਹ ਨਵਿਆਉਣਯੋਗ ਹੈ, ਧੂੰਆਂ ਨਹੀਂ ਦਿੰਦੀ, ਅਤੇ ਬਚੀ ਸਲਰੀ ਖਾਦ ਵਜੋਂ ਵਰਤੀ ਜਾਂਦੀ ਹੈ — ਯਾਨੀ ਕੂੜੇ ਦਾ ਨਿਪਟਾਰਾ ਵੀ ਤੇ ਬਾਲਣ ਵੀ।", en: "Biogas: produced by anaerobic decomposition of cattle dung and organic waste; about 75% methane. It is renewable, smokeless, and the leftover slurry is used as manure — solving waste disposal and fuel supply together." }
         },
         {
-          id: "SCI-CH16-01", ch: "Ch 16 · ਕੁਦਰਤੀ ਸਾਧਨਾਂ ਦਾ ਟਿਕਾਊ ਪ੍ਰਬੰਧਨ", competency: "Analysis", diff: "Medium",
+          id: "SCI-CH16-01", ch: "Ch 16 · ਕੁਦਰਤੀ ਸਾਧਨਾਂ ਦਾ ਟਿਕਾਊ ਪ੍ਰਬੰਧਨ", competency: "Analysis", diff: "Medium", pseb_marks: "1M_OBJECTIVE", pyq_tag: "PSEB 2024", bloom_taxonomy: "Knowledge",
           prompt: { pa: "ਪਾਣੀ ਦੇ ਨਮੂਨੇ ਵਿੱਚ ਕੋਲੀਫਾਰਮ ਬੈਕਟੀਰੀਆ ਦੀ ਮੌਜੂਦਗੀ ਕਿਸ ਗੱਲ ਦਾ ਸੰਕੇਤ ਹੈ?", en: "The presence of coliform bacteria in a water sample indicates:" },
           hint: { pa: "ਸੋਚੋ ਕਿ ਕੋਲੀਫਾਰਮ ਬੈਕਟੀਰੀਆ ਆਮ ਤੌਰ 'ਤੇ ਸਰੀਰ ਦੇ ਕਿਸ ਹਿੱਸੇ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ — ਉਹੀ ਦੱਸੇਗਾ ਕਿ ਪਾਣੀ ਵਿੱਚ ਕੀ ਰਲਿਆ ਹੈ।", en: "Think about where in the body coliform bacteria normally live — that tells you what has got into the water." },
           trap: { pa: "'ਭਾਰੀ ਧਾਤਾਂ' ਇਸ ਲਈ ਫਸਾਉਂਦਾ ਹੈ ਕਿਉਂਕਿ ਇਹ ਵੀ ਪਾਣੀ ਦਾ ਜਾਣਿਆ-ਪਛਾਣਿਆ ਪ੍ਰਦੂਸ਼ਕ ਹੈ। ਪਰ ਜਾਂਚ ਦਾ ਤਰੀਕਾ ਧਿਆਨ ਨਾਲ ਪੜ੍ਹੋ: ਬੈਕਟੀਰੀਆ ਸਿਰਫ਼ ਜੈਵਿਕ/ਮਲ ਪ੍ਰਦੂਸ਼ਣ ਦਾ ਸੰਕੇਤ ਦਿੰਦੇ ਹਨ, ਧਾਤਾਂ ਦਾ ਨਹੀਂ।", en: "'Heavy metals' tempts because it is also a well-known water pollutant. But read what is being measured: bacteria indicate organic or faecal pollution only, never metal contamination." },
@@ -3349,6 +3358,29 @@
     const picked = answers[qq.id];
     const answered = picked !== undefined;
     const revealed = isRevealed(qq);
+
+  /* ---- PSEB blueprint runes (pseb_marks / pyq_tag / bloom_taxonomy) ----
+     Chapters 10-16 carry the board blueprint on each question. The chips
+     reuse the existing .meta-rune shape so the card's rhythm is unchanged;
+     only the accent colour distinguishes them. Questions without the fields
+     simply render nothing, so the older banks are untouched. */
+  const PSEB_MARK_LABEL = {
+    "1M_OBJECTIVE": "1 Mark",
+    "2M_SHORT": "2 Marks",
+    "3M_NUMERICAL_OR_DIAGRAM": "3 Marks · Num/Diagram",
+    "5M_LONG_DERIVATION": "5 Marks · Long"
+  };
+  function psebBlueprintRunes(qq) {
+    let out = "";
+    if (qq.pseb_marks && PSEB_MARK_LABEL[qq.pseb_marks]) {
+      out += '<span class="meta-rune pseb-mark" data-marks="' + esc(qq.pseb_marks) + '">' +
+             esc(PSEB_MARK_LABEL[qq.pseb_marks]) + '</span>';
+    }
+    if (qq.pyq_tag) out += '<span class="meta-rune pseb-pyq">★ ' + esc(qq.pyq_tag) + '</span>';
+    if (qq.bloom_taxonomy) out += '<span class="meta-rune pseb-bloom">' + esc(qq.bloom_taxonomy) + '</span>';
+    return out;
+  }
+
     const locked = answersLocked(qq);
     const strikes = struck[qq.id] || {};
     const langBtnLabel = lang === "pa" ? "EN ⇄ ਪੰਜਾਬੀ" : "ਪੰਜਾਬੀ ⇄ EN";
@@ -3358,6 +3390,7 @@
       '<span class="meta-rune">' + esc(qq.ch) + '</span>' +
       '<span class="meta-rune">' + esc(qq.competency) + '</span>' +
       (qq.diff ? '<span class="meta-rune diff-' + qq.diff.toLowerCase() + '">' + esc(qq.diff) + '</span>' : '') +
+      psebBlueprintRunes(qq) +
       '<button class="flag-btn' + (flags[qq.id] ? " active" : "") + '" type="button" data-flag aria-pressed="' + (flags[qq.id] ? "true" : "false") + '" aria-label="Flag question for review">' + (flags[qq.id] ? "⚑ Flagged" : "⚐ Flag") + '</button>' +
       '<button class="lang-flip" type="button" data-flip-lang>' + langBtnLabel + '</button>' +
       '</div>';

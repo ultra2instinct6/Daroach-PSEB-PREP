@@ -271,6 +271,23 @@
   .mode-placeholder-cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; padding: 14px 30px; border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent); border-radius: 14px; background: color-mix(in srgb, var(--accent) 12%, transparent); color: #fff; font-family: inherit; font-size: 0.82rem; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; cursor: pointer; transition: all 0.3s var(--fluid-curve); box-shadow: 0 0 30px -10px var(--accent); }
   .mode-placeholder-cta:hover { transform: translateY(-2px); background: color-mix(in srgb, var(--accent) 22%, transparent); box-shadow: 0 10px 34px -8px var(--accent); }
   .mode-placeholder-cta[hidden] { display: none; }
+  /* Syllabus roadmap — the designed preview for Math and English lectures.
+     Tiles reuse the placeholder's --accent so each subject keeps its colour. */
+  .mode-roadmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 8px; max-width: 620px; max-height: 34vh; overflow-y: auto; margin: 22px auto 0; padding: 2px 4px; text-align: left; scrollbar-width: thin; }
+  .mode-roadmap[hidden] { display: none; }
+  .roadmap-tile { display: flex; align-items: center; gap: 9px; padding: 9px 11px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; background: rgba(255, 255, 255, 0.035); animation: roadTileIn 0.5s var(--fluid-curve) both; }
+  .roadmap-tile:nth-child(-n+18) { animation-delay: calc(var(--i, 0) * 28ms); }
+  @keyframes roadTileIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .roadmap-num { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-size: 0.66rem; font-weight: 900; }
+  .roadmap-name { flex: 1; min-width: 0; color: rgba(255, 255, 255, 0.86); font-size: 0.68rem; font-weight: 700; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .roadmap-name .pa { display: block; color: var(--text-dim); font-size: 0.6rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+  .roadmap-state { flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%; background: #ffaa00; box-shadow: 0 0 8px rgba(255, 170, 0, 0.7); }
+  .roadmap-legend { margin-top: 12px; color: var(--text-dim); font-size: 0.6rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+  body[data-theme="CLASSIC"] .roadmap-tile { border-color: rgba(11, 74, 168, 0.16); background: rgba(255, 255, 255, 0.75); }
+  body[data-theme="CLASSIC"] .roadmap-name { color: #24354d; }
+  body[data-theme="CLASSIC"] .roadmap-state { box-shadow: none; }
+  @media (prefers-reduced-motion: reduce) { .roadmap-tile { animation: none; } }
+  @media (max-width: 768px) { .mode-roadmap { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); max-height: 30vh; } }
   /* Mode-switch feedback: a soft accent bloom that fades in and out (no solid
      layer, no growing circle edge). */
   body.orb-pulse .gateway-core { --veil-solid: 0; opacity: 0.5; transition: opacity 0.42s var(--fluid-curve); }
@@ -604,6 +621,7 @@
       <span class="mode-placeholder-badge" id="modePlaceholderBadge">In development</span>
       <h1 id="modePlaceholderTitle">MCQ Practice</h1>
       <p id="modePlaceholderMessage">Question practice is being prepared.</p>
+      <div class="mode-roadmap" id="modePlaceholderRoadmap" hidden></div>
       <button class="mode-placeholder-cta" id="modePlaceholderCta" type="button" hidden>⚡ Enter Practice</button>
       <div class="mode-placeholder-status" id="modePlaceholderStatus">Coming soon</div>
     </section>
@@ -671,6 +689,39 @@
   const modePlaceholderMessage = document.getElementById("modePlaceholderMessage");
   const modePlaceholderCta = document.getElementById("modePlaceholderCta");
   const modePlaceholderStatus = document.getElementById("modePlaceholderStatus");
+  const modePlaceholderRoadmap = document.getElementById("modePlaceholderRoadmap");
+  /* PSEB Class 10 syllabus previews for the subjects still in development.
+     Math follows the board's NCERT-aligned chapter list; English follows the
+     board's paper sections. */
+  const SYLLABUS_PREVIEW = {
+    MATH: [
+      ["Real Numbers", "ਵਾਸਤਵਿਕ ਸੰਖਿਆਵਾਂ"], ["Polynomials", "ਬਹੁਪਦ"],
+      ["Pair of Linear Equations", "ਰੇਖੀ ਸਮੀਕਰਣਾਂ ਦਾ ਜੋੜਾ"], ["Quadratic Equations", "ਦੋ-ਘਾਤੀ ਸਮੀਕਰਣ"],
+      ["Arithmetic Progressions", "ਅੰਕਗਣਿਤਕ ਲੜੀਆਂ"], ["Triangles", "ਤ੍ਰਿਭੁਜ"],
+      ["Coordinate Geometry", "ਨਿਰਦੇਸ਼ ਅੰਕ ਜਿਓਮੈਟਰੀ"], ["Introduction to Trigonometry", "ਤਿਕੋਣਮਿਤੀ ਦੀ ਜਾਣ-ਪਛਾਣ"],
+      ["Applications of Trigonometry", "ਤਿਕੋਣਮਿਤੀ ਦੇ ਉਪਯੋਗ"], ["Circles", "ਚੱਕਰ"],
+      ["Constructions", "ਰਚਨਾਵਾਂ"], ["Areas Related to Circles", "ਚੱਕਰ ਨਾਲ ਸੰਬੰਧਿਤ ਖੇਤਰਫਲ"],
+      ["Surface Areas & Volumes", "ਸਤ੍ਹਾ ਖੇਤਰਫਲ ਅਤੇ ਆਇਤਨ"], ["Statistics", "ਅੰਕੜਾ ਵਿਗਿਆਨ"],
+      ["Probability", "ਸੰਭਾਵਨਾ"]
+    ],
+    ENGLISH: [
+      ["Prose — Literature lessons", "ਪਾਠ (ਗੱਦ)"], ["Poetry", "ਕਵਿਤਾਵਾਂ"],
+      ["Supplementary Reader", "ਪੂਰਕ ਪਾਠ-ਪੁਸਤਕ"], ["Grammar", "ਵਿਆਕਰਣ"],
+      ["Writing Skills — Letters & Paragraphs", "ਲਿਖਣ ਕਲਾ"], ["Translation & Vocabulary", "ਅਨੁਵਾਦ ਤੇ ਸ਼ਬਦਾਵਲੀ"]
+    ]
+  };
+  function roadmapHtml(subject) {
+    const rows = SYLLABUS_PREVIEW[subject];
+    if (!rows) return "";
+    const tiles = rows.map((row, i) =>
+      '<div class="roadmap-tile" style="--i:' + i + '" title="' + row[0] + '">' +
+        '<span class="roadmap-num">' + (i + 1) + '</span>' +
+        '<span class="roadmap-name">' + row[0] + '<span class="pa">' + row[1] + '</span></span>' +
+        '<span class="roadmap-state" aria-hidden="true"></span>' +
+      '</div>'
+    ).join("");
+    return tiles + '<div class="roadmap-legend" style="grid-column: 1 / -1;">● In development — ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ</div>';
+  }
   let isLocked = false, currentAngle = 0, targetAngle = 0, isDragging = false, velocity = 0, lastX = 0, lastTickIdx = -1, isLooping = false, currentSubject = "SCIENCE", currentMode = "LECTURES", isPlaceholderView = false, toastTimer = null, viewTransitionTimer = null, trustTitleTimer = null, audioCtx = null, orbSpin = 0, orbUnit = 1;
   /* Keeps the orb's sway proportional to its rendered size (86px = phone orb),
      so the desktop orb reacts as energetically as the mobile one. */
@@ -688,7 +739,7 @@
     modeContent = {
       LECTURES: { title: "Lectures", message: "Punjabi-first chapter lectures are being prepared.", accent: accents.LECTURES },
       MCQ: { title: "MCQ Practice", message: "Bilingual question bank with 44 board-pattern MCQs, rationales, difficulty tags, flagging and performance analytics across Science, Math and English.", accent: accents.MCQ, href: "mcq.html" },
-      FLASHCARDS: { title: "Flashcards", message: "540+ bilingual spaced-repetition flashcards — vocabulary and concept decks with 3D flip, Again/Got-It recall grading and mastery tracking across all 16 chapters.", accent: accents.FLASHCARDS, href: "flashcards.html" },
+      FLASHCARDS: { title: "Flashcards", message: "540+ bilingual spaced-repetition flashcards — vocabulary and concept decks with 3D flip, three-tier SM-2 recall grading, word-root breakdowns, board high-yield filtering and mastery tracking across all 16 chapters.", accent: accents.FLASHCARDS, href: "flashcards.html" },
       TYPING: { title: "Typing Practice", message: "Active-recall typing drills for terminology and written answers, built to work across subjects.", accent: accents.TYPING }
     };
   }
@@ -798,8 +849,8 @@
   function initDial() { dial.innerHTML = ""; let savedIdx = parseInt(localStorage.getItem("bolo_pseb_idx") || "0", 10); if (isNaN(savedIdx) || savedIdx >= syllabus.length) savedIdx = 0; syllabus.forEach((chap, index) => { const angle = index * degreePerNode; const color = auras[chap.type] || "#ffffff"; const pct = pctFor(chap); const isDone = pct === 100; const bookmarked = isBookmarked(chap.id); const anchor = document.createElement("article"); anchor.className = "node-anchor shard-anchor"; anchor.id = "shard-anchor-" + index; anchor.style.transform = "rotate(" + angle + "deg) translateY(calc(var(--radius) * -1))"; anchor.style.color = color; const shard = document.createElement("div"); shard.className = "shard"; shard.innerHTML = '<div class="s-head"><div class="s-titles" data-node-select="' + index + '"><div class="ch-icon">' + icons[chap.type] + '</div><div class="ch-num">' + String(chap.id).padStart(2, "0") + '</div><div class="title-group"><span class="pa-title">' + chap.pa + '</span><span class="en-title">' + chap.en + '</span></div></div><button class="svg-progress-container ' + (isDone ? "done " : "") + (chap.placeholder ? "locked" : "") + '" id="prog-' + chap.id + '" type="button" data-node-progress="' + chap.id + '" title="Mark complete" aria-label="Mark Chapter ' + chap.id + ' complete"><svg class="prog-ring" viewBox="0 0 36 36"><circle class="bg" cx="18" cy="18" r="16"></circle><circle class="fill" id="fill-' + chap.id + '" cx="18" cy="18" r="16" stroke-dashoffset="' + (100 - pct) + '"></circle></svg><span class="prog-text" id="text-' + chap.id + '">' + (isDone ? "✓" : pct + "%") + '</span></button></div><div class="s-expansion"><div class="s-expansion-inner"><div class="rune-row"><span class="rune">' + (chap.slides || 0) + ' Slides</span><span class="rune">' + subjectPunjabi[chap.type] + '</span>' + (chap.math ? '<span class="rune">MathJax</span>' : '') + (bookmarked ? '<span class="rune">Revision ★</span>' : '') + (chap.placeholder ? '<span class="rune soon">Coming soon</span>' : '') + '<span class="rune" id="status-' + chap.id + '">' + statusFor(chap) + '</span></div><div class="action-row"><button class="btn-prime" type="button" data-open-lecture="' + index + '" ' + (chap.placeholder ? 'aria-disabled="true"' : '') + '><span id="action-' + chap.id + '">' + actionText(chap) + '</span><span>▶</span></button></div></div></div>'; anchor.appendChild(shard); dial.appendChild(anchor); }); targetAngle = -savedIdx * degreePerNode; velocity = 0; measureOrbUnit(); resetCore(false); wakePhysicsLoop(); }
   function setTrustTitle(title) { const el = document.getElementById("trustPrimary"); el.style.opacity = 0; if (trustTitleTimer) clearTimeout(trustTitleTimer); trustTitleTimer = setTimeout(() => { el.textContent = title; el.style.opacity = 1; }, 200); }
   function pulseOrb(color) { gatewayCore.style.color = color; document.body.classList.add("orb-pulse"); coreMass.style.setProperty("--orb-charge", "1"); setTimeout(() => { document.body.classList.remove("orb-pulse"); coreMass.style.setProperty("--orb-charge", "0"); }, 460); }
-  function setPlaceholderView(title, message, badge, accent, href) { isPlaceholderView = true; isLocked = false; dial.innerHTML = ""; modePlaceholder.style.setProperty("--accent", accent); modePlaceholderBadge.textContent = badge; modePlaceholderTitle.textContent = title; modePlaceholderMessage.textContent = message; if (href) { modePlaceholderCta.hidden = false; modePlaceholderCta.dataset.launchHref = href; modePlaceholderCta.dataset.launchAccent = accent; modePlaceholderStatus.hidden = true; } else { modePlaceholderCta.hidden = true; modePlaceholderStatus.hidden = false; } modePlaceholder.hidden = false; modePlaceholder.style.animation = "none"; void modePlaceholder.offsetWidth; modePlaceholder.style.animation = ""; coreRing.style.opacity = "0.35"; coreRing.style.background = "radial-gradient(circle at 50% 50%, " + accent + "38 0%, " + accent + "14 32%, " + accent + "00 68%)"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + accent + "1c 0%, var(--bg-void) 74%)"; coreVal.textContent = ""; coreMass.style.boxShadow = "0 0 70px " + accent + "40, 0 0 130px " + accent + "1f"; coreMass.style.setProperty("--core-scale", "0.5"); ariaAnnouncer.textContent = title + (href ? ". Ready to launch." : ". Coming soon."); }
-  function setView(subject, mode) { if (subject) currentSubject = subject; if (mode) currentMode = mode; document.querySelectorAll("[data-subject]").forEach(btn => btn.classList.toggle("active", btn.dataset.subject === currentSubject)); document.querySelectorAll("[data-mode]").forEach(btn => btn.classList.toggle("active", btn.dataset.mode === currentMode)); const subjectInfo = subjectContent[currentSubject]; const modeInfo = modeContent[currentMode]; const isLectureMode = currentMode === "LECTURES"; document.getElementById("subjectRouter").style.display = isLectureMode ? "flex" : "none"; setTrustTitle(isLectureMode ? subjectInfo.courseTitle : modeInfo.title); pulseOrb(modeInfo.accent); arena.classList.add("fade-out"); if (viewTransitionTimer) clearTimeout(viewTransitionTimer); viewTransitionTimer = setTimeout(() => { if (isLectureMode && currentSubject === "SCIENCE") { isPlaceholderView = false; modePlaceholder.hidden = true; coreRing.style.background = ""; initDial(); } else if (isLectureMode) { setPlaceholderView(subjectInfo.name + " Lectures", subjectInfo.name + " lectures in Punjabi are being prepared.", "Future subject", modeInfo.accent); } else { setPlaceholderView(modeInfo.title, modeInfo.message, modeInfo.href ? "Ready" : "New study mode", modeInfo.accent, modeInfo.href); } arena.classList.remove("fade-out"); }, 320); }
+  function setPlaceholderView(title, message, badge, accent, href, roadmap) { isPlaceholderView = true; isLocked = false; dial.innerHTML = ""; modePlaceholder.style.setProperty("--accent", accent); modePlaceholderBadge.textContent = badge; modePlaceholderTitle.textContent = title; modePlaceholderMessage.textContent = message; if (roadmap) { modePlaceholderRoadmap.innerHTML = roadmap; modePlaceholderRoadmap.hidden = false; } else { modePlaceholderRoadmap.innerHTML = ""; modePlaceholderRoadmap.hidden = true; } if (href) { modePlaceholderCta.hidden = false; modePlaceholderCta.dataset.launchHref = href; modePlaceholderCta.dataset.launchAccent = accent; modePlaceholderStatus.hidden = true; } else { modePlaceholderCta.hidden = true; modePlaceholderStatus.hidden = !!roadmap; } modePlaceholder.hidden = false; modePlaceholder.style.animation = "none"; void modePlaceholder.offsetWidth; modePlaceholder.style.animation = ""; coreRing.style.opacity = "0.35"; coreRing.style.background = "radial-gradient(circle at 50% 50%, " + accent + "38 0%, " + accent + "14 32%, " + accent + "00 68%)"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + accent + "1c 0%, var(--bg-void) 74%)"; coreVal.textContent = ""; coreMass.style.boxShadow = "0 0 70px " + accent + "40, 0 0 130px " + accent + "1f"; coreMass.style.setProperty("--core-scale", "0.5"); ariaAnnouncer.textContent = title + (href ? ". Ready to launch." : ". Coming soon."); }
+  function setView(subject, mode) { if (subject) currentSubject = subject; if (mode) currentMode = mode; document.querySelectorAll("[data-subject]").forEach(btn => btn.classList.toggle("active", btn.dataset.subject === currentSubject)); document.querySelectorAll("[data-mode]").forEach(btn => btn.classList.toggle("active", btn.dataset.mode === currentMode)); const subjectInfo = subjectContent[currentSubject]; const modeInfo = modeContent[currentMode]; const isLectureMode = currentMode === "LECTURES"; document.getElementById("subjectRouter").style.display = isLectureMode ? "flex" : "none"; setTrustTitle(isLectureMode ? subjectInfo.courseTitle : modeInfo.title); pulseOrb(modeInfo.accent); arena.classList.add("fade-out"); if (viewTransitionTimer) clearTimeout(viewTransitionTimer); viewTransitionTimer = setTimeout(() => { if (isLectureMode && currentSubject === "SCIENCE") { isPlaceholderView = false; modePlaceholder.hidden = true; coreRing.style.background = ""; initDial(); } else if (isLectureMode) { setPlaceholderView(subjectInfo.name + " Lectures", currentSubject === "MATH" ? "The full PSEB Class 10 Math syllabus is mapped and in production — bilingual chapter lectures with worked examples." : "The PSEB Class 10 English paper is mapped section by section — bilingual lessons with grammar and writing practice.", "Syllabus mapped", modeInfo.accent, null, roadmapHtml(currentSubject)); } else { setPlaceholderView(modeInfo.title, modeInfo.message, modeInfo.href ? "Ready" : "New study mode", modeInfo.accent, modeInfo.href); } arena.classList.remove("fade-out"); }, 320); }
   function getActiveIndex() { const normalized = ((targetAngle % 360) + 360) % 360; return (syllabus.length - Math.round(normalized / degreePerNode)) % syllabus.length; }
   function wakePhysicsLoop() { if (!isLooping && !isPlaceholderView && syllabus.length) { isLooping = true; requestAnimationFrame(renderPhysics); } }
   function renderPhysics() { if (isPlaceholderView || dial.innerHTML === "") { isLooping = false; return; } let needsMoreFrames = false; if (!isDragging) { targetAngle += velocity; velocity *= 0.92; if (Math.abs(velocity) < 0.005) velocity = 0; else needsMoreFrames = true; const closestSnap = Math.round(targetAngle / degreePerNode) * degreePerNode; const snapDiff = closestSnap - targetAngle; if (Math.abs(snapDiff) > 0.005) { targetAngle += snapDiff * 0.15; needsMoreFrames = true; } else if (velocity === 0) targetAngle = closestSnap; } else needsMoreFrames = true; const angleDiff = targetAngle - currentAngle; if (Math.abs(angleDiff) > 0.005) { currentAngle += angleDiff * 0.2; needsMoreFrames = true; } else { currentAngle = targetAngle; /* Fold away whole turns once the wheel is at rest. Visually identical

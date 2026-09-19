@@ -198,6 +198,12 @@
     { en: "Power of a Lens", pa: "ਲੈਂਜ਼ ਦੀ ਸਮਰੱਥਾ", ph: "POW-er uv uh LENZ", ch: [10] },
     { en: "Dioptre", pa: "ਡਾਇਆਪਟਰ", ph: "die-OP-ter", ch: [10], alt: ["Diopter"] },
 
+    { en: "Snell's Law", pa: "ਸਨੈਲ ਦਾ ਨਿਯਮ", ph: "SNELZ LAW", ch: [10], alt: ["Law of Refraction"] },
+    { en: "Mirror Formula", pa: "ਦਰਪਣ ਸੂਤਰ", ph: "MIRR-or FOR-myuh-luh", ch: [10] },
+    { en: "Lens Formula", pa: "ਲੈਂਜ਼ ਸੂਤਰ", ph: "LENZ FOR-myuh-luh", ch: [10] },
+    { en: "Power of a Lens", pa: "ਲੈਂਜ਼ ਦੀ ਸ਼ਕਤੀ", ph: "POW-er uv uh LENZ", ch: [10], alt: ["Lens Power"] },
+    { en: "Sign Convention", pa: "ਚਿੰਨ੍ਹ ਪ੍ਰਣਾਲੀ", ph: "SINE kun-VEN-shun", ch: [10] },
+
     /* ---- Ch 11 · The Human Eye and the Colourful World ---- */
     { en: "Accommodation", pa: "ਸਮਾਯੋਜਨ ਸਮਰੱਥਾ", ph: "uh-kom-uh-DAY-shun", ch: [11] },
     { en: "Myopia", pa: "ਨਿਕਟ ਦ੍ਰਿਸ਼ਟੀ", ph: "my-OH-pee-uh", ch: [11] },
@@ -228,6 +234,8 @@
     { en: "Voltmeter", pa: "ਵੋਲਟਮੀਟਰ", ph: "VOHLT-mee-ter", ch: [12] },
     { en: "Ammeter", pa: "ਐਮੀਟਰ", ph: "AM-ee-ter", ch: [12] },
 
+    { en: "Commercial Unit", pa: "ਵਪਾਰਕ ਯੂਨਿਟ", ph: "kuh-MER-shul YOO-nit", ch: [12], alt: ["Kilowatt Hour", "kWh"] },
+
     /* ---- Ch 13 · Magnetic Effects of Electric Current ---- */
     { en: "Magnetic Field", pa: "ਚੁੰਬਕੀ ਖੇਤਰ", ph: "mag-NET-ik FEELD", ch: [13] },
     { en: "Magnetic Field Lines", pa: "ਚੁੰਬਕੀ ਬਲ ਰੇਖਾਵਾਂ", ph: "mag-NET-ik FEELD LINEZ", ch: [13] },
@@ -257,6 +265,8 @@
     { en: "Nuclear Fission", pa: "ਨਿਊਕਲੀ ਵਿਖੰਡਨ", ph: "NOO-klee-er FISH-un", ch: [14] },
     { en: "Nuclear Fusion", pa: "ਨਿਊਕਲੀ ਸੰਯੋਜਨ", ph: "NOO-klee-er FYOO-zhun", ch: [14] },
 
+    { en: "Ten Percent Law", pa: "ਦਸ ਪ੍ਰਤੀਸ਼ਤ ਨਿਯਮ", ph: "TEN per-SENT LAW", ch: [15] },
+
     /* ---- Ch 15 · Our Environment ---- */
     { en: "Ecosystem", pa: "ਪਰਿਸਥਿਤਕ ਪ੍ਰਣਾਲੀ", ph: "EE-koh-sis-tum", ch: [15] },
     { en: "Food Chain", pa: "ਭੋਜਨ ਲੜੀ", ph: "FOOD CHAYN", ch: [15] },
@@ -270,6 +280,9 @@
     { en: "Biomagnification", pa: "ਜੈਵ ਵੱਡਦਰਸ਼ਨ", ph: "by-oh-mag-ni-fi-KAY-shun", ch: [15] },
     { en: "Ozone Layer", pa: "ਓਜ਼ੋਨ ਪਰਤ", ph: "OH-zohn LAY-er", ch: [15] },
     { en: "Chlorofluorocarbon", pa: "ਕਲੋਰੋਫਲੋਰੋਕਾਰਬਨ", ph: "klor-oh-FLOR-oh-kar-bun", ch: [15], alt: ["CFC"] },
+
+    { en: "Five R's", pa: "ਪੰਜ ਆਰ", ph: "FIVE ARZ", ch: [16], alt: ["5 R", "Five R"] },
+    { en: "Amrita Devi Bishnoi", pa: "ਅੰਮ੍ਰਿਤਾ ਦੇਵੀ ਬਿਸ਼ਨੋਈ", ph: "um-REE-tuh DAY-vee bish-NOY", ch: [16] },
 
     /* ---- Ch 16 · Sustainable Management of Natural Resources ---- */
     { en: "Sustainable Development", pa: "ਟਿਕਾਊ ਵਿਕਾਸ", ph: "suh-STAYN-uh-bul di-VEL-up-munt", ch: [16] },

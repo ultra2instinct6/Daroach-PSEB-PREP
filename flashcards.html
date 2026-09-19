@@ -6,50 +6,64 @@
 <title>BOLO.FLASH — PSEB Class 10 Flashcard Engine</title>
 <!-- Google Analytics (GA4) — shared loader, see assets/analytics.js -->
 <script src="assets/analytics.js"></script>
-<meta name="description" content="Bilingual Punjabi-English spaced-repetition flashcards for PSEB Class 10 — 540+ vocabulary and concept cards with 3D flip, Again/Good recall grading and mastery tracking across all 16 chapters.">
+<meta name="description" content="Bilingual Punjabi-English spaced-repetition flashcards for PSEB Class 10 — 540+ vocabulary and concept cards with 3D flip, three-tier SM-2 recall grading, board high-yield filtering and mastery tracking across all 16 chapters.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#050814">
 <style>
+  /* ============ Design tokens ============================================
+     NEON is the default dark colourway; CLASSIC is the light, paper-like
+     colourway used by the lecture decks. The theme choice is shared with
+     index.html, mcq.html and the decks through localStorage. */
   :root {
-    --bg-void: #000000;
-    --text-bold: #ffffff;
-    --text-dim: #8e9bb0;
-    --panel: rgba(18, 18, 22, 0.94);
-    --border: rgba(255, 255, 255, 0.08);
-    --accent: #2ecc71;
-    --green: #2ecc71;
-    --red: #ff4d6d;
-    --amber: #ffaa00;
-    --chem: #00e5ff;
-    --bio: #2ecc71;
-    --phy: #b026ff;
-    --env: #ffaa00;
+    --bg-void: #050814;
+    --panel: #0c1222;
+    --panel-soft: #111a2e;
+    --border: #1e293b;
+    --text-bold: #f8fafc;
+    --text-dim: #94a3b8;
+    --brand: #38bdf8;
+    --glow: 0 0 25px -5px rgba(56, 189, 248, 0.18);
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --chem: #38bdf8;
+    --bio: #34d399;
+    --phy: #c084fc;
+    --env: #fbbf24;
     --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
     --font-gurmukhi: 'Noto Sans Gurmukhi', 'Mukta Mahee', 'Gurmukhi Sangam MN', 'Nirmala UI', 'Raavi', 'Lohit Gurmukhi', sans-serif;
   }
-  /* CLASSIC = light colorway matching the lecture decks (legacy palette). */
   body[data-theme="CLASSIC"] {
-    --bg-void: #f8fbff;
-    --text-bold: #182437;
-    --text-dim: #5c6f86;
-    --panel: rgba(255, 255, 255, 0.92);
-    --border: rgba(11, 74, 168, 0.14);
-    --accent: #f26a21;
-    --green: #179c65;
-    --red: #c73a2e;
-    --amber: #f26a21;
-    --chem: #0b56c5;
-    --bio: #179c65;
-    --phy: #083b85;
-    --env: #f26a21;
+    --bg-void: #f8fafc;
+    --panel: #ffffff;
+    --panel-soft: #f1f5f9;
+    --border: #cbd5e1;
+    --text-bold: #0f172a;
+    --text-dim: #64748b;
+    --brand: #2563eb;
+    --glow: 0 10px 30px -12px rgba(15, 23, 42, 0.22);
+    --green: #059669;
+    --amber: #d97706;
+    --red: #dc2626;
+    --chem: #2563eb;
+    --bio: #059669;
+    --phy: #7c3aed;
+    --env: #d97706;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html { background: var(--bg-void); }
+  /* The whole app is one non-scrolling column: header, chips, stage and the
+     grading controls. Only the card body scrolls, which is what keeps the
+     Again / Hard / Mastered row permanently on screen. */
   body {
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     background: var(--bg-void);
     color: var(--text-bold);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, var(--font-gurmukhi);
@@ -62,35 +76,25 @@
     inset: -5%;
     z-index: -3;
     pointer-events: none;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(148, 163, 184, 0.9) 1px, transparent 1px);
     background-size: 32px 32px;
-    opacity: 0.035;
+    opacity: 0.05;
   }
   .aura-bleed {
     position: fixed;
-    top: -20vh;
+    top: -22vh;
     left: 50%;
     z-index: -2;
     width: 130vw;
     height: 90vh;
     transform: translateX(-50%);
-    background: radial-gradient(ellipse at center, rgba(46, 204, 113, 0.13) 0%, rgba(46, 204, 113, 0.045) 40%, transparent 72%);
     pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.14) 0%, rgba(56, 189, 248, 0.045) 42%, transparent 72%);
     transition: background 0.9s var(--fluid-curve);
   }
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(circle at center, transparent 10%, rgba(0, 0, 0, 0.94) 100%);
-  }
-  body[data-theme="CLASSIC"]::after { background: none; }
-  body[data-theme="CLASSIC"]::before { background-image: radial-gradient(rgba(11, 86, 197, 0.5) 1px, transparent 1px); opacity: 0.05; }
+  [hidden] { display: none !important; }
 
-  /* Page transition veil — matches the menu, the lecture decks and BOLO.MCQ so
-     moving between surfaces is one continuous dissolve instead of a hard cut. */
+  /* Page transition veil — shared with the menu, the decks and BOLO.MCQ. */
   .page-veil {
     position: fixed;
     inset: 0;
@@ -104,60 +108,63 @@
   body.page-leaving .page-veil { animation: veilFadeIn 300ms var(--fluid-curve) forwards; opacity: 1; visibility: visible; }
   @keyframes veilFadeOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
   @keyframes veilFadeIn { from { opacity: 0; visibility: visible; } to { opacity: 1; visibility: visible; } }
-  @media (prefers-reduced-motion: reduce) {
-    .page-veil { animation-duration: 160ms; }
-    body.page-leaving .page-veil { animation-duration: 140ms; }
-  }
 
   button { border: 0; font: inherit; color: inherit; background: none; cursor: pointer; }
-  /* The stage panels use display:flex, which would defeat the hidden attribute. */
-  [hidden] { display: none !important; }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+  /* Subtle scrollbar used inside the card body. */
+  .custom-scroll { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--text-dim) 45%, transparent) transparent; }
+  .custom-scroll::-webkit-scrollbar { width: 6px; }
+  .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+  .custom-scroll::-webkit-scrollbar-thumb { border-radius: 99px; background: color-mix(in srgb, var(--text-dim) 40%, transparent); }
+  .custom-scroll::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--text-dim) 65%, transparent); }
 
   /* ---------- Header ---------- */
   .flash-header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
+    flex: 0 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 12px 18px;
-    padding: max(18px, env(safe-area-inset-top)) clamp(16px, 4vw, 44px) 12px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.78) 78%, transparent 100%);
+    gap: 8px 14px;
+    padding: max(12px, env(safe-area-inset-top)) clamp(14px, 4vw, 40px) 10px;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-void) 82%, transparent);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
-  body[data-theme="CLASSIC"] .flash-header { background: linear-gradient(180deg, rgba(248, 251, 255, 0.95) 0%, rgba(248, 251, 255, 0.82) 78%, transparent 100%); }
   .header-logo {
     font-weight: 900;
-    font-size: 1.02rem;
+    font-size: 1rem;
     letter-spacing: 2.6px;
     color: var(--text-bold);
     text-decoration: none;
     white-space: nowrap;
   }
-  .header-logo .dot-mode { color: var(--accent); text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 60%, transparent); transition: color 0.5s var(--fluid-curve); }
-  body[data-theme="CLASSIC"] .header-logo .dot-mode { text-shadow: none; }
+  .header-logo .dot-mode { color: var(--brand); }
   .home-pill, .theme-pill, .tool-pill {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 13px;
+    padding: 7px 12px;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--panel);
     color: var(--text-dim);
-    font-size: 0.72rem;
+    font-size: 0.71rem;
     font-weight: 800;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.5px;
     text-decoration: none;
     white-space: nowrap;
-    transition: color 0.25s, border-color 0.25s, transform 0.15s;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.12s;
   }
-  .home-pill:hover, .theme-pill:hover, .tool-pill:hover { color: var(--text-bold); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .home-pill:hover, .theme-pill:hover, .tool-pill:hover { color: var(--text-bold); border-color: color-mix(in srgb, var(--brand) 55%, transparent); }
   .home-pill:active, .theme-pill:active, .tool-pill:active { transform: scale(0.96); }
-  .router, .dir-switch {
+  .tool-pill.on {
+    color: var(--amber);
+    border-color: color-mix(in srgb, var(--amber) 55%, transparent);
+    background: color-mix(in srgb, var(--amber) 12%, var(--panel));
+  }
+  .router {
     display: inline-flex;
     gap: 4px;
     padding: 4px;
@@ -166,43 +173,40 @@
     background: var(--panel);
   }
   .router-btn {
-    padding: 7px 13px;
+    padding: 6px 12px;
     border-radius: 999px;
     color: var(--text-dim);
-    font-size: 0.7rem;
+    font-size: 0.69rem;
     font-weight: 800;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     white-space: nowrap;
-    transition: color 0.25s, background 0.25s, box-shadow 0.25s;
+    transition: color 0.2s, background 0.2s;
   }
-  .router-btn.active {
-    color: #fff;
-    background: color-mix(in srgb, var(--accent) 82%, #000);
-    box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 35%, transparent);
-  }
-  body[data-theme="CLASSIC"] .router-btn.active { background: var(--accent); box-shadow: none; }
+  .router-btn.active { color: #fff; background: var(--brand); }
+  body[data-theme="CLASSIC"] .router-btn.active { color: #fff; }
   .header-spacer { flex: 1; }
   .score-pill {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 8px 14px;
-    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    padding: 7px 13px;
+    border: 1px solid color-mix(in srgb, var(--brand) 32%, transparent);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--accent) 9%, transparent);
+    background: color-mix(in srgb, var(--brand) 10%, transparent);
     color: var(--text-dim);
-    font-size: 0.72rem;
+    font-size: 0.71rem;
     font-weight: 800;
     white-space: nowrap;
   }
-  .score-pill strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-pill strong { color: var(--brand); font-variant-numeric: tabular-nums; }
 
   /* ---------- Chapter chips ---------- */
   .chip-bar {
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 4px clamp(16px, 4vw, 44px) 12px;
+    gap: 7px;
+    padding: 9px clamp(14px, 4vw, 40px);
     overflow-x: auto;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
@@ -212,272 +216,446 @@
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 8px 13px;
+    gap: 6px;
+    padding: 7px 12px;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--panel);
     color: var(--text-dim);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.3px;
     white-space: nowrap;
-    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.12s;
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .chip:active { transform: scale(0.95); }
-  .chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sub, var(--accent)); box-shadow: 0 0 8px var(--sub, var(--accent)); }
-  body[data-theme="CLASSIC"] .chip .dot { box-shadow: none; }
+  .chip:active { transform: scale(0.93); }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sub, var(--brand)); transition: box-shadow 0.25s; }
   .chip.active {
     color: var(--text-bold);
-    border-color: color-mix(in srgb, var(--sub, var(--accent)) 55%, transparent);
-    background: color-mix(in srgb, var(--sub, var(--accent)) 13%, var(--panel));
+    border-color: color-mix(in srgb, var(--sub, var(--brand)) 58%, transparent);
+    background: color-mix(in srgb, var(--sub, var(--brand)) 14%, var(--panel));
+    transform: translateY(-1px);
   }
+  .chip.active .dot { box-shadow: 0 0 8px var(--sub, var(--brand)); }
+  /* Subject rail labels group the 16 chapters for board revision. */
+  .chip-group {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 6px;
+    padding: 0 2px;
+    color: var(--sub, var(--brand));
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .chip-group::before { content: ''; width: 14px; height: 1px; background: color-mix(in srgb, var(--sub, var(--brand)) 55%, transparent); }
+  .chip-group:first-child { margin-left: 0; }
+  .chip-group:first-child::before { display: none; }
 
   /* ---------- Stage ---------- */
   .stage {
-    max-width: 720px;
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    max-width: 760px;
     margin: 0 auto;
-    padding: 6px clamp(16px, 4vw, 32px) 40px;
+    padding: 2px clamp(14px, 4vw, 32px) calc(env(safe-area-inset-bottom, 0px) + 42px);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .progress-track {
-    height: 5px;
+    flex: 0 0 auto;
+    height: 4px;
     border-radius: 99px;
-    background: color-mix(in srgb, var(--text-dim) 16%, transparent);
+    background: color-mix(in srgb, var(--text-dim) 18%, transparent);
     overflow: hidden;
-    margin-bottom: 14px;
   }
   .progress-fill {
+    position: relative;
     height: 100%;
     width: 0;
     border-radius: 99px;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 75%, #fff 0%), var(--accent));
-    box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent);
+    background: var(--brand);
+    overflow: hidden;
     transition: width 0.4s var(--fluid-curve);
   }
-  body[data-theme="CLASSIC"] .progress-fill { box-shadow: none; }
+  /* A soft sheen drifts along the filled portion of the progress bar. */
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: barSheen 2.6s linear infinite;
+  }
+  @keyframes barSheen { from { background-position: 180% 0; } to { background-position: -80% 0; } }
   .deck-meta {
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-bottom: 14px;
     color: var(--text-dim);
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     font-variant-numeric: tabular-nums;
   }
   .deck-meta .due-flag { color: var(--amber); }
-  .deck-meta .mastered-flag { color: var(--accent); }
+  .deck-meta .combo-flag { color: var(--green); animation: comboPulse 1.5s ease-in-out infinite; }
+  @keyframes comboPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.09); } }
+  .deck-meta .mastered-flag { color: var(--brand); }
 
   /* ---------- 3D flip card ----------
      The scene owns the perspective; the inner element rotates, so both faces
-     stay in the same box and never "jump". Nothing between the perspective
-     and the rotating element sets overflow, which would flatten the 3D
-     context in WebKit (same recipe as the in-deck Quick Revision cards). */
-  .scene {
-    perspective: 1500px;
-    min-height: clamp(320px, 52vh, 460px);
+     stay in the same box. Nothing between the perspective and the rotating
+     element sets overflow, which would flatten the 3D context in WebKit. */
+  .card-container {
+    flex: 1 1 auto;
+    min-height: 170px;
+    perspective: 1400px;
     display: flex;
     cursor: pointer;
     touch-action: pan-y;
     outline: none;
   }
-  .scene:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 24px; }
-  .flip {
+  .card-container:focus-visible { outline: 2px solid var(--brand); outline-offset: 6px; border-radius: 22px; }
+  .card-inner {
     position: relative;
     flex: 1;
     transform-style: preserve-3d;
-    transition: transform 0.5s var(--fluid-curve);
+    will-change: transform;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .scene.is-flipped .flip { transform: rotateY(180deg); }
-  .scene.fly-left .flip { transition: transform 0.3s ease-in, opacity 0.3s; transform: translateX(-120%) rotate(-8deg); opacity: 0; }
-  .scene.fly-right .flip { transition: transform 0.3s ease-in, opacity 0.3s; transform: translateX(120%) rotate(8deg); opacity: 0; }
-  .scene.deal .flip { animation: dealIn 0.42s var(--fluid-curve); }
-  @keyframes dealIn { from { transform: translateY(26px) scale(0.97); opacity: 0; } to { transform: none; opacity: 1; } }
-  .face {
+  .card-container.flipped .card-inner { transform: rotateY(180deg); }
+  /* Staggered reveal: as the card turns, the answer sections cascade in so the
+     eye lands on the answer first, then the supporting material. */
+  .card-container.flipped .card-back .card-body > * {
+    animation: secIn 0.5s var(--fluid-curve) both;
+  }
+  .card-container.flipped .card-back .card-body > :nth-child(1) { animation-delay: 0.16s; }
+  .card-container.flipped .card-back .card-body > :nth-child(2) { animation-delay: 0.24s; }
+  .card-container.flipped .card-back .card-body > :nth-child(3) { animation-delay: 0.32s; }
+  .card-container.flipped .card-back .card-body > :nth-child(4) { animation-delay: 0.40s; }
+  .card-container.flipped .card-back .card-body > :nth-child(5) { animation-delay: 0.48s; }
+  .card-container.flipped .card-back .card-body > :nth-child(6) { animation-delay: 0.56s; }
+  @keyframes secIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  /* Front face settles in with a soft cascade on every new deal. */
+  .card-container.deal .card-front .face-top { animation: secIn 0.4s var(--fluid-curve) 0.05s both; }
+  .card-container.deal .card-front .card-body { animation: secIn 0.45s var(--fluid-curve) 0.12s both; }
+  .card-container.deal .card-front .face-foot { animation: secIn 0.4s var(--fluid-curve) 0.24s both; }
+  .card-container.fly-left .card-inner { transition: transform 0.28s ease-in, opacity 0.28s; transform: translateX(-118%) rotate(-7deg); opacity: 0; }
+  .card-container.fly-right .card-inner { transition: transform 0.28s ease-in, opacity 0.28s; transform: translateX(118%) rotate(7deg); opacity: 0; }
+  .card-container.fly-down .card-inner { transition: transform 0.28s ease-in, opacity 0.28s; transform: translateY(60%) scale(0.94); opacity: 0; }
+  .card-container.deal .card-inner { animation: dealIn 0.4s var(--fluid-curve); }
+  @keyframes dealIn { from { transform: translateY(22px) scale(0.975); opacity: 0; } to { transform: none; opacity: 1; } }
+  .card-front, .card-back {
     position: absolute;
     inset: 0;
     display: flex;
     flex-direction: column;
-    padding: clamp(20px, 4vw, 32px);
+    padding: clamp(16px, 3.4vw, 26px);
     border: 1px solid var(--border);
-    border-top: 3px solid var(--sub, var(--accent));
-    border-radius: 22px;
+    border-top: 3px solid var(--sub, var(--brand));
+    border-radius: 20px;
     background: var(--panel);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+    box-shadow: var(--glow);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    overflow-y: auto;
+    transform: translateZ(0);
+    overflow: hidden;
   }
-  body[data-theme="CLASSIC"] .face { box-shadow: 0 18px 44px rgba(24, 60, 130, 0.14); }
-  .face.back { transform: rotateY(180deg); border-top-color: var(--accent); }
+  .card-back { transform: rotateY(180deg) translateZ(0); border-top-color: var(--brand); }
   /* Keep the face turned away from the student un-clickable. */
-  .scene:not(.is-flipped) .face.back { pointer-events: none; }
-  .scene.is-flipped .face.front { pointer-events: none; }
-  .face-top { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+  .card-container:not(.flipped) .card-back { pointer-events: none; }
+  .card-container.flipped .card-front { pointer-events: none; }
+
+  .face-top { flex: 0 0 auto; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; margin-bottom: 12px; }
   .card-tag {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 11px;
-    border: 1px solid color-mix(in srgb, var(--sub, var(--accent)) 40%, transparent);
+    padding: 3px 10px;
+    border: 1px solid color-mix(in srgb, var(--sub, var(--brand)) 42%, transparent);
     border-radius: 999px;
-    color: var(--sub, var(--accent));
-    font-size: 0.62rem;
+    color: var(--sub, var(--brand));
+    font-size: 0.6rem;
     font-weight: 900;
-    letter-spacing: 1.4px;
+    letter-spacing: 1.3px;
     text-transform: uppercase;
   }
-  .card-kicker { color: var(--text-dim); font-size: 0.62rem; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; }
+  .card-kicker { color: var(--text-dim); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
+  .vvip-tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--amber) 16%, transparent);
+    color: var(--amber);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+  /* A slow gold sheen sweeps the VVIP badge so board-priority cards register
+     at a glance without shouting. */
+  .vvip-tag::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 45%;
+    height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: vvipSheen 3.2s ease-in-out infinite;
+  }
+  @keyframes vvipSheen { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
   .tts-btn {
     margin-left: auto;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--border);
     border-radius: 50%;
     color: var(--text-dim);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: color 0.2s, border-color 0.2s, transform 0.12s;
   }
-  .tts-btn:hover { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .tts-btn:hover { color: var(--brand); border-color: color-mix(in srgb, var(--brand) 50%, transparent); }
   .tts-btn:active { transform: scale(0.9); }
-  .card-body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 10px; text-align: center; padding: 8px 0; }
-  .card-main { font-size: clamp(1.5rem, 4.6vw, 2.2rem); font-weight: 800; line-height: 1.35; overflow-wrap: break-word; }
-  .card-main.gurmukhi { font-family: var(--font-gurmukhi); }
-  .card-sub { color: var(--text-dim); font-size: clamp(0.95rem, 2.6vw, 1.1rem); font-weight: 600; }
-  .card-phonetic { color: var(--text-dim); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.6px; }
-  .card-phonetic .pa-ph { font-family: var(--font-gurmukhi); letter-spacing: 0; }
-  .card-answer { color: var(--accent); font-size: clamp(1.5rem, 4.6vw, 2.1rem); font-weight: 800; line-height: 1.35; text-shadow: 0 0 26px color-mix(in srgb, var(--accent) 30%, transparent); }
-  body[data-theme="CLASSIC"] .card-answer { text-shadow: none; }
-  .card-answer-pa { font-family: var(--font-gurmukhi); color: var(--text-bold); font-size: clamp(1.1rem, 3.4vw, 1.5rem); font-weight: 700; }
-  .why-box {
-    margin-top: 6px;
-    padding: 12px 16px;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--text-dim) 7%, transparent);
-    color: var(--text-bold);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    text-align: left;
-  }
-  .why-box .why-pa { display: block; margin-top: 5px; font-family: var(--font-gurmukhi); color: var(--text-dim); }
-  .flip-hint { text-align: center; color: var(--text-dim); font-size: 0.68rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; opacity: 0.75; }
 
-  /* Reduced motion / no-3D fallback: plain show-hide so the answer stays reachable. */
+  /* The only scrolling region in the app. */
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: 60vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 4px;
+  }
+  .card-front .card-body { display: flex; flex-direction: column; justify-content: center; gap: 8px; text-align: center; }
+  .card-main { font-size: clamp(1.25rem, 3.9vw, 1.95rem); font-weight: 800; line-height: 1.38; overflow-wrap: break-word; }
+  .card-main.gurmukhi { font-family: var(--font-gurmukhi); line-height: 1.55; }
+  .card-sub { color: var(--text-dim); font-size: clamp(0.88rem, 2.4vw, 1.02rem); font-weight: 600; }
+  .card-sub.gurmukhi { font-family: var(--font-gurmukhi); }
+  .card-phonetic { color: var(--text-dim); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.5px; }
+  .card-phonetic .pa-ph { font-family: var(--font-gurmukhi); letter-spacing: 0; }
+  .prompt-line { color: var(--text-dim); font-size: 0.8rem; font-weight: 700; font-family: var(--font-gurmukhi); }
+  .face-foot { flex: 0 0 auto; padding-top: 10px; text-align: center; color: var(--text-dim); font-size: 0.64rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.72; }
+
+  /* ---------- Structured card back ---------- */
+  .answer-head { margin-bottom: 12px; }
+  .card-answer { color: var(--brand); font-size: clamp(1.25rem, 3.8vw, 1.8rem); font-weight: 800; line-height: 1.32; }
+  .card-answer.gurmukhi { font-family: var(--font-gurmukhi); line-height: 1.5; }
+  .card-answer-pa { margin-top: 3px; font-family: var(--font-gurmukhi); color: var(--text-bold); font-size: clamp(1rem, 3vw, 1.28rem); font-weight: 700; }
+  .roots-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+    margin-top: 9px;
+    font-size: 0.76rem;
+    font-weight: 700;
+  }
+  .root-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 3px 9px;
+    border: 1px dashed color-mix(in srgb, var(--text-dim) 45%, transparent);
+    border-radius: 8px;
+    color: var(--text-bold);
+  }
+  .root-chip em { font-style: normal; color: var(--text-dim); font-weight: 600; font-size: 0.72rem; }
+  .root-chip em .pa { font-family: var(--font-gurmukhi); }
+  .roots-strip .plus { color: var(--text-dim); font-weight: 900; }
+
+  .sec { margin-top: 11px; }
+  .sec-label {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-dim);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .sec-body { font-size: 0.93rem; line-height: 1.6; }
+  .sec-body .pa { display: block; margin-top: 3px; font-family: var(--font-gurmukhi); color: var(--text-dim); }
+  .sec-body strong { color: var(--text-bold); font-weight: 800; }
+  .ctx-box {
+    padding: 10px 13px;
+    border-left: 3px solid var(--amber);
+    border-radius: 0 10px 10px 0;
+    background: color-mix(in srgb, var(--amber) 9%, transparent);
+    font-style: italic;
+  }
+  .ctx-box .pa { font-style: normal; }
+  .def-box {
+    padding: 10px 13px;
+    border-radius: 10px;
+    background: var(--panel-soft);
+  }
+  .formula-box {
+    padding: 11px 14px;
+    border: 1px solid color-mix(in srgb, var(--brand) 32%, transparent);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--brand) 8%, transparent);
+    color: var(--text-bold);
+    font-family: 'SFMono-Regular', ui-monospace, 'Cascadia Mono', Menlo, Consolas, monospace;
+    font-size: clamp(0.88rem, 2.5vw, 1.02rem);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .formula-box sub { font-size: 0.72em; }
+  .formula-box sup { font-size: 0.72em; }
+  .board-box {
+    padding: 10px 13px;
+    border-left: 3px solid var(--green);
+    border-radius: 0 10px 10px 0;
+    background: color-mix(in srgb, var(--green) 9%, transparent);
+  }
+  .board-box strong { color: var(--green); }
+
+  /* Reduced-motion and no-3D fallbacks. */
   @media (prefers-reduced-motion: reduce) {
-    .flip { transition: none; }
-    .scene.deal .flip { animation: none; }
-    .scene.fly-left .flip, .scene.fly-right .flip { transition: none; }
-    .progress-fill { transition: none; }
+    .card-inner, .progress-fill { transition: none; }
+    .card-container.deal .card-inner { animation: none; }
+    .card-container.fly-left .card-inner, .card-container.fly-right .card-inner, .card-container.fly-down .card-inner { transition: none; }
+    .card-container.flipped .card-back .card-body > *,
+    .card-container.deal .card-front .face-top,
+    .card-container.deal .card-front .card-body,
+    .card-container.deal .card-front .face-foot,
+    .controls.unlocked .btn-again, .controls.unlocked .btn-hard, .controls.unlocked .btn-good { animation: none; }
+    .vvip-tag::after, .progress-fill::after { animation: none; display: none; }
+    .deck-meta .combo-flag { animation: none; }
+    .chip, .chip.active { transition: none; transform: none; }
+    .page-veil { animation-duration: 160ms; }
   }
   @supports not (transform-style: preserve-3d) {
-    .flip { transform: none !important; }
-    .face { position: static; }
-    .face.back { transform: none; margin-top: 12px; }
-    .scene:not(.is-flipped) .face.back { display: none; }
-    .scene.is-flipped .face.front { display: none; }
+    .card-inner { transform: none !important; }
+    .card-front, .card-back { position: static; }
+    .card-back { transform: none; margin-top: 10px; }
+    .card-container:not(.flipped) .card-back { display: none; }
+    .card-container.flipped .card-front { display: none; }
   }
 
-  /* ---------- Controls ---------- */
-  .controls { display: flex; gap: 10px; margin-top: 18px; }
+  /* ---------- Grading controls (always pinned) ---------- */
+  .controls { flex: 0 0 auto; display: flex; gap: 8px; }
   .controls button {
     flex: 1;
-    padding: 15px 10px;
-    border-radius: 14px;
-    font-size: 0.95rem;
+    padding: 13px 8px 11px;
+    border-radius: 13px;
+    font-size: 0.86rem;
     font-weight: 900;
-    letter-spacing: 0.4px;
-    transition: transform 0.12s, box-shadow 0.2s, opacity 0.2s;
+    letter-spacing: 0.3px;
+    line-height: 1.25;
+    transition: transform 0.12s, background 0.2s, opacity 0.2s;
   }
   .controls button:active { transform: scale(0.96); }
-  .controls button:disabled { opacity: 0.35; cursor: default; transform: none; }
-  .btn-again { border: 1px solid color-mix(in srgb, var(--red) 55%, transparent); background: color-mix(in srgb, var(--red) 14%, transparent); color: var(--red); }
-  .btn-again:not(:disabled):hover { box-shadow: 0 0 22px color-mix(in srgb, var(--red) 25%, transparent); }
-  .btn-flip { border: 1px solid var(--border); background: var(--panel); color: var(--text-bold); flex: 1.3; }
-  .btn-flip:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
-  .btn-good { border: 1px solid color-mix(in srgb, var(--green) 55%, transparent); background: color-mix(in srgb, var(--green) 14%, transparent); color: var(--green); }
-  .btn-good:not(:disabled):hover { box-shadow: 0 0 22px color-mix(in srgb, var(--green) 25%, transparent); }
-  .controls .key-hint { display: block; margin-top: 3px; font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; opacity: 0.6; }
-  .sub-controls { display: flex; justify-content: center; gap: 16px; margin-top: 12px; }
-  .ghost-btn { color: var(--text-dim); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.6px; padding: 8px 12px; border-radius: 10px; transition: color 0.2s; }
+  .controls button:disabled { opacity: 0.32; cursor: default; transform: none; }
+  /* The three grading buttons pop in the moment the answer is revealed —
+     a physical cue that the judgement is now unlocked. */
+  .controls.unlocked .btn-again { animation: gradePop 0.32s var(--fluid-curve) 0s both; }
+  .controls.unlocked .btn-hard { animation: gradePop 0.32s var(--fluid-curve) 0.06s both; }
+  .controls.unlocked .btn-good { animation: gradePop 0.32s var(--fluid-curve) 0.12s both; }
+  @keyframes gradePop { 0% { transform: scale(0.94); opacity: 0.5; } 60% { transform: scale(1.03); } 100% { transform: scale(1); opacity: 1; } }
+  .controls .grade-pa { display: block; font-family: var(--font-gurmukhi); font-size: 0.68rem; font-weight: 700; opacity: 0.85; }
+  .controls .key-hint { display: block; margin-top: 2px; font-size: 0.55rem; font-weight: 800; letter-spacing: 1px; opacity: 0.55; }
+  .btn-again { border: 1px solid color-mix(in srgb, var(--red) 52%, transparent); background: color-mix(in srgb, var(--red) 13%, transparent); color: var(--red); }
+  .btn-hard { border: 1px solid color-mix(in srgb, var(--amber) 52%, transparent); background: color-mix(in srgb, var(--amber) 13%, transparent); color: var(--amber); }
+  .btn-good { border: 1px solid color-mix(in srgb, var(--green) 52%, transparent); background: color-mix(in srgb, var(--green) 13%, transparent); color: var(--green); }
+  .btn-flip { border: 1px solid var(--border); background: var(--panel); color: var(--text-bold); }
+  .btn-flip:hover { border-color: color-mix(in srgb, var(--brand) 50%, transparent); }
+  .sub-controls { flex: 0 0 auto; display: flex; justify-content: center; gap: 12px; }
+  .ghost-btn { color: var(--text-dim); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5px; padding: 5px 10px; border-radius: 9px; transition: color 0.2s; }
   .ghost-btn:hover { color: var(--text-bold); }
   .ghost-btn:disabled { opacity: 0.3; cursor: default; }
 
-  /* ---------- Empty / loading / summary panels ---------- */
+  /* ---------- Panels (loading / empty / summary) ---------- */
   .panel-card {
-    min-height: clamp(300px, 48vh, 430px);
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    padding: clamp(24px, 5vw, 40px);
+    gap: 12px;
+    padding: clamp(18px, 4vw, 32px);
     border: 1px solid var(--border);
-    border-top: 3px solid var(--accent);
-    border-radius: 22px;
+    border-top: 3px solid var(--brand);
+    border-radius: 20px;
     background: var(--panel);
+    box-shadow: var(--glow);
     text-align: center;
-    animation: dealIn 0.42s var(--fluid-curve);
+    animation: dealIn 0.4s var(--fluid-curve);
   }
-  .panel-card h2 { font-size: clamp(1.3rem, 4vw, 1.7rem); font-weight: 900; }
-  .panel-card .pa-line { font-family: var(--font-gurmukhi); color: var(--text-dim); font-size: 1rem; }
-  .panel-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; max-width: 46ch; }
-  .summary-grid { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin: 8px 0; }
-  .summary-stat {
-    min-width: 108px;
-    padding: 14px 18px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    background: color-mix(in srgb, var(--text-dim) 6%, transparent);
-  }
-  .summary-stat .num { display: block; font-size: 1.7rem; font-weight: 900; font-variant-numeric: tabular-nums; }
-  .summary-stat .lbl { display: block; margin-top: 3px; color: var(--text-dim); font-size: 0.64rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
-  .summary-stat.good .num { color: var(--green); }
-  .summary-stat.again .num { color: var(--red); }
-  .summary-stat.mastered .num { color: var(--accent); }
-  .panel-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
-  .panel-actions .primary {
-    padding: 13px 22px;
-    border-radius: 14px;
-    background: color-mix(in srgb, var(--accent) 82%, #000);
-    color: #fff;
+  .panel-card h2 { font-size: clamp(1.2rem, 3.6vw, 1.55rem); font-weight: 900; }
+  .panel-card .pa-line { font-family: var(--font-gurmukhi); color: var(--text-dim); font-size: 0.96rem; }
+  .panel-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; max-width: 48ch; }
+  .xp-banner {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--brand) 13%, transparent);
+    color: var(--brand);
     font-weight: 900;
-    box-shadow: 0 0 22px color-mix(in srgb, var(--accent) 30%, transparent);
-    transition: transform 0.12s;
   }
-  body[data-theme="CLASSIC"] .panel-actions .primary { background: var(--accent); box-shadow: none; }
+  .xp-banner .xp-num { font-size: 1.45rem; font-variant-numeric: tabular-nums; }
+  .xp-banner .xp-mult { color: var(--amber); font-size: 0.8rem; }
+  .summary-grid { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .summary-stat { min-width: 96px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel-soft); }
+  .summary-stat .num { display: block; font-size: 1.5rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .summary-stat .lbl { display: block; margin-top: 2px; color: var(--text-dim); font-size: 0.6rem; font-weight: 800; letter-spacing: 1.1px; text-transform: uppercase; }
+  .summary-stat.good .num { color: var(--green); }
+  .summary-stat.hard .num { color: var(--amber); }
+  .summary-stat.again .num { color: var(--red); }
+  .summary-stat.mastered .num { color: var(--brand); }
+  .panel-actions { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
+  .panel-actions .primary { padding: 12px 20px; border-radius: 13px; background: var(--brand); color: #fff; font-weight: 900; transition: transform 0.12s; }
   .panel-actions .primary:active { transform: scale(0.96); }
-  .panel-actions .secondary { padding: 13px 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel); color: var(--text-bold); font-weight: 800; }
+  .panel-actions .secondary { padding: 12px 20px; border: 1px solid var(--border); border-radius: 13px; background: var(--panel-soft); color: var(--text-bold); font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; }
   .shimmer {
     width: 70%;
-    max-width: 340px;
-    height: 20px;
+    max-width: 320px;
+    height: 16px;
     border-radius: 8px;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--text-dim) 12%, transparent) 25%, color-mix(in srgb, var(--text-dim) 26%, transparent) 50%, color-mix(in srgb, var(--text-dim) 12%, transparent) 75%);
+    background: linear-gradient(90deg, color-mix(in srgb, var(--text-dim) 14%, transparent) 25%, color-mix(in srgb, var(--text-dim) 28%, transparent) 50%, color-mix(in srgb, var(--text-dim) 14%, transparent) 75%);
     background-size: 200% 100%;
     animation: shimmerMove 1.3s linear infinite;
   }
-  .shimmer.short { width: 42%; height: 14px; }
+  .shimmer.short { width: 42%; height: 12px; }
   @keyframes shimmerMove { from { background-position: 200% 0; } to { background-position: -200% 0; } }
 
   /* ---------- Toast ---------- */
   .toast {
     position: fixed;
     left: 50%;
-    bottom: max(26px, env(safe-area-inset-bottom));
+    bottom: max(88px, calc(env(safe-area-inset-bottom) + 88px));
     z-index: 200;
-    transform: translate(-50%, 20px);
-    padding: 11px 20px;
+    transform: translate(-50%, 16px);
+    padding: 10px 18px;
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--panel);
     color: var(--text-bold);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 800;
     white-space: nowrap;
     opacity: 0;
@@ -486,16 +664,28 @@
   }
   .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
-  @media (max-width: 640px) {
-    .flash-header { gap: 8px 10px; padding-bottom: 10px; }
-    .header-logo { font-size: 0.9rem; letter-spacing: 2px; }
-    .home-pill { padding: 7px 10px; font-size: 0.66rem; }
-    .router-btn { padding: 6px 10px; font-size: 0.62rem; }
-    .theme-pill { font-size: 0.64rem; padding: 7px 10px; }
-    .score-pill { font-size: 0.64rem; padding: 7px 11px; }
-    .scene { min-height: clamp(300px, 50vh, 420px); }
-    .controls button { padding: 13px 8px; font-size: 0.85rem; }
+  /* Compact labels swap in on phones; the default is the full label. */
+  .lbl-short { display: none; }
+  @media (max-width: 680px) {
+    .flash-header { gap: 6px 7px; padding-bottom: 8px; }
+    .header-logo { font-size: 0.86rem; letter-spacing: 1.8px; }
+    .home-pill { display: none; }
+    .home-pill, .theme-pill, .tool-pill { padding: 6px 9px; font-size: 0.63rem; }
+    .router-btn { padding: 5px 8px; font-size: 0.6rem; }
+    .score-pill { padding: 6px 9px; font-size: 0.63rem; }
+    /* Short labels keep the header to two rows on a phone. */
+    .lbl-full { display: none; }
+    .lbl-short { display: inline; }
+    .chip-bar { padding-top: 7px; padding-bottom: 7px; }
+    .card-body { max-height: none; }
+    .controls button { padding: 11px 5px 9px; font-size: 0.76rem; }
     .controls .key-hint { display: none; }
+  }
+  /* Very short viewports (landscape phones): drop the chapter rail so the
+     card and the grading row still fit without scrolling the page. */
+  @media (max-height: 520px) {
+    .chip-bar { display: none; }
+    .deck-meta { display: none; }
   }
 </style>
 <link rel="preload" href="assets/fonts/noto-sans-gurmukhi-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -510,17 +700,18 @@
   <a class="header-logo" href="index.html">BOLO<span class="dot-mode">.FLASH</span></a>
   <a class="home-pill" href="index.html">◂ Menu</a>
   <nav class="router" id="deckRouter" aria-label="Deck selector">
-    <button class="router-btn active" type="button" data-deck="VOCAB">ਸ਼ਬਦਾਵਲੀ Vocab</button>
-    <button class="router-btn" type="button" data-deck="CONCEPT">ਸੰਕਲਪ Concepts</button>
+    <button class="router-btn active" type="button" data-deck="VOCAB" aria-label="Vocabulary deck"><span class="lbl-full">ਸ਼ਬਦਾਵਲੀ Vocab</span><span class="lbl-short">ਸ਼ਬਦ</span></button>
+    <button class="router-btn" type="button" data-deck="CONCEPT" aria-label="Concepts deck"><span class="lbl-full">ਸੰਕਲਪ Concepts</span><span class="lbl-short">ਸੰਕਲਪ</span></button>
   </nav>
-  <div class="dir-switch" id="dirSwitch" role="group" aria-label="Card direction">
+  <div class="router" id="dirSwitch" role="group" aria-label="Prompt direction">
     <button class="router-btn active" type="button" data-dir="EN2PA">EN → ਪੰ</button>
     <button class="router-btn" type="button" data-dir="PA2EN">ਪੰ → EN</button>
   </div>
   <span class="header-spacer"></span>
-  <button class="tool-pill" type="button" id="shuffleBtn" aria-label="Shuffle deck">🔀 Shuffle</button>
-  <button class="theme-pill" type="button" id="themePill" aria-label="Switch color theme">Theme: Neon</button>
-  <span class="score-pill" id="masteryPill">★ <strong id="masteryVal">0</strong>&nbsp;mastered</span>
+  <button class="tool-pill" type="button" id="vvipBtn" aria-pressed="false" aria-label="Show only board high-yield cards"><span class="lbl-full">★ High-Yield</span><span class="lbl-short">★</span></button>
+  <button class="tool-pill" type="button" id="shuffleBtn" aria-label="Shuffle deck"><span class="lbl-full">🔀 Shuffle</span><span class="lbl-short">🔀</span></button>
+  <button class="theme-pill" type="button" id="themePill" aria-label="Switch color theme"><span class="lbl-full">Theme: Neon</span><span class="lbl-short">◐</span></button>
+  <span class="score-pill" id="xpPill">⚡ <strong id="xpVal">0</strong>&nbsp;XP</span>
 </header>
 
 <nav class="chip-bar" id="chipBar" aria-label="Chapter filter"></nav>
@@ -529,21 +720,23 @@
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
   <div class="deck-meta">
     <span id="cardCounter">Card 0 / 0</span>
-    <span><span class="due-flag" id="dueFlag" hidden>⏳ <span id="dueCount">0</span> due</span></span>
+    <span class="combo-flag" id="comboFlag" hidden>🔥 <span id="comboVal">0</span> combo</span>
+    <span class="due-flag" id="dueFlag" hidden>⏳ <span id="dueCount">0</span> due</span>
     <span class="mastered-flag" id="scopeMastered">★ 0 / 0</span>
   </div>
 
-  <div class="scene" id="scene" tabindex="0" role="button" aria-label="Flashcard. Press Space or Enter to flip.">
-    <div class="flip" id="flip">
-      <div class="face front" id="faceFront"></div>
-      <div class="face back" id="faceBack"></div>
+  <div class="card-container" id="scene" tabindex="0" role="button" aria-label="Flashcard. Press Space or Enter to flip.">
+    <div class="card-inner">
+      <div class="card-front" id="faceFront"></div>
+      <div class="card-back" id="faceBack"></div>
     </div>
   </div>
 
   <div class="controls" id="controls">
-    <button class="btn-again" type="button" id="againBtn">✕ Again<span class="key-hint">KEY 1</span></button>
-    <button class="btn-flip" type="button" id="flipBtn">↻ Flip Card<span class="key-hint">SPACE</span></button>
-    <button class="btn-good" type="button" id="goodBtn">✓ Got It<span class="key-hint">KEY 2</span></button>
+    <button class="btn-again" type="button" id="againBtn">✕ Again<span class="grade-pa">ਦੁਬਾਰਾ</span><span class="key-hint">KEY 1</span></button>
+    <button class="btn-flip" type="button" id="flipBtn">↻ Flip<span class="grade-pa">ਉਲਟਾਓ</span><span class="key-hint">SPACE</span></button>
+    <button class="btn-hard" type="button" id="hardBtn">◑ Hard<span class="grade-pa">ਔਖਾ</span><span class="key-hint">KEY 2</span></button>
+    <button class="btn-good" type="button" id="goodBtn">✓ Mastered<span class="grade-pa">ਯਾਦ ਹੈ</span><span class="key-hint">KEY 3</span></button>
   </div>
   <div class="sub-controls">
     <button class="ghost-btn" type="button" id="undoBtn" disabled>↶ Undo</button>
@@ -555,81 +748,153 @@
 
 <script src="assets/chapters.js"></script>
 <script src="assets/glossary.js"></script>
+<script src="assets/flash-data.js"></script>
 <script>
 (function () {
   "use strict";
 
-  /* ================= Constants & storage ================= */
-  const THEME_KEY = "bolo.theme.v1";        // shared with index.html + mcq.html
-  const STORE_KEY = "bolo.flash.v1";        // SRS boxes + preferences
-  const STUDY_KEY = "pseb.study.v1";        // shared study-streak ledger
+  /* ================= Storage ================= */
+  /* The theme key is deliberately the one the whole product shares, so the
+     colourway follows the student between the menu, the decks, BOLO.MCQ and
+     here. Flashcard progress lives in its own database. */
+  const THEME_KEY = "bolo.theme.v1";
+  const DB_KEY = "bolo_flash_db";
+  const LEGACY_DB_KEY = "bolo.flash.v1";
+  const STUDY_KEY = "pseb.study.v1";
 
   const CHAPTERS = window.PSEB_CHAPTERS || [];
   const GLOSSARY = (window.PSEB_GLOSSARY && window.PSEB_GLOSSARY.terms) || [];
-  const toGurPh = (window.PSEB_GLOSSARY && window.PSEB_GLOSSARY.gurmukhiPhonetic) || (s => "");
+  const toGurPh = (window.PSEB_GLOSSARY && window.PSEB_GLOSSARY.gurmukhiPhonetic) || function () { return ""; };
+  const FD = window.PSEB_FLASH_DATA || { roots: {}, split: {}, terms: {} };
 
   const SUBJECT_VAR = { chemistry: "--chem", biology: "--bio", physics: "--phy", environment: "--env" };
   const SUBJECT_PA = { chemistry: "ਰਸਾਇਣ", biology: "ਜੀਵ ਵਿਗਿਆਨ", physics: "ਭੌਤਿਕ", environment: "ਵਾਤਾਵਰਣ" };
   const CH_BY_N = {};
   CHAPTERS.forEach(c => { CH_BY_N[c.n] = c; });
 
-  /* Leitner ladder: minutes/days until a card is due again per box (1-5).
-     Box 4+ counts as "mastered". "Again" always drops a card back to box 1. */
-  const BOX_INTERVALS_MS = [10 * 60e3, 1 * 864e5, 3 * 864e5, 7 * 864e5, 21 * 864e5];
-  const MASTERED_BOX = 4;
-
   function readJson(key) { try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; } }
   function writeJson(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {} }
 
-  const store = readJson(STORE_KEY);
-  if (!store.srs || typeof store.srs !== "object") store.srs = {};
-  if (!store.prefs || typeof store.prefs !== "object") store.prefs = {};
-  function persistStore() { writeJson(STORE_KEY, store); }
-
-  let deck = store.prefs.deck === "CONCEPT" ? "CONCEPT" : "VOCAB";
-  let dir = store.prefs.dir === "PA2EN" ? "PA2EN" : "EN2PA";
-  /* Selected chapter numbers; empty array = all chapters. */
-  let chapterSel = Array.isArray(store.prefs.chapters) ? store.prefs.chapters.filter(n => CH_BY_N[n]) : [];
-
-  /* ================= Theme ================= */
-  let theme = "NEON";
-  try { const t = readJson(THEME_KEY); if (t.theme === "CLASSIC") theme = "CLASSIC"; } catch (e) {}
-  const themePill = document.getElementById("themePill");
-  function applyTheme() {
-    document.body.dataset.theme = theme;
-    themePill.textContent = "Theme: " + (theme === "CLASSIC" ? "Classic" : "Neon");
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "CLASSIC" ? "#f8fbff" : "#000000");
-    const aura = document.getElementById("auraBleed");
-    aura.style.background = theme === "CLASSIC"
-      ? "radial-gradient(ellipse at center, rgba(242,106,33,0.12) 0%, rgba(242,106,33,0.04) 40%, transparent 72%)"
-      : "radial-gradient(ellipse at center, rgba(46,204,113,0.13) 0%, rgba(46,204,113,0.045) 40%, transparent 72%)";
+  let db = readJson(DB_KEY);
+  if (!db.srs || typeof db.srs !== "object") {
+    /* One-time migration from the first release's Leitner boxes. */
+    const legacy = readJson(LEGACY_DB_KEY);
+    db.srs = {};
+    if (legacy.srs && typeof legacy.srs === "object") {
+      Object.keys(legacy.srs).forEach(id => {
+        const old = legacy.srs[id] || {};
+        const box = Math.max(1, Math.min(5, old.b || 1));
+        db.srs[id] = { r: box - 1, ef: 2.5, iv: [0, 1, 3, 7, 21][box - 1] || 0, d: old.d || 0, n: old.s || 0, l: old.l || 0 };
+      });
+    }
+    if (!db.prefs && legacy.prefs) db.prefs = legacy.prefs;
   }
-  themePill.addEventListener("click", () => {
-    theme = theme === "NEON" ? "CLASSIC" : "NEON";
-    writeJson(THEME_KEY, { theme });
-    applyTheme();
-    toast("Theme: " + (theme === "CLASSIC" ? "Classic" : "Neon"));
-  });
-  applyTheme();
+  if (!db.prefs || typeof db.prefs !== "object") db.prefs = {};
+  if (typeof db.xp !== "number") db.xp = 0;
+  function saveDb() { writeJson(DB_KEY, db); }
+
+  let deck = db.prefs.deck === "CONCEPT" ? "CONCEPT" : "VOCAB";
+  let dir = db.prefs.dir === "PA2EN" ? "PA2EN" : "EN2PA";
+  let chapterSel = Array.isArray(db.prefs.chapters) ? db.prefs.chapters.filter(n => CH_BY_N[n]) : [];
+  let vvipOnly = !!db.prefs.vvipOnly;
+
+  /* ================= SM-2 spaced repetition =================
+     Three grades. "Again" resets the card and brings it back inside the same
+     session; "Hard" keeps it on a one-day leash with an ease penalty;
+     "Mastered" advances it along the normal SM-2 interval ladder. */
+  const DAY = 864e5;
+  const AGAIN_DELAY = 10 * 60e3;
+  const MASTERED_INTERVAL = 6;   // days — a card is "mastered" once it survives this far
+  const REQUEUE_OFFSET = 3;      // an "Again" card returns 3 slots later
+
+  function srsOf(id) { return db.srs[id] || null; }
+  function isDue(id, now) { const s = srsOf(id); return !!s && s.d <= now; }
+  function isMastered(id) { const s = srsOf(id); return !!s && s.iv >= MASTERED_INTERVAL; }
+
+  function applyGrade(prev, grade) {
+    const now = Date.now();
+    const s = prev ? { r: prev.r, ef: prev.ef, iv: prev.iv, d: prev.d, n: prev.n || 0, l: prev.l || 0 }
+                   : { r: 0, ef: 2.5, iv: 0, d: 0, n: 0, l: 0 };
+    s.n += 1;
+    if (grade === "again") {
+      s.r = 0;
+      s.ef = Math.max(1.3, s.ef - 0.20);
+      s.iv = 0;
+      s.l += 1;
+      s.d = now + AGAIN_DELAY;
+    } else if (grade === "hard") {
+      s.r += 1;
+      s.ef = Math.max(1.3, s.ef - 0.15);
+      s.iv = 1;
+      s.d = now + DAY;
+    } else {
+      s.r += 1;
+      s.iv = s.r === 1 ? 1 : s.r === 2 ? MASTERED_INTERVAL : Math.max(1, Math.round(s.iv * s.ef));
+      s.ef = Math.min(2.8, s.ef + 0.10);
+      s.d = now + s.iv * DAY;
+    }
+    return s;
+  }
+
+  /* ================= Morphology: ESL root breakdown =================
+     Uses the explicit split table first. The automatic fallback only fires
+     when a known prefix and suffix cover the ENTIRE word (exo+thermic), so it
+     can never produce junk like "Con + Ation" for "conservation". */
+  const ROOT_KEYS = Object.keys(FD.roots).sort((a, b) => b.length - a.length);
+  function rootsFor(termEn) {
+    if (!termEn) return null;
+    const key = String(termEn).toLowerCase().trim();
+    let parts = FD.split[key];
+    if (!parts) {
+      const word = key.split(/\s+/)[0].replace(/[^a-z-]/g, "");
+      if (word.length < 6) return null;
+      let found = null;
+      for (let i = 0; i < ROOT_KEYS.length && !found; i++) {
+        const p = ROOT_KEYS[i];
+        if (p.length < 3 || word.indexOf(p) !== 0) continue;
+        const rest = word.slice(p.length);
+        if (rest.length >= 3 && FD.roots[rest]) found = [p, rest];
+      }
+      if (!found) return null;
+      parts = found;
+    }
+    const out = [];
+    for (let i = 0; i < parts.length; i++) {
+      const gloss = FD.roots[parts[i]];
+      if (!gloss) return null;
+      out.push({ part: parts[i], en: gloss[0], pa: gloss[1] });
+    }
+    return out.length > 1 ? out : null;
+  }
+
+  /* ================= Term enrichment lookup ================= */
+  const TERM_KEYS = Object.keys(FD.terms).sort((a, b) => b.length - a.length);
+  function enrichFor(englishText, extraText) {
+    if (!englishText) return null;
+    const a = String(englishText).toLowerCase().trim().replace(/[.?!]+$/, "");
+    if (FD.terms[a]) return { key: a, data: FD.terms[a] };
+    const hay = (a + " " + String(extraText || "").toLowerCase());
+    for (let i = 0; i < TERM_KEYS.length; i++) {
+      const k = TERM_KEYS[i];
+      if (k.length >= 5 && hay.indexOf(k) !== -1) return { key: k, data: FD.terms[k] };
+    }
+    return null;
+  }
 
   /* ================= Card sources ================= */
-  /* Vocabulary cards come straight from the shared glossary (works offline and
-     over file://). Concept cards are mined from the Say-It-Back slides that
-     already live inside each chapter deck (data-q / data-a / data-pa /
-     data-explain), fetched lazily per chapter and cached in memory. */
-  const vocabCards = GLOSSARY.map((t, i) => ({
-    id: "v:" + t.en.toLowerCase(),
-    kind: "V",
-    ch: (t.ch && t.ch[0]) || 1,
-    chAll: t.ch || [1],
-    en: t.en,
-    pa: t.pa,
-    ph: t.ph || ""
-  }));
+  const vocabCards = GLOSSARY.map(t => {
+    const key = t.en.toLowerCase();
+    const extra = FD.terms[key] || null;
+    return {
+      id: "v:" + key, kind: "V",
+      ch: (t.ch && t.ch[0]) || 1, chAll: t.ch || [1],
+      en: t.en, pa: t.pa, ph: t.ph || "",
+      extra: extra, vvip: !!(extra && extra.vvip)
+    };
+  });
 
-  const conceptCache = {};   // chapter n -> array of cards
-  const conceptFailed = {};  // chapter n -> true (fetch failed; retryable)
+  const conceptCache = {};
+  const conceptFailed = {};
   let conceptLoadToken = 0;
 
   function parseConceptCards(html, chNum) {
@@ -640,14 +905,16 @@
       const q = el.getAttribute("data-q") || "";
       const a = el.getAttribute("data-a") || "";
       if (!q || !a) return;
+      const hit = enrichFor(a, q);
       cards.push({
-        id: "c:" + chNum + ":" + (el.id || i),
-        kind: "C",
-        ch: chNum,
-        q, a,
+        id: "c:" + chNum + ":" + (el.id || i), kind: "C", ch: chNum,
+        q: q, a: a,
         pa: el.getAttribute("data-pa") || "",
         ex: el.getAttribute("data-explain") || "",
-        exPa: el.getAttribute("data-explain-pa") || ""
+        exPa: el.getAttribute("data-explain-pa") || "",
+        term: hit ? hit.key : "",
+        extra: hit ? hit.data : null,
+        vvip: !!(hit && hit.data.vvip)
       });
     });
     return cards;
@@ -667,20 +934,36 @@
   /* ================= Scope & queue ================= */
   function scopeChapters() { return chapterSel.length ? chapterSel : CHAPTERS.map(c => c.n); }
 
+  /* A card can only be shown in ਪੰ → EN mode if it carries a genuine Gurmukhi
+     prompt to put on the front. Some decks repeat the English answer (or a
+     bare number like "6.5-7.0") in data-pa, which would make the reverse
+     question unanswerable, so those are skipped in favour of the Punjabi
+     explanation — and dropped entirely if neither is Gurmukhi. */
+  const GURMUKHI_RE = /[\u0A00-\u0A7F]/;
+  function paPromptFor(card) {
+    const candidates = card.kind === "V" ? [card.pa] : [card.pa, card.exPa];
+    for (let i = 0; i < candidates.length; i++) {
+      const t = (candidates[i] || "").trim();
+      if (t && GURMUKHI_RE.test(t) && t.toLowerCase() !== String(card.kind === "V" ? card.en : card.a).toLowerCase()) return t;
+    }
+    return "";
+  }
+  function hasPaPrompt(card) { return !!paPromptFor(card); }
+
   function scopeCards() {
     const chs = scopeChapters();
+    let out;
     if (deck === "VOCAB") {
       const set = new Set(chs);
-      return vocabCards.filter(c => c.chAll.some(n => set.has(n)));
+      out = vocabCards.filter(c => c.chAll.some(n => set.has(n)));
+    } else {
+      out = [];
+      chs.forEach(n => { if (conceptCache[n]) out = out.concat(conceptCache[n]); });
     }
-    let out = [];
-    chs.forEach(n => { if (conceptCache[n]) out = out.concat(conceptCache[n]); });
+    if (vvipOnly) out = out.filter(c => c.vvip);
+    if (dir === "PA2EN") out = out.filter(hasPaPrompt);
     return out;
   }
-
-  function srsOf(id) { return store.srs[id] || null; }
-  function isDue(id, now) { const s = srsOf(id); return !!s && s.d <= now; }
-  function isMastered(id) { const s = srsOf(id); return !!s && s.b >= MASTERED_BOX; }
 
   function shuffled(arr) {
     const a = arr.slice();
@@ -691,13 +974,11 @@
     return a;
   }
 
-  /* Session queue: overdue reviews first (oldest due leads), then brand-new
-     cards, then everything else — each band shuffled so runs feel fresh. */
+  /* Overdue reviews lead (oldest first), then new cards, then the rest. */
   function buildQueue() {
     const now = Date.now();
-    const cards = scopeCards();
     const due = [], fresh = [], rest = [];
-    cards.forEach(c => {
+    scopeCards().forEach(c => {
       const s = srsOf(c.id);
       if (!s) fresh.push(c);
       else if (s.d <= now) due.push(c);
@@ -708,22 +989,20 @@
   }
 
   /* ================= Session state ================= */
-  let queue = [];
-  let idx = 0;
-  let flipped = false;
-  let finished = false;
-  let loading = false;
-  let sessionGood = 0, sessionAgain = 0;
-  let againIds = [];          // unique tricky card ids this session
-  let lastAction = null;      // { id, prevSrs, wasRequeued, idxBefore } for Undo
+  let queue = [], idx = 0;
+  let flipped = false, finished = false, loading = false;
+  let sGood = 0, sHard = 0, sAgain = 0, sXp = 0;
+  let combo = 0, bestCombo = 0;
+  let missedIds = [];
+  let lastAction = null;
 
   const scene = document.getElementById("scene");
-  const flip = document.getElementById("flip");
   const faceFront = document.getElementById("faceFront");
   const faceBack = document.getElementById("faceBack");
   const controls = document.getElementById("controls");
   const subControls = document.querySelector(".sub-controls");
   const againBtn = document.getElementById("againBtn");
+  const hardBtn = document.getElementById("hardBtn");
   const goodBtn = document.getElementById("goodBtn");
   const flipBtn = document.getElementById("flipBtn");
   const undoBtn = document.getElementById("undoBtn");
@@ -732,9 +1011,12 @@
   const cardCounter = document.getElementById("cardCounter");
   const dueFlag = document.getElementById("dueFlag");
   const dueCount = document.getElementById("dueCount");
+  const comboFlag = document.getElementById("comboFlag");
+  const comboVal = document.getElementById("comboVal");
   const scopeMastered = document.getElementById("scopeMastered");
-  const masteryVal = document.getElementById("masteryVal");
+  const xpVal = document.getElementById("xpVal");
   const dirSwitch = document.getElementById("dirSwitch");
+  const vvipBtn = document.getElementById("vvipBtn");
   const announcer = document.getElementById("ariaAnnouncer");
   const toastEl = document.getElementById("toast");
   let toastTimer = null;
@@ -743,12 +1025,48 @@
     toastEl.textContent = msg;
     toastEl.classList.add("show");
     if (toastTimer) clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2200);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2100);
   }
-
   function esc(s) {
     return String(s).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
   }
+  /* **bold** marks the examiner-facing keyword in the authored copy. */
+  function rich(s) { return esc(s).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>"); }
+
+  /* Plain-text equations become properly typeset chemistry without pulling in
+     a maths engine: arrows, subscripts after an element or bracket, and
+     superscripts for charges and powers. */
+  function renderFormula(src) {
+    let out = esc(src);
+    out = out.replace(/-&gt;/g, "&nbsp;→&nbsp;");
+    out = out.replace(/\^\{([^}]*)\}/g, (_, g) => "<sup>" + g + "</sup>");
+    out = out.replace(/\^([0-9]*[+-]?)/g, (_, g) => (g ? "<sup>" + g + "</sup>" : ""));
+    out = out.replace(/([A-Za-z)])([0-9]+)/g, "$1<sub>$2</sub>");
+    return out;
+  }
+
+  /* ================= Theme ================= */
+  let theme = "NEON";
+  try { const t = readJson(THEME_KEY); if (t.theme === "CLASSIC") theme = "CLASSIC"; } catch (e) {}
+  const themePill = document.getElementById("themePill");
+  const themeLabel = themePill.querySelector(".lbl-full");
+  function applyTheme() {
+    document.body.dataset.theme = theme;
+    themeLabel.textContent = "Theme: " + (theme === "CLASSIC" ? "Classic" : "Neon");
+    themePill.setAttribute("aria-label", "Switch color theme. Current: " + (theme === "CLASSIC" ? "Classic" : "Neon"));
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", theme === "CLASSIC" ? "#f8fafc" : "#050814");
+    document.getElementById("auraBleed").style.background = theme === "CLASSIC"
+      ? "radial-gradient(ellipse at center, rgba(37,99,235,0.10) 0%, rgba(37,99,235,0.03) 42%, transparent 72%)"
+      : "radial-gradient(ellipse at center, rgba(56,189,248,0.14) 0%, rgba(56,189,248,0.045) 42%, transparent 72%)";
+  }
+  themePill.addEventListener("click", () => {
+    theme = theme === "NEON" ? "CLASSIC" : "NEON";
+    writeJson(THEME_KEY, { theme });
+    applyTheme();
+    toast("Theme: " + (theme === "CLASSIC" ? "Classic" : "Neon"));
+  });
+  applyTheme();
 
   /* ================= Rendering ================= */
   function subjectVarFor(card) {
@@ -760,56 +1078,118 @@
     const subj = ch ? (SUBJECT_PA[ch.subject] || "") : "";
     return "Ch " + card.ch + (subj ? " · " + subj : "");
   }
-
-  function ttsButton(text, lang) {
+  function ttsButton(text) {
     if (!("speechSynthesis" in window) || !text) return "";
-    return '<button class="tts-btn" type="button" data-tts="' + esc(text) + '" data-tts-lang="' + lang + '" aria-label="Speak">🔊</button>';
+    return '<button class="tts-btn" type="button" data-tts="' + esc(text) + '" aria-label="Speak">🔊</button>';
+  }
+  function faceTop(card, kicker) {
+    const ch = CH_BY_N[card.ch];
+    return '<div class="face-top"><span class="card-tag" title="' + esc(ch ? ch.title : "") + '">' + esc(chapterLabel(card)) + '</span>' +
+      '<span class="card-kicker">' + kicker + '</span>' +
+      (card.vvip ? '<span class="vvip-tag">★ VVIP</span>' : "") +
+      ttsButton(card.kind === "V" ? card.en : card.a) + '</div>';
+  }
+  function rootsStrip(termEn) {
+    const parts = rootsFor(termEn);
+    if (!parts) return "";
+    const chips = parts.map(p =>
+      '<span class="root-chip">' + esc(p.part.charAt(0).toUpperCase() + p.part.slice(1)) +
+      ' <em>(' + esc(p.en) + ' / <span class="pa">' + esc(p.pa) + '</span>)</em></span>'
+    );
+    return '<div class="roots-strip">' + chips.join('<span class="plus">+</span>') + '</div>';
+  }
+  function section(label, en, pa, cls) {
+    return '<div class="sec"><span class="sec-label">' + label + '</span>' +
+      '<div class="sec-body ' + cls + '">' + rich(en) +
+      (pa ? '<span class="pa">' + rich(pa) + '</span>' : "") + '</div></div>';
+  }
+  function formulaSection(src) {
+    return '<div class="sec"><span class="sec-label">ਸੂਤਰ · Formula</span>' +
+      '<div class="formula-box">' + renderFormula(src) + '</div></div>';
+  }
+
+  /* The enrichment stack shown under every answer that has curated data. */
+  function enrichmentBlocks(card, termEn) {
+    const e = card.extra;
+    let html = rootsStrip(termEn);
+    if (!e) return html;
+    if (e.ctx) html += section("ਰੋਜ਼ਾਨਾ ਜ਼ਿੰਦਗੀ · Everyday", e.ctx[0], e.ctx[1], "ctx-box");
+    if (e.def) html += section("ਪਰਿਭਾਸ਼ਾ · Definition", e.def[0], e.def[1], "def-box");
+    if (e.formula) html += formulaSection(e.formula);
+    if (e.board) html += section("ਬੋਰਡ ਉਦਾਹਰਣ · Board Example", e.board[0], e.board[1], "board-box");
+    return html;
   }
 
   function renderCard(card) {
-    const sub = subjectVarFor(card);
-    scene.style.setProperty("--sub", sub);
-    let frontHtml, backHtml;
+    scene.style.setProperty("--sub", subjectVarFor(card));
+    const enFront = dir === "EN2PA";
+    let front, back;
+
     if (card.kind === "V") {
-      const frontIsEn = dir === "EN2PA";
-      const frontText = frontIsEn ? card.en : card.pa;
-      const backText = frontIsEn ? card.pa : card.en;
-      frontHtml =
-        '<div class="face-top"><span class="card-tag">' + esc(chapterLabel(card)) + '</span>' +
-        '<span class="card-kicker">ਸ਼ਬਦ · Term</span>' + ttsButton(card.en, "en") + '</div>' +
-        '<div class="card-body">' +
-          '<div class="card-main' + (frontIsEn ? "" : " gurmukhi") + '">' + esc(frontText) + '</div>' +
-          (frontIsEn && card.ph ? '<div class="card-phonetic">' + esc(card.ph) + '</div>' : "") +
+      const frontText = enFront ? card.en : card.pa;
+      const backText = enFront ? card.pa : card.en;
+      front =
+        faceTop(card, "ਸ਼ਬਦ · Term") +
+        '<div class="card-body custom-scroll">' +
+          '<div class="card-main' + (enFront ? "" : " gurmukhi") + '">' + esc(frontText) + '</div>' +
+          (enFront && card.ph ? '<div class="card-phonetic">' + esc(card.ph) + '</div>' : "") +
+          (enFront ? "" : '<div class="prompt-line">ਇਸ ਦਾ ਅੰਗਰੇਜ਼ੀ ਵਿਗਿਆਨਕ ਸ਼ਬਦ?</div>') +
         '</div>' +
-        '<div class="flip-hint">Tap / Space ਉਲਟਾਓ</div>';
+        '<div class="face-foot">Tap / Space ਉਲਟਾਓ</div>';
       const gurPh = card.ph ? toGurPh(card.ph) : "";
-      backHtml =
-        '<div class="face-top"><span class="card-tag">' + esc(chapterLabel(card)) + '</span>' +
-        '<span class="card-kicker">ਜਵਾਬ · Answer</span>' + ttsButton(card.en, "en") + '</div>' +
-        '<div class="card-body">' +
-          '<div class="card-answer' + (frontIsEn ? " gurmukhi" : "") + '">' + esc(backText) + '</div>' +
-          '<div class="card-sub' + (frontIsEn ? "" : " gurmukhi") + '">' + esc(frontText) + '</div>' +
-          (card.ph ? '<div class="card-phonetic">' + esc(card.ph) + (gurPh ? ' · <span class="pa-ph">' + esc(gurPh) + '</span>' : "") + '</div>' : "") +
+      back =
+        faceTop(card, "ਜਵਾਬ · Answer") +
+        '<div class="card-body custom-scroll">' +
+          '<div class="answer-head">' +
+            '<div class="card-answer' + (enFront ? " gurmukhi" : "") + '">' + esc(backText) + '</div>' +
+            '<div class="card-sub' + (enFront ? "" : " gurmukhi") + '">' + esc(frontText) + '</div>' +
+            (card.ph ? '<div class="card-phonetic">' + esc(card.ph) + (gurPh ? ' · <span class="pa-ph">' + esc(gurPh) + '</span>' : "") + '</div>' : "") +
+          '</div>' +
+          enrichmentBlocks(card, card.en) +
         '</div>' +
-        '<div class="flip-hint">✕ Again &nbsp;·&nbsp; ✓ Got It</div>';
+        '<div class="face-foot">✕ Again · ◑ Hard · ✓ Mastered</div>';
+    } else if (enFront) {
+      front =
+        faceTop(card, "ਪ੍ਰਸ਼ਨ · Question") +
+        '<div class="card-body custom-scroll"><div class="card-main">' + esc(card.q) + '</div></div>' +
+        '<div class="face-foot">Tap / Space ਉਲਟਾਓ</div>';
+      back =
+        faceTop(card, "ਜਵਾਬ · Answer") +
+        '<div class="card-body custom-scroll">' +
+          '<div class="answer-head">' +
+            '<div class="card-answer">' + esc(card.a) + '</div>' +
+            (card.pa && card.pa !== card.a ? '<div class="card-answer-pa">' + esc(card.pa) + '</div>' : "") +
+          '</div>' +
+          (card.ex ? section("ਵਿਆਖਿਆ · Why", card.ex, card.exPa, "def-box") : "") +
+          enrichmentBlocks(card, card.term || card.a) +
+        '</div>' +
+        '<div class="face-foot">✕ Again · ◑ Hard · ✓ Mastered</div>';
     } else {
-      frontHtml =
-        '<div class="face-top"><span class="card-tag">' + esc(chapterLabel(card)) + '</span>' +
-        '<span class="card-kicker">ਪ੍ਰਸ਼ਨ · Question</span>' + ttsButton(card.q, "en") + '</div>' +
-        '<div class="card-body"><div class="card-main">' + esc(card.q) + '</div></div>' +
-        '<div class="flip-hint">Tap / Space ਉਲਟਾਓ</div>';
-      backHtml =
-        '<div class="face-top"><span class="card-tag">' + esc(chapterLabel(card)) + '</span>' +
-        '<span class="card-kicker">ਜਵਾਬ · Answer</span>' + ttsButton(card.a, "en") + '</div>' +
-        '<div class="card-body">' +
-          '<div class="card-answer">' + esc(card.a) + '</div>' +
-          (card.pa && card.pa !== card.a ? '<div class="card-answer-pa">' + esc(card.pa) + '</div>' : "") +
-          (card.ex ? '<div class="why-box">' + esc(card.ex) + (card.exPa ? '<span class="why-pa">' + esc(card.exPa) + '</span>' : "") + '</div>' : "") +
+      /* ਪੰ → EN on the Concepts deck: the Punjabi answer (or the Punjabi
+         explanation when there is no Punjabi term) becomes the prompt, and the
+         student has to produce the English scientific term. */
+      const paPrompt = paPromptFor(card);
+      front =
+        faceTop(card, "ਸੰਕਲਪ · Concept") +
+        '<div class="card-body custom-scroll">' +
+          '<div class="card-main gurmukhi">' + esc(paPrompt) + '</div>' +
+          '<div class="prompt-line">ਇਸ ਦਾ ਅੰਗਰੇਜ਼ੀ ਵਿਗਿਆਨਕ ਸ਼ਬਦ?</div>' +
         '</div>' +
-        '<div class="flip-hint">✕ Again &nbsp;·&nbsp; ✓ Got It</div>';
+        '<div class="face-foot">Tap / Space ਉਲਟਾਓ</div>';
+      back =
+        faceTop(card, "ਜਵਾਬ · Answer") +
+        '<div class="card-body custom-scroll">' +
+          '<div class="answer-head">' +
+            '<div class="card-answer">' + esc(card.a) + '</div>' +
+            '<div class="card-sub">' + esc(card.q) + '</div>' +
+          '</div>' +
+          (card.ex ? section("ਵਿਆਖਿਆ · Why", card.ex, card.exPa, "def-box") : "") +
+          enrichmentBlocks(card, card.term || card.a) +
+        '</div>' +
+        '<div class="face-foot">✕ Again · ◑ Hard · ✓ Mastered</div>';
     }
-    faceFront.innerHTML = frontHtml;
-    faceBack.innerHTML = backHtml;
+    faceFront.innerHTML = front;
+    faceBack.innerHTML = back;
   }
 
   function renderPanel(html) {
@@ -841,13 +1221,33 @@
     const now = Date.now();
     const due = cards.filter(c => isDue(c.id, now)).length;
     const mastered = cards.filter(c => isMastered(c.id)).length;
-    const masteredAll = Object.keys(store.srs).filter(id => store.srs[id].b >= MASTERED_BOX).length;
-    cardCounter.textContent = finished || !queue.length ? "Card — / " + queue.length : "Card " + (idx + 1) + " / " + queue.length;
+    cardCounter.textContent = finished || !queue.length
+      ? "Card — / " + queue.length
+      : "Card " + (idx + 1) + " / " + queue.length;
     dueFlag.hidden = due === 0;
     dueCount.textContent = String(due);
+    comboFlag.hidden = combo < 2;
+    comboVal.textContent = String(combo);
     scopeMastered.textContent = "★ " + mastered + " / " + cards.length;
-    masteryVal.textContent = String(masteredAll);
+    xpVal.textContent = String(db.xp);
     progressFill.style.width = queue.length ? Math.round((Math.min(idx, queue.length) / queue.length) * 100) + "%" : "0%";
+  }
+
+  function updateGradeButtons() {
+    /* Grading stays locked until the answer has been seen, which is what
+       forces genuine active retrieval. */
+    againBtn.disabled = !flipped;
+    hardBtn.disabled = !flipped;
+    goodBtn.disabled = !flipped;
+    controls.classList.toggle("unlocked", flipped);
+    flipBtn.innerHTML = (flipped ? "↻ Question" : "↻ Flip") +
+      '<span class="grade-pa">' + (flipped ? "ਪ੍ਰਸ਼ਨ" : "ਉਲਟਾਓ") + '</span><span class="key-hint">SPACE</span>';
+  }
+
+  /* While a card is flying off, ignore flips and grades so a fast double-tap
+     can never catch the outgoing card mid-animation. */
+  function inTransit() {
+    return scene.classList.contains("fly-left") || scene.classList.contains("fly-right") || scene.classList.contains("fly-down");
   }
 
   function showCurrent(deal) {
@@ -855,7 +1255,7 @@
     if (idx >= queue.length) { showSummary(); return; }
     hidePanel();
     flipped = false;
-    scene.classList.remove("is-flipped", "fly-left", "fly-right");
+    scene.classList.remove("flipped", "fly-left", "fly-right", "fly-down");
     renderCard(queue[idx]);
     updateGradeButtons();
     if (deal) {
@@ -864,85 +1264,80 @@
       scene.classList.add("deal");
     }
     updateMeta();
-    const card = queue[idx];
-    announcer.textContent = "Card " + (idx + 1) + " of " + queue.length + ". " + (card.kind === "V" ? (dir === "EN2PA" ? card.en : card.pa) : card.q);
-  }
-
-  function updateGradeButtons() {
-    /* Grading is available once the answer has been seen — this keeps the
-       Again/Good judgement honest without blocking keyboard power users
-       (they can still flip first with Space). */
-    againBtn.disabled = !flipped;
-    goodBtn.disabled = !flipped;
-    flipBtn.innerHTML = flipped
-      ? '↻ Show Question<span class="key-hint">SPACE</span>'
-      : '↻ Flip Card<span class="key-hint">SPACE</span>';
+    const c = queue[idx];
+    const spoken = c.kind === "V" ? (dir === "EN2PA" ? c.en : c.pa) : (dir === "EN2PA" ? c.q : paPromptFor(c));
+    announcer.textContent = "Card " + (idx + 1) + " of " + queue.length + ". " + spoken;
   }
 
   function doFlip() {
-    if (finished || loading || idx >= queue.length) return;
+    if (finished || loading || idx >= queue.length || inTransit()) return;
     flipped = !flipped;
-    scene.classList.toggle("is-flipped", flipped);
+    scene.classList.toggle("flipped", flipped);
     updateGradeButtons();
     if (flipped) markStudyTouch();
   }
 
-  /* ================= Grading (Leitner) ================= */
-  function grade(good) {
-    if (finished || loading || idx >= queue.length || !flipped) return;
-    const card = queue[idx];
-    const prev = srsOf(card.id) ? { ...srsOf(card.id) } : null;
-    const now = Date.now();
-    let s = srsOf(card.id) || { b: 0, d: 0, s: 0, l: 0 };
-    s = { ...s };
-    s.s += 1;
-    if (good) {
-      /* A brand-new card answered correctly jumps straight to box 2 (1 day). */
-      s.b = s.b === 0 ? 2 : Math.min(s.b + 1, 5);
-    } else {
-      s.b = 1;
-      s.l += 1;
-    }
-    s.d = now + BOX_INTERVALS_MS[s.b - 1];
-    store.srs[card.id] = s;
-    persistStore();
+  /* ================= Grading ================= */
+  const XP_BASE = { again: 0, hard: 5, mastered: 10 };
+  function comboMultiplier() { return Math.min(3, 1 + Math.floor(combo / 3) * 0.5); }
 
-    let wasRequeued = false;
-    if (good) { sessionGood += 1; }
-    else {
-      sessionAgain += 1;
-      if (againIds.indexOf(card.id) === -1) againIds.push(card.id);
-      /* Tricky card comes back a few cards later in this same session. */
-      const at = Math.min(idx + 1 + 4, queue.length);
-      queue.splice(at, 0, card);
-      wasRequeued = true;
+  function grade(kind) {
+    if (finished || loading || idx >= queue.length || !flipped || inTransit()) return;
+    const card = queue[idx];
+    const prev = srsOf(card.id) ? Object.assign({}, srsOf(card.id)) : null;
+    db.srs[card.id] = applyGrade(prev, kind);
+
+    const prevCombo = combo, prevXp = db.xp, prevSXp = sXp;
+    let requeued = false;
+    if (kind === "mastered") {
+      sGood += 1;
+      combo += 1;
+      if (combo > bestCombo) bestCombo = combo;
+    } else if (kind === "hard") {
+      sHard += 1;
+      combo = 0;
+      if (missedIds.indexOf(card.id) === -1) missedIds.push(card.id);
+    } else {
+      sAgain += 1;
+      combo = 0;
+      if (missedIds.indexOf(card.id) === -1) missedIds.push(card.id);
+      /* Bring the failed card back a few slots later in this same session. */
+      queue.splice(Math.min(idx + REQUEUE_OFFSET, queue.length), 0, card);
+      requeued = true;
     }
-    lastAction = { id: card.id, prevSrs: prev, wasRequeued, idxBefore: idx, wasGood: good };
+    const gained = Math.round(XP_BASE[kind] * (kind === "mastered" ? comboMultiplier() : 1));
+    db.xp += gained;
+    sXp += gained;
+    saveDb();
+
+    lastAction = { id: card.id, prevSrs: prev, kind, requeued, idxBefore: idx, prevCombo, prevXp, prevSXp };
     undoBtn.disabled = false;
     markStudyTouch();
 
-    scene.classList.add(good ? "fly-right" : "fly-left");
-    const delay = matchMedia("(prefers-reduced-motion: reduce)").matches ? 40 : 260;
-    setTimeout(() => { idx += 1; showCurrent(true); }, delay);
+    if (kind === "mastered" && combo > 0 && combo % 3 === 0) toast("🔥 " + combo + " combo · x" + comboMultiplier());
+
+    scene.classList.add(kind === "mastered" ? "fly-right" : kind === "again" ? "fly-left" : "fly-down");
+    afterFly(() => { idx += 1; showCurrent(true); }, reducedMotion() ? 60 : 360);
   }
 
   function undo() {
     if (!lastAction || loading) return;
-    const { id, prevSrs, wasRequeued, idxBefore, wasGood } = lastAction;
-    if (prevSrs) store.srs[id] = prevSrs; else delete store.srs[id];
-    persistStore();
-    if (wasGood) sessionGood = Math.max(0, sessionGood - 1);
-    else {
-      sessionAgain = Math.max(0, sessionAgain - 1);
-      if (wasRequeued) {
-        /* Remove the requeued copy that sits after the original position. */
-        for (let i = idxBefore + 1; i < queue.length; i++) {
-          if (queue[i].id === id) { queue.splice(i, 1); break; }
-        }
+    const a = lastAction;
+    if (a.prevSrs) db.srs[a.id] = a.prevSrs; else delete db.srs[a.id];
+    db.xp = a.prevXp;
+    sXp = a.prevSXp;
+    combo = a.prevCombo;
+    if (a.kind === "mastered") sGood = Math.max(0, sGood - 1);
+    else if (a.kind === "hard") sHard = Math.max(0, sHard - 1);
+    else sAgain = Math.max(0, sAgain - 1);
+    if (a.requeued) {
+      for (let i = a.idxBefore + 1; i < queue.length; i++) {
+        if (queue[i].id === a.id) { queue.splice(i, 1); break; }
       }
     }
+    saveDb();
     finished = false;
-    idx = idxBefore;
+    idx = a.idxBefore;
     lastAction = null;
     undoBtn.disabled = true;
     showCurrent(true);
@@ -950,50 +1345,72 @@
   }
 
   function skip() {
-    if (finished || loading || idx >= queue.length) return;
+    if (finished || loading || idx >= queue.length || inTransit()) return;
     scene.classList.add("fly-right");
-    const delay = matchMedia("(prefers-reduced-motion: reduce)").matches ? 40 : 200;
-    setTimeout(() => { idx += 1; showCurrent(true); }, delay);
+    afterFly(() => { idx += 1; showCurrent(true); }, reducedMotion() ? 60 : 320);
   }
 
-  /* ================= Summary / empty states ================= */
+  /* Advance on the fly-out's transitionend, with a timeout as a safety net —
+     on throttled or low-power devices timers can lag far behind the CSS
+     transition, and the card must never sit stuck in a fly state. */
+  function afterFly(cb, fallbackMs) {
+    const inner = scene.querySelector(".card-inner");
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      inner.removeEventListener("transitionend", finish);
+      cb();
+    };
+    inner.addEventListener("transitionend", finish);
+    setTimeout(finish, fallbackMs);
+  }
+
+  /* ================= Panels ================= */
   function showSummary() {
     finished = true;
     updateMeta();
     progressFill.style.width = "100%";
     const cards = scopeCards();
     const mastered = cards.filter(c => isMastered(c.id)).length;
-    const graded = sessionGood + sessionAgain;
-    const pct = graded ? Math.round((sessionGood / graded) * 100) : 0;
-    const headline = pct >= 85 ? "ਸ਼ਾਬਾਸ਼! Outstanding recall." : pct >= 60 ? "ਵਧੀਆ! Solid session." : "ਕੋਸ਼ਿਸ਼ ਜਾਰੀ ਰੱਖੋ! Keep drilling.";
+    const graded = sGood + sHard + sAgain;
+    const pct = graded ? Math.round((sGood / graded) * 100) : 0;
+    const headline = pct >= 85 ? "ਸ਼ਾਬਾਸ਼! Outstanding recall."
+      : pct >= 60 ? "ਵਧੀਆ! Solid session."
+      : "ਕੋਸ਼ਿਸ਼ ਜਾਰੀ ਰੱਖੋ! Keep drilling.";
     renderPanel(
       '<h2>Session Complete</h2>' +
       '<div class="pa-line">' + esc(headline) + '</div>' +
+      '<div class="xp-banner"><span class="xp-num">+' + sXp + '</span><span>XP</span>' +
+        (bestCombo >= 3 ? '<span class="xp-mult">🔥 best combo ' + bestCombo + '</span>' : "") + '</div>' +
       '<div class="summary-grid">' +
-        '<div class="summary-stat good"><span class="num">' + sessionGood + '</span><span class="lbl">✓ Got It</span></div>' +
-        '<div class="summary-stat again"><span class="num">' + sessionAgain + '</span><span class="lbl">✕ Again</span></div>' +
-        '<div class="summary-stat mastered"><span class="num">' + mastered + '</span><span class="lbl">★ Mastered</span></div>' +
+        '<div class="summary-stat good"><span class="num">' + sGood + '</span><span class="lbl">✓ Mastered</span></div>' +
+        '<div class="summary-stat hard"><span class="num">' + sHard + '</span><span class="lbl">◑ Hard</span></div>' +
+        '<div class="summary-stat again"><span class="num">' + sAgain + '</span><span class="lbl">✕ Again</span></div>' +
+        '<div class="summary-stat mastered"><span class="num">' + mastered + '</span><span class="lbl">★ Long-term</span></div>' +
       '</div>' +
-      '<p>Mastered cards go quiet for up to 21 days, then return right when you are about to forget them — come back tomorrow for the next wave.</p>' +
+      '<p>Mastered cards go quiet for up to three weeks, then return right when you are about to forget them. Come back tomorrow for the next wave.</p>' +
       '<div class="panel-actions">' +
-        (againIds.length ? '<button class="primary" type="button" data-act="tricky">⚡ Repeat ' + againIds.length + ' Tricky</button>' : "") +
-        '<button class="' + (againIds.length ? "secondary" : "primary") + '" type="button" data-act="restart">↺ New Session</button>' +
-        '<a class="secondary" style="text-decoration:none;display:inline-flex;align-items:center;" href="index.html">◂ Menu</a>' +
+        (missedIds.length ? '<button class="primary" type="button" data-act="missed">⚡ Review ' + missedIds.length + ' Missed</button>' : "") +
+        '<button class="' + (missedIds.length ? "secondary" : "primary") + '" type="button" data-act="restart">↺ New Session</button>' +
+        '<a class="secondary" href="index.html">◂ Menu</a>' +
       '</div>'
     );
-    announcer.textContent = "Session complete. " + sessionGood + " correct, " + sessionAgain + " to review again.";
+    announcer.textContent = "Session complete. " + sGood + " mastered, " + sHard + " hard, " + sAgain + " again. " + sXp + " XP earned.";
   }
 
-  function showEmpty(message, showRetry) {
+  function showEmpty(message, retry) {
     finished = true;
     renderPanel(
       '<h2>ਕੋਈ ਕਾਰਡ ਨਹੀਂ · No cards here</h2>' +
       '<p>' + esc(message) + '</p>' +
       '<div class="panel-actions">' +
-        (showRetry ? '<button class="primary" type="button" data-act="retry">↻ Retry</button>' : "") +
+        (retry ? '<button class="primary" type="button" data-act="retry">↻ Retry</button>' : "") +
+        (vvipOnly ? '<button class="secondary" type="button" data-act="clear-vvip">★ Turn off High-Yield</button>' : "") +
         '<button class="secondary" type="button" data-act="all-chapters">Show All Chapters</button>' +
       '</div>'
     );
+    updateMeta();
   }
 
   function showLoading() {
@@ -1005,41 +1422,50 @@
   }
 
   /* ================= Session bootstrap ================= */
-  function startSession(announceShuffle) {
+  function startSession(announceShuffle, onlyIds) {
     finished = false;
-    sessionGood = 0; sessionAgain = 0; againIds = [];
-    lastAction = null; undoBtn.disabled = true;
+    sGood = sHard = sAgain = sXp = 0;
+    combo = 0; bestCombo = 0;
+    missedIds = [];
+    lastAction = null;
+    undoBtn.disabled = true;
     idx = 0;
 
     if (deck === "CONCEPT") {
-      const chs = scopeChapters();
-      const missing = chs.filter(n => !conceptCache[n]);
+      const missing = scopeChapters().filter(n => !conceptCache[n]);
       if (missing.length) {
         loading = true;
         const token = ++conceptLoadToken;
         showLoading();
         loadConceptChapters(missing).then(() => {
-          if (token !== conceptLoadToken) return; // superseded by a newer request
+          if (token !== conceptLoadToken) return;
           loading = false;
-          finishStart(announceShuffle);
+          finishStart(announceShuffle, onlyIds);
         });
         return;
       }
     }
-    finishStart(announceShuffle);
+    finishStart(announceShuffle, onlyIds);
   }
 
-  function finishStart(announceShuffle) {
-    queue = buildQueue();
+  function finishStart(announceShuffle, onlyIds) {
+    if (onlyIds && onlyIds.length) {
+      const set = new Set(onlyIds);
+      queue = shuffled(scopeCards().filter(c => set.has(c.id)));
+    } else {
+      queue = buildQueue();
+    }
     if (!queue.length) {
-      const chs = scopeChapters();
-      const failed = chs.filter(n => conceptFailed[n]);
+      const failed = scopeChapters().filter(n => conceptFailed[n]);
       if (deck === "CONCEPT" && failed.length) {
         showEmpty("Concept cards could not be loaded for the selected chapters. Check your connection (or open the app over http) and retry.", true);
+      } else if (vvipOnly) {
+        showEmpty("No board high-yield cards in this selection. Widen the chapter filter or turn off the ★ High-Yield toggle.", false);
+      } else if (dir === "PA2EN" && deck === "CONCEPT") {
+        showEmpty("These chapters have no Punjabi prompts yet. Switch back to EN → ਪੰ or pick other chapters.", false);
       } else {
         showEmpty("Try widening the chapter filter — the selected chapters have no cards in this deck.", false);
       }
-      updateMeta();
       return;
     }
     showCurrent(true);
@@ -1048,11 +1474,20 @@
 
   /* ================= Chapter chips ================= */
   const chipBar = document.getElementById("chipBar");
+  const SUBJECT_GROUP = { chemistry: "ਰਸਾਇਣ Chem", biology: "ਜੀਵ Bio", physics: "ਭੌਤਿਕ Phy", environment: "ਵਾਤਾਵਰਣ Env" };
   function renderChips() {
     let html = '<button class="chip' + (chapterSel.length === 0 ? " active" : "") + '" type="button" data-ch="ALL"><span class="dot"></span>ਸਾਰੇ All</button>';
+    let lastSubject = null;
     CHAPTERS.forEach(c => {
+      /* Discipline labels break the 16 chapters into board-revision blocks. */
+      if (c.subject !== lastSubject) {
+        lastSubject = c.subject;
+        html += '<span class="chip-group" style="--sub: var(' + (SUBJECT_VAR[c.subject] || "--chem") + ')">' + esc(SUBJECT_GROUP[c.subject] || c.subject) + '</span>';
+      }
       const active = chapterSel.indexOf(c.n) !== -1;
-      html += '<button class="chip' + (active ? " active" : "") + '" type="button" data-ch="' + c.n + '" style="--sub: var(' + (SUBJECT_VAR[c.subject] || "--chem") + ')" title="' + esc(c.title) + '"><span class="dot"></span>Ch ' + c.n + '</button>';
+      html += '<button class="chip' + (active ? " active" : "") + '" type="button" data-ch="' + c.n +
+        '" style="--sub: var(' + (SUBJECT_VAR[c.subject] || "--chem") + ')" title="' + esc(c.title) + '">' +
+        '<span class="dot"></span>Ch ' + c.n + '</button>';
     });
     chipBar.innerHTML = html;
   }
@@ -1066,8 +1501,8 @@
       if (at === -1) chapterSel.push(n); else chapterSel.splice(at, 1);
       chapterSel.sort((a, b) => a - b);
     }
-    store.prefs.chapters = chapterSel;
-    persistStore();
+    db.prefs.chapters = chapterSel;
+    saveDb();
     renderChips();
     startSession(false);
   });
@@ -1077,127 +1512,116 @@
     const btn = e.target.closest("[data-deck]");
     if (!btn || btn.dataset.deck === deck) return;
     deck = btn.dataset.deck;
-    store.prefs.deck = deck;
-    persistStore();
+    db.prefs.deck = deck;
+    saveDb();
     document.querySelectorAll("[data-deck]").forEach(b => b.classList.toggle("active", b.dataset.deck === deck));
-    dirSwitch.style.display = deck === "VOCAB" ? "" : "none";
     startSession(false);
   });
   dirSwitch.addEventListener("click", e => {
     const btn = e.target.closest("[data-dir]");
     if (!btn || btn.dataset.dir === dir) return;
     dir = btn.dataset.dir;
-    store.prefs.dir = dir;
-    persistStore();
+    db.prefs.dir = dir;
+    saveDb();
     document.querySelectorAll("[data-dir]").forEach(b => b.classList.toggle("active", b.dataset.dir === dir));
+    startSession(false);
+  });
+  vvipBtn.addEventListener("click", () => {
+    vvipOnly = !vvipOnly;
+    db.prefs.vvipOnly = vvipOnly;
+    saveDb();
+    vvipBtn.classList.toggle("on", vvipOnly);
+    vvipBtn.setAttribute("aria-pressed", vvipOnly ? "true" : "false");
+    toast(vvipOnly ? "★ Board high-yield only" : "★ Showing all cards");
     startSession(false);
   });
   document.getElementById("shuffleBtn").addEventListener("click", () => startSession(true));
 
   /* ================= Card interactions ================= */
   flipBtn.addEventListener("click", doFlip);
-  againBtn.addEventListener("click", () => grade(false));
-  goodBtn.addEventListener("click", () => grade(true));
+  againBtn.addEventListener("click", () => grade("again"));
+  hardBtn.addEventListener("click", () => grade("hard"));
+  goodBtn.addEventListener("click", () => grade("mastered"));
   undoBtn.addEventListener("click", undo);
   skipBtn.addEventListener("click", skip);
 
   scene.addEventListener("click", e => {
     const tts = e.target.closest("[data-tts]");
-    if (tts) { speak(tts.dataset.tts, tts.dataset.ttsLang); e.stopPropagation(); return; }
+    if (tts) { speak(tts.dataset.tts); e.stopPropagation(); return; }
     if (swipeMoved) return;
     doFlip();
   });
 
-  /* Panel (summary / empty state) action buttons. */
   document.getElementById("stage").addEventListener("click", e => {
     const act = e.target.closest("[data-act]");
     if (!act) return;
-    if (act.dataset.act === "restart") startSession(false);
-    if (act.dataset.act === "retry") {
-      scopeChapters().forEach(n => { if (conceptFailed[n]) delete conceptFailed[n]; });
-      startSession(false);
-    }
-    if (act.dataset.act === "all-chapters") {
-      chapterSel = [];
-      store.prefs.chapters = [];
-      persistStore();
-      renderChips();
-      startSession(false);
-    }
-    if (act.dataset.act === "tricky") {
-      const ids = new Set(againIds);
-      const pool = scopeCards().filter(c => ids.has(c.id));
-      finished = false;
-      sessionGood = 0; sessionAgain = 0; againIds = [];
-      lastAction = null; undoBtn.disabled = true;
-      queue = shuffled(pool);
-      idx = 0;
-      showCurrent(true);
-      toast("⚡ Tricky cards only");
-    }
+    const a = act.dataset.act;
+    if (a === "restart") startSession(false);
+    else if (a === "retry") { scopeChapters().forEach(n => delete conceptFailed[n]); startSession(false); }
+    else if (a === "all-chapters") { chapterSel = []; db.prefs.chapters = []; saveDb(); renderChips(); startSession(false); }
+    else if (a === "clear-vvip") { vvipOnly = false; db.prefs.vvipOnly = false; saveDb(); vvipBtn.classList.remove("on"); vvipBtn.setAttribute("aria-pressed", "false"); startSession(false); }
+    else if (a === "missed") { const ids = missedIds.slice(); startSession(false, ids); toast("⚡ Missed cards only"); }
   });
 
-  /* Swipe: after the answer is revealed, fling left = Again, right = Got It.
-     Before the flip a horizontal fling simply flips the card. */
-  let swipeStartX = null, swipeStartY = null, swipeMoved = false;
+  /* Horizontal flings grade once the answer is visible; vertical gestures are
+     left alone so the card body can scroll. */
+  let swipeX = null, swipeY = null, swipeMoved = false;
   scene.addEventListener("pointerdown", e => {
     if (e.target.closest("[data-tts]")) return;
-    swipeStartX = e.clientX; swipeStartY = e.clientY; swipeMoved = false;
+    swipeX = e.clientX; swipeY = e.clientY; swipeMoved = false;
   });
   scene.addEventListener("pointerup", e => {
-    if (swipeStartX === null) return;
-    const dx = e.clientX - swipeStartX;
-    const dy = e.clientY - swipeStartY;
-    swipeStartX = null;
+    if (swipeX === null) return;
+    const dx = e.clientX - swipeX, dy = e.clientY - swipeY;
+    swipeX = null;
     if (Math.abs(dx) > 64 && Math.abs(dx) > Math.abs(dy) * 1.4) {
       swipeMoved = true;
-      if (!flipped) doFlip();
-      else grade(dx > 0);
-      setTimeout(() => { swipeMoved = false; }, 350);
+      if (!flipped) doFlip(); else grade(dx > 0 ? "mastered" : "again");
+      setTimeout(() => { swipeMoved = false; }, 330);
     }
   });
-  scene.addEventListener("pointercancel", () => { swipeStartX = null; });
+  scene.addEventListener("pointercancel", () => { swipeX = null; });
 
-  /* Keyboard: Space/Enter flip · 1/X again · 2/G good · S shuffle · U undo. */
   document.addEventListener("keydown", e => {
     if (e.target && /^(input|textarea|select)$/i.test(e.target.tagName)) return;
+    const k = e.key.toLowerCase();
     if (e.key === " " || e.key === "Enter") {
       if (e.target === scene || !e.target.closest("button, a")) { e.preventDefault(); doFlip(); }
-    }
-    else if (e.key === "1" || e.key === "x" || e.key === "X" || e.key === "ArrowLeft") { if (flipped) grade(false); }
-    else if (e.key === "2" || e.key === "g" || e.key === "G" || e.key === "ArrowRight") { if (flipped) grade(true); }
-    else if (e.key === "s" || e.key === "S") startSession(true);
-    else if (e.key === "u" || e.key === "U") undo();
+    } else if (k === "1" || k === "a" || e.key === "ArrowLeft") { if (flipped) grade("again"); }
+    else if (k === "2" || k === "h") { if (flipped) grade("hard"); }
+    else if (k === "3" || k === "m" || k === "g" || e.key === "ArrowRight") { if (flipped) grade("mastered"); }
+    else if (k === "s") startSession(true);
+    else if (k === "u") undo();
   });
 
   /* ================= Text-to-speech ================= */
-  function speak(text, lang) {
+  function speak(text) {
     try {
       const synth = window.speechSynthesis;
       if (!synth) return;
       synth.cancel();
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = lang === "pa" ? "pa-IN" : "en-IN";
+      u.lang = "en-IN";
       u.rate = 0.92;
       synth.speak(u);
     } catch (e) {}
   }
 
   /* ================= Study streak ledger =================
-     Same ledger the lecture decks write (seconds studied per day), so
-     flashcard time counts toward the home-screen streak flame. */
+     Writes the same seconds-per-day ledger the lecture decks use, so time
+     spent on flashcards feeds the streak flame on the home screen. */
   let lastStudyTouch = 0;
   function markStudyTouch() {
     const now = Date.now();
-    if (now - lastStudyTouch < 30e3) return; // throttle writes
+    if (now - lastStudyTouch < 30e3) return;
     const gap = lastStudyTouch ? Math.min(120, Math.round((now - lastStudyTouch) / 1000)) : 30;
     lastStudyTouch = now;
     const s = readJson(STUDY_KEY);
     if (!s.days) s.days = {};
     const d = new Date();
     const mo = d.getMonth() + 1, da = d.getDate();
-    const k = d.getFullYear() + "-" + (mo < 10 ? "0" : "") + mo + "-" + (da < 10 ? "0" : "") + da;
-    s.days[k] = (s.days[k] || 0) + gap;
+    const key = d.getFullYear() + "-" + (mo < 10 ? "0" : "") + mo + "-" + (da < 10 ? "0" : "") + da;
+    s.days[key] = (s.days[key] || 0) + gap;
     writeJson(STUDY_KEY, s);
   }
 
@@ -1220,9 +1644,10 @@
   });
   window.addEventListener("pageshow", e => { if (e.persisted) document.body.classList.remove("page-leaving"); });
 
-  dirSwitch.style.display = deck === "VOCAB" ? "" : "none";
   document.querySelectorAll("[data-deck]").forEach(b => b.classList.toggle("active", b.dataset.deck === deck));
   document.querySelectorAll("[data-dir]").forEach(b => b.classList.toggle("active", b.dataset.dir === dir));
+  vvipBtn.classList.toggle("on", vvipOnly);
+  vvipBtn.setAttribute("aria-pressed", vvipOnly ? "true" : "false");
   renderChips();
   startSession(false);
 }());
