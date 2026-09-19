@@ -5,9 +5,12 @@
  * Two presentations, chosen by the host page:
  *   • Main menu only (body[data-support="widget"]): the full yellow floating
  *     "Support BOLO" button with its pop-out card.
- *   • Everywhere else (lectures, interactive slides, MCQ): a quiet
- *     "Buy me a coffee" text link, so nothing floats over the lesson or
- *     competes with the deck controls while a student is studying.
+ *   • Lecture decks: a coffee button docked inside the existing .pseb-tools
+ *     cluster, so it reads as part of the deck chrome and can never sit on
+ *     top of the slide navigation.
+ *   • Any other page (interactive slides, MCQ, flashcards): a quiet floating
+ *     "Buy me a coffee" text link that actively steps out of the way of any
+ *     fixed on-screen control it would otherwise cover.
  *
  * Handle: https://buymeacoffee.com/bolo.instinct
  */
@@ -102,6 +105,16 @@
     '@media (max-width:520px){.bmc-link{right:10px;bottom:8px;font-size:0.7rem;padding:5px 8px;}}' +
     '@media print{.bmc-link{display:none;}}';
 
+  // Lecture decks: dock the ask inside the deck's own tool cluster. Using a
+  // real <button> means the existing ".pseb-tools button" theme rules style it
+  // for free in both the instinct and legacy colourways.
+  var TOOL_CSS =
+    '.pseb-tools button#pseb-coffee{color:#FBB034!important;}' +
+    '.pseb-tools button#pseb-coffee:hover{background:rgba(251,176,52,0.18)!important;' +
+    'border-color:#FBB034!important;color:#FBB034!important;' +
+    'box-shadow:0 16px 34px rgba(0,0,0,0.3),0 0 24px rgba(251,176,52,0.35)!important;}' +
+    '@media print{.pseb-tools button#pseb-coffee{display:none!important;}}';
+
   var HTML =
     '<div class="bmc-card" role="dialog" aria-label="Support bolo.instinct" aria-hidden="true">' +
       '<button class="bmc-close" type="button" aria-label="Close">&times;</button>' +
@@ -126,13 +139,87 @@
     return !!(body && body.getAttribute("data-support") === "widget");
   }
 
+  function ensureStyle(id, css) {
+    if (document.getElementById(id)) return;
+    var style = document.createElement("style");
+    style.id = id;
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
+  // Dock the ask inside the deck toolbar (lecture decks only).
+  function mountTool(tools) {
+    if (document.getElementById("pseb-coffee")) return true;
+    ensureStyle("bmc-coffee-tool-style", TOOL_CSS);
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.id = "pseb-coffee";
+    btn.title = "Buy me a coffee \u00b7 support BOLO.INSTINCT";
+    btn.setAttribute("aria-label", "Buy me a coffee \u2014 support BOLO.INSTINCT");
+    btn.textContent = "\u2615";
+    btn.addEventListener("click", function () {
+      window.open(BMC_URL, "_blank", "noopener,noreferrer");
+    });
+    tools.appendChild(btn);
+
+    var floating = document.getElementById("bmc-link");
+    if (floating) floating.remove();
+    return true;
+  }
+
+  // The deck toolbar is injected by deck-enhance.js, which may run after this
+  // script. Watch for it briefly before settling on the floating fallback.
+  function watchForTools() {
+    var tools = document.querySelector(".pseb-tools");
+    if (tools) { mountTool(tools); return; }
+    if (!("MutationObserver" in window)) { initLink(); return; }
+
+    var observer = new MutationObserver(function () {
+      var found = document.querySelector(".pseb-tools");
+      if (!found) return;
+      observer.disconnect();
+      mountTool(found);
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    setTimeout(function () {
+      observer.disconnect();
+      if (!document.getElementById("pseb-coffee")) initLink();
+    }, 8000);
+  }
+
+  // Keep the floating link clear of any fixed control it would otherwise
+  // cover — on phones the deck's Prev/Next buttons drop into the bottom band,
+  // and an overlapping link silently swallows taps meant for the deck.
+  function avoidCollisions(link) {
+    link.style.bottom = "";
+    var mine = link.getBoundingClientRect();
+    var lowest = 0;
+
+    var candidates = document.querySelectorAll(
+      "button, a, [role='button'], input, select, .side-nav, .btn-nav"
+    );
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      if (el === link || link.contains(el)) continue;
+      var pos = window.getComputedStyle(el).position;
+      if (pos !== "fixed" && pos !== "sticky") continue;
+      var box = el.getBoundingClientRect();
+      if (!box.width || !box.height) continue;
+      var overlaps = !(mine.right <= box.left || box.right <= mine.left ||
+        mine.bottom <= box.top || box.bottom <= mine.top);
+      if (!overlaps) continue;
+      var clearance = window.innerHeight - box.top;
+      if (clearance > lowest) lowest = clearance;
+    }
+
+    link.style.bottom = lowest ? (Math.round(lowest) + 10) + "px" : "";
+  }
+
   function initLink() {
     if (document.getElementById("bmc-link")) return;
 
-    var style = document.createElement("style");
-    style.id = "bmc-coffee-style";
-    style.textContent = LINK_CSS;
-    document.head.appendChild(style);
+    ensureStyle("bmc-coffee-style", LINK_CSS);
 
     var link = document.createElement("a");
     link.id = "bmc-link";
@@ -144,10 +231,30 @@
     link.innerHTML = '<span class="bmc-link-icon" aria-hidden="true">\u2615</span>' +
       '<span>Buy me a coffee</span>';
     document.body.appendChild(link);
+
+    var reflow = function () {
+      if (!document.body.contains(link)) return;
+      avoidCollisions(link);
+    };
+    reflow();
+    window.addEventListener("resize", reflow);
+    window.addEventListener("orientationchange", reflow);
+    setTimeout(reflow, 1200);
+  }
+
+  // Lecture decks load deck-enhance.js, which builds the .pseb-tools cluster.
+  function isDeck() {
+    return !!(document.querySelector(".pseb-tools") ||
+      document.querySelector('script[src*="deck-enhance"]'));
   }
 
   function init() {
-    if (!isMainMenu()) { initLink(); return; }
+    if (isMainMenu()) { initWidget(); return; }
+    if (isDeck()) { watchForTools(); return; }
+    initLink();
+  }
+
+  function initWidget() {
     if (document.getElementById("bmc-widget")) return;
 
     var style = document.createElement("style");
