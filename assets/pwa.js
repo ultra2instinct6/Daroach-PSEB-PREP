@@ -295,7 +295,22 @@
   window.addEventListener("online", syncOnlineState);
   window.addEventListener("offline", syncOnlineState);
   window.addEventListener("resize", positionBadge);
-  window.addEventListener("load", registerSW);
+
+  /* Register after `load` so the worker never competes with first-paint
+     resources — but cap the wait. Any slow or blocked third-party script (the
+     AdSense tag, fonts) also delays `load`, and a student on a bad connection
+     is exactly the one who needs the offline cache registered. */
+  (function scheduleRegisterSW() {
+    var ran = false;
+    function run() {
+      if (ran) return;
+      ran = true;
+      registerSW();
+    }
+    if (document.readyState === "complete") { run(); return; }
+    window.addEventListener("load", run);
+    setTimeout(run, 4000);
+  }());
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", syncOnlineState);

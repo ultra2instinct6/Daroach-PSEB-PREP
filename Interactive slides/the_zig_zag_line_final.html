@@ -6,6 +6,11 @@
 <title>BOLO.Engine - The Zig-Zag Line (Final)</title>
 <!-- Google Analytics (GA4) — shared loader, see assets/analytics.js -->
 <script src="../assets/analytics.js"></script>
+<!-- Google AdSense — must stay as literal markup in <head>: the AdSense
+     verification crawler reads raw HTML and does not execute JavaScript,
+     so this tag cannot be moved into a shared .js loader. -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8195165720925396"
+     crossorigin="anonymous"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
@@ -693,10 +698,14 @@
     }
   });
 
-  // Initialize
-  window.onload = () => {
+  // Initialize. Uses DOM-ready rather than `load`: a slow or blocked
+  // third-party script (e.g. the AdSense tag) delays `load`, which would
+  // otherwise leave the periodic table blank on a poor connection.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildPeriodicTable);
+  } else {
     buildPeriodicTable();
-  };
+  }
 </script>
 
 <script defer src="../assets/bmc-coffee.js"></script>
