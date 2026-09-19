@@ -212,28 +212,35 @@
     backdrop-filter: blur(20px);
   }
   .domain-btn {
-    padding: 8px 18px;
+    padding: 8px 13px;
     border-radius: 999px;
     background: transparent;
     color: var(--text-dim);
     cursor: pointer;
     font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     transition: color 0.35s var(--fluid-curve), background 0.35s var(--fluid-curve), transform 0.35s var(--fluid-curve);
   }
   .domain-btn:hover, .domain-btn:focus-visible { color: #fff; outline: none; }
   .domain-btn.active { background: rgba(255, 255, 255, 0.12); color: #fff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
-  .subject-router, .mode-router { overflow-x: auto; scrollbar-width: none; }
+  .subject-router, .mode-router { flex: 0 0 auto; overflow-x: auto; scrollbar-width: none; }
   .subject-router::-webkit-scrollbar, .mode-router::-webkit-scrollbar { display: none; }
-  .subject-router { max-width: min(27vw, 280px); }
-  .mode-router { max-width: min(38vw, 440px); }
+  .subject-router { max-width: min(32vw, 300px); }
+  .mode-router { max-width: min(46vw, 460px); }
   .subject-btn, .mode-btn { white-space: nowrap; }
   .header-divider { width: 1px; height: 32px; background: rgba(255, 255, 255, 0.15); }
-  .header-trust { display: flex; flex-direction: column; gap: 4px; }
-  .trust-primary { color: #fff; font-size: 1.1rem; font-weight: 800; letter-spacing: 1.5px; line-height: 1.1; text-transform: uppercase; transition: opacity 0.25s; }
-  .trust-secondary { color: var(--text-dim); font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; line-height: 1; text-transform: uppercase; }
+  .header-trust { flex: 0 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .trust-primary { color: #fff; font-size: 1.1rem; font-weight: 800; letter-spacing: 1.5px; line-height: 1.1; white-space: nowrap; text-transform: uppercase; transition: opacity 0.25s; }
+  .trust-secondary { color: var(--text-dim); font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; line-height: 1.25; text-transform: uppercase; }
+  @media (max-width: 1439px) {
+    .trust-primary { font-size: 0.82rem; letter-spacing: 1px; }
+    .trust-secondary { display: none; }
+  }
+  @media (max-width: 1119px) {
+    .header-trust, .header-divider { display: none; }
+  }
   .header-right { display: flex; align-items: center; gap: 10px; pointer-events: auto; }
   .hud-pill {
     display: inline-flex;
@@ -294,8 +301,8 @@
   .roadmap-tile:nth-child(-n+18) { animation-delay: calc(var(--i, 0) * 28ms); }
   @keyframes roadTileIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
   .roadmap-num { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-size: 0.66rem; font-weight: 900; }
-  .roadmap-name { flex: 1; min-width: 0; color: rgba(255, 255, 255, 0.86); font-size: 0.68rem; font-weight: 700; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .roadmap-name .pa { display: block; color: var(--text-dim); font-size: 0.6rem; font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+  .roadmap-name { flex: 1; min-width: 0; color: rgba(255, 255, 255, 0.86); font-size: 0.68rem; font-weight: 700; line-height: 1.35; overflow-wrap: break-word; }
+  .roadmap-name .pa { display: block; margin-top: 2px; color: var(--text-dim); font-family: var(--font-gurmukhi); font-size: 0.6rem; font-weight: 600; line-height: 1.5; overflow-wrap: break-word; }
   .roadmap-state { flex: 0 0 auto; width: 6px; height: 6px; border-radius: 50%; background: #ffaa00; box-shadow: 0 0 8px rgba(255, 170, 0, 0.7); }
   .roadmap-legend { margin-top: 12px; color: var(--text-dim); font-size: 0.6rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
   body[data-theme="CLASSIC"] .roadmap-tile { border-color: rgba(11, 74, 168, 0.16); background: rgba(255, 255, 255, 0.75); }
@@ -337,6 +344,16 @@
   .orb-ember.e2 { animation: ember2 4.1s ease-out infinite; animation-delay: 1.2s; }
   .orb-ember.e3 { animation: ember3 3.8s ease-out infinite; animation-delay: 2.1s; }
   .core-lbl { display: none; }
+  .orbit-meter { position: absolute; top: calc(100% + clamp(18px, 3vh, 30px)); left: 50%; z-index: 12; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: translateX(-50%); text-align: center; white-space: nowrap; pointer-events: none; transition: opacity 0.5s var(--fluid-curve); }
+  .orbit-count { display: inline-flex; align-items: baseline; gap: 5px; color: var(--text-bold); font-size: 0.78rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: 2px; }
+  .orbit-count i { color: var(--text-dim); font-style: normal; font-weight: 700; }
+  .orbit-count .total { color: var(--text-dim); }
+  .orbit-hint { display: inline-flex; align-items: center; gap: 9px; color: var(--text-dim); font-size: 0.62rem; font-weight: 700; letter-spacing: 1.1px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.6s var(--fluid-curve); }
+  .orbit-hint .pa { font-family: var(--font-gurmukhi); font-size: 0.86rem; font-weight: 700; letter-spacing: 0; line-height: 1.7; text-transform: none; }
+  .orbit-hint .sep { opacity: 0.5; }
+  body.has-explored .orbit-hint { opacity: 0; }
+  .arena-locked .orbit-meter { opacity: 0; }
+  body.is-placeholder .orbit-meter { opacity: 0; }
   .dial { --orbit-accent: var(--aura-chem); --motion-energy: 0; position: absolute; z-index: 5; width: 0; height: 0; display: flex; align-items: center; justify-content: center; transform-style: preserve-3d; will-change: transform; }
   .dial::before,
   .dial::after {
@@ -354,14 +371,14 @@
     border: 1px solid var(--orbit-line);
     background: repeating-conic-gradient(from -1deg, var(--orbit-line) 0 1deg, transparent 1deg 15deg);
     box-shadow: 0 0 42px color-mix(in srgb, var(--orbit-glow) 20%, transparent), inset 0 0 36px color-mix(in srgb, var(--orbit-glow) 12%, transparent);
-    opacity: calc(0.42 + var(--motion-energy) * 0.28);
+    opacity: calc(0.62 + var(--motion-energy) * 0.34);
     -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 6px));
     mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 calc(100% - 6px));
   }
   .dial::after {
     background: conic-gradient(from 18deg, transparent 0 66%, color-mix(in srgb, var(--orbit-accent) 78%, transparent) 73%, color-mix(in srgb, var(--orbit-accent) 28%, transparent) 78%, transparent 84% 100%);
     filter: drop-shadow(0 0 7px color-mix(in srgb, var(--orbit-accent) 62%, transparent));
-    opacity: calc(0.44 + var(--motion-energy) * 0.46);
+    opacity: calc(0.5 + var(--motion-energy) * 0.46);
     -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
     mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
     animation: orbitSweep 16s linear infinite;
@@ -418,7 +435,7 @@
     .orb-ember.e3 { animation: ember3 3.8s ease-out infinite !important; animation-delay: 2.1s !important; }
   }
 
-  .shard { position: absolute; width: min(88vw, 344px); display: flex; flex-direction: column; overflow: hidden; padding: clamp(16px, 4vw, 24px); border: 1px solid rgba(255, 255, 255, 0.045); border-radius: 24px; background: var(--panel); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.95); cursor: pointer; --shard-rot: 0deg; --shard-scale: 1; --shard-pop: 1; transform: translate(-50%, -50%) rotate(var(--shard-rot)) scale(calc(var(--shard-scale) * var(--shard-pop))); backface-visibility: hidden; will-change: transform; transition: background 0.42s var(--fluid-curve), box-shadow 0.42s var(--fluid-curve), border-color 0.42s var(--fluid-curve), width 0.42s var(--fluid-curve), opacity 0.24s; }
+  .shard { position: absolute; width: min(90vw, 372px); display: flex; flex-direction: column; overflow: hidden; padding: clamp(16px, 4vw, 24px); border: 1px solid rgba(255, 255, 255, 0.045); border-radius: 24px; background: var(--panel); box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.95); cursor: pointer; --shard-rot: 0deg; --shard-scale: 1; --shard-pop: 1; transform: translate(-50%, -50%) rotate(var(--shard-rot)) scale(calc(var(--shard-scale) * var(--shard-pop))); backface-visibility: hidden; will-change: transform; transition: background 0.42s var(--fluid-curve), box-shadow 0.42s var(--fluid-curve), border-color 0.42s var(--fluid-curve), width 0.42s var(--fluid-curve), opacity 0.24s; }
   .shard::before { content: ''; position: absolute; inset: 0; z-index: 0; border-radius: inherit; background: linear-gradient(112deg, transparent 20%, rgba(255, 255, 255, 0.11) 48%, transparent 72%); opacity: 0; pointer-events: none; transform: translateX(-125%); }
   .shard-anchor.is-targeted .shard { --shard-pop: 1.06; border-color: rgba(255, 255, 255, 0.14); border-top-color: currentColor; background: linear-gradient(180deg, rgba(18, 18, 23, 1) 0%, rgba(6, 7, 11, 1) 100%); box-shadow: 0 36px 76px rgba(0, 0, 0, 0.97), 0 0 52px -12px currentColor, inset 0 1px 2px rgba(255, 255, 255, 0.16); }
   .shard-anchor.is-targeted .shard::before { opacity: 0.5; animation: shardSheen 6.8s 1.1s var(--fluid-curve) infinite; }
@@ -427,18 +444,18 @@
   .shard-anchor.is-targeted .pa-title { color: var(--text-bold); text-shadow: 0 0 20px color-mix(in srgb, currentColor 45%, transparent); }
   .shard-anchor.is-targeted .ch-icon { color: currentColor; filter: drop-shadow(0 0 7px currentColor); }
   .shard-anchor.is-targeted .ch-num { color: currentColor; }
-  .shard-anchor.is-active .shard { width: min(92vw, 360px); border-top-color: currentColor; background: linear-gradient(180deg, rgba(15, 15, 18, 1) 0%, rgba(5, 5, 8, 1) 100%); box-shadow: 0 50px 100px rgba(0, 0, 0, 0.99), inset 0 2px 4px rgba(255, 255, 255, 0.15); cursor: default; --shard-scale: 1.06 !important; }
+  .shard-anchor.is-active .shard { width: min(94vw, 396px); border-top-color: currentColor; background: linear-gradient(180deg, rgba(15, 15, 18, 1) 0%, rgba(5, 5, 8, 1) 100%); box-shadow: 0 50px 100px rgba(0, 0, 0, 0.99), inset 0 2px 4px rgba(255, 255, 255, 0.15); cursor: default; --shard-scale: 1.06 !important; }
   .shard-anchor.is-active .pa-title { color: currentColor; text-shadow: 0 0 25px currentColor; }
   .shard-anchor.is-active .btn-prime { border-color: currentColor; color: currentColor; }
   .shard-anchor.is-active .ch-icon { color: currentColor; filter: drop-shadow(0 0 8px currentColor); }
   .s-head { position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; }
-  .s-titles { display: flex; align-items: flex-start; gap: 14px; min-width: 0; overflow: hidden; }
+  .s-titles { flex: 1; display: flex; align-items: flex-start; gap: 11px; min-width: 0; overflow: visible; text-align: left; }
   .ch-icon { width: 14px; height: 14px; margin-top: 6px; flex: none; color: var(--text-dim); transition: color 0.5s var(--fluid-curve); }
   .ch-icon svg { width: 100%; height: 100%; stroke: currentColor; }
   .ch-num { padding-top: 4px; color: var(--text-dim); font-size: 0.85rem; font-weight: 900; font-variant-numeric: tabular-nums; }
-  .title-group { display: flex; flex-direction: column; gap: 3px; min-width: 0; padding-right: 8px; }
-  .pa-title { color: var(--text-bold); font-family: var(--font-gurmukhi); font-size: clamp(1rem, 3.5vw, 1.1rem); font-weight: 700; line-height: 1.35; transition: color 0.5s var(--fluid-curve), text-shadow 0.5s var(--fluid-curve); }
-  .en-title { color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+  .title-group { flex: 1; display: flex; flex-direction: column; gap: 5px; min-width: 0; padding-right: 2px; }
+  .pa-title { color: var(--text-bold); font-family: var(--font-gurmukhi); font-size: clamp(1rem, 3.5vw, 1.1rem); font-weight: 700; line-height: 1.55; overflow-wrap: break-word; transition: color 0.5s var(--fluid-curve), text-shadow 0.5s var(--fluid-curve); }
+  .en-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; color: var(--text-dim); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; line-height: 1.45; overflow-wrap: break-word; text-transform: uppercase; }
   .svg-progress-container { position: relative; width: clamp(38px, 10vw, 44px); height: clamp(38px, 10vw, 44px); display: flex; align-items: center; justify-content: center; flex: none; border-radius: 999px; background: transparent; color: inherit; cursor: pointer; transition: transform 0.4s var(--spring-curve), background 0.4s; }
   .svg-progress-container:hover, .svg-progress-container:focus-visible { background: rgba(255, 255, 255, 0.06); outline: none; transform: scale(1.08); }
   .prog-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); pointer-events: none; }
@@ -575,7 +592,7 @@
   @media (max-width: 768px) {
     :root { --radius: clamp(104px, 21vh, 154px); }
     .web-utility-header { padding: max(16px, env(safe-area-inset-top)) 16px 18px; }
-    .header-left { gap: 10px; }
+    .header-left { gap: 22px; }
     .header-logo { max-width: 46vw; font-size: 0.92rem; letter-spacing: 1.7px; }
     .header-center { flex-direction: column; align-items: flex-start; gap: 8px; }
     .domain-router { padding: 3px; }
@@ -589,10 +606,10 @@
     .core-system { --orb-size: clamp(84px, 22vw, 108px); }
     .core-val { font-size: clamp(1.45rem, 7.4vw, 1.9rem); }
     .core-lbl { font-size: 0.56rem; }
-    .shard { width: min(70vw, 248px); padding: 13px; border-radius: 17px; }
-    .shard-anchor.is-active .shard { width: min(76vw, 274px); --shard-scale: 1.01 !important; }
+    .shard { width: min(84vw, 304px); padding: 14px; border-radius: 18px; }
+    .shard-anchor.is-active .shard { width: min(90vw, 326px); --shard-scale: 1.01 !important; }
     .pa-title { font-size: clamp(0.9rem, 3.2vw, 1rem); }
-    .en-title { font-size: 0.62rem; }
+    .en-title { font-size: 0.62rem; -webkit-line-clamp: 3; line-clamp: 3; }
     .utility-hub { right: 16px; bottom: max(18px, env(safe-area-inset-bottom)); }
     .round-trigger { width: 42px; height: 42px; }
     .round-trigger.theme-trigger { min-width: 42px; padding: 0 10px; }
@@ -606,6 +623,10 @@
     .neural-mesh, .aura-bleed { animation: none; }
     .neural-mesh { opacity: 0.035; }
     .aura-bleed { opacity: 0.72; }
+  }
+  @media (max-width: 400px) {
+    .header-logo { max-width: 34vw; font-size: 0.82rem; letter-spacing: 1.1px; }
+    .hud-pill { min-height: 30px; padding: 6px 8px; font-size: 0.56rem; }
   }
   @media (max-height: 700px) and (min-width: 769px) { :root { --radius: clamp(140px, 27vh, 220px); } .arena { padding-top: clamp(64px, 12vh, 96px); } .web-utility-header { padding-top: max(18px, env(safe-area-inset-top)); } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } .neural-mesh, .aura-bleed { animation: none !important; } }
@@ -685,6 +706,10 @@
     <div class="core-system" id="coreSystem">
       <div class="core-ring" id="coreRing"></div>
       <div class="core-mass" id="coreMass"><span class="orb-l orb-glow"></span><span class="orb-l orb-body"></span><span class="orb-l orb-plasma"></span><span class="orb-l orb-plasma2"></span><span class="core-val" id="coreVal" aria-hidden="true"></span><span class="orb-l orb-hot"></span><span class="orb-spark s1"></span><span class="orb-spark s2"></span><span class="orb-spark s3"></span><span class="orb-spark s4"></span><span class="orb-spark s5"></span><span class="orb-spark s6"></span><span class="orb-ember e1"></span><span class="orb-ember e2"></span><span class="orb-ember e3"></span><span class="orb-flare"></span><span class="core-lbl" id="coreLbl">ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ</span></div>
+      <div class="orbit-meter" id="orbitMeter">
+        <p class="orbit-count"><span id="orbitIndex">01</span><i>/</i><span class="total" id="orbitTotal">16</span></p>
+        <p class="orbit-hint" id="orbitHint"><span class="pa">ਘੁਮਾਓ</span><span class="sep">·</span><span>Drag · Scroll · ← →</span></p>
+      </div>
     </div>
     <nav class="dial" id="dial" aria-label="Chapter lecture menu"></nav>
   </main>
@@ -911,17 +936,24 @@
   function updateResume() { const lastN = parseInt(localStorage.getItem(LAST_KEY) || "", 10); const ch = syllabus.find(c => c.id === lastN && !c.placeholder); if (!ch) { resumeBtn.hidden = true; return; } resumeBtn.hidden = false; resumeText.textContent = "Ch " + ch.id; resumeBtn.onclick = () => openLecture(ch, null); }
   function updateStudyHud() { const days = readStudy().days || {}; const streak = computeStreak(days); streakCount.textContent = streak + (streak === 1 ? " Day" : " Days"); }
   function updateGlobalSync() { if (isPlaceholderView || !syllabus.length) return; const real = syllabus.filter(c => !c.placeholder); const total = real.reduce((sum, ch) => sum + pctFor(ch), 0); const overall = real.length ? Math.round(total / real.length) : 0; if (!isLocked) { coreVal.textContent = ""; coreLbl.textContent = "ਸਿਲੇਬਸ ਦੀ ਤਿਆਰੀ"; setCoreOrb(overall); } updateResume(); updateStudyHud(); }
-  function initDial() { dial.innerHTML = ""; let savedIdx = parseInt(localStorage.getItem("bolo_pseb_idx") || "0", 10); if (isNaN(savedIdx) || savedIdx >= syllabus.length) savedIdx = 0; syllabus.forEach((chap, index) => { const angle = index * degreePerNode; const color = auras[chap.type] || "#ffffff"; const pct = pctFor(chap); const isDone = pct === 100; const bookmarked = isBookmarked(chap.id); const anchor = document.createElement("article"); anchor.className = "node-anchor shard-anchor"; anchor.id = "shard-anchor-" + index; anchor.style.transform = "rotate(" + angle + "deg) translateY(calc(var(--radius) * -1))"; anchor.style.color = color; const shard = document.createElement("div"); shard.className = "shard"; shard.innerHTML = '<div class="s-head"><div class="s-titles" data-node-select="' + index + '"><div class="ch-icon">' + icons[chap.type] + '</div><div class="ch-num">' + String(chap.id).padStart(2, "0") + '</div><div class="title-group"><span class="pa-title">' + chap.pa + '</span><span class="en-title">' + chap.en + '</span></div></div><button class="svg-progress-container ' + (isDone ? "done " : "") + (chap.placeholder ? "locked" : "") + '" id="prog-' + chap.id + '" type="button" data-node-progress="' + chap.id + '" title="Mark complete" aria-label="Mark Chapter ' + chap.id + ' complete"><svg class="prog-ring" viewBox="0 0 36 36"><circle class="bg" cx="18" cy="18" r="16"></circle><circle class="fill" id="fill-' + chap.id + '" cx="18" cy="18" r="16" stroke-dashoffset="' + (100 - pct) + '"></circle></svg><span class="prog-text" id="text-' + chap.id + '">' + (isDone ? "✓" : pct + "%") + '</span></button></div><div class="s-expansion"><div class="s-expansion-inner"><div class="rune-row"><span class="rune">' + (chap.slides || 0) + ' Slides</span><span class="rune">' + subjectPunjabi[chap.type] + '</span>' + (chap.math ? '<span class="rune">MathJax</span>' : '') + (bookmarked ? '<span class="rune">Revision ★</span>' : '') + (chap.placeholder ? '<span class="rune soon">Coming soon</span>' : '') + '<span class="rune" id="status-' + chap.id + '">' + statusFor(chap) + '</span></div><div class="action-row"><button class="btn-prime" type="button" data-open-lecture="' + index + '" ' + (chap.placeholder ? 'aria-disabled="true"' : '') + '><span id="action-' + chap.id + '">' + actionText(chap) + '</span><span>▶</span></button></div></div></div>'; anchor.appendChild(shard); dial.appendChild(anchor); }); targetAngle = -savedIdx * degreePerNode; velocity = 0; measureOrbUnit(); resetCore(false); wakePhysicsLoop(); }
+  function initDial() { dial.innerHTML = ""; document.body.classList.remove("is-placeholder"); let savedIdx = parseInt(localStorage.getItem("bolo_pseb_idx") || "0", 10); if (isNaN(savedIdx) || savedIdx >= syllabus.length) savedIdx = 0; syllabus.forEach((chap, index) => { const angle = index * degreePerNode; const color = auras[chap.type] || "#ffffff"; const pct = pctFor(chap); const isDone = pct === 100; const bookmarked = isBookmarked(chap.id); const anchor = document.createElement("article"); anchor.className = "node-anchor shard-anchor"; anchor.id = "shard-anchor-" + index; anchor.style.transform = "rotate(" + angle + "deg) translateY(calc(var(--radius) * -1))"; anchor.style.color = color; const shard = document.createElement("div"); shard.className = "shard"; shard.innerHTML = '<div class="s-head"><div class="s-titles" data-node-select="' + index + '"><div class="ch-icon">' + icons[chap.type] + '</div><div class="ch-num">' + String(chap.id).padStart(2, "0") + '</div><div class="title-group"><span class="pa-title">' + chap.pa + '</span><span class="en-title">' + chap.en + '</span></div></div><button class="svg-progress-container ' + (isDone ? "done " : "") + (chap.placeholder ? "locked" : "") + '" id="prog-' + chap.id + '" type="button" data-node-progress="' + chap.id + '" title="Mark complete" aria-label="Mark Chapter ' + chap.id + ' complete"><svg class="prog-ring" viewBox="0 0 36 36"><circle class="bg" cx="18" cy="18" r="16"></circle><circle class="fill" id="fill-' + chap.id + '" cx="18" cy="18" r="16" stroke-dashoffset="' + (100 - pct) + '"></circle></svg><span class="prog-text" id="text-' + chap.id + '">' + (isDone ? "✓" : pct + "%") + '</span></button></div><div class="s-expansion"><div class="s-expansion-inner"><div class="rune-row"><span class="rune">' + (chap.slides || 0) + ' Slides</span><span class="rune">' + subjectPunjabi[chap.type] + '</span>' + (chap.math ? '<span class="rune">MathJax</span>' : '') + (bookmarked ? '<span class="rune">Revision ★</span>' : '') + (chap.placeholder ? '<span class="rune soon">Coming soon</span>' : '') + '<span class="rune" id="status-' + chap.id + '">' + statusFor(chap) + '</span></div><div class="action-row"><button class="btn-prime" type="button" data-open-lecture="' + index + '" ' + (chap.placeholder ? 'aria-disabled="true"' : '') + '><span id="action-' + chap.id + '">' + actionText(chap) + '</span><span>▶</span></button></div></div></div>'; anchor.appendChild(shard); dial.appendChild(anchor); }); targetAngle = -savedIdx * degreePerNode; velocity = 0; measureOrbUnit(); resetCore(false); wakePhysicsLoop(); }
   function setTrustTitle(title) { const el = document.getElementById("trustPrimary"); el.style.opacity = 0; if (trustTitleTimer) clearTimeout(trustTitleTimer); trustTitleTimer = setTimeout(() => { el.textContent = title; el.style.opacity = 1; }, 200); }
   function pulseOrb(color) { gatewayCore.style.color = color; document.body.classList.add("orb-pulse"); coreMass.style.setProperty("--orb-charge", "1"); setTimeout(() => { document.body.classList.remove("orb-pulse"); coreMass.style.setProperty("--orb-charge", "0"); }, 460); }
-  function setPlaceholderView(title, message, badge, accent, href, roadmap) { isPlaceholderView = true; isLocked = false; dial.innerHTML = ""; modePlaceholder.style.setProperty("--accent", accent); modePlaceholderBadge.textContent = badge; modePlaceholderTitle.textContent = title; modePlaceholderMessage.textContent = message; if (roadmap) { modePlaceholderRoadmap.innerHTML = roadmap; modePlaceholderRoadmap.hidden = false; } else { modePlaceholderRoadmap.innerHTML = ""; modePlaceholderRoadmap.hidden = true; } if (href) { modePlaceholderCta.hidden = false; modePlaceholderCta.dataset.launchHref = href; modePlaceholderCta.dataset.launchAccent = accent; modePlaceholderStatus.hidden = true; } else { modePlaceholderCta.hidden = true; modePlaceholderStatus.hidden = !!roadmap; } modePlaceholder.hidden = false; modePlaceholder.style.animation = "none"; void modePlaceholder.offsetWidth; modePlaceholder.style.animation = ""; coreRing.style.opacity = "0.35"; coreRing.style.background = "radial-gradient(circle at 50% 50%, " + accent + "38 0%, " + accent + "14 32%, " + accent + "00 68%)"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + accent + "1c 0%, var(--bg-void) 74%)"; coreVal.textContent = ""; coreMass.style.boxShadow = "0 0 70px " + accent + "40, 0 0 130px " + accent + "1f"; coreMass.style.setProperty("--core-scale", "0.5"); ariaAnnouncer.textContent = title + (href ? ". Ready to launch." : ". Coming soon."); }
+  function setPlaceholderView(title, message, badge, accent, href, roadmap) { isPlaceholderView = true; document.body.classList.add("is-placeholder"); isLocked = false; dial.innerHTML = ""; modePlaceholder.style.setProperty("--accent", accent); modePlaceholderBadge.textContent = badge; modePlaceholderTitle.textContent = title; modePlaceholderMessage.textContent = message; if (roadmap) { modePlaceholderRoadmap.innerHTML = roadmap; modePlaceholderRoadmap.hidden = false; } else { modePlaceholderRoadmap.innerHTML = ""; modePlaceholderRoadmap.hidden = true; } if (href) { modePlaceholderCta.hidden = false; modePlaceholderCta.dataset.launchHref = href; modePlaceholderCta.dataset.launchAccent = accent; modePlaceholderStatus.hidden = true; } else { modePlaceholderCta.hidden = true; modePlaceholderStatus.hidden = !!roadmap; } modePlaceholder.hidden = false; modePlaceholder.style.animation = "none"; void modePlaceholder.offsetWidth; modePlaceholder.style.animation = ""; coreRing.style.opacity = "0.35"; coreRing.style.background = "radial-gradient(circle at 50% 50%, " + accent + "38 0%, " + accent + "14 32%, " + accent + "00 68%)"; document.getElementById("auraBleed").style.background = "radial-gradient(circle at center, " + accent + "1c 0%, var(--bg-void) 74%)"; coreVal.textContent = ""; coreMass.style.boxShadow = "0 0 70px " + accent + "40, 0 0 130px " + accent + "1f"; coreMass.style.setProperty("--core-scale", "0.5"); ariaAnnouncer.textContent = title + (href ? ". Ready to launch." : ". Coming soon."); }
   function setView(subject, mode) { if (subject) currentSubject = subject; if (mode) currentMode = mode; document.querySelectorAll("[data-subject]").forEach(btn => btn.classList.toggle("active", btn.dataset.subject === currentSubject)); document.querySelectorAll("[data-mode]").forEach(btn => btn.classList.toggle("active", btn.dataset.mode === currentMode)); const subjectInfo = subjectContent[currentSubject]; const modeInfo = modeContent[currentMode]; const isLectureMode = currentMode === "LECTURES"; document.getElementById("subjectRouter").style.display = isLectureMode ? "flex" : "none"; setTrustTitle(isLectureMode ? subjectInfo.courseTitle : modeInfo.title); pulseOrb(modeInfo.accent); arena.classList.add("fade-out"); if (viewTransitionTimer) clearTimeout(viewTransitionTimer); viewTransitionTimer = setTimeout(() => { if (isLectureMode && currentSubject === "SCIENCE") { isPlaceholderView = false; modePlaceholder.hidden = true; coreRing.style.background = ""; initDial(); } else if (isLectureMode) { setPlaceholderView(subjectInfo.name + " Lectures", currentSubject === "MATH" ? "The full PSEB Class 10 Math syllabus is mapped and in production — bilingual chapter lectures with worked examples." : "The PSEB Class 10 English paper is mapped section by section — bilingual lessons with grammar and writing practice.", "Syllabus mapped", modeInfo.accent, null, roadmapHtml(currentSubject)); } else { setPlaceholderView(modeInfo.title, modeInfo.message, modeInfo.href ? "Ready" : "New study mode", modeInfo.accent, modeInfo.href); } arena.classList.remove("fade-out"); }, 320); }
+  function setOrbitMeter(idx) {
+    const idxEl = document.getElementById("orbitIndex");
+    const totalEl = document.getElementById("orbitTotal");
+    if (!idxEl || !totalEl || !syllabus.length) return;
+    idxEl.textContent = String(idx + 1).padStart(2, "0");
+    totalEl.textContent = String(syllabus.length).padStart(2, "0");
+  }
   function getActiveIndex() { const normalized = ((targetAngle % 360) + 360) % 360; return (syllabus.length - Math.round(normalized / degreePerNode)) % syllabus.length; }
   function wakePhysicsLoop() { if (!isLooping && !isPlaceholderView && syllabus.length) { isLooping = true; lastFrameTime = 0; requestAnimationFrame(renderPhysics); } }
   function renderPhysics(frameTime) { if (isPlaceholderView || dial.innerHTML === "") { isLooping = false; lastFrameTime = 0; return; } const now = Number.isFinite(frameTime) ? frameTime : performance.now(); const frameStep = lastFrameTime ? Math.min(Math.max((now - lastFrameTime) / 16.667, 0.25), 2.5) : 1; lastFrameTime = now; const momentumDecay = Math.pow(0.82, frameStep); const snapEase = 1 - Math.pow(0.85, frameStep); const angleEase = 1 - Math.pow(0.8, frameStep); let needsMoreFrames = false; if (!isDragging) { targetAngle += velocity * frameStep; velocity *= momentumDecay; if (Math.abs(velocity) < 0.02) velocity = 0; else needsMoreFrames = true; const closestSnap = Math.round(targetAngle / degreePerNode) * degreePerNode; const snapDiff = closestSnap - targetAngle; if (Math.abs(snapDiff) > 0.01) { targetAngle += snapDiff * snapEase; needsMoreFrames = true; } else if (velocity === 0) targetAngle = closestSnap; } else needsMoreFrames = true; const angleDiff = targetAngle - currentAngle; if (Math.abs(angleDiff) > 0.01) { currentAngle += angleDiff * angleEase; needsMoreFrames = true; } else { currentAngle = targetAngle; /* Fold away whole turns once the wheel is at rest. Visually identical
        (rotation is mod 360) but it stops the stored angle from drifting into
        the thousands, which is what used to make a later tap spin the dial. */
-      const turns = Math.round(targetAngle / 360); if (Math.abs(turns) > 1 && !isDragging && velocity === 0) { targetAngle -= turns * 360; currentAngle -= turns * 360; } } dial.style.transform = "rotate(" + currentAngle + "deg)"; const tilt = Math.max(-10, Math.min(10, velocity * 1.2)); arena.style.transform = "rotateY(" + (-tilt) + "deg) rotateX(" + (Math.abs(tilt) / 4) + "deg)"; const swayX = (Math.sin(currentAngle / 34) * 6 + tilt * 0.32) * orbUnit; const swayY = (Math.cos(currentAngle / 48) * 3 - Math.abs(tilt) * 0.16) * orbUnit; orbSpin += (Math.abs(velocity) * 3.2 + 0.4) * frameStep; const orbCharge = Math.min(1, Math.abs(velocity) / 9); coreMass.style.setProperty("--core-shift-x", swayX.toFixed(2) + "px"); coreMass.style.setProperty("--core-shift-y", swayY.toFixed(2) + "px"); coreMass.style.setProperty("--orb-spin", orbSpin.toFixed(1) + "deg"); coreMass.style.setProperty("--orb-charge", orbCharge.toFixed(3)); coreRing.style.transform = "translate3d(" + (swayX * 0.3).toFixed(2) + "px," + (swayY * 0.3).toFixed(2) + "px,0)"; dial.style.setProperty("--motion-energy", orbCharge.toFixed(3)); const activeIdx = getActiveIndex(); const activeChapter = syllabus[activeIdx]; if (activeChapter) dial.style.setProperty("--orbit-accent", auras[activeChapter.type] || "#00e5ff"); for (let i = 0; i < syllabus.length; i++) { const nodeAngle = i * degreePerNode; const counterRot = String(-(nodeAngle + currentAngle)) + "deg"; let distRaw = Math.abs(((nodeAngle + currentAngle) % 360 + 360) % 360); if (distRaw > 180) distRaw = 360 - distRaw; const easeDepth = Math.pow(Math.min(Math.max(0, distRaw - 15) / 75, 1), 1.4); const sAnchor = document.getElementById("shard-anchor-" + i); if (!sAnchor) continue; const shard = sAnchor.querySelector(".shard"); shard.style.setProperty("--shard-rot", counterRot); if (!isLocked) { const scale = 1 - easeDepth * 0.4; const opacity = 1 - easeDepth * 0.9; const blur = easeDepth * 12; const zIndex = Math.round((1 - easeDepth) * 100); sAnchor.style.opacity = opacity; sAnchor.style.filter = "blur(" + blur + "px)"; sAnchor.style.zIndex = zIndex; shard.style.setProperty("--shard-scale", scale); const dist = Math.min(Math.abs(i - activeIdx), syllabus.length - Math.abs(i - activeIdx)); sAnchor.classList.toggle("is-targeted", dist === 0); } } if (activeIdx !== lastTickIdx && !isLocked) { if (Math.abs(targetAngle - currentAngle) > 1.5 && lastTickIdx !== -1) soundDetent(velocity); lastTickIdx = activeIdx; try { localStorage.setItem("bolo_pseb_idx", String(activeIdx)); } catch (e) {} } if (needsMoreFrames || isDragging || isLocked) requestAnimationFrame(renderPhysics); else { isLooping = false; lastFrameTime = 0; } }
+      const turns = Math.round(targetAngle / 360); if (Math.abs(turns) > 1 && !isDragging && velocity === 0) { targetAngle -= turns * 360; currentAngle -= turns * 360; } } dial.style.transform = "rotate(" + currentAngle + "deg)"; const tilt = Math.max(-10, Math.min(10, velocity * 1.2)); arena.style.transform = "rotateY(" + (-tilt) + "deg) rotateX(" + (Math.abs(tilt) / 4) + "deg)"; const swayX = (Math.sin(currentAngle / 34) * 6 + tilt * 0.32) * orbUnit; const swayY = (Math.cos(currentAngle / 48) * 3 - Math.abs(tilt) * 0.16) * orbUnit; orbSpin += (Math.abs(velocity) * 3.2 + 0.4) * frameStep; const orbCharge = Math.min(1, Math.abs(velocity) / 9); coreMass.style.setProperty("--core-shift-x", swayX.toFixed(2) + "px"); coreMass.style.setProperty("--core-shift-y", swayY.toFixed(2) + "px"); coreMass.style.setProperty("--orb-spin", orbSpin.toFixed(1) + "deg"); coreMass.style.setProperty("--orb-charge", orbCharge.toFixed(3)); coreRing.style.transform = "translate3d(" + (swayX * 0.3).toFixed(2) + "px," + (swayY * 0.3).toFixed(2) + "px,0)"; dial.style.setProperty("--motion-energy", orbCharge.toFixed(3)); const activeIdx = getActiveIndex(); const activeChapter = syllabus[activeIdx]; if (activeChapter) dial.style.setProperty("--orbit-accent", auras[activeChapter.type] || "#00e5ff"); for (let i = 0; i < syllabus.length; i++) { const nodeAngle = i * degreePerNode; const counterRot = String(-(nodeAngle + currentAngle)) + "deg"; let distRaw = Math.abs(((nodeAngle + currentAngle) % 360 + 360) % 360); if (distRaw > 180) distRaw = 360 - distRaw; const easeDepth = Math.pow(Math.min(Math.max(0, distRaw - 4) / 54, 1), 1.1); const sAnchor = document.getElementById("shard-anchor-" + i); if (!sAnchor) continue; const shard = sAnchor.querySelector(".shard"); shard.style.setProperty("--shard-rot", counterRot); if (!isLocked) { const scale = 1 - easeDepth * 0.4; const opacity = 1 - easeDepth * 0.9; const blur = easeDepth * 12; const zIndex = Math.round((1 - easeDepth) * 100); sAnchor.style.opacity = opacity; sAnchor.style.filter = "blur(" + blur + "px)"; sAnchor.style.zIndex = zIndex; shard.style.setProperty("--shard-scale", scale); const dist = Math.min(Math.abs(i - activeIdx), syllabus.length - Math.abs(i - activeIdx)); sAnchor.classList.toggle("is-targeted", dist === 0); } } if (activeIdx !== lastTickIdx && !isLocked) { if (Math.abs(targetAngle - currentAngle) > 1.5 && lastTickIdx !== -1) soundDetent(velocity); if (lastTickIdx !== -1) document.body.classList.add("has-explored"); lastTickIdx = activeIdx; setOrbitMeter(activeIdx); try { localStorage.setItem("bolo_pseb_idx", String(activeIdx)); } catch (e) {} } if (needsMoreFrames || isDragging || isLocked) requestAnimationFrame(renderPhysics); else { isLooping = false; lastFrameTime = 0; } }
   function handleNodeAction(index) { if (isPlaceholderView || !syllabus[index]) return; const active = document.getElementById("shard-anchor-" + index); if (isLocked && active && active.classList.contains("is-active")) resetCore(true); else lockCore(index, false); }
   function lockCore(index, silent) { const anchor = document.getElementById("shard-anchor-" + index); if (!anchor) return; isLocked = true; /* Pick the rotation-equivalent angle nearest the current one. Using the raw
      -index * degreePerNode value made the dial unwind every turn the student
