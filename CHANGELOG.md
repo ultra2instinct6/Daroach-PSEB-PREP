@@ -5,6 +5,39 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM Board Prep v2.8: premium flashcards
+
+A second full editorial and accuracy review of all 510 ABIM flashcards. Card
+order did not change, so saved decks and spaced-repetition progress carry over.
+
+- **🧠 Memory hook** (new `m` field on every card): a short anchor, such as a
+  mnemonic, a number rule, or a contrast, that makes the fact stick.
+- **Editorial polish**: sharper fronts that don't give the answer away. Backs
+  lead with the decisive answer and its threshold. "Why it matters" explains
+  the mechanism, and each trap names a specific wrong choice.
+- **Accuracy updates**:
+  - severe AS valve area ≤1.0 cm²
+  - DKA resolution judged by ketones (<0.6 mmol/L) plus pH ≥7.3 or HCO₃ ≥18
+  - AGA ferritin cutoff <45 ng/mL
+  - H. pylori testing in ITP is selective
+  - grade 4 irAE: usually stop the ICI permanently
+  - steroid exceptions for endocrine irAEs
+  - adrenal incidentaloma: homogeneous ≤10 HU is benign regardless of size
+    (ESE 2023; explanation updated too)
+  - dermatomyositis cancer screening is risk-stratified
+  - PCOS: OGTT preferred
+- **Premium review card**:
+  - layered gradient faces
+  - top strip with Concept n/3, the task type and memory status
+    (New / Learning · Nd / Mature · Nd / Relearning)
+  - answer shown in a highlighted panel, with why / trap / hook sections
+  - session progress bar
+  - the hook also appears on unlocked and saved cards
+  - Classic theme styled as well
+- Service worker cache bumped to v31.
+
+---
+
 ## 2026-10-02 — ABIM Board Prep v2.7: flashcard quality upgrade
 
 All 510 ABIM flashcards were rewritten for active recall. Card order did not

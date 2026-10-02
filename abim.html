@@ -350,14 +350,67 @@
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.03);
+    background:
+      radial-gradient(120% 70% at 50% 0%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+    box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     text-align: center;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
     overflow: hidden;
   }
-  .fc-back { transform: rotateY(180deg) translateZ(0); border-top-color: var(--green); }
+  .fc-back {
+    transform: rotateY(180deg) translateZ(0);
+    border-top-color: var(--green);
+    justify-content: flex-start;
+    background:
+      radial-gradient(120% 60% at 50% 0%, color-mix(in srgb, var(--green) 7%, transparent), transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+  }
+  /* Top strip on both faces: concept number, task, and memory status. */
+  .fc-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+  .fc-chip {
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-dim);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+  .fc-chip.new { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .fc-chip.lapsed { color: var(--red); border-color: color-mix(in srgb, var(--red) 45%, transparent); }
+  .fc-chip.mature { color: var(--green); border-color: color-mix(in srgb, var(--green) 45%, transparent); }
+  .fc-front .fc-q { margin: 6px 0; }
+  .fc-front::after {
+    content: "?" / "";
+    position: absolute;
+    right: 14px;
+    bottom: -18px;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.05;
+    pointer-events: none;
+  }
+  .fc-answer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 52ch;
+    padding: 12px 16px;
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--accent) 7%, transparent);
+  }
+  .fc-answer .fc-a { margin: 0; }
+  .fc-details { display: grid; gap: 10px; width: 100%; max-width: 52ch; margin: 0 auto; }
+  .fc-details .fc-detail { max-width: none; margin: 0; }
+  .review-session { max-width: 640px; margin: 4px auto 0; height: 4px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); overflow: hidden; }
+  .review-session > i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), var(--accent)); transition: width 0.4s var(--fluid-curve); }
   .fc-scene:not(.flipped) .fc-back { pointer-events: none; }
   .fc-scene.flipped .fc-front { pointer-events: none; }
   .fc-kicker { color: var(--text-dim); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
@@ -387,6 +440,13 @@
     text-align: left;
   }
   .fc-detail.trap { border-left-color: var(--amber); background: color-mix(in srgb, var(--amber) 9%, transparent); }
+  .fc-detail.hook { border-left-color: #a78bfa; background: color-mix(in srgb, #a78bfa 10%, transparent); font-style: italic; }
+  .fc-detail.hook b { color: #a78bfa; font-style: normal; }
+  body[data-theme="CLASSIC"] .fc-face { background-color: #fff; box-shadow: 0 16px 34px -24px rgba(11, 74, 168, 0.35); }
+  body[data-theme="CLASSIC"] .fc-detail.hook,
+  body[data-theme="CLASSIC"] .fc-hook { border-left-color: #7c3aed; }
+  body[data-theme="CLASSIC"] .fc-detail.hook b { color: #7c3aed; }
+  body[data-theme="CLASSIC"] .review-session { background: rgba(11, 74, 168, 0.1); }
   .fc-detail b { display: block; margin-bottom: 2px; font-size: 0.68rem; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; color: var(--teal); }
   .fc-detail.trap b { color: var(--amber); }
   @keyframes fcSecIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
@@ -400,6 +460,7 @@
   .fc-answer-line { display: block; margin-top: 4px; color: var(--text-dim); font-weight: 600; font-size: 0.88em; line-height: 1.55; }
   .fc-why, .fc-trap { display: block; margin-top: 6px; padding-left: 9px; border-left: 2px solid var(--teal); color: var(--text-dim); font-weight: 600; font-size: 0.8em; line-height: 1.5; }
   .fc-trap { border-left-color: var(--amber); }
+  .fc-hook { display: block; margin-top: 6px; padding-left: 9px; border-left: 2px solid #a78bfa; color: var(--text-dim); font-weight: 700; font-style: italic; font-size: 0.8em; line-height: 1.5; }
 
   /* Hint pill — opens the lab reference ranges drawer. ABIM mode only. */
   .hint-btn {
@@ -1208,7 +1269,7 @@
   /* Cards are { f: front/question, b: back/answer }; legacy strings split on
      the first colon so older saved decks keep working. */
   function cardFaces(raw) {
-    if (raw && typeof raw === "object") return { f: raw.f, b: raw.b, x: raw.x || "", t: raw.t || "" };
+    if (raw && typeof raw === "object") return { f: raw.f, b: raw.b, x: raw.x || "", t: raw.t || "", m: raw.m || "" };
     const text = String(raw);
     const c = text.indexOf(":");
     return (c > 8 && c < 70)
@@ -1218,7 +1279,8 @@
 
   function detailLines(c) {
     return (c.x ? '<span class="fc-why">💡 ' + esc(c.x) + "</span>" : "") +
-      (c.t ? '<span class="fc-trap">⚠️ ' + esc(c.t) + "</span>" : "");
+      (c.t ? '<span class="fc-trap">⚠️ ' + esc(c.t) + "</span>" : "") +
+      (c.m ? '<span class="fc-hook">🧠 ' + esc(c.m) + "</span>" : "");
   }
 
   function findCard(key) {
@@ -1229,7 +1291,17 @@
     if (!q || !q.flashcards[idx]) return null;
     const faces = cardFaces(q.flashcards[idx]);
     const sys = q.system && SYSTEMS[q.system] ? SYSTEMS[q.system] : { label: "⚗️ PSEB Science", cls: "hot" };
-    return { f: faces.f, b: faces.b, x: faces.x, t: faces.t, sys: sys };
+    return { f: faces.f, b: faces.b, x: faces.x, t: faces.t, m: faces.m, sys: sys,
+      idx: idx, total: q.flashcards.length, task: q.task && TASKS[q.task] ? TASKS[q.task] : "" };
+  }
+
+  /* Memory-status chip for the review card, read from the SM-2 entry. */
+  function memoryChip(key) {
+    const c = srs[key];
+    if (!c || (c.reps === 0 && c.lapses === 0)) return '<span class="fc-chip new">✦ New</span>';
+    if (c.reps === 0) return '<span class="fc-chip lapsed">↺ Relearning</span>';
+    if (c.ivl >= 21) return '<span class="fc-chip mature">★ Mature · ' + Math.round(c.ivl) + "d</span>";
+    return '<span class="fc-chip">◷ Learning · ' + Math.max(1, Math.round(c.ivl)) + "d</span>";
   }
 
   function renderReviewCount() {
@@ -1244,7 +1316,7 @@
       const j = Math.floor(Math.random() * (i + 1));
       const t = reviewQueue[i]; reviewQueue[i] = reviewQueue[j]; reviewQueue[j] = t;
     }
-    reviewStats = { done: 0, again: 0 };
+    reviewStats = { done: 0, again: 0, total: reviewQueue.length };
     reviewMode = true;
     reviewShown = false;
     filterRow.hidden = true;
@@ -1286,10 +1358,14 @@
        element rotates, and the answer cascades in after the turn. */
     let html = '<div class="q-meta">' + rune(card.sys.cls, card.sys.label) + rune("task", "📆 Spaced Review") +
       '<button class="hint-btn" type="button" data-exit-review style="margin-left:auto;">✕ Exit Review</button></div>' +
-      '<div class="review-wrap"><div class="review-count">' + reviewQueue.length + " due</div>" +
+      '<div class="review-wrap"><div class="review-count">' + reviewQueue.length + " due · " + reviewStats.done + " reviewed</div>" +
+      '<div class="review-session" aria-hidden="true"><i style="width:' +
+        Math.min(100, Math.round(100 * reviewStats.done / Math.max(1, reviewStats.total || 1))) + '%"></i></div>' +
       '<div class="fc-scene' + (reviewShown ? " flipped" : "") + '" data-flip role="button" tabindex="0" aria-label="Flashcard — activate to flip">' +
         '<div class="fc-inner">' +
           '<div class="fc-face fc-front">' +
+            '<div class="fc-meta"><span class="fc-chip">Concept ' + (card.idx + 1) + " / " + card.total + "</span>" +
+              (card.task ? '<span class="fc-chip">' + esc(card.task) + "</span>" : "") + memoryChip(key) + "</div>" +
             '<div class="fc-kicker">Question</div>' +
             '<div class="fc-q">' + esc(card.f) + "</div>" +
             '<div class="fc-foot">Tap · Space · Enter to flip</div>' +
@@ -1297,9 +1373,12 @@
           '<div class="fc-face fc-back">' +
             '<div class="fc-kicker">Answer</div>' +
             '<div class="fc-q fc-q-small">' + esc(card.f) + "</div>" +
-            '<div class="fc-a">' + esc(card.b) + "</div>" +
-            (card.x ? '<div class="fc-detail"><b>💡 Why it matters</b>' + esc(card.x) + "</div>" : "") +
-            (card.t ? '<div class="fc-detail trap"><b>⚠️ Board trap</b>' + esc(card.t.replace(/^Trap:\s*/, "")) + "</div>" : "") +
+            '<div class="fc-answer"><div class="fc-a">' + esc(card.b) + "</div></div>" +
+            ((card.x || card.t || card.m) ? '<div class="fc-details">' +
+              (card.x ? '<div class="fc-detail"><b>💡 Why it matters</b>' + esc(card.x) + "</div>" : "") +
+              (card.t ? '<div class="fc-detail trap"><b>⚠️ Board trap</b>' + esc(card.t.replace(/^Trap:\s*/, "")) + "</div>" : "") +
+              (card.m ? '<div class="fc-detail hook"><b>🧠 Memory hook</b>' + esc(card.m) + "</div>" : "") +
+            "</div>" : "") +
           "</div>" +
         "</div></div>";
     if (reviewShown) {
