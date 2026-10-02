@@ -653,12 +653,16 @@
 <!-- Gurmukhi diacritic-safe typography (loaded last so it wins on ties) -->
 <link rel="preload" href="assets/fonts/noto-sans-gurmukhi-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/gurmukhi-type.css">
+<link rel="stylesheet" href="assets/about.css">
 </head>
 <body class="page-enter" data-support="widget">
 <div id="ariaAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 <header class="web-utility-header">
   <div class="header-left">
-    <button class="header-logo" type="button" id="homeReset">BOLO.INSTINCT</button>
+    <div class="header-brand">
+      <button class="header-logo" type="button" id="homeReset">BOLO.INSTINCT</button>
+      <span class="creator-credit creator-credit-compact">Curated by <button class="creator-link" type="button" data-open-about aria-haspopup="dialog" aria-controls="aboutDialog" aria-expanded="false">Dr. Deepak Daroach, MD <span class="creator-badge" aria-hidden="true">About ↗</span></button></span>
+    </div>
     <div class="header-center">
       <div class="domain-router subject-router" id="subjectRouter" aria-label="Subject selector">
         <button class="domain-btn subject-btn active" type="button" data-subject="SCIENCE">Science</button>
@@ -674,7 +678,7 @@
       <div class="header-divider"></div>
       <div class="header-trust">
         <span class="trust-primary" id="trustPrimary">Science in Punjabi</span>
-        <span class="trust-secondary">Curated by Dr. Deepak Daroach, MD</span>
+        <span class="trust-secondary creator-credit">Curated by <button class="creator-link" type="button" data-open-about aria-haspopup="dialog" aria-controls="aboutDialog" aria-expanded="false">Dr. Deepak Daroach, MD <span class="creator-badge" aria-hidden="true">About ↗</span></button></span>
       </div>
     </div>
   </div>
@@ -716,6 +720,102 @@
   </div>
 </div>
 <div class="toast-notify" id="toastNotify">Ready</div>
+<dialog class="about-dialog" id="aboutDialog" aria-labelledby="aboutTitle" aria-modal="true">
+  <div class="about-toolbar">
+    <span>BOLO.INSTINCT / About</span>
+    <button class="about-close" type="button" aria-label="Close About" autofocus>✕</button>
+  </div>
+  <article class="about-content">
+    <header class="about-hero">
+      <span class="about-avatar" aria-hidden="true">MD</span>
+      <div>
+        <p class="about-eyebrow">Founder &amp; mission <span lang="pa">· ਸਿਰਜਣਹਾਰ ਅਤੇ ਮਿਸ਼ਨ</span></p>
+        <h1 id="aboutTitle">Dr. Deepak Parkash Daroach, MD</h1>
+        <p class="about-role">Internal Medicine Resident Physician<br>NYU Langone Health · Brooklyn, NY</p>
+        <p class="about-roots">Roots in Peshtigo, Wisconsin &amp; SBS Nagar, Punjab</p>
+      </div>
+    </header>
+    <section class="about-section" aria-labelledby="aboutMission">
+      <h2 id="aboutMission">Opportunity starts with education</h2>
+      <p class="about-section-pa" lang="pa">ਸਿੱਖਿਆ ਤੋਂ ਸ਼ੁਰੂ ਹੁੰਦੇ ਹਨ ਮੌਕੇ</p>
+      <blockquote>“Brilliance is evenly distributed across every village and town. Opportunity is not.”</blockquote>
+      <p>In medicine, care often begins after disparities have already taken hold. Education is one of the foundations of health and opportunity. BOLO.INSTINCT is a contribution at that foundation: helping students build the knowledge and confidence to pursue their next step.</p>
+      <p>For students preparing for Punjab School Education Board examinations, clear explanations and consistent practice can make a difference. The PSEB study tools are free to use in a browser, with English and Punjabi learning support and offline study features for intermittent connectivity.</p>
+      <p lang="pa" class="about-punjabi">ਹਰ ਵਿਦਿਆਰਥੀ ਨੂੰ ਸਿੱਖਣ ਦਾ ਮੌਕਾ ਮਿਲਣਾ ਚਾਹੀਦਾ ਹੈ। BOLO.INSTINCT ਪੰਜਾਬੀ ਅਤੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਸਮਝ, ਅਭਿਆਸ ਅਤੇ ਆਪਣੇ ਗਿਆਨ ਦੀ ਜਾਂਚ ਲਈ ਮੁਫ਼ਤ ਸਾਧਨ ਦਿੰਦਾ ਹੈ।</p>
+    </section>
+    <section class="about-section" aria-labelledby="aboutEquity">
+      <h2 id="aboutEquity">Caste, rural access &amp; the Class 10 turning point</h2>
+      <p class="about-section-pa" lang="pa">ਜਾਤੀ, ਪੇਂਡੂ ਸਿੱਖਿਆ ਅਤੇ ਦਸਵੀਂ ਜਮਾਤ</p>
+      <p>Caste should never determine a student’s opportunities. Yet caste-based exclusion can intersect with poverty, rural isolation and unequal access to schools and study resources. Research across rural India links caste disparities in public-school provision to unequal educational outcomes, with particular concerns at the secondary level. This is evidence about access to education, not a finding about PSEB examination marking.</p>
+      <p>For young people in rural Punjab, Class 10 is an important transition toward senior-secondary study, including science, and other educational or vocational routes. When students reach that point with unequal access to teaching, affordable practice, language support or reliable connectivity, an exam result can reflect more than effort alone. Those gaps can narrow later choices; a single board result should never be treated as a measure of someone’s worth or potential.</p>
+      <p>BOLO.INSTINCT is a targeted educational intervention focused on rural Punjab: free, bilingual preparation designed to reduce some of these practical barriers. It welcomes learners of every caste and background, with particular concern for students facing exclusion. It cannot replace teachers, end caste discrimination or remove economic disadvantage on its own. Its contribution is more modest and concrete: making clear explanations, active recall and repeatable practice easier to access.</p>
+      <p lang="pa" class="about-punjabi">ਜਾਤੀ ਜਾਂ ਆਰਥਿਕ ਹਾਲਾਤ ਕਿਸੇ ਵਿਦਿਆਰਥੀ ਦੇ ਮੌਕੇ ਤੈਅ ਨਹੀਂ ਕਰਨੇ ਚਾਹੀਦੇ। ਇਹ ਉਪਰਾਲਾ ਪੇਂਡੂ ਪੰਜਾਬ ਦੇ ਨੌਜਵਾਨਾਂ ਲਈ ਮੁਫ਼ਤ ਅਭਿਆਸ ਅਤੇ ਸਮਝ ਦੇ ਸਾਧਨ ਪਹੁੰਚਾਉਣ ਲਈ ਹੈ। ਹਰ ਜਾਤੀ ਅਤੇ ਪਿਛੋਕੜ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਦਾ ਸਵਾਗਤ ਹੈ।</p>
+      <p class="about-source">Context: <a href="https://ideas.repec.org/a/taf/jdevst/v57y2021i11p1830-1851.html" target="_blank" rel="noopener noreferrer">Bailwal &amp; Paul (2021), <cite>Caste Discrimination in Provision of Public Schools in Rural India</cite></a> · National research, not a Punjab-specific estimate or an evaluation of BOLO. Opens in a new tab.</p>
+    </section>
+    <section class="about-section about-heritage" aria-labelledby="aboutHeritage">
+      <h2 id="aboutHeritage">Heritage &amp; roots</h2>
+      <p class="about-section-pa" lang="pa">ਵਿਰਸਾ ਅਤੇ ਜੜ੍ਹਾਂ</p>
+      <p>BOLO.INSTINCT is grounded in the Daroach family’s roots in rural Punjab and a tradition of community service and medicine.</p>
+      <p>While caring for diverse communities in New York, Dr. Deepak Daroach created this platform as a contribution back to those origins: giving village youth accessible tools for practice, confidence and foundational mastery.</p>
+    </section>
+    <section class="about-section" aria-labelledby="aboutFuture">
+      <h2 id="aboutFuture">Built independently, with hope beyond Punjab</h2>
+      <p class="about-section-pa" lang="pa">ਸੁਤੰਤਰ ਉਪਰਾਲਾ, ਦੁਨੀਆ ਭਰ ਲਈ ਆਸ</p>
+      <p class="about-founder-note">“I am working on this project independently, and I have a great deal of hope for what it can become. I want young people in rural Punjab to have more opportunities to learn, build confidence and choose their own futures.” <span>— Dr. Deepak Daroach</span></p>
+      <p>Punjab is the starting point, not the limit of the vision. Affordable practice, learning in a familiar language and tools that tolerate intermittent connectivity have worldwide relevance. The hope is to expand to multiple languages and more communities over time, with locally appropriate content and careful review. That is a future ambition, not a claim that those languages or curricula are already available.</p>
+      <p lang="pa" class="about-punjabi">ਮੈਂ ਇਸ ਪ੍ਰੋਜੈਕਟ ਉੱਤੇ ਸੁਤੰਤਰ ਤੌਰ ’ਤੇ ਕੰਮ ਕਰ ਰਿਹਾ ਹਾਂ ਅਤੇ ਇਸ ਤੋਂ ਬਹੁਤ ਉਮੀਦਾਂ ਹਨ। ਪੰਜਾਬ ਤੋਂ ਸ਼ੁਰੂ ਕਰਕੇ, ਭਵਿੱਖ ਵਿੱਚ ਹੋਰ ਭਾਸ਼ਾਵਾਂ ਅਤੇ ਭਾਈਚਾਰਿਆਂ ਤੱਕ ਪਹੁੰਚਣ ਦੀ ਆਸ ਹੈ।</p>
+    </section>
+    <section class="about-section" aria-labelledby="aboutLearning">
+      <h2 id="aboutLearning">Learning by remembering, not just rereading</h2>
+      <p class="about-section-pa" lang="pa">ਸਿਰਫ਼ ਪੜ੍ਹੋ ਨਹੀਂ, ਯਾਦ ਕਰ ਕੇ ਜਾਂਚੋ</p>
+      <p>Inspired by the active-recall methods used in medical-board preparation, BOLO brings questions, explanations and spaced review into everyday study. Interactive lectures, MCQs and flashcards help students check what they understand and revisit what needs practice.</p>
+      <p>Bilingual Gurmukhi support connects familiar-language understanding with scientific English. The aim is clarity and steady progress, not a promise of exam results.</p>
+    </section>
+    <section class="about-section" aria-labelledby="aboutPrinciples">
+      <h2 id="aboutPrinciples">Guiding principles</h2>
+      <div class="about-quotes">
+        <div class="about-quote">
+          <p>“Pressure makes diamonds.”</p>
+          <span>Resilience through challenges, with support along the way.</span>
+          <a class="about-video" href="https://www.youtube.com/watch?v=6o5RprIJmfA" target="_blank" rel="noopener noreferrer">Watch: Pressure makes diamonds ↗<small>YouTube · New tab</small></a>
+        </div>
+        <div class="about-quote">
+          <p>Work hard. Study well. Make time to eat, rest and sleep.</p>
+          <span>Discipline works best with balance and wellbeing.</span>
+          <a class="about-video" href="https://www.youtube.com/watch?v=fXMrZvcduOw" target="_blank" rel="noopener noreferrer">Watch: Work hard, study well ↗<small>YouTube · New tab</small></a>
+        </div>
+        <div class="about-quote">
+          <p>“It is not about the money.”</p>
+          <span>The purpose is educational opportunity. Revenue is a means to sustain the work, not the mission itself.</span>
+          <a class="about-video" href="https://www.youtube.com/watch?v=M5WLtRaZOqI" target="_blank" rel="noopener noreferrer">Watch: It is not about the money ↗<small>YouTube · New tab</small></a>
+        </div>
+      </div>
+    </section>
+    <section class="about-section" aria-labelledby="aboutSupport">
+      <h2 id="aboutSupport">Keeping the mission accessible</h2>
+      <p>The PSEB learning tools are free. Optional contributions, advertising and purchases of the separate ABIM board-preparation product help support the platform and free STEM education in Punjab. Supporting BOLO is optional; it is not required to use the free PSEB tools.</p>
+      <p>BOLO.ABIM is a separate paid board-review tool designed to help physicians in the United States prepare for internal medicine boards. Purchasing access through Gumroad also helps sustain the free educational tools for Punjabi youth. It is independent of the American Board of Internal Medicine; a purchase does not guarantee a board result.</p>
+      <p lang="pa" class="about-punjabi">ਅਮਰੀਕਾ ਵਿੱਚ ਡਾਕਟਰਾਂ ਦੀ ਤਿਆਰੀ ਲਈ ਬਣੇ BOLO.ABIM ਟੂਲ ਦੀ ਖਰੀਦ ਪੰਜਾਬੀ ਨੌਜਵਾਨਾਂ ਲਈ ਸਿੱਖਿਆ ਦੇ ਸਾਧਨ ਮੁਫ਼ਤ ਰੱਖਣ ਵਿੱਚ ਵੀ ਮਦਦ ਕਰਦੀ ਹੈ। ਮੁਫ਼ਤ PSEB ਸਾਧਨ ਵਰਤਣ ਲਈ ਖਰੀਦ ਜਾਂ ਯੋਗਦਾਨ ਜ਼ਰੂਰੀ ਨਹੀਂ ਹੈ।</p>
+      <div class="about-actions">
+        <a class="about-purchase" href="https://deepakroar2.gumroad.com/l/bolo-abim" target="_blank" rel="noopener noreferrer">Buy BOLO.ABIM access<span class="about-link-note">Paid physician tool · Gumroad · New tab</span></a>
+        <a class="about-support" href="https://buymeacoffee.com/bolo.instinct" target="_blank" rel="noopener noreferrer">Support BOLO ☕<span class="about-link-note">Opens in a new tab</span></a>
+        <button class="about-return" type="button" data-close-about>Back to learning <span lang="pa">· ਪੜ੍ਹਾਈ ਵੱਲ ਵਾਪਸ</span></button>
+      </div>
+    </section>
+    <footer class="about-footer">
+      <p>Dedicated to Dr. B.R. Ambedkar’s vision of education as an equalizer, and to the enduring spirit of the Daroach family’s roots in Punjab.</p>
+      <p class="about-disclaimer">An independent educational project. Mention of the founder’s workplace is biographical, not an institutional endorsement. BOLO.INSTINCT is not an official PSEB or ABIM service and does not provide medical advice.</p>
+      <section class="about-ai-disclosure" aria-labelledby="aboutAiTitle">
+        <h2 id="aboutAiTitle">An honest note about AI</h2>
+        <p>Artificial intelligence is used in this project to help generate and revise educational material, questions, explanations, translations and website code, including parts of this About text. This is an independently developed, AI-assisted resource—not a professionally peer-reviewed textbook or an official examination-board publication.</p>
+        <p>AI can produce convincing but incorrect facts, misleading explanations, wrong answer keys, translation errors or outdated information. Testing and review can catch some mistakes, but they do not guarantee that every item is accurate. Please do not assume that every page, question or Punjabi translation has been individually checked by a subject expert.</p>
+        <p>Use BOLO as a supplement, not your only source. Check important concepts and answers against current PSEB textbooks, the official syllabus and a qualified teacher. For medical-board study, consult authoritative clinical references and current guidance; never use this website to make patient-care decisions. If something conflicts with a trusted source, pause and verify it rather than trusting the tool automatically.</p>
+        <p>I remain responsible for the material I publish. The goal is to make learning more accessible while being transparent about these limitations and continuing to improve—not to present AI output as infallible or to promise examination results.</p>
+        <p lang="pa">ਇਸ ਪ੍ਰੋਜੈਕਟ ਵਿੱਚ ਸਮੱਗਰੀ, ਸਵਾਲ, ਵਿਆਖਿਆਵਾਂ, ਅਨੁਵਾਦ ਅਤੇ ਵੈੱਬਸਾਈਟ ਕੋਡ ਬਣਾਉਣ ਤੇ ਸੁਧਾਰਨ ਲਈ AI ਦੀ ਮਦਦ ਲਈ ਜਾਂਦੀ ਹੈ। AI ਗਲਤ ਜਾਣਕਾਰੀ ਜਾਂ ਗਲਤ ਜਵਾਬ ਦੇ ਸਕਦਾ ਹੈ। ਹਰ ਸਵਾਲ ਜਾਂ ਪੰਜਾਬੀ ਅਨੁਵਾਦ ਦੀ ਕਿਸੇ ਵਿਸ਼ਾ-ਮਾਹਿਰ ਵੱਲੋਂ ਵੱਖਰੇ ਤੌਰ ’ਤੇ ਜਾਂਚ ਹੋਈ ਹੈ, ਇਹ ਨਾ ਮੰਨੋ। ਮਹੱਤਵਪੂਰਨ ਗੱਲਾਂ ਦੀ ਪੁਸ਼ਟੀ ਮੌਜੂਦਾ PSEB ਪਾਠ-ਪੁਸਤਕਾਂ, ਅਧਿਕਾਰਤ ਸਿਲੇਬਸ ਅਤੇ ਅਧਿਆਪਕ ਨਾਲ ਕਰੋ। ਇਹ ਸਹਾਇਕ ਸਾਧਨ ਹੈ, ਇਕੱਲਾ ਸਰੋਤ ਨਹੀਂ।</p>
+      </section>
+    </footer>
+  </article>
+</dialog>
 <div class="arena-wrapper">
   <main class="arena arena-idle" id="arena" aria-label="PSEB Class 10 Science syllabus ring">
     <section class="mode-placeholder" id="modePlaceholder" aria-live="polite" hidden>
@@ -1282,7 +1382,18 @@
     wakePhysicsLoop();
   }, { passive: false });
   window.addEventListener("mousemove", e => { const x = (e.clientX / window.innerWidth - 0.5) * 20; const y = (e.clientY / window.innerHeight - 0.5) * 20; neuralMesh.style.transform = "translate(" + x + "px, " + y + "px)"; });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") { closePalettes(); if (isLocked) resetCore(true); } if (e.key === "/" && !searchPalette.classList.contains("is-open")) { e.preventDefault(); openSearchPalette(); } if (e.target === cmdInput) return; if (!isLocked && !isPlaceholderView) { if (e.key === "ArrowRight") { initAudio(); targetAngle -= degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "ArrowLeft") { initAudio(); targetAngle += degreePerNode; velocity = 0; wakePhysicsLoop(); } if (e.key === "Enter") handleNodeAction(getActiveIndex()); } });
+  document.addEventListener("keydown", e => {
+    if (document.getElementById("aboutDialog").open ||
+        (e.target instanceof Element && e.target.closest("[data-open-about]"))) return;
+    if (e.key === "Escape") { closePalettes(); if (isLocked) resetCore(true); }
+    if (e.key === "/" && !searchPalette.classList.contains("is-open")) { e.preventDefault(); openSearchPalette(); }
+    if (e.target === cmdInput) return;
+    if (!isLocked && !isPlaceholderView) {
+      if (e.key === "ArrowRight") { initAudio(); targetAngle -= degreePerNode; velocity = 0; wakePhysicsLoop(); }
+      if (e.key === "ArrowLeft") { initAudio(); targetAngle += degreePerNode; velocity = 0; wakePhysicsLoop(); }
+      if (e.key === "Enter") handleNodeAction(getActiveIndex());
+    }
+  });
   window.addEventListener("resize", () => { measureOrbUnit(); wakePhysicsLoop(); });
   /* Drop the arrival veil once it has played, and make sure a back/forward
      (bfcache) restore never leaves the page stuck behind the exit veil. */
@@ -1294,6 +1405,7 @@
   applyTheme(storedTheme, false);
 </script>
 <script defer src="assets/pwa.js"></script>
+<script defer src="assets/about.js"></script>
 <script defer src="assets/bmc-coffee.js"></script>
 <script>
 // The Support BOLO pop-out card opens directly over the ABIM launcher, so

@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v45";
+var CACHE_VERSION = "v48";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;
@@ -54,6 +54,8 @@ var SHELL_ASSETS = [
   "./assets/memory-card.css",
   "./assets/analytics.js",
   "./assets/bmc-coffee.js",
+  "./assets/about.css",
+  "./assets/about.js",
   "./assets/deck-enhance.js",
   "./assets/deck-chem.js",
   "./assets/deck-optics.js",

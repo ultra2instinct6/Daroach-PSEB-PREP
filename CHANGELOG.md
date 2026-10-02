@@ -5,6 +5,52 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Transparent AI-use disclosure
+
+- Added a clearly labelled disclosure at the bottom of About explaining
+  AI use in educational content, questions, translations, code and About copy.
+- Explicitly acknowledged incorrect facts, answer keys, translations and
+  outdated information; did not claim exhaustive expert review or guaranteed
+  correctness. Added textbook/teacher verification and medical-use cautions.
+- Included a Punjabi summary and a regression test for the disclosure.
+- Refreshed the offline cache to v48 for the complete About release.
+
+## 2026-10-02 — Rural education equity and founder vision
+
+- Expanded About with caste-related barriers to educational access and
+  the Class 10 transition, distinguishing these from examination marking.
+  Linked verified national research without claiming Punjab-specific
+  statistics or proven impact from this project.
+- Described the rural Punjab focus, inclusive access, independent founder
+  effort and hope for future multilingual, worldwide applications.
+- Added "It is not about the money" and the three supplied YouTube links
+  to the guiding principles, with descriptive new-tab labels.
+- Added the existing Gumroad purchase destination for BOLO.ABIM, explaining
+  its US physician audience and support for free Punjabi youth resources.
+- Added Punjabi summaries and responsive three-card styling; cache v47.
+- Verified 12 responsive cases (375–1440px in both themes), all three
+  video links, the Gumroad destination, touch targets and sticky dismissal.
+  Ten targeted About/offline tests pass; no browser exceptions captured.
+
+## 2026-10-02 — About the founder and mission
+
+- Made the homepage curator name an interactive, hover-highlighted credit
+  with a visible About cue and keyboard focus styling.
+- Added a theme-aware About dialog with the supplied founder biography,
+  Punjab roots, education mission, learning philosophy and dedication.
+- Kept the credit tappable on mobile and tablet, with responsive content,
+  Punjabi mission text and 44px controls.
+- Used a native modal dialog for focus containment, Escape dismissal and
+  background isolation; added backdrop dismissal, scroll locking and focus
+  restoration. Homepage shortcuts are inactive while About is open.
+- Clarified that free PSEB tools are supported by optional contributions,
+  advertising and the separate paid ABIM product; included independence
+  disclosures and the existing Support BOLO destination.
+- Precached About assets for offline use; service-worker cache v46.
+- Verified both color themes at 375–1440px, keyboard focus containment,
+  dismissal, hover highlighting and offline reload. Nine targeted About
+  and service-worker regression tests pass.
+
 ## 2026-10-02 — ABIM support-for-free-education note
 
 - Added a short note to the every-visit disclaimer, purchase screen and
