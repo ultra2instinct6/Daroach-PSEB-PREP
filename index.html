@@ -491,7 +491,13 @@
   .abim-launch.abim-launch-hidden { opacity: 0; pointer-events: none; transform: translateY(8px); }
   .abim-launch-due { padding: 2px 8px; border-radius: 999px; background: #2dd4bf; color: #04211d; font-size: 0.64rem; font-weight: 900; font-variant-numeric: tabular-nums; }
   body[data-theme="CLASSIC"] .abim-launch-due { background: #0d9488; color: #ffffff; }
-  @media (max-width: 520px) { .abim-launch { right: 20px; bottom: 144px; padding: 11px 16px; font-size: 0.76rem; } }
+  @media (max-width: 520px) {
+    .abim-launch { right: 86px; bottom: max(84px, calc(env(safe-area-inset-bottom) + 70px)); width: 48px; height: 48px; justify-content: center; padding: 0; }
+    .abim-launch .abim-launch-label { display: none; }
+    .abim-launch .abim-launch-icon { font-size: 1.4rem; }
+    .abim-launch-due { position: absolute; top: -7px; right: -7px; padding: 2px 5px; font-size: 0.58rem; }
+    body[data-support="widget"] .bmc-widget.bmc-raise { bottom: max(84px, calc(env(safe-area-inset-bottom) + 70px)); }
+  }
   .round-trigger { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50%; background: rgba(255, 255, 255, 0.03); color: var(--text-bold); cursor: pointer; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); backdrop-filter: blur(16px); transition: transform 0.3s var(--fluid-curve), background 0.3s var(--fluid-curve); }
   .round-trigger:hover, .round-trigger:focus-visible { transform: scale(1.05); background: rgba(255, 255, 255, 0.06); outline: none; }
   .round-trigger svg { width: 17px; height: 17px; stroke: currentColor; }
@@ -688,7 +694,7 @@
   <button class="round-trigger theme-trigger" type="button" id="themeTrigger" data-action="toggle-theme" aria-label="Switch color theme"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.4-.9-.9-.9h-1.9a2.2 2.2 0 0 1-2.2-2.2c0-.8.4-1.5 1-1.9l1.5-1c.4-.3.6-.8.4-1.3A9 9 0 0 0 12 3z"></path><circle cx="7.5" cy="12.5" r="1"></circle><circle cx="10" cy="8.5" r="1"></circle></svg><span class="theme-trigger-label" id="themeTriggerLabel">Neon</span></button>
 </div>
 <button class="abim-launch" type="button" data-launch-href="abim.html?mode=abim" data-launch-accent="#2dd4bf" aria-label="Open ABIM Board Prep — internal medicine MCQ and flashcard engine">
-  <span class="abim-launch-icon" aria-hidden="true">🩺</span><span>ABIM Boards</span>
+  <span class="abim-launch-icon" aria-hidden="true">🩺</span><span class="abim-launch-label">ABIM Boards</span>
 </button>
 <div class="cmd-palette" id="sharePalette" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
   <div class="cmd-box">
@@ -1319,7 +1325,9 @@
       if (due > 0) {
         var b = document.createElement("span");
         b.className = "abim-launch-due";
-        b.textContent = due + " due";
+        b.textContent = due;
+        b.title = due + " flashcard" + (due === 1 ? "" : "s") + " due";
+        launchPill.setAttribute("aria-label", "Open ABIM Board Prep — " + b.title);
         launchPill.appendChild(b);
       }
     }

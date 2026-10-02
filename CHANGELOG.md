@@ -5,6 +5,16 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Mobile ABIM launcher clearance
+
+- Replaced the mobile home-screen ABIM text pill with an accessible 48px
+  stethoscope button beside the coffee cup instead of above it.
+- Kept a compact due-count badge, matching safe-area-aware bottom spacing
+  for both buttons and retaining desktop labels and theme styling.
+- Hide the redundant floating ABIM shortcut inside the study tool on phones;
+  the header's Start Practice control remains available without covering
+  answer options. Service-worker cache bumped to v41.
+
 ## 2026-10-02 — ABIM study-home and release navigation polish
 
 - Added two selectable Study Home panels: Test Bank and Flashcard Review.
