@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BOLO.MCQ — PSEB Class 10 Question Engine</title>
+<!-- Memory card: routes per-learner storage to the active profile slot; must run before any other script. -->
+<script src="assets/memory-card.js"></script>
 <!-- Google Analytics (GA4) — shared loader, see assets/analytics.js -->
 <script src="assets/analytics.js"></script>
 <!-- Google AdSense — must stay as literal markup in <head>: the AdSense
@@ -883,6 +885,7 @@
     <button class="mode-btn" type="button" data-mode="EXAM" aria-pressed="false">Exam</button>
   </div>
   <span class="timer-pill" id="timerPill" role="timer" hidden>⏱ <span id="timerVal">00:00</span></span>
+  <button class="tool-pill memory-card-pill" type="button" aria-haspopup="dialog"><span aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="mc-pill-name">Student 1</span></button>
   <button class="tool-pill" type="button" data-open-custom aria-haspopup="dialog">⚙️ Custom Quiz</button>
   <button class="theme-pill" type="button" data-toggle-theme id="themePill" aria-label="Switch color theme">Theme: Neon</button>
   <span class="score-pill" id="scorePill">Score <strong id="scoreVal">0 / 0</strong></span>

@@ -8,6 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#000000">
 <title>BOLO.INSTINCT — PSEB Class 10 Science</title>
+<!-- Memory card: routes per-learner storage to the active profile slot; must run before any other script. -->
+<script src="assets/memory-card.js"></script>
 <!-- Google Analytics (GA4) — shared loader, see assets/analytics.js -->
 <script src="assets/analytics.js"></script>
 <!-- Google AdSense — must stay as literal markup in <head>: the AdSense
@@ -479,6 +481,17 @@
   .btn-prime[aria-disabled="true"] { color: var(--text-dim); cursor: not-allowed; }
 
   .utility-hub { position: fixed; right: 48px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 100; display: flex; gap: 10px; pointer-events: auto; }
+
+  /* ABIM Board Prep launcher — home screen only, docked directly above the
+     "Support BOLO" coffee pill (which sits raised at bottom: 92px here). */
+  .abim-launch { position: fixed; right: 20px; bottom: 152px; z-index: 1100; display: inline-flex; align-items: center; gap: 9px; padding: 12px 20px; border: 1px solid rgba(45, 212, 191, 0.45); border-radius: 999px; background: rgba(10, 22, 24, 0.9); color: #2dd4bf; cursor: pointer; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55), 0 0 26px -10px #2dd4bf; backdrop-filter: blur(10px); transition: transform 0.3s var(--spring-curve), box-shadow 0.3s var(--fluid-curve), opacity 0.3s var(--fluid-curve); }
+  .abim-launch:hover, .abim-launch:focus-visible { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65), 0 0 36px -8px #2dd4bf; outline: none; }
+  .abim-launch .abim-launch-icon { font-size: 1.05rem; line-height: 1; }
+  body[data-theme="CLASSIC"] .abim-launch { background: rgba(255, 255, 255, 0.94); border-color: rgba(13, 148, 136, 0.45); color: #0d9488; box-shadow: 0 14px 40px rgba(16, 42, 82, 0.2), 0 0 26px -12px #0d9488; }
+  .abim-launch.abim-launch-hidden { opacity: 0; pointer-events: none; transform: translateY(8px); }
+  .abim-launch-due { padding: 2px 8px; border-radius: 999px; background: #2dd4bf; color: #04211d; font-size: 0.64rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  body[data-theme="CLASSIC"] .abim-launch-due { background: #0d9488; color: #ffffff; }
+  @media (max-width: 520px) { .abim-launch { right: 20px; bottom: 144px; padding: 11px 16px; font-size: 0.76rem; } }
   .round-trigger { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 50%; background: rgba(255, 255, 255, 0.03); color: var(--text-bold); cursor: pointer; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); backdrop-filter: blur(16px); transition: transform 0.3s var(--fluid-curve), background 0.3s var(--fluid-curve); }
   .round-trigger:hover, .round-trigger:focus-visible { transform: scale(1.05); background: rgba(255, 255, 255, 0.06); outline: none; }
   .round-trigger svg { width: 17px; height: 17px; stroke: currentColor; }
@@ -668,11 +681,15 @@
 <div class="aura-bleed" id="auraBleed"></div>
 <div class="gateway-core" id="gatewayCore"></div>
 <div class="utility-hub" aria-label="Dashboard utilities">
+  <button class="round-trigger theme-trigger memory-card-pill" type="button" id="btn-memory-card" aria-haspopup="dialog" aria-label="Memory card: switch learner profile"><span class="mc-pill-icon" aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="theme-trigger-label" id="active-slot-name">Student 1</span></button>
   <button class="round-trigger" type="button" data-action="open-search" aria-label="Search chapters"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
   <button class="round-trigger" type="button" data-action="open-share" aria-label="Share platform"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></button>
   <button class="round-trigger" type="button" data-action="save-offline" id="saveOfflineBtn" aria-label="Save all chapters for offline study" hidden><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></button>
   <button class="round-trigger theme-trigger" type="button" id="themeTrigger" data-action="toggle-theme" aria-label="Switch color theme"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 9 9c0-.5-.4-.9-.9-.9h-1.9a2.2 2.2 0 0 1-2.2-2.2c0-.8.4-1.5 1-1.9l1.5-1c.4-.3.6-.8.4-1.3A9 9 0 0 0 12 3z"></path><circle cx="7.5" cy="12.5" r="1"></circle><circle cx="10" cy="8.5" r="1"></circle></svg><span class="theme-trigger-label" id="themeTriggerLabel">Neon</span></button>
 </div>
+<button class="abim-launch" type="button" data-launch-href="abim.html?mode=abim" data-launch-accent="#2dd4bf" aria-label="Open ABIM Board Prep — internal medicine MCQ and flashcard engine">
+  <span class="abim-launch-icon" aria-hidden="true">🩺</span><span>ABIM Boards</span>
+</button>
 <div class="cmd-palette" id="sharePalette" role="dialog" aria-modal="true" aria-labelledby="shareTitle">
   <div class="cmd-box">
     <div class="modal-title" id="shareTitle">Share Platform</div>
@@ -1272,5 +1289,42 @@
 </script>
 <script defer src="assets/pwa.js"></script>
 <script defer src="assets/bmc-coffee.js"></script>
+<script>
+// The Support BOLO pop-out card opens directly over the ABIM launcher, so
+// step the launcher aside while the card is showing and bring it back after.
+(function () {
+  "use strict";
+  function watchSupportCard() {
+    var widget = document.getElementById("bmc-widget");
+    if (!widget) { setTimeout(watchSupportCard, 500); return; }
+    var launch = document.querySelector(".abim-launch");
+    if (!launch || !("MutationObserver" in window)) return;
+    new MutationObserver(function () {
+      launch.classList.toggle("abim-launch-hidden", widget.classList.contains("open"));
+    }).observe(widget, { attributes: true, attributeFilter: ["class"] });
+  }
+  watchSupportCard();
+
+  // Surface the ABIM spaced-repetition queue right on the launcher: read the
+  // study store and badge the pill with how many cards are due now.
+  try {
+    var st = JSON.parse(localStorage.getItem("bolo.abim.v1"));
+    var launchPill = document.querySelector(".abim-launch");
+    if (st && launchPill && Array.isArray(st.cards) && st.srs) {
+      var now = Date.now(), due = 0;
+      st.cards.forEach(function (k) {
+        var c = st.srs[k];
+        if (c && c.due <= now) due++;
+      });
+      if (due > 0) {
+        var b = document.createElement("span");
+        b.className = "abim-launch-due";
+        b.textContent = due + " due";
+        launchPill.appendChild(b);
+      }
+    }
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

@@ -2046,5 +2046,14 @@
             "ਪਾਣੀ ਦੀ ਜਾਂਚ **ਕੋਲੀਫਾਰਮ ਬੈਕਟੀਰੀਆ** ਨਾਲ — ਇਹ **ਮਲ-ਪ੍ਰਦੂਸ਼ਣ** ਦਰਸਾਉਂਦੇ ਹਨ।"],
     vvip: false
   };
+  T["khadin"] = {
+    ctx: ["A long earthen bund in dry Rajasthan that holds monsoon runoff on farmland.",
+          "ਸੁੱਕੇ ਰਾਜਸਥਾਨ ਵਿੱਚ ਲੰਮਾ ਮਿੱਟੀ ਦਾ ਬੰਨ੍ਹ ਜੋ ਮੀਂਹ ਦਾ ਵਹਿੰਦਾ ਪਾਣੀ ਖੇਤ ਵਿੱਚ ਰੋਕਦਾ ਹੈ।"],
+    def: ["A traditional rainwater-harvesting system that stores runoff behind an earthen embankment so it can soak into agricultural soil.",
+          "ਰਵਾਇਤੀ ਵਰਖਾ-ਜਲ ਸੰਭਾਲ ਪ੍ਰਣਾਲੀ ਜੋ ਮਿੱਟੀ ਦੇ ਬੰਨ੍ਹ ਪਿੱਛੇ ਵਹਿੰਦਾ ਪਾਣੀ ਰੋਕ ਕੇ ਉਸ ਨੂੰ ਖੇਤੀ ਵਾਲੀ ਮਿੱਟੀ ਵਿੱਚ ਸਮਾਉਂਦੀ ਹੈ।"],
+    board: ["Do not confuse it with a **kund** (covered underground tank) or a **johad** (small earthen check dam).",
+            "ਇਸ ਨੂੰ **ਕੁੰਡ** (ਢੱਕਿਆ ਭੂਮੀਗਤ ਟੈਂਕ) ਜਾਂ **ਜੋਹੜ** (ਛੋਟਾ ਮਿੱਟੀ ਦਾ ਚੈਕ ਡੈਮ) ਨਾਲ ਨਾ ਗੁੰਝਲਾਓ।"],
+    vvip: true
+  };
 
 }());

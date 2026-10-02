@@ -116,7 +116,7 @@ body::after {
   pointer-events: none;
   background: var(--deck-bg, #0b0f17);
   opacity: 1;
-  animation: deckVeilOut 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: deckVeilOut 320ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes deckVeilOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
@@ -127,7 +127,7 @@ body::after {
    deck was opened in a background tab). */
 body.deck-entered::after { animation: none; opacity: 0; visibility: hidden; }
 
-body.deck-leaving::after { animation: deckVeilIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 1; visibility: visible; }
+body.deck-leaving::after { animation: deckVeilIn 190ms cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 1; visibility: visible; }
 
 @media (prefers-reduced-motion: reduce) {
   body::after { animation-duration: 160ms; }
@@ -155,7 +155,7 @@ body::before {
 html[data-deck-theme="legacy"] body::before { opacity: 0.18; background-image: radial-gradient(rgba(11, 86, 197, 0.26) 1px, transparent 1px); }
 
 .slider {
-  transition-duration: 560ms !important;
+  transition-duration: 420ms !important;
   transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
   will-change: transform;
 }
@@ -173,11 +173,16 @@ html[data-deck-theme="legacy"] body::before { opacity: 0.18; background-image: r
   -webkit-backdrop-filter: blur(26px) saturate(150%);
   max-width: 1120px !important;
   letter-spacing: 0 !important;
-  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 320ms ease, border-color 260ms ease, box-shadow 260ms ease !important;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), opacity 220ms ease, border-color 180ms ease !important;
 }
 
 .slide:nth-child(even) .content-box { border-left-color: var(--deck-warn) !important; }
-.slide:not(.active) .content-box { opacity: 0.82; transform: scale(0.985) translateY(8px) !important; }
+.slide:not(.active) .content-box {
+  opacity: 0.82;
+  transform: scale(0.985) translateY(8px) !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
 .slide.active .content-box { opacity: 1; transform: scale(1) translateY(0) !important; }
 
 .title-slide,
@@ -1203,3 +1208,34 @@ html[data-deck-theme="legacy"] .punnett-cell.pun-short { color: #8a4b12 !importa
   .slide:not(.active) .content-box,
   .slide.active .content-box { transform: none !important; }
 }
+
+/* ---- Bilingual heading layout -------------------------------------------
+   The deck CSS lays <h2> out as `display:flex; justify-content:space-between`,
+   which was fine while most headings were a single text node. Now that every
+   heading carries a Gurmukhi gloss, the English title becomes an *anonymous*
+   flex item — and an anonymous item cannot be given flex-shrink:0, so it
+   squeezes down to its longest word and breaks mid-phrase ("Practice:" /
+   "Ohm's" / "Law") instead of letting the gloss wrap to the next line.
+
+   Normal block flow is what this content actually wants: title, gloss and
+   badge are inline phrases. Floating the trailing badge reproduces the
+   right-aligned look that justify-content:space-between used to give. */
+.content-box h2 {
+  display: block !important;
+  line-height: 1.25;
+}
+
+.content-box h2 > .board-badge,
+.content-box h2 > .bi-tag {
+  float: right;
+  margin-left: 14px;
+}
+
+.content-box h2::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* The gloss is a companion to the title, not a column of its own. */
+.content-box h2 > .punjabi { margin-left: 8px; }

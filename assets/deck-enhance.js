@@ -97,12 +97,21 @@
   var m = /Chapter\s+(\d+)/i.exec(document.title || "");
   var CH = m ? parseInt(m[1], 10) : null;
 
+  /* Resolve sibling assets from this script's own URL so the engine works
+     from a chapter sub-folder, the repository root, or a nested preview. */
+  var ASSET_BASE = (function () {
+    var s = document.currentScript;
+    if (!s) s = document.querySelector('script[src*="deck-enhance.js"]');
+    if (s && s.src) return s.src.replace(/[^/]*$/, "");
+    return "../assets/";
+  })();
+
   function injectDeckThemeCss() {
     if (document.getElementById("pseb-deck-theme-css")) return;
     var l = document.createElement("link");
     l.id = "pseb-deck-theme-css";
     l.rel = "stylesheet";
-    l.href = "../assets/deck-theme.css";
+    l.href = ASSET_BASE + "deck-theme.css";
     document.head.appendChild(l);
   }
   function chapterTone() {
@@ -212,6 +221,138 @@
     if (t.length > 64) t = t.slice(0, 64) + "\u2026";
     return t || ("Slide " + (i + 1));
   }
+
+  /* ==== Intra-lecture sections & breadcrumbs ================================
+     A 32-slide deck is a lecture, not a list, but nothing in the chrome told
+     the student where in the lecture they were. Slides can now declare which
+     sub-topic they belong to:
+
+       <div class="slide" data-section-id="balancing"
+            data-section-en="Balancing Equations"
+            data-section-pa="ਸਮੀਕਰਣ ਸੰਤੁਲਿਤ ਕਰਨਾ">
+
+     Only the *first* slide of a section needs the attributes; every following
+     slide inherits them until the next declaration. That keeps the markup diff
+     tiny and makes it impossible for a section to have a gap in the middle. */
+
+  var sectionMap = null;   /* slide index -> section record */
+  var sectionList = null;  /* ordered, numbered sections */
+
+  function buildSections() {
+    sectionMap = [];
+    sectionList = [];
+    var slides = document.querySelectorAll(".slide");
+    var cur = null;
+    for (var i = 0; i < slides.length; i++) {
+      var el = slides[i];
+      var id = el.getAttribute("data-section-id");
+      if (id) {
+        cur = {
+          id: id,
+          en: el.getAttribute("data-section-en") || id,
+          pa: el.getAttribute("data-section-pa") || "",
+          mins: parseInt(el.getAttribute("data-section-mins"), 10) || 0,
+          number: 0,
+          first: i,
+          slides: []
+        };
+        /* Front matter (cover, reading corner, vocabulary) is a section but
+           not a numbered sub-topic — numbering it would make "1." mean the
+           chapter cover rather than the first real idea. */
+        if (el.getAttribute("data-section-unnumbered") == null) {
+          cur.number = sectionList.filter(function (s) { return s.number; }).length + 1;
+        }
+        sectionList.push(cur);
+      }
+      if (cur) cur.slides.push(i);
+      sectionMap[i] = cur;
+    }
+    return sectionList.length;
+  }
+
+  function sectionTitle(sec) {
+    if (!sec) return "";
+    var pa = getLangPref() === "pa" && sec.pa;
+    var t = pa ? sec.pa : sec.en;
+    return sec.number ? sec.number + ". " + t : t;
+  }
+
+  function chapterLabel() {
+    if (CH == null) return "";
+    return getLangPref() === "pa" ? "\u0a2a\u0a3e\u0a20 " + CH : "Chapter " + CH;
+  }
+
+  function refreshCrumb() {
+    var bar = document.getElementById("pseb-crumb");
+    if (!bar) return;
+    if (!sectionList || !sectionList.length) { bar.hidden = true; return; }
+    var i = currentIndex();
+    var sec = sectionMap[i];
+    if (!sec) { bar.hidden = true; return; }
+    bar.hidden = false;
+
+    var pos = sec.slides.indexOf(i) + 1;
+    bar.querySelector(".pseb-crumb-ch").textContent = chapterLabel();
+    bar.querySelector(".pseb-crumb-sec").textContent = sectionTitle(sec);
+    bar.querySelector(".pseb-crumb-pos").textContent = pos + "/" + sec.slides.length;
+    var of = getLangPref() === "pa" ? " \u0a35\u0a3f\u0a71\u0a1a\u0a4b\u0a02 " : " of ";
+    var slideWord = getLangPref() === "pa" ? "\u0a38\u0a32\u0a3e\u0a08\u0a21 " : "slide ";
+    bar.setAttribute("aria-label", chapterLabel() + ", " + sectionTitle(sec) + ", " + slideWord + pos + of + sec.slides.length);
+  }
+
+  /* Milestone banner — the "section-cover" layout, rendered from the section
+     metadata rather than hand-authored on a separate slide. Dropping it onto
+     the first slide of each sub-topic means the student gets the signpost
+     without the deck gaining sixteen near-empty cover slides. */
+  function buildMilestones() {
+    if (!sectionList) return;
+    var pa = getLangPref() === "pa";
+    for (var s = 0; s < sectionList.length; s++) {
+      var sec = sectionList[s];
+      if (!sec.number) continue;
+      var slide = document.querySelectorAll(".slide")[sec.first];
+      if (!slide) continue;
+      var box = slide.querySelector(".content-box") || slide;
+
+      var el = box.querySelector(".pseb-milestone");
+      if (!el) {
+        el = document.createElement("div");
+        el.className = "pseb-milestone";
+        box.insertBefore(el, box.firstChild);
+      }
+
+      var goalsRaw = pa
+        ? (slide.getAttribute("data-section-goals-pa") || slide.getAttribute("data-section-goals") || "")
+        : (slide.getAttribute("data-section-goals") || "");
+      var goals = goalsRaw ? goalsRaw.split("|") : [];
+
+      var html =
+        '<div class="pseb-milestone-row">' +
+          '<span class="pseb-milestone-badge">' +
+            (pa ? "\u0a2d\u0a3e\u0a17 " : "Section ") + sec.number +
+            '<span class="pseb-milestone-name">' + escapeHtml(pa && sec.pa ? sec.pa : sec.en) + "</span>" +
+          "</span>";
+      if (sec.mins) {
+        html += '<span class="pseb-milestone-mins">\u23F1 ~' + sec.mins + (pa ? " \u0a2e\u0a3f\u0a70\u0a1f" : " min") + "</span>";
+      }
+      html += '<span class="pseb-milestone-mins">' + sec.slides.length + (pa ? " \u0a38\u0a32\u0a3e\u0a08\u0a21" : " slides") + "</span>";
+      html += "</div>";
+
+      if (goals.length) {
+        html += '<ul class="pseb-milestone-goals">';
+        for (var gi = 0; gi < goals.length; gi++) {
+          html += "<li>" + escapeHtml(goals[gi].trim()) + "</li>";
+        }
+        html += "</ul>";
+      }
+      el.innerHTML = html;
+    }
+  }
+
+  function escapeHtml(t) {
+    return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
   function readBookmarks() {
     return lsGetJSON(BOOKMARK_KEY);
   }
@@ -251,7 +392,36 @@
   function hashSlide() {
     var mm = /(?:slide|s)=(\d+)/i.exec(location.hash || "");
     if (mm) { var n = parseInt(mm[1], 10); if (n >= 1) return n - 1; }
+    /* #section=redox — a teacher can hand out a link to one sub-topic rather
+       than "open chapter 1 and scroll to about slide nineteen". */
+    var sm = /section=([A-Za-z0-9_-]+)/i.exec(location.hash || "");
+    if (sm) {
+      if (!sectionList) buildSections();
+      for (var i = 0; i < sectionList.length; i++) {
+        if (sectionList[i].id === sm[1]) return sectionList[i].first;
+      }
+    }
     return null;
+  }
+
+  /* Step to the first slide of the previous / next section. Inside a section
+     the first press rewinds to that section's own opening slide, which is the
+     behaviour people expect from chapter-skip controls on a media player. */
+  function jumpSection(dir) {
+    if (!sectionList || !sectionList.length || !canNavigate()) return;
+    var i = currentIndex();
+    var sec = sectionMap[i];
+    if (!sec) return;
+    var pos = sectionList.indexOf(sec);
+    var target;
+    if (dir < 0) {
+      target = i > sec.first ? sec : sectionList[Math.max(0, pos - 1)];
+    } else {
+      target = sectionList[Math.min(sectionList.length - 1, pos + 1)];
+    }
+    if (!target) return;
+    jumpTo(target.first);
+    toast(sectionTitle(target));
   }
   var toastEl = null, toastTimer = null;
   function toast(msg) {
@@ -451,15 +621,46 @@
     l.id = "pseb-print-css";
     l.rel = "stylesheet";
     l.media = "print";
-    l.href = "../assets/print.css";
+    l.href = ASSET_BASE + "print.css";
     document.head.appendChild(l);
+  }
+  /* Chemical/mathematical typesetting lives in its own file so a deck that
+     wants it gets KaTeX + mhchem without each chapter adding a script tag. */
+  function injectChemEngine() {
+    if (document.getElementById("pseb-chem-js") || window.PSEBChem) return;
+    var s = document.createElement("script");
+    s.id = "pseb-chem-js";
+    s.src = ASSET_BASE + "deck-chem.js";
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+  /* The ray-tracing bench is only meaningful in the optics decks, so it loads
+     on demand rather than on every chapter. */
+  function injectOpticsEngine() {
+    if (document.getElementById("pseb-optics-js") || window.PSEBRayBench) return;
+    if (!document.querySelector("[data-pseb-raybench]")) return;
+    var s = document.createElement("script");
+    s.id = "pseb-optics-js";
+    s.src = ASSET_BASE + "deck-optics.js";
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+  /* Likewise the animated reaction schematics: chemistry decks only. */
+  function injectReactionEngine() {
+    if (document.getElementById("pseb-rx-js") || window.PSEBReactions) return;
+    if (!document.querySelector("[data-pseb-reaction]")) return;
+    var s = document.createElement("script");
+    s.id = "pseb-rx-js";
+    s.src = ASSET_BASE + "deck-reactions.js";
+    s.defer = true;
+    document.head.appendChild(s);
   }
   function buildOverlay() {
     var style = document.createElement("style");
     style.textContent =
       "html,body{overscroll-behavior-x:none!important}" +
-      ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:8px;z-index:1200;flex-wrap:wrap;justify-content:flex-end;max-width:calc(50vw - 110px)}" +
-      ".pseb-tools button{width:40px;height:40px;border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));border-radius:10px;background:var(--deck-panel,rgba(14,14,18,.92));color:var(--deck-aura,#00e5ff);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.24);transition:background .2s,border-color .2s,color .2s,transform .15s}" +
+      ".pseb-tools{position:fixed;top:15px;right:15px;display:flex;gap:7px;z-index:1200;flex-wrap:nowrap;justify-content:flex-end;max-width:calc(50vw - 72px)}" +
+      ".pseb-tools button{flex:none;width:38px;height:38px;border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));border-radius:10px;background:var(--deck-panel,rgba(14,14,18,.92));color:var(--deck-aura,#00e5ff);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 12px 28px rgba(0,0,0,.24);transition:background .2s,border-color .2s,color .2s,transform .15s}" +
       ".pseb-tools button:hover{background:var(--deck-aura-soft,rgba(0,229,255,.16));border-color:var(--deck-aura,#00e5ff);color:var(--deck-text,#f8fafc);transform:translateY(-2px)}" +
       ".pseb-tools button#pseb-theme{color:var(--deck-warn,#ffaa00)}" +
       ".pseb-tools button#pseb-font{font-size:17px;font-weight:800;font-family:'Segoe UI',system-ui,sans-serif}" +
@@ -479,6 +680,9 @@
       ".pseb-help-backdrop.show{display:flex}" +
       ".pseb-help{background:#fff;color:#333;max-width:420px;width:90%;border-radius:12px;padding:28px 30px;box-shadow:0 20px 50px rgba(0,0,0,.35);font-family:'Segoe UI',system-ui,sans-serif}" +
       ".pseb-help h3{margin:0 0 14px;color:#0047BB;font-size:1.4rem}" +
+      ".pseb-help{max-height:84vh;overflow-y:auto}" +
+      ".pseb-help h4.pseb-help-sub{margin:18px 0 8px;color:#0047BB;font-size:.78rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}" +
+      ".pseb-help h4.pseb-help-sub:first-of-type{margin-top:0}" +
       ".pseb-help dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0}" +
       ".pseb-help dt{font-weight:700;color:#FF5C00}" +
       ".pseb-help dd{margin:0}" +
@@ -497,6 +701,65 @@
       ".pseb-outline-search:focus{outline:none;border-color:#0047BB}" +
       ".pseb-outline-item.hidden{display:none}" +
       ".pseb-outline-empty{padding:14px;text-align:center;color:#64748b;font-size:.9rem;display:none}" +
+      /* ---- Section grouping in the outline ---------------------------- */
+      ".pseb-outline-head{display:flex;align-items:center;gap:8px;margin:14px 0 4px;padding:0 4px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#0047BB}" +
+      ".pseb-outline-head:first-child{margin-top:0}" +
+      ".pseb-outline-head::after{content:'';flex:1;height:1px;background:#cbd5e1}" +
+      ".pseb-outline-head.hidden{display:none}" +
+      ".pseb-outline-mins{order:3;flex:none;color:#64748b;font-weight:700;letter-spacing:.02em;text-transform:none}" +
+      /* ---- Sub-topic breadcrumb --------------------------------------- */
+      ".pseb-crumb{position:fixed;top:14px;left:16px;z-index:1150;display:flex;align-items:center;gap:7px;" +
+        "max-width:min(42vw,520px);padding:7px 14px;border-radius:999px;cursor:pointer;" +
+        "background:var(--deck-panel,rgba(14,14,18,.92));border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));" +
+        "box-shadow:0 12px 28px rgba(0,0,0,.24);font-family:var(--deck-font-ui,'Segoe UI',system-ui,sans-serif);" +
+        "font-size:.82rem;line-height:1.25;color:var(--deck-muted,#9aa7ba);white-space:nowrap;overflow:hidden}" +
+      ".pseb-crumb[hidden]{display:none}" +
+      ".pseb-crumb:hover{border-color:var(--deck-aura,#00e5ff)}" +
+      ".pseb-crumb-ch{flex:none;font-weight:700;color:var(--deck-aura,#00e5ff)}" +
+      ".pseb-crumb-sep{flex:none;opacity:.6}" +
+      ".pseb-crumb-sec{min-width:0;overflow:hidden;text-overflow:ellipsis;font-weight:700;color:var(--deck-text,#f8fafc);" +
+        "font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Segoe UI',system-ui,sans-serif)}" +
+      ".pseb-crumb-pos{flex:none;padding:1px 8px;border-radius:999px;background:var(--deck-aura-soft,rgba(0,229,255,.16));" +
+        "color:var(--deck-aura,#00e5ff);font-weight:800;font-size:.72rem;font-variant-numeric:tabular-nums}" +
+      /* A fixed overlay repeats on every printed page, so the handout keeps
+         the milestone banners but drops the floating chrome. */
+      "@media print{.pseb-crumb,.pseb-drawer{display:none!important}}" +
+      /* ---- Milestone / section-cover banner --------------------------- */
+      ".pseb-milestone{display:flex;flex-direction:column;gap:10px;margin:0 0 16px;padding:12px 14px;border-radius:14px;" +
+        "background:var(--deck-panel-soft,rgba(255,255,255,.05));border:1px solid var(--deck-border-strong,rgba(255,255,255,.12));" +
+        "border-left:5px solid var(--deck-aura,#00e5ff);font-family:var(--deck-font-ui,'Segoe UI',system-ui,sans-serif);text-align:left}" +
+      ".pseb-milestone-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}" +
+      ".pseb-milestone-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 14px;border-radius:999px;" +
+        "background:var(--deck-aura,#00e5ff);color:#050507;font-weight:900;letter-spacing:.09em;text-transform:uppercase;font-size:.7rem}" +
+      ".pseb-milestone-name{text-transform:none;letter-spacing:.01em;font-size:.86rem;font-weight:800;" +
+        "font-family:var(--font-gurmukhi,'Noto Sans Gurmukhi','Segoe UI',system-ui,sans-serif)}" +
+      ".pseb-milestone-mins{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;" +
+        "border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));color:var(--deck-muted,#9aa7ba);font-size:.72rem;font-weight:800}" +
+      ".pseb-milestone-goals{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:5px;" +
+        "font-size:.85rem;line-height:1.45;color:var(--deck-muted,#9aa7ba)}" +
+      "@media(max-width:600px){.pseb-milestone{padding:10px 11px;gap:8px}.pseb-milestone-badge{font-size:.64rem;padding:5px 11px}" +
+        ".pseb-milestone-name{font-size:.78rem}.pseb-milestone-goals{font-size:.78rem}}" +
+      /* ---- Mobile overflow drawer ------------------------------------- */
+      ".pseb-drawer{position:fixed;top:62px;right:12px;z-index:1250;display:none;width:min(252px,calc(100vw - 24px));" +
+        "flex-direction:column;gap:8px;padding:12px;border-radius:14px;background:var(--deck-panel-strong,#141419);" +
+        "border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));box-shadow:0 18px 40px rgba(0,0,0,.4);" +
+        "font-family:var(--deck-font-ui,'Segoe UI',system-ui,sans-serif)}" +
+      ".pseb-drawer.show{display:flex}" +
+      ".pseb-drawer-title{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--deck-muted,#9aa7ba)}" +
+      ".pseb-drawer-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}" +
+      ".pseb-drawer-item{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 10px;border-radius:10px;cursor:pointer;" +
+        "border:1px solid var(--deck-border-strong,rgba(255,255,255,.16));background:var(--deck-panel-soft,rgba(255,255,255,.045));" +
+        "color:var(--deck-text,#f8fafc);font-size:12px;font-weight:700;font-family:inherit;text-align:left;line-height:1.2}" +
+      ".pseb-drawer-item:hover{background:var(--deck-aura-soft,rgba(0,229,255,.16));border-color:var(--deck-aura,#00e5ff)}" +
+      ".pseb-drawer-ico{flex:none;width:22px;font-size:16px;text-align:center;color:var(--deck-aura,#00e5ff)}" +
+      ".pseb-tools button#pseb-more{font-size:22px;letter-spacing:1px}" +
+      ".pseb-tools button#pseb-index{font-size:20px;font-weight:800}" +
+      /* Thirteen 38px targets need ~578px of bar, which only exists above about
+         1300px. Below that everything non-essential moves into the drawer
+         rather than wrapping onto a second row over the slide. */
+      "@media(min-width:1300px){.pseb-drawer{display:none!important}.pseb-tools button#pseb-more{display:none}}" +
+      "@media(max-width:1299px){.pseb-tools button.pseb-overflow,.pseb-tools button#pseb-coffee{display:none}}" +
+      "@media(min-width:769px){.pseb-tools button#pseb-index{display:none}}" +
       ".pseb-timer{position:fixed;bottom:15px;left:15px;z-index:1200;display:none;align-items:center;gap:8px;background:rgba(15,23,42,.9);color:#fff;padding:8px 12px;border-radius:10px;box-shadow:0 3px 10px rgba(0,0,0,.3);font-family:'Segoe UI',system-ui,sans-serif}" +
       ".pseb-timer.show{display:flex}" +
       ".pseb-timer-time{font-variant-numeric:tabular-nums;font-size:1.1rem;font-weight:700;min-width:56px;text-align:center;letter-spacing:.5px}" +
@@ -531,7 +794,13 @@
       ".pseb-recall-on .content-box.pseb-blur.pseb-revealed{filter:none;-webkit-user-select:auto;user-select:auto}" +
       ".pseb-recall-hint{position:fixed;top:62px;left:50%;transform:translateX(-50%);background:rgba(255,92,0,.95);color:#fff;padding:6px 14px;border-radius:99px;font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;z-index:1200;display:none;box-shadow:0 3px 10px rgba(0,0,0,.25)}" +
       ".pseb-recall-on .pseb-recall-hint{display:block}" +
-      "@media(max-width:768px){.pseb-tools{flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 30px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}" +
+      "@media(max-width:768px){.pseb-tools{flex-wrap:nowrap;justify-content:flex-end;max-width:calc(100vw - 20px);gap:6px}.pseb-tools button{width:38px;height:38px;font-size:18px}.pseb-tools button#pseb-font{font-size:16px}.pseb-font-pop{width:200px}" +
+      /* Step 4.1: keep only Index / Language / Recall / Outline / More on the
+         bar so it stays a single row at 375px with no horizontal scroll. */
+      ".pseb-tools button.pseb-overflow{display:none}" +
+      "a.pseb-index-pill{display:none!important}" +
+      ".pseb-crumb{top:56px;left:10px;right:10px;max-width:none;padding:5px 11px;font-size:.74rem;gap:6px}" +
+      ".pseb-crumb-pos{font-size:.68rem;padding:1px 7px}" +
       ".side-nav{top:auto!important;bottom:14px!important;transform:none!important;height:48px!important;min-width:96px!important;width:auto!important;padding:0 18px!important;font-size:1rem!important;font-weight:800!important;font-family:var(--deck-font-ui,'Segoe UI',system-ui,sans-serif)!important;letter-spacing:.3px;display:flex!important;align-items:center;justify-content:center;gap:6px;opacity:1!important;z-index:160!important;background:var(--deck-aura,#00e5ff)!important;color:#050507!important;border:1px solid var(--deck-aura,#00e5ff)!important;border-radius:12px!important;box-shadow:0 10px 24px var(--deck-aura-soft,rgba(0,229,255,.16))!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:transform .12s,background .2s,border-color .2s,color .2s!important}" +
       ".side-nav::after{font-size:.62rem;font-weight:700;letter-spacing:.6px;opacity:.95}" +
       ".left-nav::after{content:'BACK'}.right-nav::after{content:'NEXT'}" +
@@ -539,25 +808,131 @@
       ".side-nav:hover:not(:disabled){background:var(--deck-aura,#00e5ff)!important;color:#050507!important;transform:none!important;box-shadow:0 10px 24px var(--deck-aura-soft,rgba(0,229,255,.16))!important}" +
       ".side-nav:disabled{opacity:.32!important;pointer-events:none}" +
       ".left-nav{left:14px!important;right:auto!important}.right-nav{right:14px!important;left:auto!important}" +
-      ".slide-counter{top:12px!important;bottom:auto!important;left:12px!important;right:auto!important;z-index:150!important}}";
+      ".slide-counter{top:12px!important;bottom:auto!important;left:12px!important;right:auto!important;z-index:150!important;font-size:.95rem!important;padding:7px 12px!important}}" +
+      /* 320–400px: five 38px targets plus the counter no longer fit on one
+         row, so tighten the targets rather than let the bar wrap. */
+      "@media(max-width:400px){.pseb-tools{gap:5px;right:10px}.pseb-tools button{width:36px;height:36px;font-size:17px}" +
+      ".slide-counter{font-size:.85rem!important;padding:6px 10px!important}" +
+      ".pseb-crumb{top:52px;font-size:.7rem}}";
     document.head.appendChild(style);
 
     var tools = document.createElement("div");
     tools.className = "pseb-tools";
     tools.innerHTML =
+      '<button type="button" id="pseb-index" title="Back to chapter index" aria-label="Back to chapter index">\u2190</button>' +
       '<button type="button" id="pseb-lang" title="Reading language \u00b7 \u0a2a\u0a5c\u0a4d\u0a39\u0a3e\u0a08 \u0a26\u0a40 \u0a2d\u0a3e\u0a38\u0a3c\u0a3e (L)" aria-label="Reading language">\u0a2a\u0a70</button>' +
-      '<button type="button" id="pseb-rev" title="Quick Revision flashcards (R)" aria-label="Quick Revision flashcards">\u26A1</button>' +
+      '<button type="button" id="pseb-rev" class="pseb-overflow" title="Quick Revision flashcards (R)" aria-label="Quick Revision flashcards">\u26A1</button>' +
       '<button type="button" id="pseb-outline" title="Slide outline (O)" aria-label="Slide outline">\u2630</button>' +
-      '<button type="button" id="pseb-bookmark" title="Bookmark this slide (B)" aria-label="Bookmark this slide">\u2606</button>' +
+      '<button type="button" id="pseb-bookmark" class="pseb-overflow" title="Bookmark this slide (B)" aria-label="Bookmark this slide">\u2606</button>' +
       '<button type="button" id="pseb-recall" title="Active recall: hide answers (H)" aria-label="Active recall mode">\u25C9</button>' +
-      '<button type="button" id="pseb-print" title="Print / save as PDF (P)" aria-label="Print or save as PDF">\u2399</button>' +
-      '<button type="button" id="pseb-timer-btn" title="Presenter timer (T)" aria-label="Presenter timer">\u23F1</button>' +
-      '<button type="button" id="pseb-fs" title="Fullscreen (F)" aria-label="Toggle fullscreen">\u26F6</button>' +
-      '<button type="button" id="pseb-theme" title="Colorway (C)" aria-label="Colorway">\u25CF</button>' +
-      '<button type="button" id="pseb-font" title="Text size (\u2212 / +)" aria-label="Text size">A</button>' +
-      '<button type="button" id="pseb-help-btn" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>';
+      '<button type="button" id="pseb-print" class="pseb-overflow" title="Print / save as PDF (P)" aria-label="Print or save as PDF">\u2399</button>' +
+      '<button type="button" id="pseb-timer-btn" class="pseb-overflow" title="Presenter timer (T)" aria-label="Presenter timer">\u23F1</button>' +
+      '<button type="button" id="pseb-fs" class="pseb-overflow" title="Fullscreen (F)" aria-label="Toggle fullscreen">\u26F6</button>' +
+      '<button type="button" id="pseb-theme" class="pseb-overflow" title="Colorway (C)" aria-label="Colorway">\u25CF</button>' +
+      '<button type="button" id="pseb-font" class="pseb-overflow" title="Text size (\u2212 / +)" aria-label="Text size">A</button>' +
+      '<button type="button" id="pseb-help-btn" class="pseb-overflow" title="Keyboard shortcuts (?)" aria-label="Keyboard shortcuts">?</button>' +
+      '<button type="button" id="pseb-memcard" class="pseb-overflow" title="Memory card \u00b7 switch learner profile" aria-label="Memory card: switch learner profile" aria-haspopup="dialog">\uD83D\uDCBE</button>' +
+      '<button type="button" id="pseb-more" title="More actions" aria-label="More actions" aria-expanded="false">\u22EF</button>';
     document.body.appendChild(tools);
     refreshDeckChrome();
+
+    /* The inline "← Index" pill each deck ships is centred in the top bar,
+       which is exactly where the breadcrumb and the clustered tools need to
+       be on a phone. Mirror it as a toolbar button and hide the pill there. */
+    var indexLink = document.querySelector('body > a[href*="index.html"]');
+    if (indexLink) indexLink.classList.add("pseb-index-pill");
+    document.getElementById("pseb-index").addEventListener("click", function () {
+      location.href = indexLink ? indexLink.getAttribute("href") : "../index.html";
+    });
+
+    /* ---- Memory card (assets/memory-card.js) ---------------------------- */
+    var memBtn = document.getElementById("pseb-memcard");
+    if (window.BOLO_MEMCARD_UI) {
+      var memSlot = window.BOLO_MEMCARD.getActiveSlot();
+      if (memSlot.meta) memBtn.title = "Memory card \u00b7 Slot " + memSlot.id + ": " + memSlot.meta.name;
+      memBtn.addEventListener("click", function () { window.BOLO_MEMCARD_UI.open(); });
+    } else {
+      memBtn.parentNode.removeChild(memBtn);
+    }
+
+    /* ---- Sub-topic breadcrumb ------------------------------------------- */
+    var crumb = document.createElement("nav");
+    crumb.id = "pseb-crumb";
+    crumb.className = "pseb-crumb";
+    crumb.hidden = true;
+    crumb.innerHTML =
+      '<span class="pseb-crumb-ch"></span>' +
+      '<span class="pseb-crumb-sep" aria-hidden="true">\u203a</span>' +
+      '<span class="pseb-crumb-sec"></span>' +
+      '<span class="pseb-crumb-pos"></span>';
+    crumb.addEventListener("click", function () { if (window.__psebOpenOutline) window.__psebOpenOutline(); });
+    crumb.title = "Jump to a section (O)";
+    document.body.appendChild(crumb);
+    buildSections();
+    buildMilestones();
+    refreshCrumb();
+
+    /* ---- Mobile overflow drawer -----------------------------------------
+       Eleven icons wrapped onto three rows on a 375px phone and covered the
+       slide. Below 768px only the five tools a student uses *while studying*
+       stay on the bar; the presentation tools move in here. */
+    var drawer = document.createElement("div");
+    drawer.className = "pseb-drawer";
+    drawer.setAttribute("role", "menu");
+    drawer.setAttribute("aria-label", "More actions");
+    drawer.innerHTML =
+      '<div class="pseb-drawer-title">More actions</div>' +
+      '<div class="pseb-drawer-grid"></div>';
+    document.body.appendChild(drawer);
+
+    var drawerGrid = drawer.querySelector(".pseb-drawer-grid");
+    var DRAWER_SPEC = [
+      ["pseb-rev", "\u26A1", "Quick Revision"],
+      ["pseb-bookmark", "\u2606", "Bookmark"],
+      ["pseb-timer-btn", "\u23F1", "Timer"],
+      ["pseb-theme", "\u25CF", "Colorway"],
+      ["pseb-font", "A", "Text size"],
+      ["pseb-print", "\u2399", "Print / PDF"],
+      ["pseb-fs", "\u26F6", "Fullscreen"],
+      ["pseb-help-btn", "?", "Shortcuts"],
+      ["pseb-memcard", "\uD83D\uDCBE", "Memory Card"],
+      ["pseb-coffee", "\u2615", "Support"]
+    ];
+    /* Rebuilt on open because other modules (the coffee button) dock into the
+       toolbar asynchronously and must not be stranded off-screen. */
+    function fillDrawer() {
+      drawerGrid.innerHTML = "";
+      DRAWER_SPEC.forEach(function (spec) {
+        var target = document.getElementById(spec[0]);
+        if (!target) return;
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "pseb-drawer-item";
+        b.innerHTML = '<span class="pseb-drawer-ico">' + spec[1] + "</span><span>" + spec[2] + "</span>";
+        b.addEventListener("click", function () {
+          showDrawer(false);
+          /* The font popover anchors to the toolbar button, which is hidden
+             here, so let the drawer close before it opens. */
+          setTimeout(function () { target.click(); }, 0);
+        });
+        drawerGrid.appendChild(b);
+      });
+    }
+
+    function showDrawer(v) {
+      var open = v == null ? !drawer.classList.contains("show") : v;
+      if (open) fillDrawer();
+      drawer.classList.toggle("show", open);
+      var mb = document.getElementById("pseb-more");
+      if (mb) mb.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    document.getElementById("pseb-more").addEventListener("click", function (e) {
+      e.stopPropagation();
+      showDrawer();
+    });
+    drawer.addEventListener("click", function (e) { e.stopPropagation(); });
+    document.addEventListener("click", function () { showDrawer(false); });
+    window.__psebDrawerClose = function () { showDrawer(false); };
 
     var fontPop = document.createElement("div");
     fontPop.className = "pseb-font-pop";
@@ -612,27 +987,45 @@
     back.className = "pseb-help-backdrop";
     back.setAttribute("role", "dialog");
     back.setAttribute("aria-modal", "true");
+    /* A phone has no arrow keys, so a list of keystrokes is useless there —
+       and a laptop user does not need to be told about swiping. Show the set
+       that actually applies to the device in front of the student. */
+    var touchDevice = ("ontouchstart" in window) || (navigator.maxTouchPoints || 0) > 0;
+    var gestureHtml =
+      '<h4 class="pseb-help-sub">Touch gestures</h4>' +
+      '<dl>' +
+        '<dt>\u2190 Swipe</dt><dd>Next slide</dd>' +
+        '<dt>Swipe \u2192</dt><dd>Previous slide</dd>' +
+        '<dt>Double-tap</dt><dd>Active recall (hide / reveal)</dd>' +
+        '<dt>Tap \u22EF</dt><dd>Timer, colorway, text size, print</dd>' +
+        '<dt>Tap breadcrumb</dt><dd>Jump to another sub-topic</dd>' +
+        '<dt>Swipe up / down</dt><dd>Scroll the slide normally</dd>' +
+      '</dl>';
+    var keyHtml =
+      '<h4 class="pseb-help-sub">Keyboard shortcuts</h4>' +
+      '<dl>' +
+        '<dt>\u2190 \u2192</dt><dd>Previous / next slide</dd>' +
+        '<dt>Home</dt><dd>First slide</dd>' +
+        '<dt>End</dt><dd>Last slide</dd>' +
+        '<dt>O</dt><dd>Slide outline / search / jump</dd>' +
+        '<dt>[  ]</dt><dd>Previous / next sub-topic</dd>' +
+        '<dt>L</dt><dd>Reading language \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 / English</dd>' +
+        '<dt>R</dt><dd>Quick Revision flashcards</dd>' +
+        '<dt>B</dt><dd>Bookmark slide for revision</dd>' +
+        '<dt>H</dt><dd>Active recall (hide / reveal)</dd>' +
+        '<dt>P</dt><dd>Print / save as PDF</dd>' +
+        '<dt>T</dt><dd>Presenter timer</dd>' +
+        '<dt>F</dt><dd>Toggle fullscreen</dd>' +
+        '<dt>C</dt><dd>Switch slide colorway</dd>' +
+        '<dt>\u2212 / +</dt><dd>Smaller / larger text</dd>' +
+        '<dt>0</dt><dd>Reset text size</dd>' +
+        '<dt>?</dt><dd>Show this help</dd>' +
+        '<dt>Esc</dt><dd>Close dialogs</dd>' +
+      '</dl>';
     back.innerHTML =
       '<div class="pseb-help">' +
-        '<h3>Keyboard shortcuts</h3>' +
-        '<dl>' +
-          '<dt>\u2190 \u2192</dt><dd>Previous / next slide</dd>' +
-          '<dt>Home</dt><dd>First slide</dd>' +
-          '<dt>End</dt><dd>Last slide</dd>' +
-          '<dt>O</dt><dd>Slide outline / search / jump</dd>' +
-          '<dt>L</dt><dd>Reading language \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 / English</dd>' +
-          '<dt>R</dt><dd>Quick Revision flashcards</dd>' +
-          '<dt>B</dt><dd>Bookmark slide for revision</dd>' +
-          '<dt>H</dt><dd>Active recall (hide / reveal)</dd>' +
-          '<dt>P</dt><dd>Print / save as PDF</dd>' +
-          '<dt>T</dt><dd>Presenter timer</dd>' +
-          '<dt>F</dt><dd>Toggle fullscreen</dd>' +
-          '<dt>C</dt><dd>Switch slide colorway</dd>' +
-          '<dt>\u2212 / +</dt><dd>Smaller / larger text</dd>' +
-          '<dt>0</dt><dd>Reset text size</dd>' +
-          '<dt>?</dt><dd>Show this help</dd>' +
-          '<dt>Esc</dt><dd>Close dialogs</dd>' +
-        '</dl>' +
+        '<h3>How to move around</h3>' +
+        (touchDevice ? gestureHtml + keyHtml : keyHtml) +
         '<button type="button" class="close">Got it</button>' +
       '</div>';
     document.body.appendChild(back);
@@ -662,6 +1055,7 @@
     var oSearch = oBack.querySelector(".pseb-outline-search");
     var oEmpty = oBack.querySelector(".pseb-outline-empty");
     var oItems = [];
+    var oGroups = [];
 
     function outlineShow(v) {
       oBack.classList.toggle("show", v);
@@ -676,15 +1070,39 @@
         it.btn.classList.toggle("hidden", !match);
         if (match) shown++;
       });
+      /* A section heading is only useful while at least one of its slides is
+         still on screen, otherwise filtering leaves orphaned headers. */
+      oGroups.forEach(function (g) {
+        var any = g.items.some(function (it) { return !it.btn.classList.contains("hidden"); });
+        g.head.classList.toggle("hidden", !any);
+      });
       oEmpty.style.display = shown ? "none" : "block";
     }
     function openOutline() {
       var list = oBack.querySelector(".pseb-outline-list");
       list.innerHTML = "";
       oItems = [];
+      oGroups = [];
+      buildSections();
       var slides = document.querySelectorAll(".slide");
       var cur = currentIndex();
+      var group = null;
       Array.prototype.forEach.call(slides, function (s, i) {
+        var sec = sectionMap && sectionMap[i];
+        if (sec && (!group || group.sec !== sec)) {
+          var head = document.createElement("div");
+          head.className = "pseb-outline-head";
+          head.textContent = sectionTitle(sec);
+          if (sec.mins) {
+            var mins = document.createElement("span");
+            mins.className = "pseb-outline-mins";
+            mins.textContent = "~" + sec.mins + " min";
+            head.appendChild(mins);
+          }
+          list.appendChild(head);
+          group = { sec: sec, head: head, items: [] };
+          oGroups.push(group);
+        }
         var title = slideTitle(s, i);
         var b = document.createElement("button");
         b.type = "button";
@@ -705,7 +1123,9 @@
           outlineShow(false);
         });
         list.appendChild(b);
-        oItems.push({ btn: b, index: i, title: title, text: (s.textContent || "").replace(/\s+/g, " ").toLowerCase() });
+        var item = { btn: b, index: i, title: title, text: (s.textContent || "").replace(/\s+/g, " ").toLowerCase() };
+        oItems.push(item);
+        if (group) group.items.push(item);
       });
       oSearch.value = "";
       outlineFilter();
@@ -828,6 +1248,9 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     buildOverlay();
+    injectChemEngine();
+    injectOpticsEngine();
+    injectReactionEngine();
     enhanceInteractives();
     enhanceFlagshipLabs();
     initBiReadings();
@@ -840,6 +1263,7 @@
         var c = parseCounter();
         if (c) saveSlide(c.cur, c.total);
         refreshBookmarkBtn();
+        refreshCrumb();
         clearRecallReveals();
       });
       obs.observe(counter, { childList: true, characterData: true, subtree: true });
@@ -886,10 +1310,77 @@
       else if (e.key === "b" || e.key === "B") { doToggleBookmark(); }
       else if (e.key === "h" || e.key === "H") { toggleRecall(); }
       else if (e.key === "f" || e.key === "F") { toggleFullscreen(); }
+      else if (e.key === "[") { e.preventDefault(); jumpSection(-1); }
+      else if (e.key === "]") { e.preventDefault(); jumpSection(1); }
       else if (e.key === "Home" && canNavigate()) { e.preventDefault(); jumpTo(0); }
       else if (e.key === "End" && canNavigate()) { e.preventDefault(); jumpTo(totalSlides() - 1); }
     });
 
+
+    /* ==== Touch navigation ==================================================
+       Every deck ships its own swipe handler, but they differ and some decks
+       lack one. This shared layer is deliberately *deferred*: it records the
+       slide index at touchstart and only acts if the deck's own handler has
+       not already moved on by the time the gesture settles, so a deck with
+       swipe keeps exactly one handler and a deck without one gains it. */
+    (function installTouchNav() {
+      var touchable = ("ontouchstart" in window) || (navigator.maxTouchPoints || 0) > 0;
+      if (!touchable) return;
+
+      var SWIPE_MIN = 50;
+      var sx = 0, sy = 0, startIdx = 0, tracking = false;
+      var lastTap = 0, lastX = 0, lastY = 0;
+
+      /* Scrollable panels, drills and form controls own their own gestures. */
+      var GUARD = ".sub-slider-container,.balancer-panel,.ph-tool,.bohr-app,.reading-box," +
+        ".classifier-panel,.pseb-outline,.pseb-help,.pseb-drawer,.pseb-rev-card," +
+        "input,textarea,select,button,a,[data-chem-state='katex'],.ray-stage";
+
+      function guarded(target) {
+        return !!(target && target.closest && target.closest(GUARD));
+      }
+
+      document.addEventListener("touchstart", function (e) {
+        if (e.touches.length !== 1) { tracking = false; return; }
+        var t = e.changedTouches[0];
+        sx = t.screenX; sy = t.screenY;
+        startIdx = currentIndex();
+        tracking = true;
+      }, { passive: true });
+
+      document.addEventListener("touchend", function (e) {
+        if (!tracking) return;
+        tracking = false;
+        var t = e.changedTouches[0];
+        var dx = t.screenX - sx, dy = t.screenY - sy;
+
+        /* Double-tap anywhere neutral toggles active recall — the one study
+           control a student reaches for constantly on a phone. */
+        if (Math.abs(dx) < 16 && Math.abs(dy) < 16) {
+          var now = Date.now();
+          if (now - lastTap < 320 && Math.abs(t.screenX - lastX) < 40 && Math.abs(t.screenY - lastY) < 40) {
+            lastTap = 0;
+            if (!guarded(e.target)) { toggleRecall(); }
+            return;
+          }
+          lastTap = now; lastX = t.screenX; lastY = t.screenY;
+          return;
+        }
+
+        if (Math.abs(dy) > Math.abs(dx)) return;      /* vertical scroll */
+        if (Math.abs(dx) < SWIPE_MIN) return;
+        if (guarded(e.target)) return;
+        if (!canNavigate()) return;
+
+        var dir = dx < 0 ? 1 : -1;
+        /* Let the deck's own listener go first; only step in if nothing moved. */
+        setTimeout(function () {
+          if (currentIndex() !== startIdx) return;
+          if (window.__psebDrawerClose) window.__psebDrawerClose();
+          jumpTo(startIdx + dir);
+        }, 0);
+      }, { passive: true });
+    })();
 
     var studyLast = Date.now();
     function flushStudy() {
@@ -950,7 +1441,6 @@
       });
     });
     if (document.getElementById("acid-lab")) window.psebAcidMix();
-    if (document.getElementById("optics-lab")) window.psebOpticsPosition("beyond");
     if (document.getElementById("vision-lab")) window.psebVisionLoad(0);
     if (document.getElementById("ohm-lab")) window.psebOhmUpdate();
     if (document.getElementById("fleming-lab")) window.psebFlemingLoad(0);
@@ -1028,30 +1518,6 @@
       row("Product", pProd.value, item.product) +
       row("Observation", pObs.value, item.observation) +
       row("Gas test", pGas.value, item.gas);
-  };
-
-  window.psebOpticsPosition = function (pos) {
-    var lab = document.getElementById("optics-lab");
-    if (!lab) return;
-    var cases = {
-      beyond: { object:"Beyond C", image:"Between C and F", nature:"Real, inverted, diminished", screen:"Can be caught on a screen", left:"57%", height:"42%" },
-      atc: { object:"At C", image:"At C", nature:"Real, inverted, same size", screen:"Can be caught on a screen", left:"35%", height:"68%" },
-      between: { object:"Between C and F", image:"Beyond C", nature:"Real, inverted, enlarged", screen:"Can be caught on a screen", left:"13%", height:"90%" },
-      /* At F the reflected rays leave parallel, so the image is real but forms
-         at infinity — there is no screen position that catches it. */
-      atf: { object:"At F", image:"At infinity", nature:"Real, inverted, highly enlarged", screen:"Real, but formed at infinity — no screen can catch it", left:"4%", height:"96%" },
-      inside: { object:"Between F and P", image:"Behind mirror", nature:"Virtual, erect, enlarged", screen:"Cannot be caught on a screen", left:"88%", height:"86%" }
-    };
-    var item = cases[pos];
-    lab.querySelectorAll("[data-optics-pos]").forEach(function (b) { b.classList.toggle("active", b.dataset.opticsPos === pos); });
-    var arrow = lab.querySelector(".optics-image-arrow");
-    arrow.style.left = item.left;
-    arrow.style.height = item.height;
-    arrow.classList.toggle("erect", pos === "inside");
-    lab.querySelector(".optics-object").textContent = item.object;
-    lab.querySelector(".optics-image").textContent = item.image;
-    lab.querySelector(".optics-nature").textContent = item.nature;
-    lab.querySelector(".optics-screen").textContent = item.screen;
   };
 
   var visionCases = [
@@ -1362,6 +1828,13 @@
         : "Readings: \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 \u2014 switch to English (L)";
     }
     if (announce) toast(toEn ? "Readings in English" : "\u0a2a\u0a5c\u0a4d\u0a39\u0a3e\u0a08 \u0a39\u0a41\u0a23 \u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40 \u0a35\u0a3f\u0a71\u0a1a (Readings in Punjabi)");
+    /* The breadcrumb and the milestone banners name the sub-topic, so they
+       follow the reading language too. */
+    refreshCrumb();
+    buildMilestones();
+    /* Widgets with their own bilingual labels relabel themselves from here. */
+    try { document.dispatchEvent(new CustomEvent("pseb:lang", { detail: { lang: toEn ? "en" : "pa" } })); }
+    catch (e) {}
   }
   function toggleLang() { applyLang(getLangPref() === "en" ? "pa" : "en", true); }
   window.__psebToggleLang = toggleLang;

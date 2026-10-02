@@ -1,0 +1,272 @@
+/* BOLO.INSTINCT — Memory Card (4-slot learner profiles).
+   Loaded on demand by assets/memory-card.js. Retro console save-block look:
+   monospaced slot badges, chunky block meter, orange accent for the slot in
+   use. Dark by default; follows the light "Classic" colorway of the menu,
+   MCQ/flashcard engines and the legacy deck theme. */
+
+.mc-overlay {
+  --mc-bg: #0d1016;
+  --mc-panel: #141922;
+  --mc-slot: #1a202b;
+  --mc-empty: #11151c;
+  --mc-line: rgba(255, 255, 255, 0.12);
+  --mc-text: #eef2f8;
+  --mc-dim: #9aa6b8;
+  --mc-accent: #f97316;
+  --mc-accent-soft: rgba(249, 115, 22, 0.16);
+  --mc-danger: #f05252;
+  --mc-ok: #34d399;
+  --mc-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  --mc-pa: var(--font-gurmukhi, "Noto Sans Gurmukhi", "Mukta Mahee", sans-serif);
+  position: fixed;
+  inset: 0;
+  z-index: 2147483200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(16px, env(safe-area-inset-top)) 14px max(24px, env(safe-area-inset-bottom));
+  background: rgba(4, 6, 10, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, var(--mc-pa), sans-serif;
+  color: var(--mc-text);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.mc-overlay[hidden] { display: none; }
+.mc-overlay.is-open { opacity: 1; }
+html.mc-lock, html.mc-lock body { overflow: hidden; }
+
+body[data-theme="CLASSIC"] .mc-overlay,
+html[data-deck-theme="legacy"] .mc-overlay {
+  --mc-bg: #f6f8fc;
+  --mc-panel: #ffffff;
+  --mc-slot: #ffffff;
+  --mc-empty: #eef1f6;
+  --mc-line: rgba(12, 38, 84, 0.16);
+  --mc-text: #102a52;
+  --mc-dim: #52627a;
+  --mc-accent: #ea580c;
+  --mc-accent-soft: rgba(234, 88, 12, 0.1);
+  background: rgba(16, 32, 60, 0.42);
+}
+
+.mc-overlay *, .mc-overlay *::before, .mc-overlay *::after { box-sizing: border-box; }
+.mc-overlay .sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.mc-overlay [lang="pa"], .mc-overlay .mc-pa { font-family: var(--mc-pa); line-height: 1.75; }
+
+.memory-card-container {
+  width: min(760px, 100%);
+  margin: auto 0;
+  background: var(--mc-bg);
+  border: 1px solid var(--mc-line);
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 18px 18px 14px;
+  transform: translateY(10px) scale(0.985);
+  transition: transform 0.2s ease;
+}
+.mc-overlay.is-open .memory-card-container { transform: none; }
+
+.mc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.mc-title { margin: 0; font-size: 1.12rem; font-weight: 800; letter-spacing: 0.2px; line-height: 1.6; }
+.mc-dim, .mc-muted { color: var(--mc-dim); font-weight: 600; }
+.mc-summary {
+  margin: 2px 0 0; color: var(--mc-dim); font-size: 0.85rem; line-height: 1.7;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px;
+}
+.mc-blocks { display: inline-flex; gap: 4px; margin-left: 6px; }
+.mc-blocks i {
+  width: 14px; height: 14px; border-radius: 3px; display: inline-block;
+  border: 1px solid var(--mc-line); background: var(--mc-empty);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.mc-blocks i.on { background: var(--mc-dim); border-color: transparent; }
+.mc-blocks i.cur { background: var(--mc-accent); box-shadow: 0 0 8px var(--mc-accent); }
+
+.mc-close {
+  flex: none; width: 38px; height: 38px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--mc-line); background: var(--mc-panel); color: var(--mc-text);
+  font-size: 16px; line-height: 1;
+}
+.mc-close:hover, .mc-close:focus-visible { border-color: var(--mc-accent); color: var(--mc-accent); outline: none; }
+
+.mc-pickbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+  padding: 10px 12px; margin-bottom: 12px; border-radius: 8px;
+  background: var(--mc-accent-soft); border: 1px dashed var(--mc-accent); font-size: 0.86rem; line-height: 1.7;
+}
+.mc-pickbar[hidden] { display: none; }
+
+.memory-card-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) {
+  .memory-card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.mc-slot {
+  position: relative;
+  display: flex; flex-direction: column; gap: 10px;
+  min-height: 188px;
+  padding: 14px;
+  border-radius: 8px;
+  background: var(--mc-slot);
+  border: 1px solid var(--mc-line);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+.mc-slot.is-active {
+  border-color: var(--mc-accent);
+  box-shadow: 0 0 0 1px var(--mc-accent), 0 10px 28px var(--mc-accent-soft);
+}
+.mc-slot.is-empty {
+  background: var(--mc-empty);
+  border: 2px dashed var(--mc-line);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.28);
+}
+.mc-slot.is-form { border-style: solid; border-color: var(--mc-accent); }
+.mc-slot.is-pick { border-color: var(--mc-accent); border-style: dashed; }
+
+.mc-slot-head { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.mc-badge {
+  flex: none;
+  font-family: var(--mc-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+  padding: 3px 7px; border-radius: 4px;
+  background: #000; color: #e5e7eb; border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.mc-slot.is-active .mc-badge { background: var(--mc-accent); color: #160800; border-color: transparent; }
+.mc-avatar {
+  flex: none; width: 34px; height: 34px; border-radius: 8px;
+  display: grid; place-items: center; font-size: 19px;
+  background: var(--mc-panel); border: 1px solid var(--mc-line);
+}
+.mc-name {
+  min-width: 0; flex: 1 1 auto; font-weight: 800; font-size: 0.98rem; line-height: 1.7;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.mc-live {
+  flex: none; font-family: var(--mc-mono); font-size: 0.62rem; font-weight: 800; letter-spacing: 1px;
+  color: var(--mc-accent); border: 1px solid var(--mc-accent); padding: 2px 6px; border-radius: 4px;
+}
+.mc-rename {
+  flex: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
+  display: grid; place-items: center; font-size: 14px; line-height: 1;
+  border: 1px solid var(--mc-line); background: var(--mc-panel); color: var(--mc-text);
+}
+.mc-rename:hover, .mc-rename:focus-visible { border-color: var(--mc-accent); outline: none; }
+
+.mc-meter {
+  height: 12px; border-radius: 3px; overflow: hidden;
+  background: var(--mc-empty); border: 1px solid var(--mc-line);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.mc-meter-fill {
+  height: 100%; min-width: 0;
+  /* Segmented "block capacity" look. */
+  background: repeating-linear-gradient(90deg, var(--mc-accent) 0 9px, transparent 9px 11px);
+  transition: width 0.4s ease;
+}
+.mc-meta-row { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.78rem; color: var(--mc-dim); }
+.mc-meta-row strong { color: var(--mc-text); }
+.mc-recent { margin: 0; font-size: 0.82rem; line-height: 1.75; }
+.mc-warn { margin: 0; font-size: 0.8rem; color: var(--mc-accent); line-height: 1.75; }
+
+.mc-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+.mc-btn {
+  appearance: none; cursor: pointer;
+  min-height: 38px; padding: 7px 11px; border-radius: 8px;
+  border: 1px solid var(--mc-line); background: var(--mc-panel); color: var(--mc-text);
+  font: inherit; font-size: 0.8rem; font-weight: 700; line-height: 1.6;
+  transition: border-color 0.15s, background 0.15s, transform 0.12s;
+}
+.mc-btn:hover, .mc-btn:focus-visible { border-color: var(--mc-accent); outline: none; transform: translateY(-1px); }
+.mc-btn:focus-visible { box-shadow: 0 0 0 2px var(--mc-accent-soft); }
+.mc-btn.mc-primary { border-color: var(--mc-accent); color: var(--mc-accent); }
+.mc-btn.mc-primary.is-current, .mc-slot.is-pick .mc-btn.mc-primary { background: var(--mc-accent); color: #160800; }
+.mc-btn.mc-danger:hover, .mc-btn.mc-danger:focus-visible { border-color: var(--mc-danger); color: var(--mc-danger); }
+.mc-btn.mc-danger.is-armed { background: var(--mc-danger); border-color: var(--mc-danger); color: #fff; }
+
+.mc-create {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  min-height: 120px; width: 100%; cursor: pointer;
+  border: 0; border-radius: 6px; background: transparent; color: var(--mc-dim);
+  font: inherit; font-weight: 700; font-size: 0.9rem;
+}
+.mc-create:hover, .mc-create:focus-visible { color: var(--mc-accent); background: var(--mc-accent-soft); outline: none; }
+.mc-plus { font-family: var(--mc-mono); font-size: 2rem; line-height: 1; }
+
+.mc-form { display: flex; flex-direction: column; gap: 10px; }
+.mc-field { display: flex; flex-direction: column; gap: 4px; font-size: 0.78rem; color: var(--mc-dim); font-weight: 700; }
+.mc-field input {
+  min-height: 42px; padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--mc-line); background: var(--mc-panel); color: var(--mc-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, var(--mc-pa), sans-serif;
+  font-size: 16px; /* prevents iOS zoom-on-focus */
+  line-height: 1.7;
+}
+.mc-field input:focus { outline: none; border-color: var(--mc-accent); box-shadow: 0 0 0 2px var(--mc-accent-soft); }
+.mc-avatars { display: flex; flex-wrap: wrap; gap: 6px; }
+.mc-avatar-opt { position: relative; cursor: pointer; }
+.mc-avatar-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.mc-avatar-opt span[aria-hidden] {
+  width: 38px; height: 38px; border-radius: 8px; display: grid; place-items: center; font-size: 19px;
+  border: 1px solid var(--mc-line); background: var(--mc-panel);
+}
+.mc-avatar-opt input:checked + span { border-color: var(--mc-accent); background: var(--mc-accent-soft); box-shadow: 0 0 0 1px var(--mc-accent); }
+.mc-avatar-opt input:focus-visible + span { box-shadow: 0 0 0 2px var(--mc-accent); }
+.mc-langs { display: flex; gap: 14px; font-size: 0.85rem; }
+.mc-langs label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.mc-langs label:first-child { font-family: var(--mc-pa); }
+.mc-langs input { accent-color: var(--mc-accent); }
+
+.mc-status { min-height: 1.4em; margin: 12px 2px 0; font-size: 0.84rem; line-height: 1.7; color: var(--mc-dim); }
+.mc-status.is-ok { color: var(--mc-ok); }
+.mc-status.is-err { color: var(--mc-danger); }
+body[data-theme="CLASSIC"] .mc-status.is-ok, html[data-deck-theme="legacy"] .mc-status.is-ok { color: #047857; }
+
+.mc-footer {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin-top: 10px; padding-top: 12px; border-top: 1px dashed var(--mc-line);
+}
+.mc-note { flex-basis: 100%; margin: 2px 0 0; font-size: 0.74rem; color: var(--mc-dim); line-height: 1.6; }
+
+@media (max-width: 639px) {
+  .memory-card-container { padding: 14px 12px 12px; border-radius: 12px; }
+  .mc-title { font-size: 1rem; }
+  .mc-slot { min-height: 0; }
+  .mc-create { min-height: 84px; }
+  .mc-footer .mc-btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-overlay, .memory-card-container, .mc-btn, .mc-meter-fill { transition: none; }
+}
+@media print { .mc-overlay, .memory-card-pill { display: none !important; } }
+
+/* ---- Navbar trigger (inherits the host page's pill styling) ---- */
+button.memory-card-pill { display: inline-flex; align-items: center; gap: 6px; max-width: 15rem; cursor: pointer; }
+.memory-card-pill .mc-pill-slot {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-weight: 800; color: #f97316; white-space: nowrap;
+}
+.memory-card-pill #active-slot-name, .memory-card-pill .mc-pill-name {
+  min-width: 0; max-width: 8.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+/* Engine headers (MCQ, flashcards, ABIM) are already full: the learner's
+   name only joins the slot number when there is room for it. */
+@media (max-width: 1499px) {
+  .memory-card-pill .mc-pill-name { display: none; }
+}
+@media (max-width: 640px) {
+  .memory-card-pill #active-slot-name { display: none; }
+}
+/* Menu dashboard: sits in the utility hub next to the theme trigger. */
+.round-trigger.memory-card-pill .mc-pill-icon { font-size: 15px; line-height: 1; }
+.round-trigger.memory-card-pill .mc-pill-slot { font-size: 0.66rem; letter-spacing: 0.6px; }
+.round-trigger.memory-card-pill #active-slot-name {
+  font-size: 0.68rem; letter-spacing: 0.4px; line-height: 1.6; color: var(--text-bold, inherit);
+  font-family: var(--font-gurmukhi, "Noto Sans Gurmukhi", "Mukta Mahee", sans-serif);
+}

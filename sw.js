@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v19";
+var CACHE_VERSION = "v28";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;
@@ -39,6 +39,8 @@ var SHELL_ASSETS = [
   "./index.html",
   "./mcq.html",
   "./flashcards.html",
+  "./abim.html",
+  "./assets/abim-data.js",
   "./assets/chapters.js",
   "./assets/glossary.js",
   "./assets/flash-data.js",
@@ -46,9 +48,24 @@ var SHELL_ASSETS = [
   "./assets/sci-term.js",
   "./assets/search-index.js",
   "./assets/pwa.js",
+  "./assets/memory-card.js",
+  "./assets/memory-card.css",
   "./assets/analytics.js",
   "./assets/bmc-coffee.js",
   "./assets/deck-enhance.js",
+  "./assets/deck-chem.js",
+  "./assets/deck-optics.js",
+  "./assets/deck-reactions.js",
+  "./assets/katex/katex.min.js",
+  "./assets/katex/mhchem.min.js",
+  "./assets/katex/katex.min.css",
+  "./assets/katex/fonts/KaTeX_Main-Regular.woff2",
+  "./assets/katex/fonts/KaTeX_Main-Bold.woff2",
+  "./assets/katex/fonts/KaTeX_Main-Italic.woff2",
+  "./assets/katex/fonts/KaTeX_Math-Italic.woff2",
+  "./assets/katex/fonts/KaTeX_Size1-Regular.woff2",
+  "./assets/katex/fonts/KaTeX_Size2-Regular.woff2",
+  "./assets/katex/fonts/KaTeX_AMS-Regular.woff2",
   "./assets/lecture-videos.js",
   "./assets/deck-theme-init.js",
   "./assets/deck-theme.css",
@@ -67,7 +84,7 @@ var SHELL_ASSETS = [
 
 var STATIC_RE = /\.(?:css|js|svg|png|jpe?g|gif|webp|woff2?|ttf|otf|json|webmanifest)$/i;
 /* Large, effectively immutable payloads — never re-download on mobile data. */
-var IMMUTABLE_RE = /(?:\/mathjax\/|\.(?:woff2?|ttf|otf|png|jpe?g|gif|webp)$)/i;
+var IMMUTABLE_RE = /(?:\/mathjax\/|\/katex\/fonts\/|\.(?:woff2?|ttf|otf|png|jpe?g|gif|webp)$)/i;
 
 function isHtmlRequest(request) {
   if (request.mode === "navigate") return true;

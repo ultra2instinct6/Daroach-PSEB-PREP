@@ -195,7 +195,6 @@
     { en: "Magnification", pa: "ਵੱਡਦਰਸ਼ਨ", ph: "mag-ni-fi-KAY-shun", ch: [10] },
     { en: "Refractive Index", pa: "ਅਪਵਰਤਨ ਅੰਕ", ph: "ri-FRAK-tiv IN-deks", ch: [10] },
     { en: "Lens", pa: "ਲੈਂਜ਼", ph: "LENZ", ch: [10, 11] },
-    { en: "Power of a Lens", pa: "ਲੈਂਜ਼ ਦੀ ਸਮਰੱਥਾ", ph: "POW-er uv uh LENZ", ch: [10] },
     { en: "Dioptre", pa: "ਡਾਇਆਪਟਰ", ph: "die-OP-ter", ch: [10], alt: ["Diopter"] },
 
     { en: "Snell's Law", pa: "ਸਨੈਲ ਦਾ ਨਿਯਮ", ph: "SNELZ LAW", ch: [10], alt: ["Law of Refraction"] },
@@ -292,7 +291,8 @@
     { en: "Coliform Bacteria", pa: "ਕੋਲੀਫਾਰਮ ਬੈਕਟੀਰੀਆ", ph: "KOH-li-form bak-TEER-ee-uh", ch: [16] },
     { en: "Chipko Movement", pa: "ਚਿਪਕੋ ਅੰਦੋਲਨ", ph: "CHIP-koh MOOV-munt", ch: [16] },
     { en: "Stakeholder", pa: "ਹਿੱਤਧਾਰਕ", ph: "STAYK-hohl-der", ch: [16] },
-    { en: "Ganga Action Plan", pa: "ਗੰਗਾ ਕਾਰਜ ਯੋਜਨਾ", ph: "GUN-guh AK-shun PLAN", ch: [16] }
+    { en: "Ganga Action Plan", pa: "ਗੰਗਾ ਕਾਰਜ ਯੋਜਨਾ", ph: "GUN-guh AK-shun PLAN", ch: [16] },
+    { en: "Khadin", pa: "ਖਾਦੀਨ", ph: "KHAH-din", ch: [16] }
   ];
 
   /* ---- Roman phonetic -> Gurmukhi phonetic -----------------------------

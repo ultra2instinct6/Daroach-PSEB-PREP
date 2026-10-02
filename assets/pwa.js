@@ -214,6 +214,13 @@
   function lsGet(key) {
     try { return localStorage.getItem(key); } catch (e) { return null; }
   }
+  /* The memory card (assets/memory-card.js) routes learner keys to the
+     active slot; the IndexedDB copy must use the same slot-scoped name. */
+  function mirrorKey(key) {
+    var mc = window.BOLO_MEMCARD;
+    if (!mc || !mc.available) return key;
+    return mc.isSuspended() ? null : mc.physicalKey(key);
+  }
   function lsSet(key, value) {
     try { localStorage.setItem(key, value); return true; } catch (e) { return false; }
   }
@@ -222,7 +229,8 @@
   function save(key, value) {
     var raw = typeof value === "string" ? value : JSON.stringify(value);
     lsSet(key, raw);
-    idbSet(key, raw)["catch"](function () {});
+    var mk = mirrorKey(key);
+    if (mk) idbSet(mk, raw)["catch"](function () {});
     return raw;
   }
 
@@ -237,12 +245,32 @@
      quota reset between sessions. */
   function hydrate() {
     if (!("indexedDB" in window)) return Promise.resolve();
-    return Promise.all(MIRRORED_KEYS.map(function (key) {
-      if (lsGet(key) != null) return null;
-      return idbGet(key).then(function (raw) {
-        if (typeof raw === "string" && raw.length) lsSet(key, raw);
-      })["catch"](function () {});
-    }));
+    var mc = window.BOLO_MEMCARD;
+    if (!mc || !mc.available) {
+      return Promise.all(MIRRORED_KEYS.map(function (key) {
+        if (lsGet(key) != null) return null;
+        return idbGet(key).then(function (raw) {
+          if (typeof raw === "string" && raw.length) lsSet(key, raw);
+        })["catch"](function () {});
+      }));
+    }
+    /* Memory card: an eviction also wiped the slot registry. memory-card.js
+       brings it back from IndexedDB first; then restore every populated
+       slot's own mirrored keys. */
+    var registryStep = mc.ready ? mc.ready()["catch"](function () {}) : Promise.resolve();
+    return registryStep.then(function () {
+      var jobs = [];
+      mc.populatedSlotIds().forEach(function (slotId) {
+        MIRRORED_KEYS.forEach(function (key) {
+          var phys = mc.physicalKey(key, slotId);
+          if (mc.rawGet(phys) != null) return;
+          jobs.push(idbGet(phys).then(function (raw) {
+            if (typeof raw === "string" && raw.length) mc.rawSet(phys, raw);
+          })["catch"](function () {}));
+        });
+      });
+      return Promise.all(jobs);
+    });
   }
 
   /* Mirror forward: whatever the existing synchronous code path writes to
@@ -260,9 +288,8 @@
     var nativeSetItem = proto.setItem;
     proto.setItem = function (key, value) {
       nativeSetItem.call(this, key, value);
-      if (this === ls && MIRRORED_KEYS.indexOf(key) !== -1) {
-        idbSet(key, String(value))["catch"](function () {});
-      }
+      var mk = this === ls && MIRRORED_KEYS.indexOf(key) !== -1 ? mirrorKey(key) : null;
+      if (mk) idbSet(mk, String(value))["catch"](function () {});
     };
     proto.__psebMirrored = true;
   }

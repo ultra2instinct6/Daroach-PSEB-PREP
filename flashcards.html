@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BOLO.FLASH — PSEB Class 10 Flashcard Engine</title>
+<!-- Memory card: routes per-learner storage to the active profile slot; must run before any other script. -->
+<script src="assets/memory-card.js"></script>
 <!-- Google Analytics (GA4) — shared loader, see assets/analytics.js -->
 <script src="assets/analytics.js"></script>
 <!-- Google AdSense — must stay as literal markup in <head>: the AdSense
@@ -713,6 +715,7 @@
     <button class="router-btn" type="button" data-dir="PA2EN">ਪੰ → EN</button>
   </div>
   <span class="header-spacer"></span>
+  <button class="tool-pill memory-card-pill" type="button" aria-haspopup="dialog"><span aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="mc-pill-name">Student 1</span></button>
   <button class="tool-pill" type="button" id="vvipBtn" aria-pressed="false" aria-label="Show only board high-yield cards"><span class="lbl-full">★ High-Yield</span><span class="lbl-short">★</span></button>
   <button class="tool-pill" type="button" id="shuffleBtn" aria-label="Shuffle deck"><span class="lbl-full">🔀 Shuffle</span><span class="lbl-short">🔀</span></button>
   <button class="theme-pill" type="button" id="themePill" aria-label="Switch color theme"><span class="lbl-full">Theme: Neon</span><span class="lbl-short">◐</span></button>
@@ -919,6 +922,7 @@
         id: "c:" + chNum + ":" + (el.id || i), kind: "C", ch: chNum,
         q: q, a: a,
         pa: upgrade.pa || el.getAttribute("data-pa") || "",
+        promptPa: upgrade.promptPa || el.getAttribute("data-prompt-pa") || "",
         ex: upgrade.ex || el.getAttribute("data-explain") || "",
         exPa: upgrade.exPa || el.getAttribute("data-explain-pa") || "",
         term: hit ? hit.key : "",
@@ -930,7 +934,7 @@
       const hit = enrichFor(card.a, card.q);
       cards.push({
         id: "c:" + chNum + ":extra-" + (i + 1), kind: "C", ch: chNum,
-        q: card.q, a: card.a, pa: card.pa || "",
+        q: card.q, a: card.a, pa: card.pa || "", promptPa: card.promptPa || "",
         ex: card.ex || "", exPa: card.exPa || "",
         term: hit ? hit.key : "",
         extra: hit ? hit.data : null,
@@ -961,7 +965,7 @@
      explanation — and dropped entirely if neither is Gurmukhi. */
   const GURMUKHI_RE = /[\u0A00-\u0A7F]/;
   function paPromptFor(card) {
-    const candidates = card.kind === "V" ? [card.pa] : [card.pa, card.exPa];
+    const candidates = card.kind === "V" ? [card.pa] : [card.promptPa, card.pa, card.exPa];
     for (let i = 0; i < candidates.length; i++) {
       const t = (candidates[i] || "").trim();
       if (t && GURMUKHI_RE.test(t) && t.toLowerCase() !== String(card.kind === "V" ? card.en : card.a).toLowerCase()) return t;

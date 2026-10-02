@@ -206,6 +206,12 @@
       ex: "The standard mains frequency in India is 50 Hz, meaning 50 complete alternating-current cycles each second.",
       exPa: "ਭਾਰਤ ਵਿੱਚ ਮਿਆਰੀ ਮੇਨਜ਼ ਆਵਿਰਤੀ 50 Hz ਹੈ, ਅਰਥਾਤ ਹਰ ਸਕਿੰਟ ਪਰਿਵਰਤਨਸ਼ੀਲ ਧਾਰਾ ਦੇ 50 ਪੂਰੇ ਚੱਕਰ।"
     },
+    "What is the power of a lens with f = -0.5 m?": {
+      promptPa: "ਜਿਸ ਲੈਂਸ ਦੀ ਫੋਕਸ ਦੂਰੀ -0.5 m ਹੈ, ਉਸ ਦੀ ਸ਼ਕਤੀ ਕਿੰਨੀ ਹੈ?"
+    },
+    "If V = 10 V and I = 2 A, what is R?": {
+      promptPa: "ਜੇ V = 10 V ਅਤੇ I = 2 A ਹੋਵੇ, ਤਾਂ R ਕਿੰਨਾ ਹੈ?"
+    },
     "The commercial unit of electrical energy is the ___?": {
       q: "How many joules of energy equal one commercial unit of electricity?",
       a: "3.6 x 10^6 joules",

@@ -54,6 +54,14 @@
     try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; }
   }
 
+  function exitDuration() {
+    if (reducedMotion()) return 80;
+    try {
+      if (window.matchMedia("(pointer: coarse)").matches) return 160;
+    } catch (e) {}
+    return 190;
+  }
+
   function initExitTransition() {
     setTimeout(function () { document.body.classList.add("deck-entered"); }, 700);
     document.addEventListener("click", function (e) {
@@ -72,7 +80,7 @@
       try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (err) {}
       document.body.classList.add("deck-leaving");
       var target = link.href;
-      setTimeout(function () { window.location.href = target; }, reducedMotion() ? 120 : 260);
+      setTimeout(function () { window.location.href = target; }, exitDuration());
     });
     window.addEventListener("pageshow", function () {
       document.body.classList.remove("deck-leaving");
