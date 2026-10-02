@@ -759,8 +759,11 @@
 <script src="assets/flash-data.js"></script>
 <script src="assets/flash-extra-concepts.js"></script>
 <script>
-(function () {
+(async function () {
   "use strict";
+  await new Promise(resolve => document.addEventListener("DOMContentLoaded", resolve, { once: true }));
+  await window.BOLO_MEMCARD.ready();
+  await window.PSEB_STORE.ready();
 
   /* ================= Storage ================= */
   /* The theme key is deliberately the one the whole product shares, so the
@@ -1677,7 +1680,10 @@
   vvipBtn.setAttribute("aria-pressed", vvipOnly ? "true" : "false");
   renderChips();
   startSession(false);
-}());
+}()).catch(error => {
+  console.error("BOLO.FLASH could not restore learner progress.", error);
+  document.getElementById("stage").textContent = "Study progress could not be restored. Reload the page to try again.";
+});
 </script>
 <script defer src="assets/pwa.js"></script>
 <script defer src="assets/bmc-coffee.js"></script>

@@ -53,7 +53,7 @@
     { id: "rocket", icon: "\uD83D\uDE80", label: "Rocket" }
   ];
   /* Keys that describe the device, not the learner. */
-  var GLOBAL_KEYS = [REGISTRY_KEY, "bolo.bmc.seen.v1", "bolo_abim_disclaimer_accepted"];
+  var GLOBAL_KEYS = [REGISTRY_KEY, "bolo.bmc.seen.v1", "bolo_abim_license_key", "bolo_abim_disclaimer_accepted"];
   /* Copied into a newly created slot so the app keeps its current look. */
   var INHERITED_KEYS = ["bolo.theme.v1", "pseb.decktheme.v1", "pseb.fontscale.v1"];
   var DEFAULT_CHAPTER_COUNT = 16;
@@ -192,7 +192,8 @@
     return (window.PSEB_STORE && window.PSEB_STORE.keys) || [
       "pseb.progress.v1", "pseb.last.v1", "pseb.bookmarks.v1", "pseb.study.v1",
       "pseb.fontscale.v1", "pseb.decktheme.v1", "bolo.theme.v1",
-      "bolo_mcq_v1", "bolo_mcq_attempts_v1", "bolo_mcq_history_v1"
+      "bolo_mcq_v1", "bolo_mcq_attempts_v1", "bolo_mcq_history_v1",
+      "bolo.abim.v1", "bolo_flash_db"
     ];
   }
 
@@ -633,6 +634,12 @@
         throw new Error("Save block " + (i + 1) + " is damaged");
       }
       Object.keys(s.data).forEach(function (k) {
+        // Older exports treated device activation as learner data.
+        if (k === "bolo_abim_license_key" || k === "bolo_abim_disclaimer_accepted") {
+          console.warn("Memory-card import omitted device activation data; study progress is retained.");
+          delete s.data[k];
+          return;
+        }
         if (!isScoped(k)) throw new Error("Save block " + (i + 1) + " contains an unknown key");
         var v = s.data[k];
         if (v == null) delete s.data[k];

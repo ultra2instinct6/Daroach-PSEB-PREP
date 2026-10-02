@@ -252,3 +252,272 @@ breakdown on the results screen is meaningful rather than a single data point.
 | 12 | `ENG-VOC-05` | Vocabulary · Phrasal Verbs | Medium | Choose the correct phrasal verb: "The plane will ______ at six in the morning." | **take off** |
 | 13 | `ENG-COM-02` | Comprehension | Hard | "Despite repeated warnings from his parents, Rohan kept riding his motorcycle without a helmet. Last Monday, his luck finally ran out." — What can be inferred from this passage? | **Rohan met with an accident on Monday** |
 | 14 | `ENG-COM-03` | Comprehension | Medium | "The old banyan tree in our village square has witnessed weddings, quarrels and festivals for over a hundred years. To cut it down would be to erase a living record of our shared past." — What is the writer's main argument? | **The tree should be preserved because it is part of the village's shared history** |
+
+---
+
+# v2.2 — English Question-Bank Expansion (26 → 47)
+
+**Status: COMPLETE.** Added 21 original, bilingual PSEB Class 10 English MCQs,
+bringing the three-subject total from 95 to 116.
+
+## Coverage and difficulty
+- Seven Easy, seven Medium and seven Hard questions provide a deliberate
+  step-up in challenge.
+- Grammar practice adds articles, pronouns, question tags, tense selection,
+  passive voice, reported questions and commands, conjunctions, agreement,
+  comparison and sentence transformation.
+- Vocabulary covers synonyms and meaning from context; two short, original
+  passages exercise main-idea and evidence-based inference skills.
+- Each new question has bilingual prompts, options, rationales, a clue, a common
+  pitfall and a learning objective. The examples use familiar school and
+  community contexts rather than copied textbook passages.
+
+## Verification
+- All 116 question ids are unique; each has four bilingual options and exactly
+  one correct answer.
+- The English difficulty split is Easy 14, Medium 22 and Hard 11.
+- Every English question has a bilingual clue, pitfall, objective and
+  option-by-option rationale.
+- Inline JavaScript syntax and question-bank structural validation pass for all
+  116 questions.
+
+---
+
+# v2.3 — PSEB Class 10 Math Question-Bank Expansion
+
+**Status: COMPLETE.** Added 18 original Math MCQs, bringing the Math bank from
+27 to 45 questions and the three-subject total from 116 to 134.
+
+## Coverage and difficulty
+- Six new questions each at Easy, Medium and Hard, giving students a clear
+  progression from core recall and single-step practice to multi-step problems.
+- New questions cover real-number decimals, linear and quadratic equations,
+  APs, triangle similarity, coordinate geometry, standard trigonometric values,
+  heights and distances, tangent lengths, sector area, combined-solid volume,
+  grouped-data median and probability.
+- Punjabi prompts and explanations use direct, student-friendly wording, with
+  English alongside key terms and step-by-step calculations. Each new question
+  has four diagnostic options, option-level rationales, a clue, a common
+  pitfall and a learning objective in both languages.
+- The full Math bank now has 9 Easy, 24 Medium and 12 Hard questions; most of
+  the pre-existing questions remain Medium, while the new set itself is evenly
+  split across the three levels.
+
+## Verification
+- All 134 question IDs are unique; all 45 Math questions have exactly four
+  bilingual options and exactly one correct answer.
+- The 18 new questions each include bilingual prompts, option rationales,
+  clues, pitfalls and objectives.
+- Both inline JavaScript blocks pass syntax validation and `git diff --check`
+  reports no whitespace errors.
+- Browser check: the Math tab shows 45 questions and each of the 18 newly added
+  questions renders in the question engine.
+
+---
+
+# v2.4 — PSEB Class 10 Math Easy and Medium Practice Round
+
+**Status: COMPLETE.** Added 12 original bilingual Math MCQs, bringing the Math
+bank from 45 to 57 questions and the full question bank from 150 to 162.
+
+## Coverage and difficulty
+- Six Easy and six Medium questions add stepwise practice in real numbers,
+  polynomials, APs, coordinate geometry, trigonometry, probability, linear
+  equations, quadratics, right triangles, circle measures and statistics.
+- Punjabi-first prompts, clues and answer explanations use familiar wording
+  and show the calculation steps. Distractors reflect common errors such as
+  stopping Euclid's algorithm early, counting AP jumps incorrectly, mixing up
+  arc length with sector area, and ignoring frequencies in a mean.
+- Each question includes four bilingual answer choices with individual
+  rationales, a clue, a common pitfall and a learning objective.
+
+## Verification
+- All 162 question IDs are unique; all 57 Math questions have four bilingual
+  options and exactly one correct answer.
+- All 12 additions are split evenly: six Easy and six Medium.
+- Inline scripts pass JavaScript syntax validation and `git diff --check`.
+- Browser check confirms the expanded Math bank is available in the question
+  engine.
+
+---
+
+# v2.5 — PSEB Class 10 English Practice Expansion and Review
+
+**Status: COMPLETE.** Added 16 original, bilingual English MCQs to bring the
+English bank from 47 to 63 questions and the overall three-subject bank from
+146 to 162. The added practice is restricted to Easy and Medium; existing
+Hard questions remain available as optional stretch practice.
+
+## New concept coverage and difficulty
+- Eight Easy and eight Medium additions, covering punctuation, adverbs,
+  prefixes, homophones, spelling, similes, Punjabi-to-English translation,
+  comprehension details, gerunds, participial adjectives, conjunctions,
+  first conditionals, reported speech, prepositions and phrasal verbs.
+- Punjabi source sentences are shown for translation without placing their
+  English answer in the prompt; every option and explanation is bilingual.
+- The updated English difficulty split is Easy 22, Medium 31 and Hard 10.
+
+## Full English-bank review and verification
+- Reviewed all 63 English prompts and their answer keys, rationales, clues,
+  pitfalls and objectives; checked the distractors for competing valid
+  answers, repeated prompts and evidence that supports comprehension answers.
+- Corrected a comprehension item that previously inferred an accident without
+  enough evidence; it now describes the collision and asks for the stated
+  detail. Tightened an ambiguous continuous-residence tense prompt, specified
+  the target tense in a past-versus-present-perfect item, and added an explicit
+  interrupted-meal context to the past-continuous question. Also made the
+  between/among item unambiguous and qualified overly broad conditional and
+  unless rules.
+- Validated unique IDs, four bilingual options and exactly one correct option
+  per question; checked bilingual field completeness, answer-key/difficulty
+  counts, comparison-table dimensions, script syntax and metadata totals.
+- `git diff --check` passes. Browser smoke-check uses the question bank
+  directly; no existing science or math content was changed for this review.
+
+---
+
+# v2.6 — PSEB Class 10 Math Mixed-Difficulty Practice Wave
+
+**Status: COMPLETE.** Added 18 original bilingual Math MCQs: six Easy, six
+Medium and six Hard. The Math bank now has 75 questions and the full
+Science-Math-English bank has 180.
+
+## Coverage and difficulty
+- Adds practice in quadratic equations, heights and distances, constructions,
+  cylinder/composite-solid volume, probability, real-number decimals,
+  polynomial zeroes, BPT, tangent lengths, sector perimeter, AP sums,
+  coordinate section formula, and consecutive-integer word problems.
+- Punjabi-first clues and worked rationales emphasize the step students are
+  most likely to miss; distractors map to specific formula, sign, unit or
+  counting errors.
+- Each question has four bilingual options, one correct answer, a clue, a
+  common pitfall and a learning objective.
+
+## Verification
+- All 180 question IDs are unique; every question has four bilingual options
+  and exactly one correct answer.
+- The 18 additions split evenly across Easy, Medium and Hard.
+- Both inline scripts pass syntax validation; `git diff --check` passes.
+- Browser verification confirms all 18 new Math cards render in the bank.
+
+---
+
+# v2.7 — PSEB Class 10 English Mixed-Difficulty Practice Wave
+
+**Status: COMPLETE.** Added 18 original English MCQs: six Easy, six Medium
+and six Hard. The English bank now has 81 questions and the full
+Science-Math-English bank has 198.
+
+## Coverage and difficulty
+- New practice includes articles, adverbs, subject-verb agreement, antonyms,
+  Punjabi-to-English translation, reading details and main idea, past perfect,
+  reported questions, conjunctions, gerunds, prepositions, third conditionals
+  and sentence transformations.
+- The original short comprehension passages assess direct retrieval and
+  evidence-based inference without relying on textbook passages.
+- Each question includes Punjabi support, four English answer options,
+  bilingual explanations, a clue, a common pitfall and a learning objective.
+
+## Verification
+- All 198 question IDs are unique; each question has exactly four options,
+  exactly one correct answer and complete Punjabi-English fields.
+- The 18 additions split evenly: six Easy, six Medium and six Hard.
+- Inline JavaScript syntax and `git diff --check` pass.
+- Browser check confirms all 18 new English questions render.
+
+---
+
+# v2.8 — PSEB Class 10 English Easy and Medium Practice Wave
+
+**Status: COMPLETE.** Added 16 original bilingual English questions: eight
+Easy and eight Medium. The English bank now has 97 questions and the
+Science-Math-English bank has 214.
+
+## Coverage and difficulty
+- Easy practice covers capitalization, possessives, irregular past forms,
+  question formation, quantifiers, comma use between clauses, antonyms and
+  personification.
+- Medium practice covers passive voice with modals, relative pronouns,
+  sentence transformation, reported requests, paired conjunctions, future
+  perfect, English collocations and evidence-based reading inference.
+- Every question includes Punjabi support, four bilingual options, rationales,
+  a clue, a common pitfall and a learning objective.
+
+## Verification
+- All 214 question IDs are unique; every question has four bilingual options
+  and exactly one correct answer.
+- The English bank contains 36 Easy, 45 Medium and 16 Hard questions; all 16
+  additions are Easy or Medium.
+- Both inline JavaScript blocks pass syntax validation, the bank total matches
+  the page description and `git diff --check` passes.
+- Browser check confirms the English wave is available in the question engine.
+
+---
+
+# v2.9 — PSEB Class 10 English Easy and Medium Practice Wave and Review
+
+**Status: COMPLETE.** Added 12 original bilingual English MCQs: six Easy and
+six Medium. The English bank now has 109 questions and the complete
+Science-Math-English bank has 238 (Science 42, Math 87, English 109).
+
+## Coverage and difficulty
+- New practice covers comparative adjectives, demonstratives, question words,
+  negative imperatives, quantifier meaning, advice modals, present-perfect
+  passive, infinitives, phrasal verbs, result conjunctions, and evidence-based
+  reading comprehension.
+- The two short, original passages assess direct retrieval and cautious
+  inference. All new questions are Easy or Medium and include Punjabi support,
+  four bilingual options with rationales, a clue, a common pitfall and a
+  learning objective.
+
+## Whole-English-bank review and verification
+- Reviewed all 109 English items for answer-key accuracy, prompt clarity,
+  distractor quality, and the consistency of explanations and learning notes.
+- Clarified the reported-speech question's time assumption; qualified the
+  passive-voice and imperative reporting guidance; removed an unsupported
+  gender assumption; made the `little`/`a little` question test the requested
+  meaning directly; and qualified the idiom explanation to avoid an absolute
+  claim.
+- All 238 question IDs are unique; every question has four bilingual options
+  and exactly one correct answer. The English bank contains 42 Easy, 51 Medium
+  and 16 Hard questions.
+- JavaScript syntax, question-bank structure, page count metadata and
+  `git diff --check` pass.
+
+---
+
+# v2.10 — PSEB Class 10 Math Expansion and Full-Bank Review
+
+**Status: COMPLETE.** Added 12 original bilingual Math MCQs: four Easy, four
+Medium and four Hard. The Math bank now has 87 questions and the full
+Science-Math-English bank has 238.
+
+## Coverage and difficulty
+- The new questions add practice in Euclid's algorithm, polynomial zeroes,
+  standard trigonometric values, card probability, AP term position, SSS
+  similarity, arc length, grouped-data mean, linear-pair consistency,
+  coordinate triangle area, recast-solid volume and complementary probability.
+- Replaced repeated distance and BPT practice setups with distinct questions.
+- Every addition has Punjabi-English prompts, four answer choices with
+  bilingual rationales, a clue, a common pitfall and a learning objective.
+
+## Math review and verification
+- Reviewed all 75 Math questions that preceded this wave; checked each prompt,
+  keyed result and worked calculation. No incorrect existing answer keys or
+  calculations were found.
+- Math difficulty distribution is 25 Easy, 40 Medium and 22 Hard.
+- Every Math question has exactly four bilingual options and one correct key;
+  all IDs are unique and the 12 additions split evenly across the levels.
+- Both inline JavaScript blocks pass syntax validation; the full bank total
+  matches the page description and `git diff --check` passes.
+- Browser check confirms the expanded Math bank and new questions render.
+
+## Full-site publication verification
+
+- All 238 questions pass the reproducible `node Scripts/audit_mcq.js`
+  structural/bilingual audit. An isolated browser walk rendered and answered
+  all 42 Science, 87 Math and 109 English questions without script errors.
+- Checked a mixed timed custom quiz: feedback stays hidden until submission.
+- The MCQ engine now waits for memory-card/IndexedDB hydration before reading
+  learner progress. Synthetic-answer restoration and cross-slot isolation
+  were verified without using or resetting real learner profiles.

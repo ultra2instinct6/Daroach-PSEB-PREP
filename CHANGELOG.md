@@ -5,6 +5,25 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Full website publication and memory-card durability
+
+- Published the pending PSEB MCQ expansion: 238 bilingual questions
+  (Science 42, Math 87, English 109), including its existing review log.
+  Added a reproducible schema, duplicate, bilingual-field and syntax audit.
+- Classified ABIM activation as device-wide so learner resets/imports
+  preserve it and new backup files never export the license key.
+  Legacy backup activation fields are omitted with an explicit warning.
+- Added ABIM SRS and PSEB flashcard progress to the IndexedDB mirror,
+  including memory-card import/reset housekeeping.
+- MCQ, flashcard and ABIM engines now wait for learner-slot and backup
+  restoration before reading saved progress, preventing restored data from
+  being replaced by a fresh session at startup.
+- Verified isolated slot switching across home, MCQs, flashcards, lectures
+  and ABIM after mocked purchase activation; checked backup round-trips and
+  restoration after removing only synthetic localStorage study keys.
+- Restored GitHub Pages publishing from `main` after the repository became
+  public again. Service-worker cache bumped to v38.
+
 ## 2026-10-02 — Medical & AI disclaimer acceptance
 
 - Added the requested trademark, AI accuracy, and educational-use disclaimer

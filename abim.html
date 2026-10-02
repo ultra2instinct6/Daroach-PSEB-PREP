@@ -3023,7 +3023,9 @@
   });
 
   /* ================= Boot ================= */
-  window.BOLO_ABIM_ACCESS.ready.then(() => {
+  window.BOLO_ABIM_ACCESS.ready.then(async () => {
+  await window.BOLO_MEMCARD.ready();
+  if (window.PSEB_STORE) await window.PSEB_STORE.ready();
   loadState();
   try {
     const t = JSON.parse(localStorage.getItem(THEME_KEY));
@@ -3054,6 +3056,7 @@
   });
 })();
 </script>
+<script defer src="assets/pwa.js"></script>
 <script defer src="assets/bmc-coffee.js"></script>
 </body>
 </html>

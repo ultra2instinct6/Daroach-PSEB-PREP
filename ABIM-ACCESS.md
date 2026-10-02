@@ -28,6 +28,26 @@ If activation cannot be saved (including a failed-write result from the
 shared memory-card helper), the app warns explicitly and unlocks only for
 the current visit.
 
+## Memory cards and purchased access
+
+- The home screen, PSEB MCQs, PSEB flashcards, lecture decks and ABIM share
+  the same four learner slots. ABIM answers, saved concepts and SRS are
+  stored per slot, alongside that learner's PSEB study progress.
+- License activation and disclaimer acceptance belong to the device, not
+  a learner slot. Switching, resetting or importing a slot does not remove
+  the browser's activation or require acceptance again.
+- Slot/card backups include study progress, **not license keys or disclaimer
+  acceptance**. On another browser/device, enter the purchased receipt key
+  and accept the disclaimer before using imported ABIM progress.
+- Older exports that included activation fields still restore learner
+  progress; those device fields are omitted with a console warning and
+  cannot overwrite the destination browser's activation.
+- PSEB MCQ history, PSEB flashcard grading and ABIM SRS are mirrored into
+  IndexedDB by the offline storage layer. The study engines wait for slot
+  and backup restoration before reading progress. This helps when only
+  localStorage is lost, but is not a guarantee against deleting all site
+  data. Keep exported backups and your Gumroad receipt.
+
 License query parameters are removed before analytics and checkout scripts
 execute, including on failed verification. An invalid redirect takes
 precedence over a cached activation for that visit. Uppercase presentation
@@ -93,7 +113,9 @@ Run:
 ```sh
 node --test Scripts/test_abim_license.js
 node --test Scripts/test_abim_service_worker.js
+node --test Scripts/test_memory_card.js
 node Scripts/audit_abim.js
+node Scripts/audit_mcq.js
 node Scripts/audit_decks.js
 ```
 

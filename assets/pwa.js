@@ -159,7 +159,9 @@
     "bolo.theme.v1",
     "bolo_mcq_v1",        // MCQ subject/language preference
     "bolo_mcq_attempts_v1", // MCQ attempts: answers, flags, timings, score
-    "bolo_mcq_history_v1" // MCQ lifetime history: seen/incorrect/flagged + accuracy
+    "bolo_mcq_history_v1", // MCQ lifetime history: seen/incorrect/flagged + accuracy
+    "bolo.abim.v1",       // ABIM answers, saved concepts and spaced repetition
+    "bolo_flash_db"       // PSEB flashcard grading and review state
   ];
 
   function openDb() {
@@ -305,18 +307,23 @@
     } catch (e) {}
   }
 
+  var hydrationReady;
   window.PSEB_STORE = {
     save: save,
     load: load,
     keys: MIRRORED_KEYS,
     hydrate: hydrate,
+    ready: function () { return hydrationReady; },
     cacheAllChapters: cacheAllChapters,
     isOffline: function () { return navigator.onLine === false; }
   };
 
   /* ================= boot ================= */
   installMirror();
-  hydrate()["catch"](function () {});
+  hydrationReady = hydrate();
+  hydrationReady["catch"](function (error) {
+    console.error("BOLO progress backup restoration could not complete.", error);
+  });
   requestPersistence();
 
   window.addEventListener("online", syncOnlineState);
