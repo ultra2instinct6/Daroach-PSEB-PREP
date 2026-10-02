@@ -5,6 +5,11 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Potential and opportunity
+
+- Reworded the opening About quote to emphasize potential in every village
+  and town, and equitable opportunity to realize it; offline cache v49.
+
 ## 2026-10-02 — Transparent AI-use disclosure
 
 - Added a clearly labelled disclosure at the bottom of About explaining
