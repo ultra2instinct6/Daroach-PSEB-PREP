@@ -8,6 +8,23 @@ const path = require("node:path");
 const vm = require("node:vm");
 const code = fs.readFileSync(path.join(__dirname, "../assets/abim-license.js"), "utf8");
 
+test("upfront disclaimer explains project funding and preserves medical notices", () => {
+  const html = fs.readFileSync(path.join(__dirname, "../abim.html"), "utf8");
+  const start = html.indexOf('<div class="license-backdrop disclaimer-backdrop"');
+  const end = html.indexOf("<!-- Question/flashcard library", start);
+  assert.ok(start >= 0 && end > start);
+  const modal = html.slice(start, end);
+  assert.match(modal, /aria-describedby="[^"]*disclaimerMission"/);
+  assert.match(modal, /id="disclaimerMissionTitle"/);
+  assert.match(modal, /Purchases help fund BOLO.INSTINCT/);
+  assert.match(modal, /further development of bilingual STEM content/);
+  assert.match(modal, /not required to use the free PSEB resources/);
+  for (const id of ["disclaimerTrademark", "disclaimerAccuracy", "disclaimerLiability", "acceptDisclaimerBtn"]) {
+    assert.ok(modal.includes(`id="${id}"`));
+  }
+  assert.equal((html.match(/further development of bilingual STEM content/g) || []).length, 3);
+});
+
 function fixture({ query = "", saved = null, response, fetchError, timeoutError, bodyTimeout = false, storageFails = false, storageRejects = false, acknowledge = true, accepted = "true", theme = "NEON" } = {}) {
   const nodes = {};
   let focused = null, calls = 0, request = null, replaced = null, key = saved;

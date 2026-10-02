@@ -5,6 +5,15 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM upfront education mission
+
+- Promoted the opening ABIM funding note into a clearly labelled,
+  theme-aware mission panel matching the About page's rounded accent styling.
+- Explicitly explained that purchases fund BOLO.INSTINCT, keep PSEB tools
+  free for Punjabi youth and support further bilingual content development.
+- Matched the checkout and study-footer wording, preserved all medical/AI
+  notices and acknowledgement behavior, and refreshed the offline cache to v50.
+
 ## 2026-10-02 — Potential and opportunity
 
 - Reworded the opening About quote to emphasize potential in every village
