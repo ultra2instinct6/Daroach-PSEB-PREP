@@ -5,6 +5,25 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM Board Prep v2.7: flashcard quality upgrade
+
+All 510 ABIM flashcards were rewritten for active recall. Card order did not
+change, so saved decks and spaced-repetition progress carry over.
+
+- **Sharper prompts**: each front is a specific, board-style question.
+- **Tighter answers**: each back holds the one fact you need to recall.
+- **💡 Why it matters** (new `x` field): the mechanism or clinical reasoning
+  behind the answer.
+- **⚠️ Board trap** (new `t` field): the classic distractor or pitfall that this
+  fact rules out.
+- **Engine**: the details show on the unlocked core concepts, in the saved deck
+  list, and on the back of the Review flip card. The flip card now sizes to its
+  content, so longer backs are no longer cut off. Both themes are supported.
+- Facts were checked against the accuracy fixes from the v2.6 review.
+- Service worker cache bumped to v30.
+
+---
+
 ## 2026-10-02 — ABIM Board Prep v2.6: 170 questions, accuracy review
 
 Separate internal-medicine module (`abim.html` + `assets/abim-data.js`),

@@ -333,14 +333,15 @@
   .fc-inner {
     position: relative;
     flex: 1;
+    display: grid;
     transform-style: preserve-3d;
     will-change: transform;
     transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .fc-scene.flipped .fc-inner { transform: rotateY(180deg); }
   .fc-face {
-    position: absolute;
-    inset: 0;
+    grid-area: 1 / 1;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -369,6 +370,25 @@
   .fc-scene.flipped .fc-back > :nth-child(1) { animation-delay: 0.16s; }
   .fc-scene.flipped .fc-back > :nth-child(2) { animation-delay: 0.24s; }
   .fc-scene.flipped .fc-back > :nth-child(3) { animation-delay: 0.32s; }
+  .fc-scene.flipped .fc-back > :nth-child(4) { animation-delay: 0.42s; }
+  .fc-scene.flipped .fc-back > :nth-child(5) { animation-delay: 0.52s; }
+  /* Learning detail on the card back: the "why" and the classic board trap. */
+  .fc-detail {
+    margin: 0 auto;
+    max-width: 52ch;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border-left: 3px solid var(--teal);
+    background: color-mix(in srgb, var(--teal) 8%, transparent);
+    color: var(--text);
+    font-size: clamp(0.8rem, 2.4vw, 0.9rem);
+    font-weight: 600;
+    line-height: 1.55;
+    text-align: left;
+  }
+  .fc-detail.trap { border-left-color: var(--amber); background: color-mix(in srgb, var(--amber) 9%, transparent); }
+  .fc-detail b { display: block; margin-bottom: 2px; font-size: 0.68rem; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; color: var(--teal); }
+  .fc-detail.trap b { color: var(--amber); }
   @keyframes fcSecIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) {
     .fc-inner { transition-duration: 0.01s; }
@@ -378,6 +398,8 @@
   /* Q→A layout inside option-row flashcards (unlocked concepts + saved deck). */
   .opt-text strong { display: block; }
   .fc-answer-line { display: block; margin-top: 4px; color: var(--text-dim); font-weight: 600; font-size: 0.88em; line-height: 1.55; }
+  .fc-why, .fc-trap { display: block; margin-top: 6px; padding-left: 9px; border-left: 2px solid var(--teal); color: var(--text-dim); font-weight: 600; font-size: 0.8em; line-height: 1.5; }
+  .fc-trap { border-left-color: var(--amber); }
 
   /* Hint pill — opens the lab reference ranges drawer. ABIM mode only. */
   .hint-btn {
@@ -1108,8 +1130,8 @@
         html += '<div class="option-row flashcard-row"><button class="option' + (isCollected ? " collected" : "") +
           '" type="button" data-card="' + i + '" aria-pressed="' + (isCollected ? "true" : "false") +
           '"><span class="opt-letter" aria-hidden="true">[+]</span><span class="opt-text"><strong>' + esc(faces.f) +
-          "</strong><span class=\"fc-answer-line\">" + esc(faces.b) +
-          '</span></span><span class="flash-saved">✓ Saved</span></button></div>';
+          "</strong><span class=\"fc-answer-line\">" + esc(faces.b) + "</span>" + detailLines(faces) +
+          '</span><span class="flash-saved">✓ Saved</span></button></div>';
       });
     }
     html += "</div></div></div>";
@@ -1167,8 +1189,8 @@
       groups[sys].map(c =>
         '<div class="option-row flashcard-row"><div class="option collected" style="cursor:default;">' +
         '<span class="opt-letter" aria-hidden="true">[+]</span><span class="opt-text"><strong>' + esc(c.faces.f) +
-        "</strong><span class=\"fc-answer-line\">" + esc(c.faces.b) +
-        '</span></span><button class="card-remove" type="button" data-remove-card="' + esc(c.key) + '">✕ Remove</button></div></div>'
+        "</strong><span class=\"fc-answer-line\">" + esc(c.faces.b) + "</span>" + detailLines(c.faces) +
+        '</span><button class="card-remove" type="button" data-remove-card="' + esc(c.key) + '">✕ Remove</button></div></div>'
       ).join("")
     ).join("");
   }
@@ -1186,12 +1208,17 @@
   /* Cards are { f: front/question, b: back/answer }; legacy strings split on
      the first colon so older saved decks keep working. */
   function cardFaces(raw) {
-    if (raw && typeof raw === "object") return { f: raw.f, b: raw.b };
+    if (raw && typeof raw === "object") return { f: raw.f, b: raw.b, x: raw.x || "", t: raw.t || "" };
     const text = String(raw);
     const c = text.indexOf(":");
     return (c > 8 && c < 70)
       ? { f: text.slice(0, c), b: text.slice(c + 1).trim() }
       : { f: "Recall this core concept", b: text };
+  }
+
+  function detailLines(c) {
+    return (c.x ? '<span class="fc-why">💡 ' + esc(c.x) + "</span>" : "") +
+      (c.t ? '<span class="fc-trap">⚠️ ' + esc(c.t) + "</span>" : "");
   }
 
   function findCard(key) {
@@ -1202,7 +1229,7 @@
     if (!q || !q.flashcards[idx]) return null;
     const faces = cardFaces(q.flashcards[idx]);
     const sys = q.system && SYSTEMS[q.system] ? SYSTEMS[q.system] : { label: "⚗️ PSEB Science", cls: "hot" };
-    return { f: faces.f, b: faces.b, sys: sys };
+    return { f: faces.f, b: faces.b, x: faces.x, t: faces.t, sys: sys };
   }
 
   function renderReviewCount() {
@@ -1271,6 +1298,8 @@
             '<div class="fc-kicker">Answer</div>' +
             '<div class="fc-q fc-q-small">' + esc(card.f) + "</div>" +
             '<div class="fc-a">' + esc(card.b) + "</div>" +
+            (card.x ? '<div class="fc-detail"><b>💡 Why it matters</b>' + esc(card.x) + "</div>" : "") +
+            (card.t ? '<div class="fc-detail trap"><b>⚠️ Board trap</b>' + esc(card.t.replace(/^Trap:\s*/, "")) + "</div>" : "") +
           "</div>" +
         "</div></div>";
     if (reviewShown) {
