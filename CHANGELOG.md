@@ -5,6 +5,18 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Upfront disclaimer on every visit and themed access screens
+
+- Show the Medical & AI Disclaimer before license entry, checkout and study
+  on every ABIM page visit, including returning purchasers and receipt URLs.
+- Acknowledgement is now in-memory only; old saved acceptance never skips
+  the notice. Receipt verification waits for acknowledgement.
+- Keep background interaction and study initialization blocked until both
+  acknowledgement and license activation have completed.
+- Match both access screens to the shared Neon/Classic preference and add
+  theme switches with accessible focus containment.
+- Updated gate-flow regressions and service-worker cache to v39.
+
 ## 2026-10-02 — Full website publication and memory-card durability
 
 - Published the pending PSEB MCQ expansion: 238 bilingual questions

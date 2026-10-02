@@ -2,7 +2,6 @@
   "use strict";
 
   const STORAGE_KEY = "bolo_abim_license_key";
-  const DISCLAIMER_KEY = "bolo_abim_disclaimer_accepted";
   const VERIFY_URL = "https://api.gumroad.com/v2/licenses/verify";
   const PRODUCT = "bolo-abim";
   const url = new URL(location.href);
@@ -45,17 +44,38 @@
     const error = document.getElementById("licenseError");
     const disclaimer = document.getElementById("disclaimerModal");
     const acceptButton = document.getElementById("acceptDisclaimerBtn");
-    const disclaimerError = document.getElementById("disclaimerError");
+    const themeButtons = Array.from(document.querySelectorAll("[data-access-theme]"));
+    let acknowledged = false;
     let authorized = false;
     let busy = false;
 
+    function applyAccessTheme(theme) {
+      document.body.setAttribute("data-theme", theme);
+      themeButtons.forEach(control => { control.textContent = "Theme: " + (theme === "CLASSIC" ? "Classic" : "Neon"); });
+    }
+    try {
+      const saved = JSON.parse(localStorage.getItem("bolo.theme.v1"));
+      applyAccessTheme(saved && saved.theme === "CLASSIC" ? "CLASSIC" : "NEON");
+    } catch (storageError) {
+      console.error("ABIM access-screen theme could not be restored.", storageError);
+      applyAccessTheme("NEON");
+    }
+    themeButtons.forEach(control => control.addEventListener("click", () => {
+      const theme = document.body.getAttribute("data-theme") === "CLASSIC" ? "NEON" : "CLASSIC";
+      applyAccessTheme(theme);
+      try { localStorage.setItem("bolo.theme.v1", JSON.stringify({ theme })); }
+      catch (storageError) {
+        console.error("ABIM access-screen theme could not be saved.", storageError);
+        window.alert("Theme changed for this visit, but this browser could not save it.");
+      }
+    }));
     function showError(message) {
       error.textContent = message;
       error.hidden = false;
       input.setAttribute("aria-invalid", "true");
     }
     function startApp() {
-      if (unlocked) return;
+      if (!acknowledged || !authorized || unlocked) return;
       unlocked = true;
       backdrop.hidden = true;
       disclaimer.hidden = true;
@@ -66,43 +86,27 @@
     }
     function unlock() {
       authorized = true;
-      backdrop.hidden = true;
-      try {
-        if (localStorage.getItem(DISCLAIMER_KEY) === "true") {
-          startApp();
-          return;
-        }
-      } catch (storageError) {
-        console.error("Saved ABIM disclaimer acceptance could not be read.");
-        disclaimerError.textContent = "Saved acceptance could not be read. Enable local storage and accept to continue.";
-        disclaimerError.hidden = false;
-      }
-      disclaimer.hidden = false;
-      acceptButton.focus();
+      startApp();
     }
     acceptButton.addEventListener("click", () => {
-      if (!authorized || unlocked) return;
-      try {
-        localStorage.setItem(DISCLAIMER_KEY, "true");
-      } catch (storageError) {
-        console.error("ABIM disclaimer acceptance could not be saved.");
-        disclaimerError.textContent = "Acceptance could not be saved. Enable local storage in this browser and try again.";
-        disclaimerError.hidden = false;
-        return;
-      }
-      startApp();
+      if (acknowledged || unlocked) return;
+      acknowledged = true;
+      disclaimer.hidden = true;
+      beginActivation();
     });
     disclaimer.addEventListener("keydown", event => {
       // Keep all study shortcuts out of the document while preserving button activation.
       event.stopPropagation();
       if (event.key === "Escape") event.preventDefault();
       if (event.key === "Tab") {
-        event.preventDefault();
-        acceptButton.focus();
+        const controls = Array.from(disclaimer.querySelectorAll("button"));
+        const first = controls[0], last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
       }
     });
     async function verify(key) {
-      if (busy || authorized) return;
+      if (!acknowledged || busy || authorized) return;
       key = key.trim();
       if (!key) {
         showError("Enter the license key from your Gumroad receipt.");
@@ -186,12 +190,12 @@
     ["click", "pointerdown", "contextmenu", "keydown"].forEach(type => {
       document.addEventListener(type, event => {
         if (unlocked) return;
-        if (authorized) {
+        if (!acknowledged) {
           if (disclaimer.contains(event.target)) return;
         } else if (backdrop.contains(event.target)) return;
         // Gumroad mounts checkout in a shadow root outside our paywall.
         const checkout = event.target.shadowRoot && event.target.shadowRoot.querySelector("iframe");
-        if (!authorized && checkout && checkout.src) {
+        if (acknowledged && !authorized && checkout && checkout.src) {
           const host = new URL(checkout.src).hostname;
           if (host === "gumroad.com" || host.endsWith(".gumroad.com")) return;
         }
@@ -212,21 +216,27 @@
       verify(input.value);
     });
 
-    if (hasRedirectKey) {
-      input.value = redirectKey || "";
-      verify(input.value);
-    } else if (adminRequested) {
-      showError("URL administrator bypass is not supported. Enter a purchased Gumroad license key.");
-    } else {
-      try {
-        const key = savedKey();
-        if (typeof key === "string" && key.trim()) { unlock(); return; }
-      } catch (storageError) {
-        console.error("Saved ABIM activation could not be read.");
-        showError("Saved activation could not be read. Enter your key to unlock this visit.");
+    function beginActivation() {
+      backdrop.hidden = false;
+      if (hasRedirectKey) {
+        input.value = redirectKey || "";
+        verify(input.value);
+      } else if (adminRequested) {
+        showError("URL administrator bypass is not supported. Enter a purchased Gumroad license key.");
+      } else {
+        try {
+          const key = savedKey();
+          if (typeof key === "string" && key.trim()) { unlock(); return; }
+        } catch (storageError) {
+          console.error("Saved ABIM activation could not be read.");
+          showError("Saved activation could not be read. Enter your key to unlock this visit.");
+        }
       }
+      input.focus();
     }
-    input.focus();
+    backdrop.hidden = true;
+    disclaimer.hidden = false;
+    acceptButton.focus();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);

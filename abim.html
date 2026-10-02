@@ -1183,8 +1183,9 @@
 <div class="sr-only" role="status" aria-live="polite" id="ariaAnnouncer"></div>
 </div>
 
-<div class="license-backdrop" id="licensePaywall">
+<div class="license-backdrop" id="licensePaywall" hidden>
   <section class="license-card" role="dialog" aria-modal="true" aria-labelledby="licenseTitle" aria-describedby="licenseDescription">
+    <button class="access-theme" type="button" data-access-theme>Theme: Neon</button>
     <h1 id="licenseTitle">BOLO.ABIM Full Access</h1>
     <p id="licenseDescription">Enter your license key from your Gumroad receipt to unlock all subspecialty modules and the spaced-repetition engine.</p>
     <form id="licenseForm" novalidate>
@@ -1200,14 +1201,16 @@
   </section>
 </div>
 
-<div class="license-backdrop disclaimer-backdrop" id="disclaimerModal" hidden>
+<div class="license-backdrop disclaimer-backdrop" id="disclaimerModal">
   <section class="license-card disclaimer-card" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle" aria-describedby="disclaimerTrademark disclaimerAccuracy disclaimerLiability">
+    <button class="access-theme" type="button" data-access-theme>Theme: Neon</button>
     <h1 id="disclaimerTitle">Medical &amp; AI Disclaimer</h1>
     <p id="disclaimerTrademark">BOLO.ABIM is an independent educational tool designed for board preparation. It is not affiliated with, sponsored by, or endorsed by the American Board of Internal Medicine (ABIM®).</p>
     <p id="disclaimerAccuracy">The clinical vignettes, flashcards, and explanations within this tool are generated utilizing Artificial Intelligence. While rigorous efforts are made to align content with standard clinical guidelines, AI systems can hallucinate, omit context, or provide outdated information.</p>
     <p id="disclaimerLiability">This tool must not be used as a substitute for official medical guidelines, primary literature, or independent clinical judgment. It is strictly for educational purposes and is not intended for direct patient care, diagnosis, or clinical decision-making.</p>
-    <div id="disclaimerError" class="license-error" role="alert" hidden></div>
+    <p class="license-note">Please acknowledge this notice each time you visit, before activating a license, purchasing access, or studying.</p>
     <button id="acceptDisclaimerBtn" type="button">I Understand and Agree</button>
+    <noscript><p>JavaScript is required to acknowledge this notice, activate a license, and use BOLO.ABIM.</p></noscript>
   </section>
 </div>
 

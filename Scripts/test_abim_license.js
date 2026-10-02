@@ -8,27 +8,33 @@ const path = require("node:path");
 const vm = require("node:vm");
 const code = fs.readFileSync(path.join(__dirname, "../assets/abim-license.js"), "utf8");
 
-function fixture({ query = "", saved = null, response, fetchError, timeoutError, bodyTimeout = false, storageFails = false, storageRejects = false, accepted = "true", disclaimerStorageFails = false } = {}) {
+function fixture({ query = "", saved = null, response, fetchError, timeoutError, bodyTimeout = false, storageFails = false, storageRejects = false, acknowledge = true, accepted = "true", theme = "NEON" } = {}) {
   const nodes = {};
   let focused = null, calls = 0, request = null, replaced = null, key = saved;
-  for (const id of ["licensePaywall", "abimApp", "licenseForm", "licenseKey", "verifyLicenseBtn", "licenseError", "disclaimerModal", "acceptDisclaimerBtn", "disclaimerError"]) {
+  for (const id of ["licensePaywall", "abimApp", "licenseForm", "licenseKey", "verifyLicenseBtn", "licenseError", "disclaimerModal", "acceptDisclaimerBtn", "accessTheme"]) {
     nodes[id] = {
-      hidden: ["licenseError", "disclaimerModal", "disclaimerError"].includes(id), inert: id === "abimApp", value: "", attributes: {},
+      hidden: ["licenseError", "licensePaywall"].includes(id), inert: id === "abimApp", value: "", attributes: {},
       listeners: {}, textContent: "",
       addEventListener(type, fn) { this.listeners[type] = fn; },
       setAttribute(name, value) { this.attributes[name] = value; },
       removeAttribute(name) { delete this.attributes[name]; },
       focus() { focused = id; },
       contains(node) {
-        return id === "disclaimerModal" ? node === nodes.acceptDisclaimerBtn :
+        return id === "disclaimerModal" ? node === nodes.acceptDisclaimerBtn || node === nodes.accessTheme :
           node === nodes.licenseKey || node === nodes.licenseForm;
       },
-      querySelectorAll() { return [nodes.licenseKey, nodes.verifyLicenseBtn]; }
+      querySelectorAll() { return id === "disclaimerModal" ? [nodes.accessTheme, nodes.acceptDisclaimerBtn] : [nodes.licenseKey, nodes.verifyLicenseBtn]; }
     };
   }
   const document = {
     readyState: "complete", listeners: {},
-    body: { classList: { remove(name) { document.removedClass = name; } } },
+    body: {
+      attributes: {},
+      setAttribute(name, value) { this.attributes[name] = value; },
+      getAttribute(name) { return this.attributes[name]; },
+      classList: { remove(name) { document.removedClass = name; } }
+    },
+    querySelectorAll() { return [nodes.accessTheme]; },
     getElementById(id) { return nodes[id]; },
     addEventListener(type, fn) { this.listeners[type] = fn; }
   };
@@ -49,14 +55,13 @@ function fixture({ query = "", saved = null, response, fetchError, timeoutError,
     window, document, URL, URLSearchParams, AbortController, clearTimeout,
     localStorage: {
       getItem(name) {
-        assert.equal(name, "bolo_abim_disclaimer_accepted");
-        if (disclaimerStorageFails) throw new Error("Synthetic disclaimer storage failure");
-        return accepted;
+        if (name === "bolo_abim_disclaimer_accepted") return accepted;
+        assert.equal(name, "bolo.theme.v1");
+        return JSON.stringify({ theme });
       },
       setItem(name, value) {
-        assert.equal(name, "bolo_abim_disclaimer_accepted");
-        if (disclaimerStorageFails) throw new Error("Synthetic disclaimer storage failure");
-        accepted = value;
+        assert.equal(name, "bolo.theme.v1");
+        theme = JSON.parse(value).theme;
       }
     },
     setTimeout(fn, delay) { return setTimeout(fn, (timeoutError || bodyTimeout) && delay === 15000 ? 5 : delay); },
@@ -87,6 +92,7 @@ function fixture({ query = "", saved = null, response, fetchError, timeoutError,
     }
   };
   vm.runInNewContext(code, context);
+  if (acknowledge) nodes.acceptDisclaimerBtn.listeners.click();
   return {
     nodes, window, document,
     get calls() { return calls; }, get request() { return request; },
@@ -244,16 +250,20 @@ test("a timeout reading the response body is reported as a timeout, not invalid 
   assert.equal(f.nodes.licenseKey.readOnly, false);
 });
 
-test("unlicensed visitors see only the paywall, even with prior acceptance", () => {
-  const f = fixture();
-  assert.equal(f.nodes.disclaimerModal.hidden, true);
+test("every unlicensed visit starts with disclaimer before purchase or license entry", () => {
+  const f = fixture({ acknowledge: false });
+  assert.equal(f.nodes.disclaimerModal.hidden, false);
+  assert.equal(f.nodes.licensePaywall.hidden, true);
+  assert.equal(f.calls, 0);
   f.nodes.acceptDisclaimerBtn.listeners.click();
+  assert.equal(f.nodes.disclaimerModal.hidden, true);
+  assert.equal(f.nodes.licensePaywall.hidden, false);
   assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
 });
 
-for (const accepted of [null, "false", "TRUE", ""]) {
-  test("authorized users must explicitly accept when stored value is " + JSON.stringify(accepted), async () => {
-    const f = fixture({ saved: "TEST-CACHED", accepted });
+for (const accepted of [null, "false", "TRUE", "", "true"]) {
+  test("returning purchasers must acknowledge each visit despite stored value " + JSON.stringify(accepted), async () => {
+    const f = fixture({ saved: "TEST-CACHED", accepted, acknowledge: false });
     let started = false;
     f.window.BOLO_ABIM_ACCESS.ready.then(() => { started = true; });
     await f.settle();
@@ -264,25 +274,30 @@ for (const accepted of [null, "false", "TRUE", ""]) {
     assert.equal(f.focused, "acceptDisclaimerBtn");
     f.nodes.acceptDisclaimerBtn.listeners.click();
     await f.settle();
-    assert.equal(f.accepted, "true");
+    assert.equal(f.accepted, accepted);
     assert.equal(started, true);
     assert.equal(f.nodes.disclaimerModal.hidden, true);
     assert.equal(f.nodes.abimApp.inert, false);
   });
 }
 
-test("new Gumroad verification opens disclaimer before resolving study access", async () => {
-  const f = fixture({ accepted: null });
-  await f.submit("TEST-NEW-LICENSE");
+test("receipt verification is deferred until acknowledgement and starts study after success", async () => {
+  const f = fixture({ query: "?license_key=TEST-NEW-LICENSE", acknowledge: false });
+  assert.equal(f.calls, 0);
+  assert.equal(f.replaced, "https://example.test/abim.html");
+  await f.submit("TEST-CANNOT-SUBMIT-YET");
+  assert.equal(f.calls, 0);
+  f.nodes.acceptDisclaimerBtn.listeners.click();
+  await f.settle();
   assert.equal(f.key, "TEST-NEW-LICENSE");
-  assert.equal(f.nodes.disclaimerModal.hidden, false);
-  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
+  assert.equal(f.nodes.disclaimerModal.hidden, true);
+  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), true);
   await f.submit("TEST-DUPLICATE");
   assert.equal(f.calls, 1);
 });
 
 test("disclaimer blocks outside events and traps keyboard focus without dismissing", () => {
-  const f = fixture({ saved: "TEST-CACHED", accepted: null });
+  const f = fixture({ saved: "TEST-CACHED", acknowledge: false });
   let blocked = 0;
   for (const key of [" ", "Enter", "1", "2", "3", "4"]) {
     f.document.listeners.keydown({
@@ -292,19 +307,31 @@ test("disclaimer blocks outside events and traps keyboard focus without dismissi
   }
   assert.equal(blocked, 6);
   let stopped = false;
+  f.document.activeElement = f.nodes.acceptDisclaimerBtn;
   f.nodes.disclaimerModal.listeners.keydown({
     key: "Tab", stopPropagation() { stopped = true; }, preventDefault() {}
   });
   assert.equal(stopped, true);
-  assert.equal(f.focused, "acceptDisclaimerBtn");
+  assert.equal(f.focused, "accessTheme");
   assert.equal(f.nodes.disclaimerModal.hidden, false);
 });
 
-test("failed acceptance persistence stays locked with a visible retry error", () => {
-  const f = fixture({ saved: "TEST-CACHED", disclaimerStorageFails: true });
-  f.nodes.acceptDisclaimerBtn.listeners.click();
-  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
+test("gate restores Classic theme and switching themes persists continuity", () => {
+  const f = fixture({ theme: "CLASSIC", acknowledge: false });
+  assert.equal(f.document.body.getAttribute("data-theme"), "CLASSIC");
+  f.nodes.accessTheme.listeners.click();
+  assert.equal(f.document.body.getAttribute("data-theme"), "NEON");
+  assert.equal(f.nodes.accessTheme.textContent, "Theme: Neon");
+});
+
+test("checkout events remain blocked until the upfront notice is acknowledged", () => {
+  const f = fixture({ acknowledge: false });
+  let blocked = false;
+  f.document.listeners.click({
+    target: { shadowRoot: { querySelector() { return { src: "https://deepakroar2.gumroad.com/l/bolo-abim" }; } } },
+    preventDefault() { blocked = true; },
+    stopImmediatePropagation() {}
+  });
+  assert.equal(blocked, true);
   assert.equal(f.nodes.disclaimerModal.hidden, false);
-  assert.equal(f.nodes.disclaimerError.hidden, false);
-  assert.match(f.nodes.disclaimerError.textContent, /could not be saved/);
 });

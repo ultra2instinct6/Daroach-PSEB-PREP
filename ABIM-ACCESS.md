@@ -33,9 +33,10 @@ the current visit.
 - The home screen, PSEB MCQs, PSEB flashcards, lecture decks and ABIM share
   the same four learner slots. ABIM answers, saved concepts and SRS are
   stored per slot, alongside that learner's PSEB study progress.
-- License activation and disclaimer acceptance belong to the device, not
-  a learner slot. Switching, resetting or importing a slot does not remove
-  the browser's activation or require acceptance again.
+- License activation belongs to the device, not a learner slot. Switching,
+  resetting or importing a slot does not remove the browser's activation.
+  The disclaimer must be acknowledged on every new page visit, including
+  reloads caused by switching learner slots.
 - Slot/card backups include study progress, **not license keys or disclaimer
   acceptance**. On another browser/device, enter the purchased receipt key
   and accept the disclaimer before using imported ABIM progress.
@@ -58,16 +59,27 @@ ABIM and PSEB pages keep their existing offline caching.
 
 ## Medical & AI disclaimer
 
-After license activation, users must accept the Medical & AI Disclaimer
-before the study engine starts. Only the exact stored value `"true"` for
-`bolo_abim_disclaimer_accepted` skips the modal on later visits.
-Acceptance is device-wide, separate from learner-slot study progress.
-The license paywall takes priority for unlicensed visitors.
+The Medical & AI Disclaimer is the first screen on **every ABIM page visit**,
+before license entry, checkout or study. This applies to first-time visitors,
+returning activated users and purchase/receipt redirects. Acknowledgement
+lasts only for the current page visit: the old
+`bolo_abim_disclaimer_accepted` value is no longer read or written and
+cannot skip this notice. Existing stored data is not erased.
+
+After acknowledgement, unlicensed visitors see the Gumroad activation and
+purchase screen; cached license holders proceed to study. Receipt-key
+verification is deferred until acknowledgement, but URL credentials are
+still removed immediately. The disclaimer appears again on a new visit
+after purchasing, not as a redundant second prompt within the same visit.
 
 The modal cannot be dismissed by outside clicks or Escape. The study
 wrapper remains inert/hidden, background shortcuts are blocked, and focus
-stays on the acceptance control. If acceptance cannot be saved, an inline
-error keeps the gate closed and allows retry after enabling local storage.
+stays within the dialog's theme and acceptance controls. No storage write
+is required to acknowledge this per-visit notice.
+
+Both the disclaimer and activation screens honor the learner's saved
+Neon/Classic theme. Each includes a theme switch, which updates the same
+`bolo.theme.v1` preference used by the study tool and the rest of the site.
 
 ## Important security limits
 

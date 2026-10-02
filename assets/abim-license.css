@@ -66,6 +66,37 @@ body.abim-access-locked #abimApp { visibility: hidden; pointer-events: none; }
 .disclaimer-card { width: min(100%, 640px); background: #1e293b; }
 .disclaimer-card h1 { color: #f8fafc; font-weight: 800; }
 .disclaimer-card p { color: #cbd5e1; }
+.license-card .access-theme {
+  width: auto;
+  margin: 0 0 20px auto;
+  padding: 8px 14px;
+  border: 1px solid #52657d;
+  border-radius: 999px;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+}
+body[data-theme="CLASSIC"] .license-backdrop { background: rgba(238, 244, 255, 0.95); }
+body[data-theme="CLASSIC"] .license-card {
+  background: #ffffff;
+  color: #102a43;
+  border-color: rgba(11, 86, 197, 0.3);
+  box-shadow: 0 20px 70px rgba(16, 42, 82, 0.18);
+}
+body[data-theme="CLASSIC"] .license-card h1 { color: #102a43; }
+body[data-theme="CLASSIC"] .license-card p,
+body[data-theme="CLASSIC"] .license-card .license-home { color: #33475e; }
+body[data-theme="CLASSIC"] .license-card input {
+  background: #f8fbff;
+  color: #102a43;
+  border-color: #7890ac;
+}
+body[data-theme="CLASSIC"] .license-card input::placeholder { color: #52657d; }
+body[data-theme="CLASSIC"] .license-card button { background: #0b56c5; color: #ffffff; }
+body[data-theme="CLASSIC"] .license-card .gumroad-button { background: #e8effb; color: #0b4aa8; }
+body[data-theme="CLASSIC"] .license-card .access-theme { background: #f8fbff; color: #0b4aa8; border-color: #7890ac; }
+body[data-theme="CLASSIC"] .license-error { color: #b42338; }
+body[data-theme="CLASSIC"] .license-card :is(input, button, a):focus-visible { outline-color: #0b56c5; }
 @media (prefers-reduced-motion: reduce) {
   .license-backdrop *, .license-backdrop *::before, .license-backdrop *::after { transition: none; }
 }
