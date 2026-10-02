@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v34";
+var CACHE_VERSION = "v35";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;
@@ -41,6 +41,8 @@ var SHELL_ASSETS = [
   "./flashcards.html",
   "./abim.html",
   "./assets/abim-data.js",
+  "./assets/abim-license.js",
+  "./assets/abim-license.css",
   "./assets/chapters.js",
   "./assets/glossary.js",
   "./assets/flash-data.js",

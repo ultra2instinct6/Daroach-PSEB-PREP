@@ -5,6 +5,23 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM v3.2: ABIM-only page and Gumroad activation
+
+- Removed the legacy PSEB question/demo mode from the ABIM page. It now
+  opens as BOLO.ABIM with or without URL parameters; the floating pill
+  launches an ABIM session instead of switching subjects.
+- Added a fullscreen activation form, Gumroad checkout overlay/link,
+  URL receipt-key verification, loading/error states, and remembered
+  device-wide activation without changing learner-slot progress.
+- Rejects invalid, refunded, chargebacked and disputed purchases.
+  Credentials are removed from URLs before analytics runs.
+- No hardcoded master password or URL administrator bypass is published.
+  This static activation screen is bypassable; cached activation is not
+  revocation enforcement. Secure paid-content delivery requires a backend,
+  as documented in [ABIM-ACCESS.md](./ABIM-ACCESS.md).
+- Added mocked activation tests; no real license is used in validation.
+- Service worker cache bumped to v35, including the activation assets.
+
 ## 2026-10-02 — ABIM Board Prep v3.1: Tutor and timed practice blocks
 
 - **Full editorial review of all 250 questions and 750 cards**, including
