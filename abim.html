@@ -642,6 +642,7 @@
   @media (max-width: 560px) {
     .score-pill { display: none; }
     .hint-btn { margin-left: 0; flex-basis: 100%; }
+    .hint-btn[data-toggle-lab] { margin-left: auto; flex-basis: auto; }
     .abim-toggle { padding: 11px 16px; font-size: 0.76rem; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -1064,7 +1065,7 @@
        category chips (with exam weight) + the tested exam task. */
     html += '<div class="q-meta">' + tagsHTML(q);
     if (isAbimMode) {
-      html += '<button class="hint-btn" type="button" data-toggle-lab aria-expanded="' + (labOpen ? "true" : "false") + '" aria-controls="labPanel">🧪 ABIM Lab Reference Ranges (Jan 2026)</button>';
+      html += '<button class="hint-btn" type="button" data-toggle-lab aria-expanded="' + (labOpen ? "true" : "false") + '" aria-controls="labPanel" title="ABIM Lab Reference Ranges (Jan 2026)" aria-label="ABIM Lab Reference Ranges (Jan 2026)">🧪 Labs</button>';
     }
     html += "</div>";
 
