@@ -5,6 +5,65 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM Board Prep v3.1: Tutor and timed practice blocks
+
+- **Full editorial review of all 250 questions and 750 cards**, including
+  the entire latest 80-item expansion. Reviewed clinical context,
+  single-best-answer defensibility, explanation/option consistency,
+  flashcard details and duplicate tested decisions.
+  - Refined 137 question records across the two review scopes, including
+    clinical clarification and distractor-quality improvements, not just
+    factual corrections.
+  - Updated guideline-sensitive teaching: 2024 hyperglycemic crisis
+    guidance, 2025 primary aldosteronism and retinal screening, 2026
+    dyslipidemia guidance, HRS criteria, and US medication availability.
+  - Distinguished postpartum thyroiditis **diagnosis** from **management
+    during lactation**, and pregnancy antihypertensive safety from
+    **preeclampsia prophylaxis planning**, resolving repeated decisions
+    without changing stable question IDs, answer positions or card keys.
+  - Related diagnoses remain where the tested task differs; exact stem and
+    front/back-card duplicates are checked automatically. Editorial review
+    is not clinical certification or a guarantee against future guideline
+    changes.
+  - Source checks include [ACC 2026 dyslipidemia guidance](https://www.acc.org/latest-in-cardiology/journal-scans/2026/03/13/15/20/acc-aha-release-new-clinical-guideline-for-managing-dyslipidemia),
+    [AAO retinal screening](https://www.aao.org/education/clinical-statement/revised-recommendations-on-screening-chloroquine-h),
+    [FDA clozapine REMS update](https://www.fda.gov/drugs/drug-safety-communications/fda-removes-risk-evaluation-and-mitigation-strategy-rems-program-antipsychotic-drug-clozapine),
+    [FDA Andexxa safety/US sales update](https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/update-safety-andexxa),
+    and [CDC adult vaccine notes](https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-notes.html).
+- **Create Session / Start Practice** selects Tutor or Timed Mock, Unused /
+  Incorrect / Flagged / All questions, and 10 / 30 / 60 items. When fewer
+  eligible questions exist, the launcher explains the smaller available
+  block rather than repeating items.
+- **Tutor** retains immediate feedback, explanations and unlocked core
+  concepts. **Timed Mock** keeps changeable selections separate from saved
+  progress and hides feedback until submission.
+- Mock blocks allocate **100 seconds per item** (60 items = 100 minutes).
+  A deadline-based countdown continues while the tab is hidden, warns below
+  five minutes and submits automatically at zero.
+- Flagging, numbered navigation and option elimination support block
+  navigation without revealing the key. Touch long-press provides
+  elimination without selecting an answer.
+- Submission includes an unanswered-item confirmation (except automatic
+  timeout), raw score, percentage, pace against the 100-second target, and
+  a per-system breakdown. **65–68% is a study target only**; ABIM uses scaled
+  scoring, not a fixed raw-percent passing threshold. This is an independent
+  educational simulation, not an official ABIM or Prometric product.
+- Debrief offers review of all or only missed items and an explicit action
+  to send missed concepts, including unanswered items, to the active slot's
+  spaced-review deck at the **Again / 10-minute** interval.
+- Memory-card slots, existing saved cards, lab references, both themes and
+  spaced review remain integrated. Session answers/configuration are
+  memory-only; submitted progress and flags use the active slot.
+- Added `node Scripts/audit_abim.js`: validates the 250-question / 750-card
+  schema, stable balanced answer positions, unique stems and card pairs,
+  table dimensions, explanation markup and inline engine syntax.
+- Browser regression exercised rendering and unlocking all 250 items /
+  750 cards at phone width, both modes, 60-item timing/expiry, answer privacy,
+  touch elimination, block submission/review, 10-minute missed-card
+  scheduling, save failure/retry, corrupt-storage protection, and learner
+  slot isolation. Tests use isolated browser contexts with synthetic data.
+- Service worker cache bumped to v34.
+
 ## 2026-10-02 — ABIM Board Prep v3.0: 250 questions and study-flow UI
 
 - **Content: 170 → 250 questions, 750 core-concept cards, 184 comparison

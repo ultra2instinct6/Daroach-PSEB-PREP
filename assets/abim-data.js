@@ -53,7 +53,6 @@
       id: "cv-device-gdmt",
       system: "CV",
       task: "NEXT",
-      extraTags: [{ label: "🦠 INFECTIOUS DISEASE (9%)", cls: "id-tag" }],
       vignette: "A 58-year-old male presents with new-onset fatigue and dyspnea. Echocardiogram reveals an LVEF of 35%. He is started on sacubitril/valsartan, carvedilol, spironolactone, and dapagliflozin. EKG shows normal sinus rhythm with a QRS of 110 ms.",
       leadIn: "What is the most appropriate next step regarding device therapy?",
       options: [
@@ -63,14 +62,14 @@
         "Place an ICD after 40 days of GDMT, since the LVEF is ≤ 35%."
       ],
       correct: 2,
-      explanation: "Primary prevention ICDs require strict medical optimization with the four pillars of Guideline-Directed Medical Therapy (GDMT) for at least 3 months before reassessing the ejection fraction. CRT is contraindicated because the QRS is &lt; 130 ms.",
+      explanation: "For newly diagnosed HFrEF without a secondary-prevention indication, optimize tolerated Guideline-Directed Medical Therapy (GDMT) and reassess LVEF after at least 3 months before a primary-prevention ICD decision. Persistent low EF, symptom class, etiology, and expected meaningful survival &gt; 1 year determine eligibility. CRT is not indicated with QRS &lt; 120 ms under ACC/AHA/HFSA guidance; this patient's QRS is 110 ms.",
       flashcards: [
         { f: "In HFrEF, what are the 4 medication pillars to optimize before device decisions?", b: "ARNI/ACEi/ARB, evidence-based beta-blocker, MRA, and SGLT2 inhibitor.", x: "These therapies can raise LVEF enough to avoid ICD placement and independently reduce mortality or HF hospitalization.", t: "Trap: Diuretics improve congestion but are not a disease-modifying GDMT pillar for ICD timing.", m: "4 pillars before hardware",
           tb: { h: ["Pillar", "Examples"], r: [["RAAS-neprilysin", "ARNI preferred; ACEi or ARB"], ["Beta-blocker", "Carvedilol, metoprolol succinate"], ["MRA", "Spironolactone or eplerenone"], ["SGLT2 inhibitor", "Dapagliflozin or empagliflozin"]] } },
         { f: "Before a primary-prevention ICD in newly treated HFrEF, how long should GDMT be optimized?", b: "At least 3 months of optimal GDMT, then reassess LVEF for persistent ≤35%.", x: "Waiting avoids implanting ICDs in patients whose EF recovers with neurohormonal and SGLT2 blockade.", t: "Trap: Do not implant immediately after diagnosis solely because EF is low; optimize therapy first.", m: "3 months before the box",
           tb: { h: ["Step", "Timing"], r: [["Start or optimize", "4 GDMT pillars"], ["Wait period", "≥3 months"], ["Reassess", "LVEF after GDMT"], ["ICD if still eligible", "LVEF ≤35% with indication"]] } },
-        { f: "In HFrEF on GDMT, what QRS pattern/duration gives a Class I CRT indication?", b: "LBBB with QRS ≥150 ms and LVEF ≤35% in a symptomatic patient.", x: "CRT benefits patients with electrical dyssynchrony; benefit is greatest with true LBBB and very wide QRS.", t: "Trap: QRS <130 ms is not a CRT indication and can be harmful despite low EF.", m: "LBBB-150 gets CRT",
-          tb: { h: ["CRT Class I item", "Requirement"], r: [["LVEF", "≤35%"], ["Symptoms", "NYHA II-IV on GDMT"], ["QRS pattern", "LBBB"], ["QRS duration", "≥150 ms"]] } }
+        { f: "In HFrEF on GDMT, what QRS pattern/duration gives a Class I CRT indication?", b: "Sinus rhythm, LBBB with QRS ≥150 ms, LVEF ≤35%, and NYHA II, III, or ambulatory IV symptoms.", x: "CRT benefits patients with electrical dyssynchrony; benefit is greatest with true LBBB and very wide QRS.", t: "Trap: QRS <120 ms is not a CRT indication under US HF guidance; selected LBBB patients at 120–149 ms may benefit.", m: "LBBB-150 gets CRT",
+          tb: { h: ["CRT Class I item", "Requirement"], r: [["LVEF", "≤35%"], ["Symptoms", "NYHA II, III, ambulatory IV on GDMT"], ["Rhythm and QRS", "Sinus rhythm, LBBB"], ["QRS duration", "≥150 ms"]] } }
       ]
     },
     {
@@ -190,15 +189,15 @@
       leadIn: "What is the most appropriate next step?",
       options: [
         "Begin an IV insulin infusion immediately while potassium is 3.1 mEq/L and replace potassium later.",
-        "Replete potassium and hold insulin until potassium is at least 3.5 mEq/L.",
+        "Replete potassium and hold insulin until potassium exceeds 3.5 mEq/L.",
         "Give IV sodium bicarbonate now to accelerate correction of metabolic acidosis and improve hemodynamics.",
         "Give subcutaneous long-acting insulin with rapid-acting correction doses and admit to the ward for monitoring."
       ],
       correct: 1,
-      explanation: "DKA causes total-body potassium depletion despite variable serum levels. Insulin shifts potassium intracellularly, so starting insulin with a potassium of 3.1 mEq/L risks life-threatening hypokalemia and arrhythmia. <strong>Hold insulin until K ≥ 3.5 mEq/L</strong> while repleting (2024 ADA/EASD hyperglycemic crises consensus; older guidance used 3.3). Bicarbonate is reserved for pH &lt; 6.9.",
+      explanation: "DKA causes total-body potassium depletion despite variable serum levels. Insulin shifts potassium intracellularly, so starting insulin with a potassium of 3.1 mEq/L risks life-threatening hypokalemia and arrhythmia. <strong>Hold insulin until K &gt; 3.5 mEq/L</strong> while repleting (2024 ADA/EASD hyperglycemic crises consensus; older guidance used 3.3). Bicarbonate is considered only for severe acidosis with pH &lt; 7.0, not this patient's pH of 7.12.",
       flashcards: [
-        { f: "In DKA, at what potassium level must insulin be held?", b: "Hold insulin if K <3.5 mEq/L (2024 consensus); replete potassium first.", x: "Despite serum K, DKA has total-body potassium depletion; insulin shifts K intracellularly and can trigger fatal arrhythmias.", t: "Trap: The hyperglycemia looks urgent, but insulin before K correction is dangerous when K is <3.5.", m: "K before insulin if under 3.5",
-          tb: { h: ["Serum K", "Insulin plan", "Potassium plan"], r: [["<3.5", "Hold insulin", "Replete first"], ["3.5-5.0", "Give insulin", "Add K to fluids"], [">5.0", "Give insulin", "Monitor K closely"]] } },
+        { f: "In DKA, at what potassium level must insulin be held?", b: "If K <3.5 mEq/L, replete first and delay insulin until K >3.5 (2024 consensus).", x: "Despite serum K, DKA has total-body potassium depletion; insulin shifts K intracellularly and can trigger fatal arrhythmias.", t: "Trap: The hyperglycemia looks urgent, but insulin before K correction is dangerous when K is <3.5.", m: "K before insulin if under 3.5",
+          tb: { h: ["Serum K", "Insulin plan", "Potassium plan"], r: [["<3.5", "Delay until >3.5", "Replete first"], [">3.5 to <5.0", "Give insulin", "Add K to fluids"], ["≥5.0", "Give insulin", "Monitor K closely"]] } },
         { f: "During DKA treatment, when should dextrose be added to IV fluids?", b: "When glucose falls below 250 mg/dL, while continuing insulin until DKA resolves.", x: "Dextrose prevents hypoglycemia so insulin can keep suppressing ketogenesis and clear ketoacidosis.", t: "Trap: Do not stop insulin just because glucose normalizes; the acidosis may persist.", m: "Dextrose lets insulin finish the gap" },
         { f: "What defines resolution of DKA during treatment?", b: "Plasma ketones <0.6 mmol/L plus pH ≥7.3 or bicarbonate ≥18 mEq/L.", x: "Ketone clearance proves ketoacidosis has resolved; the anion gap can mislead because treatment may cause hyperchloremia.", t: "Trap: Do not stop insulin just because glucose is <200; ketoacidosis may persist.", m: "Close ketones, not just glucose",
           tb: { h: ["DKA resolution item", "Target"], r: [["Ketones", "<0.6 mmol/L"], ["pH", "≥7.3"], ["Bicarbonate", "≥18 mEq/L"], ["Need", "Ketones plus pH or HCO3"]] } }
@@ -237,14 +236,14 @@
         "Fresh frozen plasma and vitamin K to normalize the INR before endoscopy, with vasoactive drugs delayed.",
         "IV proton-pump inhibitor alone and transfuse to hemoglobin 10 g/dL before endoscopic therapy.",
         "Start a nonselective beta-blocker immediately as the sole portal-pressure therapy during active bleeding.",
-        "IV octreotide plus IV ceftriaxone; transfuse only if hemoglobin falls below 7 g/dL."
+        "IV octreotide plus IV ceftriaxone, with restrictive transfusion after hemodynamic stabilization."
       ],
       correct: 3,
-      explanation: "Suspected variceal hemorrhage is managed with a vasoactive agent (<strong>octreotide</strong>) plus <strong>prophylactic antibiotics</strong> (ceftriaxone), which reduce rebleeding and mortality. A <strong>restrictive transfusion threshold (Hb &lt; 7 g/dL)</strong> improves survival — over-transfusion raises portal pressure. Beta-blockers are for prophylaxis after stabilization, not during active bleeding.",
+      explanation: "Suspected variceal hemorrhage is managed with a vasoactive agent (<strong>octreotide</strong>) plus <strong>prophylactic antibiotics</strong> (ceftriaxone), which reduce rebleeding and mortality. After stabilization, use a <strong>restrictive transfusion threshold (Hb &lt; 7 g/dL)</strong>, generally targeting 7–9 g/dL. Ongoing shock or major active blood loss may require transfusion before that laboratory threshold; hemoglobin can initially underestimate hemorrhage. Beta-blockers are for prophylaxis after stabilization, not during active bleeding.",
       flashcards: [
         { f: "What drugs are started immediately for suspected acute variceal hemorrhage?", b: "IV octreotide plus prophylactic IV ceftriaxone.", x: "Vasoactive therapy lowers portal inflow; antibiotics reduce infections, rebleeding, and mortality in cirrhotic GI bleeding.", t: "Trap: Endoscopy is urgent, but do not wait for it to start octreotide and antibiotics.", m: "Octreotide plus ceftriaxone before scope",
           tb: { h: ["Medication", "Role in variceal bleed"], r: [["Octreotide", "Lowers portal pressure"], ["Ceftriaxone", "Prevents infection"], ["PPI", "Use until source clarified"]] } },
-        { f: "What hemoglobin threshold is used for transfusion in upper GI bleeding?", b: "Transfuse when Hb <7 g/dL in most patients.", x: "Restrictive transfusion avoids raising portal pressure and is associated with better outcomes in variceal bleeding.", t: "Trap: Liberal transfusion to normal Hb can worsen portal hypertensive bleeding.", m: "7 is enough in UGIB" },
+        { f: "What hemoglobin threshold is used for transfusion in upper GI bleeding?", b: "Usually Hb <7 g/dL after stabilization; individualize for ongoing shock, major blood loss, or cardiac ischemia.", x: "Restrictive transfusion avoids raising portal pressure and is associated with better outcomes in variceal bleeding.", t: "Trap: Do not wait for Hb <7 during uncontrolled hemorrhagic shock; Hb may lag acute blood loss.", m: "Restrict after resuscitation" },
         { f: "During active variceal bleeding, what is the role of nonselective beta-blockers?", b: "Hold during the acute bleed; use after stabilization for secondary prophylaxis.", x: "Beta-blockers prevent future variceal bleeding but may worsen hypotension during hemorrhage.", t: "Trap: Carvedilol/nadolol are prophylaxis drugs, not acute hemostatic therapy.", m: "Beta-block after the bleed",
           tb: { h: ["Phase", "NSBB role"], r: [["Active bleed", "Hold"], ["After stabilization", "Secondary prophylaxis"], ["With band ligation", "Reduces rebleeding"]] } }
       ]
@@ -288,8 +287,8 @@
         { f: "What is first-line therapy for an initial nonfulminant C. difficile infection?", b: "Oral fidaxomicin preferred, or oral vancomycin.", x: "Fidaxomicin is narrower spectrum and lowers recurrence risk compared with vancomycin in many patients.", t: "Trap: Metronidazole is no longer preferred first-line when fidaxomicin or vancomycin is available.", m: "Fidax or vanco by mouth" },
         { f: "How is fulminant C. difficile infection treated?", b: "High-dose oral vancomycin plus IV metronidazole; add rectal vancomycin if ileus.", x: "Fulminant disease means hypotension, shock, ileus, or megacolon; IV metronidazole reaches inflamed colon systemically.", t: "Trap: IV vancomycin treats bloodstream gram-positives but does not reach the gut lumen for C. difficile.", m: "Fulminant C diff: vanco PO plus metro IV",
           tb: { h: ["Fulminant feature", "Treatment implication"], r: [["Hypotension or shock", "High-dose oral vancomycin"], ["Ileus", "Add rectal vancomycin"], ["Severe systemic illness", "Add IV metronidazole"]] } },
-        { f: "How are recurrent C. difficile episodes managed?", b: "Fidaxomicin or vancomycin taper-pulse; consider bezlotoxumab or fecal microbiota therapy for multiple recurrences.", x: "Recurrence reflects disrupted microbiota and persistent spores, so taper or microbiota restoration reduces relapse.", t: "Trap: Antimotility monotherapy can worsen toxin-mediated colitis and is not treatment.", m: "Recurrence means spores and microbiome",
-          tb: { h: ["Episode pattern", "Preferred options"], r: [["First recurrence", "Fidaxomicin or vanco taper"], ["Multiple recurrences", "FMT or microbiota therapy"], ["High-risk recurrence", "Consider bezlotoxumab"]] } }
+        { f: "How are recurrent C. difficile episodes managed?", b: "Fidaxomicin or vancomycin taper-pulse; consider screened FMT or approved microbiota therapy after antibiotics for recurrent disease.", x: "Recurrence reflects disrupted microbiota and persistent spores, so taper or microbiota restoration reduces relapse. Bezlotoxumab was discontinued in the US in 2025.", t: "Trap: Microbiota products prevent recurrence after antibacterial treatment; they do not replace antibiotics for an active episode.", m: "Recurrence means spores and microbiome",
+          tb: { h: ["Episode pattern", "Options"], r: [["First recurrence", "Fidaxomicin or vanco taper"], ["Multiple recurrences", "Screened FMT or microbiota therapy"], ["Microbiota timing", "After antibacterial treatment"]] } }
       ]
     },
 
@@ -312,7 +311,7 @@
         { f: "What is empiric therapy for CAP in a healthy outpatient without recent antibiotics?", b: "High-dose amoxicillin or doxycycline.", x: "These cover typical pneumococcus; macrolide monotherapy depends on low local pneumococcal resistance.", t: "Trap: Broad combination therapy is for comorbid outpatients or inpatients, not healthy low-risk outpatients.", m: "Healthy outpatient CAP: amox or doxy" },
         { f: "How are comorbid outpatients with CAP treated empirically?", b: "Amoxicillin/clavulanate or cephalosporin plus macrolide/doxycycline, or respiratory fluoroquinolone alone.", x: "Comorbidities increase risk for resistant pneumococcus and gram-negative pathogens, requiring broader coverage.", t: "Trap: MRSA or Pseudomonas coverage requires specific prior isolation or recent hospitalization with IV antibiotics.", m: "Comorbid CAP needs atypical plus broader typical",
           tb: { h: ["Outpatient CAP", "Empiric therapy"], r: [["Healthy", "Amoxicillin or doxycycline"], ["Comorbid combo", "Beta-lactam plus mac/doxy"], ["Comorbid alternative", "Respiratory fluoroquinolone"]] } },
-        { f: "What CURB-65 score generally supports hospitalizing CAP?", b: "Score ≥2.", x: "CURB-65 gives 1 point each for confusion, urea >20, RR ≥30, low BP, and age ≥65.", t: "Trap: A low score does not override hypoxemia, inability to take PO, or unsafe outpatient follow-up.", m: "CURB-65: 2 usually comes in",
+        { f: "What CURB-65 score generally supports hospitalizing CAP?", b: "Score ≥2; ATS/IDSA prefers the Pneumonia Severity Index plus clinical judgment for admission decisions.", x: "CURB-65 assigns a point for confusion, BUN >19 mg/dL (urea >7 mmol/L), RR ≥30, SBP <90 or DBP ≤60, and age ≥65.", t: "Trap: A low score does not override hypoxemia, inability to take PO, or unsafe outpatient follow-up.", m: "CURB-65: 2 usually comes in",
           tb: { h: ["CURB-65 score", "Usual site"], r: [["0-1", "Outpatient usually"], ["2", "Hospitalize generally"], ["3-5", "Severe; consider ICU"]] } }
       ]
     },
@@ -329,7 +328,7 @@
         "Reassure him; the rash will resolve without therapy."
       ],
       correct: 1,
-      explanation: "This is <strong>erythema migrans</strong> — a clinical diagnosis sufficient to treat early localized Lyme disease. Serology is frequently <strong>falsely negative in the first weeks</strong> of infection, so testing should not delay therapy. Oral doxycycline (10–14 days) is first-line.",
+      explanation: "This is <strong>erythema migrans</strong> — a clinical diagnosis sufficient to treat early localized Lyme disease. Serology is frequently <strong>falsely negative in the first weeks</strong> of infection, so testing should not delay therapy. Oral doxycycline for 10 days is a recommended regimen; amoxicillin or cefuroxime for 14 days are alternatives.",
       flashcards: [
         { f: "How is erythema migrans after tick exposure managed diagnostically?", b: "Diagnose clinically and treat; do not wait for serology.", x: "Antibodies are often negative in the first weeks, while the expanding annular rash is sufficient for early Lyme disease.", t: "Trap: Two-tier serology is for uncertain or disseminated presentations, not classic erythema migrans.", m: "Bullseye is a bedside diagnosis" },
         { f: "What is first-line oral therapy for early localized Lyme disease?", b: "Doxycycline for 10 days; amoxicillin or cefuroxime are alternatives.", x: "Doxycycline also covers possible Anaplasma coinfection in endemic tick exposures.", t: "Trap: A single prophylactic doxycycline dose is only for high-risk asymptomatic Ixodes bites, not erythema migrans.", m: "EM gets a treatment course, not one dose" },
@@ -340,7 +339,7 @@
       id: "id-latent-tb",
       system: "ID",
       task: "NEXT",
-      vignette: "An asymptomatic 41-year-old nurse has a positive interferon-gamma release assay on pre-employment screening. She has no cough, fever, night sweats, or weight loss. Chest radiograph is normal. She has never been treated for tuberculosis and has no known hepatic disease.",
+      vignette: "An asymptomatic 41-year-old nurse who previously lived in a high-TB-incidence country has a positive interferon-gamma release assay on pre-employment screening. She has no cough, fever, night sweats, or weight loss. Chest radiograph is normal. She has never been treated for tuberculosis, has no known hepatic disease, and takes no interacting medications.",
       leadIn: "What is the most appropriate next step?",
       options: [
         "Begin four-drug RIPE therapy (rifampin, isoniazid, pyrazinamide, ethambutol) for active tuberculosis.",
@@ -351,7 +350,7 @@
       correct: 1,
       explanation: "A positive IGRA with no symptoms and a normal chest radiograph defines <strong>latent TB infection</strong>. Treatment reduces lifetime reactivation risk; <strong>short-course rifamycin regimens</strong> (4 months rifampin, or 3 months weekly isoniazid-rifapentine) are preferred over 9 months of isoniazid for completion and hepatotoxicity. Active disease must be excluded first — it was, by symptoms and imaging.",
       flashcards: [
-        { f: "What defines latent TB infection after a positive IGRA?", b: "Positive IGRA or TST with no TB symptoms and a normal chest radiograph.", x: "Active pulmonary disease must be excluded first because monotherapy would select resistance.", t: "Trap: A positive IGRA cannot distinguish latent from active TB; symptoms and imaging do.", m: "Positive test, clear lungs = latent" },
+        { f: "What supports latent TB infection after a positive IGRA?", b: "Evidence of TB infection without clinical or radiographic active disease after appropriate evaluation.", x: "Active pulmonary disease must be excluded first because monotherapy would select resistance. Low-risk healthcare personnel with an unexpected positive screen need a second test for confirmation.", t: "Trap: A positive IGRA cannot distinguish latent from active TB; symptoms, risk, and imaging guide evaluation.", m: "Infection without active disease = latent" },
         { f: "What preferred short-course regimens treat latent TB infection?", b: "4 months daily rifampin or 3 months weekly isoniazid plus rifapentine.", x: "Rifamycin-based regimens have higher completion and less hepatotoxicity than 9 months of isoniazid.", t: "Trap: Check drug interactions; rifamycins induce CYP enzymes and can reduce DOAC or contraceptive levels.", m: "4R or 3HP beat 9H" },
         { f: "Why can latent TB be treated with one or two drugs but active TB cannot?", b: "Latent TB has low organism burden; active TB requires multidrug therapy to prevent resistance.", x: "Rapidly replicating bacilli in active disease harbor spontaneous resistant mutants unless treated with combination therapy.", t: "Trap: Never start latent TB monotherapy until active TB has been ruled out.", m: "Latent is few bugs; active is many" }
       ]
@@ -414,7 +413,7 @@
       explanation: "COPD is confirmed by demonstrating <strong>fixed airflow obstruction: a post-bronchodilator FEV1/FVC &lt; 0.70</strong>. Imaging and DLCO support assessment but are not diagnostic. Alpha-1 antitrypsin should be checked at least once in every COPD patient but is a cause, not the definition.",
       flashcards: [
         { f: "What spirometry result confirms COPD?", b: "Post-bronchodilator FEV1/FVC <0.70.", x: "Persistent airflow obstruction after bronchodilator distinguishes COPD from fully reversible asthma physiology.", t: "Trap: CT emphysema or symptoms support COPD but do not replace diagnostic spirometry.", m: "COPD is post-bronchodilator obstruction" },
-        { f: "Which interventions improve survival in COPD?", b: "Smoking cessation and long-term oxygen for severe resting hypoxemia.", x: "Oxygen improves survival when PaO₂ ≤55 mm Hg or SaO₂ ≤88%, or slightly higher PaO₂ with cor pulmonale/polycythemia.", t: "Trap: Inhalers reduce symptoms/exacerbations but have not matched the survival benefit of quitting smoking and indicated oxygen.", m: "Quit smoke and oxygen save lives" },
+        { f: "Which interventions have survival benefit in COPD?", b: "Smoking cessation, long-term oxygen for severe chronic resting hypoxemia, and triple inhaler therapy in selected high-risk exacerbators.", x: "Oxygen improves survival when PaO₂ ≤55 mm Hg or SaO₂ ≤88%, or PaO₂ 56–59 with cor pulmonale/polycythemia. Triple therapy has mortality evidence in selected symptomatic patients with prior exacerbations.", t: "Trap: Oxygen does not improve survival for moderate hypoxemia alone; inhaled steroids are not indicated for every COPD patient.", m: "Quit smoke, indicated oxygen, selected triple therapy" },
         { f: "Who with COPD should be tested for alpha-1 antitrypsin deficiency?", b: "All patients with COPD at least once.", x: "Testing is especially high-yield with young onset, minimal smoking, basilar emphysema, or family history.", t: "Trap: Do not restrict testing only to never-smokers; guidelines recommend once-per-patient testing.", m: "Every COPD gets one A1AT check" }
       ]
     },
@@ -433,9 +432,9 @@
         "Begin empiric allopurinol and reassess serum urate in 2 weeks instead of sampling the joint."
       ],
       correct: 1,
-      explanation: "Definitive diagnosis of crystal arthropathy — and exclusion of septic arthritis — requires <strong>arthrocentesis</strong>. Gout shows <strong>needle-shaped, negatively birefringent</strong> monosodium urate crystals. Serum urate may be normal during an acute flare, and starting urate-lowering therapy alone during a flare does not treat the acute attack.",
+      explanation: "To establish a definitive crystal diagnosis, perform <strong>arthrocentesis with polarized microscopy</strong>; send Gram stain and culture to assess for coexisting infection. Gout shows <strong>needle-shaped, negatively birefringent</strong> monosodium urate crystals. Serum urate is not diagnostic and may be normal during an acute flare. Urate-lowering therapy alone does not treat acute pain.",
       flashcards: [
-        { f: "On synovial fluid microscopy, how do gout and pseudogout crystals differ?", b: "Gout: needle-shaped, negatively birefringent MSU; pseudogout: rhomboid, weakly positively birefringent CPPD.", x: "Crystal identification also helps exclude septic arthritis, which can mimic or coexist with crystal disease.", t: "Trap: Do not diagnose acute monoarthritis by serum urate alone; aspirate when diagnosis or infection is uncertain.", m: "Needles are negative; rhomboids are positive",
+        { f: "On synovial fluid microscopy, how do gout and pseudogout crystals differ?", b: "Gout: needle-shaped, negatively birefringent MSU; pseudogout: rhomboid, weakly positively birefringent CPPD.", x: "Crystals establish crystal arthritis but do not exclude coexisting septic arthritis; also send Gram stain and culture.", t: "Trap: Do not diagnose acute monoarthritis by serum urate alone; aspirate when diagnosis or infection is uncertain.", m: "Needles are negative; rhomboids are positive",
           tb: { h: ["Crystal disease", "Shape", "Birefringence"], r: [["Gout", "Needle", "Negative"], ["Pseudogout", "Rhomboid", "Weak positive"]] } },
         { f: "Can a normal serum urate level during an acute flare rule out gout?", b: "No; serum urate may be normal or low during a gout flare.", x: "Inflammation and renal handling can transiently lower urate, so synovial fluid crystals are the diagnostic gold standard.", t: "Trap: Hyperuricemia is common and not diagnostic without compatible arthritis or crystals.", m: "Urate can lie during a flare" },
         { f: "If a patient on allopurinol develops an acute gout flare, what should be done with it?", b: "Continue allopurinol; treat the flare and use prophylaxis when starting urate-lowering therapy.", x: "Stopping urate-lowering therapy causes urate swings that can prolong or trigger flares.", t: "Trap: Do not start urate lowering alone for acute pain; use NSAID, colchicine, or glucocorticoid for the flare.", m: "Do not stop the allopurinol train" }
@@ -465,7 +464,7 @@
       id: "rheum-ra-mtx",
       system: "RHEUM",
       task: "RX",
-      vignette: "A 44-year-old woman has 3 months of symmetric pain and swelling of the MCP and PIP joints of both hands with 90 minutes of morning stiffness. Examination confirms synovitis. Anti-CCP antibodies are strongly positive and radiographs show periarticular osteopenia without erosions.",
+      vignette: "A 44-year-old woman has 3 months of symmetric pain and swelling of the MCP and PIP joints of both hands with 90 minutes of morning stiffness. Examination confirms synovitis in 10 joints and moderate-to-high disease activity. Anti-CCP antibodies are strongly positive and radiographs show periarticular osteopenia without erosions. She is not pregnant or planning pregnancy, and CBC, kidney function, and liver tests are normal.",
       leadIn: "What is the most appropriate initial therapy?",
       options: [
         "Long-term daily prednisone as monotherapy.",
@@ -477,8 +476,8 @@
       explanation: "This is rheumatoid arthritis, and early initiation of a disease-modifying agent prevents irreversible joint destruction. <strong>Methotrexate is the anchor first-line DMARD</strong> (with folic acid to limit toxicity). NSAIDs and steroids relieve symptoms but do not alter disease course as monotherapy; biologics are added after inadequate methotrexate response.",
       flashcards: [
         { f: "Which autoantibody is most specific for rheumatoid arthritis?", b: "Anti-CCP antibody.", x: "Anti-CCP also predicts erosive disease; rheumatoid factor is less specific and can appear in infections or other autoimmune disease.", t: "Trap: A positive RF alone is not diagnostic of RA.", m: "Anti-CCP is RA-specific" },
-        { f: "What is first-line disease-modifying therapy for rheumatoid arthritis?", b: "Methotrexate with folic acid supplementation.", x: "Early DMARD therapy prevents erosions and disability; monitor CBC, liver tests, renal function, and hepatitis status.", t: "Trap: Methotrexate is teratogenic; avoid in pregnancy and significant liver disease.", m: "Methotrexate is the RA anchor" },
-        { f: "What role do NSAIDs and glucocorticoids have in rheumatoid arthritis?", b: "Symptom relief or short bridge therapy; they do not prevent joint destruction alone.", x: "Inflammation control with DMARDs is needed to change the structural course of RA.", t: "Trap: Pain improvement on prednisone should not delay starting a DMARD.", m: "NSAIDs soothe; DMARDs save joints" }
+        { f: "What is preferred initial DMARD therapy for moderate-to-high activity rheumatoid arthritis?", b: "Weekly methotrexate with folic acid supplementation, if no contraindication.", x: "Early DMARD therapy prevents erosions and disability; monitor CBC, liver tests, renal function, and hepatitis status. Hydroxychloroquine may be preferred for low disease activity.", t: "Trap: Methotrexate is weekly, not daily, and is teratogenic; avoid in pregnancy and significant liver disease.", m: "Methotrexate is the weekly RA anchor" },
+        { f: "What role do NSAIDs and glucocorticoids have in rheumatoid arthritis?", b: "NSAIDs relieve symptoms; glucocorticoids may be a short bridge but are not an acceptable long-term substitute for DMARDs.", x: "Steroids can suppress inflammation and erosions but have substantial cumulative toxicity; treat-to-target DMARD therapy is the foundation.", t: "Trap: Pain improvement on prednisone should not delay starting a DMARD.", m: "NSAIDs soothe; DMARDs anchor long-term control" }
       ]
     },
 
@@ -519,10 +518,10 @@
       correct: 1,
       explanation: "A BUN:creatinine ratio &gt; 20:1, <strong>FeNa &lt; 1%</strong>, bland urine sediment, and a clear volume-loss history define <strong>prerenal azotemia</strong> — intact tubules are avidly reclaiming sodium. ATN would show FeNa &gt; 2% with muddy brown granular casts. Treatment is volume repletion.",
       flashcards: [
-        { f: "Which urine/lab pattern supports prerenal azotemia?", b: "FeNa <1%, BUN:Cr >20:1, bland sediment, and concentrated urine.", x: "Intact tubules avidly reclaim sodium and water in response to low effective arterial volume.", t: "Trap: FeNa can be misleading on diuretics; use FeUrea instead.", m: "Dry kidneys hold sodium",
+        { f: "Which urine/lab pattern supports prerenal azotemia?", b: "FeNa <1%, BUN:Cr >20:1, bland sediment, and concentrated urine.", x: "Intact tubules avidly reclaim sodium and water in response to low effective arterial volume.", t: "Trap: FeNa is unreliable with diuretics or some intrinsic AKI; FeUrea can help but is not definitive.", m: "Dry kidneys hold sodium",
           tb: { h: ["Finding", "Prerenal", "ATN"], r: [["FeNa", "<1%", ">2%"], ["BUN:Cr", ">20:1", "Often <15:1"], ["Sediment", "Bland", "Muddy brown casts"], ["Urine", "Concentrated", "Less concentrated"]] } },
-        { f: "Which urine findings support acute tubular necrosis rather than prerenal AKI?", b: "FeNa >2% with muddy brown granular casts.", x: "Tubular injury impairs sodium reabsorption and sheds pigmented epithelial casts into urine.", t: "Trap: ATN may follow prolonged prerenal hypoperfusion; persistent AKI after fluids suggests tubular injury.", m: "Muddy brown means tubules down" },
-        { f: "What fractional excretion test is preferred for AKI evaluation in patients taking diuretics?", b: "Fractional excretion of urea; <35% suggests prerenal azotemia.", x: "Diuretics increase urinary sodium and falsely elevate FeNa, but urea handling is less affected.", t: "Trap: Do not rely on FeNa alone after loop or thiazide exposure.", m: "Diuretics break FeNa; use FeUrea" }
+        { f: "Which urine findings support acute tubular necrosis rather than prerenal AKI?", b: "Muddy brown granular casts; FeNa is often >2% but may be lower.", x: "Tubular injury impairs sodium reabsorption and sheds epithelial casts; early, septic, or pigment-associated ATN can still have low FeNa.", t: "Trap: Persistent AKI after fluids suggests tubular injury but is not diagnostic without the clinical context.", m: "Muddy brown means tubules down" },
+        { f: "Which fractional excretion test may help assess AKI after diuretic exposure?", b: "Fractional excretion of urea; <35% supports prerenal physiology but does not prove it.", x: "Diuretics increase urinary sodium; urea handling is less directly affected, but sepsis, CKD, and diuretics can still limit FeUrea accuracy.", t: "Trap: Neither FeNa nor FeUrea should replace volume assessment, urine microscopy, and serial clinical response.", m: "Fractional excretion supports, not settles" }
       ]
     },
 
@@ -534,10 +533,10 @@
       vignette: "A 66-year-old man is found to have a hemoglobin of 9.8 g/dL with an MCV of 72 fL on routine labs. Ferritin is 8 ng/mL and transferrin saturation is 5%. He reports no overt bleeding, melena, or NSAID use, and he has never had colorectal cancer screening.",
       leadIn: "In addition to iron repletion, what is the most appropriate next step?",
       options: [
-        "Bone marrow biopsy to confirm iron deficiency before evaluating for occult gastrointestinal blood loss.",
-        "A trial of oral iron for 3 months, then reassess and defer endoscopy unless anemia persists.",
-        "Bidirectional endoscopy (colonoscopy and upper endoscopy).",
-        "Serum erythropoietin level to distinguish renal anemia from iron deficiency before cancer screening."
+        "Bone marrow biopsy with iron staining.",
+        "Oral iron replacement with repeat CBC in 3 months.",
+        "Colonoscopy and upper endoscopy.",
+        "CT colonography without upper endoscopy."
       ],
       correct: 2,
       explanation: "New iron deficiency anemia in a man (or postmenopausal woman) is <strong>presumed gastrointestinal blood loss until proven otherwise</strong> — occult malignancy must be excluded with colonoscopy and upper endoscopy, regardless of symptoms. Iron alone would mask the underlying lesion.",
@@ -555,17 +554,17 @@
       vignette: "A 70-year-old woman on postoperative day 7 after hip arthroplasty, receiving prophylactic unfractionated heparin, develops a platelet count of 62,000/µL (from 210,000 on admission) and a new swollen, painful left leg. Doppler confirms a DVT. Her 4Ts score is high.",
       leadIn: "What is the most appropriate next step?",
       options: [
-        "Start warfarin immediately as monotherapy with daily INR monitoring and overlap only after platelet recovery.",
-        "Transfuse platelets and continue heparin at a lower dose while awaiting confirmatory antibody testing.",
-        "Switch unfractionated heparin to low-molecular-weight heparin because it has less platelet activation.",
-        "Stop all heparin products and start a non-heparin anticoagulant such as argatroban."
+        "Stop heparin and begin warfarin with daily INR monitoring.",
+        "Pause heparin pending PF4 antibody and functional assay results.",
+        "Replace unfractionated heparin with therapeutic enoxaparin.",
+        "Stop all heparin and begin therapeutic argatroban."
       ],
       correct: 3,
-      explanation: "A &gt; 50% platelet fall on days 5–10 of heparin plus new thrombosis is <strong>heparin-induced thrombocytopenia with thrombosis</strong>. All heparin — including LMWH and line flushes — must stop, and a <strong>non-heparin anticoagulant</strong> (argatroban, bivalirudin, or fondaparinux) started. Platelet transfusion fuels thrombosis, and warfarin risks venous limb gangrene until platelets recover.",
+      explanation: "A &gt; 50% platelet fall on days 5–10 of heparin plus new thrombosis supports <strong>HIT with thrombosis</strong>. Stop all heparin, including LMWH and flushes, and begin <strong>therapeutic non-heparin anticoagulation</strong> without waiting for confirmation. Send a PF4 immunoassay and, when indicated, a functional assay. Avoid routine platelet transfusion, although active bleeding or a high-risk procedure can warrant it. Do not start warfarin before platelet recovery because early protein C depletion can cause venous limb gangrene.",
       flashcards: [
         { f: "When should heparin-induced thrombocytopenia be suspected?", b: ">50% platelet fall 5–10 days after heparin exposure, especially with new thrombosis.", x: "HIT antibodies activate platelets through PF4-heparin complexes, creating a paradoxically prothrombotic state.", t: "Trap: Platelets often do not fall below 20,000/µL; severe thrombocytopenia suggests another cause.", m: "Day 5 to 10 platelet fall with clot" },
         { f: "What is the immediate management of suspected HIT with thrombosis?", b: "Stop all heparin and start argatroban, bivalirudin, or fondaparinux.", x: "All heparin sources include LMWH and line flushes; alternative anticoagulation prevents new and progressive thrombosis.", t: "Trap: Do not wait for confirmatory PF4 testing when clinical probability is intermediate/high.", m: "Stop every heparin molecule" },
-        { f: "What should be avoided initially in HIT?", b: "Platelet transfusion and warfarin until platelets recover to >150,000/µL.", x: "Warfarin before recovery can rapidly lower protein C and cause venous limb gangrene.", t: "Trap: HIT is thrombotic, not bleeding; platelet transfusion is avoided unless life-threatening bleeding exists.", m: "No warfarin before platelet recovery" }
+        { f: "What should be avoided initially in HIT?", b: "Warfarin before platelet recovery (usually ≥150,000/µL) and routine prophylactic platelet transfusion.", x: "Warfarin can rapidly lower protein C and cause venous limb gangrene; therapeutic non-heparin anticoagulation is needed.", t: "Trap: Platelet transfusion may be necessary for active bleeding or a high-risk procedure; HIT is not an absolute transfusion ban.", m: "No warfarin before platelet recovery" }
       ]
     },
 
@@ -574,7 +573,7 @@
       id: "onc-tls",
       system: "ONC",
       task: "RX",
-      vignette: "A 23-year-old man with newly diagnosed Burkitt lymphoma develops oliguria, tetany, and an irregular pulse 36 hours after starting chemotherapy. Labs: potassium 6.8 mEq/L, phosphorus 8.1 mg/dL, calcium 6.2 mg/dL, uric acid 15 mg/dL, creatinine 3.1 mg/dL (baseline 0.9).",
+      vignette: "A 23-year-old man with newly diagnosed Burkitt lymphoma develops oliguria 36 hours after starting chemotherapy. He has no tetany or seizures. Labs: potassium 6.8 mEq/L, phosphorus 8.1 mg/dL, calcium 6.2 mg/dL, uric acid 15 mg/dL, creatinine 3.1 mg/dL (baseline 0.9). His G6PD activity was normal before chemotherapy.",
       leadIn: "In addition to aggressive IV hydration and treatment of hyperkalemia, what is the most appropriate therapy?",
       options: [
         "Urine alkalinization with sodium bicarbonate.",
@@ -599,17 +598,17 @@
       vignette: "A 61-year-old woman with squamous cell lung cancer presents with confusion, polyuria, constipation, and dehydration. Serum calcium is 14.6 mg/dL, albumin is normal, and PTH is suppressed with an elevated PTH-related peptide.",
       leadIn: "What is the most appropriate FIRST step in treatment?",
       options: [
-        "Hemodialysis as the first step before volume repletion in a dehydrated but hemodynamically stable patient.",
-        "IV zoledronic acid alone as initial therapy, without restoring intravascular volume first.",
-        "Oral furosemide to promote calciuresis before adequate isotonic saline rehydration.",
-        "Aggressive IV isotonic saline."
+        "Urgent hemodialysis.",
+        "IV zoledronic acid.",
+        "IV furosemide.",
+        "IV isotonic saline."
       ],
       correct: 3,
-      explanation: "Severe hypercalcemia of malignancy is treated first with <strong>aggressive isotonic saline</strong> — these patients are profoundly volume-depleted. Calcitonin adds rapid (hours) but short-lived lowering, while <strong>IV bisphosphonates</strong> are the definitive therapy though they take 2–4 days. Loop diuretics are only for volume overload after repletion; dialysis is for refractory cases or renal failure.",
+      explanation: "Begin <strong>IV isotonic saline</strong> to correct this patient's volume depletion, adjusting the rate to cardiac and renal function. For calcium &gt; 14 mg/dL, also initiate <strong>calcitonin plus denosumab or an IV bisphosphonate</strong>; hydration is not sufficient alone. Calcitonin works within hours but is limited to 48–72 hours by tachyphylaxis. Antiresorptive therapy provides sustained control, and the Endocrine Society conditionally favors denosumab over an IV bisphosphonate. Loop diuretics are used only for volume overload, not routine calciuresis; dialysis is considered for severe refractory disease or inability to hydrate safely.",
       flashcards: [
         { f: "What is the first treatment step for severe hypercalcemia of malignancy?", b: "Aggressive IV isotonic saline.", x: "Hypercalcemia causes nephrogenic diabetes insipidus and vomiting, leading to profound volume depletion and reduced calciuresis.", t: "Trap: Loop diuretics are only for volume overload after repletion, not first-line calcium lowering.", m: "First fill the tank" },
-        { f: "How do calcitonin and IV bisphosphonates differ in hypercalcemia treatment?", b: "Calcitonin works in hours but wanes by ~48 h; IV bisphosphonates take 2–4 days and are definitive.", x: "Use calcitonin for a rapid bridge while zoledronic acid or pamidronate suppress osteoclast-mediated resorption.", t: "Trap: Do not rely on calcitonin alone for sustained control.", m: "Calcitonin now, bisphosphonate later",
-          tb: { h: ["Agent", "Onset", "Role"], r: [["Calcitonin", "Hours", "Rapid bridge"], ["IV bisphosphonate", "2-4 days", "Definitive control"], ["Saline", "Immediate", "Restore volume"]] } },
+        { f: "Which therapies provide rapid versus sustained control of severe malignant hypercalcemia?", b: "Calcitonin acts within hours; denosumab or an IV bisphosphonate provides sustained antiresorptive control.", x: "Start both promptly with volume repletion when calcium exceeds 14 mg/dL; do not wait for the bridge to wear off before starting antiresorptive therapy.", t: "Trap: Limit calcitonin to 48–72 hours because tachyphylaxis develops.", m: "Calcitonin bridges; antiresorptives sustain",
+          tb: { h: ["Agent", "Role"], r: [["Saline", "Restore volume"], ["Calcitonin", "Rapid 48–72-hour bridge"], ["Denosumab or IV bisphosphonate", "Sustained calcium control"]] } },
         { f: "What lab pattern suggests humoral hypercalcemia of malignancy?", b: "High calcium, suppressed PTH, and elevated PTHrP.", x: "Squamous cancers commonly secrete PTHrP; bone metastases and lymphoma calcitriol are other mechanisms.", t: "Trap: Primary hyperparathyroidism has non-suppressed PTH, not elevated PTHrP.", m: "PTH down, PTHrP up: malignancy" }
       ]
     },
@@ -628,7 +627,7 @@
         "Full-dose IV heparin infusion."
       ],
       correct: 2,
-      explanation: "She is within the <strong>4.5-hour window</strong> for IV thrombolysis with no contraindications, and her blood pressure is below the <strong>185/110 treatment threshold</strong>. Thrombolysis is the single most effective acute therapy; aspirin is withheld for 24 hours after lysis, and anticoagulation has no role in acute ischemic stroke treatment.",
+      explanation: "She has disabling ischemic stroke symptoms within the standard <strong>4.5-hour window</strong> for IV thrombolysis, no identified contraindication, and BP below <strong>185/110 mm Hg</strong>. Give IV alteplase or tenecteplase according to protocol without delaying vascular imaging and thrombectomy assessment. Mechanical thrombectomy is highly effective for eligible large-vessel occlusion and may be indicated in addition to IV thrombolysis. Hold antithrombotics for 24 hours after lysis and obtain follow-up imaging before starting them; routine urgent full-dose heparin does not improve acute stroke outcomes.",
       flashcards: [
         { f: "What time window and BP threshold allow IV thrombolysis for acute ischemic stroke?", b: "Within 4.5 hours of last-known-well and BP <185/110 before treatment.", x: "Eligible patients need rapid noncontrast head CT to exclude hemorrhage before alteplase or tenecteplase.", t: "Trap: Mildly elevated BP below 185/110 is not a reason to withhold thrombolysis.", m: "4.5 hours and 185/110",
           tb: { h: ["IV thrombolysis item", "Threshold"], r: [["Time window", "≤4.5 h from last known well"], ["Before treatment BP", "<185/110"], ["After treatment BP", "<180/105"]] } },
@@ -645,10 +644,10 @@
       vignette: "An 84-year-old man admitted 2 days ago for pneumonia becomes acutely confused overnight, with inattention and disorganized thinking that fluctuates through the day. He is pulling at his IV lines. He wears hearing aids that are in a drawer, has a urinary catheter without a clear indication, and received diphenhydramine for sleep last night.",
       leadIn: "What is the most appropriate initial management?",
       options: [
-        "Start donepezil for presumed underlying dementia and reassess cognition after pneumonia resolves.",
-        "Scheduled lorazepam every 6 hours to control agitation in non-withdrawal delirium.",
-        "Soft wrist restraints overnight to protect the IV line and catheter while continuing diphenhydramine for sleep.",
-        "Nonpharmacologic measures: reorient, restore hearing aids, remove the catheter, and stop deliriogenic drugs."
+        "Start donepezil and arrange formal cognitive assessment.",
+        "Schedule low-dose lorazepam for overnight agitation.",
+        "Use wrist restraints to protect lines and the catheter.",
+        "Reorient, restore hearing aids, and remove avoidable triggers."
       ],
       correct: 3,
       explanation: "Acute, fluctuating inattention in a hospitalized elder is <strong>delirium</strong>. First-line management is <strong>nonpharmacologic</strong>: reorientation, sensory aids, sleep protocols, mobilization, removing catheters/restraints, and discontinuing deliriogenic drugs (anticholinergics like diphenhydramine, benzodiazepines). Benzodiazepines and restraints worsen delirium; antipsychotics are reserved for dangerous agitation.",
@@ -675,11 +674,11 @@
         "Therapeutic anticoagulation with heparin."
       ],
       correct: 2,
-      explanation: "Acute idiopathic/viral pericarditis is treated with a <strong>high-dose NSAID (or aspirin) plus colchicine</strong>; colchicine halves the recurrence rate. Glucocorticoids INCREASE recurrence and are reserved for NSAID contraindications, uremic or autoimmune pericarditis. Diffuse ST elevation with PR depression should not be mistaken for STEMI, and anticoagulation adds hemorrhagic-effusion risk.",
+      explanation: "Acute idiopathic/viral pericarditis is treated with a <strong>high-dose NSAID (or aspirin) plus colchicine</strong>; colchicine lowers recurrence. Glucocorticoids increase recurrence risk and are reserved for selected NSAID contraindications or specific indications such as autoimmune disease after infection is excluded. Uremic pericarditis primarily requires initiation or intensification of dialysis. Diffuse ST elevation with PR depression should not be mistaken for STEMI; anticoagulation does not treat pericarditis.",
       flashcards: [
         { f: "What clinical and ECG findings suggest acute pericarditis?", b: "Pleuritic positional chest pain, friction rub, diffuse concave ST elevation, and PR depression.", x: "Inflamed pericardium causes pain worse supine and better leaning forward; ECG changes are widespread rather than territorial.", t: "Trap: STEMI has regional ST elevation with reciprocal changes, not diffuse PR depression.", m: "Pleuritic, positional, PR depression" },
         { f: "What is first-line treatment for idiopathic or viral acute pericarditis?", b: "High-dose NSAID or aspirin plus colchicine.", x: "Colchicine reduces inflammatory recurrence when added to anti-inflammatory therapy.", t: "Trap: Anticoagulation is not analgesia and may increase hemorrhagic effusion risk.", m: "NSAID plus colchicine" },
-        { f: "Why are glucocorticoids avoided as routine initial therapy for acute pericarditis?", b: "They increase recurrence risk.", x: "Reserve steroids for NSAID contraindication or specific etiologies such as autoimmune or uremic pericarditis.", t: "Trap: Quick symptom relief with steroids can create rebound recurrent pericarditis.", m: "Steroids soothe then recur" }
+        { f: "Why are glucocorticoids avoided as routine initial therapy for acute pericarditis?", b: "They increase recurrence risk.", x: "Reserve steroids for selected contraindications or specific indications such as autoimmune disease; uremic pericarditis primarily needs dialysis.", t: "Trap: Quick symptom relief with steroids can create rebound recurrent pericarditis.", m: "Steroids soothe then recur" }
       ]
     },
     {
@@ -695,10 +694,10 @@
         "24-hour urine calcium (with creatinine)."
       ],
       correct: 3,
-      explanation: "Hypercalcemia with a non-suppressed PTH is PTH-dependent: primary hyperparathyroidism or <strong>familial hypocalciuric hypercalcemia (FHH)</strong>. A <strong>24-hour urine calcium</strong> distinguishes them — FHH shows low urinary calcium (calcium/creatinine clearance ratio &lt; 0.01) and is benign, requiring no surgery. Imaging (sestamibi) localizes disease only AFTER the biochemical diagnosis is secure.",
+      explanation: "Hypercalcemia with a non-suppressed PTH is PTH-dependent: primary hyperparathyroidism or <strong>familial hypocalciuric hypercalcemia (FHH)</strong>. Obtain <strong>24-hour urine calcium and creatinine</strong>: a calcium/creatinine clearance ratio &lt; 0.01 favors FHH, but overlap exists and vitamin D deficiency, CKD, or thiazides can lower urinary calcium. Family history or genetic testing may clarify ambiguous cases. FHH usually needs no surgery. Sestamibi localizes disease only after biochemical diagnosis.",
       flashcards: [
         { f: "Hypercalcemia with non-suppressed PTH suggests which two diagnoses?", b: "Primary hyperparathyroidism or familial hypocalciuric hypercalcemia.", x: "PTH should be suppressed by hypercalcemia; a normal or high value is inappropriate and PTH-dependent.", t: "Trap: Malignancy hypercalcemia usually suppresses PTH.", m: "High calcium should shut PTH off" },
-        { f: "What urine test distinguishes FHH from primary hyperparathyroidism?", b: "24-hour urine calcium with Ca/Cr clearance ratio; FHH is typically <0.01.", x: "FHH has altered calcium-sensing receptor set point, causing renal calcium retention and mild lifelong hypercalcemia.", t: "Trap: Parathyroidectomy does not correct FHH, so identify it before surgery.", m: "FHH holds calcium in urine",
+        { f: "What urine test helps distinguish FHH from primary hyperparathyroidism?", b: "24-hour urine calcium with Ca/Cr clearance ratio; <0.01 favors FHH but has overlap.", x: "FHH has altered calcium-sensing receptor set point, causing renal calcium retention and mild lifelong hypercalcemia.", t: "Trap: Exclude low-calcium-intake, vitamin D deficiency, CKD, and thiazide effects before interpreting low urine calcium.", m: "FHH holds calcium in blood, not urine",
           tb: { h: ["Feature", "FHH", "Primary HPT"], r: [["Urine calcium", "Low", "Normal or high"], ["Ca/Cr clearance", "<0.01", "Usually >0.02"], ["Family pattern", "Autosomal dominant", "Usually sporadic"], ["Surgery", "Not helpful", "Can be curative"]] } },
         { f: "Name key surgery indications for asymptomatic primary hyperparathyroidism.", b: "Age <50, Ca >1 mg/dL above normal, osteoporosis/fracture, eGFR <60, stones, or high urine calcium.", x: "These features predict renal or skeletal complications even without classic symptoms.", t: "Trap: Sestamibi localizes a gland only after biochemical diagnosis; it does not diagnose PHPT.", m: "PHPT surgery: young, calcium, bone, kidney" }
       ]
@@ -720,7 +719,7 @@
       flashcards: [
         { f: "What ascitic fluid PMN count diagnoses spontaneous bacterial peritonitis?", b: "PMN ≥250 cells/µL.", x: "Culture may be negative, so PMN threshold drives empiric treatment in cirrhosis with ascites.", t: "Trap: Do not wait for positive ascitic cultures before starting cefotaxime or ceftriaxone.", m: "250 PMNs means SBP" },
         { f: "When treating SBP, what albumin regimen reduces hepatorenal syndrome?", b: "Albumin 1.5 g/kg day 1 and 1 g/kg day 3.", x: "Albumin expands effective arterial volume and lowers renal failure and mortality risk, especially with renal dysfunction or high bilirubin.", t: "Trap: Albumin is adjunctive; it does not replace third-generation cephalosporin therapy.", m: "Albumin day 1 and day 3 protects kidneys" },
-        { f: "After recovery from SBP, what long-term prevention is indicated?", b: "Lifelong secondary antibiotic prophylaxis.", x: "Prior SBP has a high recurrence risk because ascitic immune defenses remain impaired.", t: "Trap: Stopping antibiotics after the acute course without prophylaxis invites recurrence.", m: "Once SBP, prophylaxis forever" }
+        { f: "After recovery from SBP, what long-term prevention is indicated?", b: "Secondary antibiotic prophylaxis while risk persists, generally until transplant, death, or durable resolution of ascites.", x: "Prior SBP carries high recurrence risk; choose an agent such as TMP-SMX or ciprofloxacin according to local resistance and patient factors.", t: "Trap: Reassess prophylaxis if ascites resolves or toxicity develops; it is not automatically lifelong regardless of circumstances.", m: "Prior SBP: prevent recurrence while ascites persists" }
       ]
     },
     {
@@ -739,8 +738,8 @@
       explanation: "In a <strong>stable, non-toxic</strong> patient with suspected subacute infective endocarditis, obtain <strong>three blood culture sets from separate sites before antibiotics</strong> — bacteremia in IE is continuous, and premature antibiotics are the leading cause of culture-negative endocarditis. Empiric therapy starts after cultures; echocardiography (TTE first) follows.",
       flashcards: [
         { f: "In stable suspected infective endocarditis, what comes before antibiotics?", b: "Obtain 3 sets of blood cultures from separate venipuncture sites.", x: "IE bacteremia is usually continuous, and antibiotics before cultures are a leading cause of culture-negative endocarditis.", t: "Trap: If the patient is septic or unstable, cultures are still drawn promptly but antibiotics are not delayed.", m: "Three cultures before antibiotics if stable" },
-        { f: "What are the modified Duke major criteria for infective endocarditis?", b: "Typical positive blood cultures and evidence of endocardial involvement on echocardiography.", x: "Major microbiology includes organisms such as S. aureus, viridans streptococci, enterococci, and HACEK.", t: "Trap: Fever and murmur are supportive minor clues, not Duke major criteria by themselves.", m: "Duke majors: bugs and echo",
-          tb: { h: ["Duke major criterion", "Examples"], r: [["Blood cultures", "Typical organisms"], ["Endocardial evidence", "Vegetation or abscess"], ["Valve regurgitation", "New valvular regurgitation"]] } },
+        { f: "What major-criterion categories are used in the 2023 Duke-ISCVID endocarditis criteria?", b: "Qualifying microbiology, qualifying cardiac imaging, and direct surgical evidence in appropriate circumstances.", x: "Typical cultures remain central; selected molecular/serologic tests, cardiac CT, and FDG-PET/CT can also qualify under defined conditions.", t: "Trap: A new murmur alone is not a major criterion; significant new regurgitation documented on imaging can be.", m: "Duke majors: bugs, imaging, direct surgical evidence",
+          tb: { h: ["Major category", "Examples"], r: [["Microbiology", "Qualifying cultures or specific tests"], ["Imaging", "Vegetation, abscess, new regurgitation"], ["Additional imaging", "Qualifying CT or FDG-PET/CT"], ["Surgical", "Direct IE evidence when criteria permit"]] } },
         { f: "What is the echocardiography sequence for suspected endocarditis?", b: "TTE first, then TEE if TTE is negative/nondiagnostic or prosthetic valve/device is present.", x: "TEE is more sensitive for vegetations, abscesses, prosthetic valves, and intracardiac devices.", t: "Trap: A negative TTE does not exclude IE when suspicion remains high.", m: "TTE first, TEE if still suspicious",
           tb: { h: ["Echo step", "Use when"], r: [["TTE first", "Initial test"], ["TEE next", "TTE negative or nondiagnostic"], ["TEE early", "Prosthetic valve or device"]] } }
       ]
@@ -764,8 +763,8 @@
           tb: { h: ["Light criterion", "Exudate if"], r: [["Protein ratio", "Pleural/serum >0.5"], ["LDH ratio", "Pleural/serum >0.6"], ["Pleural LDH", ">2/3 serum ULN"]] } },
         { f: "What pathophysiology separates transudative from exudative pleural effusions?", b: "Transudates reflect pressure/oncotic imbalance; exudates reflect pleural inflammation or injury.", x: "HF, cirrhosis, and nephrotic syndrome cause transudates; infection, malignancy, and PE cause exudates.", t: "Trap: Diuresed HF can pseudo-exudate by Light's criteria; use serum-pleural albumin gradient if uncertain.", m: "Pressure transudes; inflammation exudes",
           tb: { h: ["Effusion type", "Mechanism", "Examples"], r: [["Transudate", "Pressure or oncotic", "HF, cirrhosis"], ["Exudate", "Inflammation or injury", "Cancer, pneumonia"]] } },
-        { f: "When does a parapneumonic effusion require chest tube drainage?", b: "Frank pus, pH <7.2, glucose <60 mg/dL, positive culture/Gram stain, or loculation.", x: "Low pH or glucose signals bacterial metabolism and impaired host clearance, making antibiotics alone insufficient.", t: "Trap: A small free-flowing effusion with normal pH/glucose may only need antibiotics.", m: "Pus, pH, glucose, bugs, locules need tube",
-          tb: { h: ["Drain if", "Threshold or finding"], r: [["Appearance", "Frank pus"], ["pH", "<7.2"], ["Glucose", "<60 mg/dL"], ["Microbiology", "Positive Gram stain or culture"], ["Loculation", "Present"]] } }
+        { f: "When does a parapneumonic effusion require chest tube drainage?", b: "Frank pus, positive Gram stain/culture, or pH ≤7.2; loculation or low glucose supports drainage in context.", x: "For pH 7.2–7.4, integrate LDH, glucose, size, septations, and ongoing fever. Low glucose is especially useful when pH is unavailable or unreliable.", t: "Trap: Do not base drainage on an isolated glucose value without considering infection, imaging, and reliable pH.", m: "Pus, pathogens, low pH: drain",
+          tb: { h: ["Finding", "Drainage implication"], r: [["Frank pus", "Drain"], ["pH ≤7.2", "Drain if safely accessible"], ["Positive microbiology", "Drain"], ["Intermediate pH or low glucose", "Integrate clinical and imaging risk"], ["Loculation", "Strong concern for complicated infection"]] } }
       ]
     },
     {
@@ -812,14 +811,14 @@
     {
       id: "heme-b12",
       system: "HEME",
-      task: "DX",
-      vignette: "A 68-year-old woman has fatigue, a hemoglobin of 10.1 g/dL with an MCV of 112 fL, and new bilateral paresthesias with impaired vibratory and position sense. Serum B12 is 210 pg/mL (low-normal). Methylmalonic acid and homocysteine are both markedly elevated.",
+      task: "RX",
+      vignette: "A 68-year-old woman has fatigue, a hemoglobin of 10.1 g/dL with an MCV of 112 fL, and new bilateral paresthesias with impaired vibratory and position sense. Renal function is normal. Serum B12 is 210 pg/mL (low-normal). Methylmalonic acid and homocysteine are both markedly elevated.",
       leadIn: "What is the most appropriate management?",
       options: [
         "Bone marrow biopsy.",
         "Begin high-dose folic acid alone.",
         "Begin vitamin B12 replacement.",
-        "Start an SSRI for somatic symptoms."
+        "Begin oral copper replacement."
       ],
       correct: 2,
       explanation: "A low-normal B12 with <strong>elevated methylmalonic acid</strong> confirms tissue B12 deficiency — MMA is the key discriminator, since folate deficiency raises homocysteine but <strong>not MMA</strong>. The neurologic findings (dorsal column dysfunction — subacute combined degeneration) demand prompt B12 repletion; folate alone can correct the anemia while neurologic damage progresses.",
@@ -833,7 +832,7 @@
       id: "onc-feb-neutropenia",
       system: "ONC",
       task: "RX",
-      vignette: "A 54-year-old woman on day 10 after chemotherapy for breast cancer presents with a temperature of 38.6 °C and rigors. She looks well, blood pressure is normal, and there is no localizing source. Absolute neutrophil count is 300/µL. Blood cultures are drawn.",
+      vignette: "A 54-year-old woman on day 10 after chemotherapy for breast cancer presents with a temperature of 38.6 °C and rigors. She looks well, blood pressure is normal, and there is no localizing source. Absolute neutrophil count is 300/µL, and her oncology team anticipates more than 7 additional days of neutropenia. Blood cultures are drawn.",
       leadIn: "What is the most appropriate immediate therapy?",
       options: [
         "IV vancomycin monotherapy.",
@@ -844,8 +843,8 @@
       correct: 3,
       explanation: "Febrile neutropenia (ANC &lt; 500/µL + fever) is an oncologic emergency: start an <strong>anti-pseudomonal beta-lactam</strong> (cefepime, piperacillin-tazobactam, or a carbapenem) <strong>immediately after cultures</strong>, within the hour. Vancomycin is ADDED only for specific indications (catheter infection, skin/soft-tissue source, pneumonia, instability) — never monotherapy.",
       flashcards: [
-        { f: "How is febrile neutropenia defined in a chemotherapy patient?", b: "ANC <500/µL or expected to fall there, plus temp ≥38.3 °C once or ≥38.0 °C sustained.", x: "Neutropenic patients may have few localizing signs, so fever alone can represent life-threatening infection.", t: "Trap: Do not wait for culture results or obvious source before treating.", m: "Fever plus ANC under 500 is emergency",
-          tb: { h: ["Component", "Definition"], r: [["Neutropenia", "ANC <500 or expected"], ["Single fever", "≥38.3 °C once"], ["Sustained fever", "≥38.0 °C sustained"]] } },
+        { f: "How is febrile neutropenia defined in a chemotherapy patient?", b: "ANC <500/µL or expected to fall below 500 within 48 h, with temperature ≥38.3°C once or ≥38.0°C for at least 1 hour.", x: "Neutropenic patients may lack localizing signs; prolonged neutropenia or significant comorbidity favors inpatient IV antipseudomonal therapy.", t: "Trap: Do not wait for culture results or an obvious source before treating.", m: "Fever plus ANC under 500 is an emergency",
+          tb: { h: ["Component", "Definition"], r: [["Neutropenia", "ANC <500 or expected within 48 h"], ["Single fever", "≥38.3°C once"], ["Sustained fever", "≥38.0°C for ≥1 hour"]] } },
         { f: "What empiric antibiotic is first-line for high-risk febrile neutropenia?", b: "Anti-pseudomonal beta-lactam monotherapy such as cefepime, piperacillin-tazobactam, or meropenem.", x: "Pseudomonas coverage within 1 hour reduces mortality; blood cultures should be drawn first if this does not delay therapy.", t: "Trap: Ceftriaxone lacks reliable Pseudomonas coverage for high-risk febrile neutropenia.", m: "Cefepime covers Pseudomonas fast" },
         { f: "When should vancomycin be added to febrile neutropenia therapy?", b: "Catheter infection, skin/soft-tissue infection, pneumonia, hemodynamic instability, or known MRSA risk.", x: "Routine vancomycin adds toxicity and resistance without improving outcomes when gram-positive risk is absent.", t: "Trap: Vancomycin is never adequate monotherapy because it lacks gram-negative/Pseudomonas coverage.", m: "Vanco only for gram-positive clues",
           tb: { h: ["Add vancomycin if", "Example"], r: [["Line concern", "Catheter infection"], ["Skin focus", "Cellulitis or SSTI"], ["Pulmonary focus", "Pneumonia"], ["Unstable", "Hypotension or shock"]] } }
@@ -858,10 +857,10 @@
       vignette: "A 41-year-old woman awoke yesterday with right facial droop. She cannot raise her right eyebrow, close the right eye completely, or smile on the right. There is no limb weakness, dysarthria, or sensory loss, and the remainder of the neurologic examination is normal.",
       leadIn: "What is the most appropriate management?",
       options: [
-        "Urgent CT angiography and thrombolysis evaluation for possible acute ischemic stroke involving the facial motor pathway.",
-        "Oral prednisone started within 72 hours of onset, plus eye protection.",
-        "Observation alone; no therapy changes outcomes even when presentation is within 72 hours.",
-        "IV ceftriaxone for presumed Lyme disease without exposure history, erythema migrans, or meningitis."
+        "Urgent CT angiography and stroke-team evaluation.",
+        "Start prednisone within 72 hours and protect the eye.",
+        "Eye protection and reassessment without glucocorticoids.",
+        "Begin ceftriaxone for Lyme-associated facial neuropathy."
       ],
       correct: 1,
       explanation: "Weakness involving the <strong>forehead</strong> localizes to a peripheral facial nerve lesion — Bell palsy — not a cortical stroke (which spares the forehead). <strong>Oral glucocorticoids within 72 hours</strong> improve the odds of complete recovery; add lubricating drops/night taping because incomplete eye closure risks exposure keratopathy. Antivirals are optionally added in severe palsy.",
@@ -897,7 +896,7 @@
       id: "crit-septic-shock",
       system: "CRIT",
       task: "RX",
-      vignette: "A 58-year-old man with pneumonia has a blood pressure of 78/44 mm Hg and lactate of 4.2 mEq/L despite a 30 mL/kg crystalloid bolus. Blood cultures were drawn and broad-spectrum antibiotics started within the first hour. He remains hypotensive with a MAP of 55 mm Hg.",
+      vignette: "A 58-year-old man with pneumonia has a blood pressure of 78/44 mm Hg and lactate of 4.2 mmol/L despite a 30 mL/kg crystalloid bolus. Blood cultures were drawn and broad-spectrum antibiotics started within the first hour. He remains hypotensive with a MAP of 55 mm Hg.",
       leadIn: "What is the most appropriate next step?",
       options: [
         "Begin stress-dose hydrocortisone as the next step.",
@@ -906,7 +905,7 @@
         "Start norepinephrine to target a MAP of at least 65 mm Hg."
       ],
       correct: 3,
-      explanation: "Hypotension persisting after adequate (30 mL/kg) crystalloid defines <strong>septic shock</strong> physiology: start <strong>norepinephrine, the first-line vasopressor</strong>, targeting MAP ≥ 65 mm Hg. Dopamine causes more arrhythmias; indiscriminate further volume risks fluid overload; hydrocortisone is reserved for shock refractory to fluids AND vasopressors.",
+      explanation: "Persistent hypotension with elevated lactate after initial resuscitation warrants <strong>norepinephrine</strong>, the first-line vasopressor, targeting an initial MAP of <strong>65 mm Hg</strong>. Do not delay pressors for another fixed large fluid bolus; reassess fluid responsiveness and congestion dynamically. Dopamine causes more arrhythmias. IV hydrocortisone can be added when septic shock has an ongoing vasopressor requirement; it does not replace starting norepinephrine.",
       flashcards: [
         { f: "What are the key hour-1 sepsis bundle actions?", b: "Measure lactate, obtain blood cultures before antibiotics, give broad-spectrum antibiotics, and 30 mL/kg crystalloid if hypotensive or lactate ≥4.", x: "Early source-directed antibiotics and perfusion restoration reduce mortality; cultures should not significantly delay antibiotics.", t: "Trap: Do not give fluids blindly forever; reassess perfusion and overload after the initial bolus.", m: "Hour 1: lactate, cultures, antibiotics, fluids",
           tb: { h: ["Hour-1 action", "When or why"], r: [["Lactate", "Measure; repeat if >2"], ["Cultures", "Before antibiotics"], ["Antibiotics", "Broad-spectrum now"], ["Crystalloid", "30 mL/kg if hypotension or lactate ≥4"], ["Vasopressors", "If hypotensive after fluids"]] } },
@@ -935,8 +934,8 @@
       flashcards: [
         { f: "Which bedside maneuvers make the HOCM murmur louder?", b: "Valsalva and standing; squatting and handgrip make it softer.", x: "Lower preload shrinks the LV cavity and worsens dynamic outflow obstruction, intensifying the murmur.", t: "Trap: Aortic stenosis usually gets softer with Valsalva and has delayed carotid upstroke.", m: "Less preload, louder HOCM",
           tb: { h: ["Maneuver", "Preload/afterload", "HOCM murmur"], r: [["Valsalva", "Decreases preload", "Louder"], ["Standing", "Decreases preload", "Louder"], ["Squatting", "Increases preload", "Softer"], ["Handgrip", "Increases afterload", "Softer"]] } },
-        { f: "What is the feared complication of hypertrophic cardiomyopathy in young athletes?", b: "Sudden cardiac death from ventricular arrhythmia.", x: "Family history, syncope, massive hypertrophy, NSVT, and abnormal BP response help identify ICD candidates.", t: "Trap: Screen first-degree relatives with echocardiography and sometimes genetic testing; do not reassure by normal ECG alone.", m: "Syncope plus family death raises risk" },
-        { f: "What is first-line therapy for symptomatic obstructive HCM?", b: "Beta-blocker; verapamil or diltiazem if beta-blocker not tolerated.", x: "Slowing heart rate improves diastolic filling and reduces dynamic LVOT obstruction.", t: "Trap: Avoid dehydration, diuretics, nitrates, and vasodilators because they can worsen obstruction.", m: "Slow and fill the ventricle" }
+        { f: "What is the feared complication of hypertrophic cardiomyopathy in young athletes?", b: "Sudden cardiac death from ventricular arrhythmia.", x: "Risk assessment includes arrhythmic syncope, family sudden death, massive hypertrophy, LV apical aneurysm, EF <50%, NSVT, and extensive MRI scar.", t: "Trap: Screen first-degree relatives with echocardiography and sometimes genetic testing; do not reassure by normal ECG alone.", m: "Syncope plus family death raises risk" },
+        { f: "What is first-line therapy for symptomatic obstructive HCM?", b: "A nonvasodilating beta-blocker; verapamil or diltiazem if not tolerated and otherwise appropriate.", x: "Slowing heart rate improves diastolic filling and reduces dynamic LVOT obstruction.", t: "Trap: Avoid dehydration and nitrates; use diuretics cautiously only for congestion. Verapamil may be harmful with hypotension or very severe obstruction.", m: "Slow and fill the ventricle" }
       ]
     },
     {
@@ -993,10 +992,10 @@
         "Start fluconazole prophylaxis for cryptococcosis."
       ],
       correct: 0,
-      explanation: "A CD4 count <strong>below 200/µL</strong> mandates <strong>Pneumocystis jirovecii prophylaxis with TMP-SMX</strong>, which would also cover toxoplasmosis once CD4 falls below 100 with positive IgG. Routine MAC prophylaxis is no longer recommended when effective ART is being started, and primary fluconazole prophylaxis is not standard of care.",
+      explanation: "This untreated patient has CD4 120/µL and detectable HIV RNA, so start <strong>Pneumocystis jirovecii prophylaxis with TMP-SMX</strong>. NIH indications include CD4 &lt;100 regardless of viral load, or CD4 100–200 with detectable HIV RNA; prophylaxis is also recommended at CD4 &lt;200 when initiating ART. TMP-SMX covers toxoplasmosis when CD4 &lt;100 with positive IgG. Routine MAC prophylaxis is unnecessary when effective ART is promptly started, and primary fluconazole prophylaxis is not standard US care.",
       flashcards: [
-        { f: "When is PCP prophylaxis started in HIV?", b: "CD4 < 200/µL (or oropharyngeal candidiasis) — TMP-SMX, which also covers Toxoplasma at CD4 < 100 with positive IgG.", x: "PCP risk rises steeply below CD4 200; TMP-SMX prevents both PCP and many bacterial infections. It also becomes preferred toxoplasma prophylaxis when IgG-positive and CD4 is very low.", t: "Trap: Do not choose aerosolized pentamidine first-line; it does not protect against toxoplasmosis and TMP-SMX is preferred.", m: "CD4 200 = PCP line",
-          tb: { h: ["Prophylaxis", "Start", "Preferred"], r: [["PCP", "CD4 <200", "TMP-SMX"], ["Toxoplasma", "CD4 <100 + IgG", "TMP-SMX"], ["MAC", "CD4 <50, no ART", "Azithromycin"], ["Candida", "Routine none", "Treat disease"]] } },
+        { f: "When is primary PCP prophylaxis indicated in HIV?", b: "CD4 <100 regardless of viral load, or CD4 100–200 with detectable HIV RNA; also at CD4 <200 when initiating ART. TMP-SMX is preferred.", x: "Sustained viral suppression modifies risk at CD4 100–200; TMP-SMX also prevents toxoplasmosis when IgG-positive and CD4 <100.", t: "Trap: A suppressed patient with CD4 150 may not need indefinite prophylaxis; aerosolized pentamidine does not prevent toxoplasmosis.", m: "PCP prevention uses CD4 plus viral control",
+          tb: { h: ["Prophylaxis", "Indication", "Preferred"], r: [["PCP", "CD4 <100, or 100–200 with viremia", "TMP-SMX"], ["Toxoplasma", "CD4 <100 + IgG", "TMP-SMX"], ["MAC", "CD4 <50 without effective ART", "Azithromycin"], ["Candida", "Routine none", "Treat disease"]] } },
         { f: "Is MAC prophylaxis still routine in HIV?", b: "No — not needed when effective ART is being initiated (historically azithromycin at CD4 < 50).", x: "Effective ART rapidly lowers disseminated MAC risk, so primary azithromycin is usually unnecessary if ART can start promptly. Reserve MAC treatment for proven disease.", t: "Trap: Azithromycin prophylaxis is only considered at CD4 <50 when ART is not started or remains ineffective.", m: "MAC <50 only if ART is not working" },
         { f: "When is ART started relative to an opportunistic infection?", b: "Promptly — within ~2 weeks for most OIs; DELAY in cryptococcal meningitis because early ART worsens IRIS mortality.", x: "Early ART improves survival for most OIs, but CNS cryptococcosis is different because inflammatory swelling can be fatal. Timing is a board favorite.", t: "Trap: Do not delay ART for PCP; the classic delay is cryptococcal meningitis, not most OIs.", m: "Most OIs: ART in 2 weeks; cryptococcus waits" }
       ]
@@ -1055,7 +1054,7 @@
         "Combined ACE inhibitor plus ARB for maximal proteinuria reduction."
       ],
       correct: 0,
-      explanation: "In proteinuric (albuminuric) CKD — especially diabetic kidney disease — <strong>ACE inhibitors or ARBs are first-line</strong>: they lower intraglomerular pressure and slow progression. The two must <strong>never be combined</strong> (hyperkalemia, AKI). A creatinine rise up to ~30% after initiation is expected and acceptable.",
+      explanation: "In proteinuric (albuminuric) CKD — especially diabetic kidney disease — <strong>ACE inhibitors or ARBs are first-line</strong>: they lower intraglomerular pressure and slow progression. The two must <strong>never be combined</strong> (hyperkalemia, AKI). A creatinine rise up to ~30% after initiation may be acceptable if stable and potassium and volume status are appropriate; a rise is not required for benefit.",
       flashcards: [
         { f: "What is first-line antihypertensive therapy in proteinuric CKD?", b: "An ACE inhibitor OR an ARB — slows progression; NEVER combine the two (hyperkalemia, AKI).", x: "Efferent arteriolar dilation lowers intraglomerular pressure, reducing albuminuria and long-term scarring. Benefit is strongest when albuminuria is present.", t: "Trap: Do not combine ACEi plus ARB; dual blockade increases AKI and hyperkalemia without outcome benefit.", m: "Protein in urine → block angiotensin" },
         { f: "How much creatinine rise is acceptable after starting an ACEi/ARB?", b: "Up to ~30% within the first weeks — recheck Cr/K in 1–2 weeks; a larger rise suggests bilateral renal artery stenosis.", x: "A small creatinine rise reflects hemodynamic lowering of filtration pressure, not tubular injury. Monitor potassium because aldosterone falls.", t: "Trap: A rise >30% suggests renal artery stenosis, volume depletion, NSAIDs, or overdiuresis.", m: "30% creatinine bump can be expected",
@@ -1066,7 +1065,7 @@
     {
       id: "heme-aiha",
       system: "HEME",
-      task: "DX",
+      task: "RX",
       vignette: "A 45-year-old woman has one week of fatigue and dark urine. Examination shows pallor, scleral icterus, and a palpable spleen tip. Hemoglobin is 7.9 g/dL, reticulocytes 9%, LDH elevated, haptoglobin undetectable, indirect bilirubin 3.1 mg/dL. Peripheral smear shows spherocytes. The direct antiglobulin (Coombs) test is positive for IgG.",
       leadIn: "What is the most appropriate initial treatment?",
       options: [
@@ -1079,9 +1078,9 @@
       explanation: "Hemolysis (high retics/LDH/indirect bilirubin, absent haptoglobin) with <strong>spherocytes and a positive IgG DAT</strong> is <strong>warm autoimmune hemolytic anemia</strong>. First-line therapy is <strong>glucocorticoids</strong>; rituximab or splenectomy are for refractory/relapsing disease. Transfuse if unstable even without a perfectly compatible crossmatch.",
       flashcards: [
         { f: "What is the lab signature of hemolysis?", b: "↑ reticulocytes, ↑ LDH, ↑ indirect bilirubin, and LOW haptoglobin.", x: "Low haptoglobin occurs because free hemoglobin binds it during intravascular or brisk extravascular hemolysis. Reticulocytosis shows marrow compensation.", t: "Trap: Isolated anemia with low retics suggests underproduction, not hemolysis.", m: "Hemolysis: retics and LDH up, haptoglobin down" },
-        { f: "What test defines autoimmune hemolytic anemia?", b: "A positive direct antiglobulin (Coombs) test — warm AIHA shows IgG with spherocytes on smear.", x: "DAT detects antibody or complement stuck to RBCs; warm IgG disease is usually extravascular splenic clearance with spherocytes.", t: "Trap: Hereditary spherocytosis also has spherocytes but DAT is negative.", m: "Warm AIHA: IgG DAT + spherocytes",
+        { f: "What test supports autoimmune hemolytic anemia in a patient with hemolysis?", b: "A positive direct antiglobulin test; warm AIHA typically has IgG coating and spherocytes.", x: "DAT detects RBC-bound antibody or complement. Interpret it with evidence of hemolysis; a minority of AIHA cases are DAT-negative with standard testing.", t: "Trap: A positive DAT alone is not proof of active hemolysis; hereditary spherocytosis usually has a negative DAT.", m: "Warm AIHA: hemolysis plus IgG DAT and spherocytes",
           tb: { h: ["Feature", "Warm AIHA", "Hereditary sphere"], r: [["DAT", "Positive IgG", "Negative"], ["Smear", "Spherocytes", "Spherocytes"], ["Mechanism", "Autoimmune", "Membrane defect"], ["First therapy", "Steroids", "Support or spleen"]] } },
-        { f: "What is first-line therapy for warm AIHA?", b: "Glucocorticoids; rituximab or splenectomy for refractory disease — and transfuse unstable patients even without a perfect crossmatch.", x: "Steroids decrease macrophage clearance of IgG-coated RBCs. Life-threatening anemia is transfused despite crossmatch difficulty.", t: "Trap: Do not wait for compatible blood if unstable; give least-incompatible RBCs with blood bank support.", m: "Warm AIHA first move: steroids" }
+        { f: "What is first-line therapy for warm AIHA?", b: "Glucocorticoids; add rituximab in severe disease or inadequate response. Do not delay urgently needed transfusion.", x: "Work with transfusion medicine to exclude clinically significant alloantibodies and select appropriately antigen-matched RBCs; an autoantibody may make all crossmatches reactive.", t: "Trap: Searching for 'least incompatible' blood does not establish transfusion safety and should not delay lifesaving RBCs.", m: "Warm AIHA: steroids and blood-bank coordination" }
       ]
     },
     {
@@ -1089,15 +1088,15 @@
       system: "ONC",
       task: "RISK",
       vignette: "A 42-year-old average-risk woman asks when she should begin breast cancer screening. She has no family history of breast or ovarian cancer, no prior chest radiation, and no personal history of breast disease.",
-      leadIn: "What is the most appropriate recommendation?",
+      leadIn: "According to USPSTF breast screening guidance, what is the most appropriate recommendation?",
       options: [
         "Biennial screening mammography now, continuing through age 74.",
-        "Annual breast MRI starting now as a more sensitive screening strategy for women in their 40s.",
-        "Delay all screening until age 50, then begin biennial mammography through age 74.",
-        "Clinical breast examination alone every year instead of mammography for average-risk screening."
+        "Annual breast MRI now, continuing through age 74.",
+        "Biennial mammography beginning at age 50 through age 74.",
+        "Annual breast ultrasound now, continuing through age 74."
       ],
       correct: 0,
-      explanation: "The USPSTF (2024) recommends <strong>biennial screening mammography for all average-risk women ages 40–74</strong>. Breast MRI is reserved for high-risk women (BRCA carriers, prior chest radiation, lifetime risk ≳ 20%); clinical examination alone is not an adequate screening strategy.",
+      explanation: "The USPSTF (2024) recommends <strong>biennial screening mammography for all average-risk women ages 40–74</strong>; waiting until age 50 delays recommended screening. Breast MRI is reserved for high-risk women (BRCA carriers, prior chest radiation, lifetime risk ≳ 20%). Ultrasound does not replace mammography for routine average-risk screening.",
       flashcards: [
         { f: "What is the current USPSTF breast cancer screening recommendation?", b: "Biennial screening mammography for average-risk women ages 40–74 (2024 update).", x: "The 2024 USPSTF update starts average-risk screening at 40 because benefits outweigh harms in that age range. Shared decision-making still matters.", t: "Trap: Annual mammography is not the USPSTF default; it recommends biennial screening.", m: "40 to 74, every 2 years" },
         { f: "Who needs supplemental breast MRI screening?", b: "High-risk women: BRCA carriers, chest radiation at a young age, or estimated lifetime risk ≳ 20%.", x: "MRI is more sensitive but causes false positives, so it is reserved for markedly elevated lifetime risk rather than dense breasts alone.", t: "Trap: Average-risk family history does not automatically mean MRI; use genetics/risk modeling.", m: "MRI is for very high lifetime risk" },
@@ -1154,9 +1153,9 @@
       leadIn: "What is the most appropriate immediate treatment?",
       options: [
         "Intramuscular epinephrine in the mid-outer thigh.",
-        "IV diphenhydramine and famotidine first, with epinephrine reserved for persistent hives after observation.",
-        "IV methylprednisolone as immediate monotherapy for airway symptoms, hypotension, and urticaria.",
-        "Nebulized albuterol alone because wheezing is present, while observing the hypotension and angioedema."
+        "IV diphenhydramine plus famotidine.",
+        "IV methylprednisolone plus isotonic saline.",
+        "Nebulized albuterol plus supplemental oxygen."
       ],
       correct: 0,
       explanation: "Skin findings plus respiratory compromise and hypotension after an allergen is <strong>anaphylaxis</strong> — the only first-line therapy is <strong>IM epinephrine (0.3–0.5 mg of 1 mg/mL) in the mid-outer thigh</strong>, repeated every 5–15 minutes as needed. Antihistamines, steroids, and bronchodilators are adjuncts that never substitute for or delay epinephrine.",
@@ -1227,10 +1226,10 @@
         "Start a high-intensity statin."
       ],
       correct: 3,
-      explanation: "An <strong>LDL ≥ 190 mg/dL</strong> (here with tendon xanthomas and premature family CAD → likely <strong>familial hypercholesterolemia</strong>) is a statin benefit group in its own right: start a <strong>high-intensity statin without risk calculation</strong> (risk calculators underestimate lifetime risk). Add ezetimibe (then a PCSK9 inhibitor) if LDL stays ≥ 100 mg/dL. CAC scoring is for the intermediate-risk primary-prevention patient, not this one.",
+      explanation: "An <strong>LDL ≥ 190 mg/dL</strong> (here with tendon xanthomas and premature family CAD → likely <strong>familial hypercholesterolemia</strong>) warrants a <strong>high-intensity statin without risk calculation</strong>. Assess adherence and LDL response, add nonstatin therapy if the risk-specific LDL goal is not reached, and arrange family cascade screening. The 2026 ACC/AHA dyslipidemia guideline uses <strong>PREVENT-ASCVD</strong> for appropriate primary-prevention risk discussions, but a low calculated risk or CAC of zero does not justify deferring treatment of this severe hypercholesterolemia.",
       flashcards: [
-        { f: "What are the four statin benefit groups (ACC/AHA)?", b: "Clinical ASCVD; LDL ≥ 190 mg/dL; diabetes age 40–75; and 10-year ASCVD risk ≥ 7.5% age 40–75 after a risk discussion.", x: "LDL ≥190 implies high lifetime risk and often familial hypercholesterolemia, so treatment does not depend on 10-year calculators.", t: "Trap: Do not order CAC to decide on statin when LDL is already ≥190 mg/dL.", m: "LDL 190 skips the calculator",
-          tb: { h: ["Statin group", "Trigger", "Default intensity"], r: [["Clinical ASCVD", "Known disease", "High intensity"], ["Severe LDL", "LDL ≥190", "High intensity"], ["Diabetes", "Age 40–75", "Moderate or high"], ["Primary risk", "Risk ≥7.5%", "Discuss statin"]] } },
+        { f: "How does the 2026 ACC/AHA guideline stratify primary-prevention lipid risk?", b: "Use PREVENT-ASCVD: borderline 3% to <5%, intermediate 5% to <10%, high ≥10% 10-year risk.", x: "Lipid-lowering therapy is reasonable at borderline risk and recommended at intermediate risk after discussion. LDL ≥190 mg/dL warrants treatment without a risk calculation.", t: "Trap: Do not apply the old pooled-cohort 7.5% threshold to PREVENT or use CAC to defer therapy for LDL ≥190.", m: "PREVENT: 3, 5, 10; LDL 190 skips calculation",
+          tb: { h: ["PREVENT risk", "Category", "Usual approach"], r: [["<3%", "Low", "Lifestyle; assess modifiers"], ["3% to <5%", "Borderline", "Consider lipid therapy"], ["5% to <10%", "Intermediate", "Recommend after discussion"], ["≥10%", "High", "Lipid-lowering therapy"]] } },
         { f: "What defines high-intensity statin therapy?", b: "Lowers LDL by ≥ 50%: atorvastatin 40–80 mg or rosuvastatin 20–40 mg daily.", x: "High-intensity dosing targets percent reduction, not just crossing a single LDL threshold. Recheck lipids to confirm adherence and response.", t: "Trap: Simvastatin 20–40 mg is moderate intensity, not high intensity.", m: "High intensity halves LDL" },
         { f: "When does a coronary artery calcium score help?", b: "Intermediate-risk primary prevention when the statin decision is uncertain — CAC 0 favors deferring; CAC ≥ 100 (or ≥ 75th percentile) favors a statin.", x: "CAC refines risk when benefit is uncertain; calcium burden identifies subclinical plaque and motivates statin use.", t: "Trap: CAC 0 does not override diabetes, LDL ≥190, active smoking, or strong premature family history.", m: "CAC is for uncertain middle-risk decisions" }
       ]
@@ -1248,11 +1247,11 @@
         "Overnight 1-mg dexamethasone suppression test for cortisol excess."
       ],
       correct: 0,
-      explanation: "<strong>Resistant hypertension</strong> with <strong>spontaneous hypokalemia</strong> is the classic screen-positive scenario for <strong>primary aldosteronism</strong>, the most common cause of secondary hypertension. Screen with a morning <strong>aldosterone-to-renin ratio</strong>: high aldosterone with suppressed renin is positive. Then confirm (saline infusion or oral sodium loading), image the adrenals with CT, and lateralize with adrenal vein sampling before surgery.",
+      explanation: "<strong>Resistant hypertension</strong> with <strong>spontaneous hypokalemia</strong> strongly suggests <strong>primary aldosteronism</strong>, a common endocrine cause of secondary hypertension. Screen with morning aldosterone and renin, interpreting the <strong>aldosterone-to-renin ratio</strong> together with absolute values. Correct hypokalemia and consider medication interference to avoid false negatives. The 2025 Endocrine Society guideline suggests screening all adults with hypertension. Suppression testing is selective, not mandatory with overt renin-independent aldosterone excess or when proceeding directly to medical treatment. Surgical candidates generally need adrenal CT and adrenal vein sampling.",
       flashcards: [
-        { f: "Who should be screened for primary aldosteronism?", b: "Resistant hypertension, hypertension with hypokalemia (spontaneous or diuretic-induced), adrenal incidentaloma, hypertension with sleep apnea, or early-onset hypertension/stroke.", x: "Aldosterone excess causes sodium retention, hypertension, potassium wasting, and suppressed renin. Many patients are normokalemic, so screen high-risk HTN.", t: "Trap: Hypokalemia is classic but absent in many cases; resistant hypertension alone can warrant screening.", m: "Resistant HTN or low K: think aldosterone" },
-        { f: "What is the diagnostic sequence for primary aldosteronism?", b: "Aldosterone-to-renin ratio (high aldosterone, suppressed renin) → confirmatory salt-loading test → adrenal CT → adrenal vein sampling to lateralize.", x: "Confirmatory salt loading proves autonomous aldosterone secretion; CT finds anatomy, but adrenal vein sampling proves laterality.", t: "Trap: Do not send directly to adrenalectomy based only on a CT nodule; incidentalomas are common.", m: "ARR, confirm, CT, then adrenal veins",
-          tb: { h: ["Step", "Test", "Purpose"], r: [["Screen", "Aldo-renin ratio", "Find suppressed renin"], ["Confirm", "Salt loading", "Prove autonomy"], ["Image", "Adrenal CT", "Find anatomy"], ["Lateralize", "Adrenal veins", "Guide surgery"]] } },
+        { f: "Who should be screened for primary aldosteronism under 2025 guidance?", b: "The Endocrine Society suggests screening all adults with hypertension; resistant hypertension or hypokalemia is especially high-yield.", x: "Aldosterone excess causes sodium retention and suppressed renin; many patients are normokalemic. Implementation depends on resources and clinical priorities.", t: "Trap: Correct hypokalemia before testing because low potassium can suppress aldosterone and produce a false negative.", m: "Hypertension opens the aldosterone screen" },
+        { f: "What is the diagnostic pathway after a positive aldosterone-renin screen?", b: "Selectively use suppression testing; surgical candidates generally need adrenal CT and adrenal vein sampling to lateralize.", x: "Suppression testing helps when the probability is intermediate and surgery is desired; overt biochemical disease or planned medical therapy can bypass it.", t: "Trap: Do not send directly to adrenalectomy based only on a CT nodule; incidentalomas are common.", m: "Screen, choose pathway, lateralize before surgery",
+          tb: { h: ["Step", "Test or decision", "Purpose"], r: [["Screen", "Aldosterone and renin", "Renin-independent secretion"], ["Clarify if needed", "Suppression test", "Intermediate probability"], ["Surgical workup", "Adrenal CT", "Define anatomy"], ["Lateralize", "Adrenal veins", "Guide surgery"]] } },
         { f: "How is primary aldosteronism treated?", b: "Unilateral adenoma → laparoscopic adrenalectomy. Bilateral hyperplasia → mineralocorticoid receptor antagonist (spironolactone or eplerenone).", x: "Removing a unilateral source can cure or improve hypertension; bilateral disease needs receptor blockade to stop aldosterone effects.", t: "Trap: ACE inhibitors are not definitive therapy for bilateral primary aldosteronism; use spironolactone or eplerenone.", m: "One adrenal: remove; two adrenals: block" }
       ]
     },
@@ -1290,11 +1289,11 @@
         "ERCP within 24 hours to clear possible microlithiasis from the common bile duct and prevent recurrence."
       ],
       correct: 2,
-      explanation: "<strong>Acute pancreatitis</strong> = 2 of 3: typical pain, <strong>lipase ≥ 3× ULN</strong>, or imaging findings. Care is <strong>moderate goal-directed lactated Ringer's</strong> (aggressive fluids increase volume overload without benefit), analgesia, and <strong>early oral feeding</strong> (enteral beats parenteral). <strong>Prophylactic antibiotics are not indicated</strong>. ERCP within 24 h is only for concomitant <strong>cholangitis</strong>; for mild gallstone pancreatitis, <strong>cholecystectomy during the same admission</strong> prevents recurrence.",
+      explanation: "<strong>Acute pancreatitis</strong> = 2 of 3: typical pain, <strong>lipase ≥ 3× ULN</strong>, or imaging findings. Care is <strong>moderate goal-directed lactated Ringer's</strong> (aggressive fluids increase volume overload without benefit), analgesia, and <strong>early oral feeding</strong> (enteral beats parenteral). <strong>Prophylactic antibiotics are not indicated</strong>. ERCP within 24 h is for concomitant <strong>cholangitis</strong>; persistent biliary obstruction also warrants therapeutic ERCP. Neither is present here. For mild gallstone pancreatitis, <strong>same-admission cholecystectomy</strong> prevents recurrence.",
       flashcards: [
         { f: "How is acute pancreatitis diagnosed?", b: "2 of 3: characteristic epigastric pain, lipase (or amylase) ≥ 3× ULN, or characteristic imaging findings.", x: "Enzyme elevation alone is insufficient if symptoms and imaging do not fit. Lipase is preferred because it is more pancreas-specific than amylase.", t: "Trap: CT is not required for straightforward early pancreatitis meeting pain plus lipase criteria.", m: "Pancreatitis diagnosis: 2 of 3" },
         { f: "Fluids and nutrition in acute pancreatitis?", b: "Moderate goal-directed lactated Ringer's (not aggressive) and early oral feeding as tolerated; enteral is preferred to TPN.", x: "Early enteral feeding preserves gut barrier function and reduces infections. LR may reduce inflammatory acidosis compared with normal saline.", t: "Trap: Prolonged NPO and routine TPN are outdated unless enteral feeding truly fails.", m: "Feed the gut early; do not flood aggressively" },
-        { f: "When is ERCP indicated in gallstone pancreatitis?", b: "Within 24 h only with concomitant cholangitis (or persistent biliary obstruction) — not routinely; cholecystectomy in the same admission if mild.", x: "ERCP treats infected or persistently obstructed ducts; same-admission cholecystectomy prevents recurrent gallstone pancreatitis.", t: "Trap: Prophylactic antibiotics for sterile pancreatitis or necrosis are not indicated.", m: "ERCP for cholangitis, cholecystectomy for mild gallstones",
+        { f: "When is ERCP indicated in gallstone pancreatitis?", b: "Urgently within 24 h for cholangitis; persistent biliary obstruction also warrants therapeutic ERCP, with timing guided by severity.", x: "Without cholangitis or ongoing obstruction, do not perform routine early ERCP. Mild gallstone pancreatitis needs same-admission cholecystectomy.", t: "Trap: Prophylactic antibiotics for sterile pancreatitis or necrosis are not indicated.", m: "ERCP for infected or obstructed ducts",
           tb: { h: ["Scenario", "ERCP?", "Next step"], r: [["Cholangitis", "Yes, within 24 h", "Drain duct"], ["Persistent block", "Yes", "Clear duct"], ["Mild gallstone", "No routine", "Same-admit chole"], ["Sterile necrosis", "No", "Supportive care"]] } }
       ]
     },
@@ -1311,12 +1310,12 @@
         "Start sofosbuvir-velpatasvir without further testing."
       ],
       correct: 0,
-      explanation: "A reactive HCV antibody shows <strong>exposure</strong>, not necessarily active infection — about 25% clear the virus spontaneously and remain antibody-positive for life. Confirm <strong>viremia with HCV RNA</strong>. If positive, check <strong>HBsAg/anti-HBc</strong> (HBV can reactivate on DAAs) and assess fibrosis noninvasively (FIB-4, elastography) — biopsy is rarely needed. Pangenotypic DAAs cure > 95%.",
+      explanation: "A reactive HCV antibody shows <strong>exposure</strong>, not necessarily active infection — some patients spontaneously clear the virus but remain antibody-positive. Confirm <strong>viremia with HCV RNA</strong>. If positive, check <strong>HBsAg, anti-HBc, and anti-HBs</strong> before DAAs because HBV can reactivate, and assess fibrosis noninvasively (FIB-4, elastography). Biopsy is rarely needed. Pangenotypic DAAs cure &gt; 95% of appropriately treated patients.",
       flashcards: [
         { f: "Who should be screened for hepatitis C?", b: "All adults at least once (CDC ≥ 18 y; USPSTF 18–79 y), every pregnancy, and periodically with ongoing risk such as injection drug use.", x: "Universal screening catches silent chronic infection before cirrhosis and hepatocellular carcinoma. Repeat testing is risk-based.", t: "Trap: Birth-cohort-only screening is outdated; all adults need at least one test.", m: "HCV screen once for all adults, repeat for risk" },
         { f: "What follows a positive HCV antibody?", b: "HCV RNA — antibody persists after spontaneous clearance or cure, so only RNA proves active infection.", x: "Antibody cannot distinguish past cleared infection from active viremia. RNA also documents cure after treatment.", t: "Trap: Do not diagnose chronic active HCV from antibody positivity alone.", m: "Antibody means exposed; RNA means infected",
           tb: { h: ["Result", "Meaning", "Next step"], r: [["Ab negative", "No exposure likely", "Repeat if recent risk"], ["Ab positive", "Exposed sometime", "Check HCV RNA"], ["RNA positive", "Active infection", "Stage and treat"], ["RNA negative", "Cleared or cured", "No active HCV"]] } },
-        { f: "What are the pangenotypic HCV regimens?", b: "Sofosbuvir-velpatasvir × 12 weeks or glecaprevir-pibrentasvir × 8 weeks — SVR > 95%; screen for HBV first (reactivation risk).", x: "DAAs are short, oral, and highly curative; HBV screening prevents flare when HCV suppression removes viral interference.", t: "Trap: Genotype testing is often unnecessary for simplified pangenotypic treatment, but cirrhosis status still matters.", m: "Modern HCV: short oral pangenotypic cures" }
+        { f: "What are simplified pangenotypic HCV regimens for eligible treatment-naive adults?", b: "Sofosbuvir-velpatasvir for 12 weeks or glecaprevir-pibrentasvir for 8 weeks; assess fibrosis, interactions, and HBV status first.", x: "DAAs are short, oral, and highly curative; advanced liver disease, prior therapy, and some genotype/cirrhosis combinations require different pathways.", t: "Trap: Glecaprevir is a protease inhibitor and must not be used in decompensated cirrhosis.", m: "Modern HCV: short oral cures after eligibility review" }
       ]
     },
     {
@@ -1395,11 +1394,11 @@
         "Mediastinoscopy with lymph node biopsy."
       ],
       correct: 0,
-      explanation: "Erythema nodosum + bilateral hilar adenopathy + ankle periarthritis/fever = <strong>Löfgren syndrome</strong>, an acute sarcoidosis presentation so specific that biopsy is usually unnecessary and with <strong>&gt; 90% spontaneous remission</strong>. Treat symptoms with <strong>NSAIDs</strong>. Glucocorticoids are reserved for symptomatic/progressive pulmonary disease or cardiac, neurologic, ocular, renal, or hypercalcemic involvement.",
+      explanation: "Erythema nodosum + bilateral hilar adenopathy + ankle periarthritis/fever = <strong>Löfgren syndrome</strong>, an acute sarcoidosis presentation so specific that biopsy is usually unnecessary and with <strong>&gt; 90% spontaneous remission</strong>. Treat symptoms with <strong>NSAIDs</strong>. Glucocorticoids are reserved for important progressive/symptomatic disease or organ threat, including clinically significant hypercalcemia. This patient has no such indication.",
       flashcards: [
         { f: "What is Löfgren syndrome?", b: "Acute sarcoidosis: erythema nodosum + bilateral hilar adenopathy + ankle periarthritis/fever — excellent prognosis, treat with NSAIDs.", x: "This triad is so specific for sarcoidosis that biopsy is usually unnecessary. The natural history is spontaneous remission in most patients.", t: "Trap: Do not biopsy every patient with classic Löfgren syndrome and benign course.", m: "Löfgren triad often heals itself" },
         { f: "Why does sarcoidosis cause hypercalcemia?", b: "Granuloma macrophages express 1-α-hydroxylase → excess calcitriol (1,25-(OH)₂ vitamin D) → increased gut calcium absorption.", x: "Macrophage 1-α-hydroxylase is not feedback-regulated like kidney enzyme, so vitamin D activation can continue despite hypercalcemia.", t: "Trap: Sarcoid hypercalcemia has high 1,25-OH₂ D, not primary hyperparathyroidism physiology.", m: "Sarcoid macrophages make calcitriol" },
-        { f: "When are glucocorticoids indicated in sarcoidosis?", b: "Symptomatic or progressive lung disease, or cardiac, neurologic, ocular, renal involvement, or hypercalcemia.", x: "Steroids are reserved for organ-threatening disease because many cases remit and treatment toxicity is substantial.", t: "Trap: Asymptomatic bilateral hilar adenopathy alone often needs observation, not prednisone.", m: "Steroids for organ threat, not quiet nodes" }
+        { f: "When are glucocorticoids indicated in sarcoidosis?", b: "Important symptomatic/progressive lung disease, organ-threatening cardiac, neurologic, ocular, or renal disease, or clinically significant hypercalcemia.", x: "Treatment balances disease severity against toxicity; mild isolated laboratory abnormalities do not automatically require systemic steroids.", t: "Trap: Asymptomatic bilateral hilar adenopathy alone often needs observation, not prednisone.", m: "Steroids for organ threat, not quiet nodes" }
       ]
     },
     {
@@ -1418,7 +1417,7 @@
       explanation: "USPSTF (2021): <strong>annual low-dose CT</strong> for adults <strong>50–80 years</strong> with <strong>≥ 20 pack-years</strong> who <strong>currently smoke or quit within the past 15 years</strong>. She qualifies. Stop screening once she has been smoke-free 15 years, or if a health problem limits life expectancy or willingness to have curative surgery. Chest radiograph and sputum cytology do not reduce mortality.",
       flashcards: [
         { f: "USPSTF lung cancer screening criteria?", b: "Annual low-dose CT for age 50–80, ≥ 20 pack-years, and currently smoking or quit within 15 years.", x: "Low-dose CT detects early lung cancer in high-risk smokers and reduces mortality; CXR and sputum cytology do not.", t: "Trap: A normal chest radiograph is not an adequate screening test for eligible patients.", m: "50-80, 20 pack-years, current or quit <15" },
-        { f: "When does lung cancer screening stop?", b: "After 15 years without smoking, or when health problems limit life expectancy or the ability/willingness to undergo curative surgery.", x: "Screening benefit stops when lung cancer risk falls or curative treatment would not be pursued. Harms include false positives and procedures.", t: "Trap: Do not continue annual CT indefinitely after 15 smoke-free years.", m: "Quit 15 years: stop CT screening" },
+        { f: "When does USPSTF lung cancer screening stop?", b: "At age >80, after 15 smoke-free years, or when health limits life expectancy or willingness/ability to undergo curative surgery.", x: "This is the USPSTF framework; the 2023 American Cancer Society guideline does not use a years-since-quitting cutoff.", t: "Trap: Name the guideline; a 15-year quit cutoff is not universal across screening recommendations.", m: "USPSTF: 80, quit 15, or no curative option" },
         { f: "Incidental solid lung nodule < 6 mm in a low-risk patient — follow-up?", b: "No routine follow-up (Fleischner); high-risk patients may have optional CT at 12 months.", x: "Tiny nodules in low-risk patients are usually benign granulomas or scars. Follow-up depends on size, risk, and nodule features.", t: "Trap: Fleischner incidental nodule guidance is not the same as formal lung cancer screening protocols.", m: "Tiny low-risk incidental nodules can rest" }
       ]
     },
@@ -1435,7 +1434,7 @@
         "MRI of the knee to evaluate for osteomyelitis or effusion before diagnostic synovial fluid analysis."
       ],
       correct: 1,
-      explanation: "An <strong>acute hot monoarthritis is septic until proven otherwise</strong> — joint destruction begins within days. <strong>Arthrocentesis</strong> (cell count, Gram stain, culture, crystals) is mandatory before antibiotics. A gout history does not exclude infection: <strong>crystals and infection can coexist</strong>. Serum urate can be normal during a flare, and imaging cannot distinguish infection from crystal disease.",
+      explanation: "An <strong>acute hot monoarthritis requires urgent exclusion of infection</strong> — joint destruction can occur quickly. In this stable patient, perform <strong>arthrocentesis</strong> (cell count, Gram stain, culture, crystals) before antibiotics; in septic shock, obtain samples promptly but do not delay antibiotics. A gout history does not exclude infection: <strong>crystals and infection can coexist</strong>. Serum urate and imaging cannot reliably distinguish them.",
       flashcards: [
         { f: "Which synovial WBC count suggests septic arthritis?", b: "> 50,000/µL with > 90% neutrophils (often > 100,000) — but lower counts do not exclude it; culture decides.", x: "Bacterial joint infection destroys cartilage quickly, so synovial fluid culture is decisive even when WBC is below classic thresholds.", t: "Trap: A WBC below 50,000 does not rule out septic arthritis, especially early or immunosuppressed cases.", m: "Hot monoarthritis is septic until tapped" },
         { f: "Does finding crystals exclude septic arthritis?", b: "No — gout/CPPD and infection can coexist; always send Gram stain and culture.", x: "Crystals cause intense inflammation but do not sterilize the joint. Coexisting infection is uncommon but dangerous.", t: "Trap: Never stop after seeing urate or CPP crystals; still send Gram stain and culture.", m: "Crystals do not sterilize a joint" },
@@ -1502,7 +1501,7 @@
         { f: "Why should calcium NOT be restricted in calcium oxalate stone formers?", b: "Dietary calcium binds oxalate in the gut — restriction increases oxalate absorption, urinary oxalate, and stone risk.", x: "Calcium in meals binds intestinal oxalate, lowering absorption. Pair calcium with low sodium and high fluid intake for recurrence prevention.", t: "Trap: Calcium supplements between meals may raise risk; normal dietary calcium with meals is preferred.", m: "Calcium with meals traps oxalate" },
         { f: "Drug therapy matched to the 24-hour urine finding?", b: "Hypercalciuria → thiazide; hypocitraturia → potassium citrate; hyperuricosuria → allopurinol (or potassium citrate for uric acid stones).", x: "A 24-hour urine personalizes prevention by identifying calcium, citrate, uric acid, oxalate, sodium, and volume abnormalities.", t: "Trap: Allopurinol is not for every calcium stone; use it when hyperuricosuria is present.", m: "24-hour urine picks the prevention pill",
           tb: { h: ["Urine finding", "Drug", "Effect"], r: [["Hypercalciuria", "Thiazide", "Lowers urine Ca"], ["Hypocitraturia", "K citrate", "Raises citrate"], ["Hyperuricosuria", "Allopurinol", "Lowers uric acid"], ["Low volume", "Fluids", "Urine >2.5 L/day"]] } },
-        { f: "Acute ureteral stone management?", b: "≤ 10 mm distal stone → analgesia + tamsulosin (medical expulsive therapy). Obstruction with infection → emergent decompression (stent or nephrostomy).", x: "Most small distal stones pass; infection behind an obstruction can cause rapid sepsis and kidney damage, requiring drainage.", t: "Trap: Tamsulosin is not enough when fever, pyuria, or sepsis accompanies obstruction.", m: "Infected obstruction is drainage, not just passage" }
+        { f: "Acute ureteral stone management?", b: "Stable distal stone ≤10 mm → analgesia and observation; tamsulosin helps most for stones >5 mm. Infected obstruction → antibiotics plus urgent drainage.", x: "Very small stones often pass without expulsive therapy; infection behind an obstruction can cause sepsis and needs a stent or nephrostomy.", t: "Trap: Medical expulsive therapy is inappropriate with sepsis, threatened kidney function, or uncontrolled pain.", m: "Infected obstruction is drainage, not just passage" }
       ]
     },
     {
@@ -1553,9 +1552,9 @@
       vignette: "A 71-year-old man with metastatic castration-resistant prostate cancer reports 3 weeks of worsening mid-back pain that is worse lying down. Since yesterday he has had leg weakness and difficulty climbing stairs. He has 4/5 hip flexor strength bilaterally, brisk knee reflexes, and decreased sensation below the umbilicus. Rectal tone is normal.",
       leadIn: "What is the most appropriate next step?",
       options: [
-        "Thoracic spine radiographs first to confirm vertebral metastases before steroids or cross-sectional imaging.",
-        "Bone scan to stage osseous disease before treating suspected epidural spinal cord compression.",
-        "NSAIDs and physical therapy referral for cancer-related back pain with new upper motor neuron signs.",
+        "Thoracic spine radiographs and analgesia.",
+        "Bone scintigraphy and oncology consultation.",
+        "Lumbar MRI and urologic evaluation for retention.",
         "IV dexamethasone and urgent MRI of the entire spine."
       ],
       correct: 3,
@@ -1584,7 +1583,7 @@
         { f: "How is myasthenia gravis diagnosed?", b: "AChR antibodies first (then MuSK); electrodiagnostics: decremental repetitive stimulation, single-fiber EMG (most sensitive); then chest CT for thymoma.", x: "AChR antibodies are specific and common in generalized MG; electrophysiology confirms impaired neuromuscular transmission when antibodies are negative.", t: "Trap: Lambert-Eaton has hyporeflexia and improves with use; test VGCC antibodies instead.", m: "MG: AChR first, thymus next",
           tb: { h: ["Feature", "MG", "Lambert-Eaton"], r: [["Antibody", "AChR or MuSK", "VGCC"], ["Reflexes", "Normal", "Low"], ["Use effect", "Worsens", "Improves"], ["Cancer link", "Thymoma", "Small cell lung"]] } },
         { f: "Which drugs can worsen myasthenia gravis?", b: "Aminoglycosides, fluoroquinolones, macrolides, magnesium, beta-blockers, and neuromuscular blockers (also checkpoint inhibitors).", x: "These drugs impair neuromuscular transmission or increase weakness, precipitating respiratory failure in susceptible patients.", t: "Trap: Fluoroquinolones and macrolides are not benign in MG; choose alternatives when possible.", m: "MG hates certain antibiotics and magnesium" },
-        { f: "How is myasthenic crisis managed?", b: "ICU monitoring of FVC/NIF (intubate if FVC < 20 mL/kg), IVIG or plasma exchange, then glucocorticoids; hold pyridostigmine if intubated.", x: "FVC and NIF trend respiratory muscle reserve before oxygen saturation falls. IVIG and plasma exchange give faster benefit than steroids alone.", t: "Trap: Normal pulse oximetry does not exclude impending myasthenic respiratory failure.", m: "Ventilation fails before oxygen saturation falls" }
+        { f: "How is myasthenic crisis managed?", b: "ICU care, serial FVC/NIF and bulbar assessment, early airway support when needed, and IVIG or plasma exchange.", x: "FVC below about 20 mL/kg is a warning, not a stand-alone intubation rule. Weak cough, secretions, bulbar dysfunction, fatigue, and trends guide airway decisions. Steroids may initially worsen weakness.", t: "Trap: Normal pulse oximetry does not exclude respiratory muscle failure; pyridostigmine is commonly held while intubated to limit secretions.", m: "Watch ventilation and bulbar function, not saturation alone" }
       ]
     },
     {
@@ -1614,17 +1613,17 @@
       vignette: "A 52-year-old man admitted 2 days ago for a tibial fracture becomes agitated and tremulous. He sees insects crawling on the wall and is disoriented. Temperature 38.1 °C, HR 126/min, BP 168/98 mm Hg; he is diaphoretic. His wife reports he drinks a fifth of vodka daily. Glucose is 112 mg/dL.",
       leadIn: "What is the most appropriate treatment?",
       options: [
-        "IV haloperidol as monotherapy for agitation and hallucinations, with benzodiazepines avoided.",
-        "IV metoprolol and clonidine to control tachycardia and hypertension as primary withdrawal therapy.",
-        "IV benzodiazepine (e.g., diazepam or lorazepam) titrated to symptoms, plus IV thiamine.",
-        "Physical restraints and observation in a quiet room until symptoms subside without medication."
+        "IV haloperidol titrated to agitation, plus IV thiamine.",
+        "IV metoprolol with oral clonidine, plus IV thiamine.",
+        "Titrated IV benzodiazepines plus IV thiamine.",
+        "IV levetiracetam with seizure precautions and IV thiamine."
       ],
       correct: 2,
       explanation: "Disorientation, hallucinations, fever, and autonomic hyperactivity <strong>48–96 h after the last drink</strong> = <strong>delirium tremens</strong> (mortality up to 5% untreated). <strong>Benzodiazepines</strong> are the cornerstone (symptom-triggered via CIWA-Ar in milder withdrawal; aggressive IV dosing in DTs; phenobarbital if refractory). Give <strong>thiamine</strong> to prevent Wernicke encephalopathy. Antipsychotics lower the seizure threshold and beta-blockers mask signs — adjuncts only.",
       flashcards: [
         { f: "What is the timeline of alcohol withdrawal?", b: "Tremor/anxiety 6–24 h; hallucinosis 12–48 h; seizures 6–48 h; delirium tremens 48–96 h after the last drink.", x: "Withdrawal severity reflects CNS hyperexcitability after chronic GABA enhancement and NMDA upregulation. DTs occur late and are life-threatening.", t: "Trap: Hallucinosis can occur with clear sensorium; delirium tremens includes confusion and autonomic instability.", m: "Withdrawal clock: tremor, hallucinosis, seizures, DTs",
           tb: { h: ["Syndrome", "Timing", "Key feature"], r: [["Tremor", "6–24 h", "Anxiety, tremor"], ["Hallucinosis", "12–48 h", "Clear sensorium"], ["Seizures", "6–48 h", "Generalized"], ["DTs", "48–96 h", "Delirium, fever"]] } },
-        { f: "What is the first-line treatment of alcohol withdrawal?", b: "Benzodiazepines, symptom-triggered by CIWA-Ar (long-acting such as diazepam/chlordiazepoxide; lorazepam in liver failure or elderly patients).", x: "Benzodiazepines replace GABA tone and prevent seizures and DTs. Lorazepam avoids active metabolites in liver disease.", t: "Trap: Antipsychotics may help agitation but lower seizure threshold and are adjuncts only.", m: "Benzos replace missing GABA tone" },
+        { f: "How are benzodiazepines dosed for alcohol withdrawal?", b: "Use symptom-triggered protocols in communicative patients; severe withdrawal delirium needs monitored IV treatment with objective sedation assessment.", x: "Lorazepam avoids active metabolites and is useful with impaired liver function. CIWA-Ar depends on patient responses and is unreliable in delirious or intubated patients.", t: "Trap: Do not use CIWA-Ar to guide treatment in a patient unable to answer reliably; antipsychotics are adjuncts, not seizure-preventing monotherapy.", m: "CIWA needs communication; delirium needs objective monitoring" },
         { f: "Which medications treat alcohol use disorder after withdrawal?", b: "Naltrexone (avoid with opioids or acute hepatitis), acamprosate (renally cleared — avoid in severe CKD), disulfiram (adherence-dependent).", x: "Relapse-prevention medication should start after acute withdrawal is controlled and contraindications are checked. Pair with counseling.", t: "Trap: Naltrexone cannot be used in patients taking opioids; it can precipitate withdrawal.", m: "AUD relapse meds start after detox",
           tb: { h: ["Medication", "Avoid if", "Pearl"], r: [["Naltrexone", "Opioids, acute hepatitis", "Reduces craving"], ["Acamprosate", "Severe CKD", "Renally cleared"], ["Disulfiram", "Poor adherence", "Aversive reaction"], ["Gabapentin", "Misuse risk", "Adjunct option"]] } }
       ]
@@ -1656,10 +1655,10 @@
       vignette: "A 31-year-old woman started lamotrigine for bipolar disorder 3 weeks ago. Two days ago she developed fever and sore throat, followed by painful dusky red macules with central blistering on her trunk and face. She has oral erosions, crusted lips, and conjunctival injection. Epidermal detachment involves about 8% of body surface area, and the Nikolsky sign is positive.",
       leadIn: "What is the most important next step?",
       options: [
-        "Continue lamotrigine and start oral prednisone 1 mg/kg/day with a slow taper for presumed drug eruption.",
-        "Discontinue lamotrigine immediately and admit to a burn unit or ICU, with ophthalmology consultation.",
-        "Oral cetirizine and topical steroids, with outpatient dermatology follow-up in 1 week for drug exanthem monitoring.",
-        "Reduce the lamotrigine dose by half and add an antihistamine while monitoring skin detachment."
+        "Treat with prednisone and reassess lamotrigine use after dermatology review.",
+        "Stop lamotrigine; admit for specialized care and urgent eye assessment.",
+        "Stop lamotrigine; prescribe cetirizine and outpatient topical corticosteroids.",
+        "Stop lamotrigine; begin IV antibiotics for staphylococcal scalded skin syndrome."
       ],
       correct: 1,
       explanation: "Painful skin with <strong>mucosal involvement</strong> and epidermal detachment &lt; 10% BSA, 1–4 weeks after a high-risk drug = <strong>Stevens-Johnson syndrome</strong> (10–30% overlap; &gt; 30% TEN). <strong>Immediate withdrawal of the culprit</strong> is the most important intervention. Provide burn-unit supportive care, early <strong>ophthalmology</strong> input to prevent scarring and blindness, and never rechallenge. Systemic steroids are controversial and never replace drug withdrawal.",
@@ -1683,9 +1682,9 @@
         "Stop all antihypertensives for the rest of pregnancy."
       ],
       correct: 2,
-      explanation: "<strong>ACE inhibitors and ARBs are contraindicated in pregnancy</strong> because of fetotoxicity (renal dysgenesis, oligohydramnios, skull hypoplasia), and switching after conception is still recommended. Preferred agents are <strong>labetalol, extended-release nifedipine, or methyldopa</strong>, targeting BP &lt; 140/90 (CHAP trial). She also needs <strong>low-dose aspirin 81 mg from 12 weeks</strong> to lower preeclampsia risk.",
+      explanation: "Stop <strong>lisinopril</strong> when pregnancy is recognized because ACE inhibitors and ARBs can cause fetal renal injury, oligohydramnios, and other fetotoxic effects, especially later in pregnancy. Continue chronic hypertension treatment using <strong>labetalol or extended-release nifedipine</strong>; methyldopa is an alternative. After CHAP, ACOG recommends <strong>140/90 mm Hg as the threshold for initiation or titration</strong>, rather than waiting for severe hypertension; this advisory does not establish a universal lower BP target. Chronic hypertension also warrants <strong>aspirin 81 mg daily beginning at 12–28 weeks, ideally before 16 weeks</strong>, through delivery for preeclampsia prevention.",
       flashcards: [
-        { f: "Which antihypertensives are preferred in pregnancy?", b: "Labetalol, extended-release nifedipine, methyldopa — never ACE inhibitors, ARBs, or direct renin inhibitors.", x: "Pregnancy-safe agents control maternal BP without blocking fetal renal angiotensin signaling. CHAP supports treating chronic HTN to <140/90.", t: "Trap: ACEi and ARBs cause fetal renal injury and oligohydramnios; stop them when pregnancy is recognized.", m: "Pregnancy BP: labetalol or nifedipine, not ACE/ARB",
+        { f: "Which antihypertensives are preferred in pregnancy?", b: "Labetalol or extended-release nifedipine; methyldopa is an alternative. Avoid ACE inhibitors, ARBs, and direct renin inhibitors.", x: "ACOG uses 140/90 as the initiation/titration threshold for chronic hypertension after CHAP; do not wait for severe hypertension.", t: "Trap: CHAP does not justify a universal aggressively low BP goal; ACEi/ARB exposure should stop when pregnancy is recognized.", m: "Pregnancy BP: labetalol or nifedipine, not ACE/ARB",
           tb: { h: ["Drug", "Pregnancy role", "Key caution"], r: [["Labetalol", "Preferred", "Avoid severe asthma"], ["Nifedipine ER", "Preferred", "Use long-acting"], ["Methyldopa", "Acceptable", "Sedation"], ["ACEi or ARB", "Contraindicated", "Fetal renal injury"]] } },
         { f: "Who gets aspirin for preeclampsia prevention?", b: "High-risk patients (prior preeclampsia, chronic HTN, diabetes, CKD, autoimmune disease, multifetal pregnancy): aspirin 81 mg daily from 12 weeks (USPSTF).", x: "Low-dose aspirin improves placental perfusion and lowers preeclampsia risk when started after placentation begins.", t: "Trap: Aspirin is for high-risk or multiple moderate-risk patients, not every pregnancy automatically.", m: "High preeclampsia risk gets baby aspirin at 12 weeks" },
         { f: "How is preeclampsia defined?", b: "New BP ≥ 140/90 after 20 weeks plus proteinuria or severe features (thrombocytopenia, AKI, transaminitis, pulmonary edema, cerebral/visual symptoms).", x: "Severe features reflect endothelial injury and organ dysfunction; proteinuria is not required if severe features are present.", t: "Trap: Hypertension before 20 weeks suggests chronic HTN, not new preeclampsia unless special conditions exist.", m: "After 20 weeks, organs can define preeclampsia without protein" }
@@ -1698,19 +1697,19 @@
       vignette: "A 58-year-old man with severe pneumococcal pneumonia is intubated for hypoxemic respiratory failure. Height is 178 cm (predicted body weight 73 kg); actual weight is 110 kg. Chest radiograph shows new bilateral diffuse opacities. Echocardiogram shows normal LV function. On FiO₂ 0.8 and PEEP 12 cm H₂O, PaO₂ is 96 mm Hg (P/F 120).",
       leadIn: "What is the most appropriate ventilator strategy?",
       options: [
-        "Tidal volume 6 mL/kg predicted body weight with plateau pressure ≤ 30 cm H₂O, plus prone positioning.",
-        "Tidal volume 10 mL/kg actual body weight to improve oxygenation, with plateau pressure monitored every 4 hours.",
-        "Tidal volume 8 mL/kg actual body weight with zero PEEP to reduce barotrauma risk.",
-        "Liberal fluid resuscitation to a CVP of 15 mm Hg as the primary strategy to improve P/F ratio."
+        "Tidal volume 6 mL/kg predicted weight, plateau ≤30 cm H₂O, and prolonged proning.",
+        "Tidal volume 8 mL/kg actual weight, plateau ≤35 cm H₂O, and supine ventilation.",
+        "Tidal volume 6 mL/kg predicted weight with minimal PEEP and supine ventilation.",
+        "Tidal volume 10 mL/kg predicted weight with high PEEP and recruitment maneuvers."
       ],
       correct: 0,
-      explanation: "Acute onset, bilateral opacities not explained by heart failure, and P/F ≤ 300 on PEEP ≥ 5 = <strong>ARDS</strong> (P/F 100–200 moderate, ≤ 100 severe). The only mortality-proven ventilator strategy is <strong>low tidal volume: 6 mL/kg of predicted (not actual) body weight</strong> with <strong>plateau pressure ≤ 30 cm H₂O</strong>. For <strong>P/F &lt; 150</strong>, add <strong>prone positioning ≥ 12–16 h/day</strong>, which lowers mortality. Use a conservative fluid strategy once shock resolves.",
+      explanation: "Acute bilateral opacities not fully explained by cardiac failure and P/F ≤ 300 on PEEP ≥ 5 support <strong>ARDS</strong>. This patient's P/F of 120 is moderate ARDS. Use <strong>low tidal volume, initially 6 mL/kg predicted body weight</strong>, and <strong>plateau pressure ≤ 30 cm H₂O</strong>. For persistent P/F &lt; 150 despite optimized ventilation, use prolonged <strong>prone positioning, typically at least 16 hours/day</strong>. Low tidal volume and proning both reduce mortality; higher PEEP without prolonged recruitment maneuvers is appropriate in moderate-to-severe ARDS. Use conservative fluids once shock resolves.",
       flashcards: [
         { f: "How is ARDS defined (Berlin)?", b: "Within 1 week of an insult; bilateral opacities not fully explained by effusion, collapse, or HF; P/F ≤ 300 on PEEP ≥ 5 (≤ 100 severe).", x: "ARDS is noncardiogenic inflammatory alveolar flooding causing shunt physiology. P/F severity is assessed on at least modest PEEP.", t: "Trap: Bilateral infiltrates from cardiogenic pulmonary edema are not ARDS unless not fully explained by HF or overload.", m: "ARDS = acute bilateral noncardiogenic P/F problem",
           tb: { h: ["Severity", "P/F ratio", "Requirement"], r: [["Mild", "201–300", "PEEP ≥5"], ["Moderate", "101–200", "PEEP ≥5"], ["Severe", "≤100", "PEEP ≥5"], ["Not ARDS", ">300", "Seek other cause"]] } },
         { f: "What is lung-protective ventilation in ARDS?", b: "Tidal volume 6 mL/kg (range 4–8) of PREDICTED body weight, plateau pressure ≤ 30 cm H₂O, adequate PEEP.", x: "Low tidal volumes prevent volutrauma and barotrauma; predicted body weight estimates lung size better than actual weight.", t: "Trap: Obese patients still use predicted, not actual, body weight for tidal volume.", m: "ARDS tidal volume uses predicted body weight" },
-        { f: "When is prone positioning indicated in ARDS?", b: "Moderate-to-severe ARDS with P/F < 150 — prone ≥ 12–16 h/day reduces mortality (PROSEVA).", x: "Proning recruits dorsal lung units and improves V/Q matching in severe hypoxemia. It requires prolonged daily sessions to improve outcomes.", t: "Trap: Proning is mortality-proven for P/F <150, not routine for mild ARDS.", m: "P/F under 150: flip prone for long sessions",
-          tb: { h: ["P/F", "Prone?", "Session"], r: [["≥150", "Not routine", "Optimize vent"], ["<150", "Yes", "12–16 h/day"], ["Severe ARDS", "Strong benefit", "Mortality lower"], ["Contraindication", "Avoid", "Unstable spine etc"]] } }
+        { f: "When is prone positioning indicated in intubated ARDS?", b: "Persistent P/F <150 despite optimized ventilation supports proning, typically at least 16 hours/day.", x: "Long prone sessions distribute lung stress more evenly and improve gas exchange; trials used prolonged sessions with lung-protective ventilation.", t: "Trap: A brief turn is not the mortality-tested intervention; evaluate procedural contraindications such as an unstable spine.", m: "P/F under 150: long prone sessions",
+          tb: { h: ["Situation", "Approach"], r: [["Persistent P/F <150", "Prolonged proning"], ["Typical session", "At least 16 hours"], ["Unstable spine", "Assess contraindication"]] } }
       ]
     },
     {
@@ -1720,10 +1719,10 @@
       vignette: "A 79-year-old woman living independently has fallen twice in the past 6 months without injury. She takes amlodipine, zolpidem nightly, and oxybutynin. Timed Up and Go is 16 seconds. Orthostatic vital signs are normal, vision is corrected, and 25-hydroxyvitamin D is 34 ng/mL.",
       leadIn: "In addition to deprescribing zolpidem and oxybutynin, what is the most effective fall-prevention intervention?",
       options: [
-        "Vitamin D 4,000 IU daily to prevent falls by optimizing muscle function in community-dwelling adults.",
-        "Bed alarm at night and hip protectors during the day as the main intervention for an independent adult.",
-        "Supervised exercise program for gait, strength, and balance (e.g., physical therapy, tai chi).",
-        "Brain MRI to look for normal pressure hydrocephalus or small-vessel disease before exercise therapy."
+        "Routine high-dose vitamin D and calcium supplementation.",
+        "Nighttime bed alarms and daytime hip protectors.",
+        "Supervised gait, strength, and balance exercise.",
+        "Brain MRI followed by treatment of any small-vessel disease."
       ],
       correct: 2,
       explanation: "In community-dwelling adults ≥ 65 at increased fall risk, <strong>exercise interventions</strong> (gait, balance, strength training; tai chi) have the strongest evidence (USPSTF), together with a <strong>multifactorial assessment</strong>: medication review (sedative-hypnotics and anticholinergics are on the <strong>Beers Criteria</strong>), vision, orthostasis, feet/footwear, and home hazards. <strong>Vitamin D is not recommended for fall prevention</strong> without deficiency.",
@@ -1776,7 +1775,7 @@
       correct: 0,
       explanation: "Severe hypertension with <strong>acute end-organ damage</strong> (encephalopathy, papilledema, AKI) is a <strong>hypertensive emergency</strong>. Treat in the ICU with a titratable IV agent such as <strong>nicardipine, clevidipine, or labetalol</strong>. Lower BP by <strong>no more than 25% in the first hour</strong>, then to about 160/100 over the next 2–6 h, then to normal over 24–48 h. Faster lowering causes cerebral, coronary, and renal ischemia because autoregulation has shifted upward. Aortic dissection, severe preeclampsia, and pheochromocytoma crisis need faster targets. Sublingual nifedipine causes unpredictable drops in BP and is never used.",
       flashcards: [
-        { f: "Hypertensive emergency vs urgency?", b: "Both: BP > 180/120. Emergency = acute end-organ damage → IV therapy in ICU. Urgency = no organ damage → oral agents, outpatient follow-up.", x: "End-organ injury, not the BP number alone, defines emergency. IV titratable drugs allow controlled reduction and neurologic monitoring.", t: "Trap: Severe asymptomatic BP elevation is urgency; avoid rapid IV lowering.", m: "End-organ damage makes the emergency" },
+        { f: "How does hypertensive emergency differ from severe asymptomatic hypertension?", b: "Emergency includes acute BP-related target-organ injury and usually needs monitored IV therapy; asymptomatic severe elevation does not.", x: "BP is often ≥180/120, but organ injury and context, not an absolute number, define the emergency. Recheck technique and address reversible triggers.", t: "Trap: Do not rapidly lower an isolated asymptomatic BP reading with IV drugs; arrange appropriate longitudinal treatment.", m: "End-organ damage makes the emergency" },
         { f: "BP-lowering targets in hypertensive emergency?", b: "≤ 25% reduction in the first hour → 160/100 over 2–6 h → normal over 24–48 h.", x: "Chronic hypertension shifts autoregulation upward, so abrupt drops can underperfuse brain, heart, and kidneys.", t: "Trap: Sublingual nifedipine is unsafe because BP falls unpredictably.", m: "First hour: no more than 25% down",
           tb: { h: ["Time", "BP target", "Reason"], r: [["First hour", "≤25% reduction", "Avoid ischemia"], ["2–6 h", "About 160/100", "Controlled lowering"], ["24–48 h", "Toward normal", "Autoregulation"], ["Urgency", "No rapid IV drop", "No organ damage"]] } },
         { f: "Which hypertensive emergencies need faster BP targets?", b: "Aortic dissection (SBP < 120 within 20 min), severe preeclampsia/eclampsia, and pheochromocytoma crisis (SBP < 140 in the first hour).", x: "Some emergencies have disease-specific targets because ongoing shear or placental risk is immediately dangerous.", t: "Trap: Aortic dissection requires beta-blockade and much faster SBP control than routine hypertensive emergency.", m: "Dissection is the fast BP exception",
@@ -1956,7 +1955,7 @@
       id: "id-prep",
       system: "ID",
       task: "RISK",
-      vignette: "A 29-year-old man who has sex with men reports condomless anal sex with multiple partners over the past 6 months, and was treated for rectal gonorrhea 2 months ago. His last sexual exposure was 3 weeks ago. Today's fourth-generation HIV-1/2 antigen/antibody test is negative. Creatinine clearance is 105 mL/min and hepatitis B surface antigen is negative.",
+      vignette: "A 29-year-old man who has sex with men reports condomless anal sex with multiple partners over the past 6 months, and was treated for rectal gonorrhea 2 months ago. His last sexual exposure was 3 weeks ago. Today's laboratory fourth-generation HIV-1/2 antigen/antibody test is negative and HIV-1 RNA is undetectable; he has no acute retroviral symptoms. Creatinine clearance is 105 mL/min and hepatitis B surface antigen is negative.",
       leadIn: "What is the most appropriate recommendation?",
       options: [
         "28 days of 3-drug postexposure prophylaxis for a recent high-risk sexual exposure, with follow-up HIV testing.",
@@ -1970,7 +1969,7 @@
         { f: "What are the HIV PrEP options?", b: "Oral FTC/TDF (all) or FTC/TAF (not receptive vaginal sex); injectable cabotegravir q2 months; twice-yearly lenacapavir injection.", x: "PrEP choice depends on exposure type, renal/bone issues, adherence, and injection preference; HIV must be excluded first.", t: "Trap: FTC/TAF is not approved for receptive vaginal sex; use FTC/TDF or injectable options.", m: "PrEP menu: daily pills, q2-month cabotegravir, q6-month lenacapavir",
           tb: { h: ["Option", "Interval", "Key limitation"], r: [["FTC/TDF", "Daily oral", "All exposures"], ["FTC/TAF", "Daily oral", "Not receptive vaginal"], ["Cabotegravir", "Every 2 mo", "Injection visits"], ["Lenacapavir", "Every 6 mo", "Injection"]] } },
         { f: "When and how is HIV postexposure prophylaxis given?", b: "Within 72 hours of exposure: 28 days of a 3-drug regimen (e.g., bictegravir/FTC/TAF or dolutegravir + FTC/TDF).", x: "PEP is an emergency because systemic infection can establish quickly; efficacy falls sharply after 72 hours.", t: "Trap: Ongoing risk is PrEP, not repeated PEP; convert after confirming HIV-negative status.", m: "PEP clock: 72 hours to start, 28 days to finish" },
-        { f: "What monitoring does oral PrEP require?", b: "HIV test before start and every 3 months, STI screening, creatinine clearance at baseline and at least yearly, and HBV status (stopping TDF/TAF can flare HBV).", x: "Tenofovir-emtricitabine also treats HBV, so stopping can trigger hepatitis flares in chronic HBV.", t: "Trap: A negative antibody alone is not enough; know HBV status and monitor renal function on oral PrEP.", m: "PrEP monitoring: HIV q3 months; kidneys and HBV for tenofovir" }
+        { f: "What monitoring does oral PrEP require?", b: "HIV testing before start and every 3 months, STI screening, baseline and serial kidney function, and HBV serology.", x: "Use appropriate antigen/antibody and RNA testing to exclude acute HIV when indicated; stopping tenofovir-containing PrEP can flare chronic HBV.", t: "Trap: Do not start two-drug PrEP in unrecognized acute HIV; monitor kidneys at least yearly and more often for higher-risk patients.", m: "PrEP monitoring: HIV, kidneys, HBV, STIs" }
       ]
     },
     {
@@ -2064,17 +2063,17 @@
       vignette: "A 61-year-old woman with metastatic breast cancer receiving chemotherapy develops left leg swelling; duplex ultrasound shows a femoral-popliteal DVT. Creatinine clearance is 78 mL/min, platelets 210,000/µL, and she has no bleeding history or GI/GU tumor involvement. She is hemodynamically stable.",
       leadIn: "What is the most appropriate treatment?",
       options: [
-        "Warfarin with a target INR of 2–3 for 3 months, then stop even if metastatic cancer remains active.",
-        "Inferior vena cava filter as initial treatment to prevent pulmonary embolism during active metastatic cancer therapy.",
-        "Apixaban for 3 months, then stop after the standard provoked-DVT treatment interval is completed.",
-        "Apixaban for at least 6 months, continued while the cancer remains active."
+        "Warfarin for 3 months, then ultrasound-guided reassessment.",
+        "IVC filter placement with prophylactic-dose enoxaparin.",
+        "Apixaban for 3 months, then discontinue anticoagulation.",
+        "Apixaban for at least 6 months; reassess with active cancer."
       ],
       correct: 3,
-      explanation: "For <strong>cancer-associated VTE</strong>, guidelines (ASCO, ASH, CHEST) recommend a <strong>DOAC (apixaban, rivaroxaban, edoxaban) or LMWH</strong> rather than warfarin, for at least <strong>6 months</strong> and <strong>indefinitely while cancer is active or under treatment</strong>. Edoxaban and rivaroxaban increase bleeding in <strong>luminal GI or GU cancers</strong>, where apixaban or LMWH is preferred. IVC filters are only for acute VTE with an absolute contraindication to anticoagulation.",
+      explanation: "For <strong>cancer-associated VTE</strong>, apixaban or another suitable DOAC, or LMWH, is generally preferred over warfarin. Treat for at least <strong>6 months</strong> and continue while cancer is active when the recurrence benefit outweighs bleeding risk, reassessing periodically. Apixaban is appropriate here because renal function and platelets are adequate and no high-risk mucosal lesion or interacting drug is identified. <strong>LMWH is often favored for active luminal GI/GU lesions or high mucosal bleeding risk</strong>; apixaban is not universally safe in those settings. Edoxaban requires initial parenteral anticoagulation. A filter is not indicated when anticoagulation can be given.",
       flashcards: [
-        { f: "First-line anticoagulant for cancer-associated VTE?", b: "DOAC (apixaban, rivaroxaban, edoxaban) or LMWH — not warfarin; caution with edoxaban/rivaroxaban in luminal GI/GU cancers.", x: "Cancer activates coagulation and recurrence risk is high; DOACs and LMWH outperform warfarin logistics and stability.", t: "Trap: In unresected luminal GI/GU cancer, bleeding risk may favor apixaban or LMWH over rivaroxaban/edoxaban.", m: "Cancer clot: DOAC or LMWH, not warfarin by default",
-          tb: { h: ["Scenario", "Preferred", "Avoid or caution"], r: [["Most cancer VTE", "DOAC or LMWH", "Warfarin"], ["Luminal GI/GU", "Apixaban or LMWH", "Riva or edoxaban"], ["Renal issues", "LMWH adjusted", "Unsafe DOAC dose"], ["Active bleeding", "Hold anticoag", "Filter if acute VTE"]] } },
-        { f: "How long is cancer-associated VTE treated?", b: "At least 6 months, and indefinitely while the cancer is active or being treated.", x: "Risk persists while tumor or treatment is active, so stopping at 3–6 months can allow recurrence.", t: "Trap: Do not use a fixed 3-month provoked-VTE duration if cancer remains active.", m: "Treat while the cancer is active" },
+        { f: "How is an anticoagulant selected for cancer-associated VTE?", b: "Use a suitable DOAC or LMWH; favor LMWH when mucosal bleeding risk or drug interactions make a DOAC unsafe.", x: "Apixaban has favorable trial bleeding data but still needs individualized assessment in active GI/GU lesions. Edoxaban requires at least 5 days of parenteral anticoagulation first.", t: "Trap: Severe renal impairment can limit both DOACs and LMWH; UFH may be preferable rather than blindly dose-adjusting LMWH.", m: "Cancer clot: balance recurrence, mucosa, kidneys, interactions",
+          tb: { h: ["Scenario", "Consideration"], r: [["Most cancer VTE", "DOAC or LMWH"], ["High-risk GI/GU lesion", "Often favor LMWH"], ["Severe renal impairment", "Individualize; consider UFH"], ["Major active bleeding", "Hold and reassess; filter selectively"]] } },
+        { f: "How long is cancer-associated VTE treated?", b: "At least 6 months, then continue with active cancer when benefit outweighs bleeding risk.", x: "Reassess cancer activity, treatment, bleeding, renal function, and patient preferences periodically; continuation is not an irrevocable lifelong commitment.", t: "Trap: A fixed 3-month provoked-VTE course is usually insufficient while cancer remains active.", m: "Treat active cancer risk; reassess the balance" },
         { f: "When is an IVC filter indicated?", b: "Acute proximal DVT/PE with an absolute contraindication to anticoagulation (e.g., active major bleeding) — remove when anticoagulation is possible.", x: "Filters reduce embolization only when anticoagulation cannot be given; they raise DVT risk if left in place.", t: "Trap: Recurrent VTE on inadequate anticoagulation is managed by optimizing/changing anticoagulant, not automatic filter.", m: "Filter only when anticoagulation is impossible" }
       ]
     },
@@ -2093,10 +2092,10 @@
       correct: 1,
       explanation: "Diarrhea ≥ 7 stools/day above baseline with pain is <strong>grade 3 immune checkpoint inhibitor colitis</strong>. After excluding infection: <strong>hold the checkpoint inhibitor</strong> and give <strong>high-dose glucocorticoids</strong> (IV methylprednisolone 1–2 mg/kg/day). If no response in <strong>48–72 h</strong>, add <strong>infliximab or vedolizumab</strong>. Combination CTLA-4 + PD-1 therapy carries the highest irAE rates. Antimotility agents alone can mask progression to toxic megacolon.",
       flashcards: [
-        { f: "General management of immune-related adverse events by grade?", b: "Grade 1: continue ICI. Grade 2: hold ICI ± prednisone 0.5–1 mg/kg. Grade 3: hold + methylprednisolone 1–2 mg/kg. Grade 4: usually permanently stop.", x: "irAEs reflect immune activation against normal tissue; severity determines whether ICI can continue and how much immunosuppression is needed.", t: "Trap: Grade 3 diarrhea is not treated with loperamide alone; hold ICI and give high-dose steroids after infection workup.", m: "irAE grade drives action: 1 continue, 2 hold, 3–4 steroids and stop/hold",
-          tb: { h: ["Grade", "ICI action", "Treatment"], r: [["1", "Continue", "Symptomatic care"], ["2", "Hold", "Prednisone 0.5-1 mg/kg"], ["3", "Hold", "IV methylpred 1-2 mg/kg"], ["4", "Usually stop", "High-dose steroids"]] } },
+        { f: "What is the general approach to nonendocrine immune checkpoint toxicities?", b: "Usually monitor grade 1; hold for grade 2; hold and give high-dose steroids for grade 3; usually discontinue for grade 4.", x: "Treatment is organ-specific: cardiac, neurologic, or hematologic toxicities may require urgent action even at low grade. Grade 3 colitis usually requires IV methylprednisolone 1–2 mg/kg/day.", t: "Trap: Do not apply a generic grade table to myocarditis or hormone deficiency without organ-specific guidance.", m: "Grade matters, but the organ matters too",
+          tb: { h: ["Typical nonendocrine grade", "General approach"], r: [["1", "Monitor; exceptions by organ"], ["2", "Hold; consider steroids"], ["3", "Hold; high-dose steroids"], ["4", "Usually permanently discontinue"]] } },
         { f: "Steroid-refractory checkpoint inhibitor colitis treatment?", b: "Infliximab (or vedolizumab) if no improvement after 48–72 h of IV glucocorticoids.", x: "TNF or gut-selective integrin blockade is used when steroid response is inadequate to prevent perforation/megacolon.", t: "Trap: Avoid infliximab in significant immune-mediated hepatitis; vedolizumab may be preferred for gut-limited disease.", m: "Steroid-refractory ICI colitis: 48–72 hours to biologic rescue" },
-        { f: "How are ICI endocrinopathies managed?", b: "Hormone replacement (levothyroxine, hydrocortisone, insulin); ICI can usually continue — high-dose steroids only for severe hypophysitis or adrenal crisis.", x: "Endocrine glands often have permanent hormone failure; replacement treats deficiency while antitumor immunity can continue.", t: "Trap: Do not give high-dose steroids for uncomplicated ICI hypothyroidism; replace hormone instead.", m: "Endocrine irAEs usually need replacement, not immune shutdown" }
+        { f: "How are ICI endocrinopathies managed?", b: "Replace deficient hormones; immunotherapy can often resume after stabilization. Adrenal crisis needs stress-dose hydrocortisone and fluids.", x: "Most uncomplicated thyroid or pituitary deficiencies do not benefit from immunosuppressive high-dose steroids. Consider them for hypophysitis with mass effect or severe headache, not routine hormone deficiency.", t: "Trap: Treat adrenal insufficiency before starting levothyroxine when both deficiencies are present.", m: "Replace endocrine loss; steroids first if cortisol is low" }
       ]
     },
     {
@@ -2106,17 +2105,17 @@
       vignette: "A 36-year-old man had diarrhea 3 weeks ago. Over 5 days he develops tingling in his feet followed by symmetric ascending leg weakness; he now cannot rise from a chair. Reflexes are absent in all four limbs. Forced vital capacity is 28 mL/kg. Cerebrospinal fluid shows protein 168 mg/dL with 2 white cells/µL.",
       leadIn: "What is the most appropriate treatment?",
       options: [
-        "IV immune globulin (or plasma exchange) with serial FVC monitoring.",
-        "IV methylprednisolone alone for acute inflammatory demyelinating polyradiculoneuropathy.",
-        "Pyridostigmine for presumed neuromuscular junction disease with areflexic ascending weakness.",
-        "Observation; most cases resolve spontaneously with supportive care and outpatient neurology follow-up."
+        "IVIG or plasma exchange with respiratory monitoring.",
+        "IV methylprednisolone with serial respiratory monitoring.",
+        "Pyridostigmine with serial respiratory monitoring.",
+        "Supportive inpatient care without immune-directed therapy."
       ],
       correct: 0,
       explanation: "Rapidly progressive symmetric ascending weakness with <strong>areflexia</strong> after <strong>Campylobacter</strong>-like diarrhea, and CSF <strong>albuminocytologic dissociation</strong> (high protein, normal cells) = <strong>Guillain-Barré syndrome</strong>. Treat nonambulatory patients within 2–4 weeks with <strong>IVIG or plasma exchange</strong> (equally effective; not combined). <strong>Glucocorticoids are ineffective</strong>. Admit with monitoring of <strong>FVC, NIF, and autonomic instability</strong>; intubate using the 20/30/40 rule.",
       flashcards: [
         { f: "What are the key features of Guillain-Barré syndrome?", b: "Ascending symmetric weakness, areflexia, CSF high protein with normal cells; triggers: Campylobacter, viral illness; autonomic instability.", x: "Albuminocytologic dissociation appears after the first week; early CSF can be normal despite GBS.", t: "Trap: Many CSF WBCs suggest HIV, Lyme, malignancy, or infection rather than typical GBS.", m: "GBS: ascending weakness, areflexia, albuminocytologic dissociation" },
-        { f: "What is the 20/30/40 rule in neuromuscular respiratory failure?", b: "Intubate if FVC < 20 mL/kg, max inspiratory pressure weaker than −30 cm H₂O, or max expiratory pressure < 40 cm H₂O.", x: "Declining vital capacity can precede hypoxemia; serial bedside mechanics catch respiratory failure early.", t: "Trap: Normal pulse oximetry does not exclude impending neuromuscular respiratory failure.", m: "20-30-40: FVC 20, MIP −30, MEP 40",
-          tb: { h: ["Measure", "Intubate if", "Why"], r: [["FVC", "<20 mL/kg", "Low capacity"], ["MIP", "Weaker than -30", "Weak inspiration"], ["MEP", "<40 cm H2O", "Weak cough"], ["Oximetry", "May be normal", "Late warning"]] } },
+        { f: "What is the 20/30/40 warning rule in neuromuscular respiratory failure?", b: "FVC <20 mL/kg, MIP weaker than −30 cm H₂O, or MEP <40 cm H₂O signals high respiratory risk.", x: "Use serial mechanics together with bulbar weakness, cough, secretions, fatigue, and rapid decline to decide on early elective intubation.", t: "Trap: These are warning thresholds, not automatic intubation criteria; normal oxygen saturation can be falsely reassuring.", m: "20-30-40 warns before oxygen falls",
+          tb: { h: ["Measure", "Warning threshold", "Meaning"], r: [["FVC", "<20 mL/kg", "Low reserve"], ["MIP", "Weaker than −30", "Weak inspiration"], ["MEP", "<40 cm H₂O", "Weak cough"], ["Oximetry", "May remain normal", "Late warning"]] } },
         { f: "What is the treatment of Guillain-Barré syndrome?", b: "IVIG or plasma exchange (equivalent; not combined) — glucocorticoids do not help.", x: "IVIG and plasma exchange remove or neutralize pathogenic antibodies; combining them adds risk without benefit.", t: "Trap: Steroids help many inflammatory neurologic diseases but not Guillain-Barré syndrome.", m: "GBS rescue is IVIG or exchange, never both, never steroids" }
       ]
     },
@@ -2127,17 +2126,17 @@
       vignette: "A 54-year-old woman with episodic migraine without aura (3 attacks per month) had an NSTEMI treated with a drug-eluting stent 8 months ago. She takes aspirin, clopidogrel, atorvastatin, and metoprolol. Acetaminophen does not relieve her attacks. She asks for a more effective acute migraine treatment.",
       leadIn: "What is the most appropriate acute therapy?",
       options: [
-        "Sumatriptan for acute attacks, using a 50-mg oral dose at onset and repeating once after 2 hours if needed.",
-        "Dihydroergotamine nasal spray because acetaminophen failed and attacks occur only 3 times per month.",
+        "Oral sumatriptan at onset of an attack.",
+        "Intranasal dihydroergotamine at onset of an attack.",
         "A gepant (e.g., rimegepant or ubrogepant).",
-        "Butalbital-acetaminophen-caffeine as first-line acute therapy for severe migraine not relieved by acetaminophen."
+        "Butalbital-acetaminophen-caffeine for acute attacks."
       ],
       correct: 2,
       explanation: "<strong>Triptans and ergots are vasoconstrictors</strong> and are contraindicated in <strong>coronary, cerebrovascular, or peripheral vascular disease</strong> and uncontrolled hypertension. <strong>Gepants</strong> (oral CGRP receptor antagonists) and <strong>lasmiditan</strong> (5-HT1F agonist) lack vasoconstriction and are appropriate. NSAIDs are a concern with dual antiplatelet therapy. <strong>Butalbital and opioids</strong> are discouraged because of dependence and <strong>medication-overuse headache</strong>.",
       flashcards: [
         { f: "When are triptans contraindicated?", b: "Coronary artery disease, prior stroke/TIA, PAD, uncontrolled hypertension, hemiplegic/brainstem aura — use gepants or lasmiditan instead.", x: "Triptans and ergots constrict cranial and coronary vessels; CGRP antagonists and lasmiditan avoid vasoconstriction.", t: "Trap: Chest pressure after triptan in CAD is not benign; choose nonvasoconstrictive acute therapy.", m: "CAD migraine: no constrictors; use gepants or lasmiditan" },
         { f: "When is migraine preventive therapy indicated?", b: "≥ 4 headache days/month or disabling attacks despite acute therapy — propranolol/metoprolol, topiramate, amitriptyline, CGRP mAbs.", x: "Prevention is chosen when attack frequency or disability makes acute-only therapy unsafe or ineffective.", t: "Trap: Do not use opioids or butalbital as prevention; they worsen chronification and overuse headache.", m: "Four headache days a month is the prevention trigger" },
-        { f: "What defines medication-overuse headache?", b: "Headache ≥ 15 days/month with simple analgesics ≥ 15 days/month or triptans, opioids, butalbital, or combination analgesics ≥ 10 days/month.", x: "Frequent acute medication use sensitizes pain pathways and perpetuates daily headache; withdrawal is key.", t: "Trap: The threshold is lower for triptans/opioids/butalbital than for acetaminophen/NSAIDs.", m: "15 for simple analgesics, 10 for triptans/opioids/butalbital" }
+        { f: "What defines medication-overuse headache?", b: "Headache ≥15 days/month with regular acute-drug overuse for more than 3 months: simple analgesics ≥15 days/month or triptans/opioids/combination agents ≥10.", x: "The threshold counts medication-use days rather than tablets. Evaluate the underlying headache disorder and use prevention with a safe withdrawal plan.", t: "Trap: Opioid or barbiturate withdrawal may require tapering and supervised care, not abrupt unsupervised discontinuation.", m: "Overuse for three months: simple 15, triptan/combo 10" }
       ]
     },
     {
@@ -2157,7 +2156,7 @@
       flashcards: [
         { f: "Serotonin syndrome vs neuroleptic malignant syndrome?", b: "SS: hours, serotonergic drug, clonus/hyperreflexia, diarrhea, mydriasis. NMS: days, dopamine antagonist, lead-pipe rigidity, bradyreflexia, high CK.", x: "Clonus and hyperreflexia reflect excess serotonergic neuromuscular excitation; NMS is dopamine blockade with rigidity.", t: "Trap: Lead-pipe rigidity and very high CK after antipsychotic exposure points to NMS, not serotonin syndrome.", m: "Serotonin is fast and twitchy; NMS is slow and rigid",
           tb: { h: ["Feature", "Serotonin syndrome", "NMS"], r: [["Onset", "Hours", "Days"], ["Trigger", "Serotonergic drug", "Dopamine blocker"], ["Tone/reflexes", "Clonus, hyperreflexia", "Lead-pipe, bradyreflexia"], ["GI/pupils", "Diarrhea, mydriasis", "Often absent"], ["CK", "Mild to high", "Often very high"]] } },
-        { f: "Which drugs commonly precipitate serotonin syndrome with SSRIs?", b: "Tramadol, meperidine, fentanyl, methadone, linezolid, methylene blue, triptans (rarely), MAOIs, dextromethorphan, ondansetron.", x: "Risk rises when serotonergic agents are combined or metabolism is inhibited, especially with MAOIs or linezolid.", t: "Trap: Ondansetron or triptans rarely cause SS alone; danger is combinations with multiple serotonergic drugs.", m: "Stack serotonergic drugs and the synapse overheats" },
+        { f: "Which combinations carry important serotonin-toxicity risk?", b: "SSRIs/SNRIs combined with MAOIs, linezolid, methylene blue, tramadol, meperidine, or dextromethorphan.", x: "Excess serotonin is especially hazardous when reuptake inhibition is combined with impaired metabolism. Fentanyl and methadone also warrant interaction review.", t: "Trap: Triptan–SSRI toxicity is uncommon; do not treat every theoretical interaction as an equally high-risk combination.", m: "Reuptake block plus metabolism block overheats serotonin" },
         { f: "How is serotonin syndrome treated?", b: "Stop serotonergic drugs, benzodiazepines, cooling and supportive care, cyproheptadine if persistent; severe hyperthermia → sedation, paralysis, intubation.", x: "Supportive care reduces adrenergic drive; cyproheptadine blocks serotonin receptors when symptoms persist.", t: "Trap: Antipyretics do not fix hyperthermia from muscle activity; cool, sedate, and paralyze if severe.", m: "Stop, sedate, cool; cyproheptadine if symptoms persist" }
       ]
     },
@@ -2199,7 +2198,7 @@
         { f: "When are estrogen-containing contraceptives contraindicated (US MEC 4)?", b: "Migraine with aura, smoker ≥ 35 (≥ 15 cig/day), prior VTE/thrombophilia, BP ≥ 160/100, < 21 days postpartum, current breast cancer, complicated valvular disease, decompensated cirrhosis.", x: "Estrogen increases thrombotic stroke risk; aura independently raises stroke risk, making the combination unacceptable.", t: "Trap: Migraine without aura is different; aura makes combined pill, patch, and ring contraindicated.", m: "Aura means no estrogen",
           tb: { h: ["Condition", "US MEC", "Reason"], r: [["Migraine with aura", "4", "Stroke risk"], ["Smoker ≥35, ≥15/d", "4", "Arterial risk"], ["BP ≥160/100", "4", "Stroke and MI"], ["VTE high recurrence", "4", "Thrombosis"], ["Thrombophilia", "4", "Thrombosis"], ["Current breast cancer", "4", "Hormone sensitive"]] } },
         { f: "What are the most effective reversible contraceptives?", b: "LARC: copper IUD, levonorgestrel IUD, etonogestrel implant — < 1% failure per year.", x: "LARC methods avoid user adherence and have failure rates similar to sterilization but are reversible.", t: "Trap: Depot medroxyprogesterone is effective but not a LARC and can delay fertility return.", m: "LARC forgets nothing: IUDs and implant under 1%" },
-        { f: "Emergency contraception options?", b: "Copper IUD within 5 days (most effective); ulipristal up to 120 h; levonorgestrel up to 72 h (less effective if BMI > 30).", x: "Copper IUD prevents fertilization and may prevent implantation; ulipristal delays ovulation better near the LH surge.", t: "Trap: Levonorgestrel EC works best early and is less effective at higher BMI; copper IUD is most effective.", m: "EC ladder: copper IUD best, then ulipristal, then levonorgestrel" }
+        { f: "What are the timing rules for emergency contraception?", b: "Copper IUD within 5 days; ulipristal or levonorgestrel pills as soon as possible within 120 hours.", x: "The copper IUD is most effective. Ulipristal is more effective than levonorgestrel at 3–5 days; levonorgestrel efficacy may be lower with obesity. Pills delay ovulation and do not terminate an established pregnancy.", t: "Trap: After ulipristal, wait 5 days before starting hormonal contraception, then use barrier backup for 7 days after starting it.", m: "EC: act now, five-day window" }
       ]
     },
     {
@@ -2218,7 +2217,7 @@
       explanation: "In <strong>advanced dementia</strong>, tube feeding <strong>does not prolong survival, prevent aspiration pneumonia, heal pressure injuries, or improve comfort</strong>, and it increases agitation, restraint use, and tube complications. The AGS recommends <strong>careful hand feeding</strong> instead. Eating problems and recurrent infections mark the terminal phase, so this is a time for <strong>goals-of-care discussion</strong> and <strong>hospice</strong> (eligible with an expected prognosis of ≤ 6 months; dementia FAST stage 7).",
       flashcards: [
         { f: "Does tube feeding help in advanced dementia?", b: "No — no survival, aspiration, pressure ulcer, or comfort benefit; careful hand feeding is recommended (AGS, Choosing Wisely).", x: "Aspiration often comes from saliva/reflux and impaired swallow, not just food route, so tubes do not remove risk.", t: "Trap: A feeding tube may increase restraints and aspiration; it is not aspiration prophylaxis in advanced dementia.", m: "Advanced dementia: hand feeding over tube feeding" },
-        { f: "What is the Medicare hospice eligibility criterion?", b: "Two physicians certify prognosis ≤ 6 months if the illness runs its usual course, and the patient elects comfort-focused care over curative treatment for the terminal illness.", x: "Hospice eligibility is prognosis-based and can coexist with comfort feeding, antibiotics, or other goal-concordant care.", t: "Trap: Hospice is not only for the last days; it supports a ≤6-month expected prognosis.", m: "Hospice is a 6-month prognosis, not a last-days rule" },
+        { f: "What is the Medicare hospice eligibility criterion?", b: "Initial certification by the hospice physician and the attending physician, if there is one, of prognosis ≤6 months, with election of hospice care.", x: "Eligibility is prognosis-based and can coexist with comfort feeding, symptom-directed medications, and other goal-concordant care within the hospice plan.", t: "Trap: Hospice is not only for the last days; continued eligibility allows recertification beyond 6 months.", m: "Hospice is a prognosis, not a countdown" },
         { f: "Which features suggest end-stage dementia (hospice eligible)?", b: "FAST stage 7: < 6 words, nonambulatory, incontinent, dependent in all ADLs, plus complications (aspiration, sepsis, weight loss > 10%, pressure ulcers).", x: "FAST 7 marks profound functional loss; complications identify high near-term mortality in dementia.", t: "Trap: Memory loss alone is not hospice-level dementia; look for nonambulation, minimal speech, dependence, and complications.", m: "FAST 7 plus complications signals end-stage dementia" }
       ]
     },
@@ -2229,17 +2228,17 @@
       vignette: "A 74-year-old man with diabetes has wet gangrene of the right forefoot. Vascular surgery recommends below-knee amputation and explains that without it he may develop sepsis and die. He is alert and oriented. He accurately restates the risks of refusing, says he understands he could die, and explains that he would rather accept that risk than lose his leg, consistent with values he has expressed for years. His son insists that surgery proceed.",
       leadIn: "What is the most appropriate next step?",
       options: [
-        "Obtain an emergency court order for surgery because refusal of life-saving amputation is irrational.",
-        "Proceed with surgery under the son’s consent because family preference overrides refusal in emergencies.",
-        "Respect his refusal, continue to offer surgery, and provide antibiotics and other care he accepts.",
-        "Require a psychiatry consultation before his refusal can be honored to formally document decision-making capacity."
+        "Seek an emergency court order authorizing amputation.",
+        "Obtain the son's consent as the available family surrogate.",
+        "Honor informed refusal and offer the care he accepts.",
+        "Defer the decision pending a formal psychiatry assessment."
       ],
       correct: 2,
       explanation: "<strong>Decision-making capacity</strong> is decision-specific and can be assessed by <strong>any treating physician</strong>. Its four elements are: <strong>communicate a choice, understand the information, appreciate how it applies to oneself, and reason consistently with one's values</strong>. He has all four, so his <strong>informed refusal</strong> must be respected, even if it may lead to death and his family disagrees. Psychiatry consultation is for difficult or uncertain cases, not a requirement. Keep the conversation open and provide the treatment he accepts.",
       flashcards: [
         { f: "What are the four elements of decision-making capacity?", b: "Communicates a clear choice, understands the relevant information, appreciates the situation and consequences, and reasons about options consistently with values.", x: "Capacity is about the process of deciding, not whether the clinician agrees with the decision.", t: "Trap: A risky refusal is not incapacity if the patient understands, appreciates, reasons, and communicates.", m: "Capacity has 4 Cs: choice, comprehension, consequences, consistency" },
-        { f: "Capacity vs competence?", b: "Capacity: clinical, decision-specific, assessed by any physician. Competence: legal status determined by a court.", x: "Physicians assess capacity at the bedside; courts determine global legal competence.", t: "Trap: Psychiatry is helpful for uncertainty but is not required for every capacity determination.", m: "Capacity is clinical and specific; competence is legal and global" },
-        { f: "Who decides for a patient who lacks capacity?", b: "Advance directive / designated health care proxy first; otherwise legal surrogate hierarchy (guardian, spouse, adult children, parents, siblings) using substituted judgment.", x: "Substituted judgment asks what the patient would choose; best interest is used when preferences are unknown.", t: "Trap: Family disagreement does not override a valid proxy or known patient wishes.", m: "Proxy uses the patient’s values first, best interests second" }
+        { f: "How does medical decision-making capacity differ from legal competence?", b: "Capacity is a clinical, decision-specific assessment; legal competence and guardianship are determined under jurisdictional law.", x: "Treating clinicians assess capacity. Court orders can have a limited scope, and capacity may fluctuate or differ across decisions.", t: "Trap: Psychiatry is helpful for uncertainty but is not required for every capacity determination.", m: "Capacity is clinical; legal authority depends on law" },
+        { f: "Who decides for a patient who lacks capacity?", b: "Honor applicable advance directives and the authorized surrogate; without an appointed proxy, follow the jurisdiction's legal hierarchy.", x: "The scope of guardianship orders and proxy documents matters. Use substituted judgment based on known patient values, then best interests if values are unknown.", t: "Trap: A universal spouse–children–parents hierarchy is not valid in every state.", m: "Patient values first, lawful surrogate second" }
       ]
     },
     {
@@ -2249,17 +2248,17 @@
       vignette: "A 70-year-old man with nonvalvular atrial fibrillation (CHA₂DS₂-VASc 3) takes apixaban 5 mg twice daily. He is scheduled for elective total knee arthroplasty under neuraxial anesthesia. Creatinine clearance is 72 mL/min. He has no history of stroke or VTE.",
       leadIn: "What is the most appropriate perioperative anticoagulation plan?",
       options: [
-        "Stop apixaban 5 days before surgery and bridge with enoxaparin because CHA₂DS₂-VASc is 3.",
-        "Hold apixaban for 3 days before surgery without bridging; resume 48–72 hours after.",
-        "Continue apixaban without interruption through neuraxial anesthesia and high-bleeding-risk surgery.",
-        "Stop apixaban 7 days before surgery and resume 2 weeks after surgery without interim anticoagulation."
+        "Hold apixaban 72 hours, bridge with therapeutic enoxaparin, and restart after 48 hours.",
+        "Hold apixaban 72 hours without bridging; restart after 48–72 hours once safe.",
+        "Hold apixaban 24 hours without bridging and restart 24 hours after surgery.",
+        "Hold apixaban 48 hours without bridging and restart the evening after surgery."
       ],
       correct: 1,
-      explanation: "DOACs have short, predictable half-lives, so <strong>heparin bridging is never needed</strong> and only adds bleeding (PAUSE trial). For <strong>apixaban or rivaroxaban</strong>: hold <strong>1 day</strong> before low-bleed-risk surgery, <strong>2 days</strong> before high-bleed-risk surgery, and <strong>3 days (72 h)</strong> before <strong>neuraxial anesthesia</strong> (ASRA). Resume 24 h after low-risk or <strong>48–72 h</strong> after high-risk surgery. <strong>Dabigatran</strong> needs longer holds when CrCl is reduced. For <strong>warfarin</strong>, stop 5 days before and bridge only at high thrombotic risk (mechanical mitral valve, recent stroke, CHA₂DS₂-VASc ≥ 7), per the BRIDGE trial.",
+      explanation: "For <strong>therapeutic-dose apixaban with neuraxial anesthesia</strong>, hold at least <strong>72 hours</strong> before the block (ASRA). This patient does <strong>not need heparin bridging</strong>; bridging during a short DOAC interruption increases bleeding without established benefit. Resume therapeutic anticoagulation <strong>48–72 hours</strong> after high-bleeding-risk surgery only when hemostasis is adequate and neuraxial catheter timing requirements are satisfied. Current ASRA guidance requires needle placement or catheter removal at least 24 hours before the first postoperative high-dose apixaban dose. Prophylactic-dose postoperative thromboprophylaxis may be used when safe until full-dose anticoagulation resumes; this is distinct from therapeutic bridging.",
       flashcards: [
-        { f: "Perioperative DOAC interruption (PAUSE)?", b: "Apixaban/rivaroxaban: hold 1 day (low bleed risk), 2 days (high bleed risk), or 3 days (neuraxial anesthesia); no bridging; resume 24 h or 48–72 h after.", x: "DOAC effect wanes predictably over a few half-lives; bridging creates anticoagulant overlap and bleeding.", t: "Trap: Neuraxial procedures require the longest apixaban/rivaroxaban hold: 72 hours.", m: "PAUSE: DOACs pause briefly, no bridge",
-          tb: { h: ["Procedure", "Hold before", "Resume after"], r: [["Low bleed risk", "1 day", "24 h"], ["High bleed risk", "2 days", "48-72 h"], ["Neuraxial", "3 days", "After safe window"], ["Any DOAC", "No bridge", "No heparin bridge"]] } },
-        { f: "Who needs heparin bridging when warfarin is stopped?", b: "Only high thrombotic risk: mechanical mitral (or older aortic) valve, stroke/TIA < 3 months, VTE < 3 months, severe thrombophilia — most AF patients do not (BRIDGE).", x: "Bridging is reserved for very high embolic risk because most patients bleed more without fewer strokes.", t: "Trap: Nonvalvular AF alone, even common CHA₂DS₂-VASc scores, usually does not need bridging.", m: "Bridge warfarin only for the very highest clot risk" },
+        { f: "How is apixaban interrupted for elective procedures with normal renal function?", b: "Typically 1 day for low bleeding risk, 2 days for high bleeding risk, and at least 72 hours for therapeutic-dose neuraxial procedures.", x: "PAUSE supports short interruptions without therapeutic bridging; neuraxial safety follows separate ASRA dose-specific recommendations.", t: "Trap: Resume only after hemostasis and safe catheter timing; high-dose apixaban requires at least 24 hours after needle placement or catheter removal.", m: "DOAC pause depends on procedure and dose",
+          tb: { h: ["Procedure", "Typical hold", "Typical restart"], r: [["Low bleeding risk", "1 day", "At least 24 h"], ["High bleeding risk", "2 days", "48–72 h"], ["High-dose apixaban neuraxial", "At least 72 h", "Hemostasis plus catheter safety"]] } },
+        { f: "Is therapeutic heparin bridging routine when warfarin is interrupted?", b: "No. Avoid bridging for most AF patients; exceptionally high thrombotic-risk cases need individualized specialist planning.", x: "CHEST recommends against routine bridging, including conditional recommendations in mechanical-valve and VTE patients. Other guidance permits selected very-high-risk exceptions; recent stroke/VTE and high-risk valves require nuanced assessment.", t: "Trap: A mechanical valve or high CHA₂DS₂-VASc score is not an automatic instruction to bridge, and BRIDGE did not study mechanical valves.", m: "No routine bridge; individualize exceptional risk" },
         { f: "How long before surgery is warfarin stopped?", b: "5 days before; check INR the day before (vitamin K 1–2 mg orally if INR > 1.5); resume 12–24 h after if hemostasis is adequate.", x: "Warfarin takes days for clotting factors to recover; low-dose vitamin K corrects residual INR without prolonged reversal.", t: "Trap: Do not restart before hemostasis; timing depends on bleeding risk and surgical control.", m: "Warfarin stop 5; INR check 1; restart after hemostasis" }
       ]
     },
@@ -2271,16 +2270,16 @@
       leadIn: "Which screening test is most appropriate?",
       options: [
         "One-time abdominal aortic ultrasound.",
-        "Annual low-dose chest CT for lung cancer screening based on remote 15-pack-year smoking history.",
-        "Ankle-brachial index to screen for asymptomatic peripheral artery disease at this wellness visit.",
-        "Carotid duplex ultrasound to screen for asymptomatic carotid stenosis before aneurysm screening."
+        "Annual low-dose chest CT.",
+        "Screening ankle-brachial index.",
+        "Screening carotid duplex ultrasound."
       ],
       correct: 0,
       explanation: "USPSTF: <strong>one-time ultrasound screening for abdominal aortic aneurysm</strong> in <strong>men aged 65–75 who have ever smoked</strong> (≥ 100 cigarettes in a lifetime; grade B). Men who never smoked are screened selectively (C); women who never smoked are not screened (D). He does <strong>not</strong> qualify for lung cancer screening (requires <strong>≥ 20 pack-years</strong> and quitting <strong>within the past 15 years</strong>). ABI and carotid ultrasound are not recommended for screening asymptomatic adults.",
       flashcards: [
         { f: "Who should be screened for abdominal aortic aneurysm (USPSTF)?", b: "One-time ultrasound for men 65–75 who have ever smoked (B); selective in never-smoking men (C); not in never-smoking women (D).", x: "Smoking is the strongest AAA risk factor; ultrasound is accurate, noninvasive, and done once for eligible men.", t: "Trap: A remote light smoking history still counts as ever smoked: ≥100 lifetime cigarettes.", m: "Men 65–75 who ever smoked get one AAA ultrasound",
           tb: { h: ["Group", "USPSTF", "Screening"], r: [["Men 65-75 ever smoked", "B", "One-time US"], ["Men 65-75 never smoked", "C", "Selective US"], ["Women never smoked", "D", "Do not screen"], ["Ever smoked", "≥100 cigarettes", "Counts as risk"]] } },
-        { f: "When is an AAA repaired?", b: "Diameter ≥ 5.5 cm in men (≥ 5.0 cm in women), growth ≥ 0.5 cm/year, or any symptomatic aneurysm.", x: "Rupture risk rises steeply with diameter and symptoms; smaller aneurysms are monitored by ultrasound intervals.", t: "Trap: Repair is not based on finding AAA alone; size, growth, symptoms, and sex thresholds matter.", m: "AAA repair: 5.5 men, 5.0 women, fast growth, or symptoms" },
+        { f: "When should an infrarenal AAA prompt repair evaluation?", b: "Symptoms attributable to the AAA, diameter ≥5.5 cm in men or about ≥5.0 cm in women, or rapid growth (≥0.5 cm in 6 months).", x: "Rupture risk depends on diameter, growth, symptoms, anatomy, and operative risk; rapid apparent growth should be confirmed and reviewed with vascular surgery.", t: "Trap: The commonly tested rapid-growth threshold is 0.5 cm in 6 months, not 0.5 cm in a year.", m: "AAA: 5.5 men, 5 women, half-centimeter in half-year" },
         { f: "Which screening tests are NOT recommended in asymptomatic adults?", b: "ABI for PAD, carotid duplex for stenosis, resting/exercise ECG in low-risk adults — USPSTF D or I.", x: "Screening low-risk asymptomatic adults can cause false positives and procedures without proven outcome benefit.", t: "Trap: Do not order carotid duplex for a bruit-free asymptomatic patient as routine screening.", m: "Do not screen quiet arteries just because ultrasound exists" }
       ]
     },
@@ -2366,12 +2365,12 @@
         "Start liothyronine (T3) because it acts faster than levothyroxine."
       ],
       correct: 2,
-      explanation: "<strong>Subclinical hypothyroidism</strong> means high TSH with normal free T4. First <strong>repeat TSH and free T4 in 2–3 months</strong>, because up to half normalize (recovery from illness, assay variation). In <strong>nonpregnant adults with TSH &lt; 10</strong>, levothyroxine has <strong>no proven benefit</strong> for symptoms or quality of life, especially in older adults (TRUST trial). Treat if <strong>TSH ≥ 10</strong>, during pregnancy or when planning pregnancy, or consider it in younger symptomatic patients. Positive TPO antibodies predict progression (about 4% per year), so monitor annually. Ultrasound is not indicated without a palpable nodule or goiter.",
+      explanation: "<strong>Subclinical hypothyroidism</strong> means high TSH with normal free T4. First <strong>repeat TSH and free T4 in 2–3 months</strong> to confirm persistence. In older adults with mild TSH elevation, levothyroxine has not improved symptoms or quality of life in trials. Persistent <strong>TSH ≥10</strong> generally favors treatment; lower values require individualized decisions. Pregnancy uses pregnancy-specific TSH thresholds and TPO status rather than treating every mild elevation automatically. Positive TPO antibodies predict progression, so continue monitoring. Ultrasound is unnecessary without a palpable nodule or goiter.",
       flashcards: [
-        { f: "When is subclinical hypothyroidism treated?", b: "TSH ≥ 10 µU/mL, pregnancy or planning pregnancy; consider in younger symptomatic patients — not routinely for TSH < 10 in older adults.", x: "Mild TSH elevations often normalize; treatment benefit is clearest at TSH ≥10 or pregnancy-related situations.", t: "Trap: Fatigue with TSH 6 and normal free T4 in an older adult does not mandate levothyroxine.", m: "Subclinical hypo: treat 10, pregnancy, or selected young symptomatic patients",
-          tb: { h: ["Situation", "Treat?", "Note"], r: [["TSH ≥10", "Yes", "Clearer benefit"], ["Pregnant/planning", "Yes", "Fetal benefit"], ["Young symptomatic", "Consider", "Shared decision"], ["Older, TSH <10", "Usually no", "TRUST no benefit"]] } },
+        { f: "When is subclinical hypothyroidism generally treated?", b: "Persistent TSH ≥10 usually favors levothyroxine; lower levels require individualization. Pregnancy thresholds depend on trimester and TPO status.", x: "Mild TSH elevations often normalize, and treatment has not shown routine benefit in older adults with mild disease.", t: "Trap: Pregnancy planning or antibody positivity alone does not make every minimally elevated TSH a mandatory treatment indication.", m: "Confirm persistence; threshold and context decide",
+          tb: { h: ["Situation", "Approach", "Note"], r: [["Persistent TSH ≥10", "Usually treat", "Individualize in very old/frail"], ["Pregnant/planning", "Specific guidance", "TSH range and TPO status"], ["Young symptomatic", "Consider", "Shared decision"], ["Older, TSH <10", "Usually observe", "TRUST no symptom benefit"]] } },
         { f: "What should be done before treating a mildly elevated TSH?", b: "Repeat TSH + free T4 in 2–3 months; exclude recovery from nonthyroidal illness, biotin interference, and drugs.", x: "Biotin and acute illness can distort labs; repeating avoids lifelong therapy for transient abnormalities.", t: "Trap: Do not order thyroid ultrasound just for abnormal TSH unless there is a nodule or goiter.", m: "Repeat before you replace" },
-        { f: "Levothyroxine dosing pearls?", b: "Full dose ~1.6 µg/kg in young healthy adults; start 25–50 µg in older adults or CAD; recheck TSH 6–8 weeks after each change; take on an empty stomach apart from calcium/iron/PPIs.", x: "Levothyroxine has a long half-life; TSH needs 6–8 weeks to equilibrate after dose changes.", t: "Trap: Starting full replacement in CAD/older adults can provoke angina or arrhythmia; start low.", m: "Levothyroxine reaches steady TSH in 6–8 weeks" }
+        { f: "Levothyroxine dosing pearls?", b: "Full replacement ~1.6 µg/kg/day in young healthy adults with overt hypothyroidism; start 12.5–25 µg/day in known CAD and titrate. Recheck TSH in 6–8 weeks.", x: "Take consistently on an empty stomach and separate calcium/iron by about 4 hours. PPIs can reduce absorption through gastric pH changes, not just simultaneous ingestion.", t: "Trap: Subclinical disease may need a smaller dose; full replacement in CAD can provoke angina or arrhythmia.", m: "Start low in CAD; wait 6–8 weeks for TSH" }
       ]
     },
     {
@@ -2389,8 +2388,8 @@
       correct: 3,
       explanation: "An <strong>adrenal incidentaloma</strong> needs two questions answered: <strong>is it malignant?</strong> and <strong>does it secrete hormones?</strong> A homogeneous lesion with <strong>≤ 10 HU</strong> on unenhanced CT is a lipid-rich <strong>benign adenoma</strong> regardless of size (ESE 2023), so no further imaging is required. Every incidentaloma needs a <strong>1-mg dexamethasone suppression test</strong> for autonomous cortisol secretion. Check <strong>plasma metanephrines</strong> only if the mass is <strong>&gt; 10 HU</strong> or there are adrenergic symptoms (ESE 2023), and an <strong>aldosterone-to-renin ratio</strong> if hypertension or hypokalemia is present. Biopsy is almost never indicated, and it is dangerous if pheochromocytoma has not been excluded.",
       flashcards: [
-        { f: "What hormonal workup does every adrenal incidentaloma need?", b: "1-mg dexamethasone suppression test in all; plasma metanephrines only if > 10 HU or adrenergic symptoms; aldosterone-to-renin ratio if hypertension or hypokalemia.", x: "Incidentalomas can be clinically silent yet secrete cortisol or aldosterone; testing is guided by all-comers vs phenotype.", t: "Trap: Plasma metanephrines are not required for lipid-rich ≤10 HU lesions unless symptoms suggest pheo.", m: "All incidentalomas get the 1-mg dex test; aldo only if HTN/K, pheo if >10 HU",
-          tb: { h: ["Test", "Who gets it", "Purpose"], r: [["1-mg dex test", "All masses", "Cortisol autonomy"], ["Metanephrines", ">10 HU or symptoms", "Pheochromocytoma"], ["Aldo-renin ratio", "HTN or hypokalemia", "Aldosteronism"], ["Biopsy", "Rare metastasis workup", "After pheo excluded"]] } },
+        { f: "What hormonal workup is used for an adrenal incidentaloma?", b: "Usually a 1-mg dexamethasone suppression test; metanephrines for lesions not typical of benign adenoma or suspicious symptoms; aldosterone-renin testing with hypertension or hypokalemia.", x: "ESE 2023 permits omitting dexamethasone testing in frail patients with limited life expectancy. Homogeneous ≤10 HU lesions usually do not need metanephrines.", t: "Trap: A benign imaging appearance does not exclude cortisol or aldosterone secretion.", m: "Adrenal testing follows hormone risk and patient context",
+          tb: { h: ["Test", "Who gets it", "Purpose"], r: [["1-mg dex test", "Most; individualize in frailty", "Cortisol autonomy"], ["Metanephrines", "Not typical benign or symptoms", "Pheochromocytoma"], ["Aldo-renin testing", "HTN or hypokalemia", "Aldosteronism"], ["Biopsy", "Rare metastasis workup", "After pheo excluded"]] } },
         { f: "What imaging features suggest a benign adrenal adenoma?", b: "Homogeneous, smooth, unenhanced CT ≤ 10 HU indicates a lipid-rich benign adenoma — no further imaging needed regardless of size.", x: "Intracellular lipid lowers HU; a homogeneous ≤10 HU adrenal mass is so likely benign that serial scans add little value.", t: "Trap: Heterogeneity, irregular borders, or HU >10 needs malignancy-focused evaluation.", m: "≤10 HU homogeneous adrenal mass is lipid-rich and benign" },
         { f: "Why must pheochromocytoma be excluded before adrenal biopsy?", b: "Biopsy can precipitate a hypertensive crisis; biopsy is reserved for suspected metastasis after pheo is excluded.", x: "Catecholamine release during biopsy can be fatal; biochemical exclusion comes before needle sampling.", t: "Trap: Biopsy does not distinguish adenoma from adrenocortical carcinoma well; use it mainly for suspected metastasis.", m: "Never needle a possible pheo" }
       ]
@@ -2402,17 +2401,17 @@
       vignette: "A 34-year-old woman with Hashimoto thyroiditis has 3 weeks of fatigue and jaundice. ALT is 820 U/L, AST 690 U/L, total bilirubin 4.2 mg/dL, alkaline phosphatase 160 U/L, INR 1.3. IgG is 2,950 mg/dL (elevated). Anti-smooth muscle antibody is 1:160 and ANA 1:320. Viral hepatitis serologies, ceruloplasmin, and acetaminophen level are negative or normal; she takes no supplements. Liver biopsy shows interface hepatitis with abundant plasma cells.",
       leadIn: "What is the most appropriate treatment?",
       options: [
-        "Prednisone (or budesonide if no cirrhosis) plus azathioprine.",
+        "Prednisone plus azathioprine.",
         "Ursodeoxycholic acid.",
         "Observation with repeat liver chemistries in 3 months.",
         "Entecavir."
       ],
       correct: 0,
-      explanation: "High aminotransferases, <strong>elevated IgG</strong>, <strong>ANA and anti-smooth muscle antibody</strong>, and <strong>interface hepatitis with plasma cells</strong> in a young woman with another autoimmune disease = <strong>type 1 autoimmune hepatitis</strong>. Induction is with <strong>glucocorticoids</strong> (prednisone; <strong>budesonide</strong> if no cirrhosis) <strong>plus azathioprine</strong>. Check <strong>TPMT</strong> activity before azathioprine. Untreated AIH progresses to cirrhosis. Ursodiol is for primary biliary cholangitis.",
+      explanation: "High aminotransferases, elevated IgG, ANA/anti-smooth muscle antibodies, and interface hepatitis support <strong>autoimmune hepatitis</strong>. <strong>Prednisone plus azathioprine</strong> is an established induction regimen; check TPMT and monitor CBC/liver tests before and during thiopurine use. The 2025 EASL update also supports mycophenolate as a first-line alternative in appropriate patients, but it is teratogenic. Budesonide is no longer endorsed as first-line in that update and must not be used in cirrhosis or acute severe AIH. Ursodiol is for PBC, not AIH induction.",
       flashcards: [
-        { f: "Which antibodies define type 1 vs type 2 autoimmune hepatitis?", b: "Type 1: ANA and anti-smooth muscle (anti-actin). Type 2: anti-LKM-1 and anti-liver cytosol-1 (children/young adults).", x: "Type 1 is the common adult form; high IgG and interface hepatitis with plasma cells strengthen the diagnosis.", t: "Trap: Antibody positivity alone is insufficient; viral, drug, metabolic, and cholestatic diseases must be excluded.", m: "AIH type 1 is ANA/ASMA; type 2 is LKM/LC1",
-          tb: { h: ["Type", "Antibodies", "Typical group"], r: [["Type 1", "ANA, ASMA", "Adults"], ["Type 2", "Anti-LKM-1, anti-LC1", "Children, young adults"], ["Both", "High IgG", "Interface hepatitis"], ["Before diagnosis", "Exclude viral/drug", "Exclude cholestatic"]] } },
-        { f: "What is first-line treatment of autoimmune hepatitis?", b: "Prednisone (or budesonide if noncirrhotic) + azathioprine — check TPMT first; mycophenolate is second-line.", x: "Azathioprine maintains remission and permits steroid taper; TPMT deficiency predicts severe myelotoxicity.", t: "Trap: Budesonide should not be used in cirrhosis because portosystemic shunting reduces safety and efficacy.", m: "Steroid plus azathioprine; TPMT before thiopurine" },
+        { f: "Which autoantibody patterns support autoimmune hepatitis?", b: "ANA/ASMA commonly occur in adults; anti-LKM-1/anti-LC1 are more common in pediatric or young-onset disease.", x: "These were historically called types 1 and 2; EASL 2025 no longer recommends subclassification because treatment is not determined by that label.", t: "Trap: Antibody positivity alone is insufficient; exclude competing causes and integrate IgG, biopsy, and clinical findings.", m: "AIH needs antibodies plus the whole picture",
+          tb: { h: ["Pattern", "Antibodies", "Context"], r: [["Common adult", "ANA, ASMA", "Support AIH"], ["Young-onset", "Anti-LKM-1, anti-LC1", "Support AIH"], ["Additional evidence", "High IgG", "Compatible biopsy"], ["Before diagnosis", "Exclude viral/drug", "Assess competing causes"]] } },
+        { f: "What is an established first-line treatment of autoimmune hepatitis?", b: "Prednisone plus azathioprine after TPMT assessment; EASL 2025 also supports mycophenolate in suitable patients.", x: "Steroid-sparing therapy permits glucocorticoid taper. Mycophenolate is teratogenic; thiopurines require CBC and liver monitoring.", t: "Trap: Budesonide is not first-line under EASL 2025 and is contraindicated in cirrhosis or acute severe AIH.", m: "Steroid plus a monitored steroid-sparing agent" },
         { f: "Primary biliary cholangitis vs primary sclerosing cholangitis?", b: "PBC: middle-aged women, antimitochondrial antibody, ursodiol. PSC: men with ulcerative colitis, beaded ducts on MRCP, cholangiocarcinoma risk.", x: "PBC is small-duct autoimmune cholestasis; PSC is large-duct fibrostenotic disease linked to IBD.", t: "Trap: Ursodiol is first-line for PBC, not for autoimmune hepatitis induction.", m: "PBC is AMA and ursodiol; PSC is UC and beaded ducts" }
       ]
     },
@@ -2429,11 +2428,11 @@
         "IV methylprednisolone and mechanical VTE prophylaxis, deferring heparin until rectal bleeding improves."
       ],
       correct: 1,
-      explanation: "Six or more bloody stools per day with systemic toxicity (fever, tachycardia, anemia, high CRP) = <strong>acute severe ulcerative colitis</strong> (Truelove-Witts). Management: <strong>IV glucocorticoids</strong>, <strong>exclude C. difficile</strong> (and CMV on flexible sigmoidoscopy), and give <strong>pharmacologic VTE prophylaxis</strong>, because IBD flares carry a high thrombosis risk and <strong>rectal bleeding is not a contraindication</strong>. Avoid antimotility agents, opioids, and anticholinergics (toxic megacolon). If there is no response by <strong>day 3</strong>, use <strong>infliximab or cyclosporine</strong> rescue or colectomy.",
+      explanation: "Six or more bloody stools per day with systemic toxicity (fever, tachycardia, anemia, high CRP) = <strong>acute severe ulcerative colitis</strong> (Truelove-Witts). Management: <strong>IV glucocorticoids</strong>, <strong>exclude C. difficile</strong> (and evaluate CMV on flexible sigmoidoscopy), and give <strong>pharmacologic VTE prophylaxis unless a major contraindication exists</strong>. Stable hematochezia from colitis alone is not a contraindication; uncontrolled major bleeding may be. Avoid antimotility agents, opioids, and anticholinergics (toxic megacolon). If there is no response by <strong>day 3</strong>, assess for <strong>infliximab or cyclosporine</strong> rescue or colectomy.",
       flashcards: [
         { f: "How is acute severe ulcerative colitis defined?", b: "≥ 6 bloody stools/day plus ≥ 1 systemic sign: fever, HR > 90, Hb < 10.5, or ESR > 30 / high CRP (Truelove-Witts).", x: "Systemic toxicity with frequent bloody stool predicts high colectomy risk and requires inpatient therapy.", t: "Trap: Mild outpatient UC therapy is inadequate when Truelove-Witts severe criteria are met.", m: "Severe UC: 6 bloody stools plus systemic toxicity",
           tb: { h: ["Criterion", "Threshold", "Points to"], r: [["Stools", "≥6 bloody/day", "Severe if systemic sign"], ["Fever", "Present", "Systemic toxicity"], ["Heart rate", ">90", "Systemic toxicity"], ["Hemoglobin", "<10.5", "Systemic toxicity"], ["ESR/CRP", "ESR >30 or high CRP", "Systemic toxicity"]] } },
-        { f: "Is VTE prophylaxis given during an IBD flare with bleeding?", b: "Yes — pharmacologic prophylaxis for all hospitalized IBD patients; rectal bleeding is not a contraindication.", x: "Inflammation creates a hypercoagulable state; prophylactic heparin lowers VTE risk despite hematochezia.", t: "Trap: Rectal bleeding from colitis is not a reason to withhold prophylactic-dose heparin.", m: "IBD flare bleeds yet clots: still give prophylactic heparin" },
+        { f: "Is VTE prophylaxis given during an IBD flare with bleeding?", b: "Give pharmacologic prophylaxis during hospitalization unless a major contraindication exists; stable hematochezia alone is not one.", x: "Inflammation creates a hypercoagulable state. Uncontrolled major bleeding may require mechanical prophylaxis until safe to use heparin.", t: "Trap: Do not withhold prophylactic-dose heparin solely for typical colitis-related rectal bleeding.", m: "IBD flares bleed yet clot: assess both risks" },
         { f: "Rescue therapy for steroid-refractory acute severe UC?", b: "No response by day 3 of IV steroids → infliximab or cyclosporine; colectomy for failure, megacolon, or perforation.", x: "Day-3 nonresponse predicts steroid failure, so rescue therapy or surgery should not be delayed.", t: "Trap: Avoid opioids, anticholinergics, and antimotility agents; they can precipitate toxic megacolon.", m: "Day 3 steroid failure triggers rescue or surgery" }
       ]
     },
@@ -2454,8 +2453,8 @@
       flashcards: [
         { f: "Induction therapy for HIV-associated cryptococcal meningitis?", b: "Liposomal amphotericin B + flucytosine (≥ 2 weeks), then fluconazole 400–800 mg consolidation, then 200 mg maintenance.", x: "Flucytosine adds rapid fungicidal activity to amphotericin and improves CSF sterilization.", t: "Trap: Fluconazole alone is not adequate induction for severe HIV-associated cryptococcal meningitis.", m: "Crypto CNS induction: ampho plus flucytosine before fluconazole" },
         { f: "How is raised ICP managed in cryptococcal meningitis?", b: "Serial therapeutic LPs to opening pressure < 20 cm H₂O or 50% reduction — not steroids, mannitol, or acetazolamide.", x: "High CSF pressure causes headache, vision loss, and death; removing CSF is the effective pressure treatment.", t: "Trap: Acetazolamide and steroids do not improve cryptococcal ICP and may harm.", m: "Crypto pressure treatment is CSF removal" },
-        { f: "When is ART started after an opportunistic infection?", b: "Within 2 weeks for most (e.g., PCP); delay 4–6 weeks for cryptococcal and TB meningitis due to IRIS mortality.", x: "Early ART can intensify CNS inflammation before fungal burden falls, increasing mortality in cryptococcal meningitis.", t: "Trap: PCP usually gets ART within 2 weeks; cryptococcal meningitis is the key delay exception.", m: "Most OIs start ART early; crypto CNS waits 4–6 weeks",
-          tb: { h: ["OI", "ART timing", "Reason"], r: [["Most OIs", "Within 2 wk", "Improves outcomes"], ["PCP", "Within 2 wk", "Not CNS IRIS exception"], ["Crypto meningitis", "Delay 4-6 wk", "IRIS mortality"], ["TB meningitis", "Delay 4-6 wk", "CNS inflammation"]] } }
+        { f: "How does ART timing differ for PCP, cryptococcal meningitis, and TB meningitis?", b: "PCP: within 2 weeks. Cryptococcal meningitis: usually defer 4–6 weeks. TB meningitis: delay until controlled, with expert-guided timing.", x: "Early ART improves PCP outcomes but can trigger dangerous inflammation in a closed CNS space; NIH ARV guidance for TB meningitis requires at least 2 weeks of TB therapy and clinical control.", t: "Trap: Do not apply a single 4–6-week rule to every CNS opportunistic infection.", m: "PCP starts early; CNS timing is infection-specific",
+          tb: { h: ["OI", "ART timing", "Reason"], r: [["PCP", "Within 2 weeks", "Improves outcomes"], ["Crypto meningitis", "Usually 4–6 weeks", "IRIS mortality"], ["TB meningitis", "After control; specialist guided", "Avoid severe CNS IRIS"]] } }
       ]
     },
     {
@@ -2597,8 +2596,8 @@
       correct: 1,
       explanation: "In <strong>metabolic alkalosis</strong>, <strong>urine chloride</strong> is the key test. <strong>Urine Cl &lt; 20 mEq/L</strong> means a <strong>chloride-responsive (saline-responsive)</strong> alkalosis (vomiting/NG suction, remote diuretic use) → IV <strong>normal saline + KCl</strong>. Urine sodium can be <strong>misleadingly high</strong> in active vomiting because bicarbonaturia obligates sodium loss. <strong>Urine Cl &gt; 20</strong> points to current diuretic use, Bartter/Gitelman, or mineralocorticoid excess, especially with hypertension.",
       flashcards: [
-        { f: "Metabolic alkalosis: what does urine chloride tell you?", b: "< 20 mEq/L → saline-responsive (vomiting, NG suction, prior diuretics). > 20 → saline-resistant (current diuretics, Bartter/Gitelman, mineralocorticoid excess).", x: "Low urine chloride means kidneys are conserving chloride in volume/chloride depletion; saline supplies chloride to excrete bicarbonate.", t: "Trap: Urine sodium can be high in vomiting despite volume depletion; use urine chloride.", m: "Metabolic alkalosis: chloride tells saline response",
-          tb: { h: ["Urine Cl", "Category", "Common causes"], r: [["<20 mEq/L", "Saline responsive", "Vomiting, NG suction"], ["<20 mEq/L", "Saline responsive", "Remote diuretics"], [">20 mEq/L", "Saline resistant", "Current diuretics"], [">20 mEq/L", "Saline resistant", "Bartter or Gitelman"], [">20 mEq/L", "Saline resistant", "Mineralocorticoid excess"]] } },
+        { f: "Metabolic alkalosis: what does urine chloride tell you?", b: "<20 mEq/L supports chloride depletion and saline responsiveness; ≥20 suggests ongoing renal chloride loss or mineralocorticoid excess.", x: "Low urine chloride reflects renal chloride conservation. Active diuretics can raise urine chloride despite volume depletion and potential response to chloride repletion.", t: "Trap: Do not label every high-urine-chloride case absolutely saline resistant; integrate BP, volume status, and diuretic timing.", m: "Low chloride favors replacement; high chloride needs context",
+          tb: { h: ["Urine Cl", "Interpretation", "Common causes"], r: [["<20 mEq/L", "Usually chloride responsive", "Vomiting, NG suction"], ["<20 mEq/L", "Usually chloride responsive", "Remote diuretics"], ["≥20 mEq/L", "Drug-dependent; assess volume", "Active diuretics"], ["≥20 mEq/L", "Ongoing renal salt loss", "Bartter or Gitelman"], ["≥20 mEq/L", "Usually volume expanded", "Mineralocorticoid excess"]] } },
         { f: "Why is urine sodium unreliable in vomiting-induced alkalosis?", b: "Bicarbonaturia obligates Na⁺ (and K⁺) excretion despite volume depletion — urine Cl is the better marker.", x: "Filtered bicarbonate drags sodium into urine, falsely suggesting volume repletion during active alkalosis.", t: "Trap: Do not classify saline responsiveness by urine sodium in metabolic alkalosis.", m: "Vomiting can make urine sodium lie; chloride tells the truth" },
         { f: "Gitelman vs Bartter syndrome?", b: "Gitelman: mimics thiazide — hypocalciuria, hypomagnesemia, adolescents/adults. Bartter: mimics loop diuretic — hypercalciuria, childhood.", x: "Both cause hypokalemic metabolic alkalosis with high renin/aldosterone but differ by nephron segment and urine calcium.", t: "Trap: Hypertension with metabolic alkalosis suggests mineralocorticoid excess, not Bartter/Gitelman.", m: "Gitelman is thiazide-like; Bartter is loop-like" }
       ]
@@ -2621,7 +2620,7 @@
         { f: "How is acute chest syndrome defined?", b: "New pulmonary infiltrate plus fever and/or respiratory symptoms (chest pain, cough, hypoxemia, tachypnea) in sickle cell disease.", x: "ACS can arise from infection, infarction, fat embolism, or hypoventilation; early treatment prevents respiratory failure.", t: "Trap: Treat new infiltrate plus symptoms as ACS even if it resembles pneumonia.", m: "Sickle new infiltrate plus symptoms is acute chest" },
         { f: "Simple vs exchange transfusion in sickle cell disease?", b: "Simple: symptomatic anemia or mild ACS. Exchange (HbS < 30%): severe/progressive ACS, acute stroke, multiorgan failure — avoid Hb > 10 (hyperviscosity).", x: "Exchange rapidly lowers HbS without raising viscosity; simple transfusion helps less severe anemia/hypoxemia.", t: "Trap: Transfusing above Hb 10 g/dL can worsen viscosity in SCD.", m: "Exchange drops HbS; simple transfusion raises oxygen-carrying capacity",
           tb: { h: ["Approach", "Use for", "Caution"], r: [["Simple transfusion", "Mild ACS or anemia", "Avoid Hb >10"], ["Exchange transfusion", "Severe/progressive ACS", "Target HbS <30%"], ["Exchange transfusion", "Acute stroke", "Rapid HbS reduction"], ["No transfusion", "Stable mild pain only", "Monitor closely"]] } },
-        { f: "Which therapies prevent sickle cell complications?", b: "Hydroxyurea (raises HbF; fewer crises and ACS), plus vaccinations; voxelotor withdrawn 2024; crizanlizumab for pain crises.", x: "Higher HbF reduces HbS polymerization and vaso-occlusion; preventive therapy is chronic, not acute ACS rescue.", t: "Trap: Hydroxyurea is not the acute treatment for ACS; use antibiotics, oxygen, spirometry, and transfusion as needed.", m: "HbF prevents polymerization; it does not rescue acute chest today" }
+        { f: "Which established therapy reduces recurrent sickle cell pain crises and acute chest syndrome?", b: "Hydroxyurea, which increases fetal hemoglobin; maintain appropriate vaccinations and preventive care.", x: "Higher HbF inhibits HbS polymerization. Selected severe cases may be evaluated for transplantation or gene therapy in specialist care; voxelotor was withdrawn in 2024.", t: "Trap: Hydroxyurea prevents future events but does not replace antibiotics, oxygen, spirometry, or indicated transfusion in acute chest syndrome.", m: "HbF prevents polymerization; it does not rescue acute chest today" }
       ]
     },
     {
@@ -2651,10 +2650,10 @@
       vignette: "A 61-year-old man asks whether he should have a PSA test. He has no urinary symptoms, is in good health, and has no family history of prostate cancer. He is not of African ancestry and has no known BRCA mutation.",
       leadIn: "What is the most appropriate recommendation?",
       options: [
-        "Shared decision-making about PSA screening, discussing benefits and harms.",
-        "Annual PSA with digital rectal examination for all men his age without discussing potential harms.",
-        "PSA screening is not recommended at any age, even for healthy men who request information.",
-        "Prostate MRI as the initial screening test before any discussion or serum PSA measurement."
+        "Discuss PSA screening benefits and harms before deciding.",
+        "Recommend annual PSA and DRE as routine tests for his age group.",
+        "Recommend against PSA screening until urinary symptoms develop.",
+        "Offer screening prostate MRI in place of PSA-based screening."
       ],
       correct: 0,
       explanation: "USPSTF: for men <strong>55–69 years</strong>, PSA screening is an <strong>individual decision (grade C)</strong>. Discuss the small mortality benefit (about 1 prostate cancer death prevented per 1,000 men screened over 13 years) against <strong>false positives, biopsy complications, and overdiagnosis</strong> leading to incontinence and erectile dysfunction from treatment. Do not screen men <strong>≥ 70</strong> (grade D). DRE is not recommended for screening. Higher-risk men (Black men, strong family history, BRCA2) may benefit from earlier discussion.",
@@ -2672,7 +2671,7 @@
       leadIn: "What is the most appropriate next step?",
       options: [
         "Emergent radiation therapy before biopsy.",
-        "Obtain a tissue diagnosis before starting any therapy.",
+        "Obtain tissue before starting tumor-directed therapy.",
         "High-dose dexamethasone before biopsy.",
         "Systemic anticoagulation alone for presumed SVC thrombosis."
       ],
@@ -2718,12 +2717,12 @@
         "4-factor PCC plus IV vitamin K."
       ],
       correct: 3,
-      explanation: "Warfarin-associated ICH requires immediate reversal with <strong>4-factor PCC</strong>, which corrects the INR within minutes and faster than FFP without the volume load, <strong>plus IV vitamin K 10 mg</strong> for sustained reversal once PCC wears off. Lower <strong>SBP to about 140 mm Hg</strong> (avoid &lt; 130) promptly. DOAC-associated ICH is reversed with <strong>idarucizumab</strong> (dabigatran) or <strong>andexanet alfa or 4F-PCC</strong> (factor Xa inhibitors). Platelet transfusion in antiplatelet-associated ICH without surgery is harmful (PATCH).",
+      explanation: "Warfarin-associated ICH requires immediate reversal with <strong>4-factor PCC plus IV vitamin K 10 mg</strong>. PCC supplies clotting factors within minutes without the volume burden of FFP; vitamin K sustains reversal. For this mild-to-moderate ICH with presenting SBP 188, target about <strong>140 mm Hg</strong>, maintaining 130–150 and avoiding &lt; 130. Dabigatran-associated ICH is reversed with <strong>idarucizumab</strong>; factor Xa inhibitor bleeding is commonly managed with <strong>4F-PCC</strong> per protocol. Andexanet alfa is no longer sold in the US after December 2025 following FDA safety concerns. Routine platelet transfusion for aspirin-associated spontaneous ICH without emergency surgery is harmful.",
       flashcards: [
         { f: "Reversal of warfarin in life-threatening bleeding?", b: "4-factor PCC (preferred over FFP) + IV vitamin K 10 mg.", x: "PCC supplies vitamin K-dependent factors immediately; vitamin K sustains reversal as infused factors wear off.", t: "Trap: FFP is slower and volume-heavy; do not use it first when 4F-PCC is available.", m: "Warfarin bleed reversal is fast PCC plus lasting vitamin K" },
-        { f: "Reversal agents for DOACs?", b: "Dabigatran → idarucizumab. Apixaban/rivaroxaban → andexanet alfa or 4F-PCC.", x: "Specific antidotes bind dabigatran or factor Xa inhibitors; PCC is used when Xa antidote is unavailable or per protocol.", t: "Trap: Vitamin K reverses warfarin, not DOACs.", m: "Dabigatran gets idarucizumab; Xa inhibitors get andexanet or PCC",
-          tb: { h: ["Anticoagulant", "Reversal", "Note"], r: [["Warfarin", "4F-PCC + IV vitamin K", "Fast plus sustained"], ["Dabigatran", "Idarucizumab", "Specific binder"], ["Apixaban", "Andexanet or 4F-PCC", "Xa inhibitor"], ["Rivaroxaban", "Andexanet or 4F-PCC", "Xa inhibitor"]] } },
-        { f: "BP target in acute intracerebral hemorrhage?", b: "SBP lowered to ~140 mm Hg (range 130–150) within hours — avoid < 130.", x: "Moderate rapid BP lowering limits hematoma expansion while avoiding hypoperfusion from excessive reduction.", t: "Trap: Do not drive SBP below 130 in acute ICH; too low may worsen outcomes.", m: "ICH pressure sweet spot: about 140, not below 130" }
+        { f: "What are current US reversal options for life-threatening DOAC bleeding?", b: "Dabigatran: idarucizumab. Apixaban/rivaroxaban: 4F-PCC according to institutional protocol.", x: "Andexanet alfa US sales ended in December 2025 after FDA found serious thromboembolic risk outweighed benefit. PCC is used off-label for factor Xa inhibitor reversal.", t: "Trap: Vitamin K reverses warfarin, not DOACs; also assess time since last dose and renal clearance.", m: "Dabigatran has a binder; Xa bleeding uses PCC",
+          tb: { h: ["Anticoagulant", "US reversal approach"], r: [["Warfarin", "4F-PCC + IV vitamin K"], ["Dabigatran", "Idarucizumab"], ["Apixaban/rivaroxaban", "4F-PCC per protocol"]] } },
+        { f: "What BP target is reasonable in mild-to-moderate spontaneous ICH with presenting SBP 150–220?", b: "Target SBP about 140 mm Hg, maintaining 130–150; avoid lowering below 130.", x: "Use smooth, sustained control. Evidence is less certain in large/severe hemorrhage or patients needing decompressive surgery, so individualize those cases.", t: "Trap: Do not apply the 140 target indiscriminately to every severity and presenting pressure.", m: "Selected ICH: smooth 140, not below 130" }
       ]
     },
     {
@@ -2733,18 +2732,18 @@
       vignette: "A 31-year-old man with opioid use disorder (daily heroin and fentanyl) presents to the emergency department asking for help to stop using. His last use was 20 hours ago. He has yawning, rhinorrhea, piloerection, dilated pupils, restlessness, and abdominal cramping; Clinical Opiate Withdrawal Scale score is 15. He is not pregnant and has no liver disease.",
       leadIn: "What is the most appropriate management?",
       options: [
-        "Start buprenorphine (buprenorphine-naloxone) now and arrange continued outpatient treatment.",
-        "Start naltrexone today while he is in moderate opioid withdrawal after fentanyl and heroin use.",
-        "Clonidine for withdrawal and referral to an abstinence-only program without offering medication treatment.",
-        "Prescribe methadone tablets from the emergency department for home use without an opioid treatment program."
+        "Begin buprenorphine induction and link to ongoing care.",
+        "Begin extended-release naltrexone and link to ongoing care.",
+        "Use clonidine for detoxification and refer for counseling.",
+        "Provide an outpatient methadone prescription for daily home use."
       ],
       correct: 0,
-      explanation: "<strong>Medications for OUD</strong> (buprenorphine, methadone) <strong>halve mortality</strong>. Start <strong>buprenorphine</strong> once the patient is in <strong>moderate withdrawal (COWS ≥ 8–12)</strong> to avoid precipitated withdrawal; with fentanyl this may take longer, and low-dose initiation is an option. The DATA-2000 X-waiver was eliminated in 2023, so any DEA-registered clinician can prescribe it. <strong>Naltrexone</strong> requires 7–10 opioid-free days. <strong>Methadone for OUD</strong> can be dispensed only through an opioid treatment program, not prescribed for home use. Detox without medication is associated with relapse and overdose death. Prescribe <strong>naloxone</strong> to all.",
+      explanation: "Offer <strong>buprenorphine</strong> induction now under a monitored protocol: he has objective moderate withdrawal (COWS 15). Fentanyl exposure increases precipitated-withdrawal risk, so use clinical findings rather than an elapsed-time rule; alternative low-dose initiation can be appropriate. Link directly to ongoing treatment and provide <strong>naloxone</strong>. Buprenorphine and methadone substantially reduce mortality. The X-waiver was removed in 2023; prescribing still requires appropriate licensure, DEA authority, and compliance with applicable law. Naltrexone requires completed opioid withdrawal, generally at least 7–10 opioid-free days for short-acting opioids and longer after long-acting agents. Outpatient methadone maintenance generally requires an OTP, not a routine home prescription; limited hospital/emergency dispensing exceptions exist.",
       flashcards: [
         { f: "When is buprenorphine started in opioid withdrawal?", b: "Moderate withdrawal (COWS ≥ 8–12), usually 12–24 h after short-acting opioids — earlier dosing precipitates withdrawal.", x: "Buprenorphine has high receptor affinity and can displace full agonists; waiting for withdrawal avoids abrupt net agonist drop.", t: "Trap: Starting too soon after fentanyl/heroin can precipitate severe withdrawal.", m: "Buprenorphine starts when withdrawal has already begun" },
-        { f: "What are the regulatory rules for OUD medications?", b: "Buprenorphine: any DEA-registered prescriber (X-waiver removed 2023). Methadone for OUD: only via certified opioid treatment programs.", x: "Regulations differ because methadone has higher overdose/diversion risk and is dispensed in structured OTPs.", t: "Trap: A hospital can administer methadone for withdrawal, but outpatient OUD methadone requires an OTP.", m: "X-waiver gone; methadone OTP remains",
+        { f: "What are the regulatory rules for outpatient OUD medications?", b: "Buprenorphine no longer needs an X-waiver; methadone maintenance generally must be provided through an OTP.", x: "Buprenorphine still requires appropriate licensing and DEA authority. Hospitals and limited emergency dispensing pathways can provide methadone under specific exceptions, but a routine office prescription for OUD is not allowed.", t: "Trap: The emergency methadone exception is a limited bridge to treatment, not permission for an ongoing outpatient prescription.", m: "X-waiver gone; methadone maintenance remains structured",
           tb: { h: ["Medication", "Access rule", "Key note"], r: [["Buprenorphine", "DEA prescriber", "No X-waiver"], ["Methadone for OUD", "Certified OTP", "Dispensed, not Rx"], ["Naltrexone", "Any prescriber", "Needs opioid-free"], ["Naloxone", "Prescribe broadly", "Overdose rescue"]] } },
-        { f: "Naltrexone for OUD — key requirement?", b: "Must be opioid-free 7–10 days first (else precipitated withdrawal); extended-release IM monthly; also used for alcohol use disorder.", x: "Opioid blockade prevents relapse reward but also removes tolerance; detox first and counsel overdose risk after stopping.", t: "Trap: Naltrexone is not for patients needing opioid analgesics or not yet opioid-free.", m: "Naltrexone needs detox first" }
+        { f: "What must precede naltrexone initiation for OUD?", b: "Completed withdrawal and an adequate opioid-free interval: generally 7–10 days after short-acting opioids, often longer after methadone or buprenorphine.", x: "Residual opioid dependence can cause severe precipitated withdrawal. Loss of tolerance increases overdose risk after missed doses or discontinuation; provide naloxone.", t: "Trap: A fixed interval is not a guarantee after fentanyl or long-acting opioids; assess clinically and follow the label/protocol.", m: "Naltrexone needs detox, not just a clock" }
       ]
     },
     {
@@ -2795,10 +2794,10 @@
       vignette: "A 66-year-old man started allopurinol 5 weeks ago for gout. He now has fever 39.0 °C, a diffuse morbilliform rash covering 70% of his body, marked facial edema, and generalized lymphadenopathy. There are no mucosal erosions or blisters. WBC 15,400/µL with 18% eosinophils and atypical lymphocytes; ALT 412 U/L; creatinine 1.8 mg/dL (baseline 1.0).",
       leadIn: "What is the most appropriate management?",
       options: [
-        "Continue allopurinol at a lower dose and add an antihistamine because there are no mucosal erosions.",
-        "Switch allopurinol to febuxostat and observe liver tests as an outpatient.",
-        "Empiric IV vancomycin and piperacillin-tazobactam as sole therapy for presumed sepsis with rash.",
-        "Stop allopurinol permanently and start systemic glucocorticoids with a slow taper."
+        "Reduce allopurinol and give cetirizine with topical clobetasol.",
+        "Stop allopurinol and manage with topical steroids as an outpatient.",
+        "Stop allopurinol and begin vancomycin plus piperacillin-tazobactam.",
+        "Stop allopurinol permanently and give systemic steroids with a slow taper."
       ],
       correct: 3,
       explanation: "Fever, extensive morbilliform rash, <strong>facial edema</strong>, lymphadenopathy, <strong>eosinophilia/atypical lymphocytes</strong>, and <strong>internal organ involvement</strong> (hepatitis, AKI) <strong>2–8 weeks</strong> after starting a drug = <strong>DRESS</strong> (drug reaction with eosinophilia and systemic symptoms). Common culprits are allopurinol, anticonvulsants, sulfonamides, vancomycin, and minocycline. Management: <strong>stop the drug permanently</strong> and give <strong>systemic glucocorticoids</strong> for organ involvement, tapered over <strong>6–8+ weeks</strong> because relapse is common. Monitor later for <strong>autoimmune thyroiditis</strong> and diabetes. HHV-6 reactivation is typical.",
@@ -2843,12 +2842,12 @@
         "Repeat ultrasound in 12 months."
       ],
       correct: 1,
-      explanation: "<strong>Any postmenopausal bleeding is endometrial cancer until proven otherwise</strong>, especially with obesity and diabetes (unopposed estrogen). Initial evaluation is <strong>transvaginal ultrasound or endometrial biopsy</strong>. An <strong>endometrial thickness ≤ 4 mm</strong> has a very high negative predictive value. A thickness <strong>&gt; 4 mm</strong>, or <strong>persistent bleeding</strong> regardless of thickness, requires <strong>endometrial sampling</strong>. If office biopsy is nondiagnostic, proceed to hysteroscopy with D&amp;C. Lynch syndrome raises lifetime endometrial cancer risk to 40–60%.",
+      explanation: "<strong>Postmenopausal bleeding requires evaluation to exclude endometrial cancer</strong>, although benign causes are more common. Obesity and diabetes raise concern, and this patient's 9-mm endometrium requires <strong>endometrial biopsy</strong>. In an initial bleeding episode, TVUS showing ≤4 mm has a very high negative predictive value; persistent or recurrent bleeding requires tissue evaluation regardless of thickness. Persistent bleeding after a benign blind biopsy warrants evaluation for focal lesions with hysteroscopy and appropriate sampling. Lynch-associated endometrial cancer risk varies substantially by gene rather than being uniformly 40–60%.",
       flashcards: [
         { f: "Postmenopausal bleeding with endometrial thickness >4 mm: next step?", b: "Endometrial biopsy; persistent bleeding needs sampling even if stripe is ≤4 mm.", x: "A thin stripe has high negative predictive value, but recurrent bleeding can miss focal cancer or polyps.", t: "Trap: Reassurance is only reasonable after a single episode with stripe ≤4 mm and no recurrent bleeding.", m: "Postmenopausal blood needs a stripe or sample",
           tb: { h: ["Finding", "Next step"], r: [["Stripe ≤4 mm", "Observe if single episode"], ["Stripe >4 mm", "Endometrial biopsy"], ["Persistent bleeding", "Sample regardless"]] } },
         { f: "Major risk factors for endometrial cancer?", b: "Unopposed estrogen, obesity, chronic anovulation/PCOS, tamoxifen, diabetes, nulliparity, Lynch syndrome.", x: "Peripheral aromatization in adipose tissue drives estrogen exposure without progesterone opposition.", t: "Trap: Combined estrogen-progestin therapy protects the endometrium; estrogen-only therapy increases risk.", m: "Unopposed estrogen: fat, PCOS, tamoxifen, Lynch" },
-        { f: "Hormone therapy rule for menopausal patients with an intact uterus?", b: "Give estrogen with a progestogen or bazedoxifene to prevent endometrial hyperplasia/cancer.", x: "Progesterone converts proliferative endometrium to secretory and counteracts estrogen-driven growth.", t: "Trap: Estrogen alone is appropriate only after hysterectomy, not with a uterus.", m: "Uterus present → oppose estrogen" }
+        { f: "What endometrial protection is needed with systemic menopausal estrogen?", b: "With an intact uterus, add a progestogen or use the approved conjugated-estrogen/bazedoxifene combination.", x: "Systemic unopposed estrogen increases endometrial hyperplasia and cancer risk; low-dose local vaginal estrogen generally does not require added progestogen.", t: "Trap: The systemic hormone rule should not be applied automatically to low-dose vaginal therapy; any postmenopausal bleeding still needs evaluation.", m: "Systemic estrogen plus uterus needs protection" }
       ]
     },
     {
@@ -2858,18 +2857,18 @@
       vignette: "An 84-year-old woman with moderate Alzheimer dementia in assisted living has become increasingly agitated over 2 weeks, especially during morning care, calling out and pushing staff away. She has severe knee osteoarthritis and grimaces when her legs are moved. She takes donepezil only. She has no fever, urinary symptoms, or constipation, and urinalysis and basic labs are normal.",
       leadIn: "What is the most appropriate next step?",
       options: [
-        "Start risperidone immediately for agitation during care without first addressing possible pain triggers.",
-        "Start lorazepam before morning care as scheduled sedation for dementia-related agitation.",
-        "Scheduled acetaminophen and individualized nonpharmacologic care approaches.",
-        "Increase donepezil and add diphenhydramine at night to reduce daytime agitation."
+        "Begin low-dose risperidone before morning care.",
+        "Begin low-dose lorazepam before morning care.",
+        "Scheduled acetaminophen and individualized care approaches.",
+        "Increase donepezil and add memantine for behavioral symptoms."
       ],
       correct: 2,
       explanation: "<strong>Behavioral and psychological symptoms of dementia</strong> often reflect an <strong>unmet need</strong> such as <strong>pain</strong>, infection, constipation, urinary retention, or sensory deprivation, because patients cannot report symptoms. Agitation during care in someone with painful OA calls for <strong>scheduled analgesia</strong> (acetaminophen), which reduces agitation in trials. Combine it with <strong>nonpharmacologic strategies</strong> (DICE approach, caregiver techniques, routine). <strong>Antipsychotics</strong> carry a <strong>boxed warning for increased mortality</strong> (stroke, infection) in dementia and are reserved for dangerous behavior or psychosis after other measures fail. Benzodiazepines and anticholinergics worsen cognition and falls (Beers).",
       flashcards: [
         { f: "First step for agitation during care in a patient with dementia and painful osteoarthritis?", b: "Treat pain with scheduled acetaminophen and use individualized nonpharmacologic care.", x: "Agitation often signals unmet needs because dementia impairs symptom reporting; analgesia can reduce behaviors.", t: "Trap: Antipsychotics are not first-line unless danger or severe psychosis persists after reversible triggers.", m: "Dementia agitation: pain until proven otherwise" },
         { f: "What boxed warning applies to antipsychotics in dementia-related psychosis?", b: "Increased mortality, often cardiovascular or infectious; use the lowest dose briefly only if necessary.", x: "They also increase stroke, parkinsonism, sedation, orthostasis, and falls in frail older adults.", t: "Trap: Benzodiazepines are not safer; they worsen delirium, cognition, gait, and falls.", m: "Antipsychotics in dementia carry a mortality warning" },
-        { f: "Which Alzheimer drugs are used by stage?", b: "Donepezil/rivastigmine mild–severe; galantamine mild–moderate; memantine moderate–severe.", x: "Cholinesterase inhibitors give modest symptomatic benefit but may cause bradycardia, syncope, nausea, and weight loss.", t: "Trap: These drugs do not rapidly control agitation; look for pain, infection, constipation, or retention first.", m: "Cholinesterase for symptoms, not agitation rescue",
-          tb: { h: ["Drug", "Alzheimer stage"], r: [["Donepezil", "Mild to severe"], ["Rivastigmine", "Mild to severe"], ["Galantamine", "Mild to moderate"], ["Memantine", "Moderate to severe"]] } }
+        { f: "Which symptomatic Alzheimer medications are used by stage?", b: "Donepezil: mild–severe; rivastigmine oral: mild–moderate, patch also severe; galantamine: mild–moderate; memantine: moderate–severe.", x: "Cholinesterase inhibitors offer modest symptomatic benefit and can cause bradycardia, syncope, nausea, or weight loss; formulation matters for labeled indications.", t: "Trap: These drugs do not rapidly treat agitation from pain; address reversible triggers before escalating cognitive medications.", m: "Cognitive drugs are not agitation rescue",
+          tb: { h: ["Drug/formulation", "Alzheimer stage"], r: [["Donepezil", "Mild to severe"], ["Rivastigmine oral", "Mild to moderate"], ["Rivastigmine patch", "Mild to severe"], ["Galantamine", "Mild to moderate"], ["Memantine", "Moderate to severe"]] } }
       ]
     },
     {
@@ -2879,13 +2878,13 @@
       vignette: "In a randomized trial of a new anticoagulant for patients with atrial fibrillation, stroke occurred in 4% of patients receiving placebo and 3% of patients receiving the drug over 2 years. Major bleeding occurred in 1% with placebo and 2% with the drug.",
       leadIn: "How many patients must be treated for 2 years to prevent one stroke?",
       options: [
-        "25, calculated from the placebo stroke rate rather than the absolute risk reduction.",
-        "4, calculated from the placebo event percentage instead of the treatment difference.",
-        "33, calculated by using the treated stroke rate rather than the absolute risk reduction.",
-        "100"
+        "25 patients",
+        "4 patients",
+        "33 patients",
+        "100 patients"
       ],
       correct: 3,
-      explanation: "<strong>Absolute risk reduction (ARR)</strong> = control event rate − treatment event rate = 4% − 3% = <strong>1%</strong> (0.01). <strong>NNT = 1/ARR = 100</strong>. The <strong>relative risk reduction</strong> = ARR / control rate = 1/4 = <strong>25%</strong>, which sounds more impressive. The <strong>number needed to harm</strong> for major bleeding = 1/(2% − 1%) = <strong>100</strong>, so for every 100 patients treated, one stroke is prevented and one major bleed is caused.",
+      explanation: "<strong>Absolute risk reduction</strong> = 4% − 3% = <strong>1%</strong>, or 0.01. <strong>NNT = 1/0.01 = 100 over 2 years</strong>. Relative risk reduction is 1%/4% = <strong>25%</strong>. For major bleeding, absolute risk increase is 2% − 1% = 1%, so <strong>NNH = 100 over 2 years</strong>. These are average expected differences, not a guarantee of exactly one event per group of 100; equal NNT and NNH do not imply equal clinical importance of the outcomes.",
       flashcards: [
         { f: "How do you calculate absolute risk reduction and NNT from a trial?", b: "ARR = control event rate − treatment event rate; NNT = 1/ARR, rounded up.", x: "Use absolute proportions, not percentages; NNT applies over the trial time horizon.", t: "Trap: Relative risk reduction sounds larger but does not give the number of patients helped.", m: "NNT is the inverse of absolute benefit",
           tb: { h: ["Measure", "Formula"], r: [["ARR", "Control risk − treated risk"], ["NNT", "1 ÷ ARR, round up"], ["RRR", "ARR ÷ control risk"]] } },
@@ -2906,7 +2905,7 @@
         "Notify the hospital attorney before any discussion with the patient."
       ],
       correct: 0,
-      explanation: "Professional ethics (ACP Ethics Manual) and safety culture require <strong>prompt, honest disclosure of errors that reach the patient</strong>, even when no harm resulted. Disclosure should include <strong>what happened, the implications for the patient, an apology, and steps to prevent recurrence</strong>. <strong>Reporting</strong> to the institutional patient-safety system supports <strong>systems-based root cause analysis</strong> in a <strong>just culture</strong> that does not blame individuals. Disclosure does not increase, and may decrease, malpractice claims.",
+      explanation: "Disclose this medication error <strong>promptly and honestly</strong>, even though no injury was detected. Explain what happened, known clinical implications, monitoring, and prevention plans, and apologize. Report through the institutional safety system so contributing workflow problems can be addressed. A <strong>just culture</strong> balances systems improvement with appropriate accountability for reckless behavior; it is not a guarantee of no individual accountability. Disclosure is an ethical duty, not contingent on predicted malpractice effects.",
       flashcards: [
         { f: "What should a physician do after a medication error reaches a patient but causes no harm?", b: "Disclose promptly, apologize, explain implications, and report through the safety system.", x: "Transparency preserves trust and reporting enables system fixes that reduce recurrence.", t: "Trap: Near misses are reported internally, but errors reaching the patient also require patient disclosure.", m: "Reached patient → reveal, repair, report" },
         { f: "Key elements of medical error disclosure?", b: "What happened, clinical consequences, apology, care plan, and steps to prevent recurrence.", x: "Avoid speculation or blame; give known facts and update the patient as more information emerges.", t: "Trap: Do not wait for proof of harm before disclosure if the error reached the patient.", m: "Facts, effects, apology, plan, prevention" },
@@ -2920,10 +2919,10 @@
       vignette: "A 68-year-old man with type 2 diabetes (on metformin), hypertension, and hyperlipidemia is scheduled for elective laparoscopic colectomy for a colon adenocarcinoma. He has no history of coronary disease, heart failure, or stroke, and no chest pain or dyspnea. He walks his dog 2 miles daily and climbs two flights of stairs without symptoms. ECG is normal.",
       leadIn: "What is the most appropriate preoperative cardiac evaluation?",
       options: [
-        "Pharmacologic nuclear stress test because diabetes is present and colectomy carries intermediate cardiac risk.",
-        "Transthoracic echocardiogram to screen for occult systolic dysfunction before colectomy.",
+        "Pharmacologic nuclear myocardial perfusion imaging.",
+        "Transthoracic echocardiography.",
         "No further testing; proceed with surgery.",
-        "Coronary CT angiography to exclude asymptomatic coronary disease before noncardiac surgery."
+        "Coronary CT angiography."
       ],
       correct: 2,
       explanation: "Per ACC/AHA (2024) perioperative guidelines, assess <strong>surgical risk</strong> (intraperitoneal = elevated risk), <strong>clinical risk</strong> (RCRI 1 point for intraperitoneal surgery; metformin-treated diabetes does not count), and <strong>functional capacity</strong>. Patients able to do <strong>≥ 4 METs</strong> without symptoms (climbing 2 flights of stairs, brisk walking) can <strong>proceed to surgery without stress testing</strong>. Testing is only for those with poor or unknown functional capacity in whom results would change management. Prophylactic revascularization before noncardiac surgery does not improve outcomes.",
@@ -2997,7 +2996,7 @@
         "Aspirin plus clopidogrel for stroke prevention instead of therapeutic anticoagulation."
       ],
       correct: 0,
-      explanation: "AF with <strong>moderate–severe rheumatic mitral stenosis</strong> is a form of \"valvular AF\" that is excluded from the DOAC trials. Anticoagulate <strong>regardless of CHA₂DS₂-VASc</strong>, and use a <strong>vitamin K antagonist (warfarin, INR 2–3)</strong>. The <strong>INVICTUS</strong> trial showed rivaroxaban led to <strong>more deaths and strokes</strong> than VKA in rheumatic heart disease. DOACs <em>are</em> acceptable in AF with other native valve disease (e.g., aortic stenosis, mitral regurgitation) and > 3 months after a bioprosthetic valve. Mechanical valves also require warfarin. Dual antiplatelet therapy is not a substitute for anticoagulation.",
+      explanation: "AF with <strong>moderate–severe rheumatic mitral stenosis</strong> requires anticoagulation <strong>regardless of CHA₂DS₂-VASc</strong> with a <strong>vitamin K antagonist (warfarin, INR 2–3)</strong>. The <strong>INVICTUS</strong> trial favored VKA over rivaroxaban in rheumatic heart disease-associated AF. DOACs are acceptable for many other native valve lesions and generally &gt; 3 months after bioprosthetic valve implantation when otherwise appropriate. Mechanical valves also require warfarin. Dual antiplatelet therapy is not a substitute.",
       flashcards: [
         { f: "AF with moderate–severe rheumatic mitral stenosis: preferred anticoagulant?", b: "Warfarin with INR goal 2.0–3.0, regardless of CHA₂DS₂-VASc.", x: "Rheumatic MS carries high left atrial thrombus risk and was excluded from DOAC AF trials.", t: "Trap: DOACs are acceptable for many native valve lesions, but not rheumatic MS.", m: "Rheumatic MS and mechanical valves stay with warfarin" },
         { f: "Which valve conditions require warfarin rather than a DOAC for AF?", b: "Mechanical heart valve and moderate–severe rheumatic mitral stenosis.", x: "INVICTUS showed worse outcomes with rivaroxaban than VKA in rheumatic heart disease.", t: "Trap: A bioprosthetic valve >3 months after surgery usually can use a DOAC if otherwise appropriate.", m: "Two DOAC no-go valves: mechanical and rheumatic MS",
@@ -3039,11 +3038,11 @@
         "Start doxycycline to slow aneurysm growth."
       ],
       correct: 2,
-      explanation: "Elective repair is indicated for an AAA <strong>≥ 5.5 cm in men</strong>, <strong>≥ 5.0 cm in women</strong>, growth <strong>≥ 0.5 cm per year</strong>, or <strong>any symptoms</strong> (pain, tenderness). Below these thresholds, risk of repair exceeds risk of rupture. ACC/AHA 2022 surveillance intervals: <strong>3.0–3.9 cm every 3 years</strong>, <strong>4.0–4.9 cm every 12 months</strong>, <strong>5.0–5.4 cm every 6 months</strong>. <strong>Smoking cessation</strong> is the most important modifiable step to slow growth; also control BP and treat atherosclerotic risk (statin). Doxycycline and other drugs have not been shown to slow AAA growth.",
+      explanation: "For a stable fusiform AAA, repair is recommended at <strong>≥ 5.5 cm in men</strong> or <strong>≥ 5.0 cm in women</strong>, or for symptoms attributable to the aneurysm. Growth <strong>≥ 0.5 cm in 6 months</strong> may also justify repair. ACC/AHA surveillance: <strong>3.0–3.9 cm every 3 years</strong>; annually for <strong>men 4.0–4.9 cm and women 4.0–4.4 cm</strong>; every 6 months for <strong>men ≥5.0 cm and women ≥4.5 cm</strong> pending repair. This man's 4.6-cm AAA needs annual ultrasound. Smoking cessation, BP control, and appropriate atherosclerotic risk treatment are important. Doxycycline has not reliably slowed AAA growth.",
       flashcards: [
-        { f: "AAA size threshold for elective repair in asymptomatic patients?", b: "Men ≥5.5 cm; women ≥5.0 cm; either sex if symptomatic or growth ≥0.5 cm/year.", x: "Rupture risk rises steeply at these diameters; below them surveillance is usually safer than repair.", t: "Trap: A 4.5-cm asymptomatic AAA is surveilled, not repaired.", m: "AAA repair: 5.5 men, 5.0 women, symptoms, or rapid growth" },
-        { f: "Ultrasound surveillance intervals for AAA 3.0–5.4 cm?", b: "3.0–3.9 cm every 3 years; 4.0–4.9 cm yearly; 5.0–5.4 cm every 6 months.", x: "Surveillance shortens as diameter increases because expansion and rupture risks accelerate.", t: "Trap: CT angiography is for repair planning or symptoms, not routine surveillance of stable small AAAs.", m: "AAA surveillance: 3 years, 1 year, 6 months as size rises",
-          tb: { h: ["AAA diameter", "Action"], r: [["3.0-3.9 cm", "Ultrasound every 3 years"], ["4.0-4.9 cm", "Ultrasound every 12 months"], ["5.0-5.4 cm", "Ultrasound every 6 months"], ["Men ≥5.5 cm", "Refer for elective repair"], ["Women ≥5.0 cm", "Refer for elective repair"]] } },
+        { f: "AAA size threshold for elective repair in asymptomatic patients?", b: "Men ≥5.5 cm; women ≥5.0 cm. Symptoms warrant repair, and growth ≥0.5 cm in 6 months may justify repair.", x: "Rupture risk rises steeply at these diameters; consider anatomy, operative risk, and patient goals.", t: "Trap: Do not substitute the ascending-aorta growth criterion for the AAA criterion.", m: "AAA: 5.5 men, 5.0 women; rapid half-centimeter in half-year" },
+        { f: "What are ACC/AHA ultrasound surveillance intervals for stable unrepaired AAA?", b: "3.0–3.9 cm: every 3 years. Men 4.0–4.9 or women 4.0–4.4: annually. Men ≥5.0 or women ≥4.5: every 6 months.", x: "Women have higher rupture risk at smaller diameters, so their surveillance and repair thresholds are lower.", t: "Trap: Use sex-specific intervals; a woman with a 4.6-cm AAA needs 6-month, not annual, surveillance.", m: "AAA surveillance: size and sex set the clock",
+          tb: { h: ["AAA diameter", "Action"], r: [["Either sex 3.0–3.9 cm", "Ultrasound every 3 years"], ["Men 4.0–4.9; women 4.0–4.4", "Ultrasound annually"], ["Men ≥5.0; women ≥4.5", "Ultrasound every 6 months pending repair"], ["Men ≥5.5 cm", "Refer for elective repair"], ["Women ≥5.0 cm", "Refer for elective repair"]] } },
         { f: "Most important modifiable intervention to slow AAA growth/rupture?", b: "Smoking cessation, plus BP control and statin therapy for atherosclerotic risk.", x: "Smoking is the strongest modifiable risk for AAA formation, expansion, and rupture.", t: "Trap: Doxycycline and other medications have not reliably slowed AAA growth.", m: "Smoking is AAA fuel" }
       ]
     },
@@ -3144,10 +3143,10 @@
         "IV artesunate."
       ],
       correct: 3,
-      explanation: "This is <strong>severe Plasmodium falciparum malaria</strong> (West Africa, multiple rings per RBC). Severe criteria include <strong>impaired consciousness, parasitemia ≥ 5%</strong>, severe anemia, AKI, hypoglycemia, acidosis, ARDS, shock, or jaundice. <strong>IV artesunate</strong> is the treatment of choice (available in the US from the CDC and commercially); it lowers mortality versus quinine. Follow it with a full oral course (e.g., artemether–lumefantrine). Oral regimens are for <strong>uncomplicated</strong> malaria. Chloroquine resistance is widespread for P. falciparum. Watch for <strong>delayed hemolysis</strong> 1–3 weeks after artesunate. For P. vivax/ovale, add primaquine or tafenoquine (check G6PD first) to kill liver hypnozoites.",
+      explanation: "This is <strong>severe Plasmodium falciparum malaria</strong> with impaired consciousness and <strong>parasitemia ≥5%</strong>. Other severe manifestations include severe anemia, AKI, acidosis, ARDS, shock, or jaundice with another severe feature. Give <strong>IV artesunate</strong>, obtained commercially in the US, then a full oral regimen when appropriate. Oral therapy alone is inadequate for severe malaria. CDC no longer distributes artesunate. Monitor for delayed hemolysis weekly for 4 weeks after treatment. P. vivax/ovale also require hypnozoite eradication with primaquine or eligible tafenoquine use after quantitative G6PD testing.",
       flashcards: [
         { f: "Treatment of severe Plasmodium falciparum malaria?", b: "IV artesunate, followed by a full oral antimalarial course such as artemether-lumefantrine.", x: "Artesunate rapidly lowers parasite burden and mortality; delayed hemolysis can occur 1–3 weeks later.", t: "Trap: Oral regimens alone are for uncomplicated malaria, not severe disease.", m: "Severe falciparum = IV artesunate first" },
-        { f: "Findings that define severe malaria?", b: "AMS, parasitemia ≥5%, severe anemia, AKI, hypoglycemia, acidosis, ARDS, shock, jaundice, or bleeding.", x: "Severe falciparum causes microvascular sequestration, organ dysfunction, and rapid deterioration.", t: "Trap: Fever after travel with low parasitemia and no organ dysfunction may be uncomplicated, but monitor closely.", m: "Severe malaria is organ dysfunction or high parasite burden",
+        { f: "Which findings trigger treatment for severe malaria under CDC guidance?", b: "Impaired consciousness, parasitemia ≥5%, severe anemia, AKI, acidosis, ARDS, shock, DIC, or jaundice with another severe feature.", x: "Severe falciparum causes microvascular sequestration and rapid deterioration; hypoglycemia also requires urgent correction.", t: "Trap: Jaundice alone is not the CDC severe-malaria criterion; do not delay IV therapy when another severe feature is present.", m: "Severe malaria is organ dysfunction or high parasite burden",
           tb: { h: ["Severe criterion", "Examples"], r: [["Neurologic", "Impaired consciousness"], ["Parasite burden", "Parasitemia ≥5%"], ["Organ failure", "AKI, ARDS, shock"], ["Metabolic", "Acidosis, hypoglycemia"]] } },
         { f: "What extra treatment is needed for P. vivax or P. ovale?", b: "Primaquine or tafenoquine for liver hypnozoites after checking G6PD.", x: "Dormant hypnozoites cause relapses unless eradicated; G6PD deficiency risks severe hemolysis with these drugs.", t: "Trap: P. falciparum has no hypnozoite stage, so primaquine is not used for relapse prevention.", m: "Vivax/ovale hide in liver; check G6PD before primaquine" }
       ]
@@ -3156,8 +3155,8 @@
       id: "id-cmv-transplant",
       system: "ID",
       task: "TEST",
-      vignette: "A 48-year-old woman received a deceased-donor kidney transplant 5 months ago (donor CMV IgG positive, recipient negative). She completed 3 months of valganciclovir prophylaxis. She now has 1 week of fever, fatigue, and diarrhea. She takes tacrolimus, mycophenolate, and prednisone. WBC count is 2,600/µL, platelets 98,000/µL, and AST/ALT are mildly elevated.",
-      leadIn: "Which test is most appropriate to establish the diagnosis?",
+      vignette: "A 48-year-old woman received a deceased-donor kidney transplant 7 months ago (donor CMV IgG positive, recipient negative). She completed 6 months of valganciclovir prophylaxis. She now has 1 week of fever, fatigue, and diarrhea. She takes tacrolimus, mycophenolate, and prednisone. WBC count is 2,600/µL, platelets 98,000/µL, and AST/ALT are mildly elevated.",
+      leadIn: "Which test is most appropriate to initially evaluate suspected CMV infection?",
       options: [
         "Quantitative CMV PCR in plasma.",
         "CMV IgG serology to look for a rise in titer.",
@@ -3210,8 +3209,8 @@
       explanation: "The <strong>Fleischner Society</strong> guidelines apply to <strong>incidental</strong> nodules in adults <strong>≥ 35 years</strong> without cancer or immunosuppression (lung-cancer screening findings use Lung-RADS instead). For a <strong>single solid nodule &lt; 6 mm</strong>: <strong>low-risk</strong> patient → <strong>no routine follow-up</strong>; high-risk patient → optional CT at 12 months. For <strong>6–8 mm</strong>: CT at 6–12 months (then 18–24 months if high risk). For <strong>&gt; 8 mm</strong>: consider CT at 3 months, PET-CT, or tissue sampling. PET is unreliable for nodules smaller than about 8 mm. Over-imaging tiny nodules adds radiation, cost, and anxiety without benefit.",
       flashcards: [
         { f: "Fleischner follow-up for a solitary solid pulmonary nodule <6 mm in a low-risk adult?", b: "No routine follow-up imaging.", x: "Cancer probability is extremely low, and serial CT adds radiation, cost, and anxiety.", t: "Trap: Lung-RADS, not Fleischner, applies to formal lung cancer screening CTs.", m: "Tiny low-risk solid nodule: leave it alone" },
-        { f: "Fleischner follow-up for a solitary solid nodule 6–8 mm?", b: "CT at 6–12 months; if high risk, repeat CT at 18–24 months.", x: "Growth over time is more informative than PET for small nodules.", t: "Trap: PET-CT is unreliable for nodules smaller than about 8 mm.", m: "6 to 8 mm gets 6 to 12 month CT",
-          tb: { h: ["Solid nodule", "Low risk", "High risk"], r: [["<6 mm", "No follow-up", "Optional CT 12 mo"], ["6–8 mm", "CT 6–12 mo", "CT 6–12 and 18–24 mo"], [">8 mm", "CT, PET, or tissue", "CT, PET, or tissue"]] } },
+        { f: "Fleischner follow-up for a solitary solid nodule 6–8 mm?", b: "CT at 6–12 months; consider another CT at 18–24 months if low risk, and obtain it if high risk.", x: "Morphology and stability guide the second low-risk follow-up; growth is more useful than PET for a small nodule.", t: "Trap: PET-CT is unreliable below about 8 mm, and formal screening nodules use Lung-RADS.", m: "6–8 mm: 6–12 months, then assess 18–24",
+          tb: { h: ["Solid nodule", "Low risk", "High risk"], r: [["<6 mm", "No routine follow-up", "Optional CT 12 mo"], ["6–8 mm", "CT 6–12; consider 18–24 mo", "CT 6–12 and 18–24 mo"], [">8 mm", "CT, PET, or tissue", "CT, PET, or tissue"]] } },
         { f: "Management options for a solitary solid pulmonary nodule >8 mm?", b: "CT at 3 months, PET-CT, or tissue sampling, based on risk and morphology.", x: "Pretest probability, spiculation, upper-lobe site, smoking, and age guide how aggressive to be.", t: "Trap: Fleischner does not apply to patients with known cancer or immunosuppression.", m: ">8 mm opens PET, tissue, or short-interval CT" }
       ]
     },
@@ -3249,7 +3248,7 @@
         "Observation until the bone marrow MYD88 result returns."
       ],
       correct: 0,
-      explanation: "<strong>Waldenström macroglobulinemia</strong> (lymphoplasmacytic lymphoma, <strong>MYD88 L265P</strong> in > 90%) produces large pentameric <strong>IgM</strong>, which causes <strong>hyperviscosity syndrome</strong>: mucosal bleeding, visual change with retinal venous engorgement, headache, dizziness, and heart failure. Hyperviscosity is an <strong>oncologic emergency</strong> treated with urgent <strong>plasmapheresis</strong> (IgM is mostly intravascular, so removal is very effective), followed by definitive therapy (e.g., <strong>bendamustine–rituximab</strong> or a BTK inhibitor). <strong>Avoid RBC transfusion before plasmapheresis</strong> because it further increases viscosity. Rituximab given alone can cause an <strong>IgM flare</strong>, so plasmapheresis comes first when IgM is very high.",
+      explanation: "<strong>Waldenström macroglobulinemia</strong> (lymphoplasmacytic lymphoma, <strong>MYD88 L265P</strong> in &gt; 90%) produces large pentameric <strong>IgM</strong>, which causes <strong>hyperviscosity syndrome</strong>: mucosal bleeding, visual change with retinal venous engorgement, headache, dizziness, and heart failure. Hyperviscosity is an <strong>oncologic emergency</strong> treated with urgent <strong>plasmapheresis</strong> (IgM is mostly intravascular, so removal is very effective), followed by definitive therapy (e.g., <strong>bendamustine–rituximab</strong> or a BTK inhibitor). <strong>Avoid nonessential RBC transfusion before plasmapheresis</strong> because it increases viscosity; life-threatening anemia still requires individualized urgent support. Rituximab can cause an <strong>IgM flare</strong>, so symptomatic hyperviscosity must be stabilized before starting it.",
       flashcards: [
         { f: "Immediate treatment for hyperviscosity syndrome from Waldenström macroglobulinemia?", b: "Urgent plasmapheresis; avoid RBC transfusion before pheresis.", x: "IgM is mostly intravascular, so plasmapheresis rapidly lowers viscosity and relieves neurologic/visual bleeding symptoms.", t: "Trap: Chemotherapy treats the clone later but is too slow for acute hyperviscosity.", m: "IgM sludge needs plasmapheresis now",
           tb: { h: ["Step", "Action"], r: [["Immediate", "Plasmapheresis"], ["Avoid before pheresis", "RBC transfusion"], ["After stabilization", "Clone-directed therapy"], ["If IgM very high", "Pheresis before rituximab"]] } },
@@ -3264,10 +3263,10 @@
       vignette: "A 74-year-old man has 1 year of progressive gait difficulty, urinary urgency with incontinence, and slowed thinking. His gait is wide-based and shuffling, with feet that seem \"stuck to the floor.\" There is no rest tremor. MRI shows enlarged lateral ventricles out of proportion to sulcal atrophy, without obstruction.",
       leadIn: "What is the most appropriate next step?",
       options: [
-        "Start carbidopa–levodopa for presumed Parkinson disease causing a shuffling gait and urinary symptoms.",
+        "Start carbidopa–levodopa and reassess gait after a therapeutic trial.",
         "High-volume lumbar puncture with gait assessment before and after.",
-        "Start donepezil for presumed Alzheimer disease and reassess gait after cognitive symptoms improve.",
-        "Immediate ventriculoperitoneal shunt placement without predicting response using CSF drainage testing."
+        "Start donepezil and arrange serial gait and cognitive assessment.",
+        "Obtain dopamine transporter imaging before referral for shunting."
       ],
       correct: 1,
       explanation: "<strong>Normal pressure hydrocephalus</strong>: the triad is <strong>gait apraxia (\"magnetic\" gait, usually first)</strong>, <strong>urinary incontinence</strong>, and <strong>cognitive decline</strong> (\"wobbly, wet, and wacky\"), with <strong>ventriculomegaly out of proportion to atrophy</strong> on imaging. Opening pressure is normal or mildly raised. The next step is a <strong>high-volume (30–50 mL) lumbar tap test</strong> (or extended lumbar drainage) with gait measured before and after. Improvement predicts response to a <strong>ventriculoperitoneal shunt</strong>. Gait responds best; dementia responds least. Levodopa does not help; donepezil treats Alzheimer disease, not NPH.",
@@ -3291,7 +3290,7 @@
         "Nonarteritic anterior ischemic optic neuropathy."
       ],
       correct: 2,
-      explanation: "<strong>Optic neuritis</strong> (painful monocular vision loss, color desaturation, RAPD) plus a prior episode and MRI showing <strong>periventricular (\"Dawson fingers\"), juxtacortical, infratentorial, or spinal cord lesions</strong> = <strong>multiple sclerosis</strong>. McDonald 2017 criteria require <strong>dissemination in space and time</strong>; enhancing plus non-enhancing lesions, or <strong>CSF oligoclonal bands</strong>, can satisfy time. Treat a disabling relapse with <strong>IV methylprednisolone</strong> (speeds recovery; does not change long-term outcome) and start <strong>disease-modifying therapy</strong>. <strong>NMOSD</strong> (aquaporin-4 IgG) causes severe, often bilateral optic neuritis and <strong>longitudinally extensive myelitis (≥ 3 segments)</strong>; some MS therapies worsen it. NAION is painless and occurs in older vascular patients.",
+      explanation: "Painful monocular visual loss, color desaturation, and RAPD indicate <strong>optic neuritis</strong>. A previous neurologic episode and characteristic periventricular and juxtacortical lesions strongly support <strong>relapsing multiple sclerosis</strong> after excluding mimics. This case demonstrates clinical events separated in time and lesions in characteristic CNS locations; current diagnostic criteria integrate clinical, MRI, and selected CSF biomarkers. A disabling relapse may be treated with high-dose methylprednisolone to hasten recovery, while disease-modifying therapy reduces future activity. Severe/bilateral optic neuritis, longitudinally extensive myelitis, or area postrema symptoms should prompt evaluation for AQP4-IgG NMOSD, which requires different treatment. NAION is typically painless in older vascular patients.",
       flashcards: [
         { f: "MRI lesion locations typical of multiple sclerosis?", b: "Periventricular Dawson fingers, juxtacortical/cortical, infratentorial, and spinal cord lesions.", x: "Dissemination in space uses lesions in characteristic CNS regions; enhancement helps show dissemination in time.", t: "Trap: Small-vessel ischemic lesions are usually deep white matter and spare U-fibers/corpus callosum.", m: "MS lesions love periventricular, juxtacortical, infratentorial, cord" },
         { f: "Treatment for an acute disabling multiple sclerosis relapse?", b: "IV methylprednisolone 1 g/day for 3–5 days; plasma exchange if steroid-refractory.", x: "Steroids shorten relapse duration but do not change long-term disability; disease-modifying therapy prevents relapses.", t: "Trap: Do not treat pseudo-relapse from infection or heat with steroids before addressing the trigger.", m: "Relapse steroids speed recovery, DMT prevents relapses" },
@@ -3312,7 +3311,7 @@
         "Lumbar puncture for RBC count and xanthochromia."
       ],
       correct: 3,
-      explanation: "A <strong>thunderclap headache</strong> (maximal within 1 minute) requires exclusion of <strong>subarachnoid hemorrhage</strong>. Noncontrast CT is nearly 100% sensitive <strong>within 6 hours</strong> of onset (modern scanner, expert read); in that window a normal CT effectively rules out SAH in a neurologically intact patient. <strong>Beyond 6 hours sensitivity falls</strong>, so a normal CT must be followed by <strong>lumbar puncture</strong> (ideally ≥ 6–12 hours after onset) looking for <strong>xanthochromia</strong> and RBCs that do not clear across tubes. <strong>CT angiography</strong> is a reasonable alternative. If SAH is found, image the vessels for an aneurysm, give <strong>nimodipine</strong>, and secure the aneurysm early. Other thunderclap causes: RCVS, cervical artery dissection, venous sinus thrombosis, pituitary apoplexy.",
+      explanation: "A <strong>thunderclap headache</strong> with vomiting and meningismus requires exclusion of <strong>subarachnoid hemorrhage</strong>. At 14 hours, a negative noncontrast CT is insufficient; perform <strong>lumbar puncture for RBCs and xanthochromia</strong>. A high-quality CT within 6 hours with expert interpretation can exclude SAH in selected neurologically intact patients. CTA is an alternative in some emergency pathways after discussion of missed small hemorrhage and incidental aneurysm risks. <strong>RBC clearing between tubes does not reliably exclude SAH</strong>. Aneurysmal SAH needs early aneurysm treatment and enteral nimodipine to reduce delayed cerebral ischemia.",
       flashcards: [
         { f: "Thunderclap headache with normal noncontrast CT >6 hours after onset: next test?", b: "Lumbar puncture for xanthochromia and RBCs; CT angiography is an alternative.", x: "CT sensitivity for SAH falls after 6 hours, so CSF or vascular imaging is needed if suspicion remains.", t: "Trap: A negative late CT alone does not safely rule out SAH.", m: "Thunderclap after 6 hours: CT then CSF or CTA",
           tb: { h: ["CT timing", "If CT normal"], r: [["≤6 hours", "SAH ruled out if ideal"], [">6 hours", "LP or CTA needed"], ["Abnormal neuro exam", "Further workup"]] } },
@@ -3348,10 +3347,10 @@
       vignette: "A 34-year-old man with schizophrenia was given repeated doses of IM haloperidol for agitation over the past 2 days. He is now confused and has a temperature of 40.1 °C, BP 168/102 mm Hg, HR 124/min, and diaphoresis. He has severe generalized \"lead-pipe\" rigidity. Reflexes are normal and there is no clonus. Pupils are normal. Creatine kinase is 18,400 U/L and WBC count is 15,000/µL.",
       leadIn: "What is the most likely diagnosis?",
       options: [
-        "Serotonin syndrome from dopamine blockade, supported by fever, autonomic instability, rigidity, and confusion.",
+        "Serotonin toxicity syndrome.",
         "Neuroleptic malignant syndrome.",
-        "Anticholinergic toxicity from medication exposure causing fever, altered mental status, and autonomic instability.",
-        "Malignant hyperthermia triggered by dopamine antagonist exposure, with rigidity and marked creatine kinase elevation."
+        "Anticholinergic poisoning syndrome.",
+        "Malignant hyperthermia syndrome."
       ],
       correct: 1,
       explanation: "<strong>Neuroleptic malignant syndrome (NMS)</strong> follows <strong>dopamine blockade</strong> (antipsychotics, metoclopramide) or abrupt withdrawal of dopaminergic drugs. It develops over <strong>days</strong>, with <strong>fever, lead-pipe rigidity, altered mental status, autonomic instability</strong>, and markedly elevated <strong>CK</strong> (rhabdomyolysis), leukocytosis, and low serum iron. <strong>Serotonin syndrome</strong> develops within <strong>hours</strong> with <strong>clonus and hyperreflexia</strong> (lower limbs), mydriasis, and diarrhea. <strong>Anticholinergic toxicity</strong> causes dry skin, mydriasis, and urinary retention without rigidity. <strong>Malignant hyperthermia</strong> follows volatile anesthetics or succinylcholine. NMS treatment: <strong>stop the drug</strong>, cool, IV fluids, <strong>benzodiazepines</strong>; for severe cases <strong>dantrolene</strong> and/or <strong>bromocriptine</strong>.",
@@ -3395,9 +3394,9 @@
         "Quetiapine."
       ],
       correct: 3,
-      explanation: "A prior <strong>manic episode</strong> (≥ 1 week of elevated mood with decreased need for sleep, grandiosity, pressured speech, risky behavior, or hospitalization) establishes <strong>bipolar I disorder</strong>. His current episode is <strong>bipolar depression</strong>. Always <strong>screen for prior mania/hypomania</strong> before starting an antidepressant. <strong>Antidepressant monotherapy</strong> is not effective for bipolar depression and can trigger <strong>mania or rapid cycling</strong>. FDA-approved options for bipolar depression: <strong>quetiapine, lurasidone, cariprazine, lumateperone, olanzapine–fluoxetine</strong>. <strong>Lithium</strong> and <strong>lamotrigine</strong> are used for maintenance (lithium also reduces suicide). Lamotrigine requires slow titration due to SJS risk.",
+      explanation: "The prior episode with markedly decreased sleep need, grandiosity, risky spending, and hospitalization establishes <strong>bipolar I disorder</strong>. For current bipolar depression, <strong>quetiapine</strong> is an evidence-based and FDA-approved option. <strong>Antidepressant monotherapy is not recommended in bipolar I</strong> because efficacy is uncertain and mania or mood destabilization can occur. Other approved bipolar-depression options include lurasidone, cariprazine, lumateperone, and olanzapine–fluoxetine. Lithium and lamotrigine also have roles in bipolar treatment; lamotrigine requires slow titration for serious rash risk and is not a rapid rescue treatment.",
       flashcards: [
-        { f: "Why avoid antidepressant monotherapy in bipolar depression?", b: "It can precipitate mania or rapid cycling and is not effective as monotherapy.", x: "Always screen for past mania/hypomania before prescribing antidepressants for depression.", t: "Trap: A prior manic episode means bipolar I, even if the current episode is depressive.", m: "Depression plus past mania is bipolar until proven otherwise" },
+        { f: "Why avoid antidepressant monotherapy in bipolar I depression?", b: "It is not recommended because benefit is uncertain and it can precipitate mania or mood destabilization.", x: "Use an evidence-based bipolar-depression treatment and screen for past mania before prescribing an antidepressant.", t: "Trap: Bipolar II management has additional nuance; do not apply an absolute 'never effective' claim to every bipolar subtype.", m: "Past mania changes the depression prescription" },
         { f: "FDA-approved medication options for bipolar depression?", b: "Quetiapine, lurasidone, cariprazine, lumateperone, or olanzapine-fluoxetine.", x: "Lithium and lamotrigine are common maintenance options; lithium also lowers suicide risk.", t: "Trap: Lamotrigine requires slow titration for SJS risk, so it is not a rapid acute fix.", m: "Bipolar depression has its own approved agents" },
         { f: "How do mania and hypomania differ?", b: "Mania lasts ≥7 days or requires hospitalization/psychosis and causes marked impairment; hypomania lasts ≥4 days without marked impairment.", x: "Mania defines bipolar I; hypomania plus major depression defines bipolar II.", t: "Trap: Decreased need for sleep with high energy is different from insomnia with fatigue.", m: "Mania is 7 days or severe; hypomania is 4 days and less impairing",
           tb: { h: ["Feature", "Mania", "Hypomania"], r: [["Duration", "≥7 days", "≥4 days"], ["Impairment", "Marked", "Not marked"], ["Psychosis", "May occur", "Absent"], ["Diagnosis", "Bipolar I", "Bipolar II if MDD"]] } }
@@ -3411,9 +3410,9 @@
       leadIn: "Which electrolyte abnormality is the most likely cause of her deterioration?",
       options: [
         "Hypophosphatemia.",
-        "Hypernatremia from osmotic diuresis after nutrition is restarted in severe anorexia nervosa.",
-        "Hypercalcemia from immobilization causing weakness, edema, and respiratory symptoms on day 3.",
-        "Hyperkalemia from intracellular shifts during refeeding after several days of nutritional support."
+        "Hypokalemia.",
+        "Hypomagnesemia.",
+        "Hyponatremia."
       ],
       correct: 0,
       explanation: "<strong>Refeeding syndrome</strong>: carbohydrate intake triggers <strong>insulin release</strong>, which drives <strong>phosphate, potassium, and magnesium into cells</strong> (and consumes phosphate for ATP and 2,3-DPG). Total-body stores are already depleted by starvation, so serum levels fall sharply, usually in the <strong>first 2–5 days</strong>. <strong>Hypophosphatemia</strong> is the hallmark and causes muscle weakness, rhabdomyolysis, <strong>respiratory failure</strong>, <strong>heart failure</strong>, arrhythmias, hemolysis, seizures, and confusion. Insulin also causes sodium and fluid retention (edema). Prevention: identify high-risk patients, give <strong>thiamine</strong> before feeding, start calories cautiously and advance gradually, and <strong>monitor phosphate, potassium, and magnesium daily</strong>, replacing as needed.",
@@ -3519,7 +3518,7 @@
         "Sitagliptin, a DPP-4 inhibitor, for its weight neutrality."
       ],
       correct: 1,
-      explanation: "<strong>Gestational diabetes</strong> is screened for at <strong>24–28 weeks</strong> (75-g OGTT, or 50-g screen then 100-g test). Targets: <strong>fasting &lt; 95 mg/dL</strong>, <strong>1-hour postprandial &lt; 140 mg/dL</strong>, or <strong>2-hour &lt; 120 mg/dL</strong>. Start with <strong>medical nutrition therapy and exercise</strong>. If targets are not met, <strong>insulin is the preferred agent</strong> (ADA and ACOG) because it does not cross the placenta. <strong>Metformin and glyburide cross the placenta</strong>; glyburide is linked with neonatal hypoglycemia and macrosomia, and metformin with smaller babies who later have higher childhood weight. DPP-4 inhibitors and other agents are not used in pregnancy. After delivery, screen with a <strong>75-g OGTT at 4–12 weeks postpartum</strong>, then every 1–3 years (high lifetime risk of type 2 diabetes).",
+      explanation: "Her fasting and postmeal readings remain above GDM targets despite nutrition and exercise: <strong>fasting &lt;95, 1-hour &lt;140, or 2-hour &lt;120 mg/dL</strong>. <strong>Insulin is the preferred pharmacotherapy</strong> in ADA/ACOG guidance and does not cross the placenta. Metformin crosses the placenta and may be considered after counseling if insulin is not feasible; long-term offspring effects remain uncertain. Glyburide is not preferred because of neonatal hypoglycemia and other adverse outcomes. Routine GDM screening occurs at 24–28 weeks. After GDM, perform a <strong>75-g OGTT at 4–12 weeks postpartum</strong> and screen every 1–3 years thereafter.",
       flashcards: [
         { f: "Glucose targets for gestational diabetes self-monitoring?", b: "Fasting <95, 1-hour postprandial <140, or 2-hour postprandial <120 mg/dL.", x: "Postprandial hyperglycemia drives fetal hyperinsulinemia, macrosomia, shoulder dystocia, and neonatal hypoglycemia.", t: "Trap: Nonpregnant diabetes targets are not used for GDM.", m: "GDM targets: 95 fasting, 140 one-hour, 120 two-hour",
           tb: { h: ["Measurement", "Target"], r: [["Fasting", "<95 mg/dL"], ["1-hour postmeal", "<140 mg/dL"], ["2-hour postmeal", "<120 mg/dL"]] } },
@@ -3534,17 +3533,17 @@
       vignette: "A 51-year-old woman's last menstrual period was 14 months ago. She has 10–12 hot flashes daily and night sweats that disrupt her sleep. She has an intact uterus. She has no history of breast cancer, VTE, stroke, coronary disease, or liver disease. BP is 124/78 mm Hg. Her 10-year ASCVD risk is 3%. Mammography is up to date and normal.",
       leadIn: "What is the most appropriate treatment?",
       options: [
-        "Transdermal estradiol alone at the lowest effective dose for vasomotor symptoms in early menopause.",
-        "Black cohosh as first-line therapy for severe vasomotor symptoms disrupting sleep nightly.",
+        "Transdermal estradiol without a progestogen.",
+        "Oral micronized progesterone alone.",
         "Transdermal estradiol plus a progestogen.",
-        "Testosterone cream for hot flashes in a recently menopausal woman without sexual desire concerns."
+        "Low-dose vaginal estradiol without a progestogen."
       ],
       correct: 2,
-      explanation: "<strong>Menopausal hormone therapy</strong> is the most effective treatment for <strong>vasomotor symptoms</strong>. Benefits outweigh risks in healthy women <strong>under 60 or within 10 years of menopause</strong>. Women <strong>with a uterus</strong> need a <strong>progestogen</strong> (or bazedoxifene) with estrogen to prevent <strong>endometrial hyperplasia/cancer</strong>; estrogen alone is for women after hysterectomy. <strong>Transdermal</strong> estrogen has lower VTE and stroke risk than oral. <strong>Contraindications</strong>: breast or estrogen-dependent cancer, unexplained vaginal bleeding, prior VTE or stroke, coronary disease, active liver disease. Nonhormonal options: <strong>low-dose paroxetine</strong>, SNRIs, gabapentin, <strong>fezolinetant</strong> (NK3 receptor antagonist; monitor liver tests). Herbal products like black cohosh are not effective. Vaginal estrogen alone treats genitourinary syndrome of menopause.",
+      explanation: "<strong>Systemic menopausal hormone therapy</strong> is the most effective treatment for vasomotor symptoms, with a generally favorable benefit-risk ratio in appropriately selected symptomatic women under 60 or within 10 years of menopause. An <strong>intact uterus requires a progestogen</strong> with systemic estradiol. Observational evidence suggests lower VTE risk with transdermal than oral estrogen, but transdermal therapy is not risk-free and does not erase contraindications. Avoid systemic therapy with unexplained bleeding, prior breast cancer, VTE, stroke, coronary disease, or active liver disease. Nonhormonal options include selected SSRIs/SNRIs, gabapentin, and <strong>fezolinetant</strong>, which has an FDA boxed warning for rare serious liver injury and requires scheduled liver tests.",
       flashcards: [
         { f: "Who needs progestogen with systemic menopausal estrogen therapy?", b: "Any patient with an intact uterus.", x: "Progestogen prevents estrogen-driven endometrial proliferation, hyperplasia, and cancer.", t: "Trap: After hysterectomy, estrogen alone is used because no endometrium needs protection.", m: "Uterus needs progesterone protection" },
         { f: "When do benefits of menopausal hormone therapy generally outweigh risks?", b: "Healthy symptomatic women age <60 or within 10 years of menopause and without contraindications.", x: "Starting near menopause has a more favorable cardiovascular and VTE risk profile than late initiation.", t: "Trap: Do not start systemic HT for chronic disease prevention or in prior VTE, stroke, CAD, breast cancer, or unexplained bleeding.", m: "Hormone therapy window: under 60 or within 10 years" },
-        { f: "Nonhormonal options for menopausal vasomotor symptoms?", b: "Low-dose paroxetine, SSRIs/SNRIs, gabapentin, fezolinetant, or oxybutynin.", x: "Fezolinetant blocks neurokinin-3 signaling in thermoregulatory neurons; monitor liver tests.", t: "Trap: Vaginal estrogen treats genitourinary symptoms, not systemic hot flashes.", m: "Hot flashes have nonhormonal brain-target options" }
+        { f: "What nonhormonal options treat menopausal vasomotor symptoms?", b: "Selected SSRIs/SNRIs, gabapentin, or fezolinetant; oxybutynin has evidence but adds anticholinergic burden.", x: "Fezolinetant requires liver testing before treatment, monthly for the first 3 months, then at months 6 and 9 because of rare serious liver injury.", t: "Trap: Vaginal estrogen is for genitourinary symptoms, not systemic hot flashes; avoid strong CYP2D6 inhibitors such as paroxetine with tamoxifen.", m: "Hot-flash alternatives still need safety checks" }
       ]
     },
     {
@@ -3560,32 +3559,33 @@
         "Stop cervical cancer screening."
       ],
       correct: 3,
-      explanation: "<strong>USPSTF cervical cancer screening</strong>: ages <strong>21–29</strong>, cytology every <strong>3 years</strong>; ages <strong>30–65</strong>, <strong>primary hrHPV every 5 years</strong>, co-testing every 5 years, or cytology alone every 3 years. <strong>Stop after age 65</strong> if prior screening was adequate: <strong>3 consecutive negative cytology results or 2 consecutive negative HPV/co-tests within 10 years</strong>, the most recent within 5 years, and no CIN2+ within 25 years. Also stop after <strong>total hysterectomy for benign disease</strong>. Continue screening if there was a history of CIN2+ (for 25 years), immunosuppression/HIV, or DES exposure. Do not screen under age 21. A pelvic exam is not needed for screening; USPSTF finds insufficient evidence for routine screening pelvic exams.",
+      explanation: "Under routine <strong>USPSTF screening guidance</strong>, this average-risk patient can stop after 65 because she has three negative cytology results within 10 years, the latest within 5 years, and no high-risk history. For ages 21–29, cytology every 3 years is recommended; ages 30–65 may use primary hrHPV every 5 years, cotesting every 5 years, or cytology every 3 years. Prior treated CIN2+ requires at least 25 years of surveillance under ASCCP guidance. HIV/immunosuppression needs condition-specific recommendations. Prenatal DES exposure also uses separate guidance: ASCCP 2024 recommends annual cytology to age 65, with cessation afterward if other stopping criteria are met, rather than automatic lifelong screening. Total hysterectomy for benign disease permits stopping only if there is no relevant high-grade precancer/cancer history.",
       flashcards: [
         { f: "USPSTF cervical cancer screening intervals by age 21–65?", b: "21–29 cytology every 3 years; 30–65 primary hrHPV every 5 years, cotest every 5 years, or cytology every 3 years.", x: "HPV testing is more sensitive after age 30, when transient infections are less common.", t: "Trap: Do not screen average-risk patients younger than 21 regardless of sexual activity.", m: "Cervix screening: 21 starts, 65 can stop if adequately negative",
           tb: { h: ["Age", "Screening options"], r: [["<21", "Do not screen"], ["21–29", "Cytology every 3 yr"], ["30–65", "HPV 5 yr, cotest 5 yr, or cytology 3 yr"], [">65", "Stop if adequate negatives"]] } },
         { f: "When can cervical cancer screening stop after age 65?", b: "Adequate negative prior screening and no CIN2+ within 25 years.", x: "Adequate means 3 negative cytology tests or 2 negative HPV-based tests in 10 years, most recent within 5.", t: "Trap: Continue screening after CIN2+ for 25 years even if this extends beyond age 65.", m: "65 stop rule: adequate negatives and no CIN2+ for 25 years" },
-        { f: "Who needs cervical screening beyond usual age limits?", b: "History of CIN2+, HIV/immunosuppression, or in utero DES exposure.", x: "These higher-risk groups have different surveillance because progression risk remains elevated.", t: "Trap: Total hysterectomy for benign disease stops screening; supracervical hysterectomy does not.", m: "High-risk cervix keeps screening beyond routine limits" }
+        { f: "Who requires a special cervical surveillance pathway?", b: "Prior CIN2+, HIV/immunosuppression, or prenatal DES exposure; the stopping rules differ by condition.", x: "After CIN2+ treatment, continue surveillance for at least 25 years. ASCCP 2024 allows DES-exposed patients to stop after 65 if otherwise eligible; do not assume lifelong screening.", t: "Trap: A supracervical hysterectomy leaves a cervix; total hysterectomy does not erase prior CIN2+ surveillance needs.", m: "High-risk history changes the pathway, not always the stop age" }
       ]
     },
     {
       id: "obgyn-preconception",
       system: "OBGYN",
       task: "RX",
-      vignette: "A 33-year-old woman with chronic hypertension wants to become pregnant in the next few months. Her BP is 132/82 mm Hg on lisinopril 20 mg daily. She has no diabetes or kidney disease. She is taking a daily multivitamin with 0.4 mg folic acid and uses condoms.",
-      leadIn: "What is the most appropriate change to her antihypertensive therapy?",
+      vignette: "A 33-year-old woman with chronic hypertension plans pregnancy in 2 months. Her BP is 132/82 mm Hg on extended-release nifedipine, which replaced lisinopril at an earlier preconception visit. She has no kidney disease, diabetes, bleeding disorder, peptic ulcer, or aspirin allergy. She takes a prenatal vitamin and asks how to reduce her risk of preeclampsia once pregnant.",
+      leadIn: "Which preventive regimen should be included in her pregnancy care plan?",
       options: [
-        "Switch lisinopril to nifedipine extended-release or labetalol before conception.",
-        "Switch lisinopril to losartan before conception because it has fewer cough-related adverse effects.",
-        "Continue lisinopril until pregnancy is confirmed, then stop at the first prenatal visit.",
-        "Switch lisinopril to spironolactone for chronic hypertension during preconception planning."
+        "Aspirin 81 mg daily starting at 12 weeks and continuing until delivery.",
+        "Aspirin 81 mg daily starting at 32 weeks and continuing until delivery.",
+        "Enoxaparin 40 mg daily starting at 12 weeks and continuing until delivery.",
+        "Vitamin C and vitamin E daily starting at 12 weeks and continuing until delivery."
       ],
       correct: 0,
-      explanation: "<strong>ACE inhibitors, ARBs, and direct renin inhibitors are teratogenic</strong> (fetal renal dysgenesis, oligohydramnios, skull hypoplasia, growth restriction), mainly in the 2nd and 3rd trimesters, with possible first-trimester risk. Women planning pregnancy should <strong>switch before conception</strong>. Preferred agents in pregnancy: <strong>labetalol, extended-release nifedipine, methyldopa</strong>. <strong>Spironolactone</strong> is avoided (anti-androgen effects on a male fetus). Treating chronic hypertension in pregnancy to <strong>&lt; 140/90</strong> reduces preeclampsia with severe features (CHAP trial). Also start <strong>low-dose aspirin (81 mg) at 12–28 weeks</strong> (ideally before 16) to prevent preeclampsia. Continue folic acid 0.4 mg daily starting ≥ 1 month before conception.",
+      explanation: "<strong>Chronic hypertension is a high-risk indication for low-dose aspirin to prevent preeclampsia</strong>, even when BP is well controlled. ACOG/SMFM recommend <strong>81 mg daily beginning between 12 and 28 weeks, optimally before 16 weeks, and continuing until delivery</strong>. Planning a 12-week start is appropriate; waiting until 32 weeks misses the recommended initiation window. Continue the pregnancy-compatible antihypertensive and routine prenatal surveillance. LMWH is not prescribed solely for preeclampsia prevention in chronic hypertension without another indication, and antioxidant vitamins do not provide established preventive benefit. Aspirin prophylaxis does not replace treatment of hypertension or evaluation for superimposed preeclampsia.",
       flashcards: [
-        { f: "Preferred antihypertensives for patients planning pregnancy?", b: "Labetalol, extended-release nifedipine, or methyldopa; stop ACE inhibitors/ARBs/renin inhibitors.", x: "ACE inhibitors and ARBs can cause fetal renal dysgenesis, oligohydramnios, and skull hypoplasia.", t: "Trap: Do not wait until a positive pregnancy test if conception is planned; switch beforehand.", m: "Planning pregnancy: switch ACE/ARB before conception" },
-        { f: "BP treatment threshold/target for chronic hypertension in pregnancy after CHAP?", b: "Treat to <140/90 mm Hg.", x: "Active treatment lowers severe preeclampsia and adverse pregnancy outcomes without increasing fetal growth restriction.", t: "Trap: Older practice tolerated higher BP unless severe; current evidence supports treating mild chronic HTN.", m: "CHAP target: treat chronic HTN to under 140/90" },
-        { f: "Low-dose aspirin regimen to prevent preeclampsia in high-risk pregnancy?", b: "Aspirin 81 mg daily from 12–28 weeks, ideally before 16 weeks, until delivery.", x: "Chronic hypertension is a high-risk indication because abnormal placentation raises preeclampsia risk.", t: "Trap: Aspirin before 12 weeks is not the standard start; full-dose aspirin is not used.", m: "High-risk pregnancy aspirin: 81 mg starting after 12 weeks" }
+        { f: "Which antihypertensives are preferred during preconception planning?", b: "Labetalol or extended-release nifedipine; methyldopa is an alternative. Replace ACE inhibitors and ARBs before planned conception.", x: "ACE inhibitors and ARBs can cause fetal renal injury and oligohydramnios, especially later in pregnancy; treatment planning should precede conception.", t: "Trap: Switching an ACE inhibitor to an ARB does not solve fetal safety concerns.", m: "Plan pregnancy: change ACE/ARB before conception" },
+        { f: "What treatment threshold does ACOG recommend for chronic hypertension in pregnancy after CHAP?", b: "Use 140/90 mm Hg as the threshold for initiating or titrating therapy rather than waiting for severe hypertension.", x: "Active treatment reduces adverse pregnancy outcomes; ACOG distinguishes this treatment threshold from an established universal BP target.", t: "Trap: Well-controlled chronic hypertension still qualifies as high risk for preeclampsia.", m: "CHAP changes the threshold, not the aspirin indication" },
+        { f: "What aspirin regimen prevents preeclampsia in a patient with chronic hypertension?", b: "81 mg daily from 12–28 weeks, ideally before 16 weeks, through delivery if no contraindication.", x: "Chronic hypertension is one high-risk factor sufficient to justify prophylaxis; multiple moderate-risk factors can also support it.", t: "Trap: Aspirin prevents risk; it is not treatment for established severe preeclampsia.", m: "High risk: 81 mg after 12 weeks",
+          tb: { h: ["Regimen element", "Recommendation"], r: [["Dose", "81 mg daily"], ["Start window", "12–28 weeks; ideally before 16"], ["Duration", "Until delivery"]] } }
       ]
     },
     {
@@ -3595,10 +3595,10 @@
       vignette: "A 22-year-old woman has had heavy menstrual periods since menarche, frequent nosebleeds, and prolonged bleeding after a wisdom tooth extraction. Her mother also has heavy menses. Platelet count is 260,000/µL, PT is normal, and aPTT is 37 s (normal 25–35). She takes no medications.",
       leadIn: "Which is the most appropriate next diagnostic test?",
       options: [
-        "Bone marrow biopsy to evaluate inherited mucocutaneous bleeding with normal platelet count.",
-        "Von Willebrand factor antigen, VWF activity, and factor VIII level.",
-        "Factor IX level as the next test for an inherited bleeding disorder with a mildly prolonged aPTT.",
-        "Platelet aggregation study after aspirin challenge before testing von Willebrand factor levels."
+        "Platelet aggregation panel and platelet electron microscopy.",
+        "VWF antigen, VWF activity, and factor VIII levels.",
+        "Factors VIII, IX, and XI activity levels.",
+        "Lupus anticoagulant panel and aPTT mixing study."
       ],
       correct: 1,
       explanation: "<strong>Mucocutaneous bleeding</strong> (menorrhagia, epistaxis, dental bleeding) with a normal platelet count and a <strong>family history</strong> suggests <strong>von Willebrand disease</strong>, the most common inherited bleeding disorder (usually autosomal dominant, type 1 = quantitative deficiency). VWF carries factor VIII, so the <strong>aPTT may be normal or mildly prolonged</strong>. Initial tests: <strong>VWF antigen, VWF platelet-binding activity (VWF:GPIbM or ristocetin cofactor), and factor VIII</strong>. VWF levels rise with estrogen, pregnancy, stress, and inflammation, so repeat testing may be needed. Treatment: <strong>desmopressin</strong> for type 1 (test response first), <strong>tranexamic acid</strong>, hormonal therapy for menorrhagia, and VWF concentrate for major bleeding or type 3. Hemophilia (factor VIII/IX) causes joint and muscle bleeding, mostly in males.",
@@ -3616,15 +3616,15 @@
       vignette: "An 82-year-old man with NYHA class IV heart failure (LVEF 15%) has had 3 hospitalizations in 4 months despite optimal therapy and is not a candidate for advanced therapies. He wants to stay at home and avoid hospital stays but wishes to keep taking his heart failure medications. His family worries that hospice means \"giving up all treatment.\"",
       leadIn: "Which statement about Medicare hospice eligibility is correct?",
       options: [
-        "He must sign a do-not-resuscitate order to enroll and must stop all heart failure medications.",
-        "Hospice is only available for patients with cancer or those who have stopped disease-directed therapy.",
-        "Two physicians must certify a prognosis of 6 months or less if the disease runs its usual course.",
-        "Hospice benefits end automatically if he lives longer than 6 months, even if decline continues."
+        "He must elect a do-not-resuscitate order before enrolling in hospice care.",
+        "He must discontinue disease-modifying heart failure drugs before enrolling.",
+        "Initial physician certification must support prognosis of 6 months or less.",
+        "His benefit must end after 6 months regardless of subsequent recertification."
       ],
       correct: 2,
-      explanation: "The <strong>Medicare Hospice Benefit</strong> requires certification by the attending physician and hospice medical director of a <strong>prognosis of ≤ 6 months if the illness runs its usual course</strong>, and the patient chooses comfort-focused care for the terminal diagnosis. <strong>A DNR order is not required.</strong> Hospice covers <strong>any terminal illness</strong> (heart failure, COPD, dementia, ESKD), not just cancer. Patients may continue medications that relieve symptoms (for heart failure, <strong>diuretics and even GDMT</strong> are often continued for symptom control). There is <strong>no limit on time</strong>: patients can be <strong>recertified</strong> for further benefit periods if they continue to meet criteria. <strong>Palliative care</strong>, in contrast, can be given at any stage alongside disease-directed treatment.",
+      explanation: "The <strong>Medicare Hospice Benefit</strong> requires initial certification by the hospice physician and attending physician, if the patient has one, of a <strong>prognosis ≤6 months if the illness runs its usual course</strong>, plus election of the benefit. <strong>A DNR order is not required</strong>, and eligible terminal illnesses are not limited to cancer. Symptom-relieving heart failure medications may continue when aligned with the individualized hospice plan; enrollment does not mean stopping all treatment. Patients can be <strong>recertified beyond 6 months</strong> when they remain eligible. Palliative care can be provided at any stage alongside disease-directed treatment.",
       flashcards: [
-        { f: "Medicare hospice eligibility requirement?", b: "Two physicians certify prognosis ≤6 months if illness runs its usual course and patient elects comfort-focused care.", x: "Eligibility is based on expected prognosis, not certainty; patients may be recertified if decline continues.", t: "Trap: A DNR order is not required to enroll in hospice.", m: "Hospice needs two doctors and a 6-month prognosis" },
+        { f: "What physician certification supports initial Medicare hospice election?", b: "The hospice physician and attending physician, if there is one, certify prognosis ≤6 months if illness follows its usual course.", x: "The patient elects the benefit; continued eligibility allows recertification beyond 6 months. An exact date of death is not predicted.", t: "Trap: A DNR order and cessation of all disease-related medications are not enrollment requirements.", m: "Certify prognosis, then recertify when still eligible" },
         { f: "Does hospice apply only to cancer or end after 6 months?", b: "No. Any terminal illness can qualify, and hospice can be recertified beyond 6 months.", x: "Hospice may continue symptom-relieving medications, such as diuretics for dyspnea in heart failure.", t: "Trap: Stopping all disease-related drugs is not required if they improve comfort.", m: "Hospice is diagnosis-neutral and recertifiable" },
         { f: "How does palliative care differ from hospice?", b: "Palliative care can occur at any stage with curative treatment; hospice is comfort-focused with prognosis ≤6 months.", x: "Both address symptoms, goals, caregiver support, and serious-illness communication.", t: "Trap: Palliative care is not the same as giving up; it can be concurrent with chemotherapy or dialysis.", m: "Palliative care can ride alongside cure-focused care",
           tb: { h: ["Feature", "Palliative care", "Hospice"], r: [["Timing", "Any serious illness", "Prognosis ≤6 mo"], ["Treatment goal", "Can be curative", "Comfort-focused"], ["Coverage", "Not prognosis tied", "Medicare benefit"]] } }
@@ -3671,9 +3671,9 @@
         "Immediate fibrinolytic therapy now in ED"
       ],
       correct: 1,
-      explanation: "This patient has high-risk NSTEMI with dynamic ST depression and rising troponin, so <strong>early invasive angiography within 24 hours</strong> is recommended after initial antithrombotic therapy. Stress testing is reserved for low-risk patients without recurrent ischemia, heart failure, ECG changes, or troponin rise. Outpatient follow-up is unsafe in NSTEMI. Fibrinolysis is used for STEMI when timely PCI is unavailable, not for NSTEMI.",
+      explanation: "This patient has NSTEMI with ST depression, rising troponin, diabetes, and CKD, favoring an <strong>invasive strategy during hospitalization</strong>; early angiography within 24 hours is reasonable for high-risk NSTE-ACS. Immediate angiography is for refractory ischemia or hemodynamic/electrical instability. Stress testing or outpatient follow-up would inappropriately delay care in this troponin-positive patient. Fibrinolysis is not used for NSTEMI.",
       flashcards: [
-        { f: "Which NSTEMI features favor angiography within 24 hours?", b: "High-risk NSTEMI: dynamic ST changes, rising troponin, GRACE >140, recurrent ischemia, HF, or instability.", x: "Early invasive management identifies culprit lesions and reduces recurrent ischemia in high-risk NSTE-ACS.", t: "Trap: stress testing a troponin-positive patient with ST depression.", m: "NSTEMI + troponin or ST shift = cath early.",
+        { f: "Which NSTEMI features favor early invasive angiography?", b: "High-risk features such as GRACE >140, dynamic ST changes, and confirmed NSTEMI favor early angiography, often within 24 hours.", x: "Refractory ischemia, shock, or dangerous arrhythmias require immediate rather than merely next-day angiography.", t: "Trap: Stress testing a troponin-positive patient with ST depression delays an indicated invasive strategy.", m: "Risk sets the cath clock; instability means now.",
           tb: { h: ["NSTE-ACS", "Next step"], r: [["High-risk", "Cath within 24 h"], ["Low-risk", "Stress before discharge"], ["Unstable", "Urgent cath"]] } },
         { f: "When is stress testing appropriate after chest pain?", b: "Low-risk suspected ACS after MI is ruled out and no ongoing ischemia, HF, arrhythmia, or concerning ECG changes remain.", x: "Stress testing risk-stratifies stable low-risk patients; it delays needed revascularization in high-risk NSTEMI.", t: "Trap: using exercise testing before serial troponins are negative.", m: "Rule out first, stress later." },
         { f: "Is fibrinolysis used for NSTEMI?", b: "No. Fibrinolysis is for STEMI when timely PCI cannot be done; it has no role in NSTEMI.", x: "NSTEMI usually has nonocclusive thrombus; lytics add bleeding risk without benefit.", t: "Trap: treating all positive-troponin ACS with lytics.", m: "ST elevation gets lysis; ST depression gets risk stratification." }
@@ -3749,13 +3749,13 @@
       vignette: "A 71-year-old man has recurrent presyncope while walking. Blood pressure is 118/64 mm Hg and pulse is 38/min. ECG shows constant PR intervals with intermittent nonconducted P waves and a wide QRS escape rhythm. Serum potassium is 4.3 mEq/L, TSH is normal, and he takes no AV nodal blockers.",
       leadIn: "Which of the following is the most appropriate management?",
       options: [
-        "Atropine as chronic therapy",
+        "Continuous telemetry without pacing",
         "Dual-chamber permanent pacemaker",
-        "Observation with ambulatory event recorder",
-        "Metoprolol dose reduction"
+        "Electrophysiology study before pacing",
+        "Exercise testing to assess conduction"
       ],
       correct: 1,
-      explanation: "Mobitz type II second-degree AV block is infranodal and can progress unpredictably to complete heart block; symptomatic or not, <strong>permanent pacing</strong> is indicated when no reversible cause exists. Atropine may be used acutely but is unreliable for infranodal block and is not chronic therapy. Observation is inappropriate for Mobitz II. Metoprolol reduction would help drug-induced AV block, but he is taking no AV nodal blocker.",
+      explanation: "Mobitz type II second-degree AV block is usually infranodal and can progress unpredictably to complete heart block. <strong>Permanent pacing</strong> is indicated when no reversible cause exists, even without symptoms. Admit with monitoring and pacing capability while arranging implantation; temporary pacing may be needed if instability develops. Telemetry alone does not prevent asystole. An electrophysiology study or exercise localization test should not delay pacing for established Mobitz II.",
       flashcards: [
         { f: "Which second-degree AV block requires permanent pacing?", b: "Mobitz II, high-grade AV block, or complete heart block without reversible cause generally require permanent pacemaker placement.", x: "Infranodal disease can deteriorate suddenly into asystole or complete block.", t: "Trap: observing Mobitz II because symptoms are intermittent.", m: "Mobitz Two = pacer due." },
         { f: "How does Mobitz II appear on ECG?", b: "Constant PR intervals before dropped QRS complexes, often with a wide QRS if infranodal.", x: "The PR does not progressively lengthen because the problem is His-Purkinje conduction failure.", t: "Trap: confusing with Wenckebach PR lengthening.", m: "Type I lengthens; Type II drops.",
@@ -3776,12 +3776,12 @@
         "Synchronized cardioversion"
       ],
       correct: 2,
-      explanation: "Polymorphic VT with prolonged QT is torsades de pointes; immediate therapy is <strong>IV magnesium sulfate</strong> and withdrawal of QT-prolonging drugs, with potassium repletion to high-normal. Amiodarone can prolong QT and may worsen torsades. Metoprolol is not acute treatment for acquired torsades. Cardioversion is required if the rhythm is sustained with hemodynamic instability, but this episode self-terminated.",
+      explanation: "Polymorphic VT with prolonged QT is torsades de pointes; after this self-terminating episode give <strong>IV magnesium sulfate</strong>, withdraw QT-prolonging drugs, and replete potassium to high-normal. Amiodarone can worsen QT prolongation. Metoprolol is not acute treatment for acquired torsades. Sustained unstable polymorphic VT requires <strong>immediate unsynchronized defibrillation</strong>, because synchronization is unreliable; no shock is needed while she is back in sinus rhythm.",
       flashcards: [
         { f: "What is first-line treatment for torsades de pointes?", b: "IV magnesium sulfate, stop QT-prolonging drugs, and replete potassium to high-normal; shock if unstable or persistent.", x: "Magnesium suppresses early afterdepolarizations that trigger torsades even when serum magnesium is normal.", t: "Trap: giving amiodarone for all ventricular tachycardia.", m: "Twisting points need Mg.",
           tb: { h: ["Rhythm", "Acute treatment"], r: [["Torsades, stable", "IV magnesium"], ["Torsades, unstable", "Shock now"], ["Monomorphic VT", "Amiodarone or shock"]] } },
         { f: "Which ECG feature defines torsades rather than ordinary polymorphic VT?", b: "Polymorphic VT occurring with prolonged QTc, often after QT-prolonging drugs or electrolyte depletion.", x: "Delayed repolarization creates early afterdepolarizations and pause-dependent bursts of VT.", t: "Trap: ignoring QTc after conversion.", m: "Torsades = polymorphic VT + long QT." },
-        { f: "When is electrical cardioversion needed in torsades?", b: "Immediately for sustained torsades with hypotension, syncope, ischemia, shock, or pulselessness.", x: "Unstable ventricular tachyarrhythmias require electricity; magnesium treats the substrate but should not delay shock.", t: "Trap: waiting for magnesium in a crashing patient.", m: "Unstable rhythm: shock first." }
+        { f: "What electrical therapy is used for sustained unstable torsades?", b: "Immediate unsynchronized defibrillation, including if pulseless.", x: "Polymorphic QRS complexes prevent reliable synchronization; magnesium treats the substrate but must not delay shock.", t: "Trap: Waiting for a synchronized shock marker or magnesium in a crashing patient.", m: "Polymorphic and unstable: defibrillate." }
       ]
     },
     {
@@ -3813,12 +3813,12 @@
       leadIn: "Which of the following is the most appropriate initial management?",
       options: [
         "Start IV furosemide 40 mg twice daily",
-        "Give 2 L normal saline rapidly",
-        "Hold all diuretics until discharge",
-        "Begin oral hydrochlorothiazide monotherapy"
+        "Start IV dobutamine to improve renal perfusion",
+        "Use IV nitroglycerin as the sole decongestive agent",
+        "Begin oral metolazone without a loop diuretic"
       ],
       correct: 0,
-      explanation: "Acute decompensated HF with congestion is treated with <strong>IV loop diuretics</strong>, usually at least the patient's total daily oral loop dose given intravenously and titrated to urine output and decongestion. Rapid saline worsens pulmonary edema. Holding diuretics delays the primary therapy for congestion. Thiazide monotherapy is inadequate for pulmonary edema, though it may be added for diuretic resistance.",
+      explanation: "Acute decompensated HF with preserved perfusion and congestion is treated with <strong>IV loop diuretics</strong>, usually at least the patient's total daily oral loop dose given intravenously and titrated to urine output and decongestion. Dobutamine is not indicated without shock or low-output hypoperfusion. IV nitrates can be an adjunct when blood pressure permits but do not replace natriuresis. Metolazone can augment a loop in resistant congestion; it is not the preferred sole initial agent.",
       flashcards: [
         { f: "Initial therapy for warm, wet acute decompensated HF?", b: "IV loop diuretics, often at least the home total daily oral dose converted to IV, then titrate to urine output and weight loss.", x: "Venous congestion drives dyspnea and renal dysfunction; prompt natriuresis relieves filling pressures.", t: "Trap: avoiding diuresis because creatinine is mildly elevated.", m: "Wet HF: loop it off." },
         { f: "When are thiazides used in acute decompensated HF?", b: "Add metolazone or IV chlorothiazide for inadequate response to adequate IV loop diuretics.", x: "Sequential nephron blockade overcomes distal sodium retention in diuretic resistance.", t: "Trap: starting thiazide alone for pulmonary edema.", m: "Thiazide is the booster, not the base." },
@@ -3829,18 +3829,18 @@
       id: "cv-brugada-syncope-icd",
       system: "CV",
       task: "RISK",
-      vignette: "A 34-year-old man from Southeast Asia is evaluated after syncope during sleep. His brother died suddenly at age 29. ECG shows coved ST-segment elevation of 3 mm followed by T-wave inversion in V1-V2. Echocardiography is normal, potassium is 4.0 mEq/L, and troponin is undetectable.",
+      vignette: "A 34-year-old man from Southeast Asia has abrupt syncope while seated at night, without prodrome or an orthostatic trigger, and recovers spontaneously. His brother died suddenly at age 29. ECG shows coved ST-segment elevation of 3 mm followed by T-wave inversion in V1-V2. Echocardiography is normal, potassium is 4.0 mEq/L, and troponin is undetectable.",
       leadIn: "Which of the following is the most appropriate management to reduce sudden death risk?",
       options: [
-        "Reassurance with annual ECG",
+        "Ambulatory monitoring alone",
         "Implantable cardioverter-defibrillator",
-        "Atenolol for lifelong arrhythmia suppression",
-        "Catheter ablation of the AV node"
+        "Quinidine without an implanted defibrillator",
+        "EP study before any protective therapy"
       ],
       correct: 1,
-      explanation: "Spontaneous type 1 Brugada ECG pattern plus arrhythmic syncope and family history indicates high risk for ventricular fibrillation; <strong>ICD placement</strong> is recommended. Reassurance is inappropriate after syncope with a diagnostic ECG. Beta-blockers do not prevent Brugada-related ventricular arrhythmias and may worsen some channelopathies. AV node ablation treats refractory supraventricular rate control problems, not ventricular fibrillation risk.",
+      explanation: "Spontaneous type 1 Brugada ECG pattern with probable arrhythmic syncope favors <strong>ICD placement</strong> to reduce sudden-death risk; the family history reinforces concern but is not an ICD indication by itself. Monitoring alone is inadequate. Quinidine may help recurrent arrhythmias or selected patients unable to receive an ICD, but it is not the preferred substitute here. An EP study is not required before protecting a symptomatic high-risk patient.",
       flashcards: [
-        { f: "What ECG pattern defines type 1 Brugada?", b: "Coved ST elevation ≥2 mm in V1-V3 followed by a negative T wave, spontaneous or provoked.", x: "SCN5A sodium-channel dysfunction predisposes to nocturnal polymorphic VT and VF in structurally normal hearts.", t: "Trap: calling right precordial ST elevation early repolarization.", m: "Brugada caves in V1-V3." },
+        { f: "What ECG pattern defines type 1 Brugada?", b: "Coved ST elevation ≥2 mm followed by T-wave inversion in at least one of V1 or V2, including high right-precordial positions.", x: "Brugada is a channelopathy that predisposes to nocturnal VT/VF; pathogenic SCN5A variants explain only a subset of cases.", t: "Trap: A drug-provoked pattern without symptoms is not automatically an ICD indication.", m: "Brugada caves in right precordial leads." },
         { f: "Who with Brugada syndrome needs an ICD?", b: "Survivors of cardiac arrest or patients with spontaneous type 1 ECG plus arrhythmic syncope generally need ICD therapy.", x: "Symptoms identify a high-risk substrate for recurrent VF, and ICD is the proven sudden death prevention.", t: "Trap: using beta-blockers as definitive protection.", m: "Brugada + blackout = box." },
         { f: "What triggers should Brugada patients avoid?", b: "Fever, excess alcohol, cocaine, and sodium-channel-blocking drugs; treat fever promptly.", x: "Fever and sodium-channel blockade worsen the ion-channel defect and can unmask VF risk.", t: "Trap: ignoring fever as an arrhythmia trigger.", m: "Fever fuels Brugada." }
       ]
@@ -3849,7 +3849,7 @@
       id: "cv-myocarditis-exercise-restriction",
       system: "CV",
       task: "NEXT",
-      vignette: "A 23-year-old competitive cyclist has chest pain and palpitations 1 week after a viral illness. ECG shows diffuse ST-T changes, troponin I is 1.8 ng/mL, coronary CT angiography is normal, and cardiac MRI shows myocardial edema with late gadolinium enhancement. LVEF is 50%, and telemetry shows occasional premature ventricular contractions. Symptoms improve with supportive care.",
+      vignette: "A 23-year-old competitive cyclist has chest pain and palpitations 1 week after a viral illness. ECG shows diffuse ST-T changes, troponin I is 1.8 ng/mL, coronary CT angiography is normal, and cardiac MRI shows myocardial edema with late gadolinium enhancement. LVEF is 45%, and telemetry shows occasional premature ventricular contractions. Symptoms improve with supportive care.",
       leadIn: "Which of the following is the most appropriate counseling before discharge?",
       options: [
         "Return to full competition now",
@@ -3858,11 +3858,11 @@
         "Schedule immediate multivessel coronary angioplasty"
       ],
       correct: 2,
-      explanation: "Acute myocarditis increases risk of malignant arrhythmias during exertion; athletes should have <strong>no competitive or strenuous exercise for 3-6 months</strong> and return only after symptoms, ventricular function, biomarkers, and rhythm assessment normalize. Immediate return to competition is unsafe. Anticoagulation is not routine unless atrial fibrillation, LV thrombus, or another indication exists. Angioplasty is inappropriate with normal coronary imaging and myocarditis on MRI.",
+      explanation: "Symptomatic myocarditis with reduced LVEF requires restriction from strenuous exercise, generally with <strong>reassessment after 3–6 months</strong>. Return requires recovered function, resolution of active inflammation, and no clinically relevant arrhythmia on ambulatory/exercise testing through shared decision-making. The 2025 sports statement permits earlier reassessment in selected cases with preserved LV function; that is not this patient's phenotype. Anticoagulation needs a separate indication such as AF or LV thrombus. Normal coronary imaging excludes a target for angioplasty.",
       flashcards: [
-        { f: "How long should athletes avoid strenuous exercise after myocarditis?", b: "Usually 3-6 months, with return only after symptoms, troponin, ventricular function, and rhythm evaluation normalize.", x: "Inflamed myocardium is electrically unstable, and exercise increases risk for VT and sudden death.", t: "Trap: clearing athletes once chest pain resolves.", m: "Myocarditis means months off the field." },
+        { f: "What guides return to strenuous sport after myocarditis with reduced LV function?", b: "Restrict activity and reassess after at least 3 months, commonly 3–6, with recovered function, resolved inflammation, and no relevant arrhythmias.", x: "Selected preserved-function cases may be reassessed earlier under 2025 sports guidance; timing is individualized with specialist shared decision-making.", t: "Trap: Symptom resolution alone does not establish safe return, and persistent scar is not the same as active inflammation.", m: "Recover function, inflammation, and rhythm before return." },
         { f: "Which MRI findings support myocarditis?", b: "Myocardial edema plus nonischemic late gadolinium enhancement patterns, often subepicardial or mid-wall.", x: "MRI detects inflammation and scar outside a coronary artery distribution.", t: "Trap: diagnosing MI despite normal coronary anatomy and viral prodrome.", m: "Myocarditis MRI is nonischemic and inflamed." },
-        { f: "When is anticoagulation used in myocarditis?", b: "Only with another indication such as atrial fibrillation, LV thrombus, embolism, or severe LV dysfunction with thrombus risk.", x: "Inflammation alone does not justify bleeding risk from anticoagulation.", t: "Trap: anticoagulating every patient with troponin elevation.", m: "Troponin is not a clot indication." }
+        { f: "When is anticoagulation used in myocarditis?", b: "For a separate indication such as documented LV thrombus, embolism, or AF with sufficient stroke risk.", x: "Inflammation or reduced EF in sinus rhythm without thrombus does not by itself justify routine anticoagulation.", t: "Trap: Do not anticoagulate every patient with troponin elevation or low EF.", m: "Troponin is not a clot indication." }
       ]
     },
     {
@@ -3872,16 +3872,16 @@
       vignette: "A 46-year-old woman has recurrent confusion and diaphoresis before breakfast that resolves after juice. During a supervised fast, plasma glucose is 42 mg/dL, insulin is 18 µU/mL, C-peptide is 4.2 ng/mL, and beta-hydroxybutyrate is suppressed. She has no history of diabetes and takes only lisinopril. CT abdomen is normal.",
       leadIn: "Which of the following is the most appropriate next diagnostic test?",
       options: [
-        "Morning cortisol level",
-        "72-hour fecal fat test",
-        "Urine metanephrine testing",
-        "Plasma sulfonylurea screen"
+        "Pancreatic MRI for localization",
+        "Endoscopic pancreatic ultrasound",
+        "Selective arterial calcium stimulation",
+        "Plasma sulfonylurea/meglitinide screen"
       ],
       correct: 3,
-      explanation: "Whipple triad with hypoglycemia and inappropriately high insulin and C-peptide indicates endogenous hyperinsulinemia; the next step is a <strong>sulfonylurea screen</strong> to distinguish secretagogue ingestion from insulinoma. Cortisol deficiency can cause hypoglycemia but would not raise insulin and C-peptide. Fecal fat testing evaluates malabsorption. Metanephrines evaluate pheochromocytoma, which causes adrenergic spells but not fasting hyperinsulinemic hypoglycemia.",
+      explanation: "Whipple triad with hypoglycemia and inappropriately high insulin and C-peptide indicates endogenous insulin secretion. Obtain a <strong>sulfonylurea/meglitinide screen from the hypoglycemic sample</strong> before diagnosing insulinoma. Secretagogues reproduce the insulinoma biochemical pattern. MRI, endoscopic ultrasound, and selective arterial calcium stimulation are localization tests used after biochemical diagnosis and exclusion of drug exposure; a negative CT does not justify skipping that exclusion.",
       flashcards: [
         { f: "What lab pattern shows endogenous hyperinsulinemic hypoglycemia?", b: "Low plasma glucose with high insulin, high C-peptide, high proinsulin, and suppressed beta-hydroxybutyrate.", x: "Insulin blocks ketogenesis and comes with C-peptide when produced by pancreatic beta cells.", t: "Trap: diagnosing insulinoma before excluding sulfonylurea use.", m: "High insulin + high C-peptide = inside source." },
-        { f: "How do sulfonylurea use and insulinoma differ biochemically?", b: "Both raise insulin and C-peptide; sulfonylurea screen is positive only with secretagogue exposure.", x: "Sulfonylureas force beta cells to secrete insulin, mimicking insulinoma during fasting.", t: "Trap: using C-peptide alone to prove insulinoma.", m: "Secretagogue screen separates mimics." },
+        { f: "How do secretagogue exposure and insulinoma differ biochemically?", b: "Both raise insulin and C-peptide; a sulfonylurea/meglitinide assay on the hypoglycemic sample detects drug exposure.", x: "These drugs force beta cells to secrete insulin, mimicking insulinoma; assay coverage and timing affect sensitivity.", t: "Trap: High C-peptide alone does not prove insulinoma, and a late negative drug assay may miss exposure.", m: "Secretagogue screen before insulinoma localization." },
         { f: "What triad is required before evaluating hypoglycemia?", b: "Whipple triad: symptoms, low plasma glucose during symptoms, and relief when glucose rises.", x: "It prevents overtesting patients with nonspecific symptoms and normal glucose.", t: "Trap: working up dizziness without documented low glucose.", m: "Symptoms + sugar low + sugar helps." }
       ]
     },
@@ -3889,21 +3889,21 @@
       id: "endo-painless-thyroiditis-uptake",
       system: "ENDO",
       task: "DX",
-      vignette: "A 36-year-old woman has 6 weeks of palpitations, heat intolerance, and mild weight loss 4 months after delivery. Thyroid is small and nontender, pulse is 104/min, TSH is 0.01 µU/mL, free T4 is 2.3 ng/dL, and erythrocyte sedimentation rate is normal. Radioiodine uptake is 1% at 24 hours.",
-      leadIn: "Which of the following is the most likely diagnosis?",
+      vignette: "A 36-year-old woman has 6 weeks of palpitations, heat intolerance, and mild weight loss 4 months after delivery. She is not breastfeeding, and pregnancy testing is negative. The thyroid is small and nontender without bruit, pulse is 104/min, TSH is 0.01 µU/mL, free T4 is 2.3 ng/dL, and erythrocyte sedimentation rate is normal. She takes no thyroid hormone, amiodarone, or iodine-containing supplements and has had no recent iodinated contrast. TSH-receptor antibodies are negative, and radioiodine uptake is 1% at 24 hours.",
+      leadIn: "Which of the following best explains this patient's thyrotoxicosis?",
       options: [
         "Painless postpartum thyroiditis",
-        "Toxic multinodular goiter",
-        "TSH-secreting pituitary adenoma",
-        "Iodine-deficient hypothyroidism"
+        "Postpartum-onset Graves disease",
+        "Painful subacute granulomatous thyroiditis",
+        "Exogenous thyroid hormone use"
       ],
       correct: 0,
-      explanation: "Postpartum, nontender thyrotoxicosis with very low radioiodine uptake indicates <strong>painless thyroiditis</strong> from release of preformed hormone. Toxic multinodular goiter has focal or patchy increased uptake. TSH-secreting adenoma causes nonsuppressed or high TSH with high thyroid hormone. Iodine deficiency causes hypothyroidism and goiter, not suppressed TSH with elevated free T4.",
+      explanation: "Early postpartum, nontender thyrotoxicosis with <strong>very low radioiodine uptake</strong> and negative TSH-receptor antibodies favors <strong>painless postpartum thyroiditis</strong>: release of stored hormone rather than increased synthesis. Graves disease usually has positive receptor antibodies and diffusely increased uptake. Painful subacute thyroiditis generally produces thyroid tenderness and elevated inflammatory markers. Exogenous hormone also suppresses uptake but is not supported by this medication history; thyroglobulin can help if that distinction remains uncertain. Recent iodine exposure can also suppress uptake and has been excluded. Uptake testing is unsuitable during pregnancy and generally avoided during lactation; this patient is neither pregnant nor breastfeeding.",
       flashcards: [
-        { f: "What radioiodine uptake pattern suggests thyroiditis?", b: "Low uptake during thyrotoxicosis because hormone leaks from damaged follicles rather than being newly synthesized.", x: "Antithyroid drugs block synthesis, so they do not help destructive thyroiditis.", t: "Trap: treating painless thyroiditis with methimazole.", m: "Thyroiditis leaks, so uptake is low.",
-          tb: { h: ["Cause", "RAIU", "Treatment"], r: [["Thyroiditis", "Low", "Beta-blocker"], ["Graves", "High diffuse", "Thionamide"], ["Toxic nodules", "Patchy high", "RAI or surgery"]] } },
-        { f: "How is symptomatic painless thyroiditis treated?", b: "Beta-blocker for adrenergic symptoms; observe for transient hypothyroid phase and recovery.", x: "The hyperthyroid phase is self-limited because stored hormone is depleted.", t: "Trap: radioiodine ablation for low-uptake thyrotoxicosis.", m: "Low uptake = calm symptoms, not kill thyroid." },
-        { f: "What postpartum timing fits painless thyroiditis?", b: "Usually within 1 year after delivery, often hyperthyroid phase followed by hypothyroid phase.", x: "Autoimmune thyroid inflammation can flare as immunity rebounds after pregnancy.", t: "Trap: assuming every postpartum thyrotoxicosis is Graves disease.", m: "Postpartum thyroid can swing both ways." }
+        { f: "What radioiodine uptake pattern suggests thyroiditis?", b: "Low uptake during thyrotoxicosis because hormone leaks from damaged follicles rather than being newly synthesized.", x: "Exogenous hormone and recent iodine exposure can also lower uptake; clinical context, receptor antibodies, and sometimes thyroglobulin distinguish causes.", t: "Trap: Low uptake is not specific; do not perform radioiodine testing during pregnancy or routinely during lactation.", m: "Thyroiditis leaks, so uptake is low.",
+          tb: { h: ["Cause", "RAIU", "Diagnostic context"], r: [["Painless thyroiditis", "Low", "Nontender; TRAb usually negative"], ["Graves disease", "High diffuse", "TRAb usually positive"], ["Toxic nodules", "Patchy high", "Nodular thyroid"], ["Exogenous hormone", "Low", "Low thyroglobulin if interpretable"]] } },
+        { f: "How is symptomatic painless thyroiditis treated?", b: "Beta-blocker for adrenergic symptoms; monitor for a hypothyroid phase and recovery.", x: "The thyrotoxic phase is self-limited as stored hormone is depleted; thionamides do not block this destructive release.", t: "Trap: Methimazole or radioiodine ablation is not appropriate for routine painless thyroiditis.", m: "Low uptake = calm symptoms, not kill thyroid." },
+        { f: "What postpartum timing fits painless thyroiditis?", b: "Within 1 year after delivery, commonly with an early thyrotoxic phase followed by hypothyroidism; either phase may occur alone.", x: "Autoimmune thyroid inflammation can flare after pregnancy. Some patients develop permanent hypothyroidism and need longer-term TSH monitoring.", t: "Trap: Timing supports but does not prove the diagnosis; postpartum Graves disease also occurs.", m: "Postpartum thyroid can swing both ways." }
       ]
     },
     {
@@ -3953,13 +3953,13 @@
       vignette: "A 67-year-old woman has 2 months of dull right thigh pain. She has taken alendronate weekly for 8 years after a vertebral compression fracture. Radiograph shows lateral cortical thickening and a transverse lucent line in the subtrochanteric femur. Calcium is 9.4 mg/dL, 25-hydroxyvitamin D is 31 ng/mL, and creatinine is 0.9 mg/dL.",
       leadIn: "Which of the following is the most appropriate next step?",
       options: [
-        "Increase alendronate to twice weekly dosing",
-        "Begin high-dose glucocorticoids",
-        "Reassure and repeat x-ray in 1 year",
+        "Replace alendronate with denosumab",
+        "Start teriparatide without further femoral imaging",
+        "Continue alendronate with protected weight-bearing",
         "Stop alendronate and image both femurs"
       ],
       correct: 3,
-      explanation: "Prodromal thigh pain with subtrochanteric transverse lucency after long-term bisphosphonate use suggests an <strong>atypical femur fracture</strong>; the bisphosphonate should be stopped and both femurs imaged because bilateral lesions are common. Increasing alendronate worsens oversuppression of bone remodeling. Glucocorticoids increase fracture risk and are not treatment. Observation for 1 year risks complete fracture; orthopedic evaluation is needed.",
+      explanation: "Prodromal thigh pain with subtrochanteric transverse lucency after long-term bisphosphonate use suggests an <strong>atypical femur fracture</strong>; stop alendronate and image both femurs because bilateral lesions are common. Urgent orthopedic assessment determines whether an incomplete symptomatic fracture needs prophylactic fixation. Continuing alendronate or switching immediately to denosumab perpetuates antiresorptive exposure. Teriparatide may be considered subsequently but does not replace defining fracture extent and orthopedic management.",
       flashcards: [
         { f: "What symptoms suggest atypical femur fracture on bisphosphonates?", b: "Weeks to months of groin or thigh pain with lateral cortical thickening or transverse subtrochanteric or shaft fracture line.", x: "Long-term remodeling suppression can permit microdamage accumulation in high-stress femoral cortex.", t: "Trap: treating prodromal thigh pain as osteoarthritis only.", m: "Thigh pain on long bisphosphonate = image femurs." },
         { f: "Initial step when atypical femur fracture is suspected?", b: "Stop antiresorptive therapy, image both femurs, correct calcium and vitamin D, and refer to orthopedics.", x: "Bilateral stress reactions are common, and incomplete high-risk lesions may need prophylactic fixation.", t: "Trap: continuing the bisphosphonate because osteoporosis persists.", m: "Stop drug, scan both legs." },
@@ -3970,7 +3970,7 @@
       id: "endo-hhs-fluid-insulin",
       system: "ENDO",
       task: "RX",
-      vignette: "A 72-year-old man with type 2 diabetes is brought in with confusion after several days of polyuria and poor oral intake. Blood pressure is 92/58 mm Hg, pulse is 118/min, mucous membranes are dry, glucose is 920 mg/dL, sodium is 150 mEq/L, potassium is 4.6 mEq/L, bicarbonate is 22 mEq/L, beta-hydroxybutyrate is 0.8 mmol/L, and calculated effective osmolality is 355 mOsm/kg. Urinalysis shows no infection.",
+      vignette: "A 72-year-old man with type 2 diabetes is brought in with confusion after several days of polyuria and poor oral intake. Blood pressure is 92/58 mm Hg, pulse is 118/min, mucous membranes are dry, glucose is 920 mg/dL, sodium is 150 mEq/L, potassium is 4.6 mEq/L, bicarbonate is 22 mEq/L, beta-hydroxybutyrate is 0.8 mmol/L, and calculated effective osmolality is 351 mOsm/kg. Urinalysis shows no infection.",
       leadIn: "Which of the following is the most appropriate initial treatment?",
       options: [
         "IV isotonic crystalloid resuscitation",
@@ -3982,15 +3982,15 @@
       explanation: "Hyperosmolar hyperglycemic state causes profound volume depletion; initial therapy is <strong>IV isotonic crystalloid resuscitation</strong>, with insulin started after fluids and potassium assessment unless significant ketosis is present. Subcutaneous insulin is inadequate for severe HHS with altered mentation. Starting insulin before fluids can rapidly lower osmolality and worsen circulatory collapse. Bicarbonate is not indicated with bicarbonate 22 mEq/L and no severe acidosis.",
       flashcards: [
         { f: "What is the first treatment priority in HHS?", b: "Restore intravascular volume with IV isotonic crystalloid before routine insulin infusion.", x: "HHS has larger water deficits than DKA; fluids alone lower glucose and improve perfusion.", t: "Trap: starting insulin before correcting hypovolemia.", m: "HHS = Hydrate Hard Soon." },
-        { f: "How does HHS differ from DKA?", b: "HHS has severe hyperglycemia and osmolality with minimal ketosis and pH usually ≥7.3 or bicarbonate ≥18 mEq/L.", x: "Residual insulin suppresses lipolysis and ketogenesis but not hepatic glucose output.", t: "Trap: requiring acidosis for every diabetic emergency.", m: "HHS: Hyperosmolar, Hardly ketotic." },
-        { f: "Why monitor sodium and osmolality during HHS treatment?", b: "Avoid overly rapid effective osmolality decline; adjust fluids based on corrected sodium and hemodynamics.", x: "Rapid osmotic shifts can cause cerebral edema or neurologic worsening, especially in older patients.", t: "Trap: chasing glucose down as fast as possible.", m: "In HHS, lower slowly after volume." }
+        { f: "How does HHS differ from DKA under 2024 consensus criteria?", b: "HHS requires glucose ≥600, effective osmolality >300 or total >320, beta-hydroxybutyrate <3, pH ≥7.3, and bicarbonate ≥15.", x: "Residual insulin limits lipolysis and ketogenesis; significant ketosis or acidosis suggests mixed DKA/HHS.", t: "Trap: HHS requires both absence-of-acidosis criteria, not just a normal bicarbonate or normal pH alone.", m: "HHS: Hyperosmolar, Hardly ketotic." },
+        { f: "Why monitor sodium and osmolality during HHS treatment?", b: "Target osmolality decline of 3–8 mOsm/kg/hour and sodium decline ≤10 mEq/L per 24 hours; tailor fluids to hemodynamics.", x: "Rapid osmotic shifts can cause neurologic injury. Sodium may initially rise as glucose falls; that alone does not mandate hypotonic fluids.", t: "Trap: Chasing glucose down quickly or switching fluids solely because sodium rises can create unsafe osmotic shifts.", m: "In HHS, lower osmolality steadily after volume." }
       ]
     },
     {
       id: "endo-siadh-vs-cerebral-salt-wasting",
       system: "ENDO",
       task: "DX",
-      vignette: "A 48-year-old woman in the neuro ICU 5 days after subarachnoid hemorrhage develops worsening hyponatremia. Blood pressure is 92/56 mm Hg, pulse is 112/min, mucous membranes are dry, and urine output is 4 L/day. Serum sodium is 124 mEq/L, serum osmolality is 260 mOsm/kg, urine osmolality is 520 mOsm/kg, and urine sodium is 95 mEq/L. BUN is 32 mg/dL and creatinine is 0.9 mg/dL.",
+      vignette: "A 48-year-old woman in the neuro ICU 5 days after subarachnoid hemorrhage develops worsening hyponatremia. Blood pressure is 92/56 mm Hg, pulse is 112/min, mucous membranes are dry, and urine output is 4 L/day. Serum sodium is 124 mEq/L, serum osmolality is 260 mOsm/kg, urine osmolality is 520 mOsm/kg, and urine sodium is 95 mEq/L. BUN is 32 mg/dL, creatinine is 0.9 mg/dL, and morning cortisol is 28 µg/dL. She has received no diuretics.",
       leadIn: "Which of the following is the most likely diagnosis?",
       options: [
         "Primary polydipsia",
@@ -3999,7 +3999,7 @@
         "Syndrome of inappropriate ADH"
       ],
       correct: 1,
-      explanation: "Hyponatremia after intracranial disease with high urine sodium, concentrated urine, polyuria, hypotension, dry mucous membranes, and elevated BUN indicates <strong>cerebral salt wasting</strong>. SIADH also has high urine sodium and osmolality but is euvolemic, not volume depleted. Primary polydipsia causes dilute urine with low urine osmolality. Adrenal insufficiency can cause hyponatremia but typically has hyperkalemia, cortisol deficiency features, and not marked natriuretic polyuria after SAH.",
+      explanation: "Hyponatremia after intracranial disease with high urine sodium, concentrated urine, polyuria, and objective volume depletion favors <strong>cerebral salt wasting</strong>. SIADH has similar urine findings but is clinically euvolemic; volume assessment can be difficult and serial fluid balance is important. Primary polydipsia usually produces dilute urine. The reassuring cortisol and absence of diuretics reduce competing causes. Secondary adrenal insufficiency can mimic SIADH without hyperkalemia, so potassium alone cannot exclude it.",
       flashcards: [
         { f: "Key distinction between SIADH and cerebral salt wasting?", b: "Volume status: SIADH is euvolemic; cerebral salt wasting is hypovolemic with renal sodium loss and polyuria.", x: "Both can have high urine sodium and osmolality, so bedside volume assessment drives treatment.", t: "Trap: diagnosing SIADH from urine sodium alone.", m: "CSW is salty and dry." },
         { f: "How is cerebral salt wasting treated?", b: "Volume and sodium repletion with isotonic or hypertonic saline; fludrocortisone can reduce natriuresis in persistent cases.", x: "Fluid restriction worsens hypovolemia and may reduce cerebral perfusion after brain injury.", t: "Trap: fluid restriction after subarachnoid hemorrhage hyponatremia.", m: "Salt wasting needs salt replacing." },
@@ -4040,11 +4040,11 @@
         "Esophageal biopsies from multiple levels"
       ],
       correct: 3,
-      explanation: "<strong>Eosinophilic esophagitis</strong> is diagnosed by symptoms of esophageal dysfunction plus esophageal biopsies showing at least 15 eosinophils per high-power field after other causes are considered. Biopsies should be obtained from multiple esophageal levels because disease is patchy. Barium swallow can show rings or strictures but cannot establish the diagnosis. pH monitoring and IgE panels do not replace histology and have limited value for directing adult therapy.",
+      explanation: "<strong>Eosinophilic esophagitis</strong> requires symptoms of esophageal dysfunction and ≥15 eosinophils per high-power field on biopsy after other causes are evaluated. ACG 2025 recommends <strong>at least 6 biopsies from at least 2 esophageal levels</strong>, targeting abnormalities when present, because disease is patchy. Barium swallow can show narrowing but does not provide histology. pH testing and food-specific IgE panels do not establish EoE or reliably guide an elimination diet.",
       flashcards: [
         { f: "What biopsy threshold supports eosinophilic esophagitis?", b: "≥15 eosinophils per high-power field in esophageal mucosa with compatible symptoms.", x: "Symptoms alone overlap with GERD and strictures; histology confirms mucosal eosinophilic inflammation.", t: "Trap: Peripheral eosinophilia; blood eosinophils are neither required nor diagnostic.", m: "EoE = Esophagus eos ≥15.",
           tb: { h: ["Finding", "Supports EoE"], r: [["Dysphagia or impaction", "Yes"], ["Eos ≥15 per hpf", "Yes"], ["Blood eosinophilia", "Not required"]] } },
-        { f: "Why take biopsies from multiple esophageal levels in suspected EoE?", b: "EoE is patchy, so proximal and distal samples improve diagnostic sensitivity.", x: "A normal-appearing or single sampled area can miss focal eosinophilic inflammation.", t: "Trap: Biopsy only a ring; focal sampling can miss the diagnosis.", m: "Patchy disease, paired biopsies." },
+        { f: "How should esophageal biopsies be sampled for suspected EoE?", b: "Obtain at least 6 biopsies from at least 2 levels, such as proximal/mid and distal esophagus.", x: "EoE is patchy; sample even if the mucosa appears normal and target visible abnormalities when present.", t: "Trap: A single biopsy or a normal-appearing endoscopy can miss EoE.", m: "Six samples, two levels." },
         { f: "Which endoscopic findings suggest EoE?", b: "Rings, furrows, white plaques or exudates, edema, strictures, and narrow-caliber esophagus.", x: "Chronic type 2 inflammation causes remodeling and fixed narrowing that leads to food impaction.", t: "Trap: Peptic ulcer crater; that suggests acid injury rather than EoE.", m: "Rings and furrows point to EoE." }
       ]
     },
@@ -4084,7 +4084,7 @@
       correct: 1,
       explanation: "This patient has MASLD with a high <strong>FIB-4</strong> score because of age, AST elevation, and thrombocytopenia; a value &gt;2.67 warrants secondary fibrosis assessment with elastography or referral. Repeating aminotransferases alone misses advanced fibrosis risk. Ursodeoxycholic acid is used for primary biliary cholangitis, not MASLD fibrosis staging. Reassurance is inappropriate when platelet count is low and FIB-4 is high.",
       flashcards: [
-        { f: "What FIB-4 value in MASLD suggests high risk for advanced fibrosis?", b: "FIB-4 &gt;2.67 generally warrants elastography or hepatology referral.", x: "FIB-4 uses age, AST, ALT, and platelets to identify patients needing secondary fibrosis testing.", t: "Trap: Normal bilirubin; advanced fibrosis can exist before bilirubin rises.", m: "FIB-4 over 2.67 = fibrosis second look.",
+        { f: "What FIB-4 value in MASLD suggests high risk for advanced fibrosis?", b: "FIB-4 >2.67 generally warrants elastography or hepatology referral.", x: "FIB-4 uses age, AST, ALT, and platelets to identify patients needing secondary fibrosis testing.", t: "Trap: Normal bilirubin; advanced fibrosis can exist before bilirubin rises.", m: "FIB-4 over 2.67 = fibrosis second look.",
           tb: { h: ["FIB-4", "Action"], r: [["<1.3", "Primary care follow-up"], ["1.3-2.67", "Second test"], [">2.67", "Elastography or refer"]] } },
         { f: "What is the next fibrosis test after high FIB-4 in MASLD?", b: "Vibration-controlled transient elastography or enhanced liver fibrosis testing, often with hepatology referral.", x: "Noninvasive stiffness testing better estimates advanced fibrosis and guides surveillance needs.", t: "Trap: Liver biopsy first; biopsy is reserved for selected unclear or high-stakes cases.", m: "FIB-4 flags, elastography grades." },
         { f: "Which platelet finding raises concern in MASLD fibrosis scoring?", b: "Thrombocytopenia, especially platelets near or below 150,000/µL, increases FIB-4 and suggests portal fibrosis risk.", x: "Progressive fibrosis and portal hypertension can lower platelet count before decompensation.", t: "Trap: ALT alone; ALT can be mild or normal in advanced MASLD.", m: "Low platelets lift FIB-4." }
@@ -4115,7 +4115,7 @@
       id: "gi-hepatorenal-syndrome-terlipressin",
       system: "GI",
       task: "RX",
-      vignette: "A 55-year-old woman with decompensated cirrhosis and tense ascites is hospitalized for acute kidney injury. Diuretics are stopped and she receives IV albumin for 48 hours, but creatinine rises from 1.1 to 2.4 mg/dL. Urinalysis is bland, renal ultrasound is normal, and mean arterial pressure is 69 mm Hg. There is no shock, nephrotoxin exposure, or infection.",
+      vignette: "A 55-year-old woman with decompensated cirrhosis and ascites is hospitalized for acute kidney injury. Diuretics are held and clinically indicated volume resuscitation is completed, but within 24 hours creatinine rises from 1.1 to 2.4 mg/dL. Urinalysis is bland, renal ultrasound is normal, and mean arterial pressure is 69 mm Hg. There is no shock, nephrotoxin exposure, or infection. Oxygen saturation is 96% on room air, with no pulmonary edema or active coronary, mesenteric, or peripheral ischemia.",
       leadIn: "Which of the following is the most appropriate treatment?",
       options: [
         "High-dose furosemide infusion",
@@ -4124,18 +4124,18 @@
         "Terlipressin plus IV albumin"
       ],
       correct: 3,
-      explanation: "Hepatorenal syndrome-AKI is treated with a splanchnic vasoconstrictor and albumin; <strong>terlipressin plus IV albumin</strong> is preferred where available. The diagnosis requires cirrhosis with ascites, AKI not responding to diuretic withdrawal and albumin, and no alternative renal cause. Furosemide can worsen effective arterial underfilling. Bicarbonate and midodrine alone do not address the severe splanchnic vasodilation driving HRS.",
+      explanation: "HRS-AKI is treated with a vasoconstrictor and carefully titrated albumin; <strong>terlipressin plus IV albumin</strong> is preferred when appropriate. The 2024 ADQI-ICA criteria require cirrhosis with ascites, AKI without improvement within 24 hours of adequate resuscitation when indicated, and no strong alternative primary cause. A mandatory 48-hour albumin challenge is no longer required and may worsen fluid overload. Terlipressin is contraindicated with hypoxia or active coronary, peripheral, or mesenteric ischemia; monitor oxygenation and volume status. Norepinephrine in an ICU is an alternative. Furosemide escalation and midodrine alone are not appropriate here.",
       flashcards: [
         { f: "What therapy is preferred for hepatorenal syndrome-AKI when available?", b: "Terlipressin plus IV albumin, with monitoring for ischemia and respiratory failure.", x: "Terlipressin constricts splanchnic vessels, improving effective arterial volume and renal perfusion.", t: "Trap: Diuretic escalation; diuretics worsen underfilling in HRS-AKI.", m: "HRS: terli-press pressure back to kidneys." },
-        { f: "What response test helps diagnose HRS-AKI?", b: "No creatinine improvement after stopping diuretics and giving albumin for about 48 hours.", x: "Failure to respond distinguishes HRS from simple prerenal azotemia in cirrhosis.", t: "Trap: Diagnose before albumin challenge; reversible prerenal AKI must be excluded.", m: "Albumin challenge before HRS label.",
-          tb: { h: ["AKI in cirrhosis", "Clue"], r: [["Prerenal", "Improves with albumin"], ["HRS-AKI", "No albumin response"], ["ATN", "Muddy casts"]] } },
-        { f: "Which urine finding supports HRS-AKI?", b: "Bland urine sediment without significant proteinuria or hematuria.", x: "HRS is functional renal vasoconstriction rather than intrinsic glomerular or tubular injury.", t: "Trap: Muddy brown casts; those suggest acute tubular necrosis, not HRS.", m: "HRS has quiet urine, sick circulation." }
+        { f: "What response assessment supports HRS-AKI under 2024 consensus criteria?", b: "No improvement within 24 hours of adequate volume resuscitation when indicated, in cirrhosis with ascites and no stronger primary AKI cause.", x: "Rapid volume assessment avoids delaying vasoconstrictors or giving unnecessary albumin to an already overloaded patient.", t: "Trap: A routine 48-hour albumin challenge is no longer a diagnostic requirement.", m: "Assess volume promptly; no automatic two-day wait.",
+          tb: { h: ["AKI assessment", "Clue"], r: [["Volume-responsive AKI", "Improves after appropriate resuscitation"], ["HRS-AKI", "Persistent AKI without stronger cause"], ["Tubular injury", "Muddy brown casts support ATN"], ["Albumin", "Individualize; avoid overload"]] } },
+        { f: "Which urine finding supports HRS-AKI?", b: "A bland sediment supports HRS, but proteinuria or preexisting CKD does not automatically exclude it.", x: "HRS is predominantly circulatory renal dysfunction and may coexist with tubular injury or chronic renal disease.", t: "Trap: Muddy brown casts suggest tubular injury, but mixed AKI mechanisms can coexist in cirrhosis.", m: "HRS is sick circulation, sometimes mixed injury." }
       ]
     },
     {
       id: "gi-primary-biliary-cholangitis-ursodiol",
       system: "GI",
-      task: "DX",
+      task: "RX",
       vignette: "A 52-year-old woman reports 8 months of fatigue and pruritus. Examination shows excoriations but no jaundice or abdominal tenderness. Alkaline phosphatase is 410 U/L, AST is 58 U/L, ALT is 64 U/L, total bilirubin is 0.9 mg/dL, and antimitochondrial antibody is positive. Ultrasound shows no biliary ductal dilation.",
       leadIn: "Which of the following is the most appropriate initial management?",
       options: [
@@ -4207,10 +4207,10 @@
         "Delay ART for 8 weeks regardless of CD4 count"
       ],
       correct: 1,
-      explanation: "In HIV-associated pulmonary tuberculosis with CD4 count &lt;50/µL, <strong>ART should begin within 2 weeks</strong> of starting tuberculosis therapy unless tuberculous meningitis is present. Early ART reduces mortality despite increased IRIS risk. Delaying until treatment completion or until IRIS develops exposes the patient to preventable opportunistic disease and death. An 8-week delay is reserved for higher CD4 counts in many cases or for select CNS disease considerations.",
+      explanation: "In HIV-associated pulmonary tuberculosis with CD4 count &lt;50/µL, <strong>ART should begin within 2 weeks</strong> of starting TB therapy unless TB meningitis is present. Early ART reduces mortality despite increased IRIS risk. At CD4 ≥50, initiate within 2–8 weeks, not automatically at week 8. TB meningitis needs infection-specific delayed timing. Select an ART regimen compatible with rifampin, which substantially alters antiretroviral drug exposure.",
       flashcards: [
         { f: "When should ART start in pulmonary TB with HIV and CD4 &lt;50/µL?", b: "Within 2 weeks after starting TB therapy, unless TB meningitis is present.", x: "Mortality benefit from immune recovery outweighs increased IRIS risk in advanced immunosuppression.", t: "Trap: waiting 8 weeks is too slow when CD4 is &lt;50 without CNS TB.", m: "CD4 under 50: ART in 2.",
-          tb: { h: ["TB setting", "ART timing", "Exception"], r: [["CD4 under 50", "Within 2 wk", "Not TB meningitis"], ["CD4 at least 50", "By 8 wk", "Most cases"], ["TB meningitis", "Delay ART", "Avoid CNS IRIS"]] } },
+          tb: { h: ["TB setting", "ART timing", "Exception"], r: [["CD4 under 50", "Within 2 wk", "Not TB meningitis"], ["CD4 at least 50", "Within 2–8 wk", "Most cases"], ["TB meningitis", "After control; expert guided", "Avoid CNS IRIS"]] } },
         { f: "Which TB form is the key exception to very early ART because of dangerous inflammation?", b: "Tuberculous meningitis; ART is delayed because CNS IRIS can be life-threatening.", x: "Inflammation in a closed intracranial space can worsen neurologic injury.", t: "Trap: pulmonary TB alone is not a reason to wait months.", m: "Meninges make ART wait." },
         { f: "What is IRIS after ART initiation?", b: "Paradoxical worsening or unmasking of infection after immune recovery, often with low CD4 and high antigen burden.", x: "Restored immune responses cause inflammatory symptoms despite microbiologic treatment.", t: "Trap: IRIS is not automatic ART failure or drug resistance.", m: "IRIS = immunity rebounds, inflammation surges." }
       ]
@@ -4272,7 +4272,7 @@
       correct: 0,
       explanation: "Herpes zoster ophthalmicus with <strong>acute retinal necrosis</strong> is a sight-threatening emergency requiring immediate high-dose IV acyclovir and urgent ophthalmology involvement, often with intravitreal antiviral therapy. Oral valacyclovir alone is reasonable for uncomplicated zoster ophthalmicus but is inadequate for retinal necrosis in an immunocompromised host. Recombinant zoster vaccine prevents future zoster but does not treat active retinal disease. Topical antibiotics do not treat varicella-zoster virus.",
       flashcards: [
-        { f: "Zoster rash plus eye pain, floaters, and peripheral retinal whitening needs what treatment?", b: "Immediate IV acyclovir and urgent ophthalmology for acute retinal necrosis.", x: "Retinal viral vasculitis can rapidly progress to retinal detachment and blindness.", t: "Trap: oral valacyclovir alone is inadequate for acute retinal necrosis.", m: "Retina involved = IV route." },
+        { f: "Zoster with retinal necrosis in an immunocompromised patient needs what treatment?", b: "Immediate IV acyclovir and urgent ophthalmology, often with intravitreal antiviral therapy.", x: "Retinal viral vasculitis can rapidly progress to retinal detachment and blindness.", t: "Trap: Do not manage this immunocompromised ocular emergency with routine uncomplicated-shingles oral dosing alone.", m: "Threatened retina in an immunocompromised host: urgent IV therapy." },
         { f: "What does Hutchinson sign predict in herpes zoster?", b: "Vesicles on the nose tip suggest nasociliary involvement and higher ocular complication risk.", x: "The nasociliary branch supplies cornea and ocular structures.", t: "Trap: absence of nose lesions does not rule out eye involvement.", m: "Nose tip warns eye trip." },
         { f: "When is recombinant zoster vaccine used after shingles?", b: "For prevention after acute illness resolves; it is not treatment for active zoster or ocular emergencies.", x: "Vaccination boosts future immunity but does not stop current viral replication.", t: "Trap: giving vaccine instead of antivirals risks vision loss.", m: "Vaccine prevents, acyclovir treats." }
       ]
@@ -4432,7 +4432,7 @@
         "Rheumatoid arthritis flare"
       ],
       correct: 0,
-      explanation: "Rhomboid, weakly positively birefringent crystals indicate <strong>calcium pyrophosphate deposition</strong> disease, also called pseudogout. Gout has needle-shaped, strongly negatively birefringent monosodium urate crystals. Septic arthritis should still be excluded with culture in acute monoarthritis, but the crystal pattern and negative Gram stain make CPPD the best diagnosis here. Rheumatoid arthritis flare does not produce CPP crystals and is usually polyarticular in established disease.",
+      explanation: "Rhomboid, weakly positively birefringent crystals establish <strong>calcium pyrophosphate crystal arthritis</strong>, also called pseudogout. Gout has needle-shaped, negatively birefringent monosodium urate crystals. Send synovial culture because neither crystals nor a negative Gram stain excludes coexisting infection. CPPD is the best demonstrated diagnosis, but infection must still be assessed. Rheumatoid arthritis does not produce CPP crystals.",
       flashcards: [
         { f: "What crystals are seen in pseudogout?", b: "Rhomboid calcium pyrophosphate crystals with weak positive birefringence.", x: "CPP crystals trigger neutrophilic synovitis that mimics gout or infection.", t: "Trap: Needle-shaped negative crystals; that is gout.", m: "Pseudogout is positive parallelograms." },
         { f: "Which joint is commonly affected by acute CPPD?", b: "The knee is the classic site, especially in older adults or after illness or surgery.", x: "CPPD prevalence rises with age and can flare during physiologic stress.", t: "Trap: First MTP only; podagra is more typical of gout.", m: "CPPD often picks the knee." },
@@ -4446,13 +4446,13 @@
       vignette: "A 29-year-old man has 2 weeks of right knee and left ankle pain with swelling. One month ago he had dysuria after a new sexual partner, which resolved without treatment. Examination shows conjunctival injection, Achilles tendon tenderness, and an asymmetric oligoarthritis. Synovial fluid cultures are negative, and nucleic acid testing is positive for Chlamydia trachomatis.",
       leadIn: "Which of the following is the most appropriate initial management?",
       options: [
-        "High-dose allopurinol urate-lowering therapy",
+        "Doxycycline alone without anti-inflammatory treatment",
         "NSAIDs plus chlamydia treatment",
-        "Immediate rituximab infusion",
-        "Long-term apixaban therapy"
+        "Prednisone alone without infection treatment",
+        "Methotrexate as initial arthritis therapy"
       ],
       correct: 1,
-      explanation: "Reactive arthritis after genitourinary infection is treated initially with <strong>NSAIDs</strong> for arthritis and appropriate antibiotics for active Chlamydia infection, including partner management. Allopurinol treats urate gout and has no role here. Rituximab is not initial therapy for reactive arthritis. Apixaban treats thrombosis, not postinfectious spondyloarthritis.",
+      explanation: "Reactive arthritis after genitourinary infection is treated initially with <strong>NSAIDs for synovitis plus antibiotics for active Chlamydia</strong>, including partner management. Antibiotics clear the mucosal infection but do not reliably resolve established sterile joint inflammation by themselves. Prednisone alone leaves infection untreated. Methotrexate or other DMARDs are reserved for persistent disease after initial anti-inflammatory treatment.",
       flashcards: [
         { f: "What infection commonly precedes reactive arthritis after urethritis?", b: "Chlamydia trachomatis, often weeks before asymmetric lower-extremity arthritis.", x: "Sterile synovitis follows mucosal infection in genetically susceptible hosts, often HLA-B27 positive.", t: "Trap: Staph aureus bacteremia; that causes septic arthritis, not classic reactive arthritis.", m: "Can’t see, can’t pee, can’t climb a tree." },
         { f: "What is first-line arthritis treatment in reactive arthritis?", b: "NSAIDs; add local steroids or DMARDs for persistent disease, and treat active infection.", x: "Inflammation is usually self-limited, so symptom control comes first while clearing active trigger.", t: "Trap: Chronic biologic first; reserve for refractory disease.", m: "Reactive arthritis starts with NSAIDs." },
@@ -4527,17 +4527,17 @@
       vignette: "A 36-year-old woman with systemic lupus erythematosus is starting hydroxychloroquine 300 mg daily. She weighs 70 kg and has normal renal function. She has no visual symptoms and no preexisting retinal disease. She asks how her eyes should be monitored while taking this medication.",
       leadIn: "Which of the following is the most appropriate ophthalmologic screening plan?",
       options: [
-        "Annual retinal screening starting immediately for all patients",
-        "Baseline eye examination, then annual screening after 5 years",
+        "No baseline imaging; yearly visual acuity testing alone",
+        "Baseline retinal imaging; annual screening from year 5",
         "No screening if the dose is below 10 mg/kg daily",
         "Screen only after visual symptoms develop"
       ],
       correct: 1,
-      explanation: "For hydroxychloroquine, obtain a <strong>baseline ophthalmologic examination</strong> within the first year and begin annual retinal screening after 5 years for average-risk patients. Earlier annual screening is used for high-risk patients such as those with renal disease, tamoxifen use, retinal disease, or excessive dosing. Safe dosing is at or below 5 mg/kg/day actual body weight, not 10 mg/kg/day. Waiting for symptoms is unsafe because retinopathy can be irreversible.",
+      explanation: "The AAO 2025 revision advises a <strong>baseline fundus exam, OCT, and fundus autofluorescence</strong> soon after hydroxychloroquine begins. Annual OCT/FAF screening may be deferred during the first 5 years in patients without significant risk factors, as here. Renal disease, tamoxifen, higher dose, and older age at initiation warrant earlier monitoring. Dose should generally be ≤5 mg/kg/day actual weight; this patient's dose is 4.3 mg/kg/day. Visual acuity alone or waiting for symptoms misses early, potentially irreversible toxicity.",
       flashcards: [
-        { f: "What is the recommended hydroxychloroquine retinal screening schedule for average-risk patients?", b: "Baseline exam within 1 year, then annual screening after 5 years of therapy.", x: "Toxicity risk is low early at proper dose but rises with cumulative exposure.", t: "Trap: Wait for symptoms; retinal damage can be irreversible before symptoms.", m: "Baseline now, yearly after year 5." },
+        { f: "What is the AAO 2025 hydroxychloroquine screening schedule for average-risk patients?", b: "Baseline fundus examination, OCT, and FAF soon after starting; annual imaging can be deferred during the first 5 years if no major risks.", x: "OCT and wide-pattern FAF are primary screening tools; visual fields or multifocal ERG help confirm uncertain findings.", t: "Trap: Normal acuity or absent symptoms does not exclude early retinal toxicity.", m: "Baseline images now; annual by year 5." },
         { f: "What hydroxychloroquine dose limit lowers retinal toxicity risk?", b: "≤5 mg/kg/day using actual body weight.", x: "Dose by actual weight best predicts retinal exposure and long-term toxicity risk.", t: "Trap: 10 mg/kg/day; that exceeds modern safety guidance.", m: "HCQ retina rule: 5 mg per kg." },
-        { f: "Name two high-risk features needing earlier HCQ retinal screening.", b: "Renal disease, tamoxifen use, preexisting retinal disease, high dose, or long duration.", x: "Reduced clearance or retinal vulnerability raises toxicity risk before the usual 5-year mark.", t: "Trap: Young age alone; youth does not remove screening needs.", m: "Kidneys, tamoxifen, retina, dose: screen sooner." }
+        { f: "Which risk factors favor earlier annual HCQ retinal screening?", b: "Renal disease, tamoxifen use, high daily dose, or older age at initiation; baseline retinal disease complicates monitoring.", x: "Reduced clearance and greater exposure increase toxicity risk; long duration increases risk even at appropriate dosing.", t: "Trap: The ≤5 mg/kg dose reduces risk but does not eliminate the need for long-term screening.", m: "Kidneys, tamoxifen, dose, older start: screen sooner." }
       ]
     },
     {
@@ -4558,7 +4558,7 @@
         { f: "Storiform fibrosis, obliterative phlebitis, and tumefactive pancreatitis suggest what?", b: "IgG4-related disease, often with elevated serum IgG4 and multi-organ fibroinflammation.", x: "IgG4-RD mimics malignancy but is immune-mediated and often steroid responsive.", t: "Trap: Sjögren causes sicca and SSA antibodies, not storiform pancreatic masses.", m: "IgG4 = 4 clues: glands, pancreas, fibrosis, phlebitis.",
           tb: { h: ["Feature", "IgG4-RD", "Sjögren"], r: [["Glands", "Painless swelling", "Sicca prominent"], ["Pancreas", "Autoimmune pancreatitis", "Unusual"], ["Biopsy", "Storiform fibrosis", "Focal lymphocytes"]] } },
         { f: "Which biopsy pattern is characteristic of IgG4-related disease?", b: "Dense lymphoplasmacytic infiltrate, storiform fibrosis, and obliterative phlebitis.", x: "Histology is more specific than serum IgG4 alone, which can be nonspecifically elevated.", t: "Trap: relying only on serum IgG4 can misclassify cancer or infection.", m: "IgG4 biopsy: lymphs, lattice, lost veins." },
-        { f: "First-line treatment for symptomatic IgG4-related disease is what?", b: "Glucocorticoids; rituximab is used for relapse, refractory disease, or steroid-sparing needs.", x: "B-cell/plasma-cell driven inflammation often responds rapidly to immune suppression.", t: "Trap: antibiotics do not treat autoimmune pancreatitis.", m: "IgG4 generally gives in to glucocorticoids." }
+        { f: "What treatments are used for symptomatic IgG4-related disease?", b: "Glucocorticoids commonly induce remission; B-cell-targeted therapy includes FDA-approved inebilizumab or off-label rituximab in selected patients.", x: "Inebilizumab, an anti-CD19 antibody, was approved for adult IgG4-related disease in 2025 and can reduce flares and steroid exposure.", t: "Trap: Elevated IgG4 alone is not diagnostic; exclude malignancy and infection before immune suppression.", m: "IgG4 therapy targets inflammation and B cells." }
       ]
     },
     {
@@ -4586,7 +4586,7 @@
       id: "neph-contrast-aki-prevention",
       system: "NEPH",
       task: "RISK",
-      vignette: "A 74-year-old man with diabetes and CKD stage 3b needs contrast-enhanced CT angiography for suspected limb ischemia. Creatinine is 1.9 mg/dL, eGFR is 34 mL/min/1.73 m2, potassium is 4.5 mEq/L, and he is clinically euvolemic. Medications include lisinopril, metformin, atorvastatin, and aspirin. There is no pulmonary edema.",
+      vignette: "A 74-year-old man with diabetes and stable CKD stage 4 needs contrast-enhanced CT angiography for suspected limb ischemia. Creatinine is 2.5 mg/dL, eGFR is 25 mL/min/1.73 m2, potassium is 4.5 mEq/L, and he is clinically euvolemic. Medications include lisinopril, atorvastatin, and aspirin. There is no pulmonary edema.",
       leadIn: "Which of the following is the most appropriate strategy to reduce contrast-associated acute kidney injury risk?",
       options: [
         "Oral N-acetylcysteine only",
@@ -4595,9 +4595,9 @@
         "IV isotonic saline before and after contrast"
       ],
       correct: 3,
-      explanation: "Patients with reduced eGFR undergoing iodinated contrast studies should receive <strong>isotonic IV volume expansion</strong> when not volume overloaded, along with minimizing contrast dose and avoiding nephrotoxins. N-acetylcysteine has not shown consistent benefit and is not sufficient prophylaxis. Prophylactic hemodialysis does not prevent contrast-associated AKI. Loop diuretics can worsen volume depletion and kidney injury unless needed for congestion.",
+      explanation: "For IV iodinated contrast, <strong>isotonic saline prophylaxis</strong> is indicated in patients with AKI or eGFR &lt;30 who are not on maintenance dialysis, unless fluid-overload risk outweighs benefit. At eGFR 30–44, consider prophylaxis only in selected high-risk circumstances; it is not routine for all CKD. Avoid nephrotoxins and use a diagnostically adequate contrast protocol rather than underdosing necessary imaging. N-acetylcysteine, prophylactic dialysis, and forced diuresis are not recommended.",
       flashcards: [
-        { f: "Best-proven prevention for contrast-associated AKI in high-risk patients?", b: "Isotonic IV volume expansion before and after contrast when not volume overloaded; minimize contrast and avoid nephrotoxins.", x: "Volume expansion maintains renal perfusion and dilutes tubular contrast exposure.", t: "Trap: relying on N-acetylcysteine instead of hydration.", m: "Contrast kidneys need saline, not supplements." },
+        { f: "Who should receive saline prophylaxis before IV iodinated contrast?", b: "Patients with AKI or eGFR <30, not on maintenance dialysis, when fluid administration is safe; consider selectively at eGFR 30–44.", x: "Modern IV contrast nephrotoxicity risk is lower than historically assumed; contrast-associated AKI is not necessarily contrast-caused.", t: "Trap: Do not delay urgently needed imaging or routinely hydrate every patient with mild CKD.", m: "Contrast prophylaxis is risk-based, not universal." },
         { f: "Does prophylactic dialysis prevent contrast-associated AKI?", b: "No. Do not use prophylactic hemodialysis solely to remove iodinated contrast.", x: "Dialysis after exposure does not prevent early tubular injury and adds procedural risks.", t: "Trap: dialyzing CKD patients after every contrast study.", m: "Dialysis cleans late, injury starts early." },
         { f: "Which patients are higher risk for contrast-associated AKI?", b: "Advanced CKD, AKI, diabetes with CKD, hypovolemia, heart failure, large contrast dose, and concurrent nephrotoxins.", x: "Reduced renal reserve and medullary hypoxia increase susceptibility to tubular stress.", t: "Trap: giving routine prophylaxis to all low-risk contrast recipients.", m: "Risk rises as GFR falls." }
       ]
@@ -4611,13 +4611,13 @@
       options: [
         "Tolvaptan therapy",
         "Empagliflozin therapy",
-        "Prednisone therapy",
-        "Sodium bicarbonate therapy"
+        "Everolimus therapy",
+        "Octreotide therapy"
       ],
       correct: 0,
-      explanation: "This young adult has ADPKD with preserved eGFR but high risk for rapid progression based on family history and Mayo class 1D; <strong>tolvaptan</strong> can slow eGFR decline, with counseling about polyuria and required liver test monitoring. SGLT2 inhibitors are beneficial in many CKD causes but are not established disease-modifying therapy for ADPKD. Prednisone has no role and adds toxicity. Sodium bicarbonate treats metabolic acidosis in CKD, which is absent here.",
+      explanation: "This adult has ADPKD with preserved eGFR but high risk for rapid progression based on Mayo class 1D; <strong>tolvaptan</strong> can slow kidney-function decline. Counsel about aquaresis and mandatory liver monitoring. KDIGO 2025 supports consideration in adults with eGFR ≥25 and rapid progression risk. SGLT2 inhibitors are not established ADPKD-specific disease-modifying therapy. mTOR inhibitors such as everolimus and somatostatin analogues such as octreotide are not recommended routine alternatives for slowing ADPKD kidney decline.",
       flashcards: [
-        { f: "Who with ADPKD is considered for tolvaptan?", b: "Adults at risk for rapid progression, such as large age-adjusted kidney volume, Mayo 1C-1E, early eGFR decline, or strong family history.", x: "V2-receptor blockade lowers cAMP signaling that drives cyst growth and kidney enlargement.", t: "Trap: offering tolvaptan to low-risk older patients with stable small kidneys.", m: "Big kidneys growing fast: block V2." },
+        { f: "Who with ADPKD is considered for tolvaptan under KDIGO 2025?", b: "Adults with eGFR ≥25 and evidence of rapid progression, such as Mayo 1C–1E or historical eGFR decline ≥3 mL/min/1.73 m²/year.", x: "Mayo 1C can include slower progressors and may need additional evidence; family history supports but does not replace progression assessment.", t: "Trap: Do not prescribe solely from a relative's dialysis age or apply Mayo classification to atypical cyst morphology.", m: "Risk and renal reserve select V2 blockade." },
         { f: "What monitoring is essential with tolvaptan?", b: "Baseline and serial liver aminotransferases and bilirubin; counsel about aquaresis, thirst, and polyuria.", x: "Tolvaptan can cause serious idiosyncratic liver injury and predictable free-water diuresis.", t: "Trap: prescribing without liver monitoring.", m: "Tolvaptan: thirsty therapy, liver labs." },
         { f: "What blood pressure approach is typical in ADPKD?", b: "Use RAAS blockade for hypertension; lower BP targets are often used in young patients with preserved kidney function when tolerated.", x: "Blood pressure control reduces cardiovascular risk and may slow kidney enlargement in early disease.", t: "Trap: ignoring mild hypertension in young ADPKD.", m: "ADPKD pressure control protects kidneys." }
       ]
@@ -4646,7 +4646,7 @@
       id: "neph-poststreptococcal-gn",
       system: "NEPH",
       task: "DX",
-      vignette: "A 9-year-old boy is brought in with cola-colored urine and facial puffiness 2 weeks after a sore throat. Blood pressure is 142/88 mm Hg. Urinalysis shows dysmorphic RBCs, RBC casts, and 2+ protein; creatinine is 1.1 mg/dL. Complement C3 is low, C4 is normal, antistreptolysin O titer is elevated, and serum albumin is 3.8 g/dL.",
+      vignette: "A 39-year-old man presents with cola-colored urine and facial puffiness 2 weeks after documented streptococcal pharyngitis. Blood pressure is 158/96 mm Hg. Urinalysis shows dysmorphic RBCs, RBC casts, and 2+ protein; creatinine is 1.8 mg/dL (baseline 0.9). Complement C3 is low, C4 is normal, antistreptolysin O titer is elevated, and serum albumin is 3.8 g/dL.",
       leadIn: "Which of the following is the most likely diagnosis?",
       options: [
         "Minimal change nephrotic syndrome",
@@ -4687,7 +4687,7 @@
       id: "heme-g6pd-hemolysis",
       system: "HEME",
       task: "DX",
-      vignette: "A 24-year-old man of Mediterranean ancestry develops jaundice, dark urine, and fatigue 2 days after starting trimethoprim-sulfamethoxazole for cellulitis. Hemoglobin is 8.6 g/dL, reticulocyte count is 8%, total bilirubin is 4.2 mg/dL, and haptoglobin is undetectable. Peripheral smear shows bite cells and Heinz bodies with supravital staining. Direct antiglobulin test is negative.",
+      vignette: "A 24-year-old man of Mediterranean ancestry develops jaundice, dark urine, and fatigue 2 days after starting dapsone for dermatitis herpetiformis. He recalls a similar episode after eating fava beans as a teenager. Hemoglobin is 8.6 g/dL, reticulocyte count is 8%, total bilirubin is 4.2 mg/dL, and haptoglobin is undetectable. Peripheral smear shows bite cells and Heinz bodies with supravital staining. Direct antiglobulin test is negative.",
       leadIn: "Which of the following is the most likely underlying disorder?",
       options: [
         "Pyruvate kinase deficiency anemia",
@@ -4698,10 +4698,10 @@
       correct: 3,
       explanation: "Oxidant drug exposure followed by episodic Coombs-negative hemolysis with bite cells and Heinz bodies is classic for <strong>G6PD deficiency</strong>. G6PD protects red cells by generating NADPH to maintain reduced glutathione. Warm autoimmune hemolysis has a positive direct antiglobulin test and spherocytes. Hereditary spherocytosis causes chronic extravascular hemolysis, and pyruvate kinase deficiency does not cause Heinz bodies after oxidant stress.",
       flashcards: [
-        { f: "Bite cells and Heinz bodies after TMP-SMX or dapsone suggest what enzyme defect?", b: "G6PD deficiency causing oxidant-induced episodic hemolysis.", x: "Low NADPH prevents glutathione regeneration, so hemoglobin oxidizes and splenic macrophages bite it out.", t: "Trap: warm AIHA has positive direct antiglobulin testing.", m: "G6PD: Glutathione 6 Protects RBCs Daily.",
+        { f: "Bite cells and Heinz bodies after an oxidant drug suggest what enzyme defect?", b: "G6PD deficiency causing episodic oxidative hemolysis.", x: "Low NADPH impairs glutathione regeneration; damaged hemoglobin precipitates and splenic macrophages remove inclusions, forming bite cells.", t: "Trap: Dapsone can also cause hemolysis in patients with normal G6PD; confirm the enzyme defect after recovery if necessary.", m: "G6PD protects glutathione.",
           tb: { h: ["Finding", "G6PD", "Warm AIHA"], r: [["DAT", "Negative", "Positive"], ["Smear", "Bite cells", "Spherocytes"], ["Trigger", "Oxidant stress", "Autoantibody"]] } },
         { f: "When can G6PD testing be falsely normal after hemolysis?", b: "During or soon after an acute episode, because older deficient RBCs are destroyed and reticulocytes have higher activity.", x: "Testing too early samples younger cells with relatively preserved enzyme activity.", t: "Trap: a normal acute G6PD level does not fully exclude the diagnosis.", m: "Retics can rescue the result." },
-        { f: "Which exposures trigger hemolysis in G6PD deficiency?", b: "Oxidant drugs, fava beans, and infections; examples include dapsone, primaquine, rasburicase, and sulfonamides.", x: "Oxidative stress denatures hemoglobin when antioxidant defenses are impaired.", t: "Trap: iron therapy does not prevent oxidant hemolysis.", m: "Fava, fever, pharmacy." }
+        { f: "Which exposures are important hemolysis risks in G6PD deficiency?", b: "Infections, fava beans, and high-risk oxidants such as dapsone, rasburicase, and certain primaquine regimens.", x: "Drug risk depends on agent and dose; blanket avoidance of every sulfonamide is not supported by contemporary CPIC guidance.", t: "Trap: Rasburicase is contraindicated in G6PD deficiency; verify status before use in high-risk patients.", m: "Fava, fever, high-risk oxidants." }
       ]
     },
     {
@@ -4749,16 +4749,16 @@
       id: "heme-cll-watch-and-wait",
       system: "HEME",
       task: "NEXT",
-      vignette: "A 66-year-old man is referred for persistent lymphocytosis discovered on routine testing. He feels well and denies fevers, night sweats, weight loss, or recurrent infections. Examination shows several 1-cm cervical nodes and no splenomegaly. Hemoglobin is 14.4 g/dL, platelet count is 188,000/µL, absolute lymphocyte count is 18,000/µL, and flow cytometry shows CD5-positive clonal B cells.",
+      vignette: "A 66-year-old man is referred for stable lymphocytosis present for 6 months. He feels well and denies fevers, night sweats, weight loss, or recurrent infections. Examination shows several 1-cm cervical nodes and no splenomegaly. Hemoglobin is 14.4 g/dL, platelet count is 188,000/µL, absolute lymphocyte count is 18,000/µL, and flow cytometry shows 16,000/µL clonal B cells coexpressing CD5 and CD23 with dim surface immunoglobulin.",
       leadIn: "Which of the following is the most appropriate management?",
       options: [
         "Immediate bendamustine and rituximab",
-        "Prophylactic splenectomy",
+        "Rituximab monotherapy",
         "Active surveillance",
         "Empiric high-dose prednisone"
       ],
       correct: 2,
-      explanation: "Asymptomatic early-stage <strong>chronic lymphocytic leukemia</strong> without cytopenias, bulky or progressive adenopathy, symptomatic splenomegaly, autoimmune complications, or B symptoms is managed with active surveillance. Early treatment has not shown a survival benefit and adds toxicity. Chemoimmunotherapy is not indicated and is less favored in many modern CLL settings. Splenectomy and prednisone are reserved for specific complications, not uncomplicated early CLL.",
+      explanation: "Asymptomatic early-stage <strong>chronic lymphocytic leukemia</strong> without cytopenias, bulky or progressive adenopathy, symptomatic splenomegaly, autoimmune complications, or B symptoms is managed with active surveillance. Early treatment has not shown a survival benefit and adds toxicity. Neither bendamustine–rituximab nor rituximab monotherapy is indicated without a treatment trigger. Prednisone may be used for an autoimmune complication, not uncomplicated early CLL.",
       flashcards: [
         { f: "Initial management of asymptomatic early-stage CLL without cytopenias is what?", b: "Active surveillance with periodic exam and CBC; do not treat solely for lymphocytosis.", x: "Early therapy does not improve survival and can cause infection, cytopenias, and secondary malignancy.", t: "Trap: high absolute lymphocyte count alone is not an indication for treatment.", m: "CLL: Calm? Look and listen." },
         { f: "What findings trigger treatment in CLL?", b: "B symptoms, threatened organ function, bulky/progressive nodes or spleen, marrow failure, rapid doubling, or refractory autoimmune cytopenias.", x: "Treatment is reserved for symptomatic or progressive disease where benefits outweigh toxicity.", t: "Trap: small stable nodes are not enough.", m: "Treat CLL when it causes trouble." },
@@ -4769,13 +4769,13 @@
       id: "onc-colon-stage-iii-adjuvant",
       system: "ONC",
       task: "RX",
-      vignette: "A 56-year-old man underwent right hemicolectomy for colon adenocarcinoma. Pathology shows a moderately differentiated tumor invading through the muscularis propria into pericolonic tissue with 2 of 24 lymph nodes positive and negative margins. CT of the chest, abdomen, and pelvis shows no metastases. ECOG performance status is 0 and creatinine clearance is 85 mL/min.",
+      vignette: "A 56-year-old man underwent right hemicolectomy for colon adenocarcinoma. Pathology shows a moderately differentiated, mismatch-repair-proficient tumor invading through the muscularis propria into pericolonic tissue with 2 of 24 lymph nodes positive and negative margins. CT of the chest, abdomen, and pelvis shows no metastases. ECOG performance status is 0 and creatinine clearance is 85 mL/min.",
       leadIn: "Which of the following is the most appropriate postoperative management?",
       options: [
         "Adjuvant oxaliplatin-based chemotherapy",
         "Observation with serial CEA testing alone",
         "Pelvic radiation with oral capecitabine",
-        "Pembrolizumab for all resected tumors"
+        "Adjuvant pembrolizumab monotherapy"
       ],
       correct: 0,
       explanation: "Node-positive colon cancer is <strong>stage III</strong> and should receive adjuvant oxaliplatin-based chemotherapy, such as FOLFOX or CAPOX, if medically fit. Surgery alone has a higher recurrence risk, and surveillance alone is inappropriate for stage III disease. Pelvic radiation is used selectively in rectal cancer, not routine colon cancer. Pembrolizumab is used in specific metastatic or selected high-risk settings with MSI-H/dMMR features, not regardless of MSI status after resection.",
@@ -4799,11 +4799,11 @@
         "Alectinib"
       ],
       correct: 1,
-      explanation: "Metastatic non-small cell lung cancer with an activating <strong>EGFR exon 19 deletion</strong> should receive first-line EGFR tyrosine kinase inhibition, with osimertinib preferred because of efficacy and CNS activity. Platinum chemotherapy is used when no actionable driver is present or after targeted options. Pembrolizumab monotherapy is not preferred first-line for EGFR-mutated disease despite PD-L1 expression. Alectinib targets ALK-rearranged lung cancer, not EGFR-mutated tumors.",
+      explanation: "For metastatic lung adenocarcinoma with a sensitizing <strong>EGFR exon 19 deletion</strong>, choose <strong>EGFR-directed therapy</strong> rather than pembrolizumab monotherapy. Among the listed options, <strong>osimertinib</strong> is the appropriate EGFR inhibitor and has CNS activity. Contemporary first-line options also include osimertinib plus platinum/pemetrexed and amivantamab plus lazertinib in suitable patients; monotherapy is not the only valid regimen. Alectinib targets ALK, not EGFR, and PD-L1 staining does not supersede the actionable EGFR result.",
       flashcards: [
-        { f: "First-line therapy for metastatic lung adenocarcinoma with EGFR exon 19 deletion?", b: "Osimertinib, a third-generation EGFR tyrosine kinase inhibitor.", x: "Driver mutations predict strong response to targeted therapy, outperforming immunotherapy or chemotherapy first.", t: "Trap: PD-L1 positivity does not override an actionable EGFR mutation.", m: "EGFR exon 19 = osimertinib first." },
+        { f: "What treatment principle guides metastatic NSCLC with an EGFR exon 19 deletion?", b: "Use first-line EGFR-directed therapy; osimertinib is an established option, alone or in an approved combination.", x: "Osimertinib plus platinum/pemetrexed and amivantamab–lazertinib are other current options; treatment intensity depends on disease and patient factors.", t: "Trap: PD-L1 positivity does not justify first-line pembrolizumab monotherapy instead of EGFR-directed treatment.", m: "Match EGFR to EGFR-directed therapy." },
         { f: "Which lung cancer drug targets ALK rearrangements?", b: "Alectinib is a preferred ALK inhibitor for ALK-positive metastatic NSCLC.", x: "Matching the drug to the driver mutation is essential; ALK and EGFR are different targets.", t: "Trap: alectinib is not an EGFR inhibitor.", m: "Alectinib attacks ALK." },
-        { f: "Why test molecular markers before immunotherapy in metastatic nonsquamous NSCLC?", b: "Actionable drivers such as EGFR, ALK, ROS1, BRAF, MET, RET, NTRK, and KRAS G12C guide targeted therapy.", x: "Targeted therapy can produce higher response rates and avoids ineffective early immunotherapy in some driver-positive tumors.", t: "Trap: starting pembrolizumab before driver results can be wrong.", m: "Test before treat." }
+        { f: "Why obtain broad molecular testing before treating metastatic nonsquamous NSCLC?", b: "Driver results can change systemic therapy selection and sequencing; first-line targeted options depend on the specific alteration.", x: "EGFR, ALK, ROS1, BRAF V600E, MET exon 14, RET, and NTRK can direct initial targeted therapy. Other alterations such as KRAS G12C may direct later-line options.", t: "Trap: Detecting an actionable mutation does not mean every targeted drug is approved for first-line use.", m: "Test before treatment; sequence by the specific driver." }
       ]
     },
     {
@@ -4839,7 +4839,7 @@
         "Indwelling pleural catheter placement"
       ],
       correct: 3,
-      explanation: "Recurrent symptomatic <strong>malignant pleural effusion</strong> is best palliated with an indwelling pleural catheter or pleurodesis if the lung reexpands; catheter placement is especially practical to reduce repeated thoracenteses. Observation does not address recurrent dyspnea. Diuretics help transudative volume overload, not malignant exudates. Systemic glucocorticoids do not reliably control malignant pleural fluid accumulation.",
+      explanation: "Recurrent symptomatic <strong>malignant pleural effusion</strong> is best palliated with an indwelling pleural catheter or pleurodesis if the lung reexpands; catheter placement is especially practical to reduce repeated thoracenteses. Serial thoracenteses relieve symptoms temporarily but become burdensome when fluid rapidly recurs. Diuretics help transudative volume overload, not malignant exudates. Systemic glucocorticoids do not reliably control malignant pleural fluid accumulation.",
       flashcards: [
         { f: "Recurrent symptomatic malignant pleural effusion with expandable lung is treated how?", b: "Indwelling pleural catheter or chemical pleurodesis for palliation.", x: "Both reduce recurrent dyspnea and the need for repeated thoracentesis.", t: "Trap: repeated thoracentesis alone becomes burdensome when effusion rapidly recurs.", m: "Malignant effusion returns; catheter lets it leave." },
         { f: "What must be considered before pleurodesis for malignant pleural effusion?", b: "The lung should reexpand after drainage; trapped lung favors indwelling pleural catheter.", x: "Pleurodesis requires pleural surfaces to oppose and scar together.", t: "Trap: pleurodesis fails when lung cannot appose chest wall.", m: "Pleurodesis needs pleura touching." },
@@ -4850,18 +4850,18 @@
       id: "onc-cancer-pain-opioids",
       system: "ONC",
       task: "RX",
-      vignette: "A 61-year-old man with metastatic pancreatic cancer has severe constant abdominal and back pain rated 8 of 10 despite scheduled acetaminophen and as-needed oxycodone 5 mg, which helps for only 2 hours. He is alert, has daily bowel movements, and wants better pain control at home. Creatinine is 0.8 mg/dL and bilirubin is 1.1 mg/dL.",
+      vignette: "A 61-year-old man with metastatic pancreatic cancer has constant abdominal and back pain. For 2 weeks he has taken oxycodone 10 mg every 4 hours around the clock, with pain falling to 3 of 10 but recurring before the next dose. His total use is consistently 60 mg/day without sedation or respiratory depression. He takes senna, has daily bowel movements, and wants a simpler home regimen. Creatinine is 0.8 mg/dL and bilirubin is 1.1 mg/dL.",
       leadIn: "Which of the following is the most appropriate analgesic plan?",
       options: [
         "Long-acting opioid plus rescue doses",
-        "Meperidine every 4 hours around the clock",
-        "Placebo trial before opioid dose escalation",
-        "Avoid all opioids until hospice enrollment"
+        "Tramadol every 6 hours with oxycodone rescue",
+        "Gabapentin as the sole scheduled analgesic",
+        "Continue short-acting oxycodone as needed"
       ],
       correct: 0,
-      explanation: "Moderate to severe cancer pain should be treated with <strong>scheduled opioids</strong>, often a long-acting formulation for persistent pain plus short-acting rescue doses and a bowel regimen. Breakthrough dosing is typically 10% to 20% of the total daily opioid dose. Meperidine is avoided because of neurotoxic metabolite accumulation. Placebo trials are unethical, and opioids should not be withheld until hospice when cancer pain is severe.",
+      explanation: "This opioid-tolerant patient has an established, stable, tolerated requirement of <strong>60 mg/day of oral oxycodone</strong>. Convert the scheduled daily requirement to a long-acting formulation, for example <strong>extended-release oxycodone 30 mg every 12 hours</strong>, while retaining immediate-release rescue doses and reassessing pain, sedation, and respiratory status. A typical rescue dose is 10%–20% of the daily dose (approximately 6–12 mg oxycodone; 10 mg is a practical dose here). Continue <strong>senna or another stimulant laxative</strong>, adding an osmotic agent if needed. Tramadol would step down effective analgesia; gabapentin can be an adjunct for neuropathic pain but is inadequate alone for this established opioid requirement. An as-needed-only regimen leaves constant baseline pain untreated. If changing to a different opioid, account for incomplete cross-tolerance rather than using the full calculated equianalgesic dose.",
       flashcards: [
-        { f: "Persistent severe cancer pain despite short-acting opioid needs what approach?", b: "Scheduled long-acting opioid plus short-acting rescue doses and bowel regimen.", x: "Around-the-clock analgesia prevents pain recurrence; rescue doses handle breakthrough pain.", t: "Trap: PRN-only dosing undertreats constant cancer pain.", m: "Cancer pain: baseline plus breakthrough." },
+        { f: "When is a long-acting opioid appropriate for persistent cancer pain?", b: "After titration establishes a stable effective daily opioid requirement; retain short-acting rescue doses and a bowel regimen.", x: "Initially use immediate-release opioids to establish response and tolerance. Convert based on actual daily use, accounting for incomplete cross-tolerance if changing drugs.", t: "Trap: Do not start a high-dose long-acting formulation in an opioid-naive patient with an undefined requirement.", m: "Titrate first, baseline plus breakthrough next." },
         { f: "Typical breakthrough opioid dose is what fraction of total daily opioid?", b: "About 10% to 20% of the total daily opioid dose, adjusted to response and adverse effects.", x: "Rescue dosing proportional to baseline opioid exposure provides adequate rapid analgesia.", t: "Trap: fixed tiny rescue doses often fail after tolerance develops.", m: "Breakthrough = tenth to fifth." },
         { f: "Why avoid meperidine for chronic cancer pain?", b: "Normeperidine metabolite can cause neurotoxicity and seizures, especially with repeated dosing or renal dysfunction.", x: "Safer opioids are available for ongoing malignant pain.", t: "Trap: meperidine is not a preferred opioid for chronic pain.", m: "Meperidine messes with mind." }
       ]
@@ -4931,7 +4931,7 @@
     {
       id: "neuro-restless-legs-iron",
       system: "NEURO",
-      task: "TEST",
+      task: "RX",
       vignette: "A 46-year-old woman reports an irresistible urge to move her legs when lying in bed. Symptoms are worse in the evening, improve when she walks, and delay sleep onset. Neurologic examination is normal. Hemoglobin is 12.2 g/dL, ferritin is 38 ng/mL, and transferrin saturation is 17%.",
       leadIn: "Which of the following is the most appropriate next step in management?",
       options: [
@@ -4957,7 +4957,7 @@
       leadIn: "Which of the following monitoring plans is most appropriate?",
       options: [
         "Metabolic monitoring for BMI, BP, glucose, and lipids",
-        "Baseline prolactin level only if galactorrhea develops",
+        "Prolactin levels every month and annual thyroid tests",
         "Routine annual ECG monitoring for all second-generation agents",
         "Weekly absolute neutrophil count monitoring for all patients"
       ],
@@ -4966,7 +4966,7 @@
       flashcards: [
         { f: "What baseline monitoring is needed with second-generation antipsychotics?", b: "Weight or BMI, waist if used, BP, fasting glucose or A1c, and fasting lipids.", x: "Atypical antipsychotics can rapidly increase cardiometabolic risk, especially early in treatment.", t: "Trap: Prolactin monitoring alone misses diabetes and dyslipidemia risk.", m: "Antipsychotic METS: Mass, Endocrine, Tension, Serum lipids",
           tb: { h: ["Monitor", "Reason"], r: [["Weight or BMI", "Weight gain"], ["Glucose or A1c", "Diabetes"], ["Lipids", "Dyslipidemia"], ["BP", "Hypertension"]] } },
-        { f: "Which antipsychotic requires ANC monitoring?", b: "Clozapine, due to severe neutropenia risk.", x: "REMS-style ANC surveillance detects dangerous marrow suppression before infection develops.", t: "Trap: Risperidone needs metabolic monitoring, not weekly ANC.", m: "Cloza-counts" },
+        { f: "Which antipsychotic requires ongoing ANC monitoring?", b: "Clozapine, because of severe neutropenia risk, even though its US REMS was removed in June 2025.", x: "Follow the prescribing-information ANC schedule; FDA no longer requires REMS enrollment or reporting as a dispensing condition.", t: "Trap: REMS removal did not remove neutropenia risk or the recommendation to monitor ANC.", m: "REMS gone, neutrophil checks remain" },
         { f: "Why check lipids and glucose after starting antipsychotics?", b: "To detect dyslipidemia and diabetes from medication-induced metabolic syndrome.", x: "Weight gain and insulin resistance may appear within weeks to months and drive long-term CV disease.", t: "Trap: Waiting for symptoms misses silent hyperglycemia.", m: "Mind meds monitor metabolism" }
       ]
     },
@@ -4974,20 +4974,21 @@
       id: "psych-clozapine-anc",
       system: "PSYCH",
       task: "RX",
-      vignette: "A 33-year-old man has schizophrenia with persistent command hallucinations despite adequate 8-week trials of risperidone and aripiprazole. He has been hospitalized twice for suicidal ideation. He has no history of seizures or myocarditis. Absolute neutrophil count is 2100/µL, A1c is 5.4%, and ECG shows normal QTc.",
+      vignette: "A 33-year-old man has schizophrenia with persistent command hallucinations despite adequate 8-week trials of risperidone and aripiprazole at therapeutic doses with confirmed adherence. He has been hospitalized twice for suicidal ideation. He has no history of seizures or myocarditis. Absolute neutrophil count is 2100/µL, A1c is 5.4%, and ECG shows normal QTc.",
       leadIn: "Which of the following is the most appropriate treatment?",
       options: [
-        "Add benztropine to aripiprazole",
+        "Add benztropine to the current regimen",
         "Start clozapine with ANC monitoring",
-        "Switch to fluoxetine monotherapy",
-        "Begin long-term lorazepam therapy now"
+        "Switch to olanzapine monotherapy",
+        "Add scheduled lorazepam to aripiprazole"
       ],
       correct: 1,
-      explanation: "<strong>Clozapine</strong> is indicated for treatment-resistant schizophrenia after failure of at least 2 adequate antipsychotic trials and also reduces suicidal behavior in schizophrenia. The baseline ANC is adequate; standard initiation requires ANC ≥1500/µL, or ≥1000/µL in benign ethnic neutropenia programs. Benztropine treats extrapyramidal symptoms but not refractory psychosis. SSRI monotherapy and chronic benzodiazepines do not treat schizophrenia and may worsen functioning.",
+      explanation: "<strong>Clozapine</strong> is indicated after two adequate antipsychotic trials with verified adherence and also reduces recurrent suicidal behavior in schizophrenia or schizoaffective disorder. Baseline ANC should generally be ≥1500/µL, or ≥1000/µL with documented Duffy-null-associated neutrophil count (historically called benign ethnic neutropenia). The <strong>US clozapine REMS was removed effective June 13, 2025</strong>; ANC monitoring remains recommended under the prescribing information, but REMS registration or ANC reporting is no longer a dispensing prerequisite. Titrate slowly and monitor constipation/ileus, orthostasis, myocarditis, seizures, and metabolic effects as well as ANC.",
       flashcards: [
         { f: "When is clozapine indicated in schizophrenia?", b: "After failure of at least 2 adequate antipsychotic trials, or for recurrent suicidality in schizophrenia.", x: "Clozapine is uniquely effective for treatment-resistant disease and reduces suicidal behavior.", t: "Trap: Repeating another similar antipsychotic delays proven therapy.", m: "Two failures → clozapine" },
-        { f: "Minimum ANC to start standard clozapine?", b: "ANC ≥1500/µL; ≥1000/µL may be used for benign ethnic neutropenia protocols.", x: "Clozapine can cause severe neutropenia, so adequate baseline marrow reserve and monitoring are required.", t: "Trap: Normal WBC alone is not the required threshold.", m: "Clozapine start: ANC 1500" },
-        { f: "Early clozapine monitoring focuses on which blood count?", b: "Absolute neutrophil count, checked frequently during initiation.", x: "Ongoing ANC surveillance detects dangerous marrow suppression before infection develops.", t: "Trap: A1c monitoring matters but does not replace ANC monitoring.", m: "Clozapine counts neutrophils" }
+        { f: "What baseline ANC supports clozapine initiation?", b: "Generally ≥1500/µL; ≥1000/µL with documented Duffy-null-associated neutrophil count.", x: "Use ANC rather than total WBC and the appropriate prescribing-information pathway; do not infer Duffy-null status from race alone.", t: "Trap: The lower threshold is not permission to ignore new neutropenia or infectious symptoms.", m: "Clozapine baseline: 1500, documented Duffy-null 1000" },
+        { f: "What changed in US clozapine monitoring after REMS removal?", b: "No REMS enrollment or ANC reporting requirement for dispensing; label-based ANC surveillance remains recommended.", x: "For stable counts, monitor weekly for 6 months, every 2 weeks for months 6–12, then monthly. Abnormal counts or treatment interruptions require schedule reassessment.", t: "Trap: Also actively monitor severe constipation/ileus, myocarditis symptoms, orthostasis, and metabolic toxicity.", m: "REMS removed; weekly, fortnightly, monthly monitoring stays",
+          tb: { h: ["Treatment duration", "Usual ANC frequency"], r: [["First 6 months", "Weekly"], ["Months 6–12", "Every 2 weeks"], ["After 12 months", "Monthly"]] } }
       ]
     },
     {
@@ -5008,7 +5009,7 @@
         { f: "First-line psychotherapy for PTSD?", b: "Trauma-focused psychotherapy such as prolonged exposure or cognitive processing therapy.", x: "Structured exposure and cognitive restructuring process traumatic memories and reduce avoidance.", t: "Trap: Benzodiazepines can impair recovery and are not PTSD first-line therapy.", m: "PTSD: face trauma with therapy" },
         { f: "Minimum duration for PTSD after trauma?", b: "Symptoms persist more than 1 month after the traumatic event.", x: "Acute stress disorder occurs from 3 days to 1 month; beyond that, PTSD is considered.", t: "Trap: Calling 2-week symptoms PTSD is too early.", m: "PTSD passes 1 month",
           tb: { h: ["Disorder", "Timing", "Core clue"], r: [["Acute stress", "3 d to 1 mo", "Post-trauma"], ["PTSD", "Over 1 mo", "Avoidance, arousal"], ["Adjustment", "Within 3 mo", "Stressor not trauma"]] } },
-        { f: "Medication classes with evidence for PTSD when therapy is unavailable?", b: "SSRIs or SNRIs such as sertraline, paroxetine, fluoxetine, or venlafaxine.", x: "Serotonergic agents reduce core PTSD symptoms; sedatives only mask insomnia.", t: "Trap: Zolpidem may aid sleep but does not treat PTSD core symptoms.", m: "PTSD meds: SSRI or SNRI" }
+        { f: "Which medications have the strongest guideline support for core PTSD symptoms?", b: "Sertraline, paroxetine, or venlafaxine when medication is preferred or trauma-focused therapy is unavailable.", x: "The 2023 VA/DoD guideline supports these specific agents; evidence is insufficient to recommend fluoxetine for core PTSD. Sertraline and paroxetine are FDA-approved for PTSD.", t: "Trap: Evidence is agent-specific; benzodiazepines are recommended against for PTSD.", m: "PTSD medication evidence: sertraline, paroxetine, venlafaxine" }
       ]
     },
     {
@@ -5039,12 +5040,12 @@
       leadIn: "Which of the following is the most appropriate treatment?",
       options: [
         "Liquid nitrogen cryotherapy",
-        "Oral doxycycline therapy",
-        "Topical terbinafine cream",
+        "Topical triamcinolone cream",
+        "Topical salicylic acid treatment",
         "Wide local excision with margins"
       ],
       correct: 0,
-      explanation: "An isolated gritty erythematous papule on chronically sun-exposed skin is an <strong>actinic keratosis</strong>, a premalignant keratinocyte lesion. Liquid nitrogen cryotherapy is appropriate for a small number of discrete lesions. Field therapy such as 5-fluorouracil is used for numerous lesions or field cancerization. Doxycycline and terbinafine treat infections, and wide excision is unnecessary unless invasive squamous cell carcinoma is suspected.",
+      explanation: "An isolated gritty erythematous papule on chronically sun-exposed skin is an <strong>actinic keratosis</strong>, a premalignant keratinocyte lesion. Liquid nitrogen cryotherapy is appropriate for a small number of discrete lesions. Field therapy such as 5-fluorouracil is used for numerous lesions or field cancerization. Topical triamcinolone treats inflammation but does not eradicate dysplastic keratinocytes; salicylic acid is not preferred definitive therapy for an isolated actinic keratosis. Wide excision is unnecessary unless invasive squamous cell carcinoma is suspected.",
       flashcards: [
         { f: "Best treatment for a few isolated actinic keratoses?", b: "Liquid nitrogen cryotherapy.", x: "AKs are premalignant keratinocyte lesions; focal destruction clears discrete lesions efficiently.", t: "Trap: Wide excision is for suspected invasive cancer, not a simple AK.", m: "AK: freeze the few",
           tb: { h: ["Lesion burden", "Typical treatment"], r: [["Few AKs", "Cryotherapy"], ["Many AKs", "Field therapy"], ["Invasive SCC", "Excision"]] } },
@@ -5062,10 +5063,10 @@
         "Daily oral prednisone",
         "Second-generation H1 antihistamine",
         "Skin biopsy of a wheal",
-        "Epinephrine autoinjector alone for daily use"
+        "Begin oral montelukast monotherapy"
       ],
       correct: 1,
-      explanation: "Chronic spontaneous urticaria causes pruritic transient wheals for at least 6 weeks, with individual lesions lasting &lt;24 hours. A <strong>second-generation H1 antihistamine</strong> is first-line and can be increased up to 4-fold if needed. Chronic daily prednisone has unacceptable toxicity and is reserved only for brief severe flares. Biopsy is considered when lesions last &gt;24 hours, bruise, burn, or suggest urticarial vasculitis; epinephrine is for anaphylaxis.",
+      explanation: "Chronic spontaneous urticaria causes pruritic transient wheals for at least 6 weeks, with individual lesions lasting &lt;24 hours. A <strong>second-generation H1 antihistamine</strong> is first-line and can be increased up to 4-fold if needed. Chronic daily prednisone has unacceptable toxicity; a brief course may be used for a severe flare. Biopsy is considered when lesions last &gt;24 hours, bruise, burn, or suggest urticarial vasculitis. Montelukast monotherapy has less evidence and does not replace first-line H1 blockade.",
       flashcards: [
         { f: "First-line treatment for chronic spontaneous urticaria?", b: "Daily second-generation H1 antihistamine; titrate up to 4 times standard dose if needed.", x: "Histamine drives wheals; newer H1 blockers control symptoms with less sedation than older agents.", t: "Trap: Daily prednisone is toxic and not chronic first-line therapy.", m: "Urticaria: H1 then up to 4x" },
         { f: "Duration defining chronic urticaria?", b: "Recurrent wheals for 6 weeks or longer.", x: "Most acute urticaria is self-limited; chronic disease is usually spontaneous and not a broad allergy workup problem.", t: "Trap: Extensive food panels rarely help chronic spontaneous urticaria.", m: "Hives for 6 = chronic" },
@@ -5076,29 +5077,29 @@
     {
       id: "obgyn-postpartum-thyroiditis",
       system: "OBGYN",
-      task: "DX",
-      vignette: "A 32-year-old woman is evaluated 4 months after delivery for palpitations, anxiety, and heat intolerance. She stopped breastfeeding 2 months ago and has no eye pain or diplopia. Pulse is 104/min and thyroid is nontender without bruit. TSH is 0.02 µU/mL, free T4 is 2.1 ng/dL, and radioactive iodine uptake is low.",
-      leadIn: "Which of the following is the most likely diagnosis?",
+      task: "RX",
+      vignette: "A 32-year-old woman who is exclusively breastfeeding a healthy term infant is evaluated 3 months after delivery for bothersome palpitations and tremor. Pulse is 108/min and BP is 118/72 mm Hg. TSH is 0.02 µU/mL and free T4 is 2.1 ng/dL. She has no thyroid pain, bruit, eye findings, asthma, or conduction disease. TSH-receptor antibodies are negative, and ultrasound shows low thyroid vascularity. Her endocrinologist has diagnosed the thyrotoxic phase of postpartum thyroiditis.",
+      leadIn: "Which treatment is most appropriate while she continues breastfeeding?",
       options: [
-        "Graves disease",
-        "Subacute thyroiditis",
-        "Postpartum thyroiditis",
-        "Toxic multinodular goiter"
+        "Methimazole 10 mg daily with thyroid-function reassessment.",
+        "Levothyroxine 50 mcg daily with thyroid-function reassessment.",
+        "Low-dose propranolol for symptoms with thyroid-function follow-up.",
+        "Prednisone 40 mg daily with a gradual taper over several weeks."
       ],
       correct: 2,
-      explanation: "Painless thyrotoxicosis within 1 year after delivery with low radioactive iodine uptake indicates <strong>postpartum thyroiditis</strong>. It is a destructive autoimmune thyroiditis, so antithyroid drugs are not useful; beta blockers can treat symptoms, and a hypothyroid phase may follow. Graves disease usually has elevated uptake, bruit, ophthalmopathy, or TSH-receptor antibodies. Subacute thyroiditis is painful, and toxic multinodular goiter has increased nodular uptake.",
+      explanation: "The thyrotoxic phase of <strong>postpartum thyroiditis</strong> is caused by release of stored hormone, not increased synthesis. Treat bothersome palpitations or tremor with a <strong>short course of low-dose propranolol or metoprolol</strong>, using the lowest effective dose; these agents are compatible with breastfeeding. <strong>Methimazole does not treat destructive thyroiditis</strong>. Levothyroxine is reserved for an indicated hypothyroid phase, and prednisone is not routine therapy for painless postpartum thyroiditis. Reassess thyroid function as symptoms change and about 4–8 weeks after the thyrotoxic phase resolves to detect subsequent hypothyroidism. Avoid diagnostic radioiodine studies during ongoing breastfeeding when the diagnosis can be established clinically and with safer testing.",
       flashcards: [
-        { f: "Postpartum thyroiditis occurs within what time after delivery?", b: "Within 1 year postpartum, often with transient hyperthyroid then hypothyroid phases.", x: "Autoimmune destructive thyroiditis releases stored hormone, then may deplete hormone stores.", t: "Trap: Graves disease has increased uptake, not low uptake.", m: "Postpartum thyroid swings in year 1" },
-        { f: "Radioiodine uptake in destructive thyroiditis?", b: "Low uptake.", x: "Inflamed thyroid leaks preformed hormone but is not actively synthesizing new hormone.", t: "Trap: Methimazole targets synthesis and is not useful in destructive thyroiditis.", m: "Leak = Low uptake",
-          tb: { h: ["Feature", "Postpartum thyroiditis", "Graves"], r: [["Uptake", "Low", "High"], ["Gland", "Nontender", "May have bruit"], ["Treatment", "Beta blocker", "Antithyroid drug"]] } },
-        { f: "Symptomatic treatment for postpartum thyrotoxic phase?", b: "Beta blocker such as propranolol if needed; monitor for hypothyroidism.", x: "Symptoms are adrenergic while hormone excess is from release, so blocking adrenergic effects helps.", t: "Trap: Radioiodine ablation is inappropriate for self-limited postpartum thyroiditis.", m: "Postpartum palpitations: beta block" }
+        { f: "What clinical course can postpartum thyroiditis follow?", b: "Thyrotoxicosis, hypothyroidism, or both within the first postpartum year; not every patient has both phases.", x: "Destructive hormone release produces early excess; subsequent depletion may cause hypothyroidism, and some patients remain hypothyroid permanently.", t: "Trap: Follow thyroid function after symptoms improve rather than assuming recovery is complete.", m: "Postpartum thyroid: excess may precede depletion" },
+        { f: "How is symptomatic thyrotoxicosis from postpartum thyroiditis treated during lactation?", b: "A brief course of low-dose propranolol or metoprolol when needed; do not use a thionamide for destructive hormone release.", x: "Use the lowest effective dose and taper off as symptoms settle. These beta blockers are compatible with breastfeeding; antithyroid drugs block synthesis, not release of stored hormone.", t: "Trap: Methimazole may be appropriate for Graves disease during lactation, but not for postpartum destructive thyroiditis.", m: "Leakage: block symptoms, not synthesis",
+          tb: { h: ["Phase", "Management"], r: [["Symptomatic thyrotoxic phase", "Short-term beta blocker"], ["Hypothyroid phase needing treatment", "Levothyroxine"], ["Recovery", "Reassess ongoing treatment need"]] } },
+        { f: "When should the hypothyroid phase of postpartum thyroiditis be treated?", b: "Offer levothyroxine for significant symptoms or overt hypothyroidism, and when pregnancy is being attempted; it is compatible with lactation.", x: "Mild asymptomatic hypothyroidism may be monitored with repeat TSH in 4–8 weeks. If treated, reassess eventual withdrawal after recovery, avoiding taper during pregnancy or active attempts to conceive. Check TSH annually and before a future pregnancy.", t: "Trap: A temporary postpartum episode can become permanent; long-term TSH surveillance remains important.", m: "Replace when needed, reassess after recovery" }
       ]
     },
     {
       id: "obgyn-ectopic-methotrexate",
       system: "OBGYN",
       task: "RX",
-      vignette: "A 27-year-old woman has 6 weeks of amenorrhea and mild left pelvic pain. She is hemodynamically stable and has no peritoneal signs. Transvaginal ultrasound shows no intrauterine pregnancy and a 2.5-cm left adnexal mass without fetal cardiac activity. Serum β-hCG is 2200 mIU/mL, creatinine is 0.7 mg/dL, AST is 22 U/L, and hemoglobin is 12.8 g/dL.",
+      vignette: "A 27-year-old woman has 6 weeks of amenorrhea and mild left pelvic pain. She is hemodynamically stable and has no peritoneal signs. Transvaginal ultrasound shows a 2.5-cm left adnexal gestational sac containing a yolk sac, no fetal cardiac activity, and no significant free fluid. Serum β-hCG is 2200 mIU/mL, creatinine is 0.7 mg/dL, AST is 22 U/L, and hemoglobin is 12.8 g/dL. She is not breastfeeding, can attend all follow-up visits, and prefers medical treatment.",
       leadIn: "Which of the following is the most appropriate management?",
       options: [
         "Immediate dilation and curettage",
@@ -5110,8 +5111,8 @@
       explanation: "A stable patient with confirmed or highly suspected ectopic pregnancy, small adnexal mass, no fetal cardiac activity, reliable follow-up, and normal renal and liver function is a candidate for <strong>single-dose methotrexate</strong>. Surgery is required for hemodynamic instability, rupture, peritoneal signs, contraindications to methotrexate, or often larger masses or high β-hCG levels. Waiting 4 weeks risks rupture. Dilation and curettage is not treatment for a visualized adnexal ectopic pregnancy.",
       flashcards: [
         { f: "Who can receive methotrexate for ectopic pregnancy?", b: "Stable patient, no rupture, small mass, no fetal cardiac activity, reliable follow-up, normal renal and liver function.", x: "Methotrexate stops trophoblast growth without surgery when rupture risk is low and follow-up is safe.", t: "Trap: Peritoneal signs or instability require surgery, not methotrexate.", m: "Ectopic MTX: stable, small, silent heart" },
-        { f: "Key follow-up after methotrexate for ectopic pregnancy?", b: "Serial β-hCG until undetectable, with expected decline after day 4 to day 7.", x: "Persistent trophoblast can rupture; falling hCG confirms treatment response.", t: "Trap: A single improved pain visit does not prove cure.", m: "MTX needs hCG tracking" },
-        { f: "Ultrasound finding diagnostic for ectopic in early pregnancy?", b: "Extrauterine gestational sac or adnexal mass with no intrauterine pregnancy in the right context.", x: "A pregnancy outside the uterus can rupture despite mild early symptoms.", t: "Trap: Waiting weeks after an adnexal ectopic risks hemorrhage.", m: "Empty uterus plus adnexa = ectopic" }
+        { f: "What is the single-dose methotrexate follow-up schedule for ectopic pregnancy?", b: "Check β-hCG on days 4 and 7; expect a decline of at least 15% between them, then check weekly until undetectable.", x: "An inadequate decline warrants reassessment for another dose or surgery. Rupture risk persists during follow-up even if hCG is falling.", t: "Trap: A day-4 rise can occur; worsening pain, syncope, or instability needs urgent evaluation rather than waiting for scheduled labs.", m: "Days 4 to 7: fifteen percent fall, then weekly" },
+        { f: "Which ultrasound finding definitively establishes an ectopic pregnancy?", b: "An extrauterine gestational sac containing a yolk sac or embryo.", x: "An empty uterus or nonspecific adnexal mass alone is not definitive; integrate serial hCG and repeat imaging when the location is uncertain.", t: "Trap: Do not give methotrexate solely because hCG exceeds a discriminatory threshold and no intrauterine sac is seen in a desired pregnancy.", m: "Extrauterine yolk sac proves the location" }
       ]
     },
     {
@@ -5141,13 +5142,13 @@
       vignette: "A 79-year-old woman is brought in for worsening forgetfulness, dry mouth, and constipation. She recently began taking diphenhydramine nightly for sleep. Other medications are lisinopril and calcium carbonate. Blood pressure is 126/74 mm Hg, Mini-Cog score is 3 of 5, and urinalysis is normal.",
       leadIn: "Which of the following is the most appropriate medication recommendation?",
       options: [
-        "Increase calcium carbonate",
+        "Start donepezil",
         "Stop diphenhydramine",
-        "Start oxybutynin",
-        "Add amitriptyline"
+        "Switch to doxylamine",
+        "Switch to amitriptyline"
       ],
       correct: 1,
-      explanation: "Diphenhydramine is a strongly anticholinergic first-generation antihistamine and is on the <strong>Beers list</strong> of potentially inappropriate medications for older adults. It increases risk for confusion, constipation, urinary retention, dry mouth, blurred vision, and falls. Oxybutynin and amitriptyline also have high anticholinergic burden and would worsen symptoms. Calcium carbonate does not address the medication-induced cognitive and autonomic adverse effects.",
+      explanation: "Diphenhydramine is a strongly anticholinergic first-generation antihistamine and is on the <strong>Beers list</strong> of potentially inappropriate medications for older adults. It increases risk for confusion, constipation, urinary retention, dry mouth, blurred vision, and falls. Stop the culprit and reassess cognition before diagnosing dementia or starting donepezil. Doxylamine and amitriptyline also have high anticholinergic burden and would perpetuate these adverse effects rather than provide safer insomnia treatment.",
       flashcards: [
         { f: "Why avoid diphenhydramine for sleep in older adults?", b: "Strong anticholinergic effects: confusion, constipation, urinary retention, dry mouth, and falls.", x: "Older adults have lower cholinergic reserve and higher sensitivity to central and peripheral blockade.", t: "Trap: OTC status does not make diphenhydramine safe for geriatrics.", m: "Benadryl bends brains" },
         { f: "Two common bladder and depression drugs with high anticholinergic burden?", b: "Oxybutynin and amitriptyline.", x: "Cumulative anticholinergic exposure worsens cognition, constipation, urinary retention, and fall risk.", t: "Trap: Adding oxybutynin can worsen retention and cognition.", m: "Oxy and ami are anti-cholinergic" },
@@ -5158,7 +5159,7 @@
       id: "geri-pressure-injury-stage",
       system: "GERI",
       task: "DX",
-      vignette: "An 84-year-old nursing home resident with advanced dementia is evaluated for a sacral ulcer. The wound has full-thickness skin loss with visible subcutaneous fat and granulation tissue. There is no exposed bone, tendon, ligament, cartilage, or muscle. Surrounding skin is mildly erythematous but there is no crepitus or purulence.",
+      vignette: "An 84-year-old nursing home resident with advanced dementia is evaluated for a sacral ulcer. The wound has full-thickness skin loss with visible subcutaneous fat and granulation tissue. There is no exposed or directly palpable fascia, bone, tendon, ligament, cartilage, or muscle, and no obscuring eschar. Surrounding skin is mildly erythematous but there is no crepitus or purulence.",
       leadIn: "Which of the following is the correct pressure injury stage?",
       options: [
         "Stage 1 pressure injury",
@@ -5178,7 +5179,7 @@
       id: "geri-elder-abuse-report",
       system: "GERI",
       task: "NEXT",
-      vignette: "An 82-year-old man with mild cognitive impairment is seen for weight loss and bruising. His son answers all questions and refuses to leave the room. When interviewed alone, the patient says his son sometimes hits him and withholds meals when angry. He asks you not to tell anyone because he fears nursing home placement.",
+      vignette: "An 82-year-old man with mild cognitive impairment is seen for weight loss and bruising. His son answers all questions and refuses to leave the room. When interviewed alone, the patient says his son sometimes hits him and withholds meals when angry. He asks you not to tell anyone because he fears nursing home placement. Applicable state law requires clinicians to report reasonable suspicion of abuse of an older adult.",
       leadIn: "Which of the following is the most appropriate next step?",
       options: [
         "Schedule routine follow-up in 6 months",
@@ -5189,7 +5190,7 @@
       correct: 3,
       explanation: "Clinicians are generally mandated to report suspected <strong>elder abuse</strong> to adult protective services or the appropriate state agency. Physical harm, neglect, controlling behavior, and fear of retaliation are sufficient for reporting; proof is not required before making a report. Routine follow-up or asking the suspected abuser to promise change leaves the patient at risk. Depression treatment may be needed later but does not replace immediate safety reporting.",
       flashcards: [
-        { f: "What should a clinician do for suspected elder abuse?", b: "Report to adult protective services or the required state agency.", x: "Mandatory reporting prioritizes safety because victims may be dependent on or fearful of the abuser.", t: "Trap: Proof is not required before reporting reasonable suspicion.", m: "Suspect elder abuse → APS" },
+        { f: "What should a clinician do for suspected elder abuse?", b: "Assess immediate safety, document findings, and report according to applicable state law to APS or the required agency.", x: "Reporting duties vary by jurisdiction and setting. Explain confidentiality limits, interview privately, and involve emergency services if danger is imminent.", t: "Trap: When reporting is mandated, reasonable suspicion is sufficient; proof and the patient's permission are not required.", m: "Safety, documentation, lawful reporting" },
         { f: "Interview strategy when elder abuse is possible?", b: "Speak with the patient alone in a safe, private setting.", x: "Potential abusers may control answers; privacy allows disclosure and risk assessment.", t: "Trap: Letting the caregiver answer everything can hide abuse.", m: "Abuse assessment needs alone time" },
         { f: "Examples of elder abuse beyond hitting?", b: "Neglect, financial exploitation, emotional abuse, sexual abuse, and abandonment.", x: "Abuse includes omission of care and coercive control, not only visible injuries.", t: "Trap: Weight loss from withheld meals is neglect and abuse.", m: "Elder abuse can be action or omission" }
       ]
@@ -5238,7 +5239,7 @@
       id: "found-asplenia-vaccines",
       system: "FOUND",
       task: "RISK",
-      vignette: "A 45-year-old woman is scheduled for elective splenectomy for hereditary spherocytosis. She received routine childhood vaccines but no adult pneumococcal, meningococcal, or Hib vaccines. She is not immunocompromised and has no vaccine allergies. The surgery is planned in 3 weeks.",
+      vignette: "A 45-year-old woman is scheduled for elective splenectomy for hereditary spherocytosis in 3 weeks. Records confirm no previous Hib, pneumococcal, or meningococcal vaccination. She has no vaccine allergies or other immunocompromising condition.",
       leadIn: "Which of the following vaccine strategies is most appropriate?",
       options: [
         "Influenza vaccine only after surgery",
@@ -5249,10 +5250,10 @@
       correct: 2,
       explanation: "Anatomic or functional asplenia increases risk for overwhelming infection with encapsulated organisms. Patients should receive <strong>pneumococcal, meningococcal ACWY and B, and Haemophilus influenzae type b</strong> vaccination, ideally at least 14 days before elective splenectomy when feasible. Annual influenza vaccination is also recommended but is not sufficient alone. Childhood vaccination does not eliminate the need for adult asplenia-specific vaccines and boosters.",
       flashcards: [
-        { f: "Core vaccines for adults with asplenia?", b: "Pneumococcal, MenACWY, MenB, Hib, plus annual influenza.", x: "Asplenia impairs clearance of encapsulated bacteria and raises risk for fulminant sepsis.", t: "Trap: Influenza alone misses encapsulated bacterial risk.", m: "No spleen: Pneumo, Mening, Hib",
-          tb: { h: ["Vaccine", "Why"], r: [["Pneumococcal", "Encapsulated sepsis"], ["MenACWY and MenB", "Meningococcemia"], ["Hib", "Encapsulated Hib"], ["Influenza", "Secondary infection"]] } },
+        { f: "What vaccines are central to adult asplenia prevention?", b: "Pneumococcal, MenACWY, MenB, Hib if not previously received, and annual influenza.", x: "For pneumococcal-vaccine-naive adults, PCV20 or PCV21 alone, or PCV15 followed by PPSV23, are current options; tailor to prior vaccine history.", t: "Trap: Routine childhood vaccines do not automatically complete the adult high-risk schedule, but a completed Hib history does not require routine repeat adult Hib.", m: "No spleen: pneumococcus and both meningococci; check Hib history",
+          tb: { h: ["Vaccine", "Key asplenia point"], r: [["Pneumococcal", "Use current history-based schedule"], ["MenACWY", "Primary series plus ongoing boosters"], ["MenB", "High-risk series plus boosters"], ["Hib", "1 dose if not previously received"]] } },
         { f: "When give vaccines before elective splenectomy?", b: "Ideally at least 14 days before surgery.", x: "Preoperative timing allows antibody response before splenic immune function is lost.", t: "Trap: Waiting until after surgery is less ideal when surgery is elective.", m: "Spleen vaccines 2 weeks before" },
-        { f: "Why do asplenic patients need meningococcal vaccines?", b: "They are at increased risk for severe Neisseria meningitidis infection and need ACWY and B coverage.", x: "The spleen helps clear encapsulated organisms from blood.", t: "Trap: Childhood MenACWY does not replace adult asplenia schedules.", m: "Asplenia needs both mening vaccines" }
+        { f: "What meningococcal boosters are needed with persistent asplenia?", b: "MenACWY every 5 years; MenB 1 year after the primary series, then every 2–3 years while risk persists.", x: "Use the high-risk primary schedules: MenACWY 2 doses at least 8 weeks apart and MenB usually 3 doses at 0, 1–2, and 6 months, following product-specific rules.", t: "Trap: MenACWY and MenB cover different serogroups; completing one does not replace the other.", m: "ACWY five-yearly; B after one year then every two to three" }
       ]
     },
     {
@@ -5288,7 +5289,7 @@
         "Arrange hyperbaric oxygen therapy"
       ],
       correct: 3,
-      explanation: "All carbon monoxide poisoning requires immediate 100% oxygen, but <strong>hyperbaric oxygen</strong> is recommended for severe poisoning such as neurologic symptoms, loss of consciousness, cardiac ischemia, severe acidosis, pregnancy, or carboxyhemoglobin generally &gt;25%. Pulse oximetry is falsely normal because it cannot distinguish oxyhemoglobin from carboxyhemoglobin. Methylene blue treats methemoglobinemia, not carbon monoxide poisoning. Sodium bicarbonate is not indicated without a specific severe acidosis or sodium-channel toxin indication.",
+      explanation: "Continue immediate <strong>100% oxygen</strong> and arrange urgent toxicology/hyperbaric consultation for this patient's persistent neurologic impairment and COHb of 28%. CDC guidance supports <strong>consideration of hyperbaric oxygen</strong> for neurologic impairment, loss of consciousness, cardiac involvement, severe acidosis, or COHb generally &gt;25–30%; pregnancy warrants a more aggressive approach. Benefit for preventing delayed neurologic injury is not uniformly established, so decisions also account for transport and treatment risk. Standard pulse oximetry cannot reliably distinguish oxyhemoglobin from carboxyhemoglobin. Methylene blue is for methemoglobinemia, not CO poisoning.",
       flashcards: [
         { f: "When consider hyperbaric oxygen for carbon monoxide poisoning?", b: "Neurologic symptoms, syncope, cardiac ischemia, severe acidosis, pregnancy, or COHb generally above 25%.", x: "Hyperbaric oxygen rapidly displaces CO and may reduce delayed neurologic injury in severe cases.", t: "Trap: Normal pulse ox does not rule out CO poisoning.", m: "CO HBO: brain, heart, baby, high COHb" },
         { f: "Why is pulse oximetry falsely normal in CO poisoning?", b: "Standard pulse ox cannot distinguish oxyhemoglobin from carboxyhemoglobin.", x: "CO-bound hemoglobin absorbs light similarly, so saturation appears high despite tissue hypoxia.", t: "Trap: ABG PaO2 can also be normal while oxygen content is low.", m: "CO fools pulse ox" },

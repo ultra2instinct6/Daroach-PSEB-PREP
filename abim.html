@@ -759,8 +759,42 @@
   .option-row:hover .opt-strike, .opt-strike:focus-visible { opacity: 1; border-color: var(--border); }
   .opt-strike:hover { color: var(--red); }
   .opt-strike[aria-pressed="true"] { opacity: 1; color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
-  .option.struck .opt-text { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--red) 70%, transparent); text-decoration-thickness: 2px; opacity: 0.45; }
-  .option.struck .opt-letter { opacity: 0.45; }
+  .option.struck .opt-text, .option.struck-through .opt-text { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--red) 70%, transparent); text-decoration-thickness: 2px; opacity: 0.45; }
+  .option.struck .opt-letter, .option.struck-through .opt-letter { opacity: 0.45; }
+  .option.selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+  .option.selected .opt-letter { color: var(--accent); }
+  .session-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 16px; }
+  .session-chip, .session-action {
+    padding: 7px 11px; border: 1px solid var(--border); border-radius: 999px;
+    color: var(--text-dim); font-size: 0.66rem; font-weight: 850; letter-spacing: 0.5px;
+  }
+  .session-action:hover, .session-action[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+  .session-chip { margin-left: auto; font-variant-numeric: tabular-nums; }
+  .session-chip.warning { color: var(--red); border-color: var(--red); }
+  .exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: 8px; margin-top: 16px; }
+  .exam-grid button { min-height: 42px; border: 1px solid var(--border); border-radius: 10px; color: var(--text-dim); font-weight: 800; }
+  .exam-grid button.current { outline: 2px solid var(--accent); color: var(--accent); }
+  .exam-grid button.answered { background: color-mix(in srgb, var(--green) 18%, transparent); color: var(--green); }
+  .exam-grid button.flagged { border-color: var(--amber); box-shadow: inset 0 0 0 1px var(--amber); }
+  .exam-grid button.unanswered { color: var(--text-dim); }
+  .session-form { display: grid; gap: 16px; }
+  .session-form label, .session-form legend { color: var(--text-bold); font-size: 0.82rem; font-weight: 800; }
+  .session-form select { width: 100%; margin-top: 6px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-void); color: var(--text-bold); }
+  .session-form fieldset { display: flex; flex-wrap: wrap; gap: 10px; border: 0; }
+  .session-form fieldset legend { width: 100%; margin-bottom: 2px; }
+  .session-form fieldset label { padding: 8px 10px; border: 1px solid var(--border); border-radius: 10px; color: var(--text-dim); }
+  .session-form input { accent-color: var(--accent); }
+  .session-note, .session-message { color: var(--text-dim); font-size: 0.75rem; line-height: 1.55; }
+  .session-message { min-height: 1.2em; color: var(--amber); }
+  .session-primary { padding: 11px 18px; border-radius: 999px; background: var(--accent); color: #001014; font-weight: 900; }
+  .session-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+  .session-secondary { padding: 10px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); font-weight: 800; }
+  .session-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .session-table { width: 100%; margin-top: 14px; border-collapse: collapse; font-size: 0.75rem; }
+  .session-table th, .session-table td { padding: 8px; border-bottom: 1px solid var(--border); text-align: left; }
+  .session-table th:last-child, .session-table td:last-child { text-align: right; }
+  [data-opt] { touch-action: manipulation; user-select: none; }
+  .progress-seg.seen-neutral { background: var(--text-dim); opacity: 0.65; }
 
   /* Pacing timer + quick links in the action bar. */
   .q-timer { display: inline-block; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; font-variant-numeric: tabular-nums; }
@@ -1023,6 +1057,7 @@
   <a class="header-logo" href="index.html">BOLO<span class="dot-mode" id="logoDot">.PREP</span></a>
   <a class="home-pill" href="index.html">◂ Menu</a>
   <span class="header-spacer"></span>
+  <button class="tool-pill" type="button" id="practiceBtn" aria-haspopup="dialog">▶ Start Practice</button>
   <button class="tool-pill memory-card-pill" type="button" aria-haspopup="dialog"><span aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="mc-pill-name">Student 1</span></button>
   <button class="tool-pill" type="button" id="blueprintBtn" aria-haspopup="dialog">📊 Progress</button>
   <button class="tool-pill" type="button" id="cardsBtn" aria-haspopup="dialog">🗂 Cards (<span id="cardsCount">0</span>)</button>
@@ -1033,6 +1068,8 @@
 
 <main class="stage" id="stage" aria-live="polite">
   <div class="filter-row" id="filterRow" aria-label="Filter questions by blueprint system" hidden></div>
+  <div class="session-message" id="storageError" role="alert" hidden></div>
+  <button class="session-secondary" id="retryExamSave" type="button" hidden>Retry saving expired block</button>
   <div class="progress-track" id="progressTrack"></div>
   <section class="q-card" id="qCard"></section>
 </main>
@@ -1073,7 +1110,70 @@
       <button class="btn-danger-ghost" type="button" data-reset-progress>↺ Reset All Progress</button>
     </div>
   </div>
-</div>
+  </div>
+
+  <div class="modal-backdrop" id="sessionModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="sessionTitle" tabindex="-1">
+      <div class="modal-head">
+        <div>
+          <div class="modal-title" id="sessionTitle">▶ Create Practice Session</div>
+          <div class="modal-sub">Practice only — this is not an official ABIM exam or scoring system. Mock sessions allow 100 seconds per item (60 items = 100:00); scores are raw practice results, not ABIM scaled scores or pass predictions.</div>
+        </div>
+        <button class="modal-close" type="button" data-close-session aria-label="Close dialog">✕</button>
+      </div>
+      <form class="session-form" id="sessionForm">
+        <fieldset>
+          <legend>Mode</legend>
+          <label><input type="radio" name="practiceMode" value="tutor" checked> Tutor · immediate feedback</label>
+          <label><input type="radio" name="practiceMode" value="mock"> Timed mock · answers hidden until submit</label>
+        </fieldset>
+        <div class="session-note">Tutor answers save immediately; incorrect concepts enter review due now. Mock results save only on submission. Questions are sampled without duplicates and delivered in random order; larger all-system blocks approximate blueprint weights when the pool permits.</div>
+        <label>Question pool
+          <select id="sessionFilter">
+            <option value="unused">Unused</option>
+            <option value="incorrect">Incorrect</option>
+            <option value="flagged">Flagged</option>
+            <option value="all">All Systems</option>
+          </select>
+        </label>
+        <label>System (optional)
+          <select id="sessionSystem"><option value="ALL">All Systems</option></select>
+        </label>
+        <fieldset>
+          <legend>Block size</legend>
+          <label><input type="radio" name="blockSize" value="10" checked> 10</label>
+          <label><input type="radio" name="blockSize" value="30"> 30</label>
+          <label><input type="radio" name="blockSize" value="60"> 60</label>
+        </fieldset>
+        <div class="session-note" id="sessionPoolNote"></div>
+        <div class="session-message" id="sessionMessage" role="status"></div>
+        <div class="session-actions">
+          <button class="session-primary" id="createSessionBtn" type="submit">Start Practice</button>
+          <button class="session-secondary" type="button" data-close-session>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="examGridModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="examGridTitle" tabindex="-1">
+      <div class="modal-head">
+        <div><div class="modal-title" id="examGridTitle">Question Navigator</div><div class="modal-sub">Current, answered, flagged, and unanswered items.</div></div>
+        <button class="modal-close" type="button" data-close-grid aria-label="Close dialog">✕</button>
+      </div>
+      <div id="examGrid" class="exam-grid"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="debriefModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="debriefTitle" tabindex="-1">
+      <div class="modal-head">
+        <div><div class="modal-title" id="debriefTitle">Practice Debrief</div><div class="modal-sub">Raw practice scoring only. ABIM reports scaled scores; 65–68% is a study target, not an official pass threshold.</div></div>
+      </div>
+      <div id="debriefBody"></div>
+      <div class="session-actions" id="debriefActions"></div>
+    </div>
+  </div>
 
 <div class="sr-only" role="status" aria-live="polite" id="ariaAnnouncer"></div>
 
@@ -1094,6 +1194,11 @@
   const STATUSES = ["ALL", "NEW", "MISSED", "CORRECT"];
   const picks = {};              // question id -> picked option index
   const collected = new Set();   // saved flashcards, keyed "questionId:cardIdx"
+  const flagged = new Set();     // question IDs, persisted with this profile
+  let activeExamSession = null;  // memory-only; submitted answers merge into picks
+  window.activeExamSession = null;
+  let examReviewMode = false;
+  let examReviewIds = [];
 
   /* Per-mode study session: current item index. Picks are keyed by stable
      question IDs, so filters and future bank growth never corrupt answers. */
@@ -1158,20 +1263,51 @@
      Answers, saved cards and the active filter survive reloads, so a large
      bank can be worked through across multiple sittings. */
   const STORE_KEY = "bolo.abim.v1";
+  let storageReadBlocked = false;
+  function storageError(message, error) {
+    console.error(message, error);
+    const banner = document.getElementById("storageError");
+    banner.textContent = message;
+    banner.hidden = false;
+    announcer.textContent = message;
+  }
   function saveState() {
+    if (storageReadBlocked) {
+      storageError("Saved progress could not be read. Writes are blocked to protect it; recover the profile storage or explicitly reset progress.", new Error("Invalid saved progress"));
+      return false;
+    }
     try {
+      if (window.BOLO_MEMCARD && window.BOLO_MEMCARD.isSuspended()) {
+        throw new Error("Learner profile is switching; progress cannot be saved before reload");
+      }
       localStorage.setItem(STORE_KEY, JSON.stringify({
         picks: picks, cards: Array.from(collected), filter: abimFilter, srs: srs,
-        status: statusFilter, times: times,
+        status: statusFilter, times: times, flags: Array.from(flagged),
         keyVer: DATA.KEY_VERSION || 1
       }));
-    } catch (e) {}
+      document.getElementById("storageError").hidden = true;
+      return true;
+    } catch (e) {
+      storageError("Progress could not be saved. Check this device's storage and try again.", e);
+      return false;
+    }
   }
   function loadState() {
     let needsResave = false;
     try {
-      const s = JSON.parse(localStorage.getItem(STORE_KEY));
-      if (!s) return;
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw === null) return;
+      const s = JSON.parse(raw);
+      const object = value => value && typeof value === "object" && !Array.isArray(value);
+      if (!object(s) || (s.picks !== undefined && !object(s.picks)) ||
+          (s.times !== undefined && !object(s.times)) || (s.srs !== undefined && !object(s.srs)) ||
+          (s.cards !== undefined && (!Array.isArray(s.cards) || s.cards.some(k => typeof k !== "string"))) ||
+          (s.flags !== undefined && (!Array.isArray(s.flags) || s.flags.some(k => typeof k !== "string"))) ||
+          Object.values(s.picks || {}).some(p => !Number.isInteger(p) || p < 0 || p > 3) ||
+          Object.values(s.times || {}).some(t => !Number.isFinite(t) || t < 0) ||
+          Object.values(s.srs || {}).some(entry => !object(entry) || !Number.isFinite(entry.due))) {
+        throw new Error("Invalid saved ABIM progress shape");
+      }
       Object.assign(picks, s.picks || {});
       /* Options were reordered when the answer key was rebalanced — move
          answers saved under the old order onto the same option text. */
@@ -1183,6 +1319,7 @@
         needsResave = true;
       }
       (s.cards || []).forEach(c => collected.add(c));
+      (s.flags || []).forEach(id => flagged.add(id));
       Object.keys(s.srs || {}).forEach(k => { srs[k] = s.srs[k]; });
       /* Cards saved before v2 carried no schedule — enroll them due now. */
       collected.forEach(k => { if (!srs[k]) srs[k] = newSrsEntry(); });
@@ -1190,19 +1327,34 @@
       if (STATUSES.indexOf(s.status) >= 0) statusFilter = s.status;
       Object.assign(times, s.times || {});
       if (needsResave) saveState();
-    } catch (e) {}
+    } catch (e) {
+      storageReadBlocked = true;
+      storageError("Saved progress could not be read. It has not been overwritten; recover the profile storage or explicitly reset progress.", e);
+    }
   }
   function resetProgress() {
+    if (activeExamSession && !activeExamSession.submitted) {
+      announcer.textContent = "End the active block before resetting saved progress.";
+      return false;
+    }
+    try { localStorage.removeItem(STORE_KEY); }
+    catch (e) {
+      storageError("Progress could not be reset because storage is unavailable.", e);
+      return false;
+    }
+    storageReadBlocked = false;
+    document.getElementById("storageError").hidden = true;
     Object.keys(picks).forEach(k => delete picks[k]);
     Object.keys(srs).forEach(k => delete srs[k]);
     collected.clear();
+    flagged.clear();
     Object.keys(times).forEach(k => delete times[k]);
     abimFilter = "ALL";
     statusFilter = "ALL";
     bankCache = null;
     sessions.abim.idx = 0;
     sessions.pseb.idx = 0;
-    try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+    return true;
   }
 
   /* ================= Question banks =================
@@ -1324,6 +1476,19 @@
   const reviewBtn = document.getElementById("reviewBtn");
   const reviewCount = document.getElementById("reviewCount");
   const themePill = document.getElementById("themePill");
+  const practiceBtn = document.getElementById("practiceBtn");
+  const sessionModal = document.getElementById("sessionModal");
+  const sessionForm = document.getElementById("sessionForm");
+  const sessionFilter = document.getElementById("sessionFilter");
+  const sessionSystem = document.getElementById("sessionSystem");
+  const sessionPoolNote = document.getElementById("sessionPoolNote");
+  const sessionMessage = document.getElementById("sessionMessage");
+  const createSessionBtn = document.getElementById("createSessionBtn");
+  const examGridModal = document.getElementById("examGridModal");
+  const examGrid = document.getElementById("examGrid");
+  const debriefModal = document.getElementById("debriefModal");
+  const debriefBody = document.getElementById("debriefBody");
+  const debriefActions = document.getElementById("debriefActions");
   const LETTERS = ["A", "B", "C", "D", "E"];
 
   /* ================= Theme =================
@@ -1348,8 +1513,9 @@
   function sysBank() {
     return abimFilter === "ALL" ? ABIM_QUESTIONS : ABIM_QUESTIONS.filter(q => q.system === abimFilter);
   }
+  function persistedPickOf(q) { return picks[q.id] === undefined ? null : picks[q.id]; }
   function matchesStatus(q, st) {
-    const p = pickOf(q);
+    const p = persistedPickOf(q);
     if (st === "NEW") return p === null;
     if (st === "MISSED") return p !== null && p !== q.correct;
     if (st === "CORRECT") return p !== null && p === q.correct;
@@ -1359,14 +1525,389 @@
      an item under "New" does not yank it out from under the learner. */
   function bank() {
     if (!isAbimMode) return PSEB_BANK;
+    if (activeExamSession) {
+      const ids = examReviewMode ? examReviewIds : activeExamSession.questionIds;
+      return ids.map(id => ABIM_QUESTIONS.find(q => q.id === id)).filter(Boolean);
+    }
     if (!bankCache) bankCache = sysBank().filter(q => matchesStatus(q, statusFilter));
     return bankCache;
   }
   function invalidateBank() { bankCache = null; }
   function currentQuestion() { return bank()[session().idx]; }
-  function pickOf(q) { const p = picks[q.id]; return p === undefined ? null : p; }
+  function pickOf(q) {
+    if (activeExamSession && activeExamSession.questionIds.includes(q.id)) {
+      return Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, q.id)
+        ? activeExamSession.userAnswers[q.id] : null;
+    }
+    return persistedPickOf(q);
+  }
   function fmtTime(sec) { sec = Math.max(0, Math.round(sec)); return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0"); }
   function rune(cls, label) { return '<span class="meta-rune ' + cls + '">' + esc(label) + "</span>"; }
+  const dialogReturnFocus = new WeakMap();
+  function anyDialogOpen() {
+    return [sessionModal, examGridModal, debriefModal, blueprintModal, cardsModal].some(el => el && !el.hidden);
+  }
+  function openDialog(backdrop, focusSelector) {
+    if (!backdrop || !backdrop.hidden) return;
+    if (activeExamSession && activeExamSession.mode === "tutor" && !activeExamSession.submitted) stopSessionItemClock();
+    dialogReturnFocus.set(backdrop, document.activeElement);
+    backdrop.hidden = false;
+    requestAnimationFrame(() => {
+      const focusable = backdrop.querySelector(focusSelector || "button, select, input");
+      if (focusable) focusable.focus();
+      else {
+        const dialog = backdrop.querySelector('[role="dialog"]');
+        if (dialog) dialog.focus();
+      }
+    });
+  }
+  function closeDialog(backdrop) {
+    if (!backdrop || backdrop.hidden) return;
+    backdrop.hidden = true;
+    const returnEl = dialogReturnFocus.get(backdrop);
+    if (returnEl && typeof returnEl.focus === "function") returnEl.focus();
+    if (!anyDialogOpen() && activeExamSession && activeExamSession.mode === "tutor" &&
+        !activeExamSession.submitted && !examReviewMode && !reviewMode) ensureSessionItemClock(currentQuestion());
+  }
+
+  function practicePool() {
+    const selected = sessionFilter.value;
+    const system = sessionSystem.value;
+    return ABIM_QUESTIONS.filter(q => {
+      if (system !== "ALL" && q.system !== system) return false;
+      if (selected === "unused") return persistedPickOf(q) === null;
+      if (selected === "incorrect") return persistedPickOf(q) !== null && persistedPickOf(q) !== q.correct;
+      if (selected === "flagged") return flagged.has(q.id);
+      return true;
+    });
+  }
+  function updateSessionPool() {
+    if (!sessionFilter || !sessionSystem) return;
+    const poolSize = practicePool().length;
+    const requested = parseInt((sessionForm.querySelector('[name="blockSize"]:checked') || {}).value || "10", 10);
+    createSessionBtn.disabled = poolSize === 0;
+    sessionMessage.textContent = poolSize ? "" : "No questions match. Choose another pool or system.";
+    sessionPoolNote.textContent = poolSize < requested
+      ? "Only " + poolSize + " question" + (poolSize === 1 ? "" : "s") + " match; this block will use all available questions."
+      : poolSize + " questions available. This block will use " + requested + ".";
+  }
+  function openSessionModal() {
+    if (!isAbimMode) setAbimMode(true);
+    sessionMessage.textContent = "";
+    updateSessionPool();
+    openDialog(sessionModal, "#sessionFilter");
+  }
+  function activeSlotId() {
+    const memcard = window.BOLO_MEMCARD;
+    if (!memcard || typeof memcard.pageSlotId !== "function") return 1;
+    return memcard.pageSlotId();
+  }
+  function shuffled(items) {
+    const result = items.slice();
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+  function samplePracticePool(pool, count, system) {
+    const unique = shuffled(Array.from(new Map(pool.map(q => [q.id, q])).values()));
+    if (system !== "ALL" || count < 30 || unique.length < count * 2) return unique.slice(0, count);
+    const groups = {};
+    unique.forEach(q => { (groups[q.system] || (groups[q.system] = [])).push(q); });
+    const keys = shuffled(Object.keys(groups));
+    const weights = {}, taken = {};
+    keys.forEach(k => {
+      const weight = parseFloat((SYSTEMS[k] || {}).weight);
+      weights[k] = Number.isFinite(weight) ? weight : 100 * groups[k].length / unique.length;
+      taken[k] = 0;
+    });
+    const total = keys.reduce((sum, k) => sum + weights[k], 0);
+    const selected = [];
+    while (selected.length < count) {
+      const eligible = keys.filter(k => groups[k].length);
+      const key = eligible.reduce((best, k) =>
+        !best || count * weights[k] / total - taken[k] > count * weights[best] / total - taken[best] ? k : best, null);
+      selected.push(groups[key].pop());
+      taken[key]++;
+    }
+    return shuffled(selected);
+  }
+  function abortSessionNote() {
+    return activeExamSession && activeExamSession.mode === "tutor"
+      ? "Tutor answers already recorded remain saved to this profile."
+      : "Unsubmitted mock answers will be lost.";
+  }
+  function clearExamSession() {
+    const retry = document.getElementById("retryExamSave");
+    if (!retry.hidden && !storageReadBlocked) document.getElementById("storageError").hidden = true;
+    retry.hidden = true;
+    activeExamSession = null;
+    window.activeExamSession = null;
+    examReviewMode = false;
+    examReviewIds = [];
+  }
+  function startExamSession() {
+    const pool = practicePool();
+    const requested = parseInt((sessionForm.querySelector('[name="blockSize"]:checked') || {}).value || "10", 10);
+    if (!pool.length) { updateSessionPool(); return; }
+    if (activeExamSession && !activeExamSession.submitted &&
+        !window.confirm("End the current session and start a new one? " + abortSessionNote())) return;
+    const count = Math.min(requested, pool.length);
+    const selected = samplePracticePool(pool, count, sessionSystem.value);
+    const mode = (sessionForm.querySelector('[name="practiceMode"]:checked') || {}).value === "mock" ? "mock" : "tutor";
+    clearTimeout(gradeTimer);
+    gradeTimer = null;
+    gradeLock = false;
+    reviewMode = false;
+    reviewQueue = [];
+    reviewShown = false;
+    reviewStats = { done: 0, again: 0 };
+    clearTimeout(longPressTimer);
+    longPressTimer = null;
+    longPressOrigin = null;
+    suppressedOptionClick = null;
+    const now = Date.now();
+    activeExamSession = {
+      mode: mode,
+      filter: sessionFilter.value,
+      system: sessionSystem.value,
+      requestedCount: requested,
+      questionIds: selected.map(q => q.id),
+      userAnswers: {},
+      struck: {},
+      times: {},
+      startedAt: now,
+      durationMs: mode === "mock" ? count * 100000 : null,
+      deadline: mode === "mock" ? now + count * 100000 : null,
+      index: 0,
+      itemStartedAt: null,
+      submitted: false,
+      autoSubmitAttempted: false,
+      sentToQueue: false,
+      slotId: activeSlotId()
+    };
+    window.activeExamSession = activeExamSession;
+    document.getElementById("retryExamSave").hidden = true;
+    examReviewMode = false;
+    examReviewIds = [];
+    sessions.abim.idx = 0;
+    timesSessionReset();
+    closeDialog(sessionModal);
+    stopTiming();
+    setAbimMode(true, false);
+    renderFilter();
+    renderQuestion();
+    renderScore();
+    announcer.textContent = (mode === "mock" ? "Timed mock" : "Tutor practice") + " started with " + count + " questions.";
+  }
+  function timesSessionReset() {
+    if (activeExamSession) activeExamSession.itemStartedAt = null;
+  }
+  function sessionSeconds(id) {
+    const saved = activeExamSession && activeExamSession.times[id] || 0;
+    const q = currentQuestion();
+    if (activeExamSession && q && q.id === id && activeExamSession.itemStartedAt) {
+      return saved + (Date.now() - activeExamSession.itemStartedAt) / 1000;
+    }
+    return saved;
+  }
+  function stopSessionItemClock() {
+    if (!activeExamSession || !activeExamSession.itemStartedAt) return;
+    const q = currentQuestion();
+    if (q) activeExamSession.times[q.id] = (activeExamSession.times[q.id] || 0) +
+      (Date.now() - activeExamSession.itemStartedAt) / 1000;
+    activeExamSession.itemStartedAt = null;
+  }
+  function ensureSessionItemClock(q) {
+    if (activeExamSession && !activeExamSession.submitted && !activeExamSession.itemStartedAt && !document.hidden &&
+        !anyDialogOpen() &&
+        !(activeExamSession.mode === "tutor" && Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, q.id))) {
+      activeExamSession.itemStartedAt = Date.now();
+    }
+    return q ? sessionSeconds(q.id) : 0;
+  }
+  function mockRemainingSeconds() {
+    return activeExamSession && activeExamSession.mode === "mock" && activeExamSession.deadline
+      ? Math.max(0, Math.ceil((activeExamSession.deadline - Date.now()) / 1000)) : 0;
+  }
+  function persistTutorAnswer(q, answer) {
+    const before = {
+      picks: Object.assign({}, picks),
+      times: Object.assign({}, times),
+      cards: Array.from(collected),
+      srs: Object.fromEntries(Object.entries(srs).map(([k, entry]) => [k, Object.assign({}, entry)]))
+    };
+    picks[q.id] = answer;
+    times[q.id] = activeExamSession.times[q.id] || 0;
+    if (answer !== q.correct) {
+      q.flashcards.forEach((card, i) => {
+        const key = cardKey(q, i);
+        addCardToDeck(key);
+        srs[key].due = Date.now();
+      });
+    }
+    if (saveState()) return true;
+    [picks, times, srs].forEach((target, i) => {
+      const prior = [before.picks, before.times, before.srs][i];
+      Object.keys(target).forEach(k => { delete target[k]; });
+      Object.assign(target, prior);
+    });
+    collected.clear();
+    before.cards.forEach(k => collected.add(k));
+    return false;
+  }
+  function submitExamSession(automatic) {
+    if (!activeExamSession || activeExamSession.submitted) return;
+    if (automatic) activeExamSession.autoSubmitAttempted = true;
+    if (!automatic) {
+      const unanswered = activeExamSession.questionIds.filter(id =>
+        !Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, id)).length;
+      if (!window.confirm("End this block now? " + unanswered + " unanswered " +
+          (unanswered === 1 ? "item will" : "items will") + " count as missed.")) return;
+    }
+    stopSessionItemClock();
+    const rollback = { picks: Object.assign({}, picks), times: Object.assign({}, times), struck: Object.assign({}, struck) };
+    activeExamSession.questionIds.forEach(id => {
+      if (Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, id)) {
+        picks[id] = activeExamSession.userAnswers[id];
+        if (activeExamSession.times[id]) times[id] = activeExamSession.times[id];
+      }
+      const strikeSet = activeExamSession.struck[id] || [];
+      struck[id] = strikeSet.slice();
+    });
+    activeExamSession.submitted = true;
+    activeExamSession.submittedAt = activeExamSession.mode === "mock"
+      ? Math.min(Date.now(), activeExamSession.startedAt + activeExamSession.durationMs) : Date.now();
+    activeExamSession.deadline = null;
+    if (!saveState()) {
+      [picks, times, struck].forEach((target, i) => {
+        const prior = [rollback.picks, rollback.times, rollback.struck][i];
+        Object.keys(target).forEach(k => { delete target[k]; });
+        Object.assign(target, prior);
+      });
+      activeExamSession.submitted = false;
+      delete activeExamSession.submittedAt;
+      activeExamSession.deadline = activeExamSession.mode === "mock"
+        ? activeExamSession.startedAt + activeExamSession.durationMs : null;
+      if (automatic) {
+        document.getElementById("storageError").textContent =
+          "Time expired. Answers are locked, but the block could not be saved. Restore storage access and retry saving.";
+        document.getElementById("retryExamSave").hidden = false;
+      }
+      renderQuestion();
+      return;
+    }
+    document.getElementById("retryExamSave").hidden = true;
+    [sessionModal, examGridModal, blueprintModal, cardsModal].forEach(modal => {
+      if (!modal.hidden) closeDialog(modal);
+    });
+    examReviewMode = false;
+    renderQuestion();
+    renderScore();
+    renderFilter();
+    renderDebrief();
+    openDialog(debriefModal, ".session-primary");
+    announcer.textContent = automatic ? "Mock time expired. Your block was submitted." : "Practice block submitted.";
+  }
+  function renderDebrief() {
+    const ids = activeExamSession.questionIds;
+    let correct = 0, answered = 0, timeTotal = 0;
+    const systems = {};
+    ids.forEach(id => {
+      const q = ABIM_QUESTIONS.find(item => item.id === id);
+      if (!q) return;
+      const answer = activeExamSession.userAnswers[id];
+      const row = systems[q.system] || (systems[q.system] = { n: 0, correct: 0, unanswered: 0 });
+      row.n++;
+      if (answer === undefined) row.unanswered++;
+      else {
+        answered++;
+        if (answer === q.correct) { correct++; row.correct++; }
+      }
+      timeTotal += activeExamSession.times[id] || 0;
+    });
+    const pct = Math.round(100 * correct / Math.max(1, ids.length));
+    const elapsed = Math.max(0, ((activeExamSession.submittedAt || Date.now()) - activeExamSession.startedAt) / 1000);
+    const average = ids.length ? (activeExamSession.mode === "tutor" ? timeTotal : elapsed) / ids.length : 0;
+    const benchmark = percent => percent < 65 ? "Below study target" : percent <= 68 ? "Within study target" : "Above study target";
+    const pace = average < 95 ? "Fast" : average <= 105 ? "On-target" : "Slow";
+    debriefBody.innerHTML =
+      '<div class="perf-stats"><div class="perf-stat"><b>' + correct + "/" + ids.length + '</b><span>Raw score · unanswered count as missed</span></div>' +
+      '<div class="perf-stat"><b>' + pct + '%</b><span>' + benchmark(100 * correct / Math.max(1, ids.length)) + ' · practice accuracy</span></div>' +
+      '<div class="perf-stat"><b>' + fmtTime(average) + '</b><span>' + pace + ' · average ' +
+      (activeExamSession.mode === "tutor" ? "active" : "elapsed") + ' time vs 100 sec/item (on-target: 95–105 sec)</span></div>' +
+      '<div class="perf-stat"><b>' + answered + "/" + ids.length + '</b><span>Answered</span></div></div>' +
+      '<div class="session-note">Time actively spent on items: ' + fmtTime(timeTotal) +
+      '. The 65–68% range is a study target only; it is not an official ABIM passing standard. ABIM reports scaled scores, so this practice percentage is not a pass threshold or score prediction.</div>' +
+      '<table class="session-table"><thead><tr><th>Organ system</th><th>Correct / items</th><th>Unanswered</th><th>Percent</th><th>65–68% study target (not official)</th></tr></thead><tbody>' +
+      Object.keys(systems).map(key => {
+        const row = systems[key], percent = 100 * row.correct / row.n;
+        return '<tr><td>' + esc(SYSTEMS[key] ? SYSTEMS[key].label : key) + '</td><td>' +
+          row.correct + " / " + row.n + '</td><td>' + row.unanswered + '</td><td>' +
+          percent.toFixed(1) + '%</td><td>' + benchmark(percent) + '</td></tr>';
+      }).join("") +
+      "</tbody></table>";
+    debriefActions.innerHTML =
+      '<button class="session-primary" type="button" data-exam-review="all">Review All</button>' +
+      '<button class="session-secondary" type="button" data-exam-review="incorrect">Review Incorrect</button>' +
+      '<button class="session-secondary" type="button" data-send-missed' + (activeExamSession.sentToQueue ? " disabled" : "") + '>' +
+      (activeExamSession.sentToQueue ? "Missed Concepts Sent ✓" : "Send Missed Concepts to Review Queue") + '</button>' +
+      '<button class="session-secondary" type="button" data-close-debrief>Close</button>';
+  }
+  function renderExamGrid() {
+    if (!activeExamSession) return;
+    const ids = bank().map(q => q.id);
+    examGrid.innerHTML = ids.map((id, i) => {
+      const isAnswered = Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, id);
+      const classes = [i === sessions.abim.idx ? "current" : "", isAnswered ? "answered" : "unanswered",
+        flagged.has(id) ? "flagged" : ""].filter(Boolean).join(" ");
+      return '<button type="button" class="' + classes + '" data-grid-jump="' + i +
+        '" aria-label="Item ' + (i + 1) + (isAnswered ? ", answered" : ", unanswered") +
+        (flagged.has(id) ? ", flagged" : "") + '">' + (i + 1) + (flagged.has(id) ? " ⚑" : "") + "</button>";
+    }).join("");
+  }
+  function sendMissedToQueue(button) {
+    if (!activeExamSession || !activeExamSession.submitted || activeExamSession.sentToQueue) return;
+    const now = Date.now();
+    const before = {};
+    activeExamSession.questionIds.forEach(id => {
+      const q = ABIM_QUESTIONS.find(item => item.id === id);
+      if (!q) return;
+      const answer = activeExamSession.userAnswers[id];
+      if (answer !== undefined && answer === q.correct) return;
+      q.flashcards.forEach((card, i) => {
+        const key = cardKey(q, i);
+        if (!Object.prototype.hasOwnProperty.call(before, key)) {
+          before[key] = { collected: collected.has(key), srs: srs[key] ? Object.assign({}, srs[key]) : null };
+        }
+        addCardToDeck(key);
+        const entry = srs[key];
+        entry.lapses += 1;
+        entry.reps = 0;
+        entry.ivl = 0;
+        entry.ease = Math.max(1.3, entry.ease - 0.2);
+        entry.due = now + 10 * MINUTE;
+      });
+    });
+    activeExamSession.sentToQueue = true;
+    if (!saveState()) {
+      activeExamSession.sentToQueue = false;
+      Object.keys(before).forEach(key => {
+        if (before[key].collected) collected.add(key); else collected.delete(key);
+        if (before[key].srs) srs[key] = before[key].srs; else delete srs[key];
+      });
+      renderDebrief();
+      return;
+    }
+    renderCardsCount();
+    renderReviewCount();
+    renderDebrief();
+    const sentButton = debriefActions.querySelector("[data-send-missed]");
+    if (sentButton) sentButton.disabled = true;
+    if (button) button.textContent = "Missed Concepts Sent ✓";
+    announcer.textContent = "Missed concepts enrolled in the review queue and scheduled for Again in 10 minutes.";
+  }
 
   /* Category + exam-task chips come from the data-module registries; legacy
      PSEB demo items may instead carry a literal tags array. */
@@ -1385,7 +1926,10 @@
     progressTrack.innerHTML = b.map((q, i) => {
       let cls = "progress-seg";
       const p = pickOf(q);
-      if (p !== null) cls += p === q.correct ? " seen-correct" : " seen-wrong";
+      if (p !== null) {
+          if (activeExamSession && activeExamSession.mode === "mock" && !activeExamSession.submitted) cls += " seen-neutral";
+        else cls += p === q.correct ? " seen-correct" : " seen-wrong";
+      }
       if (i === s.idx) cls += " current";
       return '<button class="' + cls + '" type="button" data-jump="' + i +
         '" aria-label="Go to question ' + (i + 1) + '"></button>';
@@ -1395,37 +1939,11 @@
   }
 
   function renderFilter() {
-    if (!isAbimMode) { filterRow.hidden = true; filterRow.innerHTML = ""; return; }
-    const counts = {};
-    ABIM_QUESTIONS.forEach(q => { counts[q.system] = (counts[q.system] || 0) + 1; });
-    const answered = {};
-    ABIM_QUESTIONS.forEach(q => { if (pickOf(q) !== null) answered[q.system] = (answered[q.system] || 0) + 1; });
-    const allDone = Object.keys(answered).reduce((a, k) => a + answered[k], 0);
-    const chip = (key, label, count, done) =>
-      '<button class="filter-chip' + (abimFilter === key ? " active" : "") +
-      '" type="button" data-filter="' + key + '" style="--done:' + Math.round(100 * done / Math.max(1, count)) + '%"' +
-      ' title="' + done + " of " + count + ' answered">' + esc(label) +
-      ' <span class="chip-count">' + count + "</span></button>";
-    let html = chip("ALL", "All Systems", ABIM_QUESTIONS.length, allDone);
-    Object.keys(SYSTEMS).forEach(k => { if (counts[k]) html += chip(k, SYSTEMS[k].label, counts[k], answered[k] || 0); });
-    const sb = sysBank();
-    const n = st => sb.filter(q => matchesStatus(q, st)).length;
-    const label = { ALL: "All", NEW: "✦ New", MISSED: "✖ Missed", CORRECT: "✓ Correct" };
-    const seg = STATUSES.map(st => '<button class="status-btn' + (statusFilter === st ? " active" : "") +
-      '" type="button" data-status="' + st + '" aria-pressed="' + (statusFilter === st) + '">' + label[st] +
-      "<b>" + n(st) + "</b></button>").join("");
-    filterRow.innerHTML = '<div class="status-seg" role="group" aria-label="Filter by answer status">' + seg +
-      '<span class="status-tools"><button class="status-btn" type="button" data-shuffle title="Jump to a random item in this list">🎲 Random</button></span></div>' +
-      '<div class="sys-scroll" role="group" aria-label="Filter by blueprint system">' + html + "</div>";
-    filterRow.hidden = false;
-    const active = filterRow.querySelector(".sys-scroll .filter-chip.active");
-    if (active && active.dataset.filter !== "ALL") {
-      const sc = filterRow.querySelector(".sys-scroll");
-      sc.scrollLeft = active.offsetLeft - sc.offsetLeft - 12;
-    }
+    filterRow.hidden = true;
+    filterRow.innerHTML = "";
   }
 
-  /* Pacing: time accumulates per item until it is answered (ABIM pace ≈ 2 min). */
+  /* Pacing: practice blocks allow 100 seconds per item. */
   let timedId = null, timedStart = 0;
   const timeAcc = {};
   function stopTiming() {
@@ -1436,16 +1954,68 @@
     return (timeAcc[id] || 0) + (timedId === id ? (Date.now() - timedStart) / 1000 : 0);
   }
   function tickTimer() {
+    if (activeExamSession && !activeExamSession.submitted && activeExamSession.mode === "mock") {
+      const remaining = mockRemainingSeconds();
+      const el = document.getElementById("sessionCountdown");
+      if (el) {
+        el.textContent = "⏱ " + fmtTime(remaining).padStart(5, "0");
+        el.classList.toggle("warning", remaining < 300);
+        el.dataset.remainingSeconds = String(remaining);
+      }
+      if (remaining <= 0 && !activeExamSession.autoSubmitAttempted) submitExamSession(true);
+      return;
+    }
+    if (activeExamSession && !activeExamSession.submitted && !examReviewMode) {
+      const el = document.getElementById("sessionElapsed");
+      const q = currentQuestion();
+      if (el && q) el.textContent = "⏱ " + fmtTime(ensureSessionItemClock(q));
+      return;
+    }
     const el = document.getElementById("qTimer");
     if (!el || !timedId || document.hidden) return;
     const sec = elapsedFor(timedId);
     el.textContent = "⏱ " + fmtTime(sec);
-    el.classList.toggle("slow", sec > 120);
+    el.classList.toggle("slow", sec > 100);
   }
   setInterval(tickTimer, 1000);
+  window.ABIM_EXAM_DIAGNOSTICS = Object.freeze({
+    snapshot() {
+      const s = activeExamSession;
+      if (!s) return null;
+      const remainingMs = s.mode === "mock" && s.deadline ? Math.max(0, s.deadline - Date.now()) : null;
+      return {
+        mode: s.mode,
+        filter: s.filter,
+        system: s.system,
+        requestedCount: s.requestedCount,
+        slotId: s.slotId,
+        questionCount: s.questionIds.length,
+        answeredCount: Object.keys(s.userAnswers).length,
+        flaggedInSession: s.questionIds.filter(id => flagged.has(id)).length,
+        startedAt: s.startedAt,
+        durationMs: s.durationMs,
+        deadline: s.deadline,
+        remainingMs: remainingMs,
+        remainingSeconds: remainingMs === null ? null : Math.ceil(remainingMs / 1000),
+        submitted: s.submitted,
+        submittedAt: s.submittedAt || null,
+        autoSubmitAttempted: s.autoSubmitAttempted,
+        tutorClockRunning: !!s.itemStartedAt,
+        sentToQueue: s.sentToQueue
+      };
+    },
+    tick: tickTimer
+  });
   document.addEventListener("visibilitychange", () => {
     if (document.hidden && timedId) { const id = timedId; stopTiming(); timedId = null; pausedId = id; }
     else if (!document.hidden && pausedId) { timedId = pausedId; timedStart = Date.now(); pausedId = null; }
+    if (document.hidden && activeExamSession && activeExamSession.mode === "tutor" && !activeExamSession.submitted) {
+      stopSessionItemClock();
+    } else if (!document.hidden && activeExamSession && activeExamSession.mode === "tutor" &&
+        !activeExamSession.submitted && !examReviewMode && !reviewMode) {
+      ensureSessionItemClock(currentQuestion());
+    }
+    if (!document.hidden) tickTimer();
   });
   let pausedId = null;
 
@@ -1468,17 +2038,58 @@
     progressTrack.innerHTML = "";
   }
 
+  function renderExamLanding() {
+    stopTiming();
+    progressTrack.innerHTML = "";
+    const completed = activeExamSession && activeExamSession.submitted;
+    qCard.innerHTML = '<div class="q-meta">' + rune("hot", "🩺 ABIM Practice") +
+      rune("task", "Tutor or Timed Mock") + '</div><div class="empty-state">' +
+      '<div class="big">' + (completed ? "✓" : "🧠") + "</div><h2>" +
+      (completed ? "Practice block submitted" : "Build a practice block") + "</h2><p>" +
+      (completed
+        ? "Your answers are saved to this learner profile. Reopen the debrief or start a fresh session."
+        : "Create a tutor session with immediate explanations, or a timed mock with a 100-second-per-item countdown. Mock answers stay hidden until you submit.") +
+      '</p><button class="btn-next" type="button" data-open-session>' +
+      (completed ? "Create Another Session" : "Create Session / Start Practice") + " ▸</button>" +
+      (completed ? '<div class="session-actions"><button class="session-secondary" type="button" data-open-debrief>View Debrief</button>' +
+        '<button class="session-secondary" type="button" data-exam-review="all">Review All</button></div>' : "") +
+      '<div class="session-note">Practice-only content and raw scoring; this is not an official ABIM exam or scaled score.</div></div>';
+    renderProgress();
+  }
+
   function renderQuestion() {
     const s = session();
-    if (isAbimMode && !bank().length) { renderEmpty(); return; }
+    if (isAbimMode && (!activeExamSession || (activeExamSession.submitted && !examReviewMode))) {
+      renderExamLanding();
+      return;
+    }
+    if (isAbimMode && !bank().length) {
+      if (examReviewMode) {
+        stopTiming();
+        progressTrack.innerHTML = "";
+        qCard.innerHTML = '<div class="empty-state"><div class="big">✓</div><h2>No incorrect answers</h2>' +
+          '<p>Every answered item was correct and there were no unanswered items in this block.</p>' +
+          '<div class="session-actions"><button class="session-secondary" type="button" data-return-debrief>Back to Debrief</button>' +
+          '<button class="session-secondary" type="button" data-exam-review="all">Review All</button></div></div>';
+        return;
+      }
+      renderEmpty();
+      return;
+    }
     if (s.idx >= bank().length) s.idx = 0;   // filter may shrink the bank
     const q = currentQuestion();
     const picked = pickOf(q);
-    if (timedId !== q.id) {
+    const mockBlind = activeExamSession && activeExamSession.mode === "mock" && !activeExamSession.submitted && !examReviewMode;
+    if (activeExamSession && !activeExamSession.submitted && !examReviewMode) {
       stopTiming();
-      if (isAbimMode && picked === null && !document.hidden) { timedId = q.id; timedStart = Date.now(); }
+      ensureSessionItemClock(q);
+    } else if (timedId !== q.id) {
+      stopTiming();
+      if (!activeExamSession && isAbimMode && picked === null && !document.hidden) { timedId = q.id; timedStart = Date.now(); }
     }
-    const revealed = picked !== null;
+    const revealed = examReviewMode || (!mockBlind && picked !== null);
+    const strikeList = activeExamSession
+      ? activeExamSession.struck[q.id] || [] : struck[q.id] || [];
     let html = "";
 
     /* Top-level tags inside the central question container: blueprint
@@ -1488,6 +2099,25 @@
       html += '<button class="hint-btn" type="button" data-toggle-lab aria-expanded="' + (labOpen ? "true" : "false") + '" aria-controls="labPanel" title="ABIM Lab Reference Ranges (Jan 2026)" aria-label="ABIM Lab Reference Ranges (Jan 2026)">🧪 Labs</button>';
     }
     html += "</div>";
+
+    if (activeExamSession && !activeExamSession.submitted && !examReviewMode) {
+      const remaining = activeExamSession.mode === "mock" ? mockRemainingSeconds() : 0;
+      html += '<div class="session-tools"><button class="session-action" type="button" data-flag aria-pressed="' +
+        flagged.has(q.id) + '">' + (flagged.has(q.id) ? "Flagged 🚩" : "Flag 🚩") + '</button>' +
+        '<button class="session-action" type="button" data-open-grid>📋 Question Grid</button>' +
+        '<span class="session-chip">Item ' + (s.idx + 1) + " / " + bank().length + "</span>" +
+        (activeExamSession.mode === "mock"
+          ? '<span class="session-chip' + (remaining < 300 ? " warning" : "") + '" id="sessionCountdown" data-deadline="' +
+            activeExamSession.deadline + '" data-duration-ms="' + activeExamSession.durationMs +
+            '" data-remaining-seconds="' + remaining + '">⏱ ' + fmtTime(remaining).padStart(5, "0") + "</span>"
+          : '<span class="session-chip" id="sessionElapsed">⏱ ' + fmtTime(sessionSeconds(q.id)) + "</span>") +
+        '<button class="session-action" type="button" data-submit-session>' +
+        "End Block</button></div>";
+    } else if (examReviewMode) {
+      html += '<div class="session-tools"><span class="session-chip">Review ' + (s.idx + 1) + " / " + bank().length +
+        '</span><button class="session-action" type="button" data-open-grid>📋 Question Grid</button>' +
+        '<button class="session-action" type="button" data-return-debrief>Back to Debrief</button></div>';
+    }
 
     /* Hint drawer (ABIM only) — smooth expand/collapse. */
     if (isAbimMode) {
@@ -1504,15 +2134,17 @@
     /* Option grid. */
     q.options.forEach((opt, i) => {
       let cls = "option";
+      if (mockBlind && i === picked) cls += " selected";
       if (revealed) {
         if (i === q.correct) cls += " correct";
         else if (i === picked) cls += " incorrect";
         else cls += " dimmed";
       }
-      const isStruck = !revealed && (struck[q.id] || []).indexOf(i) >= 0;
-      if (isStruck) cls += " struck";
+      const isStruck = (mockBlind || !revealed || examReviewMode) && strikeList.indexOf(i) >= 0;
+      if (isStruck) cls += " struck struck-through";
       html += '<div class="option-row"><button class="' + cls + '" type="button" data-opt="' + i + '"' +
-        (revealed ? " disabled" : "") + '><span class="opt-letter">' + LETTERS[i] +
+        ' aria-pressed="' + (i === picked) + '"' +
+        (revealed || (mockBlind && mockRemainingSeconds() <= 0) ? " disabled" : "") + '><span class="opt-letter">' + LETTERS[i] +
         '</span><span class="opt-text">' + esc(opt) + "</span></button>" +
         (revealed || !isAbimMode ? "" : '<button class="opt-strike" type="button" data-strike="' + i + '" aria-pressed="' + isStruck +
           '" title="Eliminate option (right-click or Shift+' + LETTERS[i] + ')" aria-label="Eliminate option ' + LETTERS[i] + '">⊘</button>') +
@@ -1522,9 +2154,10 @@
     /* Post-answer container: explanation + unlocked flashcards. */
     html += '<div class="reveal-wrap' + (revealed ? " open" : "") + '" id="feedbackWrap"><div class="reveal-inner"><div class="feedback">';
     if (revealed) {
-      const good = picked === q.correct;
+      const good = picked === q.correct && picked !== null;
       html += '<div class="verdict ' + (good ? "good" : "bad") + '">' +
-        (good ? "⚡ Correct" : "✖ Incorrect — correct answer: " + LETTERS[q.correct]) + "</div>";
+        (examReviewMode && picked === null ? "✖ Unanswered — counted as missed · correct answer: " + LETTERS[q.correct]
+          : good ? "⚡ Correct" : "✖ Incorrect — correct answer: " + LETTERS[q.correct]) + "</div>";
       html += '<div class="rationale ' + (good ? "good" : "bad") + '">' + q.explanation + "</div>";
       html += '<div class="unlock-head">🔓 Unlocked Core Concepts</div>';
       q.flashcards.forEach((card, i) => {
@@ -1544,10 +2177,10 @@
       '<button class="btn-prev" type="button" data-prev' + (s.idx === 0 ? " disabled" : "") + '>◂ Prev</button>' +
       '<span class="q-counter">' + (isAbimMode ? "ABIM Board Prep" : "PSEB Hybrid Demo") +
       " · Item " + (s.idx + 1) + " / " + bank().length +
-      (isAbimMode ? (revealed
-        ? (times[q.id] ? ' <span class="q-timer done' + (times[q.id] > 120 ? " slow" : "") + '" title="Time to answer">⏱ ' + fmtTime(times[q.id]) + "</span>" : "")
-        : ' <span class="q-timer" id="qTimer" title="Time on this item — ABIM pace ≈ 2 min">⏱ ' + fmtTime(elapsedFor(q.id)) + "</span>") : "") +
-      (revealed ? ' <button class="retry-link" type="button" data-reset>↺ Retry</button>' : "") +
+      (isAbimMode && !activeExamSession ? (revealed
+        ? (times[q.id] ? ' <span class="q-timer done' + (times[q.id] > 100 ? " slow" : "") + '" title="Time to answer">⏱ ' + fmtTime(times[q.id]) + "</span>" : "")
+        : ' <span class="q-timer" id="qTimer" title="Time on this item — practice guide: 100 sec/item">⏱ ' + fmtTime(elapsedFor(q.id)) + "</span>") : "") +
+      (revealed && !examReviewMode ? ' <button class="retry-link" type="button" data-reset>↺ Retry</button>' : "") +
       (revealed && isAbimMode && nextUnansweredIdx() >= 0 ? ' <button class="next-new-link" type="button" data-next-new title="Next unanswered (N)">⇥ Next new</button>' : "") +
       '</span>' +
       '<button class="btn-next" type="button" data-next' + (s.idx >= bank().length - 1 ? " disabled" : "") + '>Next ▸</button></div>';
@@ -1562,8 +2195,32 @@
   function cardKey(q, i) { return q.id + ":" + i; }
 
   function renderScore() {
+    if (isAbimMode && activeExamSession && activeExamSession.mode === "mock" && !activeExamSession.submitted) {
+      scoreVal.textContent = "Hidden";
+      return;
+    }
     const b = isAbimMode ? sysBank() : bank();
     let right = 0, total = 0;
+    if (isAbimMode && activeExamSession && activeExamSession.mode === "tutor" && !activeExamSession.submitted) {
+      activeExamSession.questionIds.forEach(id => {
+        const q = ABIM_QUESTIONS.find(item => item.id === id);
+        if (!q || !Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, id)) return;
+        total++;
+        if (activeExamSession.userAnswers[id] === q.correct) right++;
+      });
+      scoreVal.textContent = right + " / " + total;
+      return;
+    }
+    if (isAbimMode && activeExamSession && activeExamSession.submitted) {
+      activeExamSession.questionIds.forEach(id => {
+        const q = ABIM_QUESTIONS.find(item => item.id === id);
+        if (!q) return;
+        total++;
+        if (activeExamSession.userAnswers[id] === q.correct) right++;
+      });
+      scoreVal.textContent = right + " / " + total;
+      return;
+    }
     b.forEach(q => {
       const p = pickOf(q);
       if (p !== null) { total++; if (p === q.correct) right++; }
@@ -1606,6 +2263,10 @@
     if (reviewMode) return;
     const s = session();
     if (i < 0 || i >= bank().length || i === s.idx) return;
+    if (activeExamSession && !activeExamSession.submitted && !examReviewMode) {
+      stopSessionItemClock();
+      activeExamSession.index = i;
+    }
     s.idx = i;
     renderQuestion();
     announcer.textContent = "Question " + (i + 1) + " of " + bank().length;
@@ -1783,6 +2444,7 @@
   }
 
   let gradeLock = false;
+  let gradeTimer = null;
   function gradeCurrent(grade) {
     const key = reviewQueue[0];
     if (!key || gradeLock) return;
@@ -1796,7 +2458,11 @@
       gradeLock = true;
       scene.classList.remove("deal");
       scene.classList.add("out-" + grade);
-      setTimeout(() => { gradeLock = false; commitGrade(key, grade); }, 320);
+      gradeTimer = setTimeout(() => {
+        gradeTimer = null;
+        gradeLock = false;
+        if (reviewMode && reviewQueue[0] === key) commitGrade(key, grade);
+      }, 320);
     } else commitGrade(key, grade);
   }
 
@@ -1833,9 +2499,77 @@
   }
 
   /* ================= Events ================= */
-  toggleBtn.addEventListener("click", () => setAbimMode(!isAbimMode));
+  toggleBtn.addEventListener("click", () => {
+    if (isAbimMode && activeExamSession && !activeExamSession.submitted &&
+        !window.confirm("Leave this session? " + abortSessionNote())) return;
+    if (isAbimMode && activeExamSession && !activeExamSession.submitted) {
+      clearExamSession();
+    }
+    setAbimMode(!isAbimMode);
+    if (isAbimMode) openSessionModal();
+  });
+  practiceBtn.addEventListener("click", openSessionModal);
+  document.getElementById("retryExamSave").addEventListener("click", () => submitExamSession(true));
+  Object.keys(SYSTEMS).forEach(key => {
+    if (!ABIM_QUESTIONS.some(q => q.system === key)) return;
+    const option = document.createElement("option");
+    option.value = key;
+    option.textContent = SYSTEMS[key].label;
+    sessionSystem.appendChild(option);
+  });
+  sessionFilter.addEventListener("change", updateSessionPool);
+  sessionSystem.addEventListener("change", updateSessionPool);
+  sessionForm.addEventListener("change", updateSessionPool);
+  sessionForm.addEventListener("submit", e => { e.preventDefault(); startExamSession(); });
+  sessionModal.addEventListener("click", e => {
+    if (e.target === sessionModal || e.target.closest("[data-close-session]")) closeDialog(sessionModal);
+  });
+  examGridModal.addEventListener("click", e => {
+    if (e.target === examGridModal || e.target.closest("[data-close-grid]")) { closeDialog(examGridModal); return; }
+    const jump = e.target.closest("[data-grid-jump]");
+    if (jump) { closeDialog(examGridModal); goTo(parseInt(jump.dataset.gridJump, 10)); }
+  });
+  debriefModal.addEventListener("click", e => {
+    if (e.target.closest("[data-close-debrief]")) { closeDialog(debriefModal); renderQuestion(); return; }
+    const review = e.target.closest("[data-exam-review]");
+    if (review) {
+      const mode = review.dataset.examReview;
+      examReviewIds = activeExamSession.questionIds.filter(id => {
+        if (mode === "all") return true;
+        const q = ABIM_QUESTIONS.find(item => item.id === id);
+        return !q || activeExamSession.userAnswers[id] === undefined || activeExamSession.userAnswers[id] !== q.correct;
+      });
+      examReviewMode = true;
+      sessions.abim.idx = 0;
+      activeExamSession.index = 0;
+      closeDialog(debriefModal);
+      renderQuestion();
+      return;
+    }
+    const send = e.target.closest("[data-send-missed]");
+    if (send) { sendMissedToQueue(send); return; }
+  });
+  window.addEventListener("bolo:slotChanged", e => {
+    if (!activeExamSession || activeExamSession.submitted || !e.detail) return;
+    if (e.detail.reason !== "switch") {
+      clearExamSession();
+      return;
+    }
+    if (e.detail.slotId === activeExamSession.slotId) return;
+    if (window.confirm("A practice session is active. Abort it and switch learner profiles? " + abortSessionNote())) {
+      clearExamSession();
+      return;
+    }
+    e.preventDefault();
+    const memcard = window.BOLO_MEMCARD;
+    if (memcard && typeof memcard.switchSlot === "function") memcard.switchSlot(e.detail.previousSlotId);
+  });
 
   reviewBtn.addEventListener("click", () => {
+    if (activeExamSession && !activeExamSession.submitted) {
+      announcer.textContent = "Submit or end the active practice block before starting flashcard review.";
+      return;
+    }
     if (reviewMode) exitReview(); else startReview();
   });
 
@@ -1851,6 +2585,7 @@
   }
 
   filterRow.addEventListener("click", (e) => {
+    if (isAbimMode) return;
     const stBtn = e.target.closest("[data-status]");
     if (stBtn) { if (stBtn.dataset.status !== statusFilter) setStatus(stBtn.dataset.status); return; }
     if (e.target.closest("[data-shuffle]")) {
@@ -1873,24 +2608,71 @@
 
   function toggleStrike(i) {
     const q = currentQuestion();
-    if (!q || pickOf(q) !== null || !isAbimMode) return;
-    const arr = struck[q.id] || (struck[q.id] = []);
+    if (!q || !isAbimMode) return;
+    const inSession = activeExamSession && !activeExamSession.submitted && !examReviewMode;
+    if (inSession && activeExamSession.mode === "mock" && activeExamSession.deadline <= Date.now()) {
+      submitExamSession(true);
+      return;
+    }
+    if (inSession && activeExamSession.mode === "tutor" && pickOf(q) !== null) return;
+    if (!inSession && (examReviewMode || pickOf(q) !== null)) return;
+    const map = inSession ? activeExamSession.struck : struck;
+    const arr = map[q.id] || (map[q.id] = []);
     const k = arr.indexOf(i);
     if (k >= 0) arr.splice(k, 1); else arr.push(i);
     const on = k < 0;
     const optBtn = qCard.querySelector('[data-opt="' + i + '"]');
     const sBtn = qCard.querySelector('[data-strike="' + i + '"]');
     if (optBtn) optBtn.classList.toggle("struck", on);
+    if (optBtn) optBtn.classList.toggle("struck-through", on);
     if (sBtn) sBtn.setAttribute("aria-pressed", on ? "true" : "false");
     announcer.textContent = "Option " + LETTERS[i] + (on ? " eliminated" : " restored");
   }
   qCard.addEventListener("contextmenu", (e) => {
-    if (reviewMode) return;
+    if (reviewMode || examReviewMode) return;
     const opt = e.target.closest("[data-opt]");
     if (!opt || opt.disabled || !isAbimMode) return;
     e.preventDefault();
     toggleStrike(parseInt(opt.dataset.opt, 10));
   });
+  let longPressTimer = null;
+  let longPressOrigin = null;
+  let suppressedOptionClick = null;
+  qCard.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "touch" || reviewMode || examReviewMode) return;
+    const opt = e.target.closest("[data-opt]");
+    if (!opt || opt.disabled || !isAbimMode) return;
+    clearTimeout(longPressTimer);
+    suppressedOptionClick = null;
+    longPressOrigin = { x: e.clientX, y: e.clientY, pointerId: e.pointerId };
+    longPressTimer = setTimeout(() => {
+      if (!opt.isConnected) return;
+      suppressedOptionClick = opt.dataset.opt;
+      toggleStrike(parseInt(opt.dataset.opt, 10));
+      setTimeout(() => { if (suppressedOptionClick === opt.dataset.opt) suppressedOptionClick = null; }, 900);
+    }, 520);
+  }, { passive: false });
+  qCard.addEventListener("pointermove", e => {
+    if (longPressOrigin && e.pointerId === longPressOrigin.pointerId &&
+        Math.hypot(e.clientX - longPressOrigin.x, e.clientY - longPressOrigin.y) > 8) {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+      longPressOrigin = null;
+    }
+  });
+  ["pointerup", "pointercancel", "pointerleave"].forEach(name => qCard.addEventListener(name, () => {
+    clearTimeout(longPressTimer);
+    longPressTimer = null;
+    longPressOrigin = null;
+  }));
+  qCard.addEventListener("click", e => {
+    const opt = e.target.closest("[data-opt]");
+    if (opt && suppressedOptionClick === opt.dataset.opt) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      suppressedOptionClick = null;
+    }
+  }, true);
 
   progressTrack.addEventListener("click", (e) => {
     const seg = e.target.closest("[data-jump]");
@@ -1898,6 +2680,32 @@
   });
 
   qCard.addEventListener("click", (e) => {
+    if (e.target.closest("[data-open-session]")) { openSessionModal(); return; }
+    if (e.target.closest("[data-open-debrief]")) {
+      renderDebrief();
+      openDialog(debriefModal, ".session-primary");
+      return;
+    }
+    const reviewAction = e.target.closest("[data-exam-review]");
+    if (reviewAction) {
+      examReviewIds = activeExamSession.questionIds.filter(id => {
+        if (reviewAction.dataset.examReview === "all") return true;
+        const q = ABIM_QUESTIONS.find(item => item.id === id);
+        return !q || activeExamSession.userAnswers[id] === undefined || activeExamSession.userAnswers[id] !== q.correct;
+      });
+      examReviewMode = true;
+      sessions.abim.idx = 0;
+      activeExamSession.index = 0;
+      renderQuestion();
+      return;
+    }
+    if (e.target.closest("[data-return-debrief]")) {
+      examReviewMode = false;
+      renderDebrief();
+      openDialog(debriefModal, ".session-primary");
+      renderQuestion();
+      return;
+    }
     if (reviewMode) {
       if (e.target.closest("[data-exit-review]")) { exitReview(); return; }
       if (e.target.closest("[data-no-flip]")) return;
@@ -1912,6 +2720,27 @@
 
     const strike = e.target.closest("[data-strike]");
     if (strike) { toggleStrike(parseInt(strike.dataset.strike, 10)); return; }
+    if (e.target.closest("[data-open-grid]")) {
+      renderExamGrid();
+      openDialog(examGridModal, "[data-close-grid]");
+      return;
+    }
+    if (e.target.closest("[data-flag]")) {
+      const q = currentQuestion();
+      if (flagged.has(q.id)) flagged.delete(q.id); else flagged.add(q.id);
+      if (saveState()) {
+        const button = qCard.querySelector("[data-flag]");
+        button.setAttribute("aria-pressed", flagged.has(q.id) ? "true" : "false");
+        button.textContent = flagged.has(q.id) ? "Flagged 🚩" : "Flag 🚩";
+      } else {
+        if (flagged.has(q.id)) flagged.delete(q.id); else flagged.add(q.id);
+      }
+      return;
+    }
+    if (e.target.closest("[data-submit-session]")) {
+      submitExamSession(activeExamSession.mode === "mock" && mockRemainingSeconds() <= 0);
+      return;
+    }
 
     if (e.target.closest("[data-next-new]")) { const j = nextUnansweredIdx(); if (j >= 0) goTo(j); return; }
 
@@ -1924,6 +2753,38 @@
     }
 
     const opt = e.target.closest("[data-opt]");
+    if (opt && activeExamSession && !activeExamSession.submitted && !examReviewMode) {
+      const q = currentQuestion();
+      if (activeExamSession.mode === "mock" && activeExamSession.deadline <= Date.now()) {
+        submitExamSession(true);
+        return;
+      }
+      if (activeExamSession.mode === "mock" ||
+          !Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, q.id)) {
+        stopSessionItemClock();
+        const answer = parseInt(opt.dataset.opt, 10);
+        if (activeExamSession.mode === "tutor" && !persistTutorAnswer(q, answer)) {
+          ensureSessionItemClock(q);
+          renderQuestion();
+          announcer.textContent = "Tutor answer was not recorded because saving failed. Restore storage access and try again.";
+          return;
+        }
+        activeExamSession.userAnswers[q.id] = answer;
+        activeExamSession.index = session().idx;
+        renderQuestion();
+        renderScore();
+        if (activeExamSession.mode === "tutor") {
+          renderCardsCount();
+          renderReviewCount();
+        }
+        announcer.textContent = activeExamSession.mode === "mock"
+          ? "Answer recorded. Mock feedback is hidden until submission."
+          : (activeExamSession.userAnswers[q.id] === q.correct
+            ? "Correct. Explanation and core concept flashcards unlocked."
+            : "Incorrect. Review the explanation and core concepts.");
+      }
+      return;
+    }
     if (opt && pickOf(currentQuestion()) === null) {
       const q = currentQuestion();
       stopTiming();
@@ -1973,6 +2834,15 @@
     if (e.target.closest("[data-next]")) { goTo(session().idx + 1); return; }
 
     const reset = e.target.closest("[data-reset]");
+    if (reset && examReviewMode) return;
+    if (reset && activeExamSession && activeExamSession.mode === "tutor" &&
+        Object.prototype.hasOwnProperty.call(activeExamSession.userAnswers, currentQuestion().id)) {
+      delete activeExamSession.userAnswers[currentQuestion().id];
+      delete activeExamSession.times[currentQuestion().id];
+      renderQuestion();
+      renderScore();
+      return;
+    }
     if (reset && pickOf(currentQuestion()) !== null) {
       delete picks[currentQuestion().id];
       delete times[currentQuestion().id];
@@ -1985,12 +2855,13 @@
 
   /* ================= Saved-cards modal ================= */
   cardsBtn.addEventListener("click", () => {
+    cardsModal.querySelector("[data-reset-progress]").disabled = !!(activeExamSession && !activeExamSession.submitted);
     renderCardsModal();
-    cardsModal.hidden = false;
+    openDialog(cardsModal, "[data-close-modal]");
   });
   cardsModal.addEventListener("click", (e) => {
     if (e.target === cardsModal || e.target.closest("[data-close-modal]")) {
-      cardsModal.hidden = true;
+      closeDialog(cardsModal);
       return;
     }
     const rm = e.target.closest("[data-remove-card]");
@@ -2004,10 +2875,15 @@
       return;
     }
     if (e.target.closest("[data-reset-progress]")) {
+      if (activeExamSession && !activeExamSession.submitted) {
+        announcer.textContent = "End the active block before resetting saved progress.";
+        return;
+      }
       if (!window.confirm("Reset all answers, score, saved cards and review schedule?")) return;
-      resetProgress();
+      if (!resetProgress()) return;
       Object.keys(struck).forEach(k => delete struck[k]);
-      cardsModal.hidden = true;
+      clearExamSession();
+      closeDialog(cardsModal);
       reviewMode = false;
       renderFilter();
       renderQuestion();
@@ -2029,6 +2905,10 @@
 
   function renderPerf() {
     const panel = document.getElementById("perfPanel");
+    if (activeExamSession && activeExamSession.mode === "mock" && !activeExamSession.submitted) {
+      panel.innerHTML = '<div class="perf-focus">Timed mock in progress. Performance details are hidden until the block is submitted.</div>';
+      return;
+    }
     let ans = 0, right = 0, tSum = 0, tN = 0;
     const per = {};
     ABIM_QUESTIONS.forEach(q => {
@@ -2068,27 +2948,28 @@
     panel.innerHTML = '<div class="perf-head">📈 Your progress</div>' + html;
   }
 
-  blueprintBtn.addEventListener("click", () => { renderPerf(); blueprintModal.hidden = false; });
+  blueprintBtn.addEventListener("click", () => { renderPerf(); openDialog(blueprintModal, "[data-close-modal]"); });
   blueprintModal.addEventListener("click", (e) => {
     if (e.target === blueprintModal || e.target.closest("[data-close-modal]")) {
-      blueprintModal.hidden = true;
+      closeDialog(blueprintModal);
       return;
     }
     const drill = e.target.closest("[data-perf-sys]");
     if (drill) {
-      if (reviewMode) exitReview();
-      if (!isAbimMode) setAbimMode(true);
-      abimFilter = drill.dataset.perfSys;
-      statusFilter = drill.dataset.perfStatus || "ALL";
-      invalidateBank();
-      sessions.abim.idx = 0;
-      saveState();
-      blueprintModal.hidden = true;
-      renderFilter();
-      renderQuestion();
-      renderScore();
-      announcer.textContent = "Drilling " + SYSTEMS[abimFilter].label + " — " + bank().length + " questions.";
-      return;
+      if (activeExamSession && !activeExamSession.submitted) {
+        closeDialog(blueprintModal);
+        announcer.textContent = "Finish the active practice block before starting a system drill.";
+        return;
+      }
+      if (!activeExamSession || activeExamSession.submitted) {
+        closeDialog(blueprintModal);
+        if (!isAbimMode) setAbimMode(true);
+        sessionSystem.value = drill.dataset.perfSys;
+        sessionFilter.value = drill.dataset.perfStatus === "MISSED" ? "incorrect" : "all";
+        updateSessionPool();
+        openSessionModal();
+        return;
+      }
     }
     const head = e.target.closest(".bp-head");
     if (head) {
@@ -2099,14 +2980,30 @@
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      if (!blueprintModal.hidden) { blueprintModal.hidden = true; return; }
-      if (!cardsModal.hidden) { cardsModal.hidden = true; return; }
+      if (!sessionModal.hidden) { closeDialog(sessionModal); return; }
+      if (!examGridModal.hidden) { closeDialog(examGridModal); return; }
+      if (!debriefModal.hidden) { closeDialog(debriefModal); renderQuestion(); return; }
+      if (!blueprintModal.hidden) { closeDialog(blueprintModal); return; }
+      if (!cardsModal.hidden) { closeDialog(cardsModal); return; }
       if (reviewMode) { exitReview(); return; }
     }
-    if (!blueprintModal.hidden || !cardsModal.hidden ||
-        (e.target.closest && e.target.closest("input, textarea"))) return;
+    if (anyDialogOpen()) {
+      const backdrop = [sessionModal, examGridModal, debriefModal, blueprintModal, cardsModal].find(el => el && !el.hidden);
+      if (e.key === "Tab" && backdrop) {
+        const focusable = Array.from(backdrop.querySelectorAll('button:not(:disabled), input:not(:disabled), select:not(:disabled), [tabindex]:not([tabindex="-1"])'));
+        if (focusable.length) {
+          const first = focusable[0], last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      }
+      return;
+    }
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.target.closest && e.target.closest("input, textarea, select")) return;
     /* Review mode: Space/Enter flips the card, 1–4 grade (Again/Hard/Good/Easy). */
     if (reviewMode) {
+      if (e.target.closest && e.target.closest("button") && (e.key === " " || e.key === "Enter")) return;
       if ((e.key === " " || e.key === "Enter") && reviewQueue.length) {
         e.preventDefault(); flipReview(); return;
       }
@@ -2116,19 +3013,23 @@
       }
       return;
     }
+    if (isAbimMode && (!activeExamSession || (activeExamSession.submitted && !examReviewMode))) return;
     /* Keyboard navigation: ←/→ move items, A–E answer the current item. */
-    if (e.key === "ArrowRight") { goTo(session().idx + 1); return; }
-    if (e.key === "ArrowLeft") { goTo(session().idx - 1); return; }
+    if (e.key === "ArrowRight") { e.preventDefault(); goTo(session().idx + 1); return; }
+    if (e.key === "ArrowLeft") { e.preventDefault(); goTo(session().idx - 1); return; }
     if (!currentQuestion()) return;
     if ((e.key === "n" || e.key === "N") && !e.shiftKey && isAbimMode && pickOf(currentQuestion()) !== null) {
       const j = nextUnansweredIdx(); if (j >= 0) goTo(j); return;
     }
     const letterIdx = LETTERS.indexOf(e.key.toUpperCase());
-    if (e.shiftKey && letterIdx >= 0 && letterIdx < currentQuestion().options.length) { toggleStrike(letterIdx); return; }
-    if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (letterIdx >= 0 && letterIdx < currentQuestion().options.length && pickOf(currentQuestion()) === null) {
+    if (e.shiftKey && letterIdx >= 0 && letterIdx < currentQuestion().options.length) {
+      e.preventDefault(); toggleStrike(letterIdx); return;
+    }
+    const mockAnswerChangeable = activeExamSession && activeExamSession.mode === "mock" && !activeExamSession.submitted;
+    if (letterIdx >= 0 && letterIdx < currentQuestion().options.length &&
+        (pickOf(currentQuestion()) === null || mockAnswerChangeable)) {
       const btn = qCard.querySelector('[data-opt="' + letterIdx + '"]');
-      if (btn) btn.click();
+      if (btn && !btn.disabled) { e.preventDefault(); btn.click(); }
     }
   });
 
@@ -2142,6 +3043,7 @@
   const params = new URLSearchParams(window.location.search);
   if (params.get("mode") === "abim") {
     setAbimMode(true, false);
+    openSessionModal();
   } else {
     logoDot.textContent = ".PREP";
     document.title = "BOLO.PREP — Hybrid MCQ Engine";
