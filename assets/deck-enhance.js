@@ -1863,14 +1863,57 @@
     if (pa) h += '<div class="qf-explain-pa punjabi-block">' + pa + "</div>";
     return h + "</div>";
   }
+  /* Resolve the pieces of one quiz item from the button that was pressed.
+
+     Most quizzes live inside a .sub-slide carousel, but the Case Study slides
+     put their options straight into the content box with no .sub-slide at all.
+     The old code gave up when .sub-slide was missing, so those ten questions
+     across Chapters 1-5 silently did nothing when a student tapped an answer.
+
+     Buttons are scoped to their own option group rather than to the whole
+     content box, so a slide carrying two quizzes cannot disable both at once. */
+  function qfScope(btn) {
+    if (!btn || !btn.closest) return null;
+    var sub = btn.closest(".sub-slide");
+    if (sub) {
+      return {
+        meta: sub,
+        buttons: sub.querySelectorAll(".option-btn"),
+        feedback: sub.querySelector(".feedback"),
+        next: sub.querySelector(".next-sub-btn"),
+        input: sub.querySelector(".sa-input"),
+        find: sub
+      };
+    }
+    var box = btn.closest(".content-box") || btn.closest(".slide");
+    if (!box) return null;
+    var group = btn.closest(".tf-grid") || btn.parentElement || box;
+    /* Prefer the .feedback that follows this group; fall back to the box's. */
+    var fb = null, n = group ? group.nextElementSibling : null;
+    while (n && !fb) {
+      if (n.classList && n.classList.contains("feedback")) fb = n;
+      n = n.nextElementSibling;
+    }
+    if (!fb) fb = box.querySelector(".feedback");
+    return {
+      meta: box,
+      buttons: group.querySelectorAll ? group.querySelectorAll(".option-btn") : [],
+      feedback: fb,
+      next: box.querySelector(".next-sub-btn"),
+      input: box.querySelector(".sa-input"),
+      find: group.querySelectorAll ? group : box
+    };
+  }
+
   function enhancedCheckAnswer(btn, isCorrect, isMCQ) {
-    var qDiv = btn.closest ? btn.closest(".sub-slide") : null;
-    if (!qDiv) return;
-    var feedback = qDiv.querySelector(".feedback");
-    var nextBtn = qDiv.querySelector(".next-sub-btn");
-    var buttons = qDiv.querySelectorAll(".option-btn");
+    var s = qfScope(btn);
+    if (!s) return;
+    var qDiv = s.meta;
+    var feedback = s.feedback;
+    var nextBtn = s.next;
+    var buttons = s.buttons;
     for (var i = 0; i < buttons.length; i++) buttons[i].disabled = true;
-    var correctBtn = qfFindCorrectBtn(qDiv);
+    var correctBtn = qfFindCorrectBtn(s.find);
     if (isCorrect) {
       btn.classList.add("correct");
     } else {
@@ -1891,11 +1934,12 @@
     recordQuiz(qDiv, !!isCorrect, correctBtn ? (correctBtn.textContent || "").replace(/\s+/g, " ").trim() : "", "");
   }
   function enhancedCheckSA(btn, expectedEn, expectedPa) {
-    var qDiv = btn.closest ? btn.closest(".sub-slide") : null;
-    if (!qDiv) return;
-    var input = qDiv.querySelector(".sa-input");
-    var feedback = qDiv.querySelector(".feedback");
-    var nextBtn = qDiv.querySelector(".next-sub-btn");
+    var s = qfScope(btn);
+    if (!s) return;
+    var qDiv = s.meta;
+    var input = s.input;
+    var feedback = s.feedback;
+    var nextBtn = s.next;
     var userVal = (input && input.value ? input.value : "").trim().toLowerCase();
     var ok = !!userVal && userVal === (expectedEn || "").toLowerCase();
     if (input) input.disabled = true;

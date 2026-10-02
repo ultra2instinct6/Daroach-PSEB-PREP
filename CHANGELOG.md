@@ -5,6 +5,78 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Dead answer buttons fixed
+
+Reported symptom: "some slides and MCQ questions don't respond to answer
+selection". Two separate causes, both of which left a button looking perfectly
+normal — rendered, enabled, styled — while doing nothing at all when tapped.
+
+### 1. Case Study questions did nothing (10 questions, Chapters 1–5)
+
+The shared answer handler resolved its question container with
+`btn.closest(".sub-slide")` and bailed out when that returned null:
+
+```js
+var qDiv = btn.closest(".sub-slide");
+if (!qDiv) return;          // <- silently gave up
+```
+
+Most quizzes sit inside a `.sub-slide` carousel, but the **Case Study question
+slides put their options straight into the content box**, with no `.sub-slide`
+anywhere. Every one of those answers was a no-op.
+
+Fixed by resolving the quiz through a new `qfScope()` helper that falls back to
+the content box and locates the matching `.feedback` by walking forward from
+the option group. Buttons are scoped to their own group rather than the whole
+box, so a slide carrying two quizzes can never disable both at once.
+
+Affected: 2 Case Study questions in each of Chapters 1, 2, 3, 4 and 5.
+
+### 2. One True/False button had no handler at all (Chapter 4)
+
+```html
+<button class="option-btn" oncli
+    ck="checkAnswer(this, true, false)">True</button>
+```
+
+The attribute name was split across a line break, so the browser read two
+meaningless attributes (`oncli` and `ck`) and attached no handler. This was the
+**correct** answer on Chapter 4's True/False question 2 — a student picking the
+right answer got nothing back.
+
+### Verification
+
+Every quiz item in every chapter was driven programmatically: click an option,
+then assert the button disables, takes a correct/incorrect class, and renders
+feedback. Short answers were filled with their expected value and submitted.
+
+| | Before | After |
+|---|---|---|
+| MCQ / True-False groups responding | 607 / 618 | **618 / 618** |
+| Short answers responding | 401 / 401 | **401 / 401** |
+
+Every other interactive widget was also exercised across all 16 chapters —
+Next Question, sort-and-drop, matching, sequencers, flip cards, cloze blanks,
+the flagship labs, the ray bench, the balancer steppers and the reaction
+classifier — **0 thrown errors, 0 console errors**.
+
+### Guards added
+
+`Scripts/audit_decks.js` gained two checks that catch these classes directly,
+verified by reintroducing the Chapter 4 bug and confirming it is reported:
+
+- every answer button (`.option-btn`, `.sa-submit-btn`) must carry a click
+  handler — **1,949 checked**;
+- no `on*` attribute name may be split by whitespace.
+
+Together with the existing handler-parse check, **3,597 inline handlers** are
+now validated on every run.
+
+`sw.js` cache version bumped to **v42** so the corrected engine reaches students
+who already have the old copy cached offline.
+
+---
+
 ## 2026-10-02 — Mobile ABIM launcher clearance
 
 - Replaced the mobile home-screen ABIM text pill with an accessible 48px

@@ -11,7 +11,8 @@
      balancer  the balancer widget's stored answers really do balance
      classify  the reaction classifier's labels match the equation shape
      quiz      every MCQ has exactly one correct option, SA has an answer
-     handlers  every inline on* handler is parseable JavaScript
+     handlers  every inline on* handler is parseable JavaScript, every answer
+               button actually carries one, and no attribute name is split
      subslide  next-sub-slide jumps point at a sub-slide that exists
      markup    duplicate ids, stray <sub>/<sup>, empty interactive targets
      numerics  worked optics/electricity answers satisfy their own formula
@@ -617,6 +618,15 @@ function checkNumerics(deck, report, stats) {
    the string early) survived every visual review. */
 
 function checkHandlers(deck, report, stats) {
+  /* A line break inside an attribute name ("oncli\n    ck=") makes the browser
+     read two meaningless attributes and silently drops the handler, so the
+     button renders, enables and does nothing. One of these sat in Chapter 4. */
+  const split = /\son(?:click|change|input|submit|keyup|keydown)[a-z]*\s+[a-z]+\s*=\s*"/g;
+  let sm;
+  while ((sm = split.exec(deck.html))) {
+    report("handlers", null, `attribute name is split across whitespace: ${JSON.stringify(sm[0].trim())}`);
+  }
+
   for (const slide of deck.slides) {
     /* Handlers inside <script> are template literals that still contain
        ${...} placeholders; they are only valid once the widget has rendered
@@ -633,6 +643,16 @@ function checkHandlers(deck, report, stats) {
         report("handlers", slide, `inline handler will not parse (${e.message}): ${src.slice(0, 90)}`);
       }
     }
+
+    /* An answer button with no handler at all is the same failure seen by the
+       student: it looks live and does nothing when tapped. */
+    const answerBtns = markup.match(/<button[^>]*class="[^"]*(?:option-btn|sa-submit-btn)[^"]*"[^>]*>/g) || [];
+    answerBtns.forEach((b) => {
+      if (stats) stats.answerBtns++;
+      if (!/\son(?:click|change)\s*=/.test(b)) {
+        report("handlers", slide, `answer button has no click handler: ${text(b).slice(0, 60) || b.slice(0, 80)}`);
+      }
+    });
   }
 }
 
@@ -671,7 +691,7 @@ function main() {
     const chNo = +(/Chapter (\d+)/.exec(deck.dir) || [])[1];
     if (wanted.length && !wanted.includes(chNo)) continue;
     const lines = [];
-    const stats = { eqSeen: 0, eqChecked: 0, eqSkipped: [], sweepSeen: 0, sweepChecked: 0, numChecked: 0, mcq: 0, sa: 0, handlers: 0, balancerFound: false, balancerItems: 0, classifyItems: 0 };
+    const stats = { eqSeen: 0, eqChecked: 0, eqSkipped: [], sweepSeen: 0, sweepChecked: 0, numChecked: 0, mcq: 0, sa: 0, handlers: 0, answerBtns: 0, balancerFound: false, balancerItems: 0, classifyItems: 0 };
     const report = (kind, slide, msg) => {
       if (only && kind !== only) return;
       total++;
@@ -690,7 +710,7 @@ function main() {
     }
     if (showStats) {
       console.log(`\n--- ${deck.dir}`);
-      console.log(`    equations: ${stats.eqChecked}/${stats.eqSeen} blocks + ${stats.sweepChecked} prose, numericals: ${stats.numChecked}, quiz groups: ${stats.mcq}, short answers: ${stats.sa}, handlers: ${stats.handlers}` +
+      console.log(`    equations: ${stats.eqChecked}/${stats.eqSeen} blocks + ${stats.sweepChecked} prose, numericals: ${stats.numChecked}, quiz groups: ${stats.mcq}, short answers: ${stats.sa}, handlers: ${stats.handlers}, answer buttons: ${stats.answerBtns}` +
         (stats.balancerItems ? `, balancer items: ${stats.balancerItems}` : "") +
         (stats.classifyItems ? `, classifier items: ${stats.classifyItems}` : ""));
       if (stats.eqSkipped.length) stats.eqSkipped.forEach((e) => console.log(`      skipped: ${e}`));
