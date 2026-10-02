@@ -8,18 +8,21 @@ const path = require("node:path");
 const vm = require("node:vm");
 const code = fs.readFileSync(path.join(__dirname, "../assets/abim-license.js"), "utf8");
 
-function fixture({ query = "", saved = null, response, fetchError, timeoutError, bodyTimeout = false, storageFails = false, storageRejects = false } = {}) {
+function fixture({ query = "", saved = null, response, fetchError, timeoutError, bodyTimeout = false, storageFails = false, storageRejects = false, accepted = "true", disclaimerStorageFails = false } = {}) {
   const nodes = {};
   let focused = null, calls = 0, request = null, replaced = null, key = saved;
-  for (const id of ["licensePaywall", "abimApp", "licenseForm", "licenseKey", "verifyLicenseBtn", "licenseError"]) {
+  for (const id of ["licensePaywall", "abimApp", "licenseForm", "licenseKey", "verifyLicenseBtn", "licenseError", "disclaimerModal", "acceptDisclaimerBtn", "disclaimerError"]) {
     nodes[id] = {
-      hidden: id === "licenseError", inert: id === "abimApp", value: "", attributes: {},
+      hidden: ["licenseError", "disclaimerModal", "disclaimerError"].includes(id), inert: id === "abimApp", value: "", attributes: {},
       listeners: {}, textContent: "",
       addEventListener(type, fn) { this.listeners[type] = fn; },
       setAttribute(name, value) { this.attributes[name] = value; },
       removeAttribute(name) { delete this.attributes[name]; },
       focus() { focused = id; },
-      contains(node) { return node === nodes.licenseKey || node === nodes.licenseForm; },
+      contains(node) {
+        return id === "disclaimerModal" ? node === nodes.acceptDisclaimerBtn :
+          node === nodes.licenseKey || node === nodes.licenseForm;
+      },
       querySelectorAll() { return [nodes.licenseKey, nodes.verifyLicenseBtn]; }
     };
   }
@@ -44,6 +47,18 @@ function fixture({ query = "", saved = null, response, fetchError, timeoutError,
   };
   const context = {
     window, document, URL, URLSearchParams, AbortController, clearTimeout,
+    localStorage: {
+      getItem(name) {
+        assert.equal(name, "bolo_abim_disclaimer_accepted");
+        if (disclaimerStorageFails) throw new Error("Synthetic disclaimer storage failure");
+        return accepted;
+      },
+      setItem(name, value) {
+        assert.equal(name, "bolo_abim_disclaimer_accepted");
+        if (disclaimerStorageFails) throw new Error("Synthetic disclaimer storage failure");
+        accepted = value;
+      }
+    },
     setTimeout(fn, delay) { return setTimeout(fn, (timeoutError || bodyTimeout) && delay === 15000 ? 5 : delay); },
     console: { error() {} },
     location: { href: "https://example.test/abim.html" + query },
@@ -76,6 +91,7 @@ function fixture({ query = "", saved = null, response, fetchError, timeoutError,
     nodes, window, document,
     get calls() { return calls; }, get request() { return request; },
     get key() { return key; }, get replaced() { return replaced; }, get focused() { return focused; },
+    get accepted() { return accepted; },
     async settle() { await new Promise(resolve => setImmediate(resolve)); },
     async submit(value) {
       nodes.licenseKey.value = value;
@@ -226,4 +242,69 @@ test("a timeout reading the response body is reported as a timeout, not invalid 
   assert.match(f.nodes.licenseError.textContent, /timed out/);
   assert.equal(f.nodes.verifyLicenseBtn.disabled, false);
   assert.equal(f.nodes.licenseKey.readOnly, false);
+});
+
+test("unlicensed visitors see only the paywall, even with prior acceptance", () => {
+  const f = fixture();
+  assert.equal(f.nodes.disclaimerModal.hidden, true);
+  f.nodes.acceptDisclaimerBtn.listeners.click();
+  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
+});
+
+for (const accepted of [null, "false", "TRUE", ""]) {
+  test("authorized users must explicitly accept when stored value is " + JSON.stringify(accepted), async () => {
+    const f = fixture({ saved: "TEST-CACHED", accepted });
+    let started = false;
+    f.window.BOLO_ABIM_ACCESS.ready.then(() => { started = true; });
+    await f.settle();
+    assert.equal(started, false);
+    assert.equal(f.nodes.licensePaywall.hidden, true);
+    assert.equal(f.nodes.disclaimerModal.hidden, false);
+    assert.equal(f.nodes.abimApp.inert, true);
+    assert.equal(f.focused, "acceptDisclaimerBtn");
+    f.nodes.acceptDisclaimerBtn.listeners.click();
+    await f.settle();
+    assert.equal(f.accepted, "true");
+    assert.equal(started, true);
+    assert.equal(f.nodes.disclaimerModal.hidden, true);
+    assert.equal(f.nodes.abimApp.inert, false);
+  });
+}
+
+test("new Gumroad verification opens disclaimer before resolving study access", async () => {
+  const f = fixture({ accepted: null });
+  await f.submit("TEST-NEW-LICENSE");
+  assert.equal(f.key, "TEST-NEW-LICENSE");
+  assert.equal(f.nodes.disclaimerModal.hidden, false);
+  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
+  await f.submit("TEST-DUPLICATE");
+  assert.equal(f.calls, 1);
+});
+
+test("disclaimer blocks outside events and traps keyboard focus without dismissing", () => {
+  const f = fixture({ saved: "TEST-CACHED", accepted: null });
+  let blocked = 0;
+  for (const key of [" ", "Enter", "1", "2", "3", "4"]) {
+    f.document.listeners.keydown({
+      target: f.nodes.abimApp, key,
+      preventDefault() { blocked++; }, stopImmediatePropagation() {}
+    });
+  }
+  assert.equal(blocked, 6);
+  let stopped = false;
+  f.nodes.disclaimerModal.listeners.keydown({
+    key: "Tab", stopPropagation() { stopped = true; }, preventDefault() {}
+  });
+  assert.equal(stopped, true);
+  assert.equal(f.focused, "acceptDisclaimerBtn");
+  assert.equal(f.nodes.disclaimerModal.hidden, false);
+});
+
+test("failed acceptance persistence stays locked with a visible retry error", () => {
+  const f = fixture({ saved: "TEST-CACHED", disclaimerStorageFails: true });
+  f.nodes.acceptDisclaimerBtn.listeners.click();
+  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
+  assert.equal(f.nodes.disclaimerModal.hidden, false);
+  assert.equal(f.nodes.disclaimerError.hidden, false);
+  assert.match(f.nodes.disclaimerError.textContent, /could not be saved/);
 });

@@ -36,6 +36,19 @@ The service worker does not cache ABIM URLs containing receipt or admin
 parameters. Opening a receipt URL requires a network connection; ordinary
 ABIM and PSEB pages keep their existing offline caching.
 
+## Medical & AI disclaimer
+
+After license activation, users must accept the Medical & AI Disclaimer
+before the study engine starts. Only the exact stored value `"true"` for
+`bolo_abim_disclaimer_accepted` skips the modal on later visits.
+Acceptance is device-wide, separate from learner-slot study progress.
+The license paywall takes priority for unlicensed visitors.
+
+The modal cannot be dismissed by outside clicks or Escape. The study
+wrapper remains inert/hidden, background shortcuts are blocked, and focus
+stays on the acceptance control. If acceptance cannot be saved, an inline
+error keeps the gate closed and allows retry after enabling local storage.
+
 ## Important security limits
 
 **This is a client-side activation screen, not a secure paywall.**

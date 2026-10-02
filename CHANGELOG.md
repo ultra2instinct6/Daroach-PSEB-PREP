@@ -5,6 +5,18 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Medical & AI disclaimer acceptance
+
+- Added the requested trademark, AI accuracy, and educational-use disclaimer
+  after Gumroad activation and before study initialization.
+- Remember acceptance device-wide under `bolo_abim_disclaimer_accepted`;
+  only `"true"` bypasses the disclaimer on subsequent visits.
+- Require explicit acceptance with focus containment and blocked background
+  keyboard/pointer interactions. Failed storage writes show a retry error.
+- Added regression coverage for paywall priority, deferred initialization,
+  missing/false acceptance, keyboard blocking, and persistence failure.
+- Service-worker cache bumped to v37.
+
 ## 2026-10-02 — ABIM/PSEB integration verification
 
 - Corrected timeout reporting when Gumroad's response body stalls.

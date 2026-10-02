@@ -53,7 +53,7 @@
     { id: "rocket", icon: "\uD83D\uDE80", label: "Rocket" }
   ];
   /* Keys that describe the device, not the learner. */
-  var GLOBAL_KEYS = [REGISTRY_KEY, "bolo.bmc.seen.v1"];
+  var GLOBAL_KEYS = [REGISTRY_KEY, "bolo.bmc.seen.v1", "bolo_abim_disclaimer_accepted"];
   /* Copied into a newly created slot so the app keeps its current look. */
   var INHERITED_KEYS = ["bolo.theme.v1", "pseb.decktheme.v1", "pseb.fontscale.v1"];
   var DEFAULT_CHAPTER_COUNT = 16;

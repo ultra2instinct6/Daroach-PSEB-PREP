@@ -2,6 +2,7 @@
   "use strict";
 
   const STORAGE_KEY = "bolo_abim_license_key";
+  const DISCLAIMER_KEY = "bolo_abim_disclaimer_accepted";
   const VERIFY_URL = "https://api.gumroad.com/v2/licenses/verify";
   const PRODUCT = "bolo-abim";
   const url = new URL(location.href);
@@ -42,6 +43,10 @@
     const input = document.getElementById("licenseKey");
     const button = document.getElementById("verifyLicenseBtn");
     const error = document.getElementById("licenseError");
+    const disclaimer = document.getElementById("disclaimerModal");
+    const acceptButton = document.getElementById("acceptDisclaimerBtn");
+    const disclaimerError = document.getElementById("disclaimerError");
+    let authorized = false;
     let busy = false;
 
     function showError(message) {
@@ -49,17 +54,55 @@
       error.hidden = false;
       input.setAttribute("aria-invalid", "true");
     }
-    function unlock() {
+    function startApp() {
       if (unlocked) return;
       unlocked = true;
       backdrop.hidden = true;
+      disclaimer.hidden = true;
       app.inert = false;
       app.removeAttribute("aria-hidden");
       document.body.classList.remove("abim-access-locked");
       resolveAccess();
     }
+    function unlock() {
+      authorized = true;
+      backdrop.hidden = true;
+      try {
+        if (localStorage.getItem(DISCLAIMER_KEY) === "true") {
+          startApp();
+          return;
+        }
+      } catch (storageError) {
+        console.error("Saved ABIM disclaimer acceptance could not be read.");
+        disclaimerError.textContent = "Saved acceptance could not be read. Enable local storage and accept to continue.";
+        disclaimerError.hidden = false;
+      }
+      disclaimer.hidden = false;
+      acceptButton.focus();
+    }
+    acceptButton.addEventListener("click", () => {
+      if (!authorized || unlocked) return;
+      try {
+        localStorage.setItem(DISCLAIMER_KEY, "true");
+      } catch (storageError) {
+        console.error("ABIM disclaimer acceptance could not be saved.");
+        disclaimerError.textContent = "Acceptance could not be saved. Enable local storage in this browser and try again.";
+        disclaimerError.hidden = false;
+        return;
+      }
+      startApp();
+    });
+    disclaimer.addEventListener("keydown", event => {
+      // Keep all study shortcuts out of the document while preserving button activation.
+      event.stopPropagation();
+      if (event.key === "Escape") event.preventDefault();
+      if (event.key === "Tab") {
+        event.preventDefault();
+        acceptButton.focus();
+      }
+    });
     async function verify(key) {
-      if (busy || unlocked) return;
+      if (busy || authorized) return;
       key = key.trim();
       if (!key) {
         showError("Enter the license key from your Gumroad receipt.");
@@ -142,10 +185,13 @@
     // Capture events as well as using inert: app shortcuts cannot run behind the gate.
     ["click", "pointerdown", "contextmenu", "keydown"].forEach(type => {
       document.addEventListener(type, event => {
-        if (unlocked || backdrop.contains(event.target)) return;
+        if (unlocked) return;
+        if (authorized) {
+          if (disclaimer.contains(event.target)) return;
+        } else if (backdrop.contains(event.target)) return;
         // Gumroad mounts checkout in a shadow root outside our paywall.
         const checkout = event.target.shadowRoot && event.target.shadowRoot.querySelector("iframe");
-        if (checkout && checkout.src) {
+        if (!authorized && checkout && checkout.src) {
           const host = new URL(checkout.src).hostname;
           if (host === "gumroad.com" || host.endsWith(".gumroad.com")) return;
         }

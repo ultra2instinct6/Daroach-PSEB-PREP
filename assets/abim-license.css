@@ -62,6 +62,10 @@ body.abim-access-locked #abimApp { visibility: hidden; pointer-events: none; }
 .license-error { margin-top: 12px; color: #ffb4bf; line-height: 1.5; overflow-wrap: anywhere; }
 .license-card .license-note { margin: 20px 0 0; font-size: 0.78rem; }
 .license-card .license-home { display: inline-block; margin-top: 20px; color: #b6c4d8; }
+.disclaimer-backdrop { z-index: 19900; }
+.disclaimer-card { width: min(100%, 640px); background: #1e293b; }
+.disclaimer-card h1 { color: #f8fafc; font-weight: 800; }
+.disclaimer-card p { color: #cbd5e1; }
 @media (prefers-reduced-motion: reduce) {
   .license-backdrop *, .license-backdrop *::before, .license-backdrop *::after { transition: none; }
 }
