@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BOLO.ABIM — Internal Medicine Board Prep</title>
+<!-- Memory card: routes per-learner storage to the active profile slot; must run before any other script. -->
+<script src="assets/memory-card.js"></script>
+<!-- Google Analytics (GA4) — shared loader, see assets/analytics.js -->
+<script src="assets/analytics.js"></script>
+<meta name="description" content="Hybrid MCQ-to-flashcard study engine for the ABIM Internal Medicine Certification Examination — clinical vignettes with rationales and unlockable core-concept flashcards.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#000000">
+<style>
+  :root {
+    --bg-void: #000000;
+    --text-bold: #ffffff;
+    --text-dim: #8e9bb0;
+    --panel: rgba(18, 18, 22, 0.94);
+    --border: rgba(255, 255, 255, 0.08);
+    --accent: #00e5ff;
+    --green: #2ecc71;
+    --red: #ff4d6d;
+    --amber: #ffaa00;
+    --teal: #2dd4bf;
+    --fluid-curve: cubic-bezier(0.16, 1, 0.3, 1);
+    --spring-curve: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  /* ABIM mode recolours the whole engine to the clinical teal colourway. */
+  body.abim-mode { --accent: var(--teal); }
+
+  /* CLASSIC = light colorway matching the lecture decks (legacy palette) —
+     same shared theme contract (bolo.theme.v1) as the MCQ and flashcard apps. */
+  body[data-theme="CLASSIC"] {
+    --bg-void: #f8fbff;
+    --text-bold: #182437;
+    --text-dim: #5c6f86;
+    --panel: rgba(255, 255, 255, 0.92);
+    --border: rgba(11, 74, 168, 0.14);
+    --accent: #0b56c5;
+    --green: #179c65;
+    --red: #c73a2e;
+    --amber: #f26a21;
+    --teal: #0d9488;
+  }
+  body[data-theme="CLASSIC"].abim-mode { --accent: var(--teal); }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { background: var(--bg-void); }
+  body {
+    min-height: 100vh;
+    background: var(--bg-void);
+    color: var(--text-bold);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: -5%;
+    z-index: -3;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.035;
+  }
+  .aura-bleed {
+    position: fixed;
+    top: -20vh;
+    left: 50%;
+    z-index: -2;
+    width: 130vw;
+    height: 90vh;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, rgba(0, 140, 255, 0.14) 0%, rgba(0, 110, 255, 0.05) 40%, transparent 72%);
+    pointer-events: none;
+    transition: background 0.9s var(--fluid-curve);
+  }
+  body.abim-mode .aura-bleed {
+    background: radial-gradient(ellipse at center, rgba(45, 212, 191, 0.13) 0%, rgba(45, 212, 191, 0.04) 40%, transparent 72%);
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at center, transparent 10%, rgba(0, 0, 0, 0.94) 100%);
+  }
+
+  /* Page transition veil — matches the menu / MCQ / flashcard apps. */
+  .page-veil {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    pointer-events: none;
+    background: var(--bg-void);
+    opacity: 1;
+    animation: veilFadeOut 420ms var(--fluid-curve) forwards;
+  }
+  body.page-entered .page-veil { animation: none; opacity: 0; visibility: hidden; }
+  body.page-leaving .page-veil { animation: veilFadeIn 300ms var(--fluid-curve) forwards; opacity: 1; visibility: visible; }
+  @keyframes veilFadeOut { from { opacity: 1; } to { opacity: 0; visibility: hidden; } }
+  @keyframes veilFadeIn { from { opacity: 0; visibility: visible; } to { opacity: 1; visibility: visible; } }
+  @media (prefers-reduced-motion: reduce) { .page-veil { animation-duration: 160ms; } }
+
+  button { border: 0; font: inherit; color: inherit; background: none; cursor: pointer; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+  /* ---------- Header ---------- */
+  .mcq-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 18px;
+    padding: max(18px, env(safe-area-inset-top)) clamp(16px, 4vw, 44px) 16px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.6) 70%, transparent 100%);
+    backdrop-filter: blur(6px);
+  }
+  .header-logo {
+    color: var(--text-bold);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .dot-mode { color: var(--accent); transition: color 0.5s var(--fluid-curve); }
+  .home-pill {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .home-pill:hover { color: #fff; border-color: color-mix(in srgb, var(--accent) 50%, transparent); transform: translateY(-1px); }
+  .header-spacer { flex: 1; }
+  .tool-pill {
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .tool-pill:hover { color: #fff; border-color: color-mix(in srgb, var(--accent) 55%, transparent); transform: translateY(-1px); }
+  .score-pill {
+    padding: 8px 15px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .score-pill strong { color: var(--accent); font-variant-numeric: tabular-nums; }
+
+  /* ---------- Stage ---------- */
+  .stage {
+    width: min(94vw, 860px);
+    margin: clamp(8px, 2vh, 26px) auto clamp(120px, 16vh, 170px);
+    animation: riseIn 0.7s var(--fluid-curve);
+  }
+  @keyframes riseIn { 0% { opacity: 0; transform: translateY(26px) scale(0.97); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+  .q-card {
+    position: relative;
+    padding: clamp(20px, 4.5vw, 34px);
+    border: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 26px;
+    background: var(--panel);
+    box-shadow: 0 34px 80px rgba(0, 0, 0, 0.85), 0 0 60px -30px var(--accent), inset 0 1px 1px rgba(255, 255, 255, 0.06);
+    transition: border-color 0.5s var(--fluid-curve), box-shadow 0.5s var(--fluid-curve);
+  }
+  .q-card.swap { animation: riseIn 0.5s var(--fluid-curve); }
+
+  .q-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 18px; }
+  .meta-rune {
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-dim);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  .meta-rune.hot { border-color: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent); }
+  .meta-rune.cardio { border-color: color-mix(in srgb, var(--red) 36%, transparent); color: var(--red); }
+  .meta-rune.id-tag { border-color: color-mix(in srgb, var(--amber) 36%, transparent); color: var(--amber); }
+  .meta-rune.pseb-mark { border-color: color-mix(in srgb, #38bdf8 34%, transparent); color: #38bdf8; }
+  .meta-rune.endo { border-color: color-mix(in srgb, #38bdf8 36%, transparent); color: #38bdf8; }
+  .meta-rune.gi { border-color: color-mix(in srgb, #fb923c 36%, transparent); color: #fb923c; }
+  .meta-rune.pulm { border-color: color-mix(in srgb, #818cf8 36%, transparent); color: #818cf8; }
+  .meta-rune.rheum { border-color: color-mix(in srgb, #e879f9 36%, transparent); color: #e879f9; }
+  .meta-rune.neph { border-color: color-mix(in srgb, #f472b6 36%, transparent); color: #f472b6; }
+  .meta-rune.heme { border-color: color-mix(in srgb, #ff4d6d 30%, transparent); color: #fb7185; }
+  .meta-rune.onc { border-color: color-mix(in srgb, #c084fc 36%, transparent); color: #c084fc; }
+  .meta-rune.neuro { border-color: color-mix(in srgb, #60a5fa 36%, transparent); color: #60a5fa; }
+  .meta-rune.geri { border-color: color-mix(in srgb, #a3e635 32%, transparent); color: #a3e635; }
+  .meta-rune.crit { border-color: color-mix(in srgb, #fb923c 40%, transparent); color: #fdba74; }
+  .meta-rune.psych { border-color: color-mix(in srgb, #c084fc 36%, transparent); color: #d8b4fe; }
+  .meta-rune.derm { border-color: color-mix(in srgb, #f9a8d4 36%, transparent); color: #f9a8d4; }
+  .meta-rune.obgyn { border-color: color-mix(in srgb, #2dd4bf 36%, transparent); color: #5eead4; }
+  .meta-rune.found { border-color: color-mix(in srgb, #fcd34d 36%, transparent); color: #fcd34d; }
+  /* Exam task-type chip — the cognitive skill the item tests (diagnosis,
+     testing, treatment, risk/prognosis, pathophysiology, next step). */
+  .meta-rune.task { border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: color-mix(in srgb, var(--accent) 8%, transparent); color: var(--accent); font-weight: 900; }
+
+  /* Progress navigator — same segment track as the PSEB MCQ engine. */
+  .progress-track { display: flex; gap: 5px; margin-bottom: 20px; }  .progress-seg { flex: 1; height: 4px; border: 0; padding: 0; border-radius: 99px; background: rgba(255, 255, 255, 0.08); cursor: pointer; transition: background 0.45s var(--fluid-curve), box-shadow 0.45s; }
+  .progress-seg:hover { box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 55%, transparent); }
+  .progress-seg.seen-correct { background: var(--green); box-shadow: 0 0 8px color-mix(in srgb, var(--green) 60%, transparent); }
+  .progress-seg.seen-wrong { background: var(--red); box-shadow: 0 0 8px color-mix(in srgb, var(--red) 55%, transparent); }
+  .progress-seg.current { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent); }
+
+  /* Blueprint-system filter chips (ABIM mode only). */
+  .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .filter-row[hidden] { display: none; }
+  .filter-chip {
+    padding: 8px 13px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .filter-chip:hover { color: #fff; border-color: color-mix(in srgb, var(--accent) 45%, transparent); transform: translateY(-1px); }
+  .filter-chip.active { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 60%, transparent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .filter-chip .chip-count { opacity: 0.65; font-weight: 700; }
+
+  /* Saved-cards review deck. */
+  .cards-empty { padding: 14px 4px; color: var(--text-dim); font-size: 0.82rem; font-weight: 600; line-height: 1.6; }
+  .card-sys-head { margin: 16px 0 10px; color: var(--accent); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; }
+  .card-sys-head:first-child { margin-top: 0; }
+  .card-remove {
+    margin-left: auto;
+    flex: none;
+    align-self: center;
+    padding: 5px 10px;
+    border: 1px solid color-mix(in srgb, var(--red) 35%, transparent);
+    border-radius: 999px;
+    color: var(--red);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    transition: all 0.25s var(--fluid-curve);
+  }
+  .card-remove:hover { background: color-mix(in srgb, var(--red) 12%, transparent); }
+  .modal-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; }
+  .btn-danger-ghost {
+    padding: 9px 15px;
+    border: 1px solid color-mix(in srgb, var(--red) 40%, transparent);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--red);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    transition: all 0.25s var(--fluid-curve);
+  }
+  .btn-danger-ghost:hover { background: color-mix(in srgb, var(--red) 12%, transparent); }
+
+  /* ---------- Spaced-repetition review mode ---------- */
+  .review-wrap { text-align: center; padding: 6px 0 2px; }
+  .review-count { margin-bottom: 4px; color: var(--text-dim); font-size: 0.66rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+  .review-front { margin: 26px auto 22px; max-width: 560px; font-size: clamp(1.1rem, 3.6vw, 1.35rem); font-weight: 900; line-height: 1.5; }
+  .review-done-sub { max-width: 480px; margin: 10px auto 24px; color: var(--text-dim); font-size: 0.86rem; font-weight: 600; line-height: 1.7; }
+  .grade-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 540px; margin: 22px auto 4px; }
+  .grade-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 13px 8px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.82rem;
+    font-weight: 800;
+    transition: all 0.25s var(--fluid-curve);
+  }
+  .grade-btn small { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.5px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .grade-btn:hover { transform: translateY(-2px); }
+  .grade-btn.again { color: var(--red); border-color: color-mix(in srgb, var(--red) 40%, transparent); }
+  .grade-btn.again:hover { background: color-mix(in srgb, var(--red) 10%, transparent); }
+  .grade-btn.hard { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
+  .grade-btn.hard:hover { background: color-mix(in srgb, var(--amber) 10%, transparent); }
+  .grade-btn.good { color: var(--green); border-color: color-mix(in srgb, var(--green) 40%, transparent); }
+  .grade-btn.good:hover { background: color-mix(in srgb, var(--green) 10%, transparent); }
+  .grade-btn.easy { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .grade-btn.easy:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  @media (max-width: 460px) { .grade-row { grid-template-columns: repeat(2, 1fr); } }
+  .review-badge { display: inline-block; min-width: 16px; padding: 1px 5px; border-radius: 999px; background: var(--teal); color: #04211d; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .review-badge.zero { background: rgba(255, 255, 255, 0.12); color: var(--text-dim); }
+
+  /* 3D flip flashcard — ported from the PSEB flashcards deck: the scene owns
+     the perspective, the inner element rotates, both faces share one box, and
+     the answer cascades in after the turn. */
+  .fc-scene {
+    max-width: 640px;
+    min-height: 240px;
+    margin: 14px auto 0;
+    perspective: 1400px;
+    display: flex;
+    cursor: pointer;
+    outline: none;
+  }
+  .fc-scene:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; border-radius: 22px; }
+  .fc-inner {
+    position: relative;
+    flex: 1;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .fc-scene.flipped .fc-inner { transform: rotateY(180deg); }
+  .fc-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: clamp(18px, 3.4vw, 28px);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    overflow: hidden;
+  }
+  .fc-back { transform: rotateY(180deg) translateZ(0); border-top-color: var(--green); }
+  .fc-scene:not(.flipped) .fc-back { pointer-events: none; }
+  .fc-scene.flipped .fc-front { pointer-events: none; }
+  .fc-kicker { color: var(--text-dim); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; }
+  .fc-q { font-size: clamp(1.1rem, 3.5vw, 1.5rem); font-weight: 800; line-height: 1.42; overflow-wrap: break-word; }
+  .fc-q-small { font-size: clamp(0.82rem, 2.6vw, 0.95rem); color: var(--text-dim); font-weight: 700; }
+  .fc-a { color: var(--accent); font-size: clamp(0.95rem, 3vw, 1.18rem); font-weight: 700; line-height: 1.6; }
+  .fc-foot { color: var(--text-dim); font-size: 0.62rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.72; }
+  /* Staggered reveal after the turn, exactly like the PSEB deck. */
+  .fc-scene.flipped .fc-back > * { animation: fcSecIn 0.5s var(--fluid-curve) both; }
+  .fc-scene.flipped .fc-back > :nth-child(1) { animation-delay: 0.16s; }
+  .fc-scene.flipped .fc-back > :nth-child(2) { animation-delay: 0.24s; }
+  .fc-scene.flipped .fc-back > :nth-child(3) { animation-delay: 0.32s; }
+  @keyframes fcSecIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .fc-inner { transition-duration: 0.01s; }
+    .fc-scene.flipped .fc-back > * { animation: none; }
+  }
+
+  /* Q→A layout inside option-row flashcards (unlocked concepts + saved deck). */
+  .opt-text strong { display: block; }
+  .fc-answer-line { display: block; margin-top: 4px; color: var(--text-dim); font-weight: 600; font-size: 0.88em; line-height: 1.55; }
+
+  /* Hint pill — opens the lab reference ranges drawer. ABIM mode only. */
+  .hint-btn {
+    margin-left: auto;
+    padding: 7px 13px;
+    border: 1px solid color-mix(in srgb, var(--teal) 40%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--teal) 7%, transparent);
+    color: var(--teal);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .hint-btn:hover { background: color-mix(in srgb, var(--teal) 15%, transparent); transform: translateY(-1px); }
+  .hint-btn[aria-expanded="true"] { background: color-mix(in srgb, var(--teal) 18%, transparent); box-shadow: 0 0 18px -6px var(--teal); }
+
+  /* Smooth expand/collapse — grid-rows trick keeps height animation cheap. */
+  .reveal-wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.55s var(--fluid-curve); }
+  .reveal-wrap.open { grid-template-rows: 1fr; }
+  .reveal-wrap > .reveal-inner { overflow: hidden; }
+
+  .lab-panel {
+    margin-bottom: 18px;
+    padding: 16px 18px;
+    border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent);
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--teal) 4%, transparent);
+  }
+  .lab-title { margin-bottom: 10px; color: var(--teal); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; }
+  .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 4px 22px; }
+  .lab-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.06); font-size: 0.76rem; }
+  .lab-row dt { color: var(--text-dim); font-weight: 600; }
+  .lab-row dd { color: #e6edf5; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .q-prompt {
+    font-size: clamp(1rem, 3.2vw, 1.18rem);
+    font-weight: 700;
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+  /* Long-form clinical vignettes: the stem reads as prose, the lead-in
+     question is isolated on its own emphasised line. */
+  .q-prompt .vignette { display: block; font-weight: 550; color: #dbe4f0; }
+  .q-prompt .lead-in { display: block; margin-top: 14px; font-weight: 800; color: var(--text-bold); }
+
+  .option-row { display: flex; align-items: stretch; gap: 9px; margin-bottom: 10px; }
+  .option {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    min-height: 54px;
+    padding: 14px 17px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.025);
+    text-align: left;
+    transition: all 0.35s var(--fluid-curve);
+    overflow: hidden;
+  }
+  .option:hover:not(:disabled) { border-color: rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.06); transform: translateX(3px); }
+  .option:disabled { cursor: default; }
+  .opt-letter { flex: none; padding-top: 1px; color: var(--text-dim); font-size: 0.95rem; font-weight: 900; font-variant-numeric: tabular-nums; transition: color 0.4s; }
+  .opt-text { font-size: clamp(0.86rem, 2.8vw, 0.98rem); font-weight: 600; line-height: 1.55; }
+
+  .option.correct { border-color: color-mix(in srgb, var(--green) 65%, transparent); background: color-mix(in srgb, var(--green) 9%, transparent); box-shadow: 0 0 26px -8px var(--green); }
+  .option.correct .opt-letter { color: var(--green); }
+  .option.incorrect { border-color: color-mix(in srgb, var(--red) 65%, transparent); background: color-mix(in srgb, var(--red) 9%, transparent); box-shadow: 0 0 26px -8px var(--red); animation: shake 0.4s var(--fluid-curve); }
+  .option.incorrect .opt-letter { color: var(--red); }
+  @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+  /* Post-answer: the grid locks and every unselected distractor fades. */
+  .option.dimmed { opacity: 0.3; }
+
+  /* ---------- Feedback: explanation + unlocked flashcards ---------- */
+  .feedback { margin-top: 4px; }
+  .verdict { display: flex; align-items: center; gap: 10px; margin: 18px 0 14px; font-size: 1rem; font-weight: 900; letter-spacing: 0.4px; }
+  .verdict.good { color: var(--green); text-shadow: 0 0 18px color-mix(in srgb, var(--green) 45%, transparent); }
+  .verdict.bad { color: var(--red); text-shadow: 0 0 18px color-mix(in srgb, var(--red) 45%, transparent); }
+
+  .rationale {
+    margin-bottom: 8px;
+    padding: 13px 16px;
+    border-left: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 11px 11px 0;
+    background: rgba(255, 255, 255, 0.02);
+    color: #cbd5e1;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+  .rationale strong { color: #fff; }
+  .rationale.good { border-left-color: var(--green); background: color-mix(in srgb, var(--green) 5%, transparent); }
+  .rationale.bad { border-left-color: var(--red); background: color-mix(in srgb, var(--red) 5%, transparent); }
+
+  .unlock-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0 12px;
+    color: var(--accent);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+  .unlock-head::after { content: ''; flex: 1; height: 1px; background: color-mix(in srgb, var(--accent) 25%, transparent); }
+
+  /* Flashcards intentionally reuse the exact MCQ option classes so the
+     unlocked concepts read as part of the same grid — only the [+] badge
+     and the accent border distinguish them from answer choices. */
+  .option-row.flashcard-row .option { border-color: color-mix(in srgb, var(--accent) 28%, transparent); background: color-mix(in srgb, var(--accent) 4%, transparent); cursor: pointer; }
+  .option-row.flashcard-row .option:hover { border-color: color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 8%, transparent); transform: translateX(3px); }
+  .option-row.flashcard-row .opt-letter { color: var(--accent); }
+  .option-row.flashcard-row .option.collected { border-color: color-mix(in srgb, var(--green) 55%, transparent); background: color-mix(in srgb, var(--green) 7%, transparent); }
+  .option-row.flashcard-row .option.collected .opt-letter { color: var(--green); }
+  .flash-saved { margin-left: auto; flex: none; align-self: center; color: var(--green); font-size: 0.62rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; opacity: 0; transition: opacity 0.35s var(--fluid-curve); }
+  .option.collected .flash-saved { opacity: 1; }
+
+  .action-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+  .q-counter { color: var(--text-dim); font-size: 0.66rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+  .btn-prev {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 12px 18px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    font-weight: 800;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .btn-prev:hover:not(:disabled) { color: var(--text-bold); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+  .btn-prev:disabled { opacity: 0.25; cursor: default; }
+  .retry-link {
+    padding: 7px 13px;
+    border: 1px solid color-mix(in srgb, var(--amber) 40%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--amber) 8%, transparent);
+    color: var(--amber);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .retry-link:hover { background: color-mix(in srgb, var(--amber) 16%, transparent); transform: translateY(-1px); }
+  .btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 12px 24px;
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 13px;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    color: #fff;
+    font-size: 0.84rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    transition: all 0.3s var(--fluid-curve);
+  }
+  .btn-next:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 20%, transparent); transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--accent); }
+  .btn-next:disabled { opacity: 0.3; cursor: default; }
+
+  /* ---------- Floating ABIM toggle (bottom-right FAB) ---------- */
+  .abim-toggle {
+    position: fixed;
+    right: 20px;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    z-index: 1200;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 20px;
+    border: 1px solid color-mix(in srgb, var(--teal) 45%, transparent);
+    border-radius: 999px;
+    background: rgba(10, 22, 24, 0.92);
+    color: var(--teal);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 26px -10px var(--teal);
+    backdrop-filter: blur(10px);
+    transition: all 0.35s var(--spring-curve);
+  }
+  .abim-toggle:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7), 0 0 36px -8px var(--teal); }
+  .abim-toggle:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  .abim-toggle[aria-pressed="true"] {
+    background: linear-gradient(135deg, #0d3b37 0%, #11524b 100%);
+    color: #d9fff8;
+    border-color: var(--teal);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 0 34px -4px var(--teal);
+  }
+
+  /* ---------- Blueprint modal ---------- */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(18px);
+    animation: veilFadeOut 0.3s var(--fluid-curve) reverse;
+  }
+  .modal-backdrop[hidden] { display: none; }
+  .modal {
+    width: min(94vw, 680px);
+    max-height: 84vh;
+    overflow-y: auto;
+    padding: 26px clamp(18px, 4vw, 30px);
+    border: 1px solid var(--border);
+    border-top-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    border-radius: 24px;
+    background: #0c0c0e;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+  }
+  .modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+  .modal-title { font-size: 1.05rem; font-weight: 900; letter-spacing: 0.4px; }
+  .modal-sub { margin-top: 4px; color: var(--text-dim); font-size: 0.74rem; font-weight: 600; line-height: 1.5; }
+  .modal-close {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 900;
+    transition: all 0.25s var(--fluid-curve);
+  }
+  .modal-close:hover { color: #fff; border-color: rgba(255, 255, 255, 0.25); }
+  .bp-section { margin-bottom: 14px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .bp-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text-bold);
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-align: left;
+    transition: background 0.25s var(--fluid-curve);
+  }
+  .bp-head:hover { background: rgba(255, 255, 255, 0.05); }
+  .bp-caret { color: var(--text-dim); font-size: 0.7rem; transition: transform 0.3s var(--fluid-curve); }
+  .bp-head[aria-expanded="true"] .bp-caret { transform: rotate(90deg); }
+  .bp-list { margin: 0; padding: 4px 16px 12px 32px; }
+  .bp-list li { padding: 4px 0; color: var(--text-dim); font-size: 0.76rem; font-weight: 600; line-height: 1.55; }
+
+  @media (max-width: 560px) {
+    .score-pill { display: none; }
+    .hint-btn { margin-left: 0; flex-basis: 100%; }
+    .abim-toggle { padding: 11px 16px; font-size: 0.76rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .q-card.swap, .stage, .option.incorrect { animation: none; }
+    .reveal-wrap { transition-duration: 0.01s; }
+  }
+
+  /* ---------- CLASSIC (light) component overrides ---------- */
+  html:has(body[data-theme="CLASSIC"]) { background: #f8fbff; }
+  body[data-theme="CLASSIC"] { background: linear-gradient(145deg, #f8fbff 0%, #eef4ff 100%); }
+  body[data-theme="CLASSIC"]::before { background-image: radial-gradient(rgba(11, 86, 197, 0.26) 1px, transparent 1px); opacity: 0.6; }
+  body[data-theme="CLASSIC"]::after { background: radial-gradient(circle at center, transparent 34%, rgba(11, 74, 168, 0.05) 100%); }
+  body[data-theme="CLASSIC"] .mcq-header { background: linear-gradient(180deg, rgba(248, 251, 255, 0.95) 0%, rgba(248, 251, 255, 0.72) 70%, transparent 100%); }
+  body[data-theme="CLASSIC"] .home-pill,
+  body[data-theme="CLASSIC"] .tool-pill,
+  body[data-theme="CLASSIC"] .score-pill,
+  body[data-theme="CLASSIC"] .filter-chip,
+  body[data-theme="CLASSIC"] .btn-prev { background: rgba(255, 255, 255, 0.9); border-color: rgba(11, 74, 168, 0.16); }
+  body[data-theme="CLASSIC"] .home-pill:hover,
+  body[data-theme="CLASSIC"] .tool-pill:hover,
+  body[data-theme="CLASSIC"] .filter-chip:hover,
+  body[data-theme="CLASSIC"] .btn-prev:hover:not(:disabled) { color: var(--accent); }
+  body[data-theme="CLASSIC"] .progress-seg { background: rgba(11, 74, 168, 0.14); }
+  body[data-theme="CLASSIC"] .q-card { box-shadow: 0 22px 64px rgba(16, 42, 82, 0.14), 0 0 60px -34px var(--accent), inset 0 1px 1px rgba(255, 255, 255, 0.9); }
+  body[data-theme="CLASSIC"] .meta-rune { border-color: rgba(11, 74, 168, 0.1); background: rgba(11, 86, 197, 0.055); }
+  body[data-theme="CLASSIC"] .q-prompt .vignette { color: #33475e; }
+  body[data-theme="CLASSIC"] .option { border-color: rgba(11, 74, 168, 0.14); background: rgba(11, 86, 197, 0.03); }
+  body[data-theme="CLASSIC"] .option:hover:not(:disabled) { border-color: rgba(11, 74, 168, 0.34); background: rgba(11, 86, 197, 0.07); }
+  body[data-theme="CLASSIC"] .rationale { border-left-color: rgba(11, 74, 168, 0.24); background: rgba(11, 86, 197, 0.035); color: #33475e; }
+  body[data-theme="CLASSIC"] .rationale strong { color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .btn-next { color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .verdict.good, body[data-theme="CLASSIC"] .verdict.bad { text-shadow: none; }
+  body[data-theme="CLASSIC"] .lab-row dd { color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .modal-backdrop { background: rgba(16, 42, 82, 0.4); }
+  body[data-theme="CLASSIC"] .modal { background: #ffffff; box-shadow: 0 26px 70px rgba(16, 42, 82, 0.22), 0 0 60px -34px var(--accent); }
+  body[data-theme="CLASSIC"] .modal-close,
+  body[data-theme="CLASSIC"] .bp-head { border-color: rgba(11, 74, 168, 0.16); background: rgba(11, 86, 197, 0.04); color: var(--text-bold); }
+  body[data-theme="CLASSIC"] .bp-head:hover { background: rgba(11, 86, 197, 0.09); }
+  body[data-theme="CLASSIC"] .fc-face { background: #ffffff; }
+  body[data-theme="CLASSIC"] .grade-btn { background: rgba(255, 255, 255, 0.9); }
+  body[data-theme="CLASSIC"] .review-badge { color: #ffffff; background: var(--teal); }
+  body[data-theme="CLASSIC"] .review-badge.zero { background: rgba(11, 74, 168, 0.12); color: var(--text-dim); }
+  body[data-theme="CLASSIC"] .abim-toggle { background: rgba(255, 255, 255, 0.94); color: #0d9488; border-color: rgba(13, 148, 136, 0.45); box-shadow: 0 14px 40px rgba(16, 42, 82, 0.2), 0 0 26px -12px #0d9488; }
+  body[data-theme="CLASSIC"] .abim-toggle[aria-pressed="true"] { background: linear-gradient(135deg, #d9f6f1 0%, #bdeee5 100%); color: #065f55; border-color: #0d9488; }
+</style>
+</head>
+<body>
+<div class="page-veil" aria-hidden="true"></div>
+<div class="aura-bleed" id="auraBleed"></div>
+
+<header class="mcq-header">
+  <a class="header-logo" href="index.html">BOLO<span class="dot-mode" id="logoDot">.PREP</span></a>
+  <a class="home-pill" href="index.html">◂ Menu</a>
+  <span class="header-spacer"></span>
+  <button class="tool-pill memory-card-pill" type="button" aria-haspopup="dialog"><span aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="mc-pill-name">Student 1</span></button>
+  <button class="tool-pill" type="button" id="blueprintBtn" aria-haspopup="dialog">📚 ABIM Blueprint</button>
+  <button class="tool-pill" type="button" id="cardsBtn" aria-haspopup="dialog">🗂 Cards (<span id="cardsCount">0</span>)</button>
+  <button class="tool-pill" type="button" id="reviewBtn" title="Spaced-repetition review of your saved cards">📆 Review <span class="review-badge zero" id="reviewCount">0</span></button>
+  <button class="tool-pill" type="button" id="themePill" aria-label="Switch color theme">Theme: Neon</button>
+  <span class="score-pill">Score <strong id="scoreVal">0 / 0</strong></span>
+</header>
+
+<main class="stage" id="stage" aria-live="polite">
+  <div class="filter-row" id="filterRow" aria-label="Filter questions by blueprint system" hidden></div>
+  <div class="progress-track" id="progressTrack"></div>
+  <section class="q-card" id="qCard"></section>
+</main>
+
+<!-- Global ABIM toggle — floating action pill, bottom-right. -->
+<button class="abim-toggle" type="button" id="abimToggle" aria-pressed="false" title="Toggle ABIM Board Prep mode">
+  <span aria-hidden="true">🩺</span><span>ABIM Boards</span>
+</button>
+
+<!-- ABIM certification blueprint browser -->
+<div class="modal-backdrop" id="blueprintModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="blueprintTitle">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="blueprintTitle">📚 ABIM Certification Blueprint</div>
+        <div class="modal-sub">Internal Medicine content outline — up to 240 single-best-answer MCQs, most built on patient scenarios. Tap a system to expand its topics.</div>
+      </div>
+      <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">✕</button>
+    </div>
+    <div id="blueprintBody"></div>
+  </div>
+</div>
+
+<!-- Saved core-concept flashcards — the learner's personal review deck -->
+<div class="modal-backdrop" id="cardsModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cardsTitle">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="cardsTitle">🗂 My Core Concept Deck</div>
+        <div class="modal-sub">Every flashcard you save with [+] lands here, grouped by blueprint system — your personal rapid-review deck.</div>
+      </div>
+      <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">✕</button>
+    </div>
+    <div id="cardsBody"></div>
+    <div class="modal-foot">
+      <button class="btn-danger-ghost" type="button" data-reset-progress>↺ Reset All Progress</button>
+    </div>
+  </div>
+</div>
+
+<div class="sr-only" role="status" aria-live="polite" id="ariaAnnouncer"></div>
+
+<!-- Question/flashcard library — grows independently of this engine. -->
+<script src="assets/abim-data.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ================= Global state ================= */
+  let isAbimMode = false;        // required global mode flag
+  let labOpen = false;
+  let abimFilter = "ALL";        // blueprint-system filter ("ALL" or system key)
+  const picks = {};              // question id -> picked option index
+  const collected = new Set();   // saved flashcards, keyed "questionId:cardIdx"
+
+  /* Per-mode study session: current item index. Picks are keyed by stable
+     question IDs, so filters and future bank growth never corrupt answers. */
+  const sessions = {
+    abim: { idx: 0 },
+    pseb: { idx: 0 }
+  };
+  function session() { return isAbimMode ? sessions.abim : sessions.pseb; }
+
+  /* ================= Spaced repetition (SM-2 lite) =================
+     Every card in the deck carries ease / interval / due-date state. Missed
+     questions auto-enroll their core concepts, so "come in and study" always
+     has a queue: the Review pill shows what is due right now. */
+  const srs = {};                // card key -> { ease, ivl (days), due (ms), reps, lapses }
+  let reviewMode = false;
+  let reviewQueue = [];
+  let reviewShown = false;
+  let reviewStats = { done: 0, again: 0 };
+  const MINUTE = 60000, DAY = 86400000;
+
+  function newSrsEntry() { return { ease: 2.5, ivl: 0, due: Date.now(), reps: 0, lapses: 0 }; }
+  function addCardToDeck(key) {
+    collected.add(key);
+    if (!srs[key]) srs[key] = newSrsEntry();
+  }
+  function removeCardFromDeck(key) { collected.delete(key); delete srs[key]; }
+  function dueKeys() {
+    const now = Date.now();
+    return Array.from(collected).filter(k => srs[k] && srs[k].due <= now);
+  }
+  function schedule(key, grade) {
+    const c = srs[key] || (srs[key] = newSrsEntry());
+    const now = Date.now();
+    if (grade === "again") {
+      c.lapses += 1; c.reps = 0; c.ivl = 0;
+      c.ease = Math.max(1.3, c.ease - 0.2);
+      c.due = now + 10 * MINUTE;
+    } else if (c.reps === 0) {
+      c.ivl = grade === "hard" ? 0.5 : grade === "good" ? 1 : 3;
+      if (grade === "easy") c.ease += 0.15;
+      c.reps = 1;
+      c.due = now + c.ivl * DAY;
+    } else {
+      if (grade === "hard") { c.ivl = Math.max(c.ivl * 1.2, c.ivl + 1); c.ease = Math.max(1.3, c.ease - 0.05); }
+      else if (grade === "good") { c.ivl = c.ivl * c.ease; }
+      else { c.ivl = c.ivl * c.ease * 1.3; c.ease += 0.15; }
+      c.reps += 1;
+      c.due = now + Math.round(c.ivl) * DAY;
+    }
+    saveState();
+  }
+  function previewLabel(key, grade) {
+    const c = srs[key] || newSrsEntry();
+    if (grade === "again") return "10m";
+    if (c.reps === 0) return grade === "hard" ? "12h" : grade === "good" ? "1d" : "3d";
+    let ivl = grade === "hard" ? Math.max(c.ivl * 1.2, c.ivl + 1)
+      : grade === "good" ? c.ivl * c.ease : c.ivl * c.ease * 1.3;
+    return Math.max(1, Math.round(ivl)) + "d";
+  }
+
+  /* ================= Persistence =================
+     Answers, saved cards and the active filter survive reloads, so a large
+     bank can be worked through across multiple sittings. */
+  const STORE_KEY = "bolo.abim.v1";
+  function saveState() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify({
+        picks: picks, cards: Array.from(collected), filter: abimFilter, srs: srs,
+        keyVer: DATA.KEY_VERSION || 1
+      }));
+    } catch (e) {}
+  }
+  function loadState() {
+    let needsResave = false;
+    try {
+      const s = JSON.parse(localStorage.getItem(STORE_KEY));
+      if (!s) return;
+      Object.assign(picks, s.picks || {});
+      /* Options were reordered when the answer key was rebalanced — move
+         answers saved under the old order onto the same option text. */
+      const remap = DATA.KEY_REMAP || {};
+      if ((s.keyVer || 1) < (DATA.KEY_VERSION || 1)) {
+        Object.keys(picks).forEach(id => {
+          if (remap[id] && remap[id][picks[id]] !== undefined) picks[id] = remap[id][picks[id]];
+        });
+        needsResave = true;
+      }
+      (s.cards || []).forEach(c => collected.add(c));
+      Object.keys(s.srs || {}).forEach(k => { srs[k] = s.srs[k]; });
+      /* Cards saved before v2 carried no schedule — enroll them due now. */
+      collected.forEach(k => { if (!srs[k]) srs[k] = newSrsEntry(); });
+      if (s.filter && (s.filter === "ALL" || SYSTEMS[s.filter])) abimFilter = s.filter;
+      if (needsResave) saveState();
+    } catch (e) {}
+  }
+  function resetProgress() {
+    Object.keys(picks).forEach(k => delete picks[k]);
+    Object.keys(srs).forEach(k => delete srs[k]);
+    collected.clear();
+    abimFilter = "ALL";
+    sessions.abim.idx = 0;
+    sessions.pseb.idx = 0;
+    try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+  }
+
+  /* ================= Question banks =================
+     One shared hybrid schema powers both the PSEB-format item and the
+     ABIM-format clinical vignette: { tags, vignette, leadIn, options,
+     correct, explanation, flashcards }. Flashcards unlock post-answer. */
+  const PSEB_QUESTION = {
+    id: "pseb-demo",
+    tags: [
+      { label: "⚗️ CHEMISTRY", cls: "hot" },
+      { label: "CH 1 · CHEMICAL REACTIONS", cls: "" },
+      { label: "1M OBJECTIVE", cls: "pseb-mark" }
+    ],
+    vignette: "Zinc granules are added to a test tube containing dilute hydrochloric acid. Brisk effervescence is observed and the test tube becomes warm to the touch.",
+    leadIn: "Which gas is evolved, and what type of reaction is taking place?",
+    options: [
+      "Oxygen gas; decomposition reaction",
+      "Hydrogen gas; displacement reaction (exothermic)",
+      "Chlorine gas; combination reaction",
+      "Carbon dioxide gas; double displacement reaction"
+    ],
+    correct: 1,
+    explanation: "Zinc is more reactive than hydrogen, so it <strong>displaces</strong> hydrogen from dilute HCl: Zn + 2HCl → ZnCl₂ + H₂↑. The warmth of the tube confirms the reaction is <strong>exothermic</strong>. A burning splint near the mouth of the tube pops — the classic hydrogen test.",
+    flashcards: [
+      { f: "What does a metal + dilute acid reaction produce?",
+        b: "Salt + hydrogen gas — only metals above hydrogen in the reactivity series can displace it." },
+      { f: "How do you test for hydrogen gas?",
+        b: "Bring a burning matchstick near the gas — it burns with a 'pop' sound." },
+      { f: "What marks a reaction as exothermic?",
+        b: "Heat is released and the vessel becomes warm — e.g., Zn + HCl, respiration, combustion." }
+    ]
+  };
+
+  /* The ABIM bank lives in assets/abim-data.js (window.ABIM_DATA) so the
+     question/flashcard library can scale without touching this engine. */
+  const DATA = window.ABIM_DATA || { SYSTEMS: {}, TASKS: {}, QUESTIONS: [] };
+  const SYSTEMS = DATA.SYSTEMS;
+  const TASKS = DATA.TASKS;
+  const ABIM_QUESTIONS = DATA.QUESTIONS;
+  const PSEB_BANK = [PSEB_QUESTION];
+
+  /* ABIM lab reference ranges — Jan 2026 edition (hint drawer). Spans the
+     panels the exam expects candidates to interpret in-vignette: serum
+     electrolytes, renal, glucose, lipids, hepatic, hematology, cardiac
+     markers, thyroid, inflammatory markers, and arterial blood gases. */
+  const LAB_RANGES = [
+    ["Sodium", "136–145 mEq/L"],
+    ["Potassium", "3.5–5.0 mEq/L"],
+    ["Bicarbonate", "23–28 mEq/L"],
+    ["Blood urea nitrogen", "8–20 mg/dL"],
+    ["Creatinine", "0.7–1.3 mg/dL"],
+    ["Calcium", "8.6–10.2 mg/dL"],
+    ["Magnesium", "1.6–2.6 mg/dL"],
+    ["Phosphorus", "3.0–4.5 mg/dL"],
+    ["Glucose (fasting)", "70–99 mg/dL"],
+    ["Hemoglobin A1c", "4.0%–5.6%"],
+    ["Total cholesterol", "&lt; 200 mg/dL"],
+    ["LDL cholesterol (optimal)", "&lt; 100 mg/dL"],
+    ["HDL cholesterol", "&gt; 40 mg/dL"],
+    ["Triglycerides", "&lt; 150 mg/dL"],
+    ["ALT", "10–40 U/L"],
+    ["AST", "10–40 U/L"],
+    ["Alkaline phosphatase", "30–120 U/L"],
+    ["Bilirubin, total", "0.3–1.2 mg/dL"],
+    ["Albumin", "3.5–5.5 g/dL"],
+    ["INR", "0.8–1.2"],
+    ["Hemoglobin (M)", "13.5–17.5 g/dL"],
+    ["Leukocytes", "4,500–11,000/µL"],
+    ["Platelets", "150,000–450,000/µL"],
+    ["Ferritin (M)", "30–300 ng/mL"],
+    ["BNP", "&lt; 100 pg/mL"],
+    ["Troponin T", "&lt; 0.01 ng/mL"],
+    ["TSH", "0.5–4.0 µU/mL"],
+    ["Thyroxine (T4), free", "0.8–1.8 ng/dL"],
+    ["ESR (M)", "0–15 mm/h"],
+    ["C-reactive protein", "&lt; 0.8 mg/dL"],
+    ["Uric acid", "3.0–7.0 mg/dL"],
+    ["Lactate", "0.5–2.0 mEq/L"],
+    ["Arterial pH", "7.38–7.44"],
+    ["PaCO₂", "38–42 mm Hg"],
+    ["PaO₂", "75–100 mm Hg"]
+  ];
+
+  /* ABIM blueprint browser content (certification topic outline). */
+  const BLUEPRINT = [
+    ["🧭 Foundations of Clinical Practice", ["Routine Care of the Adult Patient", "Clinical Decision Making and Interpreting the Medical Literature", "High Value Care in Internal Medicine", "Patient Safety and Quality Improvement", "Health Equity, Medical Ethics, and Professionalism", "Effective Communication in Clinical Practice", "Genetics, Genomics, and Precision Medicine", "Perioperative Medicine", "Geriatric and Palliative Medicine"]],
+    ["🩻 Approach to Common Symptoms", ["Cardiopulmonary: Cough, Dyspnea, Chest Pain", "Neurologic: Dizziness, Syncope", "Musculoskeletal & Pain: Approach to Pain, Low Back, Scoliosis, Neck, Upper/Lower Extremity, Abdominal/Pelvic Pain", "Systemic: Fatigue and Systemic Exertion Intolerance Disease, Insomnia, Lower Extremity Edema and Ulcers, Medically Unexplained Symptoms, In-Flight Medical Events"]],
+    ["🤝 Interdisciplinary Medicine", ["Allergy and Immunology", "Ear, Nose, Mouth, and Throat Disorders", "Eye Disorders", "Urologic Conditions", "Breast, Gynecologic, and Reproductive Health", "Mental and Behavioral Health"]],
+    ["🫀 Cardiovascular Medicine (14%)", ["Dyslipidemia & Coronary Artery Disease", "Heart Failure & Arrhythmias", "Valvular, Myocardial, and Pericardial Disease", "Diseases of the Aorta & Peripheral Artery Disease", "Adult Congenital Heart Disease", "Cardiovascular Disease in Cancer Survivors & Pregnancy"]],
+    ["🫁 Pulmonary Medicine (9%)", ["Pulmonary Diagnostic Tests", "Airways & Diffuse Parenchymal Lung Disease", "Pleural & Pulmonary Vascular Disease", "Occupational Lung Disease & Lung Tumors", "Sleep Medicine & High Altitude–Related Illnesses"]],
+    ["🍽 Gastroenterology (9%)", ["Upper GI: Disorders of the Esophagus, Stomach, Duodenum, and Pancreas", "Lower GI: Diarrhea, Constipation, IBS, Malabsorption, Inflammatory Bowel Disease, Ischemic Bowel, Diverticular Disease", "Emergencies & Oncology: GI Bleeding, Ileus/Obstruction, Perforation, Appendicitis, Anorectal Disorders, Colorectal Neoplasia"]],
+    ["🟤 Hepatology and Biliary Tract Diseases", ["Approach to Abnormal Liver Chemistry & Liver Imaging Lesions", "Disorders of the Gallbladder and Bile Ducts", "Hepatitis (Viral, Autoimmune) & Cholestatic Liver Diseases", "Metabolic, Alcohol-Associated, and Drug-Induced Liver Disease", "Vascular Diseases of the Liver & Advanced Chronic Liver Disease/Failure", "Pregnancy-Related Liver Diseases"]],
+    ["🫘 Nephrology (6%)", ["Clinical Evaluation of Kidney Function", "Electrolyte & Acid-Base Disorders", "Hypertension & Kidney Stones", "Acute Kidney Injury (AKI) & Chronic Kidney Disease (CKD)", "Glomerular, Chronic Tubulointerstitial, Deposition, and Genetic Diseases", "The Kidney in Pregnancy"]],
+    ["🧪 Endocrinology and Metabolism (9%)", ["Disorders of Glucose Metabolism (Diabetes)", "Obesity and Metabolic Syndrome", "Disorders of the Pituitary, Adrenal, and Thyroid Glands", "Calcium and Metabolic Bone Disorders", "Reproductive Disorders & Transgender Hormone Therapy"]],
+    ["🩸 Hematology (6%)", ["Approach to Leukopenia/Leukocytosis & Erythrocyte Disorders", "Hematopoietic Stem Cells, Multiple Myeloma, and Related Disorders", "Platelet, Bleeding, and Thrombotic Disorders", "Iron Overload Syndromes & Transfusion Medicine", "Hematologic Issues in Pregnancy"]],
+    ["🎗 Oncology (6%)", ["Screening, Survivorship, and General Issues in Oncology", "Solid Tumors: Breast, Lung, GI, GU, Head and Neck, Gynecologic, Skin, Bone/Soft Tissue", "Lymphoid Malignancies & Cancer of Unknown Primary", "Oncologic Urgencies and Emergencies"]],
+    ["🦠 Infectious Disease (9%)", ["Syndromes: CNS, Skin/Soft Tissue, Osteomyelitis, Infectious Arthritis, Community-Acquired Pneumonia, GI Syndromes, UTI", "Pathogens & Specifics: Bacteremia/Endocarditis, Tick-Borne Diseases, TB and Nontuberculous Mycobacteria, Fungal, HIV, Viral, STI", "Fever of Unknown Origin & Bioterrorism", "Travel Medicine, Transplant Infections, and Healthcare-Associated Infections", "Antimicrobial Stewardship and Emerging Resistance"]],
+    ["🦴 Rheumatology (9%)", ["Approach to Rheumatologic Disease & Principles of Therapeutics", "Rheumatoid Arthritis, Osteoarthritis, and Spondyloarthritis", "Systemic Lupus Erythematosus (SLE) & Sjögren Disease", "Idiopathic Inflammatory Myopathies & Systemic Sclerosis", "Mixed/Undifferentiated Connective Tissue Disease", "Crystal Arthropathies & Systemic Vasculitis", "Fibromyalgia & Miscellaneous Systemic Inflammatory Diseases"]],
+    ["🧠 Neurology (4%)", ["Headache, Facial Pain, and Head Injury", "Seizures, Epilepsy, and Stroke", "Cognitive Impairment & Movement Disorders", "Multiple Sclerosis & Disorders of the Spinal Cord", "Neuromuscular Disorders", "Neuro-oncology and Neuro-ophthalmology"]],
+    ["🧴 Dermatology (3%)", ["Approach, Therapeutic Principles, and Inflammatory Dermatoses", "Dermatitis, Acneiform Eruptions, Pruritus, and Pigment Disorders", "Cutaneous Drug Reactions & Autoimmune Bullous Diseases", "Infections & Ectoparasites", "Benign, Premalignant, and Malignant Tumors", "Alopecia, Nail Disorders, Burns/Frostbite, Nutritional, and Aging Conditions"]],
+    ["🏥 Hospital and Critical Care Medicine", ["Principles of Critical Care & Comprehensive Support", "Acute Respiratory Failure, Shock, and Sepsis", "Hyperthermia, Hypothermia, and Toxicology", "Anaphylaxis, Angioedema, and Fat Embolism", "Acute Abdominal Emergencies & Disorders of Consciousness", "Approach to the Critically Ill Pregnant Patient & Post-ICU Complications"]]
+  ];
+
+  /* ================= DOM handles ================= */
+  const qCard = document.getElementById("qCard");
+  const progressTrack = document.getElementById("progressTrack");
+  const filterRow = document.getElementById("filterRow");
+  const toggleBtn = document.getElementById("abimToggle");
+  const logoDot = document.getElementById("logoDot");
+  const scoreVal = document.getElementById("scoreVal");
+  const announcer = document.getElementById("ariaAnnouncer");
+  const blueprintBtn = document.getElementById("blueprintBtn");
+  const blueprintModal = document.getElementById("blueprintModal");
+  const blueprintBody = document.getElementById("blueprintBody");
+  const cardsBtn = document.getElementById("cardsBtn");
+  const cardsModal = document.getElementById("cardsModal");
+  const cardsBody = document.getElementById("cardsBody");
+  const cardsCount = document.getElementById("cardsCount");
+  const reviewBtn = document.getElementById("reviewBtn");
+  const reviewCount = document.getElementById("reviewCount");
+  const themePill = document.getElementById("themePill");
+  const LETTERS = ["A", "B", "C", "D", "E"];
+
+  /* ================= Theme =================
+     Shares bolo.theme.v1 with the menu, MCQ and flashcard apps, so the
+     colourway follows the learner across the whole platform. */
+  const THEME_KEY = "bolo.theme.v1";
+  let theme = "NEON";
+  function applyTheme(name, persist) {
+    theme = name === "CLASSIC" ? "CLASSIC" : "NEON";
+    if (theme === "CLASSIC") document.body.setAttribute("data-theme", "CLASSIC");
+    else document.body.removeAttribute("data-theme");
+    themePill.textContent = "Theme: " + (theme === "CLASSIC" ? "Classic" : "Neon");
+    if (persist) { try { localStorage.setItem(THEME_KEY, JSON.stringify({ theme: theme })); } catch (e) {} }
+  }
+  themePill.addEventListener("click", () => applyTheme(theme === "NEON" ? "CLASSIC" : "NEON", true));
+
+  function esc(s) {
+    return String(s).replace(/&(?!(amp|lt|gt|quot|#\d+|[a-z]+);)/g, "&amp;")
+      .replace(/<(?!\/?(strong|em|br)\b)/g, "&lt;");
+  }
+
+  function bank() {
+    if (!isAbimMode) return PSEB_BANK;
+    return abimFilter === "ALL" ? ABIM_QUESTIONS
+      : ABIM_QUESTIONS.filter(q => q.system === abimFilter);
+  }
+  function currentQuestion() { return bank()[session().idx]; }
+  function pickOf(q) { const p = picks[q.id]; return p === undefined ? null : p; }
+  function rune(cls, label) { return '<span class="meta-rune ' + cls + '">' + esc(label) + "</span>"; }
+
+  /* Category + exam-task chips come from the data-module registries; legacy
+     PSEB demo items may instead carry a literal tags array. */
+  function tagsHTML(q) {
+    if (q.tags) return q.tags.map(t => rune(t.cls, t.label)).join("");
+    const sys = SYSTEMS[q.system];
+    let out = rune(sys.cls, sys.label + " (" + sys.weight + ")");
+    (q.extraTags || []).forEach(t => { out += rune(t.cls, t.label); });
+    out += rune("task", TASKS[q.task]);
+    return out;
+  }
+
+  /* ================= Rendering ================= */
+  function renderProgress() {
+    const b = bank(), s = session();
+    progressTrack.innerHTML = b.map((q, i) => {
+      let cls = "progress-seg";
+      const p = pickOf(q);
+      if (p !== null) cls += p === q.correct ? " seen-correct" : " seen-wrong";
+      if (i === s.idx) cls += " current";
+      return '<button class="' + cls + '" type="button" data-jump="' + i +
+        '" aria-label="Go to question ' + (i + 1) + '"></button>';
+    }).join("");
+  }
+
+  function renderFilter() {
+    if (!isAbimMode) { filterRow.hidden = true; filterRow.innerHTML = ""; return; }
+    const counts = {};
+    ABIM_QUESTIONS.forEach(q => { counts[q.system] = (counts[q.system] || 0) + 1; });
+    const chip = (key, label, count) =>
+      '<button class="filter-chip' + (abimFilter === key ? " active" : "") +
+      '" type="button" data-filter="' + key + '">' + esc(label) +
+      ' <span class="chip-count">' + count + "</span></button>";
+    let html = chip("ALL", "All Systems", ABIM_QUESTIONS.length);
+    Object.keys(SYSTEMS).forEach(k => { if (counts[k]) html += chip(k, SYSTEMS[k].label, counts[k]); });
+    filterRow.innerHTML = html;
+    filterRow.hidden = false;
+  }
+
+  function renderQuestion() {
+    const s = session();
+    if (s.idx >= bank().length) s.idx = 0;   // filter may shrink the bank
+    const q = currentQuestion();
+    const picked = pickOf(q);
+    const revealed = picked !== null;
+    let html = "";
+
+    /* Top-level tags inside the central question container: blueprint
+       category chips (with exam weight) + the tested exam task. */
+    html += '<div class="q-meta">' + tagsHTML(q);
+    if (isAbimMode) {
+      html += '<button class="hint-btn" type="button" data-toggle-lab aria-expanded="' + (labOpen ? "true" : "false") + '" aria-controls="labPanel">🧪 ABIM Lab Reference Ranges (Jan 2026)</button>';
+    }
+    html += "</div>";
+
+    /* Hint drawer (ABIM only) — smooth expand/collapse. */
+    if (isAbimMode) {
+      html += '<div class="reveal-wrap' + (labOpen ? " open" : "") + '" id="labPanel"><div class="reveal-inner">' +
+        '<div class="lab-panel"><div class="lab-title">Laboratory Reference Ranges · January 2026 Edition</div><dl class="lab-grid">' +
+        LAB_RANGES.map(r => '<div class="lab-row"><dt>' + r[0] + "</dt><dd>" + r[1] + "</dd></div>").join("") +
+        "</dl></div></div></div>";
+    }
+
+    /* Long-form clinical vignette stem + emphasised lead-in question. */
+    html += '<p class="q-prompt"><span class="vignette">' + esc(q.vignette) + '</span>' +
+      '<span class="lead-in">' + esc(q.leadIn) + "</span></p>";
+
+    /* Option grid. */
+    q.options.forEach((opt, i) => {
+      let cls = "option";
+      if (revealed) {
+        if (i === q.correct) cls += " correct";
+        else if (i === picked) cls += " incorrect";
+        else cls += " dimmed";
+      }
+      html += '<div class="option-row"><button class="' + cls + '" type="button" data-opt="' + i + '"' +
+        (revealed ? " disabled" : "") + '><span class="opt-letter">' + LETTERS[i] +
+        '</span><span class="opt-text">' + esc(opt) + "</span></button></div>";
+    });
+
+    /* Post-answer container: explanation + unlocked flashcards. */
+    html += '<div class="reveal-wrap' + (revealed ? " open" : "") + '" id="feedbackWrap"><div class="reveal-inner"><div class="feedback">';
+    if (revealed) {
+      const good = picked === q.correct;
+      html += '<div class="verdict ' + (good ? "good" : "bad") + '">' +
+        (good ? "⚡ Correct" : "✖ Incorrect — correct answer: " + LETTERS[q.correct]) + "</div>";
+      html += '<div class="rationale ' + (good ? "good" : "bad") + '">' + q.explanation + "</div>";
+      html += '<div class="unlock-head">🔓 Unlocked Core Concepts</div>';
+      q.flashcards.forEach((card, i) => {
+        const isCollected = collected.has(cardKey(q, i));
+        const faces = cardFaces(card);
+        html += '<div class="option-row flashcard-row"><button class="option' + (isCollected ? " collected" : "") +
+          '" type="button" data-card="' + i + '" aria-pressed="' + (isCollected ? "true" : "false") +
+          '"><span class="opt-letter" aria-hidden="true">[+]</span><span class="opt-text"><strong>' + esc(faces.f) +
+          "</strong><span class=\"fc-answer-line\">" + esc(faces.b) +
+          '</span></span><span class="flash-saved">✓ Saved</span></button></div>';
+      });
+    }
+    html += "</div></div></div>";
+
+    /* Action bar — free tutor-style navigation; never auto-advances. */
+    html += '<div class="action-bar">' +
+      '<button class="btn-prev" type="button" data-prev' + (s.idx === 0 ? " disabled" : "") + '>◂ Prev</button>' +
+      '<span class="q-counter">' + (isAbimMode ? "ABIM Board Prep" : "PSEB Hybrid Demo") +
+      " · Item " + (s.idx + 1) + " / " + bank().length +
+      (revealed ? ' <button class="retry-link" type="button" data-reset>↺ Retry</button>' : "") +
+      '</span>' +
+      '<button class="btn-next" type="button" data-next' + (s.idx >= bank().length - 1 ? " disabled" : "") + '>Next ▸</button></div>';
+
+    qCard.innerHTML = html;
+    qCard.classList.remove("swap");
+    void qCard.offsetWidth;
+    qCard.classList.add("swap");
+    renderProgress();
+  }
+
+  function cardKey(q, i) { return q.id + ":" + i; }
+
+  function renderScore() {
+    const b = bank();
+    let right = 0, total = 0;
+    b.forEach(q => {
+      const p = pickOf(q);
+      if (p !== null) { total++; if (p === q.correct) right++; }
+    });
+    scoreVal.textContent = right + " / " + total;
+  }
+
+  function renderCardsCount() { cardsCount.textContent = collected.size; }
+
+  /* The saved-cards review deck: every [+] concept the learner collected,
+     grouped by blueprint system, with per-card removal. */
+  function renderCardsModal() {
+    if (!collected.size) {
+      cardsBody.innerHTML = '<div class="cards-empty">No cards saved yet. Answer questions and tap the [+] core concepts to build your personal rapid-review deck — it is kept on this device.</div>';
+      return;
+    }
+    const allQ = ABIM_QUESTIONS.concat(PSEB_BANK);
+    const groups = {};
+    collected.forEach(key => {
+      const cut = key.lastIndexOf(":");
+      const qid = key.slice(0, cut);
+      const idx = parseInt(key.slice(cut + 1), 10);
+      const q = allQ.find(x => x.id === qid);
+      if (!q || !q.flashcards[idx]) return;
+      const sys = q.system && SYSTEMS[q.system] ? SYSTEMS[q.system].label : "⚗️ PSEB Science";
+      (groups[sys] = groups[sys] || []).push({ key: key, faces: cardFaces(q.flashcards[idx]) });
+    });
+    cardsBody.innerHTML = Object.keys(groups).map(sys =>
+      '<div class="card-sys-head">' + esc(sys) + " · " + groups[sys].length + "</div>" +
+      groups[sys].map(c =>
+        '<div class="option-row flashcard-row"><div class="option collected" style="cursor:default;">' +
+        '<span class="opt-letter" aria-hidden="true">[+]</span><span class="opt-text"><strong>' + esc(c.faces.f) +
+        "</strong><span class=\"fc-answer-line\">" + esc(c.faces.b) +
+        '</span></span><button class="card-remove" type="button" data-remove-card="' + esc(c.key) + '">✕ Remove</button></div></div>'
+      ).join("")
+    ).join("");
+  }
+
+  function goTo(i) {
+    if (reviewMode) return;
+    const s = session();
+    if (i < 0 || i >= bank().length || i === s.idx) return;
+    s.idx = i;
+    renderQuestion();
+    announcer.textContent = "Question " + (i + 1) + " of " + bank().length;
+  }
+
+  /* ================= Spaced-repetition review UI ================= */
+  /* Cards are { f: front/question, b: back/answer }; legacy strings split on
+     the first colon so older saved decks keep working. */
+  function cardFaces(raw) {
+    if (raw && typeof raw === "object") return { f: raw.f, b: raw.b };
+    const text = String(raw);
+    const c = text.indexOf(":");
+    return (c > 8 && c < 70)
+      ? { f: text.slice(0, c), b: text.slice(c + 1).trim() }
+      : { f: "Recall this core concept", b: text };
+  }
+
+  function findCard(key) {
+    const cut = key.lastIndexOf(":");
+    const qid = key.slice(0, cut);
+    const idx = parseInt(key.slice(cut + 1), 10);
+    const q = ABIM_QUESTIONS.concat(PSEB_BANK).find(x => x.id === qid);
+    if (!q || !q.flashcards[idx]) return null;
+    const faces = cardFaces(q.flashcards[idx]);
+    const sys = q.system && SYSTEMS[q.system] ? SYSTEMS[q.system] : { label: "⚗️ PSEB Science", cls: "hot" };
+    return { f: faces.f, b: faces.b, sys: sys };
+  }
+
+  function renderReviewCount() {
+    const n = dueKeys().length;
+    reviewCount.textContent = n;
+    reviewCount.classList.toggle("zero", n === 0);
+  }
+
+  function startReview() {
+    reviewQueue = dueKeys();
+    for (let i = reviewQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const t = reviewQueue[i]; reviewQueue[i] = reviewQueue[j]; reviewQueue[j] = t;
+    }
+    reviewStats = { done: 0, again: 0 };
+    reviewMode = true;
+    reviewShown = false;
+    filterRow.hidden = true;
+    renderReview();
+    announcer.textContent = reviewQueue.length
+      ? "Review started: " + reviewQueue.length + " cards due."
+      : "Review deck is all caught up.";
+  }
+
+  function exitReview() {
+    reviewMode = false;
+    renderFilter();
+    renderQuestion();
+    renderScore();
+    renderReviewCount();
+  }
+
+  function renderReview() {
+    progressTrack.innerHTML = "";
+    if (!reviewQueue.length) {
+      const extra = reviewStats.again
+        ? " · " + reviewStats.again + " marked Again (they return in ~10 minutes)" : "";
+      qCard.innerHTML =
+        '<div class="q-meta">' + rune("hot", "📆 Spaced Review") + rune("task", "SM-2 Scheduler") + "</div>" +
+        '<div class="review-wrap"><div class="review-front">🎉 All caught up!</div>' +
+        '<p class="review-done-sub">Reviewed ' + reviewStats.done + " card" + (reviewStats.done === 1 ? "" : "s") +
+        " this session" + extra + ". Deck size: " + collected.size +
+        " cards. Answer more questions — missed items feed their core concepts into this deck automatically — or save concepts with [+].</p>" +
+        '<button class="btn-next" type="button" data-exit-review>▸ Back to Questions</button></div>';
+      qCard.classList.remove("swap"); void qCard.offsetWidth; qCard.classList.add("swap");
+      return;
+    }
+    const key = reviewQueue[0];
+    const card = findCard(key);
+    if (!card) { collected.delete(key); delete srs[key]; reviewQueue.shift(); renderReview(); return; }
+    const gradeBtn = g => '<button class="grade-btn ' + g + '" type="button" data-grade="' + g + '">' +
+      g.charAt(0).toUpperCase() + g.slice(1) + "<small>" + previewLabel(key, g) + "</small></button>";
+    /* PSEB-flashcard-style 3D flip: the scene owns the perspective, the inner
+       element rotates, and the answer cascades in after the turn. */
+    let html = '<div class="q-meta">' + rune(card.sys.cls, card.sys.label) + rune("task", "📆 Spaced Review") +
+      '<button class="hint-btn" type="button" data-exit-review style="margin-left:auto;">✕ Exit Review</button></div>' +
+      '<div class="review-wrap"><div class="review-count">' + reviewQueue.length + " due</div>" +
+      '<div class="fc-scene' + (reviewShown ? " flipped" : "") + '" data-flip role="button" tabindex="0" aria-label="Flashcard — activate to flip">' +
+        '<div class="fc-inner">' +
+          '<div class="fc-face fc-front">' +
+            '<div class="fc-kicker">Question</div>' +
+            '<div class="fc-q">' + esc(card.f) + "</div>" +
+            '<div class="fc-foot">Tap · Space · Enter to flip</div>' +
+          "</div>" +
+          '<div class="fc-face fc-back">' +
+            '<div class="fc-kicker">Answer</div>' +
+            '<div class="fc-q fc-q-small">' + esc(card.f) + "</div>" +
+            '<div class="fc-a">' + esc(card.b) + "</div>" +
+          "</div>" +
+        "</div></div>";
+    if (reviewShown) {
+      html += '<div class="grade-row">' + gradeBtn("again") + gradeBtn("hard") + gradeBtn("good") + gradeBtn("easy") + "</div>" +
+        '<div class="review-count" style="margin-top:12px;">Keys: 1 · 2 · 3 · 4</div>';
+    }
+    html += "</div>";
+    qCard.innerHTML = html;
+    qCard.classList.remove("swap"); void qCard.offsetWidth; qCard.classList.add("swap");
+  }
+
+  function gradeCurrent(grade) {
+    const key = reviewQueue[0];
+    if (!key) return;
+    schedule(key, grade);
+    reviewStats.done += 1;
+    if (grade === "again") { reviewStats.again += 1; reviewQueue.push(reviewQueue.shift()); }
+    else reviewQueue.shift();
+    reviewShown = false;
+    renderReviewCount();
+    renderReview();
+  }
+
+  /* ================= Mode switching ================= */
+  function setAbimMode(on, updateUrl) {
+    if (isAbimMode === on) return;
+    isAbimMode = on;
+    labOpen = false;
+    reviewMode = false;
+    document.body.classList.toggle("abim-mode", on);
+    toggleBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    logoDot.textContent = on ? ".ABIM" : ".PREP";
+    document.title = on ? "BOLO.ABIM — Internal Medicine Board Prep" : "BOLO.PREP — Hybrid MCQ Engine";
+    if (updateUrl !== false) {
+      const url = new URL(window.location.href);
+      if (on) url.searchParams.set("mode", "abim");
+      else url.searchParams.delete("mode");
+      history.replaceState(null, "", url);
+    }
+    announcer.textContent = on ? "ABIM Board Prep mode enabled" : "ABIM Board Prep mode disabled";
+    renderFilter();
+    renderQuestion();
+    renderScore();
+  }
+
+  /* ================= Events ================= */
+  toggleBtn.addEventListener("click", () => setAbimMode(!isAbimMode));
+
+  reviewBtn.addEventListener("click", () => {
+    if (reviewMode) exitReview(); else startReview();
+  });
+
+  filterRow.addEventListener("click", (e) => {
+    const chip = e.target.closest("[data-filter]");
+    if (!chip || chip.dataset.filter === abimFilter) return;
+    abimFilter = chip.dataset.filter;
+    sessions.abim.idx = 0;
+    saveState();
+    renderFilter();
+    renderQuestion();
+    renderScore();
+    announcer.textContent = "Filtered to " + (abimFilter === "ALL" ? "all systems" : SYSTEMS[abimFilter].label) +
+      " — " + bank().length + " questions.";
+  });
+
+  progressTrack.addEventListener("click", (e) => {
+    const seg = e.target.closest("[data-jump]");
+    if (seg) goTo(parseInt(seg.dataset.jump, 10));
+  });
+
+  qCard.addEventListener("click", (e) => {
+    if (reviewMode) {
+      if (e.target.closest("[data-exit-review]")) { exitReview(); return; }
+      if (e.target.closest("[data-flip]")) { reviewShown = !reviewShown; renderReview(); return; }
+      const g = e.target.closest("[data-grade]");
+      if (g) { gradeCurrent(g.dataset.grade); return; }
+      return;
+    }
+
+    const labToggle = e.target.closest("[data-toggle-lab]");
+    if (labToggle) {
+      labOpen = !labOpen;
+      labToggle.setAttribute("aria-expanded", labOpen ? "true" : "false");
+      document.getElementById("labPanel").classList.toggle("open", labOpen);
+      return;
+    }
+
+    const opt = e.target.closest("[data-opt]");
+    if (opt && pickOf(currentQuestion()) === null) {
+      const q = currentQuestion();
+      picks[q.id] = parseInt(opt.dataset.opt, 10);
+      const good = picks[q.id] === q.correct;
+      /* High-yield feedback loop: a miss auto-enrolls the question's core
+         concepts into the spaced-repetition deck, due immediately. */
+      if (!good) q.flashcards.forEach((c, i) => addCardToDeck(cardKey(q, i)));
+      saveState();
+      renderScore();
+      renderCardsCount();
+      renderReviewCount();
+      /* Lock + highlight in place, then expand the feedback container —
+         re-render keeps state and the reveal-wrap animates open. */
+      renderQuestion();
+      requestAnimationFrame(() => {
+        const wrap = document.getElementById("feedbackWrap");
+        wrap.classList.remove("open");
+        void wrap.offsetWidth;
+        wrap.classList.add("open");
+      });
+      announcer.textContent = good
+        ? "Correct. Explanation and core concept flashcards unlocked."
+        : "Incorrect. Core concepts were added to your spaced-repetition review deck.";
+      return;
+    }
+
+    const card = e.target.closest("[data-card]");
+    if (card) {
+      const key = cardKey(currentQuestion(), parseInt(card.dataset.card, 10));
+      if (collected.has(key)) removeCardFromDeck(key); else addCardToDeck(key);
+      card.classList.toggle("collected", collected.has(key));
+      card.setAttribute("aria-pressed", collected.has(key) ? "true" : "false");
+      saveState();
+      renderCardsCount();
+      renderReviewCount();
+      return;
+    }
+
+    if (e.target.closest("[data-prev]")) { goTo(session().idx - 1); return; }
+    if (e.target.closest("[data-next]")) { goTo(session().idx + 1); return; }
+
+    const reset = e.target.closest("[data-reset]");
+    if (reset && pickOf(currentQuestion()) !== null) {
+      delete picks[currentQuestion().id];
+      saveState();
+      renderScore();
+      renderQuestion();
+    }
+  });
+
+  /* ================= Saved-cards modal ================= */
+  cardsBtn.addEventListener("click", () => {
+    renderCardsModal();
+    cardsModal.hidden = false;
+  });
+  cardsModal.addEventListener("click", (e) => {
+    if (e.target === cardsModal || e.target.closest("[data-close-modal]")) {
+      cardsModal.hidden = true;
+      return;
+    }
+    const rm = e.target.closest("[data-remove-card]");
+    if (rm) {
+      removeCardFromDeck(rm.dataset.removeCard);
+      saveState();
+      renderCardsCount();
+      renderReviewCount();
+      renderCardsModal();
+      renderQuestion();
+      return;
+    }
+    if (e.target.closest("[data-reset-progress]")) {
+      if (!window.confirm("Reset all answers, score, saved cards and review schedule?")) return;
+      resetProgress();
+      cardsModal.hidden = true;
+      reviewMode = false;
+      renderFilter();
+      renderQuestion();
+      renderScore();
+      renderCardsCount();
+      renderReviewCount();
+      announcer.textContent = "All progress reset.";
+    }
+  });
+
+  /* ================= Blueprint modal ================= */
+  blueprintBody.innerHTML = BLUEPRINT.map((sec, i) =>
+    '<div class="bp-section"><button class="bp-head" type="button" data-bp="' + i +
+    '" aria-expanded="false"><span>' + esc(sec[0]) + '</span><span class="bp-caret">▶</span></button>' +
+    '<div class="reveal-wrap"><div class="reveal-inner"><ul class="bp-list">' +
+    sec[1].map(t => "<li>" + esc(t) + "</li>").join("") +
+    "</ul></div></div></div>"
+  ).join("");
+
+  blueprintBtn.addEventListener("click", () => { blueprintModal.hidden = false; });
+  blueprintModal.addEventListener("click", (e) => {
+    if (e.target === blueprintModal || e.target.closest("[data-close-modal]")) {
+      blueprintModal.hidden = true;
+      return;
+    }
+    const head = e.target.closest(".bp-head");
+    if (head) {
+      const open = head.getAttribute("aria-expanded") === "true";
+      head.setAttribute("aria-expanded", open ? "false" : "true");
+      head.nextElementSibling.classList.toggle("open", !open);
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (!blueprintModal.hidden) { blueprintModal.hidden = true; return; }
+      if (!cardsModal.hidden) { cardsModal.hidden = true; return; }
+      if (reviewMode) { exitReview(); return; }
+    }
+    if (!blueprintModal.hidden || !cardsModal.hidden ||
+        (e.target.closest && e.target.closest("input, textarea"))) return;
+    /* Review mode: Space/Enter flips the card, 1–4 grade (Again/Hard/Good/Easy). */
+    if (reviewMode) {
+      if ((e.key === " " || e.key === "Enter") && reviewQueue.length) {
+        e.preventDefault(); reviewShown = !reviewShown; renderReview(); return;
+      }
+      if (reviewShown) {
+        const grades = { "1": "again", "2": "hard", "3": "good", "4": "easy" };
+        if (grades[e.key]) { gradeCurrent(grades[e.key]); }
+      }
+      return;
+    }
+    /* Keyboard navigation: ←/→ move items, A–E answer the current item. */
+    if (e.key === "ArrowRight") { goTo(session().idx + 1); return; }
+    if (e.key === "ArrowLeft") { goTo(session().idx - 1); return; }
+    const letterIdx = LETTERS.indexOf(e.key.toUpperCase());
+    if (letterIdx >= 0 && letterIdx < currentQuestion().options.length && pickOf(currentQuestion()) === null) {
+      const btn = qCard.querySelector('[data-opt="' + letterIdx + '"]');
+      if (btn) btn.click();
+    }
+  });
+
+  /* ================= Boot =================
+     URL search parameter listener: ?mode=abim initializes in ABIM mode. */
+  loadState();
+  try {
+    const t = JSON.parse(localStorage.getItem(THEME_KEY));
+    applyTheme(t && t.theme === "CLASSIC" ? "CLASSIC" : "NEON", false);
+  } catch (e) { applyTheme("NEON", false); }
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("mode") === "abim") {
+    setAbimMode(true, false);
+  } else {
+    logoDot.textContent = ".PREP";
+    document.title = "BOLO.PREP — Hybrid MCQ Engine";
+    renderFilter();
+    renderQuestion();
+  }
+  renderScore();
+  renderCardsCount();
+  renderReviewCount();
+  /* Cards become due while the page sits open — refresh the badge. */
+  setInterval(() => { if (!reviewMode) renderReviewCount(); }, 60000);
+
+  /* Page veil arrival/departure — same contract as the rest of the site. */
+  requestAnimationFrame(() => document.body.classList.add("page-entered"));
+  document.querySelectorAll('a[href]:not([target])').forEach(a => {
+    a.addEventListener("click", (e) => {
+      const href = a.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+      e.preventDefault();
+      document.body.classList.add("page-leaving");
+      setTimeout(() => { window.location.href = href; }, 300);
+    });
+  });
+})();
+</script>
+<script defer src="assets/bmc-coffee.js"></script>
+</body>
+</html>
