@@ -5,6 +5,33 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM Board Prep v2.9: comparison tables and motion
+
+- **📊 Comparison tables** (new optional `tb` field): 147 of the 510 cards now
+  carry a compact table, covering differentials, criteria and thresholds,
+  grade → action, drug choice by scenario, and type A vs B.
+  - Two independent reviewers checked every table, and 11 were corrected.
+  - The review card shows a full table whose rows cascade in after the flip.
+  - Unlocked and saved cards show a compact grid version.
+- **Motion**:
+  - The 3D flip now animates in place. Before, the card was re-rendered, so
+    the rotation never played.
+  - New cards deal in.
+  - Hovering tilts the card slightly (desktop only).
+  - A light sweep crosses the answer panel when it appears.
+  - Graded cards fly out by grade (Again left, Good right, Easy up, Hard down)
+    and a toast shows the next interval. Fast repeat key presses are ignored.
+  - The grade buttons cascade in, the session progress bar shimmers, and the
+    "New" chip glows.
+  - Saving a card pops its [+] badge, and finishing a session shows a 🎉 burst.
+  - All motion is disabled under prefers-reduced-motion.
+- **Accuracy**: DKA now follows the 2024 ADA/EASD hyperglycemic crises
+  consensus. Insulin is held if K <3.5, and dextrose is added once glucose is
+  below 250. This is applied to the option, explanation, cards and table.
+- Service worker cache bumped to v32.
+
+---
+
 ## 2026-10-02 — ABIM Board Prep v2.8: premium flashcards
 
 A second full editorial and accuracy review of all 510 ABIM flashcards. Card
