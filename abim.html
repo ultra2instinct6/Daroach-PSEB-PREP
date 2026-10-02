@@ -231,9 +231,59 @@
   .progress-seg.seen-correct { background: var(--green); box-shadow: 0 0 8px color-mix(in srgb, var(--green) 60%, transparent); }
   .progress-seg.seen-wrong { background: var(--red); box-shadow: 0 0 8px color-mix(in srgb, var(--red) 55%, transparent); }
   .progress-seg.current { background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent); }
+  /* Large banks: a continuous heat-strip instead of spaced pills, so 250+
+     items stay visible on a phone. The current item is raised. */
+  .progress-track.dense { gap: 1px; padding: 3px 0; }
+  .progress-track.dense .progress-seg { min-width: 0; border-radius: 1px; box-shadow: none; }
+  .progress-track.dense .progress-seg.current { transform: scaleY(2.6); border-radius: 2px; box-shadow: 0 0 8px var(--accent); }
+  .progress-track.xdense { gap: 0; }
 
   /* Blueprint-system filter chips (ABIM mode only). */
-  .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .filter-row { display: grid; gap: 10px; margin-bottom: 16px; }
+  /* Status segmented control: All / New / Missed / Correct. */
+  .status-seg { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .status-btn {
+    padding: 7px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-dim);
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    transition: all 0.25s var(--fluid-curve);
+  }
+  .status-btn:hover { color: var(--text-bold); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+  .status-btn.active { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 60%, transparent); background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .status-btn[data-status="MISSED"].active { color: var(--red); border-color: color-mix(in srgb, var(--red) 55%, transparent); background: color-mix(in srgb, var(--red) 9%, transparent); }
+  .status-btn[data-status="CORRECT"].active { color: var(--green); border-color: color-mix(in srgb, var(--green) 55%, transparent); background: color-mix(in srgb, var(--green) 9%, transparent); }
+  .status-btn b { margin-left: 4px; opacity: 0.7; }
+  .status-tools { margin-left: auto; display: flex; gap: 6px; }
+  /* System chips: one horizontally scrolling row (was 4 wrapped rows). */
+  .sys-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 2px 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+    -webkit-mask-image: linear-gradient(90deg, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, #000 92%, transparent);
+  }
+  .sys-scroll .filter-chip { flex: none; scroll-snap-align: start; white-space: nowrap; }
+  .filter-chip { position: relative; overflow: hidden; }
+  .filter-chip::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: var(--done, 0%);
+    background: linear-gradient(90deg, var(--teal), var(--accent));
+    transition: width 0.5s var(--fluid-curve);
+  }
   .filter-row[hidden] { display: none; }
   .filter-chip {
     padding: 8px 13px;
@@ -692,6 +742,89 @@
   .flash-saved { margin-left: auto; flex: none; align-self: center; color: var(--green); font-size: 0.62rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; opacity: 0; transition: opacity 0.35s var(--fluid-curve); }
   .option.collected .flash-saved { opacity: 1; }
 
+  /* Option elimination (strike-through), like the real exam interface. */
+  .option-row { position: relative; }
+  .opt-strike {
+    flex: none;
+    width: 34px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 900;
+    opacity: 0.35;
+    transition: all 0.25s var(--fluid-curve);
+  }
+  .option-row:hover .opt-strike, .opt-strike:focus-visible { opacity: 1; border-color: var(--border); }
+  .opt-strike:hover { color: var(--red); }
+  .opt-strike[aria-pressed="true"] { opacity: 1; color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, transparent); }
+  .option.struck .opt-text { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--red) 70%, transparent); text-decoration-thickness: 2px; opacity: 0.45; }
+  .option.struck .opt-letter { opacity: 0.45; }
+
+  /* Pacing timer + quick links in the action bar. */
+  .q-timer { display: inline-block; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; font-variant-numeric: tabular-nums; }
+  .q-timer.slow { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 45%, transparent); }
+  .q-timer.done { color: var(--teal); }
+  .next-new-link {
+    margin-left: 6px;
+    padding: 4px 10px;
+    border: 1px solid color-mix(in srgb, var(--teal) 40%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--teal) 7%, transparent);
+    color: var(--teal);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .next-new-link:hover { background: color-mix(in srgb, var(--teal) 15%, transparent); }
+  .empty-state { padding: 34px 10px; text-align: center; }
+  .empty-state .big { font-size: 2.4rem; }
+  .empty-state p { margin: 10px auto 18px; max-width: 46ch; color: var(--text-dim); font-weight: 600; line-height: 1.6; }
+
+  /* Progress dashboard inside the Blueprint dialog. */
+  .perf { margin-bottom: 20px; }
+  .perf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 14px; }
+  .perf-stat { padding: 10px; border: 1px solid var(--border); border-radius: 12px; text-align: center; }
+  .perf-stat b { display: block; color: var(--accent); font-size: 1.15rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .perf-stat span { color: var(--text-dim); font-size: 0.56rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; }
+  .perf-focus { margin-bottom: 12px; padding: 10px 12px; border-left: 3px solid var(--amber); border-radius: 10px; background: color-mix(in srgb, var(--amber) 8%, transparent); font-size: 0.82rem; font-weight: 700; line-height: 1.5; }
+  .perf-focus button { margin-left: 6px; color: var(--amber); font-weight: 900; text-decoration: underline; background: none; border: 0; }
+  .perf-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr) 74px;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 7px 8px;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-bold);
+    text-align: left;
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+  .perf-row:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+  .perf-row small { color: var(--text-dim); font-weight: 700; }
+  .perf-bar { position: relative; height: 8px; border-radius: 99px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
+  .perf-bar i { position: absolute; inset: 0 auto 0 0; border-radius: inherit; background: var(--teal); }
+  .perf-bar i.acc { background: var(--green); opacity: 0.85; height: 3px; top: auto; }
+  .perf-pct { text-align: right; font-variant-numeric: tabular-nums; color: var(--text-dim); }
+  .perf-pct.lo { color: var(--red); }
+  .perf-pct.hi { color: var(--green); }
+  .perf-head { margin: 4px 0 8px; color: var(--accent); font-size: 0.6rem; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; }
+  @media (max-width: 560px) {
+    .status-seg { flex-wrap: nowrap; gap: 4px; }
+    .status-btn { padding: 6px 7px; font-size: 0.56rem; letter-spacing: 0.2px; }
+    .status-tools .status-btn { font-size: 0; }
+    .status-tools .status-btn::before { content: "🎲"; font-size: 0.8rem; }
+    .opt-strike { width: 28px; }
+  }
+  @media (max-width: 560px) { .perf-stats { grid-template-columns: repeat(2, 1fr); } .perf-row { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) 62px; } }
+  body[data-theme="CLASSIC"] .perf-bar, body[data-theme="CLASSIC"] .status-btn { background: rgba(11, 74, 168, 0.06); }
+
   .action-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
   .q-counter { color: var(--text-dim); font-size: 0.66rem; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; font-variant-numeric: tabular-nums; }
   .btn-prev {
@@ -891,7 +1024,7 @@
   <a class="home-pill" href="index.html">◂ Menu</a>
   <span class="header-spacer"></span>
   <button class="tool-pill memory-card-pill" type="button" aria-haspopup="dialog"><span aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="mc-pill-name">Student 1</span></button>
-  <button class="tool-pill" type="button" id="blueprintBtn" aria-haspopup="dialog">📚 ABIM Blueprint</button>
+  <button class="tool-pill" type="button" id="blueprintBtn" aria-haspopup="dialog">📊 Progress</button>
   <button class="tool-pill" type="button" id="cardsBtn" aria-haspopup="dialog">🗂 Cards (<span id="cardsCount">0</span>)</button>
   <button class="tool-pill" type="button" id="reviewBtn" title="Spaced-repetition review of your saved cards">📆 Review <span class="review-badge zero" id="reviewCount">0</span></button>
   <button class="tool-pill" type="button" id="themePill" aria-label="Switch color theme">Theme: Neon</button>
@@ -914,11 +1047,13 @@
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="blueprintTitle">
     <div class="modal-head">
       <div>
-        <div class="modal-title" id="blueprintTitle">📚 ABIM Certification Blueprint</div>
-        <div class="modal-sub">Internal Medicine content outline — up to 240 single-best-answer MCQs, most built on patient scenarios. Tap a system to expand its topics.</div>
+        <div class="modal-title" id="blueprintTitle">📊 Progress &amp; ABIM Blueprint</div>
+        <div class="modal-sub">Your performance by blueprint system — tap a row to drill that system. Below: the Internal Medicine content outline (up to 240 single-best-answer MCQs, most built on patient scenarios).</div>
       </div>
       <button class="modal-close" type="button" data-close-modal aria-label="Close dialog">✕</button>
     </div>
+    <div id="perfPanel" class="perf"></div>
+    <div class="perf-head">📚 Blueprint outline</div>
     <div id="blueprintBody"></div>
   </div>
 </div>
@@ -952,6 +1087,11 @@
   let isAbimMode = false;        // required global mode flag
   let labOpen = false;
   let abimFilter = "ALL";        // blueprint-system filter ("ALL" or system key)
+  let statusFilter = "ALL";      // "ALL" | "NEW" | "MISSED" | "CORRECT"
+  let bankCache = null;          // filtered bank, frozen until a filter changes
+  const times = {};              // question id -> seconds spent before answering
+  const struck = {};             // question id -> eliminated option indices (session only)
+  const STATUSES = ["ALL", "NEW", "MISSED", "CORRECT"];
   const picks = {};              // question id -> picked option index
   const collected = new Set();   // saved flashcards, keyed "questionId:cardIdx"
 
@@ -1022,6 +1162,7 @@
     try {
       localStorage.setItem(STORE_KEY, JSON.stringify({
         picks: picks, cards: Array.from(collected), filter: abimFilter, srs: srs,
+        status: statusFilter, times: times,
         keyVer: DATA.KEY_VERSION || 1
       }));
     } catch (e) {}
@@ -1046,6 +1187,8 @@
       /* Cards saved before v2 carried no schedule — enroll them due now. */
       collected.forEach(k => { if (!srs[k]) srs[k] = newSrsEntry(); });
       if (s.filter && (s.filter === "ALL" || SYSTEMS[s.filter])) abimFilter = s.filter;
+      if (STATUSES.indexOf(s.status) >= 0) statusFilter = s.status;
+      Object.assign(times, s.times || {});
       if (needsResave) saveState();
     } catch (e) {}
   }
@@ -1053,7 +1196,10 @@
     Object.keys(picks).forEach(k => delete picks[k]);
     Object.keys(srs).forEach(k => delete srs[k]);
     collected.clear();
+    Object.keys(times).forEach(k => delete times[k]);
     abimFilter = "ALL";
+    statusFilter = "ALL";
+    bankCache = null;
     sessions.abim.idx = 0;
     sessions.pseb.idx = 0;
     try { localStorage.removeItem(STORE_KEY); } catch (e) {}
@@ -1199,13 +1345,27 @@
       .replace(/<(?!\/?(strong|em|br)\b)/g, "&lt;");
   }
 
+  function sysBank() {
+    return abimFilter === "ALL" ? ABIM_QUESTIONS : ABIM_QUESTIONS.filter(q => q.system === abimFilter);
+  }
+  function matchesStatus(q, st) {
+    const p = pickOf(q);
+    if (st === "NEW") return p === null;
+    if (st === "MISSED") return p !== null && p !== q.correct;
+    if (st === "CORRECT") return p !== null && p === q.correct;
+    return true;
+  }
+  /* The status-filtered list is frozen until a filter changes, so answering
+     an item under "New" does not yank it out from under the learner. */
   function bank() {
     if (!isAbimMode) return PSEB_BANK;
-    return abimFilter === "ALL" ? ABIM_QUESTIONS
-      : ABIM_QUESTIONS.filter(q => q.system === abimFilter);
+    if (!bankCache) bankCache = sysBank().filter(q => matchesStatus(q, statusFilter));
+    return bankCache;
   }
+  function invalidateBank() { bankCache = null; }
   function currentQuestion() { return bank()[session().idx]; }
   function pickOf(q) { const p = picks[q.id]; return p === undefined ? null : p; }
+  function fmtTime(sec) { sec = Math.max(0, Math.round(sec)); return Math.floor(sec / 60) + ":" + String(sec % 60).padStart(2, "0"); }
   function rune(cls, label) { return '<span class="meta-rune ' + cls + '">' + esc(label) + "</span>"; }
 
   /* Category + exam-task chips come from the data-module registries; legacy
@@ -1230,27 +1390,94 @@
       return '<button class="' + cls + '" type="button" data-jump="' + i +
         '" aria-label="Go to question ' + (i + 1) + '"></button>';
     }).join("");
+    progressTrack.classList.toggle("dense", b.length > 40);
+    progressTrack.classList.toggle("xdense", b.length > 120);
   }
 
   function renderFilter() {
     if (!isAbimMode) { filterRow.hidden = true; filterRow.innerHTML = ""; return; }
     const counts = {};
     ABIM_QUESTIONS.forEach(q => { counts[q.system] = (counts[q.system] || 0) + 1; });
-    const chip = (key, label, count) =>
+    const answered = {};
+    ABIM_QUESTIONS.forEach(q => { if (pickOf(q) !== null) answered[q.system] = (answered[q.system] || 0) + 1; });
+    const allDone = Object.keys(answered).reduce((a, k) => a + answered[k], 0);
+    const chip = (key, label, count, done) =>
       '<button class="filter-chip' + (abimFilter === key ? " active" : "") +
-      '" type="button" data-filter="' + key + '">' + esc(label) +
+      '" type="button" data-filter="' + key + '" style="--done:' + Math.round(100 * done / Math.max(1, count)) + '%"' +
+      ' title="' + done + " of " + count + ' answered">' + esc(label) +
       ' <span class="chip-count">' + count + "</span></button>";
-    let html = chip("ALL", "All Systems", ABIM_QUESTIONS.length);
-    Object.keys(SYSTEMS).forEach(k => { if (counts[k]) html += chip(k, SYSTEMS[k].label, counts[k]); });
-    filterRow.innerHTML = html;
+    let html = chip("ALL", "All Systems", ABIM_QUESTIONS.length, allDone);
+    Object.keys(SYSTEMS).forEach(k => { if (counts[k]) html += chip(k, SYSTEMS[k].label, counts[k], answered[k] || 0); });
+    const sb = sysBank();
+    const n = st => sb.filter(q => matchesStatus(q, st)).length;
+    const label = { ALL: "All", NEW: "✦ New", MISSED: "✖ Missed", CORRECT: "✓ Correct" };
+    const seg = STATUSES.map(st => '<button class="status-btn' + (statusFilter === st ? " active" : "") +
+      '" type="button" data-status="' + st + '" aria-pressed="' + (statusFilter === st) + '">' + label[st] +
+      "<b>" + n(st) + "</b></button>").join("");
+    filterRow.innerHTML = '<div class="status-seg" role="group" aria-label="Filter by answer status">' + seg +
+      '<span class="status-tools"><button class="status-btn" type="button" data-shuffle title="Jump to a random item in this list">🎲 Random</button></span></div>' +
+      '<div class="sys-scroll" role="group" aria-label="Filter by blueprint system">' + html + "</div>";
     filterRow.hidden = false;
+    const active = filterRow.querySelector(".sys-scroll .filter-chip.active");
+    if (active && active.dataset.filter !== "ALL") {
+      const sc = filterRow.querySelector(".sys-scroll");
+      sc.scrollLeft = active.offsetLeft - sc.offsetLeft - 12;
+    }
+  }
+
+  /* Pacing: time accumulates per item until it is answered (ABIM pace ≈ 2 min). */
+  let timedId = null, timedStart = 0;
+  const timeAcc = {};
+  function stopTiming() {
+    if (timedId) timeAcc[timedId] = (timeAcc[timedId] || 0) + (Date.now() - timedStart) / 1000;
+    timedId = null;
+  }
+  function elapsedFor(id) {
+    return (timeAcc[id] || 0) + (timedId === id ? (Date.now() - timedStart) / 1000 : 0);
+  }
+  function tickTimer() {
+    const el = document.getElementById("qTimer");
+    if (!el || !timedId || document.hidden) return;
+    const sec = elapsedFor(timedId);
+    el.textContent = "⏱ " + fmtTime(sec);
+    el.classList.toggle("slow", sec > 120);
+  }
+  setInterval(tickTimer, 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && timedId) { const id = timedId; stopTiming(); timedId = null; pausedId = id; }
+    else if (!document.hidden && pausedId) { timedId = pausedId; timedStart = Date.now(); pausedId = null; }
+  });
+  let pausedId = null;
+
+  function nextUnansweredIdx() {
+    const b = bank(), i0 = session().idx;
+    for (let k = 1; k <= b.length; k++) {
+      const j = (i0 + k) % b.length;
+      if (pickOf(b[j]) === null) return j;
+    }
+    return -1;
+  }
+
+  function renderEmpty() {
+    stopTiming();
+    const msg = { NEW: ["🏁", "Every item in this view is answered."], MISSED: ["🎯", "No missed items here — nothing to remediate."],
+      CORRECT: ["🌱", "No correct answers yet in this view."] }[statusFilter] || ["📭", "No items match."];
+    qCard.innerHTML = '<div class="empty-state"><div class="big">' + msg[0] + "</div><p>" + msg[1] +
+      " Switch the status filter or pick another system.</p>" +
+      '<button class="btn-next" type="button" data-status="ALL">Show all items ▸</button></div>';
+    progressTrack.innerHTML = "";
   }
 
   function renderQuestion() {
     const s = session();
+    if (isAbimMode && !bank().length) { renderEmpty(); return; }
     if (s.idx >= bank().length) s.idx = 0;   // filter may shrink the bank
     const q = currentQuestion();
     const picked = pickOf(q);
+    if (timedId !== q.id) {
+      stopTiming();
+      if (isAbimMode && picked === null && !document.hidden) { timedId = q.id; timedStart = Date.now(); }
+    }
     const revealed = picked !== null;
     let html = "";
 
@@ -1282,9 +1509,14 @@
         else if (i === picked) cls += " incorrect";
         else cls += " dimmed";
       }
+      const isStruck = !revealed && (struck[q.id] || []).indexOf(i) >= 0;
+      if (isStruck) cls += " struck";
       html += '<div class="option-row"><button class="' + cls + '" type="button" data-opt="' + i + '"' +
         (revealed ? " disabled" : "") + '><span class="opt-letter">' + LETTERS[i] +
-        '</span><span class="opt-text">' + esc(opt) + "</span></button></div>";
+        '</span><span class="opt-text">' + esc(opt) + "</span></button>" +
+        (revealed || !isAbimMode ? "" : '<button class="opt-strike" type="button" data-strike="' + i + '" aria-pressed="' + isStruck +
+          '" title="Eliminate option (right-click or Shift+' + LETTERS[i] + ')" aria-label="Eliminate option ' + LETTERS[i] + '">⊘</button>') +
+        "</div>";
     });
 
     /* Post-answer container: explanation + unlocked flashcards. */
@@ -1312,7 +1544,11 @@
       '<button class="btn-prev" type="button" data-prev' + (s.idx === 0 ? " disabled" : "") + '>◂ Prev</button>' +
       '<span class="q-counter">' + (isAbimMode ? "ABIM Board Prep" : "PSEB Hybrid Demo") +
       " · Item " + (s.idx + 1) + " / " + bank().length +
+      (isAbimMode ? (revealed
+        ? (times[q.id] ? ' <span class="q-timer done' + (times[q.id] > 120 ? " slow" : "") + '" title="Time to answer">⏱ ' + fmtTime(times[q.id]) + "</span>" : "")
+        : ' <span class="q-timer" id="qTimer" title="Time on this item — ABIM pace ≈ 2 min">⏱ ' + fmtTime(elapsedFor(q.id)) + "</span>") : "") +
       (revealed ? ' <button class="retry-link" type="button" data-reset>↺ Retry</button>' : "") +
+      (revealed && isAbimMode && nextUnansweredIdx() >= 0 ? ' <button class="next-new-link" type="button" data-next-new title="Next unanswered (N)">⇥ Next new</button>' : "") +
       '</span>' +
       '<button class="btn-next" type="button" data-next' + (s.idx >= bank().length - 1 ? " disabled" : "") + '>Next ▸</button></div>';
 
@@ -1326,7 +1562,7 @@
   function cardKey(q, i) { return q.id + ":" + i; }
 
   function renderScore() {
-    const b = bank();
+    const b = isAbimMode ? sysBank() : bank();
     let right = 0, total = 0;
     b.forEach(q => {
       const p = pickOf(q);
@@ -1603,10 +1839,29 @@
     if (reviewMode) exitReview(); else startReview();
   });
 
+  function setStatus(st) {
+    if (STATUSES.indexOf(st) < 0) return;
+    statusFilter = st;
+    invalidateBank();
+    sessions.abim.idx = 0;
+    saveState();
+    renderFilter();
+    renderQuestion();
+    announcer.textContent = "Showing " + st.toLowerCase() + " items — " + bank().length + " questions.";
+  }
+
   filterRow.addEventListener("click", (e) => {
+    const stBtn = e.target.closest("[data-status]");
+    if (stBtn) { if (stBtn.dataset.status !== statusFilter) setStatus(stBtn.dataset.status); return; }
+    if (e.target.closest("[data-shuffle]")) {
+      const n = bank().length;
+      if (n > 1) { let j; do { j = Math.floor(Math.random() * n); } while (j === session().idx); goTo(j); }
+      return;
+    }
     const chip = e.target.closest("[data-filter]");
     if (!chip || chip.dataset.filter === abimFilter) return;
     abimFilter = chip.dataset.filter;
+    invalidateBank();
     sessions.abim.idx = 0;
     saveState();
     renderFilter();
@@ -1614,6 +1869,27 @@
     renderScore();
     announcer.textContent = "Filtered to " + (abimFilter === "ALL" ? "all systems" : SYSTEMS[abimFilter].label) +
       " — " + bank().length + " questions.";
+  });
+
+  function toggleStrike(i) {
+    const q = currentQuestion();
+    if (!q || pickOf(q) !== null || !isAbimMode) return;
+    const arr = struck[q.id] || (struck[q.id] = []);
+    const k = arr.indexOf(i);
+    if (k >= 0) arr.splice(k, 1); else arr.push(i);
+    const on = k < 0;
+    const optBtn = qCard.querySelector('[data-opt="' + i + '"]');
+    const sBtn = qCard.querySelector('[data-strike="' + i + '"]');
+    if (optBtn) optBtn.classList.toggle("struck", on);
+    if (sBtn) sBtn.setAttribute("aria-pressed", on ? "true" : "false");
+    announcer.textContent = "Option " + LETTERS[i] + (on ? " eliminated" : " restored");
+  }
+  qCard.addEventListener("contextmenu", (e) => {
+    if (reviewMode) return;
+    const opt = e.target.closest("[data-opt]");
+    if (!opt || opt.disabled || !isAbimMode) return;
+    e.preventDefault();
+    toggleStrike(parseInt(opt.dataset.opt, 10));
   });
 
   progressTrack.addEventListener("click", (e) => {
@@ -1631,6 +1907,14 @@
       return;
     }
 
+    const emptyAll = e.target.closest("[data-status]");
+    if (emptyAll) { setStatus(emptyAll.dataset.status); return; }
+
+    const strike = e.target.closest("[data-strike]");
+    if (strike) { toggleStrike(parseInt(strike.dataset.strike, 10)); return; }
+
+    if (e.target.closest("[data-next-new]")) { const j = nextUnansweredIdx(); if (j >= 0) goTo(j); return; }
+
     const labToggle = e.target.closest("[data-toggle-lab]");
     if (labToggle) {
       labOpen = !labOpen;
@@ -1642,6 +1926,10 @@
     const opt = e.target.closest("[data-opt]");
     if (opt && pickOf(currentQuestion()) === null) {
       const q = currentQuestion();
+      stopTiming();
+      times[q.id] = Math.round(timeAcc[q.id] || 0);
+      delete timeAcc[q.id];
+      delete struck[q.id];
       picks[q.id] = parseInt(opt.dataset.opt, 10);
       const good = picks[q.id] === q.correct;
       /* High-yield feedback loop: a miss auto-enrolls the question's core
@@ -1651,6 +1939,7 @@
       renderScore();
       renderCardsCount();
       renderReviewCount();
+      renderFilter();
       /* Lock + highlight in place, then expand the feedback container —
          re-render keeps state and the reveal-wrap animates open. */
       renderQuestion();
@@ -1686,6 +1975,8 @@
     const reset = e.target.closest("[data-reset]");
     if (reset && pickOf(currentQuestion()) !== null) {
       delete picks[currentQuestion().id];
+      delete times[currentQuestion().id];
+      renderFilter();
       saveState();
       renderScore();
       renderQuestion();
@@ -1715,6 +2006,7 @@
     if (e.target.closest("[data-reset-progress]")) {
       if (!window.confirm("Reset all answers, score, saved cards and review schedule?")) return;
       resetProgress();
+      Object.keys(struck).forEach(k => delete struck[k]);
       cardsModal.hidden = true;
       reviewMode = false;
       renderFilter();
@@ -1735,10 +2027,67 @@
     "</ul></div></div></div>"
   ).join("");
 
-  blueprintBtn.addEventListener("click", () => { blueprintModal.hidden = false; });
+  function renderPerf() {
+    const panel = document.getElementById("perfPanel");
+    let ans = 0, right = 0, tSum = 0, tN = 0;
+    const per = {};
+    ABIM_QUESTIONS.forEach(q => {
+      const r = per[q.system] || (per[q.system] = { n: 0, a: 0, c: 0 });
+      r.n++;
+      const p = pickOf(q);
+      if (p !== null) { r.a++; ans++; if (p === q.correct) { r.c++; right++; } }
+      if (times[q.id]) { tSum += times[q.id]; tN++; }
+    });
+    const pct = (a, b) => b ? Math.round(100 * a / b) : 0;
+    let weakest = null;
+    Object.keys(per).forEach(k => {
+      const r = per[k];
+      if (r.a >= 3 && (!weakest || r.c / r.a < per[weakest].c / per[weakest].a)) weakest = k;
+    });
+    const stat = (v, l) => '<div class="perf-stat"><b>' + v + "</b><span>" + l + "</span></div>";
+    let html = '<div class="perf-stats">' +
+      stat(ans + "/" + ABIM_QUESTIONS.length, "Answered") +
+      stat(ans ? pct(right, ans) + "%" : "—", "Accuracy") +
+      stat(tN ? fmtTime(tSum / tN) : "—", "Avg time") +
+      stat(dueKeys().length + "/" + collected.size, "Cards due") + "</div>";
+    if (weakest && pct(per[weakest].c, per[weakest].a) < 80) {
+      html += '<div class="perf-focus">🎯 Focus next: <strong>' + esc(SYSTEMS[weakest].label) + "</strong> — " +
+        pct(per[weakest].c, per[weakest].a) + "% correct so far." +
+        '<button type="button" data-perf-sys="' + weakest + '" data-perf-status="MISSED">Review missed ▸</button></div>';
+    } else if (!ans) {
+      html += '<div class="perf-focus">🚀 Start anywhere — the bank is weighted to the ABIM blueprint. Bars fill as you answer.</div>';
+    }
+    html += Object.keys(SYSTEMS).filter(k => per[k]).map(k => {
+      const r = per[k], acc = pct(r.c, r.a);
+      return '<button class="perf-row" type="button" data-perf-sys="' + k + '" title="Drill ' + esc(SYSTEMS[k].label) + '">' +
+        "<span>" + esc(SYSTEMS[k].label) + " <small>" + esc(SYSTEMS[k].weight) + "</small></span>" +
+        '<span class="perf-bar"><i style="width:' + pct(r.a, r.n) + '%"></i><i class="acc" style="width:' + pct(r.c, r.n) + '%"></i></span>' +
+        '<span class="perf-pct' + (r.a ? (acc < 60 ? " lo" : acc >= 80 ? " hi" : "") : "") + '">' +
+        (r.a ? acc + "%" : "—") + " · " + r.a + "/" + r.n + "</span></button>";
+    }).join("");
+    panel.innerHTML = '<div class="perf-head">📈 Your progress</div>' + html;
+  }
+
+  blueprintBtn.addEventListener("click", () => { renderPerf(); blueprintModal.hidden = false; });
   blueprintModal.addEventListener("click", (e) => {
     if (e.target === blueprintModal || e.target.closest("[data-close-modal]")) {
       blueprintModal.hidden = true;
+      return;
+    }
+    const drill = e.target.closest("[data-perf-sys]");
+    if (drill) {
+      if (reviewMode) exitReview();
+      if (!isAbimMode) setAbimMode(true);
+      abimFilter = drill.dataset.perfSys;
+      statusFilter = drill.dataset.perfStatus || "ALL";
+      invalidateBank();
+      sessions.abim.idx = 0;
+      saveState();
+      blueprintModal.hidden = true;
+      renderFilter();
+      renderQuestion();
+      renderScore();
+      announcer.textContent = "Drilling " + SYSTEMS[abimFilter].label + " — " + bank().length + " questions.";
       return;
     }
     const head = e.target.closest(".bp-head");
@@ -1770,7 +2119,13 @@
     /* Keyboard navigation: ←/→ move items, A–E answer the current item. */
     if (e.key === "ArrowRight") { goTo(session().idx + 1); return; }
     if (e.key === "ArrowLeft") { goTo(session().idx - 1); return; }
+    if (!currentQuestion()) return;
+    if ((e.key === "n" || e.key === "N") && !e.shiftKey && isAbimMode && pickOf(currentQuestion()) !== null) {
+      const j = nextUnansweredIdx(); if (j >= 0) goTo(j); return;
+    }
     const letterIdx = LETTERS.indexOf(e.key.toUpperCase());
+    if (e.shiftKey && letterIdx >= 0 && letterIdx < currentQuestion().options.length) { toggleStrike(letterIdx); return; }
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
     if (letterIdx >= 0 && letterIdx < currentQuestion().options.length && pickOf(currentQuestion()) === null) {
       const btn = qCard.querySelector('[data-opt="' + letterIdx + '"]');
       if (btn) btn.click();

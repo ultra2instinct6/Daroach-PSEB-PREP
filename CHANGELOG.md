@@ -5,6 +5,48 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM Board Prep v3.0: 250 questions and study-flow UI
+
+- **Content: 170 → 250 questions, 750 core-concept cards, 184 comparison
+  tables.**
+  - The 80 new items follow the blueprint weighting: CV 10, Endo 7, GI 7,
+    Pulm 7, Rheum 7, ID 6, Neph 5, Heme 5, Onc 5, Neuro 4, Psych 3, Derm 3,
+    OB/GYN 3, Geri 3, Foundations 3, Critical Care 2.
+  - New topics include NSTEMI timing, CCTA, constriction, ATTR amyloid,
+    Mobitz II, torsades, IV iron in HF, Brugada, myocarditis, HHS, CSW vs
+    SIADH, Graves in pregnancy, prolactinoma, atypical femur fracture, dRTA,
+    ADPKD, Barrett/EoE/achalasia, MASLD FIB-4, HRS, PBC, A–a gradient, PFT
+    patterns, HP, bronchiectasis, asbestosis, COPD triple therapy, CPPD, APS,
+    SSc-ILD, HCQ retinal screening, necrotizing fasciitis, TB-IRIS, PCP
+    steroids, ARN, IgG4-RD, DIC, G6PD, MGUS, CLL, EGFR NSCLC, testicular
+    markers, TCA toxicity, CO poisoning, ALS, RLS, clozapine, PTSD, erythema
+    nodosum, ectopic pregnancy, Beers criteria, pressure injury, elder abuse,
+    proxy decisions, emergency consent and asplenia vaccines.
+  - Every new item passed schema validation and an independent accuracy
+    review (5 corrections, including Barrett surveillance intervals).
+  - The answer key stays balanced (A 64 / B 62 / C 62 / D 62).
+  - Older items where the correct answer was obviously the longest had their
+    distractors rewritten to remove the length cue.
+- **Status filter**: All / ✦ New / ✖ Missed / ✓ Correct, with live counts,
+  combined with the system filter. The list is frozen until a filter
+  changes, so answering a "New" item does not yank it away. 🎲 Random jumps
+  within the current list. An empty list shows a friendly empty state.
+- **Compact system chips**: one horizontally scrolling row (it was four
+  wrapped rows) with a thin per-system completion bar.
+- **Dense progress track**: banks over 40 items render as a continuous heat
+  strip with a raised current marker. At 250 items the old spaced pills had
+  collapsed to zero width.
+- **Option elimination**: ⊘ button, right-click, or Shift+A–D strikes out a
+  distractor, as in the real exam interface.
+- **Pacing timer**: ⏱ per item, which turns amber past 2:00 (ABIM pace),
+  pauses when the tab is hidden, and is saved with the answer.
+- **⇥ Next new** link and the `N` key jump to the next unanswered item.
+- **📊 Progress dashboard** (replaces the Blueprint button): answered,
+  accuracy, average time and cards due, plus per-system answered/accuracy
+  bars. It suggests the weakest system ("Review missed ▸"), and tapping any
+  row drills that system. The blueprint outline sits below.
+- Service worker cache bumped to v33.
+
 ## 2026-10-02 — ABIM Board Prep v2.9: comparison tables and motion
 
 - **📊 Comparison tables** (new optional `tb` field): 147 of the 510 cards now
