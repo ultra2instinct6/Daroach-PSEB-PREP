@@ -791,7 +791,7 @@
   .session-note, .session-message { color: var(--text-dim); font-size: 0.75rem; line-height: 1.55; }
   .session-message { min-height: 1.2em; color: var(--amber); }
   .session-primary { padding: 11px 18px; border-radius: 999px; background: var(--accent); color: #001014; font-weight: 900; }
-  .session-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+  .session-primary:disabled, .session-secondary:disabled { opacity: 0.45; cursor: not-allowed; }
   .session-secondary { padding: 10px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--text-dim); font-weight: 800; }
   .session-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
   .session-table { width: 100%; margin-top: 14px; border-collapse: collapse; font-size: 0.75rem; }
@@ -1051,6 +1051,18 @@
   body[data-theme="CLASSIC"] .review-badge.zero { background: rgba(11, 74, 168, 0.12); color: var(--text-dim); }
   body[data-theme="CLASSIC"] .abim-toggle { background: rgba(255, 255, 255, 0.94); color: #0d9488; border-color: rgba(13, 148, 136, 0.45); box-shadow: 0 14px 40px rgba(16, 42, 82, 0.2), 0 0 26px -12px #0d9488; }
   body[data-theme="CLASSIC"] .abim-toggle[aria-pressed="true"] { background: linear-gradient(135deg, #d9f6f1 0%, #bdeee5 100%); color: #065f55; border-color: #0d9488; }
+  .study-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 24px 0; }
+  .study-panel { padding: 24px; border: 1px solid var(--border); border-radius: 18px; background: var(--panel); color: var(--text-bold); text-align: left; cursor: pointer; font: inherit; transition: border-color 180ms, transform 180ms; }
+  .study-panel:hover { border-color: var(--teal); transform: translateY(-3px); }
+  .study-panel:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+  .study-panel strong { display: block; font-size: 1.3rem; margin-bottom: 12px; }
+  .study-panel span { display: block; color: var(--text-dim); line-height: 1.6; }
+  .study-panel small { display: block; color: var(--teal); margin-top: 18px; font-weight: 700; }
+  .study-heading { font-size: 1.7rem; margin: 16px 0 8px; }
+  .study-intro { color: var(--text-dim); line-height: 1.6; }
+  .review-system-select { display: block; width: 100%; margin: 12px 0 20px; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--panel); color: var(--text-bold); font: inherit; }
+  @media (max-width: 600px) { .study-panels { grid-template-columns: 1fr; } .study-panel { padding: 20px; } }
+  @media (prefers-reduced-motion: reduce) { .study-panel { transition: none; } .study-panel:hover { transform: none; } }
 </style>
 </head>
 <body class="abim-mode abim-access-locked">
@@ -1062,6 +1074,7 @@
   <a class="header-logo" href="abim.html">BOLO<span class="dot-mode" id="logoDot">.ABIM</span></a>
   <a class="home-pill" href="index.html">◂ Menu</a>
   <span class="header-spacer"></span>
+  <button class="tool-pill" type="button" id="studyHomeBtn">⌂ Study Home</button>
   <button class="tool-pill" type="button" id="practiceBtn" aria-haspopup="dialog">▶ Start Practice</button>
   <button class="tool-pill memory-card-pill" type="button" aria-haspopup="dialog"><span aria-hidden="true">💾</span><span class="mc-pill-slot">S1</span><span class="mc-pill-name">Student 1</span></button>
   <button class="tool-pill" type="button" id="blueprintBtn" aria-haspopup="dialog">📊 Progress</button>
@@ -1236,6 +1249,7 @@
   window.activeExamSession = null;
   let examReviewMode = false;
   let examReviewIds = [];
+  let reviewSystem = "ALL";
 
   /* Per-mode study session: current item index. Picks are keyed by stable
      question IDs, so filters and future bank growth never corrupt answers. */
@@ -1594,6 +1608,7 @@
       : poolSize + " questions available. This block will use " + requested + ".";
   }
   function openSessionModal() {
+    if (reviewMode) exitReview();
     if (!isAbimMode) setAbimMode(true);
     sessionMessage.textContent = "";
     updateSessionPool();
@@ -2044,19 +2059,18 @@
     stopTiming();
     progressTrack.innerHTML = "";
     const completed = activeExamSession && activeExamSession.submitted;
-    qCard.innerHTML = '<div class="q-meta">' + rune("hot", "🩺 ABIM Practice") +
-      rune("task", "Tutor or Timed Mock") + '</div><div class="empty-state">' +
-      '<div class="big">' + (completed ? "✓" : "🧠") + "</div><h2>" +
-      (completed ? "Practice block submitted" : "Build a practice block") + "</h2><p>" +
-      (completed
-        ? "Your answers are saved to this learner profile. Reopen the debrief or start a fresh session."
-        : "Create a tutor session with immediate explanations, or a timed mock with a 100-second-per-item countdown. Mock answers stay hidden until you submit.") +
-      '</p><button class="btn-next" type="button" data-open-session>' +
-      (completed ? "Create Another Session" : "Create Session / Start Practice") + " ▸</button>" +
+    qCard.innerHTML = '<div class="q-meta">' + rune("hot", "🩺 BOLO.ABIM") +
+      rune("task", "Learn · Retrieve · Repeat") + '</div>' +
+      '<h1 class="study-heading">Choose your study path</h1>' +
+      '<p class="study-intro">Clinical reasoning in the test bank. Active recall in your personal flashcard deck. Both save to your current memory-card slot.</p>' +
+      '<div class="study-panels"><button class="study-panel" type="button" data-open-session>' +
+      '<strong>🩺 Test Bank</strong><span>' + ABIM_QUESTIONS.length + ' clinical questions with explanations and linked core concepts. Choose Tutor or Timed Mock practice.</span><small>Create a practice block →</small></button>' +
+      '<button class="study-panel" type="button" data-open-flashcards><strong>📆 Flashcard Review</strong>' +
+      '<span>Review by system with spaced repetition, detailed teaching points and comparison tables.</span><small>' +
+      dueKeys().length + ' due · ' + visibleDeckSize() + ' saved concepts →</small></button></div>' +
       (completed ? '<div class="session-actions"><button class="session-secondary" type="button" data-open-debrief>View Debrief</button>' +
         '<button class="session-secondary" type="button" data-exam-review="all">Review All</button></div>' : "") +
-      '<div class="session-note">Practice-only content and raw scoring; this is not an official ABIM exam or scaled score.</div></div>';
-    renderProgress();
+      '<div class="session-note">Practice-only content and raw scoring; this is not an official ABIM exam or scaled score.</div>';
   }
 
   function renderQuestion() {
@@ -2339,8 +2353,54 @@
     reviewCount.classList.toggle("zero", n === 0);
   }
 
-  function startReview() {
-    reviewQueue = dueKeys();
+  function reviewAllowed() {
+    if (activeExamSession && !activeExamSession.submitted) {
+      const message = "End and submit the active practice block before switching study sections. Your block is still in progress.";
+      announcer.textContent = message;
+      window.alert(message);
+      return false;
+    }
+    return true;
+  }
+
+  function renderFlashcardLanding() {
+    if (!reviewAllowed()) return;
+    if (gradeTimer) { clearTimeout(gradeTimer); gradeTimer = null; }
+    gradeLock = false;
+    reviewMode = true;
+    reviewQueue = [];
+    reviewShown = false;
+    filterRow.hidden = true;
+    stopTiming();
+    progressTrack.innerHTML = "";
+    const options = '<option value="ALL">All systems</option>' + Object.keys(SYSTEMS).map(key =>
+      '<option value="' + key + '"' + (reviewSystem === key ? " selected" : "") + '>' + esc(SYSTEMS[key].label) + '</option>').join("");
+    const saved = Array.from(collected).filter(key => findCard(key) && (reviewSystem === "ALL" || keySystem(key) === reviewSystem)).length;
+    const due = dueKeys().filter(key => reviewSystem === "ALL" || keySystem(key) === reviewSystem).length;
+    qCard.innerHTML = '<div class="q-meta">' + rune("hot", "📆 Flashcard Review") + rune("task", "Active recall · Spaced repetition") +
+      '</div><h1 class="study-heading">Your core-concept deck</h1>' +
+      '<p class="study-intro">Missed Tutor questions add concepts automatically. Save more with [+] after answering, or send missed Mock concepts here from the debrief.</p>' +
+      '<label for="reviewSystemSelect">Review section</label><select class="review-system-select" id="reviewSystemSelect">' + options + '</select>' +
+      '<div class="session-actions"><button class="session-primary" type="button" data-start-due' + (due ? "" : " disabled") + '>Review ' + due + ' due cards</button>' +
+      '<button class="session-secondary" type="button" data-start-saved' + (saved ? "" : " disabled") + '>Practice all ' + saved + ' saved cards</button>' +
+      '<button class="session-secondary" type="button" data-open-flashcards>Refresh due counts</button>' +
+      '<button class="session-secondary" type="button" data-open-session>Open Test Bank</button>' +
+      '<button class="session-secondary" type="button" data-study-home>Study Home</button></div>' +
+      '<p class="session-note">' + (saved ? (due ? "" : "No cards are due in this section yet. Mock misses scheduled Again become due after 10 minutes. ") +
+        "Grading either review path updates your spaced-repetition schedule. Practice all includes cards that are not due yet." :
+        "No saved cards in this section yet. Start a Tutor block and save its unlocked concepts to build your deck.") + '</p>';
+  }
+
+  function keySystem(key) {
+    const qid = key.slice(0, key.lastIndexOf(":"));
+    const question = ABIM_QUESTIONS.find(q => q.id === qid);
+    return question && question.system;
+  }
+
+  function startReview(allSaved = false) {
+    if (!reviewAllowed()) return;
+    reviewQueue = (allSaved ? Array.from(collected).filter(key => findCard(key)) : dueKeys())
+      .filter(key => reviewSystem === "ALL" || keySystem(key) === reviewSystem);
     for (let i = reviewQueue.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       const t = reviewQueue[i]; reviewQueue[i] = reviewQueue[j]; reviewQueue[j] = t;
@@ -2356,6 +2416,8 @@
   }
 
   function exitReview() {
+    if (gradeTimer) { clearTimeout(gradeTimer); gradeTimer = null; }
+    gradeLock = false;
     reviewMode = false;
     renderFilter();
     renderQuestion();
@@ -2374,7 +2436,8 @@
         '<p class="review-done-sub">Reviewed ' + reviewStats.done + " card" + (reviewStats.done === 1 ? "" : "s") +
         " this session" + extra + ". Deck size: " + visibleDeckSize() +
         " cards. Answer more questions — missed items feed their core concepts into this deck automatically — or save concepts with [+].</p>" +
-        '<button class="btn-next" type="button" data-exit-review>▸ Back to Questions</button></div>';
+        '<div class="session-actions"><button class="session-secondary" type="button" data-open-flashcards>Review Sections</button>' +
+        '<button class="btn-next" type="button" data-exit-review>▸ Back to Test Bank</button></div></div>';
       qCard.classList.remove("swap"); void qCard.offsetWidth; qCard.classList.add("swap");
       return;
     }
@@ -2385,7 +2448,7 @@
        element rotates, and the answer cascades in after the turn. */
     let html = '<div class="q-meta">' + rune(card.sys.cls, card.sys.label) + rune("task", "📆 Spaced Review") +
       '<button class="hint-btn" type="button" data-exit-review style="margin-left:auto;">✕ Exit Review</button></div>' +
-      '<div class="review-wrap"><div class="review-count">' + reviewQueue.length + " due · " + reviewStats.done + " reviewed</div>" +
+      '<div class="review-wrap"><div class="review-count">' + reviewQueue.length + " remaining · " + reviewStats.done + " reviewed</div>" +
       '<div class="review-session" aria-hidden="true"><i style="width:' +
         Math.min(100, Math.round(100 * reviewStats.done / Math.max(1, reviewStats.total || 1))) + '%"></i></div>' +
       '<div class="fc-scene deal' + (reviewShown ? " flipped" : "") + '" data-flip role="button" tabindex="0" aria-label="Flashcard — activate to flip">' +
@@ -2500,6 +2563,12 @@
   /* ================= Events ================= */
   toggleBtn.addEventListener("click", openSessionModal);
   practiceBtn.addEventListener("click", openSessionModal);
+  document.getElementById("studyHomeBtn").addEventListener("click", () => {
+    if (!reviewAllowed()) return;
+    if (reviewMode) exitReview();
+    examReviewMode = false;
+    renderQuestion();
+  });
   document.getElementById("retryExamSave").addEventListener("click", () => submitExamSession(true));
   Object.keys(SYSTEMS).forEach(key => {
     if (!ABIM_QUESTIONS.some(q => q.system === key)) return;
@@ -2557,11 +2626,8 @@
   });
 
   reviewBtn.addEventListener("click", () => {
-    if (activeExamSession && !activeExamSession.submitted) {
-      announcer.textContent = "Submit or end the active practice block before starting flashcard review.";
-      return;
-    }
-    if (reviewMode) exitReview(); else startReview();
+    if (!reviewAllowed()) return;
+    if (reviewMode) exitReview(); else renderFlashcardLanding();
   });
 
   function setStatus(st) {
@@ -2670,7 +2736,18 @@
     if (seg) goTo(parseInt(seg.dataset.jump, 10));
   });
 
+  qCard.addEventListener("change", event => {
+    if (event.target.id !== "reviewSystemSelect") return;
+    reviewSystem = event.target.value;
+    renderFlashcardLanding();
+    document.getElementById("reviewSystemSelect").focus();
+  });
+
   qCard.addEventListener("click", (e) => {
+    if (e.target.closest("[data-open-flashcards]")) { renderFlashcardLanding(); return; }
+    if (e.target.closest("[data-start-due]")) { startReview(); return; }
+    if (e.target.closest("[data-start-saved]")) { startReview(true); return; }
+    if (e.target.closest("[data-study-home]")) { exitReview(); examReviewMode = false; renderQuestion(); return; }
     if (e.target.closest("[data-open-session]")) { openSessionModal(); return; }
     if (e.target.closest("[data-open-debrief]")) {
       renderDebrief();
@@ -2801,6 +2878,7 @@
         void wrap.offsetWidth;
         wrap.classList.add("open");
       });
+
       announcer.textContent = good
         ? "Correct. Explanation and core concept flashcards unlocked."
         : "Incorrect. Core concepts were added to your spaced-repetition review deck.";
@@ -3035,7 +3113,6 @@
     applyTheme(t && t.theme === "CLASSIC" ? "CLASSIC" : "NEON", false);
   } catch (e) { applyTheme("NEON", false); }
   setAbimMode(true, false);
-  openSessionModal();
   renderScore();
   renderCardsCount();
   renderReviewCount();

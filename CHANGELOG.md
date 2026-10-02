@@ -5,6 +5,20 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM study-home and release navigation polish
+
+- Added two selectable Study Home panels: Test Bank and Flashcard Review.
+  Removed the automatic practice-launcher interruption after activation.
+- Added system-by-system flashcard sections with due-card review and
+  optional practice of all saved cards, using the same SRS grading engine.
+- Preserved header Review access from the test bank/submitted question
+  review, with explicit protection for unsubmitted practice blocks.
+- Added Study Home/section return routes, mobile stacking, visible keyboard
+  focus and reduced-motion support in both Neon and Classic themes.
+- Cancel pending flashcard grading animations when leaving review, avoiding
+  delayed actions against a different study screen.
+- Service-worker cache bumped to v40.
+
 ## 2026-10-02 — Upfront disclaimer on every visit and themed access screens
 
 - Show the Medical & AI Disclaimer before license entry, checkout and study

@@ -81,6 +81,25 @@ Both the disclaimer and activation screens honor the learner's saved
 Neon/Classic theme. Each includes a theme switch, which updates the same
 `bolo.theme.v1` preference used by the study tool and the rest of the site.
 
+## Study home and flashcard sections
+
+After the access screens, Study Home presents two selectable panels:
+**Test Bank** for Tutor/Timed Mock blocks and **Flashcard Review** for
+the learner's saved core concepts. The practice launcher no longer opens
+automatically, so returning learners can go directly to review.
+
+Flashcard Review offers an all-system or individual-system selector,
+**Review due cards**, and **Practice all saved cards**. Both grading paths
+update the existing SRS schedule; practice-all includes not-yet-due cards.
+Empty sections show disabled review actions and a route to the Test Bank.
+No concepts are automatically enrolled by merely opening this section.
+
+The header's Review shortcut still works from the Test Bank and submitted
+question review. An unsubmitted block must be ended/submitted first, so
+switching sections cannot discard a block or pause a Mock deadline.
+Study Home, Test Bank, and review-exit actions preserve saved progress;
+the submitted block's debrief remains available during the current visit.
+
 ## Important security limits
 
 **This is a client-side activation screen, not a secure paywall.**
@@ -126,6 +145,7 @@ Run:
 node --test Scripts/test_abim_license.js
 node --test Scripts/test_abim_service_worker.js
 node --test Scripts/test_memory_card.js
+node --test Scripts/test_abim_navigation.js
 node Scripts/audit_abim.js
 node Scripts/audit_mcq.js
 node Scripts/audit_decks.js
