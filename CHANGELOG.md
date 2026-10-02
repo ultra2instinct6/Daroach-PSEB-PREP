@@ -5,6 +5,13 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM support-for-free-education note
+
+- Added a short note to the every-visit disclaimer, purchase screen and
+  study footer explaining that BOLO.ABIM purchases help keep BOLO.INSTINCT's
+  STEM education resources free for learners in Punjab, India.
+- Preserved the existing medical, AI and trademark disclosures; cache v45.
+
 ## 2026-10-02 — ABIM trademark footer and checkout verification
 
 - Added the requested trademark, non-affiliation and educational-use wording

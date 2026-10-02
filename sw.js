@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v44";
+var CACHE_VERSION = "v45";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;

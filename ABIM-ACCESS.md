@@ -106,6 +106,9 @@ The study footer and activation screen include a trademark/non-affiliation
 and educational-use notice. The study footer is in normal document flow
 below the coffee link, not a floating overlay. This disclosure is not a
 legal determination of fair use or a guarantee against trademark claims.
+The disclaimer, purchase screen and footer also explain that BOLO.ABIM
+purchases help keep BOLO.INSTINCT's STEM education resources free for
+learners in Punjab, India.
 
 **This is a client-side activation screen, not a secure paywall.**
 
