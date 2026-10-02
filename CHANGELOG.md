@@ -5,6 +5,22 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM/PSEB integration verification
+
+- Corrected timeout reporting when Gumroad's response body stalls.
+- Respect the shared memory-card helper's failed-write result, showing an
+  explicit visit-only activation warning instead of implying the key saved.
+- Excluded receipt/admin ABIM URLs from service-worker caching so license
+  credentials are not retained in cache request keys; cache bumped to v36.
+- Added response-body timeout and service-worker regression tests while
+  retaining public PSEB and ordinary ABIM offline caching.
+- Full PSEB deck audit and the 250-question/750-card ABIM audit passed.
+  Public checkout overlay and live invalid-license rejection were checked;
+  a real paid-license activation still requires a seller-controlled test.
+- Isolated browser smoke checks covered PSEB MCQs, flashcards, lecture
+  navigation and themes, plus ABIM Tutor/Mock, Labs, SRS, expiry submission
+  and learner-slot isolation. Existing learner data was not used or reset.
+
 ## 2026-10-02 — ABIM v3.2: ABIM-only page and Gumroad activation
 
 - Removed the legacy PSEB question/demo mode from the ABIM page. It now

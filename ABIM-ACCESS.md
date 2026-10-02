@@ -24,11 +24,17 @@ The device-wide storage key is `bolo_abim_license_key`. The memory-card raw
 storage helpers intentionally avoid learner-slot routing for this key:
 one activation covers this browser's learner profiles. Study answers and
 SRS data remain in their existing per-slot stores.
+If activation cannot be saved (including a failed-write result from the
+shared memory-card helper), the app warns explicitly and unlocks only for
+the current visit.
 
 License query parameters are removed before analytics and checkout scripts
 execute, including on failed verification. An invalid redirect takes
 precedence over a cached activation for that visit. Uppercase presentation
 does not silently change the entered key's value.
+The service worker does not cache ABIM URLs containing receipt or admin
+parameters. Opening a receipt URL requires a network connection; ordinary
+ABIM and PSEB pages keep their existing offline caching.
 
 ## Important security limits
 
@@ -73,9 +79,24 @@ Run:
 
 ```sh
 node --test Scripts/test_abim_license.js
+node --test Scripts/test_abim_service_worker.js
 node Scripts/audit_abim.js
+node Scripts/audit_decks.js
 ```
 
 The gate starts locked, makes the study wrapper inert/hidden, blocks
 background keyboard interactions, and starts the engine only after access
 is granted. This does not erase study progress or recreate learner profiles.
+
+Integration checks confirmed that the public Gumroad product opens in the
+checkout overlay, the overlay closes without unlocking study content, and
+Gumroad rejects an invalid key with a visible inline error. Successful
+activation tests use synthetic API responses, not a real paid license.
+Isolated browser checks also cover Tutor feedback, Labs, Classic theme,
+flashcard grading/persistence, a 60-item Mock block with deferred feedback,
+the question grid/flags/strikethrough, submission/debrief, missed-card
+10-minute scheduling, timer-expiry submission, and device-wide activation
+with separate learner-slot progress. Public PSEB checks cover home/search,
+MCQ answer persistence, flashcard grading, and lecture navigation.
+Before selling access, confirm license-key generation in the seller dashboard
+and complete a seller-controlled purchase/receipt activation test.

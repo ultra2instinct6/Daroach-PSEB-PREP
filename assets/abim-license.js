@@ -27,7 +27,11 @@
   }
   function storeKey(key) {
     const card = window.BOLO_MEMCARD;
-    if (card && card.rawSet) card.rawSet(STORAGE_KEY, key);
+    if (card && card.rawSet) {
+      if (card.rawSet(STORAGE_KEY, key) === false) {
+        throw new Error("ABIM activation storage is unavailable.");
+      }
+    }
     else localStorage.setItem(STORAGE_KEY, key);
   }
 
@@ -87,6 +91,7 @@
         let data;
         try { data = await response.json(); }
         catch (parseError) {
+          if (controller.signal.aborted) throw parseError;
           console.error("Gumroad returned an unreadable verification response.");
           showError("The license service returned an unreadable response. Please try again.");
           return;

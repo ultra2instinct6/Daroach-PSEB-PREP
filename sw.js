@@ -20,7 +20,7 @@
 
 "use strict";
 
-var CACHE_VERSION = "v35";
+var CACHE_VERSION = "v36";
 var CACHE_PREFIX = "bolo-instinct";
 var SHELL_CACHE = CACHE_PREFIX + "-shell-" + CACHE_VERSION;
 var CONTENT_CACHE = CACHE_PREFIX + "-content-" + CACHE_VERSION;
@@ -183,6 +183,9 @@ self.addEventListener("fetch", function (event) {
   try { url = new URL(request.url); } catch (e) { return; }
   if (url.origin !== self.location.origin) return;
   if (url.protocol !== "http:" && url.protocol !== "https:") return;
+  // Receipt credentials must not become persistent Cache API request keys.
+  if (/\/abim\.html$/i.test(url.pathname) &&
+      (url.searchParams.has("license_key") || url.searchParams.has("admin"))) return;
 
   if (isHtmlRequest(request)) {
     event.respondWith(

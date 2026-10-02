@@ -8,7 +8,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 const code = fs.readFileSync(path.join(__dirname, "../assets/abim-license.js"), "utf8");
 
-function fixture({ query = "", saved = null, response, fetchError, timeoutError, storageFails = false } = {}) {
+function fixture({ query = "", saved = null, response, fetchError, timeoutError, bodyTimeout = false, storageFails = false, storageRejects = false } = {}) {
   const nodes = {};
   let focused = null, calls = 0, request = null, replaced = null, key = saved;
   for (const id of ["licensePaywall", "abimApp", "licenseForm", "licenseKey", "verifyLicenseBtn", "licenseError"]) {
@@ -35,14 +35,16 @@ function fixture({ query = "", saved = null, response, fetchError, timeoutError,
       rawSet(name, value) {
         assert.equal(name, "bolo_abim_license_key");
         if (storageFails) throw new Error("Synthetic unavailable storage");
+        if (storageRejects) return false;
         key = value;
+        return true;
       }
     },
     alert(message) { window.alerted = message; }
   };
   const context = {
     window, document, URL, URLSearchParams, AbortController, clearTimeout,
-    setTimeout(fn, delay) { return setTimeout(fn, timeoutError && delay === 15000 ? 5 : delay); },
+    setTimeout(fn, delay) { return setTimeout(fn, (timeoutError || bodyTimeout) && delay === 15000 ? 5 : delay); },
     console: { error() {} },
     location: { href: "https://example.test/abim.html" + query },
     history: { state: null, replaceState(state, title, url) { replaced = String(url); } },
@@ -58,6 +60,11 @@ function fixture({ query = "", saved = null, response, fetchError, timeoutError,
       return {
         ok: true,
         async json() {
+          if (bodyTimeout) {
+            return new Promise((resolve, reject) => {
+              options.signal.addEventListener("abort", () => reject(new Error("Synthetic body timeout")));
+            });
+          }
           if (response === "unreadable") throw new SyntaxError("Synthetic malformed JSON");
           return response || { success: true, purchase: { refunded: false, chargebacked: false } };
         }
@@ -154,6 +161,14 @@ test("storage failure unlocks this visit but explicitly warns it is not remember
   assert.match(f.window.alerted, /could not save/);
 });
 
+test("memory-card rawSet returning false explicitly warns about visit-only activation", async () => {
+  const f = fixture({ storageRejects: true });
+  await f.submit("TEST-VALID");
+  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), true);
+  assert.equal(f.key, null);
+  assert.match(f.window.alerted, /could not save/);
+});
+
 test("duplicate submissions issue only one request", async () => {
   const f = fixture();
   f.nodes.licenseKey.value = "TEST-VALID";
@@ -200,4 +215,15 @@ test("a hung verification times out and enables retry", async () => {
   assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
   assert.match(f.nodes.licenseError.textContent, /timed out/);
   assert.equal(f.nodes.verifyLicenseBtn.disabled, false);
+});
+
+test("a timeout reading the response body is reported as a timeout, not invalid JSON", async () => {
+  const f = fixture({ bodyTimeout: true });
+  await f.submit("TEST-BODY-TIMEOUT");
+  await new Promise(resolve => setTimeout(resolve, 15));
+  assert.equal(f.window.BOLO_ABIM_ACCESS.isUnlocked(), false);
+  assert.equal(f.key, null);
+  assert.match(f.nodes.licenseError.textContent, /timed out/);
+  assert.equal(f.nodes.verifyLicenseBtn.disabled, false);
+  assert.equal(f.nodes.licenseKey.readOnly, false);
 });
