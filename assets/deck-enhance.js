@@ -293,7 +293,10 @@
 
     var pos = sec.slides.indexOf(i) + 1;
     bar.querySelector(".pseb-crumb-ch").textContent = chapterLabel();
-    bar.querySelector(".pseb-crumb-sec").textContent = sectionTitle(sec);
+    var secEl = bar.querySelector(".pseb-crumb-sec");
+    secEl.textContent = sectionTitle(sec);
+    /* Gurmukhi read by an English voice is unintelligible. */
+    secEl.setAttribute("lang", getLangPref() === "pa" && sec.pa ? "pa" : "en");
     bar.querySelector(".pseb-crumb-pos").textContent = pos + "/" + sec.slides.length;
     var of = getLangPref() === "pa" ? " \u0a35\u0a3f\u0a71\u0a1a\u0a4b\u0a02 " : " of ";
     var slideWord = getLangPref() === "pa" ? "\u0a38\u0a32\u0a3e\u0a08\u0a21 " : "slide ";
@@ -330,7 +333,8 @@
         '<div class="pseb-milestone-row">' +
           '<span class="pseb-milestone-badge">' +
             (pa ? "\u0a2d\u0a3e\u0a17 " : "Section ") + sec.number +
-            '<span class="pseb-milestone-name">' + escapeHtml(pa && sec.pa ? sec.pa : sec.en) + "</span>" +
+            '<span class="pseb-milestone-name" lang="' + (pa && sec.pa ? "pa" : "en") + '">' +
+              escapeHtml(pa && sec.pa ? sec.pa : sec.en) + "</span>" +
           "</span>";
       if (sec.mins) {
         html += '<span class="pseb-milestone-mins">\u23F1 ~' + sec.mins + (pa ? " \u0a2e\u0a3f\u0a70\u0a1f" : " min") + "</span>";
@@ -339,7 +343,7 @@
       html += "</div>";
 
       if (goals.length) {
-        html += '<ul class="pseb-milestone-goals">';
+        html += '<ul class="pseb-milestone-goals" lang="' + (pa && goalsRaw === (slide.getAttribute("data-section-goals-pa") || "") ? "pa" : "en") + '">';
         for (var gi = 0; gi < goals.length; gi++) {
           html += "<li>" + escapeHtml(goals[gi].trim()) + "</li>";
         }
@@ -1255,6 +1259,7 @@
     enhanceFlagshipLabs();
     initBiReadings();
     installQuizEnhancements();
+    applyA11y();
     patchSpeakWord();
 
     var counter = document.getElementById("counter");
@@ -1860,7 +1865,7 @@
     if (!en && !pa) return "";
     var h = '<div class="qf-explain"><div class="qf-explain-label">Why &nbsp;\u00b7&nbsp; ਕਿਉਂ</div>';
     if (en) h += '<div class="qf-explain-en">' + en + "</div>";
-    if (pa) h += '<div class="qf-explain-pa punjabi-block">' + pa + "</div>";
+    if (pa) h += '<div class="qf-explain-pa punjabi-block" lang="pa">' + pa + "</div>";
     return h + "</div>";
   }
   /* Resolve the pieces of one quiz item from the button that was pressed.
@@ -1922,17 +1927,115 @@
     }
     var h = '<div class="quiz-feedback ' + (isCorrect ? "is-correct" : "is-incorrect") + '">';
     h += '<div class="qf-status">' + (isCorrect
-      ? '\u2713 Correct <span class="qf-pa">(ਸਹੀ)</span>'
-      : '\u2717 Incorrect <span class="qf-pa">(ਗਲਤ)</span>') + "</div>";
+      ? '\u2713 Correct <span class="qf-pa" lang="pa">(ਸਹੀ)</span>'
+      : '\u2717 Incorrect <span class="qf-pa" lang="pa">(ਗਲਤ)</span>') + "</div>";
     if (!isCorrect && correctBtn) {
       var ct = (correctBtn.textContent || "").trim();
-      h += '<div class="qf-answer">Correct answer <span class="qf-pa">(ਸਹੀ ਜਵਾਬ)</span>: <strong>' + ct + "</strong></div>";
+      h += '<div class="qf-answer">Correct answer <span class="qf-pa" lang="pa">(ਸਹੀ ਜਵਾਬ)</span>: <strong>' + ct + "</strong></div>";
     }
     h += qfExplainHtml(qDiv) + "</div>";
     if (feedback) feedback.innerHTML = h;
     if (nextBtn) nextBtn.style.display = "block";
     recordQuiz(qDiv, !!isCorrect, correctBtn ? (correctBtn.textContent || "").replace(/\s+/g, " ").trim() : "", "");
   }
+  /* ---- Short-answer grading ----------------------------------------------
+     The original rule was `typed.toLowerCase() === expected.toLowerCase()`.
+     That is fine for "Methane", but 30 of the 401 short answers expect four or
+     more words — "Blue colour fades and reddish-brown copper deposits" — and
+     nobody types those verbatim. A student who knew the answer was told
+     "Not quite", which is both wrong and discouraging.
+
+     Grading now normalises both sides, then:
+       * short answers (<= 3 content words) must still match, but survive
+         punctuation, plurals, "&" vs "and" and a single-character typo;
+       * longer answers are scored on content-word overlap, so a correct
+         answer phrased differently is accepted while a wrong one is not. */
+
+  var SA_STOP = {
+    a: 1, an: 1, the: 1, of: 1, to: 1, in: 1, on: 1, at: 1, is: 1, are: 1, was: 1,
+    and: 1, or: 1, it: 1, its: 1, that: 1, this: 1, with: 1, for: 1, by: 1, from: 1,
+    as: 1, be: 1, into: 1, gives: 1, give: 1, forms: 1, form: 1, produces: 1,
+    produce: 1, yields: 1, yield: 1, makes: 1, make: 1, called: 1, they: 1, them: 1
+  };
+
+  function saNormalise(v) {
+    var s = " " + String(v == null ? "" : v).toLowerCase() + " ";
+    /* Unicode that students cannot easily type. */
+    s = s.replace(/[\u2080-\u2089]/g, function (c) { return String(c.charCodeAt(0) - 0x2080); });
+    s = s.replace(/[\u2070\u00b9\u00b2\u00b3\u2074-\u2079]/g, function (c) {
+      return "\u00b9\u00b2\u00b3".indexOf(c) >= 0 ? String("\u00b9\u00b2\u00b3".indexOf(c) + 1) : String(c.charCodeAt(0) - 0x2070);
+    });
+    s = s.replace(/[\u2192\u27f6]|-+>/g, " ");
+    s = s.replace(/&/g, " and ").replace(/\+/g, " and ");
+    s = s.replace(/[^a-z0-9\u0a00-\u0a7f]+/g, " ");
+    return s.replace(/\s+/g, " ").trim();
+  }
+
+  function saTokens(v) {
+    var out = [], parts = saNormalise(v).split(" ");
+    for (var i = 0; i < parts.length; i++) {
+      var w = parts[i];
+      if (!w || SA_STOP[w]) continue;
+      /* Treat simple plurals as the same word. */
+      if (w.length > 3 && /s$/.test(w) && !/ss$/.test(w)) w = w.slice(0, -1);
+      out.push(w);
+    }
+    return out;
+  }
+
+  /* One insertion, deletion or substitution apart. */
+  function saNearlyEqual(a, b) {
+    if (a === b) return true;
+    if (Math.abs(a.length - b.length) > 1) return false;
+    if (Math.min(a.length, b.length) < 5) return false;
+    var i = 0, j = 0, edits = 0;
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) { i++; j++; continue; }
+      if (++edits > 1) return false;
+      if (a.length > b.length) i++;
+      else if (b.length > a.length) j++;
+      else { i++; j++; }
+    }
+    return edits + (a.length - i) + (b.length - j) <= 1;
+  }
+
+  function gradeShortAnswer(typed, expected) {
+    var t = saNormalise(typed), e = saNormalise(expected);
+    if (!t) return false;
+    if (t === e) return true;
+
+    /* "Rust (hydrated iron oxide)" — the parenthetical is elaboration. */
+    var bare = String(expected || "").replace(/\s*\([^)]*\)\s*/g, " ");
+    if (saNormalise(bare) && t === saNormalise(bare)) return true;
+
+    var et = saTokens(expected), ut = saTokens(typed);
+    if (!et.length || !ut.length) return false;
+
+    if (et.length <= 3) {
+      if (et.length !== ut.length) {
+        /* Allow the bare key term for an answer like "the generator". */
+        if (!(et.length === 1 && ut.length === 1)) return false;
+      }
+      for (var i = 0; i < et.length; i++) {
+        if (!saNearlyEqual(et[i], ut[i] || "")) return false;
+      }
+      return true;
+    }
+
+    /* Longer answers: Dice overlap on content words. 0.6 accepts a genuine
+       rephrasing while still rejecting a different concept ("nuclear fusion"
+       against "nuclear fission" scores 0.5). */
+    var hits = 0, used = {};
+    for (var a = 0; a < et.length; a++) {
+      for (var b = 0; b < ut.length; b++) {
+        if (used[b]) continue;
+        if (saNearlyEqual(et[a], ut[b])) { used[b] = 1; hits++; break; }
+      }
+    }
+    return (2 * hits) / (et.length + ut.length) >= 0.6;
+  }
+  window.__psebGradeSA = gradeShortAnswer;
+
   function enhancedCheckSA(btn, expectedEn, expectedPa) {
     var s = qfScope(btn);
     if (!s) return;
@@ -1940,17 +2043,17 @@
     var input = s.input;
     var feedback = s.feedback;
     var nextBtn = s.next;
-    var userVal = (input && input.value ? input.value : "").trim().toLowerCase();
-    var ok = !!userVal && userVal === (expectedEn || "").toLowerCase();
+    var typed = input && input.value ? input.value : "";
+    var ok = gradeShortAnswer(typed, expectedEn || "");
     if (input) input.disabled = true;
     btn.disabled = true;
     var h = '<div class="quiz-feedback ' + (ok ? "is-correct" : "is-incorrect") + '">';
     h += '<div class="qf-status">' + (ok
-      ? '\u2713 Correct <span class="qf-pa">(ਸਹੀ)</span>'
-      : '\u2717 Not quite <span class="qf-pa">(ਲਗਭਗ)</span>') + "</div>";
+      ? '\u2713 Correct <span class="qf-pa" lang="pa">(ਸਹੀ)</span>'
+      : '\u2717 Not quite <span class="qf-pa" lang="pa">(ਲਗਭਗ)</span>') + "</div>";
     h += '<div class="qf-answer">' + (ok ? "Answer" : "Expected answer") +
-      ' <span class="qf-pa">(ਜਵਾਬ)</span>: <strong>' + (expectedEn || "") + "</strong></div>";
-    if (expectedPa) h += '<div class="qf-answer-pa punjabi-block">' + expectedPa + "</div>";
+      ' <span class="qf-pa" lang="pa">(ਜਵਾਬ)</span>: <strong>' + (expectedEn || "") + "</strong></div>";
+    if (expectedPa) h += '<div class="qf-answer-pa punjabi-block" lang="pa">' + expectedPa + "</div>";
     h += qfExplainHtml(qDiv) + "</div>";
     if (feedback) feedback.innerHTML = h;
     if (nextBtn) nextBtn.style.display = "block";
@@ -1959,6 +2062,55 @@
   function installQuizEnhancements() {
     window.checkAnswer = enhancedCheckAnswer;
     window.checkSA = enhancedCheckSA;
+  }
+
+  /* ==== Accessibility pass ================================================
+     Applied at runtime so every chapter benefits without touching 16 files.
+
+       * A short-answer box announced as "edit text, blank" tells a screen
+         reader user nothing. Name it from its own question.
+       * Gurmukhi inside an lang="en" document is read out by an English
+         voice, which is unintelligible. Mark it lang="pa".
+       * An icon inside a button that already has a visible caption is
+         decorative; describing its vector paths just doubles the noise. */
+  function applyA11y(root) {
+    root = root || document;
+
+    var inputs = root.querySelectorAll(".sa-input");
+    for (var i = 0; i < inputs.length; i++) {
+      var inp = inputs[i];
+      if (!inp.getAttribute("placeholder")) {
+        inp.setAttribute("placeholder", "Type your answer \u00b7 \u0a1c\u0a35\u0a3e\u0a2c \u0a32\u0a3f\u0a16\u0a4b");
+      }
+      if (inp.getAttribute("aria-label") || inp.getAttribute("aria-labelledby")) continue;
+      var scope = inp.closest(".sub-slide") || inp.closest(".content-box");
+      var q = scope ? scope.querySelector(".question-text") : null;
+      var label = q ? (q.textContent || "").replace(/\s+/g, " ").trim() : "";
+      inp.setAttribute("aria-label", label ? "Answer: " + label.slice(0, 120) : "Your answer");
+    }
+
+    var pa = root.querySelectorAll(".punjabi, .punjabi-block, .punjabi-text");
+    for (var p = 0; p < pa.length; p++) {
+      if (!pa[p].getAttribute("lang")) pa[p].setAttribute("lang", "pa");
+    }
+
+    var svgs = root.querySelectorAll("svg");
+    for (var s = 0; s < svgs.length; s++) {
+      var svg = svgs[s];
+      if (svg.getAttribute("aria-hidden") || svg.getAttribute("aria-label") ||
+          svg.getAttribute("role") || svg.querySelector("title")) continue;
+      var host = svg.parentElement;
+      /* Safe to hide when the control already has a visible name, or when the
+         graphic is pure shapes: a screen reader can say nothing useful about
+         bare paths, and reading them aloud is pure noise. The deck's own
+         diagrams set aria-label or contain <text>, so they are left alone. */
+      var namedHost = host && /^(BUTTON|A|LABEL)$/.test(host.tagName) &&
+        (host.textContent || "").replace(/\s+/g, "").length;
+      if (namedHost || !svg.querySelector("text")) {
+        svg.setAttribute("aria-hidden", "true");
+        svg.setAttribute("focusable", "false");
+      }
+    }
   }
 
   // ==== Quiz score tracking =================================================

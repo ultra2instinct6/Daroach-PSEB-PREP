@@ -488,7 +488,11 @@
         displayMode: !!opts.displayMode,
         throwOnError: true,
         strict: false,
-        output: "html",
+        /* htmlAndMathml, not html: KaTeX then emits a MathML copy for screen
+           readers and marks the visual layer aria-hidden. With "html" the
+           assistive text is simply absent, and a chemistry deck that a blind
+           student cannot read is not finished. */
+        output: "htmlAndMathml",
         trust: false
       });
     } catch (e) {

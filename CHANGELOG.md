@@ -5,6 +5,91 @@ Newest first.
 
 ---
 
+## 2026-10-02 — Release review of Chapters 11-16
+
+A pre-release pass over the five decks in folders 11, 12, 13, 14 and 16
+(board chapters 12, 13, 15, 14 and 16 — the folder labels are legacy, and
+`assets/chapters.js` maps them deliberately). Content was verified item by
+item; three real defects were found, all of which affected every chapter, so
+the fixes are in the shared engine.
+
+### 1. Long short answers were impossible to get right
+
+Grading was a literal string comparison:
+
+```js
+ok = typed.toLowerCase() === expected.toLowerCase();
+```
+
+Fine for "Methane". But **30 of the 401 short answers expect four or more
+words** — "Blue colour fades and reddish-brown copper deposits", "It absorbs
+moisture and slowly turns back into gypsum" — and nobody reproduces those
+verbatim. A student who knew the answer was told "Not quite".
+
+Grading now normalises both sides (case, punctuation, `&` vs `and`, `+`,
+subscripts, arrows, simple plurals) and then:
+
+* **1-3 content words** must still match, but survive punctuation, plurals and
+  a single-character typo;
+* **4+ content words** are scored on content-word overlap, so a correct answer
+  phrased differently passes while a different concept does not.
+
+Guarded by `Scripts/test_short_answers.js` — **1,232 assertions**: all 401 real
+answers still accepted verbatim / uppercased / punctuated, 16 reasonable
+rephrasings now accepted, and 13 near-miss wrong answers still rejected
+("nuclear fusion" against "nuclear fission" scores 0.5 and fails).
+
+### 2. Screen-reader gaps
+
+* **51 short-answer boxes** in these five chapters (and more elsewhere) had no
+  label at all — announced as "edit text, blank". They now take an
+  `aria-label` from their own question plus a bilingual placeholder.
+* **510 Gurmukhi spans** carried no `lang` attribute inside a `lang="en"`
+  document, so a screen reader pronounced Punjabi with an English voice. All
+  `.punjabi` / `.punjabi-block` text is now marked `lang="pa"`, including the
+  feedback cards, breadcrumb and milestone banners that are generated at
+  runtime.
+* Equations rendered with KaTeX `output: "html"`, which omits the MathML layer
+  entirely. Switched to **`htmlAndMathml`**: screen readers now get a proper
+  MathML reading and the visual layer is marked `aria-hidden`. A chemistry deck
+  a blind student cannot read is not finished.
+* Icons inside already-labelled buttons, and pure-shape graphics with no text,
+  are now `aria-hidden` so assistive tech stops narrating vector paths.
+
+### 3. Chapter 16 contradicted itself on stakeholders
+
+The Stakeholders slide lists **four** groups (local people, forest department,
+industrialists, wildlife enthusiasts), matching NCERT. A quiz item asked for
+"the three main stakeholder groups" and accepted only three. Question, expected
+answer and both explanations corrected to four.
+
+### Verified
+
+Content for all five chapters was reviewed item by item — every True/False
+statement, every keyed multiple choice, every short answer and every worked
+numerical (Ohm's law, power, energy in kWh, parallel resistance, `F = BIL`).
+Chapters 11, 12, 13 and 14 needed no content changes.
+
+Because the fixes are in shared files, the whole syllabus was re-tested at
+414px and 1440px:
+
+| Check | Result |
+|---|---|
+| MCQ / True-False groups responding | **1,236 / 1,236** |
+| Short answers responding | **802 / 802** |
+| Toolbar rows / horizontal overflow | 1 row, 0 overflow |
+| KaTeX render errors | 0 |
+| Unlabelled inputs · Punjabi without `lang` | 0 · 0 |
+| Console and page errors | 0 |
+
+Also checked for these five chapters: deck audit clean, 79 local asset
+references all resolve, no element overflows its content box at 375/414/768/
+1440, and every interactive widget responds without throwing.
+
+`sw.js` bumped to **v43**.
+
+---
+
 ## 2026-10-02 — Dead answer buttons fixed
 
 Reported symptom: "some slides and MCQ questions don't respond to answer
