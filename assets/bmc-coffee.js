@@ -230,7 +230,9 @@
     link.title = "Buy me a coffee — support BOLO.INSTINCT";
     link.innerHTML = '<span class="bmc-link-icon" aria-hidden="true">\u2615</span>' +
       '<span>Buy me a coffee</span>';
-    document.body.appendChild(link);
+    var footerDock = document.getElementById("abimFooterCoffee");
+    (footerDock || document.body).appendChild(link);
+    if (footerDock) return;
 
     var reflow = function () {
       if (!document.body.contains(link)) return;

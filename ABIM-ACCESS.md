@@ -102,6 +102,11 @@ the submitted block's debrief remains available during the current visit.
 
 ## Important security limits
 
+The study footer and activation screen include a trademark/non-affiliation
+and educational-use notice. The study footer is in normal document flow
+below the coffee link, not a floating overlay. This disclosure is not a
+legal determination of fair use or a guarantee against trademark claims.
+
 **This is a client-side activation screen, not a secure paywall.**
 
 The repository, HTML, JavaScript, and question-bank assets are public.

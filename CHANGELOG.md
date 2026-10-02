@@ -5,6 +5,17 @@ Newest first.
 
 ---
 
+## 2026-10-02 — ABIM trademark footer and checkout verification
+
+- Added the requested trademark, non-affiliation and educational-use wording
+  below the coffee link in a normal-flow ABIM footer, plus the activation
+  screen so prospective purchasers can read it before checkout.
+- Docked the existing coffee link in that footer on ABIM only; it no longer
+  floats over study options. Other pages retain their existing support UI.
+- Retained Neon/Classic styling and bumped the service-worker cache to v44.
+- The notice clarifies independence; it is not a legal opinion or guarantee
+  of nominative fair use.
+
 ## 2026-10-02 — Release review of Chapters 11-16
 
 A pre-release pass over the five decks in folders 11, 12, 13, 14 and 16

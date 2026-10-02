@@ -181,6 +181,10 @@
     margin: clamp(8px, 2vh, 26px) auto clamp(120px, 16vh, 170px);
     animation: riseIn 0.7s var(--fluid-curve);
   }
+  .abim-footer { margin-top: 28px; padding: 18px 8px; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.75rem; line-height: 1.7; }
+  .abim-footer p { margin: 10px 0 0; }
+  #abimFooterCoffee .bmc-link { position: static; opacity: 0.85; color: var(--text-dim); min-height: 44px; }
+  #abimFooterCoffee .bmc-link:hover, #abimFooterCoffee .bmc-link:focus-visible { opacity: 1; color: var(--teal); }
   @keyframes riseIn { 0% { opacity: 0; transform: translateY(26px) scale(0.97); filter: blur(8px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
 
   .q-card {
@@ -1094,6 +1098,10 @@
   <button class="session-secondary" id="retryExamSave" type="button" hidden>Retry saving expired block</button>
   <div class="progress-track" id="progressTrack"></div>
   <section class="q-card" id="qCard"></section>
+  <footer class="abim-footer" aria-label="Educational use and trademark notice">
+    <div id="abimFooterCoffee"></div>
+    <p>ABIM® is a registered trademark of the American Board of Internal Medicine. BOLO is an independent educational tool not affiliated with or endorsed by the ABIM. For exam prep and educational review only.</p>
+  </footer>
 </main>
 
 <!-- ABIM-only shortcut: this page never switches to the legacy demo. -->
@@ -1213,6 +1221,7 @@
     </form>
     <a class="gumroad-button" href="https://deepakroar2.gumroad.com/l/bolo-abim" target="_blank" rel="noopener noreferrer">Purchase Full Access</a>
     <p class="license-note">Activation is remembered in this browser for all learner slots. Verification sends your key to Gumroad. Keep your receipt and do not use a shared browser for permanent activation.</p>
+    <p class="license-note">ABIM® is a registered trademark of the American Board of Internal Medicine. BOLO is an independent educational tool not affiliated with or endorsed by the ABIM. For exam prep and educational review only.</p>
     <a class="license-home" href="index.html">Back to home</a>
     <noscript><p>JavaScript is required to verify your license and use BOLO.ABIM.</p></noscript>
   </section>
