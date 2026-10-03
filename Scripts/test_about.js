@@ -77,6 +77,21 @@ test("About includes all requested video links and the existing ABIM purchase de
   assert.match(about, /not a finding about PSEB examination marking/);
 });
 
+test("the board-preparation product is branded BOLO.IM without breaking Gumroad compatibility", () => {
+  const home = fs.readFileSync(path.join(__dirname, "../index.html"), "utf8");
+  const page = fs.readFileSync(path.join(__dirname, "../abim.html"), "utf8");
+  const purchaseUrl = "https://deepakroar2.gumroad.com/l/bolo-abim";
+  assert.match(page, /<title>BOLO\.IM — Internal Medicine Board Prep<\/title>/);
+  assert.match(page, /<h1 id="licenseTitle">BOLO\.IM Full Access<\/h1>/);
+  assert.match(page, /BOLO\.IM is an independently developed educational tool/);
+  assert.doesNotMatch(page, /BOLO\.ABIM/);
+  assert.match(home, /class="abim-launch"[^>]*aria-label="Open BOLO\.IM/);
+  assert.match(home, /class="abim-launch-label">BOLO\.IM<\/span>/);
+  assert.ok(page.includes(`href="${purchaseUrl}"`));
+  assert.ok(fs.readFileSync(path.join(__dirname, "../assets/abim-license.js"), "utf8")
+    .includes('const PRODUCT = "bolo-abim"'));
+});
+
 test("either credit opens About, resets scroll and updates both triggers", () => {
   for (const index of [0, 1]) {
     const f = fixture();

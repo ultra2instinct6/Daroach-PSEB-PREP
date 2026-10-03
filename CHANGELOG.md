@@ -5,6 +5,18 @@ Newest first.
 
 ---
 
+## 2026-10-03 — BOLO.IM product naming
+
+- Renamed the visible internal-medicine study product to BOLO.IM across the
+  tool, home-screen launcher, About section, access screens and page title.
+- Kept accurate ABIM exam-preparation references and explicit
+  non-affiliation/trademark disclosures; BOLO.IM is not presented as an
+  official board product.
+- Preserved Gumroad's existing `bolo-abim` permalink, verification product
+  identifier and local activation key so configured checkout and existing
+  license holders are not broken.
+- Refreshed the service-worker cache for this branding update.
+
 ## 2026-10-02 — ABIM upfront education mission
 
 - Promoted the opening ABIM funding note into a clearly labelled,

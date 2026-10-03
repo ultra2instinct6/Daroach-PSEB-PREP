@@ -1,7 +1,15 @@
-# BOLO.ABIM activation
+# BOLO.IM access and activation
 
-The ABIM page is an internal-medicine-only tool. It does not switch to the
+BOLO.IM is an independent internal-medicine board-preparation tool. It does not switch to the
 legacy PSEB demo, even when opened without `?mode=abim`.
+
+The product name shown in the site is BOLO.IM. References to the ABIM
+certification examination describe the exam the tool helps users prepare
+for; they do not indicate affiliation, endorsement or official status. The
+existing Gumroad permalink (`bolo-abim`) and verification product identifier
+are retained for compatibility with the configured Gumroad listing and
+previous license keys. Change them only after updating the Gumroad product
+and testing existing purchaser access.
 
 ## Gumroad setup
 
@@ -106,7 +114,7 @@ The study footer and activation screen include a trademark/non-affiliation
 and educational-use notice. The study footer is in normal document flow
 below the coffee link, not a floating overlay. This disclosure is not a
 legal determination of fair use or a guarantee against trademark claims.
-The disclaimer, purchase screen and footer also explain that BOLO.ABIM
+The disclaimer, purchase screen and footer also explain that BOLO.IM
 purchases help keep BOLO.INSTINCT's STEM education resources free for
 learners in Punjab, India.
 

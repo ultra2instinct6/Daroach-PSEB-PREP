@@ -1,5 +1,5 @@
 /*
- * BOLO.ABIM — question bank data module.
+ * BOLO.IM — internal medicine board-preparation question bank data module.
  *
  * Loaded by abim.html (classic script, assigns to window.ABIM_DATA) so the
  * bank can grow without touching the engine — the same pattern the platform
